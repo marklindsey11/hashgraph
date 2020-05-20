@@ -2,7 +2,7 @@
 
 | Network | Version |
 | :--- | :--- |
-| **Mainnet** | Mirror Node v0.9.1 |
+| **Mainnet** | Mirror Node v0.10.1 |
 | **Testnet** | Mirror Node v0.10.1 |
 | **Previewnet** | Coming soon... |
 
