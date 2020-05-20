@@ -1,0 +1,13 @@
+# ResponseHeader
+
+## ResponseHeader
+
+Every query receives a response containing the QueryResponseHeader. Either or both of the cost and stateProof fields may be blank, if the responseType didn't ask for the cost or stateProof.
+
+| Field | Type | Description |  |
+| :--- | :--- | :--- | :--- |
+| nodeTransactionPrecheckCode | [ResponseCodeEnum](responsecode.md#responsecodeenum) | Result of fee transaction precheck, saying it passed, or why it failed |  |
+| responseType | ResponseType | The requested response is repeated back here, for convenience |  |
+| cost |  | The fee that would be charged to get the requested information \(if a cost was requested\). Note: This cost only includes the query fee and does not include the transfer fee\(which is required to execute the transfer transaction to debit the payer account and credit the node account with query fee\) |  |
+| stateProof |  | The state proof for this information \(if a state proof was requested, and is available\) |  |
+
