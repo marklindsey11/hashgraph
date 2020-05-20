@@ -1,0 +1,3 @@
+redirects:  
+    docs/hashgraph-overview: core-concepts/hashgraph-consensus-algorithms/README.md
+    getting-started/hcs-submit-your-first-message: tutorials/hcs-submit-your-first-message.md
