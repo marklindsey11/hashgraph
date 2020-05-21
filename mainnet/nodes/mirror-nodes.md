@@ -7,6 +7,8 @@ The Hedera Consensus Service \(HCS\) gRPC API is a public mirror node managed by
 {% page-ref page="../../docs/mirror-node-api/" %}
 
 {% hint style="info" %}
+**For our whitelisted partners:**  
+  
 **HCS Mainnet Mirror Node Endpoint:**  
 hcs.mainnet.mirrornode.hedera.com:5600  
   
