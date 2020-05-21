@@ -74,7 +74,7 @@ Hedera will provide a REST API to easily query a mirror node that is hosted by H
 Hedera will provide this as a service to bootstrap early use, but anticipates a full ecosystem and marketplace to be established by third-parties.
 {% endhint %}
 
-### Run a mirror node \(coming soon\)
+### Run a Mirror Node \(coming soon\)
 
 Anyone can run a Hedera mirror node by downloading and configuring the software on their computer. By running a beta mirror node, you are able to connect to the appropriate cloud storage and store account balance files, record files, and event files as described above.
 
