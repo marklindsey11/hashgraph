@@ -52,7 +52,7 @@ Hedera consensus nodes push new record files and signature files to the cloud st
 
 ## Using Mirror Nodes
 
-### Hedera Consensus Service gRPC API
+To get access to a Hedera mirror node, please choose select the network and click the link below.
 
 **Testnet**:
 
