@@ -64,9 +64,11 @@ Hedera consensus nodes push new record files and signature files to the cloud st
 
 
 
-### REST API from Hedera \(coming soon\)
+### REST API from Hedera 
 
-Hedera will provide a REST API to easily query a mirror node that is hosted by Hedera, removing the complexity of having to run your own. This is actively being tested by a limited group of partners and will look to be expanded soon.
+Hedera will provide a REST API to easily query a mirror node that is hosted by Hedera, removing the complexity of having to run your own. After you are whitelisted to a Hedera mirror node on testnet or mainnet, you can check out the mirror node REST API docs below. 
+
+{% page-ref page="../docs/mirror-node-api/" %}
 
 {% hint style="info" %}
 Hedera will provide this as a service to bootstrap early use, but anticipates a full ecosystem and marketplace to be established by third-parties.
