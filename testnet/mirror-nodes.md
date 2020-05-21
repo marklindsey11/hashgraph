@@ -5,9 +5,6 @@
 The Hedera Consensus Service \(HCS\) gRPC API is a public mirror node managed by Hedera for the testnet. It offers the ability to subscribe to HCS topics and receive messages for the topic subscribed. API docs for the mirror nodes can be found here:
 
 {% hint style="info" %}
-**Hedera Consensus Service Testnet Mirror Node Access**  
-To gain access to the Hedera managed mirror node for testnet, please complete this [form](https://learn.hedera.com/hcs-mirror-api-mainnet).  
-  
 **HCS Testnet Mirror Node Endpoints:**  
 hcs.testnet.mirrornode.hedera.com:5600 
 

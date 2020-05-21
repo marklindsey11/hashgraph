@@ -66,7 +66,7 @@ To get access to a Hedera mirror node, please choose select the network and clic
 
 ### REST API from Hedera 
 
-Hedera will provide a REST API to easily query a mirror node that is hosted by Hedera, removing the complexity of having to run your own. After you are whitelisted to a Hedera mirror node on testnet or mainnet, you can check out the mirror node REST API docs below. 
+Hedera will provide a REST API to easily query a mirror node that is hosted by Hedera, removing the complexity of having to run your own. After you are whitelisted to a Hedera mirror node on mainnet, you can check out the mirror node REST API docs below. 
 
 {% page-ref page="../docs/mirror-node-api/" %}
 
