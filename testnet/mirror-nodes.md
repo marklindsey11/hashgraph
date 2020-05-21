@@ -10,9 +10,7 @@ To gain access to the Hedera managed mirror node for testnet, please complete th
   
 **HCS Testnet Mirror Node Endpoints:**  
 hcs.testnet.mirrornode.hedera.com:5600 
-{% endhint %}
 
-{% hint style="info" %}
 **REST API Testnet Root Endpoint:**  
 [https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
 {% endhint %}
