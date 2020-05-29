@@ -122,7 +122,9 @@ The `adminKey` and `submitKey` on the topic can be updated to any of the followi
       <td style="text-align:left">Explicitly clear any auto renew account ID on the topic</td>
     </tr>
   </tbody>
-</table>### Example
+</table>
+
+### Example
 
 {% tabs %}
 {% tab title="Java" %}

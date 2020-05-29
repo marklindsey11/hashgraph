@@ -55,7 +55,9 @@ new Client()
         will be paid for by this account Id and and signed by this key</td>
     </tr>
   </tbody>
-</table>{% tabs %}
+</table>
+
+{% tabs %}
 {% tab title="Java" %}
 ```java
 // Configures testnet client

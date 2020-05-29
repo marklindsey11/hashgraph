@@ -154,7 +154,9 @@ Returns the account information for the specified public key
         </td>
     </tr>
   </tbody>
-</table>### Addtional Examples <a id="addtional-examples"></a>
+</table>
+
+### Addtional Examples <a id="addtional-examples"></a>
 
 | Example Requests | Description |
 | :--- | :--- |
@@ -300,7 +302,9 @@ Returns the balance object for a specific public key
         </td>
     </tr>
   </tbody>
-</table>### Additional Examples <a id="additional-examples"></a>
+</table>
+
+### Additional Examples <a id="additional-examples"></a>
 
 | Example Requests | Description |
 | :--- | :--- |
@@ -472,7 +476,9 @@ If `type=debit` the query returns all transactions that withdrew from an account
         </td>
     </tr>
   </tbody>
-</table>**Note**: It is recommended that the **account.id** query should not select no more than 1000 accounts in a query. If the range specified in the query results in selecting more than 1000 accounts, the API will automatically only search for the first 1000 accounts that match the query in the database and return the transactions for those. For example, if you use `?account.id=gt:0.0.15000` or if you use`?account.id=gt:0.0.15000&account.id=lt:0.0.30000`, then the API will only return results or some 1000 accounts in this range that match the rest of the query filters.‌
+</table>
+
+**Note**: It is recommended that the **account.id** query should not select no more than 1000 accounts in a query. If the range specified in the query results in selecting more than 1000 accounts, the API will automatically only search for the first 1000 accounts that match the query in the database and return the transactions for those. For example, if you use `?account.id=gt:0.0.15000` or if you use`?account.id=gt:0.0.15000&account.id=lt:0.0.30000`, then the API will only return results or some 1000 accounts in this range that match the rest of the query filters.‌
 
 A single transaction can also be returned by specifying the transaction ID in the request. If a transaction was submitted to multiple nodes, the response will return entries for the successful transaction along with separate entries for the duplicate transaction\(s\). The "result" key indicates "success" for the node that processed the transaction and "DUPLICATE\_TRANSACTION" for each additional node submission. Duplicate entries are still charged network fees.
 
@@ -517,7 +523,9 @@ A single transaction can also be returned by specifying the transaction ID in th
       </td>
     </tr>
   </tbody>
-</table>{% api-method method="get" host="" path="/api/v1/topics/:topicId/messages/" %}
+</table>
+
+{% api-method method="get" host="" path="/api/v1/topics/:topicId/messages/" %}
 {% api-method-summary %}
 topic messages
 {% endapi-method-summary %}

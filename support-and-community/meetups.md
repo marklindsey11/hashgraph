@@ -88,7 +88,9 @@ We currently have 54 Meetup groups worldwide, including one online group for vir
       </td>
     </tr>
   </tbody>
-</table>## North Asia
+</table>
+
+## North Asia
 
 <table>
   <thead>
@@ -108,7 +110,9 @@ We currently have 54 Meetup groups worldwide, including one online group for vir
       </td>
     </tr>
   </tbody>
-</table>## Africa 
+</table>
+
+## Africa 
 
 | Country | City |
 | :--- | :--- |
@@ -221,7 +225,9 @@ We currently have 54 Meetup groups worldwide, including one online group for vir
       </td>
     </tr>
   </tbody>
-</table>### South America
+</table>
+
+### South America
 
 Brazil 🇧🇷
 
@@ -297,6 +303,8 @@ Brazil 🇧🇷
     </tr>
   </tbody>
 </table>
+
+
 
 ## FAQ
 

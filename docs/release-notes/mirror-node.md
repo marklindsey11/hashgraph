@@ -3,12 +3,16 @@
 | Network | Version |
 | :--- | :--- |
 | **Mainnet** | Mirror Node v0.10.1 |
-| **Testnet** | Mirror Node v0.10.1 |
+| **Testnet** | Mirror Node v0.11.0 |
 | **Previewnet** | Coming soon... |
 
 ## Upcoming Releases
 
-## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0)
+## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0) 
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: MAY 29, 2020**
+{% endhint %}
 
 This release was mainly focused on refactoring code and properties as a necessary step for future enhancements. We also continued making improvements to our Kubernetes support. To that end, we added Prometheus REST metrics, Helm tests and Mirror Node can now run in GKE.
 

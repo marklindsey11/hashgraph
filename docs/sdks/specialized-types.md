@@ -111,7 +111,9 @@ Together these values make up your accountId. When an `FileId` is requested, be 
       <td style="text-align:left">The current fee schedule for the network</td>
     </tr>
   </tbody>
-</table>### Example
+</table>
+
+### Example
 
 {% tabs %}
 {% tab title="Java" %}
@@ -180,7 +182,9 @@ Together these values make up your `ContractId`. When an `ContractId` is request
       <td style="text-align:left">Constructs a <code>ContractId</code> from a solidity address in string format</td>
     </tr>
   </tbody>
-</table>### Example
+</table>
+
+### Example
 
 {% tabs %}
 {% tab title="Java" %}
