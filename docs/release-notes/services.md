@@ -3,15 +3,15 @@
 | Network | Version | vNext |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.4.1  | 0.5.8 |
-| **Testnet** | 0.5.0 | 0.5.8 |
+| **Testnet** | 0.5.8 | 0.5.8 |
 | **Previewnet** | Coming soon... |  |
 
 ## Upcoming Releases
 
 ## **v0.5.8**
 
-{% hint style="info" %}
-**TESTNET SCHEDULED: TBD**
+{% hint style="success" %}
+**TESTNET COMPLETED: June 8, 2020**
 {% endhint %}
 
 {% hint style="info" %}
