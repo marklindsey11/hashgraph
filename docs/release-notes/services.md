@@ -11,11 +11,11 @@
 ## **v0.5.8**
 
 {% hint style="success" %}
-**TESTNET COMPLETED: June 8, 2020**
+**TESTNET UPGRADE COMPLETED: June 8, 2020**
 {% endhint %}
 
 {% hint style="info" %}
-**MAINNET SCHEDULED: TBD**  
+**MAINNET UPGRADE SCHEDULED: TBD**  
   
 v0.5.8 includes all of the updates found in [v0.5.0](services.md#v-0-5-0)
 {% endhint %}
