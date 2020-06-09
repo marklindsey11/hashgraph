@@ -10,6 +10,10 @@
 
 ## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0) 
 
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: JUNE 10, 2020**
+{% endhint %}
+
 {% hint style="success" %}
 **TESTNET UPGRADE COMPLETED: MAY 29, 2020**
 {% endhint %}
