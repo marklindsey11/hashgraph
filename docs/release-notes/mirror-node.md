@@ -8,10 +8,12 @@
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0) 
 
-{% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: JUNE 10, 2020**
+{% hint style="success" %}
+**MAINNET UPGRADE COMPLETED: JUNE 10, 2020**
 {% endhint %}
 
 {% hint style="success" %}
@@ -33,8 +35,6 @@ The REST API to retrieve a topic message by its consensus timestamp now supports
 We removed the singular form of a few alpha topic REST APIs. The `/topic/:id/message` API was removed in favor of the plural form `/topics/:id/messages`. Similarly, the `/topic/:id/message/:sequencenumber`API was removed in favor of its plural form `/topics/:id/messages/:sequencenumber`. Please update accordingly.  
   
 
-
-## Latest Releases
 
 ## [v0.10.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.10.1)
 
