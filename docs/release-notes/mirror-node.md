@@ -8,6 +8,19 @@
 
 ## Upcoming Releases
 
+## [v0.12.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.12.0)
+
+This feature release contains a few nice additions while fixing a few critical bugs. We made good progress on adding our application to [Google Cloud Platform Marketplace](https://console.cloud.google.com/marketplace). This should be wrapping up soon and enable a "one click to deploy" of the mirror node to Google's Cloud. Additionally, some extra fields were added to our APIs. We added `runningHashVersion` to the REST and GRPC APIs. Finally, we added `transactionHash` to the transaction REST API.
+
+We improved the importer ingestion rate from 3400 to 5600 transactions per second in our performance test environment. There's still room for improvement and we plan on making additional performance optimizations in an upcoming release.
+
+### Breaking Changes
+
+We added an option to keep signature files after verification. By default, we no longer store signatures on the filesystem. If you'd like to restore the old behavior and keep the signatures, you can set `hedera.mirror.importer.downloader.record.keepSignatures=true` and `hedera.mirror.importer.downloader.balance.keepSignatures=true`.
+
+We changed the bypass hash mismatch behavior in this release. Bypassing hash mismatch could be used in combination with other parameters to fast forward mirror node to newer data or to overcome stream resets. Previously you had to specify this via a database value in `t_application_status`. Since this data is not application state but considered more a user supplied value, we added a new property `hedera.mirror.importer.verfiyHashAfter=2020-06-05T17:16:00.384877454Z` for this purpose.  
+
+
 ## Latest Releases
 
 ## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0) 
