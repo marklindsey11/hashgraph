@@ -10,14 +10,14 @@
 
 ## **v0.5.8**
 
-{% hint style="success" %}
-**TESTNET UPGRADE COMPLETED: June 8, 2020**
-{% endhint %}
-
 {% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: TBD**  
+**MAINNET UPGRADE SCHEDULED: June 18, 2020**  
   
 v0.5.8 includes all of the updates found in [v0.5.0](services.md#v-0-5-0)
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: June 8, 2020**
 {% endhint %}
 
 Version 0.5.8 includes a patch which addresses the resilience of peer-to-peer networking in the hashgraph consensus platform.
