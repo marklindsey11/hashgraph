@@ -2,16 +2,18 @@
 
 | Network | Version | vNext |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.4.1  | 0.5.8 |
+| **Mainnet** | 0.5.8 | 0.6.0 |
 | **Testnet** | 0.5.8 | 0.6.0 |
 | **Previewnet** | Coming soon... |  |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## **v0.5.8**
 
-{% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: June 18, 2020**  
+{% hint style="success" %}
+**MAINNET UPGRADE COMPLETED: June 18, 2020**  
   
 v0.5.8 includes all of the updates found in [v0.5.0](services.md#v-0-5-0)
 {% endhint %}
@@ -21,8 +23,6 @@ v0.5.8 includes all of the updates found in [v0.5.0](services.md#v-0-5-0)
 {% endhint %}
 
 Version 0.5.8 includes a patch which addresses the resilience of peer-to-peer networking in the hashgraph consensus platform.
-
-## Latest Releases
 
 ## **v0.5.0**
 
