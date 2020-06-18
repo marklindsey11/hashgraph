@@ -95,7 +95,7 @@ hedera:
     importer: 
       downloader:
         accessKey: GOOG....
-        bucketName: hedera-mainnet-streams
+        bucketName: 
         cloudProvider: "GCP"
         secretKey: h+....
         gcpProjectId: 
