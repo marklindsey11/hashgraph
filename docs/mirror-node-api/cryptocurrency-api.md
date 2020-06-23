@@ -356,51 +356,38 @@ If `type=debit` the query returns all transactions that withdrew from an account
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "transactions":[
+ "transactions": [
         {
-            "consensus_timestamp":"1568542824.686097000",
-            "valid_start_timestamp":"1568542814.468848000",
-            "charged_tx_fee":85828,
-            "memo_base64":"aGFzaC1oYXNoLmluZm8=",
-            "result":"SUCCESS",
-            "name":"CRYPTOTRANSFER",
-            "max_fee":"184000",
-            "valid_duration_seconds":"120",
-            "node":"0.0.3",
-            "transaction_id":"0.0.995-1568542814-468848000",
-            "transfers":[
+            "consensus_timestamp": "1592946499.489772000",
+            "transaction_hash": "Vqes7MbclJ6ygnr2crDtzLxuB3c1ikX67UUEq5s8zEx6ZQcSP4+Q/ROAeZ4/bSIP",
+            "valid_start_timestamp": "1592946489.339479000",
+            "charged_tx_fee": 238219,
+            "memo_base64": "TmV0d29yayBwaW5n",
+            "result": "SUCCESS",
+            "name": "CRYPTOTRANSFER",
+            "max_fee": "100000000",
+            "valid_duration_seconds": "120",
+            "node": "0.0.3",
+            "transaction_id": "0.0.88-1592946489-339479000",
+            "transfers": [
                 {
-                    "account":"0.0.3",
-                    "amount":84000
+                    "account": "0.0.3",
+                    "amount": 14536
                 },
                 {
-                    "account":"0.0.3",
-                    "amount":3091
+                    "account": "0.0.88",
+                    "amount": -238220
                 },
                 {
-                    "account":"0.0.98",
-                    "amount":880
-                },
-                {
-                    "account":"0.0.98",
-                    "amount":81857
-                },
-                {
-                    "account":"0.0.995",
-                    "amount":-84000
-                },
-                {
-                    "account":"0.0.995",
-                    "amount":-880
-                },
-                {
-                    "account":"0.0.995",
-                    "amount":-84948
+                    "account": "0.0.98",
+                    "amount": 223684
                 }
             ]
         }
-    ]
+    ],
+    "links": {
+        "next": "/api/v1/transactions?limit=1&timestamp=lt:1592946499.489772000"
+    }
 }
 ```
 {% endapi-method-response-example %}
@@ -413,6 +400,7 @@ If `type=debit` the query returns all transactions that withdrew from an account
 | Response Item | Description |
 | :--- | :--- |
 | **consensus timestamp** | The consensus timestamp in seconds.nanoseconds |
+| **transaction hash** | The hash value of the transaction processed on the Hedera network |
 | **valid start timestamp** | The time the transaction is valid |
 | **charged tx fee** | The transaction fee that was charged for that transaction |
 | **transaction id** | The ID of the transaction |
