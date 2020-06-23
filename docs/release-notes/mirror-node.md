@@ -34,6 +34,8 @@ This release is a smaller release mainly focused on bug fixes with some minor en
 
 ## [v0.12.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.12.0)
 
+
+
 {% hint style="success" %}
 **TESTNET UPGRADE COMPLETED: MAY 29, 2020**
 {% endhint %}
