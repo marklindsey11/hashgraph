@@ -3,12 +3,40 @@
 | Network | Version |
 | :--- | :--- |
 | **Mainnet** | Mirror Node v0.11.0 |
-| **Testnet** | Mirror Node v0.11.0 |
+| **Testnet** | Mirror Node v0.13.2 |
 | **Previewnet** | Coming soon... |
 
 ## Upcoming Releases
 
+## [v0.13.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.13.2)
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JUNE 23, 2020**
+{% endhint %}
+
+Bug fix release to fix an out of memory issue with the gRPC API.
+
+## [v0.13.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.13.1)
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JUNE 23, 2020**
+{% endhint %}
+
+Small bug fix release to address grpc NETTY issue blocking acceptance tests
+
+## [v0.13.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.13.0)
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JUNE 23, 2020**
+{% endhint %}
+
+This release is a smaller release mainly focused on bug fixes with some minor enhancements. We added a new property `hedera.mirror.importer.downloader.endpointOverride` for testing. We also added `hedera.mirror.importer.downloader.gcpProjectId` to support specifying requester pays credentials with a personal account. Finally, we improved our Marketplace support getting us one closer to making it available.
+
 ## [v0.12.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.12.0)
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: MAY 29, 2020**
+{% endhint %}
 
 This feature release contains a few nice additions while fixing a few critical bugs. We made good progress on adding our application to [Google Cloud Platform Marketplace](https://console.cloud.google.com/marketplace). This should be wrapping up soon and enable a "one click to deploy" of the mirror node to Google's Cloud. Additionally, some extra fields were added to our APIs. We added `runningHashVersion` to the REST and GRPC APIs. Finally, we added `transactionHash` to the transaction REST API.
 
