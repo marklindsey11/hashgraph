@@ -93,7 +93,7 @@ hedera:
     importer:
       downloader:
         accessKey: GOOG....
-        bucketName: 
+        bucketName: hedera-stable-testnet-streams
         cloudProvider: "GCP"
         secretKey: h+....
         gcpProjectId:
