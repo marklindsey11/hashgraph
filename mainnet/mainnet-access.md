@@ -8,7 +8,7 @@ Users can also create accounts on the mainnet by visiting the [Hedera Portal](ht
 
 Once you have joined mainnet, your account ID will appear on your home page.
 
-![](../.gitbook/assets/screen-shot-2020-01-07-at-10.40.38-pm.png)
+![](../.gitbook/assets/portal.png)
 
 Your mainnet account ID will be at the top of page in the purple box labeled “Account ID”. Make sure the mainnet drop-down is selected if your profile is associated with any testnet accounts. 
 
