@@ -144,7 +144,7 @@ psql "dbname=mirror_node host=localhost user=mirror_node password=mirror_node_pa
 \ls
 ```
 
-![](../../.gitbook/assets/screen-shot-2020-06-04-at-2.31.19-pm.png)
+![](../../.gitbook/assets/beta_mirror_node_1.png)
 
 ### Contributing
 
