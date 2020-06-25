@@ -22,3 +22,47 @@ The following features of the Hedera mainnet are still under development and the
 
 We're actively working on expanding documentation, examples, and constantly improving our SDK. We'd love to hear from you if a particular subject is confusing, or you have suggestions for an improvement, please let us know by suggesting an edit or in the [discord chat](https://discordapp.com/invite/FFb9YFX).
 
+## Contributing Guide
+
+Welcome to Hedera docs contribution guide! Check out ways you can contribute below ⬇.
+
+All of the markdown files and images are stored in the hashgraph/hedera-docs repository.
+
+### Overview
+
+* **.gitbook/assets**
+  * Contains the image files
+* **/core-concepts**
+  * Concepts someone new to Hedera should know about
+* **/docs**
+  * Technical documentation for the following:
+    * Hedera API
+    * Mirror Node API
+    * SDKs
+      * Java
+      * Javascript
+* **/mainnet**
+  * Provides Hedera mainnet information including
+    * Mainnet nodes
+    * Mirror nodes
+    * Network services and support
+* **/support-and-community**
+  * Resources our developer community might be looking for
+* **/testnet**
+  * Testnet nodes
+  * Mirror nodes
+  * Network services and support
+* **/tutorials**
+  * Material to help you get started with one of our network services
+
+### Ways You Can Contribute
+
+If you find something that needs to be fixed, updated, or would like to publish additional content to the docs site you may do so by the following methods:
+
+* Log an issue
+  * You may submit an issue directly on hedera-docs repository 
+* Create a pull request 
+  * Fork the repository and submit a pull request that include the suggested updates 
+
+Issues and pull requests will be reviewed by the Hedera team. 
+
