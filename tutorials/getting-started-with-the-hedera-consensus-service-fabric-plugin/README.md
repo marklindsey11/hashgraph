@@ -23,7 +23,7 @@ If you already have experience with the Hyperledger Fabric network and the first
 7. Hyperledger Fabric ordering nodes reassembles the fragmented messages into fabric transactions, form fabric blocks, and communicate the blocks to the Hyperledger Fabric peer nodes
 8. Hyperledger Fabric peer nodes update to have the same world state
 
-![](../../.gitbook/assets/screen-20shot-202020-04-09-20at-208.41.28-20pm.png)
+![](../../.gitbook/assets/hcs_fabric.png)
 
 ## Concepts
 

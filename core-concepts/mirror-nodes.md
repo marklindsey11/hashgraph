@@ -38,7 +38,7 @@ At version 1.0, mirror nodes will run the same code as consensus nodes.
 
 To make the initial deployments easier, the beta version of mirror nodes strive to take away the burden of running a full Hedera node through creation of periodic files that contain processed information \(such as account balances or transaction records\), and have the full trust of the Hedera consensus nodes. The beta mirror node software reduces the processing burden by receiving pre-constructed files from the network, validating those, populating a database and providing REST APIs
 
-![](../.gitbook/assets/55de99f-betamirrornode-overview.jpg)
+![](../.gitbook/assets/betamirrornode-overview.jpg)
 
 
 

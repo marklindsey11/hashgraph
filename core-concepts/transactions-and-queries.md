@@ -30,11 +30,11 @@ Recall
 Hedera does not have **miners** or a special group of nodes that are responsible for adding transactions to the ledger like alternative distributed ledger solutions. The influence of each node to the determination of the consensus timestamp for an event is proportional to its stake in HBARs.
 {% endhint %}
 
-![Transaction Flow](../.gitbook/assets/2a45d15-transaction-flow.png)
+![](../.gitbook/assets/transaction-flow.png)
 
 Once a transaction has been submitted to the network, clients may seek confirmation it was successfully processed. There are multiple confirmation methods - varying in the level of information provided, the duration for which the confirmation is available, the degree of trust, and the corresponding cost.
 
-![Confirmations](../.gitbook/assets/af62733-query-confirmation.png)
+![](../.gitbook/assets/query-confirmation.png)
 
 Confirmations
 
