@@ -11,7 +11,7 @@ The **address book** contains the list of consensus nodes that can submit transa
       <th style="text-align:left">Node Account ID</th>
       <th style="text-align:left">IP Address</th>
       <th style="text-align:left">Port</th>
-      <th style="text-align:left">certHash</th>
+      <th style="text-align:left">Node Certificate Hash</th>
     </tr>
   </thead>
   <tbody>
