@@ -50,7 +50,7 @@ In the most generic case, a sender is making a remittance to a receiver, and a s
 
 The amount of that fee is split between account 0.0.98 \(special Hedera account that represents the network\) and the specific node that submitted the transaction. 
 
-![](../../.gitbook/assets/picture1hbar.png)
+![](../../.gitbook/assets/transaction_records_1.png)
 
 #### Case 2 - Fees only
 
@@ -58,7 +58,7 @@ Many transactions do not allow for an explicit remittance, for instance, a FileC
 
 As before, the fee for the transaction is split between 0.0.98 and a node.
 
-![](../../.gitbook/assets/picture1hbar2.png)
+![](../../.gitbook/assets/transaction_records_2.png)
 
 #### Case 3 - Sender account pays fees
 
@@ -66,7 +66,7 @@ It will be often the case that the fee for a CryptoTransfer sending a remittance
 
 In principle the receiver could pay the fee as well.
 
-![](../../.gitbook/assets/picture13.png)
+![](../../.gitbook/assets/transaction_records_3.png)
 
 #### Case 4 - Sender account has a threshold that is crossed
 
@@ -78,7 +78,7 @@ Account 98 receives the sum of the network, service, and also this threshold fee
 
 Not shown here but if it were also the case that the sender was paying the transaction fee \(as above\) then the balance of the sender’s account would decrease by the sum of the remittance, the transaction fee, and this threshold fee.
 
-![](../../.gitbook/assets/picture14.png)
+![](../../.gitbook/assets/transaction_records_4.png)
 
 #### Case 5 - Receiver account has a threshold that is crossed
 
@@ -96,7 +96,7 @@ The transaction fees are not impacted by the threshold fee being paid.
 
 If the value of the remittance is less than the threshold fee, the transaction will fail.
 
-![](../../.gitbook/assets/picture15.png)
+![](../../.gitbook/assets/transaction_records_5.png)
 
 #### Case 6 - Node account is receiver 
 
@@ -106,7 +106,7 @@ As a specific example, clients compensate nodes for responding to a query by inc
 
 In this scenario, the node account’s balance will increase by the sum of the node fee it receives for processing the CryptoTransfer plus the value of the actual remittance that pays the node for the query response.
 
-![](../../.gitbook/assets/picture16.png)
+![](../../.gitbook/assets/transaction_records_6.png)
 
 ### Transaction Records
 
@@ -116,7 +116,7 @@ When retrieved from a mirror node and not the mainnet, the transaction that resu
 
 The flow of information is shown below:
 
-![](../../.gitbook/assets/picture17.png)
+![](../../.gitbook/assets/transaction_records_7.png)
 
 A client that retrieves the pair of a transaction and its associated record may want to distinguish between remittances and fee components for the transaction - that is, what part of an account’s balance change was due to transaction fees, what part due to a threshold fee, and what part due to a remittance. 
 
