@@ -89,6 +89,10 @@ If you would like to run the sample using a virtual environment, please follow t
 
 * You will be directed to clone this [repository](https://github.com/hyperledger-labs/pluggable-hcs) in the outlined steps below
 
+{% hint style="info" %}
+The HCS Fabric plugin supports Fabric ordering service 2.0 and is compatible with older versions peers. 
+{% endhint %}
+
 ### Hyperledger Fabric Network
 
 Download and install the following if you do not already have them on your computer. 
