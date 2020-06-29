@@ -37,6 +37,11 @@ A Beta Mirror Node is a node that receives pre-constructed files from the Hedera
 * [Google Cloud Platform Account](https://cloud.google.com/)
   * Create a [project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) and link your [billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account)
   * Get your [accessKey](https://cloud.google.com/storage/docs/authentication/managing-hmackeys), [secretKey](https://cloud.google.com/storage/docs/authentication/managing-hmackeys), and [project ID](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+
+{% hint style="info" %}
+**Note:** Buckets are also available in Amazon Web Services \(AWS\)
+{% endhint %}
+
 * [Docker](https://www.docker.com/get-docker)
   * Check to see if you have it installed from your terminal: `docker --version && docker-compose --version`
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
