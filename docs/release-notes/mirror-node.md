@@ -2,13 +2,19 @@
 
 | Network | Version |
 | :--- | :--- |
-| **Mainnet** | Mirror Node v0.11.0 |
+| **Mainnet** | Mirror Node v0.13.2 |
 | **Testnet** | Mirror Node v0.13.2 |
 | **Previewnet** | Coming soon... |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.13.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.13.2)
+
+{% hint style="success" %}
+**MAINNET UPGRADE COMPLETED: JULY 2, 2020**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPGRADE COMPLETED: JUNE 23, 2020**
@@ -19,12 +25,20 @@ Bug fix release to fix an out of memory issue with the gRPC API.
 ## [v0.13.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.13.1)
 
 {% hint style="success" %}
+**MAINNET UPGRADE COMPLETED: JULY 2, 2020**
+{% endhint %}
+
+{% hint style="success" %}
 **TESTNET UPGRADE COMPLETED: JUNE 23, 2020**
 {% endhint %}
 
 Small bug fix release to address grpc NETTY issue blocking acceptance tests
 
 ## [v0.13.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.13.0)
+
+{% hint style="success" %}
+**MAINNET UPGRADE COMPLETED: JULY 2, 2020**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPGRADE COMPLETED: JUNE 23, 2020**
@@ -48,8 +62,6 @@ We added an option to keep signature files after verification. By default, we no
 
 We changed the bypass hash mismatch behavior in this release. Bypassing hash mismatch could be used in combination with other parameters to fast forward mirror node to newer data or to overcome stream resets. Previously you had to specify this via a database value in `t_application_status`. Since this data is not application state but considered more a user supplied value, we added a new property `hedera.mirror.importer.verfiyHashAfter=2020-06-05T17:16:00.384877454Z` for this purpose.  
 
-
-## Latest Releases
 
 ## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0) 
 
