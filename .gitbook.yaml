@@ -3,3 +3,4 @@ redirects:
     getting-started/hcs-submit-your-first-message: tutorials/hcs-submit-your-first-message.md
     mainnet/nodes/mirror-nodes: mirror-nodes
     testnet/mirror-nodes: mirror-nodes
+    mainnet/nodes/mirror-nodes#1-obtain-google-cloud-platform-requester-pay-information: mirror-nodes
