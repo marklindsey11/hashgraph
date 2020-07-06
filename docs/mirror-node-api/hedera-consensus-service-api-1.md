@@ -15,8 +15,6 @@ hcs.mainnet.mirrornode.hedera.com:5600
 
 Community supported mirror node information can be found here:
 
-{% page-ref page="../../mainnet/nodes/mirror-nodes.md" %}
-
 ## Build a Mirror Node Client
 
 | Constructor | Description |

@@ -56,11 +56,7 @@ To get access to a Hedera mirror node, please choose select the network and clic
 
 **Testnet**:
 
-{% page-ref page="../testnet/mirror-nodes.md" %}
-
 #### Mainnet:
-
-{% page-ref page="../mainnet/nodes/mirror-nodes.md" %}
 
 
 

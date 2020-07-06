@@ -1,4 +1,4 @@
-# Nodes
+# Testnet Nodes
 
 Below you will find the testnet node account ID and corresponding node address information to set-up your testnet envrionment. These can also be found your Hedera portal [profile](https://portal.hedera.com/register). 
 
