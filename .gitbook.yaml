@@ -1,5 +1,5 @@
 redirects:  
     docs/hashgraph-overview: core-concepts/hashgraph-consensus-algorithms/README.md
     getting-started/hcs-submit-your-first-message: tutorials/hcs-submit-your-first-message.md
-    mainnet/nodes/mirrornodes: mirrornet
-    testnet/mirrornodes: mirrornet
+    mainnet/nodes/mirror-nodes: mirror-nodes
+    testnet/mirror-nodes: mirror-nodes
