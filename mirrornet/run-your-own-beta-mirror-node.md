@@ -135,7 +135,7 @@ psql "dbname=mirror_node host=localhost user=mirror_node password=mirror_node_pa
 * Enter the following command to view the complete list of tables
 
 ```text
-\ls
+\dt
 ```
 
 ![](../.gitbook/assets/beta_mirror_node_1.png)
