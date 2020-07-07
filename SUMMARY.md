@@ -12,12 +12,12 @@
 * [Testnet](testnet/README.md)
   * [Testnet Access](testnet/testnet-access.md)
   * [Testnet Nodes](testnet/nodes.md)
-* [Mirrornet](mirror-nodes/README.md)
-  * [Hedera Mirror Node](mirror-nodes/hedera-mirror-node.md)
-  * [One Click Beta Mirror Node Deployment](mirror-nodes/one-click-mirror-node-deployment.md)
-  * [Run Your Own Beta Mirror Node](mirror-nodes/run-your-own-beta-mirror-node.md)
-  * [Hedera ETL](mirror-nodes/hedera-etl.md)
-  * [Community Mirror Nodes](mirror-nodes/community-mirror-nodes.md)
+* [Mirrornet](mirrornet/README.md)
+  * [Hedera Mirror Node](mirrornet/hedera-mirror-node.md)
+  * [One Click Beta Mirror Node Deployment](mirrornet/one-click-mirror-node-deployment.md)
+  * [Run Your Own Beta Mirror Node](mirrornet/run-your-own-beta-mirror-node.md)
+  * [Hedera ETL](mirrornet/hedera-etl.md)
+  * [Community Mirror Nodes](mirrornet/community-mirror-nodes.md)
 
 ## Tutorials
 
