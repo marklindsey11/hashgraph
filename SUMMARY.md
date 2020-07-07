@@ -11,7 +11,7 @@
     * [Transaction Records](mainnet/fees/transaction-records.md)
 * [Testnet](testnet/README.md)
   * [Testnet Access](testnet/testnet-access.md)
-  * [Testnet Nodes](testnet/nodes.md)
+  * [Testnet Nodes](testnet/testnet-nodes.md)
 * [Mirrornet](mirrornet/README.md)
   * [Hedera Mirror Node](mirrornet/hedera-mirror-node.md)
   * [One Click Beta Mirror Node Deployment](mirrornet/one-click-mirror-node-deployment.md)
