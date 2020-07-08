@@ -42,10 +42,17 @@ All of the markdown files and images are stored in the hashgraph/hedera-docs rep
       * Java
       * Javascript
 * **/mainnet**
-  * Provides Hedera mainnet information including
+  * Provides Hedera mainnet information including:
     * Mainnet nodes
     * Mirror nodes
     * Network services and support
+* **/mirrornet**
+  * Provides Hedera mirror node information including:
+    * Community mirror nodes
+    * Hedera ETL
+    * Hedera Mirror Node
+    * One Click Mirror Node Deployment
+    * Run Your Own Beta Mirror Node
 * **/support-and-community**
   * Resources our developer community might be looking for
 * **/testnet**
