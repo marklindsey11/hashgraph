@@ -18,7 +18,7 @@ If you already have a node environment set up that you’d like to use, skip to 
 
 > Note: The following steps assume you’re working in the mac terminal
 
-2.1. Ceate a new directory for our example & move into it.
+2.1. Create a new directory for our example & move into it.
 
 `mkdir hello-hedera-js-sdk && cd hello-hedera-js-sdk`
 
