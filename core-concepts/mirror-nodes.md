@@ -16,7 +16,6 @@ A beta version of mirror node code is [available on GitHub](https://github.com/h
 
 {% hint style="info" %}
 **Current Status**  
-  
 The current version is not yet able to connect to a Hedera network, but available as an early preview to better understand and test. A means to connect to a Hedera network \(testnet or mainnet\) will be made publicly available soon.  
   
 **UPDATE: LIMITED AVAILABILITY**   
