@@ -61,9 +61,8 @@ public class HederaExamples {
         
         AccountId myAccountId = AccountId.fromString(Dotenv.load().get("MY_ACCOUNT_ID"));
         Ed25519PrivateKey myPrivateKey = Ed25519PrivateKey.fromString(Dotenv.load().get("MY_PRIVATE_KEY"));
-
     }
-
+}
 ```
 
 ## Step 3: Create your Hedera testnet client
