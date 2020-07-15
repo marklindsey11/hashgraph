@@ -99,7 +99,7 @@ Grab your Hedera testnet account ID and private key from the .env file.
 require("@hashgraph/sdk");
 require("dotenv").config();
 
-async function main {
+async function main() {
 
     //Grab your Hedera testnet account ID and private key from your .env file
     const myAccountId = process.env.MY_ACCOUNT_ID;
