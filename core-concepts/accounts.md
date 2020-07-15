@@ -6,7 +6,7 @@ description: Hedera accounts
 
 ## Accounts
 
-Accounts are the central starting point for Hedera. Accounts are stored on the public ledger and are required to pay transaction fees. Accounts hold hbars which are used to pay for the transction fees. 
+Accounts are the central starting point for Hedera. Accounts are stored on the public ledger and hold hbars which are used to pay for the transaction and query fees. 
 
 Accounts are comprised of:
 
