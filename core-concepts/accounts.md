@@ -49,8 +49,6 @@ private key   = 302e020100300506032...
 public key   = 302...
 ```
 
-## 
-
 ## Balance
 
 The amount of HBAR \(ℏ\) held by the account. An account can be created with a zero balance, however it will eventually need hbars transferred to it from another account to interact with the Hedera APIs. 
