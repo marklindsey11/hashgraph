@@ -110,7 +110,6 @@ async function main {
         myPrivateKey == null ) {
         throw new Error("Environment variables myAccountId and myPrivateKey must be present");
     }
-
 }
 main();
 ```
