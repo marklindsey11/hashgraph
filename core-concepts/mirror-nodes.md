@@ -51,7 +51,7 @@ Hedera consensus nodes push new record files and signature files to the cloud st
 
 ## Using Mirror Nodes
 
-To get access to a Hedera mirror node, please choose select the network and click the link below.
+To get access to a Hedera beta mirror node, please select the network and click the link below.
 
 **Testnet**:
 
