@@ -19,12 +19,23 @@
   * [Hedera ETL](mirrornet/hedera-etl.md)
   * [Community Mirror Nodes](mirrornet/community-mirror-nodes.md)
 
-## Tutorials
+## Getting Started
 
-* [HCS: Submit your first message!](tutorials/hcs-submit-your-first-message.md)
-* [Getting Started: JavaScript](tutorials/getting-started-javascript.md)
-* [Getting Started with the Hedera Consensus Service Fabric Plugin](tutorials/getting-started-with-the-hedera-consensus-service-fabric-plugin/README.md)
-  * [Virtual Environment Set-up](tutorials/getting-started-with-the-hedera-consensus-service-fabric-plugin/virtual-environment-set-up.md)
+* [Introduction](getting-started/introduction.md)
+* [Java](getting-started/java/README.md)
+  * [Environment Set-up](getting-started/java/environment-set-up.md)
+  * [Create an account](getting-started/java/create-an-account.md)
+  * [Transfer hbar](getting-started/java/transfer-hbar.md)
+* [JavaScript](getting-started/javascript/README.md)
+  * [Environment Set-up](getting-started/javascript/environment-set-up.md)
+  * [Create an account](getting-started/javascript/create-an-account.md)
+  * [Transfer hbar](getting-started/javascript/transfer-hbar.md)
+
+## Advanced
+
+* [HCS: Submit your first message!](advanced/hcs-submit-your-first-message.md)
+* [Getting Started with the Hedera Consensus Service Fabric Plugin](advanced/getting-started-with-the-hedera-consensus-service-fabric-plugin/README.md)
+  * [Virtual Environment Set-up](advanced/getting-started-with-the-hedera-consensus-service-fabric-plugin/virtual-environment-set-up.md)
 
 ## Core Concepts
 

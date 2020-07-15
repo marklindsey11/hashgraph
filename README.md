@@ -6,6 +6,10 @@ Hedera is a public distributed ledger for building and deploying decentralized a
 
 The network is made up of permissioned nodes run by the the [Hedera Governing Council](https://hedera.com/council), a group of term-limited enterprises that lead the network's direction. Over time the network will [move to a permissionless model](https://www.youtube.com/watch?v=QTNNYeSks-s).
 
+{% hint style="info" %}
+Ready to submit your first transaction to a Hedera network? Visit our [Getting Started ](getting-started/introduction.md)section to learn the basics of how to create an account and transfer hbars 💥 . 
+{% endhint %}
+
 #### What is hashgraph?
 
 Hashgraph is a distributed consensus algorithm and data structure that is fast, fair, and secure. This indirectly creates a trusted community, even when members do not necessarily trust each other. Hedera is the only authorized public network to use hashgraph.
