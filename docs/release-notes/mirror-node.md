@@ -8,6 +8,28 @@
 
 ## Upcoming Releases
 
+## [v0.15.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.0)
+
+This release adds support for HCS topic fragmentation that will soon be rolled out to main nodes in the 0.6.0 release. For larger consensus messages that don't fit in the max transaction size of 6144 bytes, a standard chunk info header can be supplied to indicate how that message should be split into smaller messages. The Mirror Node now understands this chunk information and stores it in the database. Additionally, it will return this [data](https://github.com/hashgraph/hedera-mirror-node/blob/a2f69ee1243fbbbfbc133549f9162bfc3a08f464/hedera-mirror-protobuf/src/main/proto/com/hedera/mirror/api/proto/ConsensusService.proto#L58) when subscribing to the topic via the gRPC API. The Java SDK is being updated to automatically split and reconstruct this message as appropriate.
+
+Other changes include optimizations around end to end latency of the gRPC API. This was accomplished mainly by adding a new `NotifyingTopicListener` that uses PostgreSQL's LISTEN/NOTIFY functionality.
+
+## [v0.14.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.14.1)
+
+This release further optimizes the ingestion rate. Initial tests indicate a 2x to 3x improvement.
+
+## [v0.14.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.14.0)
+
+This release is all about performance optimizations. We reworked some of the foreign keys to improve the ingestion performance by a few thousand transactions per second. We also fixed an out of memory issue with the gRPC API and did some optimizations in that area.
+
+Besides performance, we made some other small improvements. We now set `topicRunningHashV2AddedTimestamp` with a default value for mainnet, making it not fail on startup if a value is not provided. Containerized acceptance and performance tests were added, making it easier to test at scale.
+
+#### Breaking Changes
+
+We removed `hedera.mirror.grpc.listener.bufferInitial` and `hedera.mirror.grpc.listener.bufferSize` properties since we removed the shared poller's buffer.
+
+We also renamed some tables and columns which would affect you if you directly use the database structure. We renamed `t_transactions` to `transaction`, `t_cryptotransferlists` to `crypto_transfer` and `non_fee_transfers` to `non_fee_transfer`.
+
 ## Latest Releases
 
 ## [v0.13.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.13.2)
