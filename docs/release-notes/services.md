@@ -3,7 +3,7 @@
 | Network | Version | vNext |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.5.8 | 0.6.0 |
-| **Testnet** | 0.5.8 | 0.6.0 |
+| **Testnet** | 0.6.0 | 0.6.0 |
 | **Previewnet** | Coming soon... |  |
 
 ## Upcoming Releases
