@@ -63,8 +63,3 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
   </tbody>
 </table>
 
-{% hint style="info" %}
-**Hedera Consensus Service Mainnet Mirror Node Access**  
-To gain access to the Hedera managed mirror node for mainnet, please complete this [form](https://learn.hedera.com/hcs-mirror-api-mainnet).
-{% endhint %}
-
