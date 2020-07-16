@@ -10,8 +10,8 @@
 
 ## v0.6.0
 
-{% hint style="info" %}
-**TESTNET UPGRADE SCHEDULED: JULY 16, 2020**
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JULY 16, 2020**
 {% endhint %}
 
 In Hedera Services v0.6.0, we’ve enhanced the Hedera Consensus Service by supporting [HCS Topic Fragmentation](https://github.com/hashgraph/hedera-services/issues/53). We added, into the `ConsensusSubmitMessageTransactionBody`, an optional field for the current chunk information. For every chunk, the payer account that is part of the `initialTransactionID` must match the Payer Account of this transaction. The entire `initialTransactionID` should match the `transactionID` of the first chunk, but this is not checked or enforced by Hedera except when the chunk number is 1.
