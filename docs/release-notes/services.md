@@ -10,6 +10,10 @@
 
 ## v0.6.0
 
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: AUGUST 6, 2020**
+{% endhint %}
+
 {% hint style="success" %}
 **TESTNET UPGRADE COMPLETED: JULY 16, 2020**
 {% endhint %}
