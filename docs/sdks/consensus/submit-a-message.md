@@ -47,6 +47,7 @@ new ConsensusMessageSubmitTransaction()
       <td style="text-align:left">
         <p>Number of transactions to break the entire message into</p>
         <p>Default Value: 10</p>
+        <p>v1.2.0</p>
       </td>
     </tr>
     <tr>
@@ -59,6 +60,7 @@ new ConsensusMessageSubmitTransaction()
         <p>total: total number of chunks</p>
         <p>number: The sequence number (from 1 to total) of the current chunk in
           the message.</p>
+        <p>v1.2.0</p>
       </td>
     </tr>
   </tbody>
@@ -140,6 +142,7 @@ A message that is more than 4-6kb can be sent in multiple transactions by chunki
 {% tabs %}
 {% tab title="Java" %}
 ```java
+// SDK version 1.2.0
 // send a message that would fit into more than one chunk (4-6k per chunk)
 List<TransactionId> ids = new ConsensusMessageSubmitTransaction()
      .setMaxChunks(5) // this is 10 by default
@@ -151,6 +154,7 @@ List<TransactionId> ids = new ConsensusMessageSubmitTransaction()
 
 {% tab title="JavaScript" %}
 ```javascript
+// SDK version 1.2.0
 await new ConsensusMessageSubmitTransaction()
      .setTopicId(topicId)
      .setMaxChunks(4) // default: 10
