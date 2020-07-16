@@ -121,4 +121,6 @@
 | INVALID\_AUTORENEW\_ACCOUNT | The autoRenewAccount specified is not a valid, active account. |
 | AUTORENEW\_ACCOUNT\_NOT\_ALLOWED | An adminKey was not specified on the topic, so there must not be an autoRenewAccount. |
 | TOPIC\_EXPIRED | The topic has expired, was not automatically renewed, and is in a 7 day grace period before the topic will be deleted unrecoverably. This error response code will not be returned until autoRenew functionality is supported by HAPI. |
+| INVALID\_CHUNK\_NUMBER | Chunk number must be from 1 to total \(chunks\) inclusive |
+| INVALID\_CHUNK\_TRANSACTION\_ID | For every chunk, the payer account that is part of initialTransactionID must match the Payer Account of this transaction. The entire initialTransactionID should match the transactionID of the first chunk, but this is not checked or enforced by Hedera except when the chunk number is 1. |
 

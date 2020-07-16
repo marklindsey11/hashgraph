@@ -168,6 +168,8 @@
     * [Freeze](docs/hedera-api/miscellaneous/freeze.md)
     * [GetByKey](docs/hedera-api/miscellaneous/getbykey.md)
     * [GetBySolidityID](docs/hedera-api/miscellaneous/getbysolidityid.md)
+    * [NetworkGetVersionInfo](docs/hedera-api/miscellaneous/networkgetversioninfo.md)
+    * [NetworkService](docs/hedera-api/miscellaneous/networkservice.md)
     * [Query](docs/hedera-api/miscellaneous/query.md)
     * [QueryHeader](docs/hedera-api/miscellaneous/queryheader.md)
     * [Response](docs/hedera-api/miscellaneous/response.md)
