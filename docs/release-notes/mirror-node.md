@@ -3,12 +3,32 @@
 | Network | Version |
 | :--- | :--- |
 | **Mainnet** | Mirror Node v0.13.2 |
-| **Testnet** | Mirror Node v0.13.2 |
+| **Testnet** | Mirror Node v0.15.1 |
 | **Previewnet** | Coming soon... |
 
 ## Upcoming Releases
 
+## [v0.15.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.1)
+
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JULY 15, 2020**
+{% endhint %}
+
+A hot fix release to address two high priority parsing errors with the new consensus message chunk header.
+
 ## [v0.15.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.0)
+
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JULY 15, 2020**
+{% endhint %}
 
 This release adds support for HCS topic fragmentation that will soon be rolled out to main nodes in the 0.6.0 release. For larger consensus messages that don't fit in the max transaction size of 6144 bytes, a standard chunk info header can be supplied to indicate how that message should be split into smaller messages. The Mirror Node now understands this chunk information and stores it in the database. Additionally, it will return this [data](https://github.com/hashgraph/hedera-mirror-node/blob/a2f69ee1243fbbbfbc133549f9162bfc3a08f464/hedera-mirror-protobuf/src/main/proto/com/hedera/mirror/api/proto/ConsensusService.proto#L58) when subscribing to the topic via the gRPC API. The Java SDK is being updated to automatically split and reconstruct this message as appropriate.
 
@@ -16,9 +36,25 @@ Other changes include optimizations around end to end latency of the gRPC API. T
 
 ## [v0.14.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.14.1)
 
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JULY 15, 2020**
+{% endhint %}
+
 This release further optimizes the ingestion rate. Initial tests indicate a 2x to 3x improvement.
 
 ## [v0.14.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.14.0)
+
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JULY 15, 2020**
+{% endhint %}
 
 This release is all about performance optimizations. We reworked some of the foreign keys to improve the ingestion performance by a few thousand transactions per second. We also fixed an out of memory issue with the gRPC API and did some optimizations in that area.
 
