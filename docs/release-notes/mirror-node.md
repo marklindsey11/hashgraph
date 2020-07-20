@@ -8,6 +8,18 @@
 
 ## Upcoming Releases
 
+## [v0.15.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.2)
+
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: JULY 20, 2020**
+{% endhint %}
+
+This release improves the topic message ingest rate that regressed in the previous release. This is just a stop gap and future releases will increase this further.
+
 ## [v0.15.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.1)
 
 {% hint style="info" %}
