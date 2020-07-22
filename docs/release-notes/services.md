@@ -1,10 +1,10 @@
 # Hedera Services
 
-| Network | Version | vNext |
+| Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.5.8 | 0.6.0 |
 | **Testnet** | 0.6.0 |  |
-| **Previewnet** | Coming soon... |  |
+| **Previewnet** | 0.6.0 |  |
 
 ## Upcoming Releases
 

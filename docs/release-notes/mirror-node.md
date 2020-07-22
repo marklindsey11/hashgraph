@@ -1,10 +1,10 @@
 # Mirror Node
 
-| Network | Version |
+| Network | Current Version |
 | :--- | :--- |
 | **Mainnet** | Mirror Node v0.13.2 |
-| **Testnet** | Mirror Node v0.15.1 |
-| **Previewnet** | Coming soon... |
+| **Testnet** | Mirror Node v0.15.2 |
+| **Previewnet** | Mirror Node v0.15.2 |
 
 ## Upcoming Releases
 

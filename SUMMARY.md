@@ -9,7 +9,7 @@
       * [FAQ](mainnet/mainnet-nodes/node-requirements/faq.md)
   * [Fees \(Beta\)](mainnet/fees/README.md)
     * [Transaction Records](mainnet/fees/transaction-records.md)
-* [Testnet](testnet/README.md)
+* [Testnets](testnet/README.md)
   * [Testnet Access](testnet/testnet-access.md)
   * [Testnet Nodes](testnet/testnet-nodes.md)
 * [Mirrornet](mirrornet/README.md)
