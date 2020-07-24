@@ -16,7 +16,7 @@ A beta version of mirror node code is [available on GitHub](https://github.com/h
 
 {% hint style="info" %}
 **Current Status**  
-The current version is not yet able to connect to a Hedera network, but available as an early preview to better understand and test. A means to connect to a Hedera network \(testnet or mainnet\) will be made publicly available soon.  
+The beta mirror node is available to deploy and downloads transaction data via an Amazon or Google bucket. A full version is actively being developed and will connect directly to a Hedera network \(testnet or mainnet\).  
   
 **UPDATE: LIMITED AVAILABILITY**   
 Please check out mirror node information [here](https://docs.hedera.com/guides/docs/mirror-node-api/hedera-consensus-service-api-1).
