@@ -45,6 +45,12 @@ new Client()
       <td style="text-align:left">Configures a client for Hedera mainnet access</td>
     </tr>
     <tr>
+      <td style="text-align:left"><code>forPreviewnet()</code>
+      </td>
+      <td style="text-align:center"></td>
+      <td style="text-align:left">Configures a client for Hedera previewnet access</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>setOperator(&lt;operatorId&gt;, &lt;operatorKey&gt;)</code>
       </td>
       <td style="text-align:center">
