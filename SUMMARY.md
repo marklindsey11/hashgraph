@@ -26,16 +26,19 @@
   * [Environment Set-up](getting-started/java/environment-set-up.md)
   * [Create an account](getting-started/java/create-an-account.md)
   * [Transfer hbar](getting-started/java/transfer-hbar.md)
+  * [HCS: Submit your first message!](getting-started/java/hcs-submit-your-first-message.md)
 * [JavaScript](getting-started/javascript/README.md)
   * [Environment Set-up](getting-started/javascript/environment-set-up.md)
   * [Create an account](getting-started/javascript/create-an-account.md)
   * [Transfer hbar](getting-started/javascript/transfer-hbar.md)
 
-## Advanced
+## Resources
 
-* [HCS: Submit your first message!](advanced/hcs-submit-your-first-message.md)
-* [Getting Started with the Hedera Consensus Service Fabric Plugin](advanced/getting-started-with-the-hedera-consensus-service-fabric-plugin/README.md)
-  * [Virtual Environment Set-up](advanced/getting-started-with-the-hedera-consensus-service-fabric-plugin/virtual-environment-set-up.md)
+* [Starter projects](resources/starter-projects.md)
+* [Demo applications](resources/demo-applications.md)
+* [Tutorials](resources/tutorials/README.md)
+  * [Getting Started with the Hedera Consensus Service Fabric Plugin](resources/tutorials/getting-started-with-the-hedera-consensus-service-fabric-plugin/README.md)
+    * [Virtual Environment Set-up](resources/tutorials/getting-started-with-the-hedera-consensus-service-fabric-plugin/virtual-environment-set-up.md)
 
 ## Core Concepts
 

@@ -30,7 +30,7 @@ You will need to create complete your Hedera portal profile to receive a preview
 
 {% page-ref page="testnet-access.md" %}
 
-## Test Network Mirror Nodes
+## Test Network Mirror Nodes 
 
 For test network mirror node information please visit the Hedera Mirror Node section below 👇 .
 

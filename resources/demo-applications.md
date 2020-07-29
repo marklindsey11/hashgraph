@@ -1,0 +1,50 @@
+---
+description: Examples of different use cases and projects built on Hedera.
+---
+
+# Demo applications
+
+{% tabs %}
+{% tab title="Java" %}
+| Project | Source | Developer |
+| :--- | :--- | :--- |
+| Android Wallet | [GitHub](https://github.com/hashgraph/hedera-wallet-android) | Hedera |
+| Corda Notary | [GitHub](https://github.com/hashgraph/corda-notary-hedera) | Hedera |
+| HCS Secure Extension Components | [GitHub](%20https://github.com/hashgraph/hedera-hcs-sxc-java) | Hedera |
+| Log4J Integration | [GitHub](https://github.com/hashgraph/log4j2-hedera) | Hedera |
+| Logstash Integration | [GitHub](https://github.com/hashgraph/logstash-output-hedera) | Hedera |
+| Proof-of-action microservice | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-microservice) | Hedera |
+| Decentralized Identity SDK | [GitHub](https://github.com/hashgraph/did-sdk-java) | Hedera |
+| Others | Coming soon! | Community |
+{% endtab %}
+
+{% tab title="JavaScript" %}
+| Project | Source | Developer |
+| :--- | :--- | :--- |
+| HCS based stable coin | [GitHub](https://github.com/hashgraph/hedera-stable-coin-demo) | Hedera |
+| MyHbarWallet | [GitHub](%20https://github.com/hashgraph/MyHbarWallet) | Hedera |
+| Proof-of-action pasteboard | [GitHub](%20https://github.com/hashgraph/hedera-proof-of-action-demo-pasteboard) | Hedera |
+| HCS based chat | [GitHub](%20https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |
+| Others | Coming soon! | Community |
+{% endtab %}
+
+{% tab title="Go" %}
+| Project | Source | Developer |
+| :--- | :--- | :--- |
+| Hyplerledger Fabric Plugin | [GitHub](%20https://github.com/hyperledger-labs/pluggable-hcs) | Hyperledger |
+| Audit Logs | [GitHub](https://github.com/hashgraph/hello-hedera-audit-log-go) | AdsDax |
+| Others | Coming soon! | Community |
+{% endtab %}
+
+{% tab title="Swift" %}
+| Project | Source | Developer |
+| :--- | :--- | :--- |
+| iOS wallet | [GitHub](https://github.com/hashgraph/hedera-wallet-ios) | Hedera |
+| Others | Coming soon! | Community |
+{% endtab %}
+{% endtabs %}
+
+Do you have a demo application to add to this list? Or want to request others to get built? 
+
+Start by [filing an issue](https://github.com/hashgraph/hedera-docs) within the open-source documentation repository on [our GitHub](https://github.com/hashgraph)! 
+
