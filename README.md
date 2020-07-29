@@ -63,7 +63,7 @@ All of the markdown files and images are stored in the hashgraph/hedera-docs rep
   * Testnet nodes
   * Mirror nodes
   * Network services and support
-* **/advanced**
+* **/resources**
   * Material to help you get started with one of our network services in more depth
 * /**getting-started**
   * Examples that help you from your environment set-up to submitting your first transaction
