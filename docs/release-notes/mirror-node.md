@@ -2,16 +2,26 @@
 
 | Network | Current Version |
 | :--- | :--- |
-| **Mainnet** | Mirror Node v0.13.2 |
+| **Mainnet** | Mirror Node v0.15.3 |
 | **Testnet** | Mirror Node v0.15.2 |
 | **Previewnet** | Mirror Node v0.15.2 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
+## [v0.15.3](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.3)
+
+Works around an issue sending large JSON payloads via pg\_notify by ignoring them for now. This occurs when a consensus message is sent with a message that exceeds 5824 bytes, which is also very close to the protobuf limit.
+
+{% hint style="info" %}
+**MAINNET UPGRADE COMPLETED: JULY 29, 2020**
+{% endhint %}
+
 ## [v0.15.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.2)
 
 {% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+**MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
 {% hint style="success" %}
@@ -23,7 +33,7 @@ This release improves the topic message ingest rate that regressed in the previo
 ## [v0.15.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.1)
 
 {% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+**MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
 {% hint style="success" %}
@@ -35,7 +45,7 @@ A hot fix release to address two high priority parsing errors with the new conse
 ## [v0.15.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.0)
 
 {% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+**MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
 {% hint style="success" %}
@@ -49,7 +59,7 @@ Other changes include optimizations around end to end latency of the gRPC API. T
 ## [v0.14.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.14.1)
 
 {% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+**MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
 {% hint style="success" %}
@@ -61,7 +71,7 @@ This release further optimizes the ingestion rate. Initial tests indicate a 2x t
 ## [v0.14.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.14.0)
 
 {% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: JULY 30, 2020**
+**MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
 {% hint style="success" %}
@@ -77,8 +87,6 @@ Besides performance, we made some other small improvements. We now set `topicRun
 We removed `hedera.mirror.grpc.listener.bufferInitial` and `hedera.mirror.grpc.listener.bufferSize` properties since we removed the shared poller's buffer.
 
 We also renamed some tables and columns which would affect you if you directly use the database structure. We renamed `t_transactions` to `transaction`, `t_cryptotransferlists` to `crypto_transfer` and `non_fee_transfers` to `non_fee_transfer`.
-
-## Latest Releases
 
 ## [v0.13.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.13.2)
 
