@@ -49,7 +49,7 @@ Note: you can just say “yes” to all of the defaults and/or plugin what makes
 Note: This example uses **Hedera JavaScript SDK 1.1.2.** The latest version may not be compatible with the provided examples. View Hedera Hashgraph's JavaScript SDK [here](https://github.com/hashgraph/hedera-sdk-js). 
 {% endhint %}
 
-Now that you have your node environment setup, we can get started with Hedera’s JS SDK! You can open this project if your favorite text editor like [Visual Studio Code](https://code.visualstudio.com/Download).
+Now that you have your node environment setup, we can get started with Hedera’s JS SDK! You can open this project in your favorite text editor like [Visual Studio Code](https://code.visualstudio.com/Download).
 
 * Install it with your favorite package manager.
 
