@@ -66,6 +66,15 @@ cd hedera-mirror-node
 | **secretKey** | Your secretKey from your Google Cloud Platform account |
 | **gcpProjectId** | Your Google Cloud Platform project ID |
 
+**Bucket Names**
+
+| Provider | **Network** | Name |
+| :--- | :--- | :--- |
+| GCP | Testnet | hedera-mainnet-streams |
+|  | Mainnet | hedera-stable-testnet-streams |
+| AWS | Testnet | hedera-mainnet-streams |
+|  | Mainnet | hedera-stable-testnet-streams |
+
 {% tabs %}
 {% tab title="Sample application.yml file MAINNET" %}
 ```
