@@ -72,7 +72,7 @@ cd hedera-mirror-node
 | :--- | :--- | :--- |
 | GCP | Testnet | hedera-mainnet-streams |
 |  | Mainnet | hedera-stable-testnet-streams |
-| AWS | Testnet | hedera-mainnet-streams |
+| S3 | Testnet | hedera-mainnet-streams |
 |  | Mainnet | hedera-stable-testnet-streams |
 
 {% tabs %}
