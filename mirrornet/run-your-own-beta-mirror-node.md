@@ -102,7 +102,7 @@ hedera:
         cloudProvider: "GCP"
         secretKey: h+....
         gcpProjectId: 
-      network: MAINNET
+      network: TESTNET
 ```
 {% endtab %}
 {% endtabs %}
