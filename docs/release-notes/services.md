@@ -8,6 +8,8 @@
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## v0.6.0
 
 {% hint style="success" %}
@@ -27,8 +29,6 @@ In Hedera Services v0.6.0, we’ve enhanced the Hedera Consensus Service by supp
 **Documentation changes**
 
 * Protobuf v0.6.0 with HAPI doc update to support HCS Topic Fragmentation 
-
-## Latest Releases
 
 ## **v0.5.8**
 
