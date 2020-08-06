@@ -10,7 +10,7 @@
 
 ## Latest Releases
 
-## v0.6.0
+## [v0.6.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.6.0)
 
 {% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: AUGUST 6, 2020**
