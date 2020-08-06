@@ -91,7 +91,10 @@ The **address book** contains the list of consensus nodes that can submit transa
         <p>23.96.185.18</p>
       </td>
       <td style="text-align:left">50211</td>
-      <td style="text-align:left">dd3b3e7cd3a257d8276e46535361b018b70091f48665e820010e81ec0592b69bd4be1fbd7ecd509d07013dd0412842fd</td>
+      <td style="text-align:left">
+        <p>dd3b3e7cd3a257d8276e46535361b018b70091f48665e820010e81ec0592b69bd4be1fbd7ecd509d07013dd0412842fd</p>
+        <p>&lt;b&gt;&lt;/b&gt;</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">6</td>
@@ -127,7 +130,11 @@ The **address book** contains the list of consensus nodes that can submit transa
         <p>13.53.119.185</p>
       </td>
       <td style="text-align:left">50211</td>
-      <td style="text-align:left">9708430331078f5682c7f3244d82c3b3e281a91879578deeacdcc2a2ebe541af188115ad2e83865e5f5d247b4a18c1ee</td>
+      <td style="text-align:left">
+        <p>9708430331078f5682c7f3244d82c3b3e281a91879578deeacdcc2a2ebe541af188115ad2e83865e5f5d247b4a18c1ee</p>
+        <p><b>(currently offline)</b>
+        </p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">9</td>
