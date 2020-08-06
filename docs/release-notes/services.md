@@ -2,16 +2,16 @@
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.5.8 | 0.6.0 |
-| **Testnet** | 0.6.0 |  |
-| **Previewnet** | 0.6.0 |  |
+| **Mainnet** | 0.6.0 | 0.7.0 |
+| **Testnet** | 0.6.0 | 0.7.0 |
+| **Previewnet** | 0.6.0 | 0.7.0 |
 
 ## Upcoming Releases
 
 ## v0.6.0
 
-{% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: AUGUST 6, 2020**
+{% hint style="success" %}
+**MAINNET UPGRADE COMPLETED: AUGUST 6, 2020**
 {% endhint %}
 
 {% hint style="success" %}
