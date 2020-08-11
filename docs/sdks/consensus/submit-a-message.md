@@ -84,7 +84,7 @@ new ConsensusMessageSubmitTransaction()
 {% tab title="JavaScript" %}
 ```javascript
 //Submits a message to a public topic 
-await new ConsensusSubmitMessageTransaction()
+await new ConsensusMessageSubmitTransaction()
     .setTopicId(topicId)
     .setMessage("hello, HCS! " + i)
     .build(client)
@@ -118,7 +118,7 @@ new ConsensusMessageSubmitTransaction()
 
 {% tab title="JavaScript" %}
 ```javascript
-await new ConsensusSubmitMessageTransaction()
+await new ConsensusMessageSubmitTransaction()
      .setTopicId(topicId)
      .setMessage(message)
      .build(hapiClient)
