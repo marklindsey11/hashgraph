@@ -70,10 +70,10 @@ cd hedera-mirror-node
 
 | Provider | **Network** | Name |
 | :--- | :--- | :--- |
-| GCP | Testnet | hedera-mainnet-streams |
-|  | Mainnet | hedera-stable-testnet-streams |
-| S3 | Testnet | hedera-mainnet-streams |
-|  | Mainnet | hedera-stable-testnet-streams |
+| GCP | Testnet | hedera-stable-testnet-streams |
+|  | Mainnet | hedera-mainnet-streams |
+| S3 | Testnet | hedera-stable-testnet-streams |
+|  | Mainnet | hedera-mainnet-streams |
 
 {% tabs %}
 {% tab title="Sample application.yml file MAINNET" %}
