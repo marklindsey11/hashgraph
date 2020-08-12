@@ -53,7 +53,7 @@ publicKey = 302...
 
 ## Balance
 
-The amount of HBAR \(ℏ\) held by the account. An account can be created with a zero balance, however it will eventually need hbars transferred to it from another account to interact with the Hedera APIs. You can purchase hbars you can view a list of options [here.](https://www.hedera.com/buying-guide)
+The amount of HBAR \(ℏ\) held by the account. An account can be created with a zero balance, however it will eventually need hbars transferred to it from another account to interact with the Hedera APIs. You can purchase hbars [here.](https://www.hedera.com/buying-guide)
 
 ## Expiration
 
