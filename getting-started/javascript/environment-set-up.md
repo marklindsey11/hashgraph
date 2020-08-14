@@ -96,7 +96,7 @@ This file will contain the code we will right in the following samples. Your pro
 Grab your Hedera testnet account ID and private key from the .env file.
 
 ```javascript
-require("@hashgraph/sdk");
+const { Client } = require("@hashgraph/sdk");
 require("dotenv").config();
 
 async function main() {
