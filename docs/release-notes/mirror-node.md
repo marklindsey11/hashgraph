@@ -4,8 +4,24 @@
 | :--- | :--- | :--- |
 | **Mainnet** | 0.15.3 | 0.16.0 |
 | **Testnet** | 0.15.2 | 0.16.0 |
+| **Preview Testnet** | 0.16.0 |  |
 
 ## Upcoming Releases
+
+## [v0.16.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.16.0)
+
+### New Features
+
+* Bump versions for v0.16.0 [\#953](https://github.com/hashgraph/hedera-mirror-node/pull/953)
+* Bump versions for v0.16.0-rc1 [\#916](https://github.com/hashgraph/hedera-mirror-node/pull/916)
+* Add hedera-mirror-common chart [\#909](https://github.com/hashgraph/hedera-mirror-node/pull/909)
+* Add Dependabot [\#877](https://github.com/hashgraph/hedera-mirror-node/pull/877)
+* Populate consensus\_\(start\|end\) for historical entries in t\_record\_files and fix name column [\#876](https://github.com/hashgraph/hedera-mirror-node/pull/876)
+* Populate consensus start and end timestamps for historical record files [\#864](https://github.com/hashgraph/hedera-mirror-node/issues/864)
+* Hardcode bucket names to network enum [\#858](https://github.com/hashgraph/hedera-mirror-node/pull/858)
+* Hardcode bucket names [\#844](https://github.com/hashgraph/hedera-mirror-node/issues/844)
+* Events Downloader [\#811](https://github.com/hashgraph/hedera-mirror-node/issues/811)
+* Record file name stored in database includes path to file [\#102](https://github.com/hashgraph/hedera-mirror-node/issues/102)
 
 ## Latest Releases
 
