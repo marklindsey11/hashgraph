@@ -3,12 +3,16 @@
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.15.3 | 0.16.0 |
-| **Testnet** | 0.15.2 | 0.16.0 |
-| **Preview Testnet** | 0.16.0 |  |
+| **Testnet** | 0.16.0 | 0.17.0 |
+| **Preview Testnet** | 0.16.0 | 0.17.0 |
 
 ## Upcoming Releases
 
 ## [v0.16.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.16.0)
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: AUGUST 18, 2020**
+{% endhint %}
 
 ### New Features
 
@@ -27,7 +31,7 @@
 
 ## [v0.15.3](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.3)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
@@ -35,7 +39,7 @@ Works around an issue sending large JSON payloads via pg\_notify by ignoring the
 
 ## [v0.15.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.2)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
@@ -47,7 +51,7 @@ This release improves the topic message ingest rate that regressed in the previo
 
 ## [v0.15.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.1)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
@@ -59,7 +63,7 @@ A hot fix release to address two high priority parsing errors with the new conse
 
 ## [v0.15.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.0)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
@@ -73,7 +77,7 @@ Other changes include optimizations around end to end latency of the gRPC API. T
 
 ## [v0.14.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.14.1)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
@@ -85,7 +89,7 @@ This release further optimizes the ingestion rate. Initial tests indicate a 2x t
 
 ## [v0.14.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.14.0)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
