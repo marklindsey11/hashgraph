@@ -3,8 +3,8 @@
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.6.0 | 0.7.0 |
-| **Testnet** | 0.6.0 | 0.7.0 |
-| **Previewnet** | 0.6.0 | 0.7.0 |
+| **Testnet** | 0.7.0 | 0.8.0 |
+| **Previewnet** | 0.7.0 | 0.8.0 |
 
 ## Upcoming Releases
 
@@ -14,8 +14,8 @@
 **MAINNET UPDATE SCHEDULED: SEPTEMBER 3, 2020**
 {% endhint %}
 
-{% hint style="info" %}
-**TESTNET UPDATE SCHEDULED: AUGUST 20, 2020**
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: AUGUST 20, 2020**
 {% endhint %}
 
 In Hedera Services v0.7.0, we’ve moved to Swirlds SDK release `0.7.2` which enables zero-stake nodes to be part of a network without affecting consensus. Hedera Services v0.7.0 migrated to new interfaces and methods provided in this version of the Swirlds SDK.  

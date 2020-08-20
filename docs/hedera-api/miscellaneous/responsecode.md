@@ -25,7 +25,7 @@
 | RECEIPT\_NOT\_FOUND | Receipt for given transaction id does not exist |
 | RECORD\_NOT\_FOUND | Record for given transaction id does not exist |
 | INVALID\_SOLIDITY\_ID | The solidity id is invalid or entity with this solidity id does not exist |
-| UNKNOWN | Transaction hasn't yet reached consensus, or has already expired |
+| UNKNOWN | This node has submitted this transaction to the network. Status of the transaction is currently unknown. |
 | SUCCESS | The transaction succeeded |
 | FAIL\_INVALID | There was a system error and the transaction failed because of invalid request parameters. |
 | FAIL\_FEE | There was a system error while performing fee calculation, reserved for future. |
@@ -73,7 +73,7 @@
 | CONTRACT\_DELETED | Contract is marked as deleted |
 | PLATFORM\_NOT\_ACTIVE | the platform node is either disconnected or lagging behind. |
 | KEY\_PREFIX\_MISMATCH | one public key matches more than one prefixes on the signature map |
-| PLATFORM\_TRANSACTION\_NOT\_CREATED | transaction not created by platform due to either large backlog or message size exceeded transactionMaxBytes |
+| PLATFORM\_TRANSACTION\_NOT\_CREATED | Transaction not created by platform due to large backlog |
 | INVALID\_RENEWAL\_PERIOD | auto renewal period is not a positive number of seconds |
 | INVALID\_PAYER\_ACCOUNT\_ID | the response code when a smart contract id is passed for a crypto API request |
 | ACCOUNT\_DELETED | the account has been marked as deleted |

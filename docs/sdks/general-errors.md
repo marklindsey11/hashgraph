@@ -31,14 +31,14 @@
 | `PAYER_ACCOUNT_NOT_FOUND` | Payer account does not exist. |
 | `PAYER_ACCOUNT_UNAUTHORIZED` | The fee payer account doesn't have permission to submit such Transaction |
 | `PLATFORM_NOT_ACTIVE` | The platform node is either disconnected or lagging behind |
-| `PLATFORM_TRANSACTION_NOT_CREATED` | Transaction not created by platform due to either large backlog or message size exceeded transactionMaxBytes |
+| `PLATFORM_TRANSACTION_NOT_CREATED` | Transaction not created by platform due to large backlog |
 | `RECEIPT_NOT_FOUND` | Receipt for given transaction id does not exist |
 | `RECORD_NOT_FOUND` | Record for given transaction id does not exist |
 | `SUCCESS` | The transaction succeeded |
 | `TRANSACTION_EXPIRED` | Pre-Check error when TransactionValidStart + transactionValidDuration is less than current consensus time. |
 | `TRANSACTION_OVERSIZE` | The size of the Transaction is greater than transactionMaxBytes |
 | `TRANSACTION_TOO_MANY_LAYERS` | The Transaction has more than 50 levels |
-| `UNKNOWN` | Transaction hasn't yet reached consensus, or has already expired |
+| `UNKNOWN` | This node has submitted this transaction to the network. Status of the transaction is currently unknown. |
 
 ## Keys
 

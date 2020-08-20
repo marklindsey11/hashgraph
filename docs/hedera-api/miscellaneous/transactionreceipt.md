@@ -66,32 +66,7 @@ The summary of a transaction’s result so far. If the transaction has not reach
         <p>In the receipt of a ConsensusSubmitMessage, the new running hash of the
           topic that received the message. This 48-byte field is the output of a
           particular SHA-384 digest whose input data are determined by the value
-          of the topicRunningHashVersion below. The bytes of each uint64 or uint32
-          are to be in Big-Endian format.</p>
-        <ol>
-          <li>The previous running hash of the topic (48 bytes)</li>
-          <li>The topic&apos;s shard (8 bytes)</li>
-          <li>The topic&apos;s realm (8 bytes)</li>
-          <li>The topic&apos;s number (8 bytes)</li>
-          <li>The number of seconds since the epoch before the ConsensusSubmitMessage
-            reached consensus (8 bytes)</li>
-          <li>The number of nanoseconds since 5. before the ConsensusSubmitMessage reached
-            consensus (4 bytes)</li>
-          <li>The topicSequenceNumber from above (8 bytes)</li>
-          <li>The message bytes from the ConsensusSubmitMessage (variable).</li>
-          <li>The previous running hash of the topic (48 bytes)</li>
-          <li>The topicRunningHashVersion below (8 bytes)</li>
-          <li>The topic&apos;s shard (8 bytes)</li>
-          <li>The topic&apos;s realm (8 bytes)</li>
-          <li>The topic&apos;s number (8 bytes)</li>
-          <li>The number of seconds since the epoch before the ConsensusSubmitMessage
-            reached consensus (8 bytes)</li>
-          <li>The number of nanoseconds since 6. before the ConsensusSubmitMessage reached
-            consensus (4 bytes)</li>
-          <li>The topicSequenceNumber from above (8 bytes)</li>
-          <li>The output of the SHA-384 digest of the message bytes from the consensusSubmitMessage
-            (48 bytes)</li>
-        </ol>
+          of the topicRunningHashVersion. Please see table below.</p>
       </td>
     </tr>
     <tr>
@@ -99,6 +74,73 @@ The summary of a transaction’s result so far. If the transaction has not reach
       <td style="text-align:left"></td>
       <td style="text-align:left">In the receipt of a ConsensusSubmitMessage, the version of the SHA-384
         digest used to update the running hash.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Topic Running Hash 
+
+The input data to the SHA-384 digest in order.
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">topicRunningHashVersion</th>
+      <th style="text-align:left">Input data to the SHA-384 digest in order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">0 or 1</td>
+      <td style="text-align:left">
+        <p>1. The previous running hash of the topic (48 bytes)</p>
+        <p>2. The topic&apos;s shard (8 bytes)</p>
+        <p>3. The topic&apos;s realm (8 bytes)</p>
+        <p>4. The topic&apos;s number (8 bytes)</p>
+        <p>5. The number of seconds since the epoch before the ConsensusSubmitMessage
+          reached consensus (8 bytes)</p>
+        <p>6. The number of nanoseconds since 5. before the ConsensusSubmitMessage
+          reached consensus (4 bytes)</p>
+        <p>7. The topicSequenceNumber from above (8 bytes)</p>
+        <p>8. The message bytes from the ConsensusSubmitMessage (variable).</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">2</td>
+      <td style="text-align:left">
+        <p>1. The previous running hash of the topic (48 bytes)</p>
+        <p>2. The topicRunningHashVersion below (8 bytes)</p>
+        <p>3. The topic&apos;s shard (8 bytes)</p>
+        <p>4. The topic&apos;s realm (8 bytes)</p>
+        <p>5. The topic&apos;s number (8 bytes)</p>
+        <p>6. The number of seconds since the epoch before the ConsensusSubmitMessage
+          reached consensus (8 bytes)</p>
+        <p>7. The number of nanoseconds since 6. before the ConsensusSubmitMessage
+          reached consensus (4 bytes)</p>
+        <p>8. The topicSequenceNumber from above (8 bytes)</p>
+        <p>9. The output of the SHA-384 digest of the message bytes from the consensusSubmitMessage
+          (48 bytes)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">3</td>
+      <td style="text-align:left">
+        <p>1. The previous running hash of the topic (48 bytes)</p>
+        <p>2. The topicRunningHashVersion below (8 bytes)</p>
+        <p>3. The payer account&apos;s shard (8 bytes)</p>
+        <p>4. The payer account&apos;s realm (8 bytes)</p>
+        <p>5. The payer account&apos;s number (8 bytes)</p>
+        <p>6. The topic&apos;s shard (8 bytes)</p>
+        <p>7. The topic&apos;s realm (8 bytes)</p>
+        <p>8. The topic&apos;s number (8 bytes)</p>
+        <p>9. The number of seconds since the epoch before the ConsensusSubmitMessage
+          reached consensus (8 bytes)</p>
+        <p>10. The number of nanoseconds since 9. before the ConsensusSubmitMessage
+          reached consensus (4 bytes)</p>
+        <p>11. The topicSequenceNumber from above (8 bytes)</p>
+        <p>12. The output of the SHA-384 digest of the message bytes from the consensusSubmitMessage
+          (48 bytes)</p>
+      </td>
     </tr>
   </tbody>
 </table>
