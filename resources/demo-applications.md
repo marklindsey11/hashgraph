@@ -25,6 +25,7 @@ description: Examples of different use cases and projects built on Hedera.
 | MyHbarWallet | [GitHub](%20https://github.com/hashgraph/MyHbarWallet) | Hedera |
 | Proof-of-action pasteboard | [GitHub](%20https://github.com/hashgraph/hedera-proof-of-action-demo-pasteboard) | Hedera |
 | HCS based chat | [GitHub](%20https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |
+| Theft prevention | [GitHub](https://github.com/hashgraph/hedera-theft-prevention-demo) | Hedera |
 | Others | Coming soon! | Community |
 {% endtab %}
 
