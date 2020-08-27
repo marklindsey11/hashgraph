@@ -47,7 +47,7 @@ As transactions reach consensus on the Hedera network, either mainnet or testnet
 
 Once a record file is closed, the consensus nodes generate a signature file. The signature file contains a signature for the corresponding record file’s hash. Along with the signature file of the consensus node, the record file also contains the hash of the previous record file. The former record file can now be verified by matching the hash of the previous record file.
 
-Hedera consensus nodes push new record files and signature files to the cloud storage provider – currently AWS S3 and Google File Storage are supported, but not yet available. Mirror nodes download these files, verify their signatures based upon their hashes, and only then make them available to be processed.
+Hedera consensus nodes push new record files and signature files to the cloud storage provider – currently AWS S3 and Google File Storage are supported. Mirror nodes download these files, verify their signatures based upon their hashes, and only then make them available to be processed.
 
 ## Using Mirror Nodes
 
