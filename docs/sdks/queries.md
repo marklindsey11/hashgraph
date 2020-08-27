@@ -2,12 +2,12 @@
 
 Queries are requests that do not require network consensus. Queries are processed only by the single node the request is sent to. Below is a list of network queries by service.
 
-| Cryptocurrency Accounts | File Service | Smart Contracts |
-| :--- | :--- | :--- |
-| AccountBalanceQuery | FileContentsQuery | ContractCallQuery |
-| AccountInfoQuery | FileInfoQuery | ContractByteCodeQuery |
-| AccountRecordQuery |  | ContractInfoQuery |
-|  |  | ContractRecordQuery |
+| Cryptocurrency Accounts | Consensus | File Service | Smart Contracts |
+| :--- | :--- | :--- | :--- |
+| AccountBalanceQuery | ConsensusTopicInfoQuery | FileContentsQuery | ContractCallQuery |
+| AccountInfoQuery |  | FileInfoQuery | ContractByteCodeQuery |
+| AccountRecordQuery |  |  | ContractInfoQuery |
+|  |  |  | ContractRecordQuery |
 
 The following methods can be called when building the above queries
 

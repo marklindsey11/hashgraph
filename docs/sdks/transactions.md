@@ -6,12 +6,12 @@ Transactions are requests that are submitted by a client to a node in the Hedera
 Transactions have a 6,144 kb transaction size limit. This includes the signatures on the transaction. The estimated single signature size is about 80-100 bytes.
 {% endhint %}
 
-| Cryyptocurrency Accounts | File Service | Smart Contracts |
-| :--- | :--- | :--- |
-| AccountCreateTransaction | FileCreateTransaction | ContractCreateTransaction |
-| AccountUpdateTransaction | FileAppendTransaction | ContractUpdateTransaction |
-| CryptoTransferTransaction | FileUpdateTransaction | ContractDeleteTransaction |
-| AccountDeleteTransaction | FileDeleteTransaction |  |
+| Cryyptocurrency Accounts | Consensus | File Service | Smart Contracts |
+| :--- | :--- | :--- | :--- |
+| AccountCreateTransaction | ConsensusTopicCreateTransaction | FileCreateTransaction | ContractCreateTransaction |
+| AccountUpdateTransaction | ConsensusTopicUpdateTransaction | FileAppendTransaction | ContractUpdateTransaction |
+| CryptoTransferTransaction | ConsensusMessageSubmitTransaction | FileUpdateTransaction | ContractDeleteTransaction |
+| AccountDeleteTransaction | ConsensusTopicCreateTransaction | FileDeleteTransaction |  |
 
 
 
