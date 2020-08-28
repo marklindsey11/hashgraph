@@ -11,7 +11,7 @@ Transactions have a 6,144 kb transaction size limit. This includes the signature
 | AccountCreateTransaction | ConsensusTopicCreateTransaction | FileCreateTransaction | ContractCreateTransaction |
 | AccountUpdateTransaction | ConsensusTopicUpdateTransaction | FileAppendTransaction | ContractUpdateTransaction |
 | CryptoTransferTransaction | ConsensusMessageSubmitTransaction | FileUpdateTransaction | ContractDeleteTransaction |
-| AccountDeleteTransaction | ConsensusTopicCreateTransaction | FileDeleteTransaction |  |
+| AccountDeleteTransaction | ConsensusTopicDeleteTransaction | FileDeleteTransaction |  |
 
 
 
