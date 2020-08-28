@@ -68,9 +68,9 @@ cd hedera-mirror-node
 
 | Provider | **Network** | Name |
 | :--- | :--- | :--- |
-| GCP | Testnet | hedera-stable-testnet-streams |
+| GCP | Testnet | hedera-stable-testnet-streams-2020-08-27 |
 |  | Mainnet | hedera-mainnet-streams |
-| S3 | Testnet | hedera-stable-testnet-streams |
+| S3 | Testnet | hedera-stable-testnet-streams-2020-08-27 |
 |  | Mainnet | hedera-mainnet-streams |
 
 {% tabs %}
@@ -96,7 +96,7 @@ hedera:
     importer: 
       downloader:
         accessKey: GOOG....
-        bucketName: hedera-stable-testnet-streams
+        bucketName: hedera-stable-testnet-streams-2020-08-27
         cloudProvider: "GCP"
         secretKey: h+....
         gcpProjectId: 

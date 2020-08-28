@@ -9,7 +9,7 @@ You will need the following information:
 * Importer GCP access key
 * Importer GCS bucket name
   * Mainnet: hedera-mainnet-streams
-  * Testnet: hedera-stable-testnet-streams
+  * Testnet: hedera-stable-testnet-streams-2020-08-27
 * Importer GCP billing project ID
 * Importer GCP secret key
 
