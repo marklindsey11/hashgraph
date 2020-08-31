@@ -11,7 +11,7 @@
 ## [v0.7.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.7.0-alpha1)
 
 {% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: SEPTEMBER 3, 2020**
+**MAINNET UPDATE SCHEDULED: TBD**
 {% endhint %}
 
 {% hint style="success" %}
