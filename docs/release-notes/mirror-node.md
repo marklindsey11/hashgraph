@@ -1,3 +1,7 @@
+---
+description: Hedera mirror node release notes
+---
+
 # Mirror Node
 
 | Network | Current Version | Upcoming Version |
@@ -8,24 +12,37 @@
 
 ## Upcoming Releases
 
+## [v0.17.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.0)
+
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: TBD**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPGRADE SCHEDULED: TBD**
+{% endhint %}
+
+This release adds support for the storage of the network address books from file `0.0.101` and `0.0.102`in the mirror node database.  
+The mirror node will now retrieve file address book contents which include node identifiers and their public keys from the database instead of the file system at startup.
+
+This sets the stage for an additional feature which is the State Proof alpha REST API at `/transactions/${transactionId}/stateproof`.  
+With this release it is possible to request the address book, record file and signature files that contain the contents of a transaction and allow for cryptographic verification of the transaction. Mirror node users can now actively verify submitted transactions for themselves.
+
+Other changes include support for continuous deployment \(CD\) using [Github Actions](https://github.com/features/actions) that use [FluxCD](https://fluxcd.io/) to deploy master versions to a Kubernetes cluster. Additionally, this release includes fixes to the database copy operation optimization and improved handling of buffer size used when copying large topic messages.
+
+
+
 ## [v0.16.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.16.0)
 
 {% hint style="success" %}
 **TESTNET UPGRADE COMPLETED: AUGUST 18, 2020**
 {% endhint %}
 
-### New Features
+This release includes the foundation for some larger features to come. Notably, cloud bucket names are now set based on network specifications and users no longer need to explicitly state bucket names for demo, test and main networks. The `record_file` table contents are also expanded to include the start and end consensus timestamps of their containing transactions. The `record_file` table also saw a clean up to remove the path to the file.
 
-* Bump versions for v0.16.0 [\#953](https://github.com/hashgraph/hedera-mirror-node/pull/953)
-* Bump versions for v0.16.0-rc1 [\#916](https://github.com/hashgraph/hedera-mirror-node/pull/916)
-* Add hedera-mirror-common chart [\#909](https://github.com/hashgraph/hedera-mirror-node/pull/909)
-* Add Dependabot [\#877](https://github.com/hashgraph/hedera-mirror-node/pull/877)
-* Populate consensus\_\(start\|end\) for historical entries in t\_record\_files and fix name column [\#876](https://github.com/hashgraph/hedera-mirror-node/pull/876)
-* Populate consensus start and end timestamps for historical record files [\#864](https://github.com/hashgraph/hedera-mirror-node/issues/864)
-* Hardcode bucket names to network enum [\#858](https://github.com/hashgraph/hedera-mirror-node/pull/858)
-* Hardcode bucket names [\#844](https://github.com/hashgraph/hedera-mirror-node/issues/844)
-* Events Downloader [\#811](https://github.com/hashgraph/hedera-mirror-node/issues/811)
-* Record file name stored in database includes path to file [\#102](https://github.com/hashgraph/hedera-mirror-node/issues/102)
+Additionally, this release streamlines the helm chart architecture with a common chart for shared resources. It also adds dependabot to facilitate dependency update management. The parser was also update to handle signature files across multiple time bucket groups for greater parsing robustness.
+
+Memory improvements were also made in the parser to improve ingestion performance. Due to performance pg notify was also removed in favor of direct psql notify to support faster streaming of incoming topic messages.
 
 ## Latest Releases
 
