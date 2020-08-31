@@ -18,8 +18,7 @@
 **TESTNET UPDATE COMPLETED: AUGUST 20, 2020**
 {% endhint %}
 
-In Hedera Services v0.7.0, we’ve moved to Swirlds SDK release `0.7.2` which enables zero-stake nodes to be part of a network without affecting consensus. Hedera Services v0.7.0 migrated to new interfaces and methods provided in this version of the Swirlds SDK.  
-HCS topic running hashes are now calculated including the payer account id. The release includes other minor fixes and improvements.
+In Hedera Services v0.7.0, we’ve moved to Swirlds SDK release `0.7.2` which enables zero-stake nodes to be part of a network without affecting consensus. Hedera Services v0.7.0 migrated to new interfaces and methods provided in this version of the Swirlds SDK. HCS topic running hashes are now calculated including the payer account id. The release includes other minor fixes and improvements.
 
 ## Latest Releases
 

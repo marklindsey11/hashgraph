@@ -88,6 +88,7 @@ Next, you will learn how to create a Hedera testnet account.
 
 What your code should look like at this point:
 
+{% code title="HederaExamples.java" %}
 ```java
 import com.hedera.hashgraph.sdk.Client;
 import com.hedera.hashgraph.sdk.HederaStatusException;
@@ -110,4 +111,5 @@ public class HederaExamples {
     }
 }
 ```
+{% endcode %}
 

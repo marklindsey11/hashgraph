@@ -103,11 +103,9 @@ public class HederaExamples {
         Client client = Client.forTestnet();
         client.setOperator(myAccountId, myPrivateKey);
 
-
         // Generate a new pair of keys
         Ed25519PrivateKey newAccountPrivateKey = Ed25519PrivateKey.generate();
         Ed25519PublicKey newAccountPublicKey = newAccountPrivateKey.publicKey;
-
 
         // Create new account and assign the public key
         TransactionId newAccount = new AccountCreateTransaction()
