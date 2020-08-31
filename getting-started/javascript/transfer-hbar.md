@@ -20,26 +20,26 @@ Note: This example uses **Hedera JavaScript SDK 1.1.2.** The latest version may 
 
 You will likely already have a few of these modules listed from the previous sections.
 
-{% tabs %}
-{% tab title="index.js" %}
+{% code title="index.js" %}
 ```javascript
 // Import the following modules
 const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery, CryptoTransferTransaction, Hbar } = require("@hashgraph/sdk");
 require("dotenv").config();
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ## Step 2: Create a transfer transaction
 
 You should already have a new account ID from the account you created from the [Create an account](create-an-account.md) section. You will transfer 1,000 tinybars from your account to the new account. The account sending hbars is the signature that is required for this transaction to be processed. 
 
+{% code title="index.js" %}
 ```javascript
 const transferTransactionId = await new CryptoTransferTransaction()
     .addSender(myAccountId, 1000)
     .addRecipient(newAccountId, 1000)
     .execute(client);
 ```
+{% endcode %}
 
 {% hint style="info" %}
 The net value of the transfer must equal zero \(total number of hbars sent by the sender must equal the total number of hbars received by the recipient\). 
@@ -49,10 +49,12 @@ The net value of the transfer must equal zero \(total number of hbars sent by th
 
 To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transaction. The receipt will let you know if the transaction was successful \(reached consensus\) or not.
 
+{% code title="index.js" %}
 ```javascript
 const transactionReceipt = await transferTransactionId.getReceipt(client);
 console.log("The transfer transaction from my account to the new account was: " + transactionReceipt.status);
 ```
+{% endcode %}
 
 ## Step 4: Get the updated account balance
 
@@ -60,6 +62,7 @@ console.log("The transfer transaction from my account to the new account was: " 
 
 You can request the cost of a query prior to submitting the query to the Hedera network. Checking an account balance is free of charge today. You can verify that by the method below.
 
+{% code title="index.js" %}
 ```javascript
 //Request the cost of the query
 const getBalanceCost = await new AccountBalanceQuery()
@@ -68,11 +71,13 @@ const getBalanceCost = await new AccountBalanceQuery()
 
 console.log(`The cost of query is: ${getBalanceCost}`);
 ```
+{% endcode %}
 
 ### 4.2  Get the account balance 
 
 You will verify the account balance was updated for the new account by requesting a get account balance query. The current account balance should be the sum of the initial balance \(1,000 tinybar\) plus the transfer amount \(1,000 tinybar\) and equal to 2,000 tinybars. 
 
+{% code title="index.js" %}
 ```javascript
 //Check the new account's balance
 const getNewBalance = await new AccountBalanceQuery()
@@ -81,6 +86,7 @@ const getNewBalance = await new AccountBalanceQuery()
 
 console.log("The account balance after the transfer is: " +getNewBalance +" tinybar.")
 ```
+{% endcode %}
 
 ⭐ Congratulations!  You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
@@ -96,6 +102,7 @@ Do you want to keep learning? Visit our "Resources" and "Documentation" section 
 
 Your complete index.js file should look something like this:
 
+{% code title="index.js" %}
 ```javascript
 const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery, CryptoTransferTransaction } = require("@hashgraph/sdk");
 require("dotenv").config();
@@ -170,4 +177,5 @@ async function main() {
 }
 main();
 ```
+{% endcode %}
 
