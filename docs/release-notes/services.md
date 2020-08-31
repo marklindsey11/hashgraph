@@ -1,3 +1,7 @@
+---
+description: Hedera Services release information
+---
+
 # Hedera Services
 
 | Network | Current Version | Upcoming |
@@ -18,7 +22,30 @@
 **TESTNET UPDATE COMPLETED: AUGUST 20, 2020**
 {% endhint %}
 
-In Hedera Services v0.7.0, we’ve moved to Swirlds SDK release `0.7.2` which enables zero-stake nodes to be part of a network without affecting consensus. Hedera Services v0.7.0 migrated to new interfaces and methods provided in this version of the Swirlds SDK. HCS topic running hashes are now calculated including the payer account id. The release includes other minor fixes and improvements.
+In Hedera Services v0.7.0, we’ve moved to Swirlds SDK release `0.7.3` which enables zero-stake nodes to be part of a network without affecting consensus. Hedera Services v0.7.0 migrated to new interfaces and methods provided in this version of the Swirlds SDK. HCS topic running hashes are now calculated including the payer account id. The release includes other minor fixes and improvements.
+
+**Enhancements**
+
+* Migrate to Swirlds SDK release `0.7.3` with appropriate settings and logging configurations [\#347](https://github.com/hashgraph/hedera-services/issues/347), [\#427](https://github.com/hashgraph/hedera-services/issues/427)
+* Update HCS topic running hash to include the payer account id [\#88](https://github.com/hashgraph/hedera-services/issues/88)
+* Add zero-stake node functionality [\#274](https://github.com/hashgraph/hedera-services/issues/274)
+* Add new stats for the average size of HCS submit message transactions that got handled and for counting the number of platform transactions not created per second [\#316](https://github.com/hashgraph/hedera-services/issues/316), [\#334](https://github.com/hashgraph/hedera-services/issues/334)
+* Change gRPC CipherSuite to be CNSA compliant [\#215](https://github.com/hashgraph/hedera-services/issues/215)
+* Make recordLogPeriod dynamic with a default of 2 seconds [\#315](https://github.com/hashgraph/hedera-services/issues/315)
+* Add record with 3-min expiry to effective payer account after handling transaction [\#348](https://github.com/hashgraph/hedera-services/issues/348)
+* Enhancements for going open source [\#378](https://github.com/hashgraph/hedera-services/issues/378), [\#379](https://github.com/hashgraph/hedera-services/issues/379)
+
+**Documentation changes**
+
+* Clarify interpretation of response codes `UNKNOWN` and `PLATFORM_TRANSACTION_NOT_CREATED` [\#314](https://github.com/hashgraph/hedera-services/issues/314), [\#394](https://github.com/hashgraph/hedera-services/issues/394)
+
+**Bug fixes**
+
+* Prevent `CryptoCreate` and `CryptoUpdate` transactions from giving an account an empty key [\#58](https://github.com/hashgraph/hedera-services/issues/58), [\#60](https://github.com/hashgraph/hedera-services/issues/60)
+* Fix incorrect submitted smart contract transactions count [\#371](https://github.com/hashgraph/hedera-services/issues/371)
+* Validate total ledger balance before starting up Services [\#258](https://github.com/hashgraph/hedera-services/issues/258)
+* Add a new rolling file to log all queries with controlled maximum rate [\#59](https://github.com/hashgraph/hedera-services/issues/59)
+* Other minor bugs [\#373](https://github.com/hashgraph/hedera-services/issues/373)
 
 ## Latest Releases
 
