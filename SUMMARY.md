@@ -7,7 +7,7 @@
     * [Node Requirements](mainnet/mainnet-nodes/node-requirements/README.md)
       * [Reference Configuration](mainnet/mainnet-nodes/node-requirements/reference-configuration.md)
       * [FAQ](mainnet/mainnet-nodes/node-requirements/faq.md)
-  * [Fees \(Beta\)](mainnet/fees/README.md)
+  * [Fees](mainnet/fees/README.md)
     * [Transaction Records](mainnet/fees/transaction-records.md)
 * [Testnets](testnet/README.md)
   * [Testnet Access](testnet/testnet-access.md)

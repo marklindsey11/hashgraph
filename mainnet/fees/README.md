@@ -1,9 +1,10 @@
 ---
 title: Fees (Beta)
 excerpt: Network fees for the Hedera mainnet and testnet
+description: Hedera network fees
 ---
 
-# Fees \(Beta\)
+# Fees
 
 The Hedera testnet fees tables found below offers a low-end estimate of transaction and query fees for all network services. The tables below contain USD, HBAR, and Tinybar \(tℏ\) values per each API call. All operation fees on the Hedera testnet are paid in test HBAR, which is freely available and only useful for development purposes.
 

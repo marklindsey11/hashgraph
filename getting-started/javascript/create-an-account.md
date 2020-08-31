@@ -8,6 +8,8 @@ The following sample will show you how to make a simple Hedera account. Hedera a
 
 {% page-ref page="environment-set-up.md" %}
 
+{% page-ref page="../../core-concepts/accounts.md" %}
+
 {% hint style="warning" %}
 Note: This example uses **Hedera JavaScript SDK 1.1.2.** The latest version may not be compatible with the provided examples. View Hedera Hashgraph's JavaScript SDK [here](https://github.com/hashgraph/hedera-sdk-js). 
 {% endhint %}

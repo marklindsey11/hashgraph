@@ -2,7 +2,7 @@
 
 ## Hedera Hashgraph
 
-Hedera is a public distributed ledger for building and deploying decentralized applications and microservices. You can use Hedera’s network services–Cryptocurrency, Smart Contracts, and File Service–atop the [hashgraph consensus algorithm](core-concepts/hashgraph-consensus-algorithms/), to build applications with high throughput, fair ordering, and low-latency consensus finality in seconds without relying on centralized infrastructure.
+Hedera is a public distributed ledger for building and deploying decentralized applications and microservices. You can use Hedera’s network services–Cryptocurrency, Consensus, Smart Contracts, and File Service–atop the [hashgraph consensus algorithm](core-concepts/hashgraph-consensus-algorithms/), to build applications with high throughput, fair ordering, and low-latency consensus finality in seconds without relying on centralized infrastructure.
 
 The network is made up of permissioned nodes run by the the [Hedera Governing Council](https://hedera.com/council), a group of term-limited enterprises that lead the network's direction. Over time the network will [move to a permissionless model](https://www.youtube.com/watch?v=QTNNYeSks-s).
 
@@ -12,7 +12,7 @@ Ready to submit your first transaction to a Hedera network? Visit our [Getting S
 
 #### What is hashgraph?
 
-Hashgraph is a distributed consensus algorithm and data structure that is fast, fair, and secure. This indirectly creates a trusted community, even when members do not necessarily trust each other. Hedera is the only authorized public network to use hashgraph.
+Hashgraph is a distributed consensus algorithm and data structure that is fast, fair, and secure. This indirectly creates a trusted community, even when members do not necessarily trust each other. Hedera is the only authorized public network to use hashgraph. You can learn more about the consensus algorithm [here](core-concepts/hashgraph-consensus-algorithms/).
 
 #### Under Development
 

@@ -8,6 +8,10 @@ In this section, you will learn how to make a simple Hedera account. Hedera acco
 
 {% page-ref page="environment-set-up.md" %}
 
+{% page-ref page="../../core-concepts/accounts.md" %}
+
+
+
 {% hint style="warning" %}
 Note: This example uses **Hedera Java SDK 1.1.5.** The latest Hedera Java SDK version can be found [here](https://github.com/hashgraph/hedera-sdk-java), however may not be compatible with the following sample. 
 {% endhint %}
