@@ -86,7 +86,7 @@ console.log("The account balance after the transfer is: " +getNewBalance +" tiny
 * Created an account 
 * Transferred hbars to another account
 
-Do you want to keep learning? Visit our advanced section to take your learning experience to the next level. You can also find additional JavaScript SDK examples [here](https://github.com/hashgraph/hedera-sdk-js/tree/master/examples). 
+Do you want to keep learning? Visit our "Resources" and "Documentation" section to take your learning experience to the next level. You can also find additional JavaScript SDK examples [here](https://github.com/hashgraph/hedera-sdk-js/tree/master/examples). 
 
 
 

@@ -72,7 +72,7 @@ System.out.println("The new account balance is: " +accountBalanceNew);
 * Created an account 
 * Transferred hbars to another account
 
-Do you want to keep learning? Visit our advanced section to take your learning experience to the next level. You can also find additional Java SDK examples [here](https://github.com/hashgraph/hedera-sdk-java/tree/master/examples/src/main/java/com/hedera/hashgraph/sdk/examples). 
+Do you want to keep learning? Visit our "Resources" and "Documentation" section to take your learning experience to the next level. You can also find additional Java SDK examples [here](https://github.com/hashgraph/hedera-sdk-java/tree/master/examples/src/main/java/com/hedera/hashgraph/sdk/examples). 
 
 ## Code Check ✅ 
 
