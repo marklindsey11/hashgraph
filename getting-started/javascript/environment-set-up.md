@@ -95,6 +95,7 @@ This file will contain the code we will right in the following samples. Your pro
 
 Grab your Hedera testnet account ID and private key from the .env file.
 
+{% code title="index.js" %}
 ```javascript
 const { Client } = require("@hashgraph/sdk");
 require("dotenv").config();
@@ -113,6 +114,7 @@ async function main() {
 }
 main();
 ```
+{% endcode %}
 
 ## Step 5: Create your Hedera testnet client
 
@@ -120,18 +122,15 @@ You have the option to create a client for the Hedera mainnet or testnet. Since 
 
 After you create your Hedera testnet client, you will need to set the operator information. The operator is the account that will pay for the transaction and query fees. You will need to sign the transaction or query with the private key of the account to authorize the payment.
 
-{% tabs %}
-{% tab title="index.js" %}
+{% code title="index.js" %}
 ```javascript
+// Create our connection to the Hedera network
+// The Hedera JS SDK makes this reallyyy easy!
+const client = Client.forTestnet();
 
-    // Create our connection to the Hedera network
-    // The Hedera JS SDK makes this reallyyy easy!
-    const client = Client.forTestnet();
-
-    client.setOperator(myAccountId, myPrivateKey);
+client.setOperator(myAccountId, myPrivateKey);
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 {% hint style="info" %}
 The client has a default **max transaction fee** of 100,000,000 tinybars \(1hbar\) and default **max query payment** of 100,000,000 tinybars \(1 hbar\). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries. 
@@ -145,6 +144,7 @@ Next, you will learn how to create a Hedera testnet account.
 
 What your index.js file should look like at this point:
 
+{% code title="index.js" %}
 ```javascript
 const { Client } = require("@hashgraph/sdk");
 require("dotenv").config();
@@ -169,4 +169,5 @@ async function main() {
 }
 main();
 ```
+{% endcode %}
 

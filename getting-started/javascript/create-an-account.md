@@ -16,7 +16,11 @@ Note: This example uses **Hedera JavaScript SDK 1.1.2.** The latest version may 
 
 ## Step 1: Import the following modules to your project
 
-You will likely have a few of these modules from the previous section.
+Continue building on the index.js from the previous example \([Environment Set-up](../java/environment-set-up.md)\) and add the following modules:
+
+* Ed25519PrivateKey
+* AccountCreateTransaction
+* AccountBalanceQuery
 
 {% code title="index.js" %}
 ```javascript
@@ -31,6 +35,10 @@ You will need to generate a pair of keys to assign to the new account in the nex
 
 {% code title="index.js" %}
 ```javascript
+//const client = Client.forTestnet();
+//client.setOperator(myAccountId, myPrivateKey);
+//-----------------------<enter code below>--------------------------------------
+
 //Create new keys
 const newAccountPrivateKey = await Ed25519PrivateKey.generate(); 
 const newAccountPublicKey = newAccountPrivateKey.publicKey;
@@ -73,6 +81,7 @@ Next, you will submit a query to the Hedera test network to return the balance o
 
 {% code title="index.js" %}
 ```javascript
+//Verify the account balance
 const accountBalance = await new AccountBalanceQuery()
     .setAccountId(newAccountId)
     .execute(client);
@@ -103,7 +112,7 @@ async function main() {
     const myAccountId = process.env.MY_ACCOUNT_ID;
     const myPrivateKey = process.env.MY_PRIVATE_KEY;
 
-    // If we weren't able to grab it, we should throw a new error
+    //If we weren't able to grab it, we should throw a new error
     if (myAccountId == null ||
         myPrivateKey == null ) {
         throw new Error("Environment variables myAccountId and myPrivateKey must be present");
@@ -111,10 +120,9 @@ async function main() {
 
     console.log(myAccountId, myPrivateKey);
 
-    // Create our connection to the Hedera network
-    // The Hedera JS SDK makes this reallyyy easy!
+    //Create our connection to the Hedera network
+    //The Hedera JS SDK makes this reallyyy easy!
     const client = Client.forTestnet();
-
     client.setOperator(myAccountId, myPrivateKey);
 
     //Create new keys

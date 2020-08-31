@@ -27,7 +27,7 @@ Continue building on the HederaExamples file from the previous section.
 //Create your Hedera testnet client
 //Client client = Client.forTestnet();
 //client.setOperator(myAccountId, myPrivateKey)
-//----------------------<previous code>----------------------------------------
+//-----------------------<enter code below>--------------------------------------
 
 // Generate a new key pair
 Ed25519PrivateKey newAccountPrivateKey = Ed25519PrivateKey.generate();

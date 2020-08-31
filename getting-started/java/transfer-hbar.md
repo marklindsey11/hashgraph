@@ -20,13 +20,18 @@ Note: This example uses **Hedera Java SDK 1.1.5.** The latest Hedera Java SDK ve
 
 You should already have a new account ID from the account you created in the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your account to the new account. The account sending hbars is the signature that is required for this transaction to be processed. 
 
+{% code title="HederaExamples.js" %}
 ```java
+//System.out.println("The new account balance is: " +accountBalance);
+//-----------------------<enter code below>--------------------------------------
+
 //Transfer hbar
 TransactionId sendHbar = new CryptoTransferTransaction()
      .addSender(myAccountId, 1000)
      .addRecipient(newAccountId, 1000)
      .execute(client);
 ```
+{% endcode %}
 
 {% hint style="info" %}
 The net value of the transfer must equal zero \(total number of hbars sent by the sender must equal the total number of hbars received by the recipient\). 
@@ -36,9 +41,11 @@ The net value of the transfer must equal zero \(total number of hbars sent by th
 
 To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transfer transaction. The receipt will let you know if the transaction was successful or not.
 
+{% code title="HederaExamples.js" %}
 ```java
 System.out.println("The transfer transaction was: " +sendHbar.getReceipt(client).status);
 ```
+{% endcode %}
 
 ## Step 3. Get the account balance
 
@@ -46,27 +53,31 @@ System.out.println("The transfer transaction was: " +sendHbar.getReceipt(client)
 
 You can request the cost of a query prior to submitting the query to the Hedera network. Checking an account balance is free of charge today. You can verify that by the method below.
 
+{% code title="HederaExamples.java" %}
 ```java
-// Request the cost of the query
+//Request the cost of the query
 long queryCost = new AccountBalanceQuery()
      .setAccountId(newAccountId)
      .getCost(client);
         
 System.out.println("The cost of this query is: " +queryCost);
 ```
+{% endcode %}
 
 ### 3.2 Get the account balance
 
 You will verify the account balance was updated for the new account by requesting a get account balance query. The current account balance should be the sum of the initial balance \(1,000 tinybar\) plus the transfer amount \(1,000 tinybar\) and equal to 2,000 tinybars. 
 
+{% code title="HederaExamples.java" %}
 ```java
-// Check the new account's balance
+//Check the new account's balance
 Hbar accountBalanceNew = new AccountBalanceQuery()
      .setAccountId(newAccountId)
      .execute(client);
 
 System.out.println("The new account balance is: " +accountBalanceNew);
 ```
+{% endcode %}
 
 ⭐ Congratulations! You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
@@ -80,6 +91,7 @@ Do you want to keep learning? Visit our "Resources" and "Documentation" section 
 
 Your complete code file should look something like this:
 
+{% code title="HederaExamples.java" %}
 ```java
 import com.hedera.hashgraph.sdk.Client;
 import com.hedera.hashgraph.sdk.Hbar;
@@ -105,22 +117,22 @@ public class HederaExamples {
         Client client = Client.forTestnet();
         client.setOperator(myAccountId, myPrivateKey);
 
-        // Generate a new pair of keys
+        //Generate a new pair of keys
         Ed25519PrivateKey newAccountPrivateKey = Ed25519PrivateKey.generate();
         Ed25519PublicKey newAccountPublicKey = newAccountPrivateKey.publicKey;
 
-        // Create new account and assign the public key
+        //Create new account and assign the public key
         TransactionId newAccount = new AccountCreateTransaction()
                 .setKey(newAccountPublicKey)
                 .setInitialBalance(1000)
                 .execute(client);
 
-        // Get the new account ID
+        //Get the new account ID
         AccountId newAccountId = newAccount.getReceipt(client).getAccountId();
 
         System.out.println("The new account ID is: " +newAccountId);
 
-        // Check the new account's balance
+        //Check the new account's balance
         Hbar accountBalance = new AccountBalanceQuery()
                 .setAccountId(newAccountId)
                 .execute(client);
@@ -135,14 +147,14 @@ public class HederaExamples {
 
         System.out.println("The transfer transaction was: " +sendHbar.getReceipt(client).status);
         
-        // Request the cost of the query
+        //Request the cost of the query
         long queryCost = new AccountBalanceQuery()
                 .setAccountId(newAccountId)
                 .getCost(client);
         
         System.out.println("The cost of this query is: " +queryCost);
 
-        // Check the new account's balance
+        //Check the new account's balance
         Hbar accountBalanceNew = new AccountBalanceQuery()
                 .setAccountId(newAccountId)
                 .execute(client);
@@ -151,4 +163,5 @@ public class HederaExamples {
     }
 }
 ```
+{% endcode %}
 

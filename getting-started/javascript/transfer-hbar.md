@@ -18,22 +18,28 @@ Note: This example uses **Hedera JavaScript SDK 1.1.2.** The latest version may 
 
 ## Step 1: Import the following modules
 
-You will likely already have a few of these modules listed from the previous sections.
+Continue building on the index.js from the previous example \([Create an account](create-an-account.md)\) and add the following modules:
+
+* CryptoTransferTransaction
 
 {% code title="index.js" %}
 ```javascript
-// Import the following modules
-const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery, CryptoTransferTransaction, Hbar } = require("@hashgraph/sdk");
+//Import the following modules
+const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery, CryptoTransferTransaction } = require("@hashgraph/sdk");
 require("dotenv").config();
 ```
 {% endcode %}
 
 ## Step 2: Create a transfer transaction
 
-You should already have a new account ID from the account you created from the [Create an account](create-an-account.md) section. You will transfer 1,000 tinybars from your account to the new account. The account sending hbars is the signature that is required for this transaction to be processed. 
+You should already have a new account ID from the account you created from the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your account to the new account. The account sending hbars is the signature that is required for this transaction to be processed. 
 
 {% code title="index.js" %}
 ```javascript
+//console.log("The new account balance is: " +accountBalance +" tinybar.");
+//-----------------------<enter code below>--------------------------------------
+
+//Create the transfer transaction
 const transferTransactionId = await new CryptoTransferTransaction()
     .addSender(myAccountId, 1000)
     .addRecipient(newAccountId, 1000)
@@ -51,6 +57,7 @@ To verify the transfer transaction reached consensus by the network, you will su
 
 {% code title="index.js" %}
 ```javascript
+//Verify the transaction reached consensus
 const transactionReceipt = await transferTransactionId.getReceipt(client);
 console.log("The transfer transaction from my account to the new account was: " + transactionReceipt.status);
 ```
