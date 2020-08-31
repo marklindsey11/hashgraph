@@ -18,42 +18,38 @@ Note: This example uses **Hedera JavaScript SDK 1.1.2.** The latest version may 
 
 You will likely have a few of these modules from the previous section.
 
-{% tabs %}
-{% tab title="index.js" %}
+{% code title="index.js" %}
 ```javascript
 const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery } = require("@hashgraph/sdk");
 require("dotenv").config();
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ## Step 2: Generate keys for the new account
 
 You will need to generate a pair of keys to assign to the new account in the next step. Within the async function,  generate they private and public key pair for the new account. 
 
-{% tabs %}
-{% tab title="index.js" %}
+{% code title="index.js" %}
 ```javascript
+//Create new keys
 const newAccountPrivateKey = await Ed25519PrivateKey.generate(); 
 const newAccountPublicKey = newAccountPrivateKey.publicKey;
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ## Step 3: Create the new account 
 
 To create a new account you will submit an account create transaction to the Hedera test network. The account minimally requires you to set the key of the account at creation. This means that the corresponding private key will be required to sign transactions for the new account. The account will additionally have a starting balance of 1,000 tinybars. This initial balance is funded from your account to the new account. You can optionally choose to create an account with a zero balance. 
 
-{% tabs %}
-{% tab title="index.js" %}
+{% code title="index.js" %}
 ```javascript
+//Create a new account with 1,000 tinybar starting balance
 const newAccountTransactionId = await new AccountCreateTransaction()
     .setKey(newAccountPublicKey)
     .setInitialBalance(1000)
     .execute(client);
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 Additional properties can be set for accounts [here](https://docs.hedera.com/guides/docs/sdks/cryptocurrency/create-an-account). 
 
@@ -61,23 +57,21 @@ Additional properties can be set for accounts [here](https://docs.hedera.com/gui
 
 When you issue a transaction where it creates a new entity \(account, topic, etc\) the new entity ID is stored in the receipt of the transaction. You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
 
-{% tabs %}
-{% tab title="index.js" %}
+{% code title="index.js" %}
 ```javascript
+//Grab your Hedera testnet account ID and private key
 const getReceipt = await newAccountTransactionId.getReceipt(client);
 const newAccountId = getReceipt.getAccountId();
 
 console.log("The new account ID is: " +newAccountId);
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ## Step 5: Verify the new account balance
 
 Next, you will submit a query to the Hedera test network to return the balance of the new account using the new account ID. The current account balance for the new account should be 1,000 tinybars. 
 
-{% tabs %}
-{% tab title="index.js" %}
+{% code title="index.js" %}
 ```javascript
 const accountBalance = await new AccountBalanceQuery()
     .setAccountId(newAccountId)
@@ -85,8 +79,7 @@ const accountBalance = await new AccountBalanceQuery()
 
 console.log("The new account balance is: " +accountBalance +" tinybar.");
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ⭐ Congratulations! You have successfully completed the following:
 
