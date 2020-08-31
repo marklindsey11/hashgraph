@@ -8,6 +8,8 @@ In this section, you will learn how to transfer hbar from your account to anothe
 
 {% page-ref page="environment-set-up.md" %}
 
+{% page-ref page="../../core-concepts/accounts.md" %}
+
 {% page-ref page="create-an-account.md" %}
 
 {% hint style="warning" %}
