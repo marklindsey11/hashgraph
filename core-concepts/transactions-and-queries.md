@@ -1,8 +1,23 @@
+---
+description: An overview of Hedera API transactions and queries
+---
+
 # Transactions and Queries
 
-An overview of Hedera API transactions and queries
+## Transactions
 
-**Transactions** are requests sent by a client to a node with the expectation that it be submitted to the network for processing into consensus order and subsequent application to state. Each transaction \(e.g. `FileCreateTransaction()`\) has an associated fee that compensates the network for that processing and subsequent maintenance in consensus state.
+**Transactions** are requests sent by a client to a node with the expectation that it be submitted to the network for processing into consensus order and subsequent application to state. Each transaction \(e.g. `FileCreateTransaction()`\) has an associated fee that compensates the network for that processing and subsequent maintenance in consensus state. 
+
+**Transaction ID**
+
+Each transaction has a unique transaction ID. The transaction ID is used for retrieving the following:
+
+* Receipts and records
+* Appending to a file right after creating it
+* Instantiating a smart contract with bytecode in a file just created
+* Internally by the network for detecting when duplicate transactions are submitted
+
+The transaction ID is composed by using the transaction valid start time and the account ID of the account that paid for the transaction. A transaction ID looks something like  `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is timestamp in nanoseconds.
 
 A **transaction** generally includes the following:
 
@@ -43,6 +58,8 @@ Confirmations
 * **State proofs \(coming soon\):** When querying for a record, a client can optionally indicate that it desires the network to return a state proof in addition to the record. A state proof documents network consensus on the contents of that record in the consensus state — this collective assertion includes signatures of most of the network nodes. Because state proofs are cryptographically signed by a super majority of the network, they are secure and potentially admissible in a court of law.
 
 For a more detailed review of confirmation methods check out this [blog post](https://www.hedera.com/blog/transaction-confirmation-methods-in-hedera).
+
+## Queries
 
  **Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state. Certain queries are free but generally queries are subject to fees.
 
