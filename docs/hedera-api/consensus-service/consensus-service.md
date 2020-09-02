@@ -2,7 +2,7 @@
 
 The Consensus Service provides the ability for Hedera Hashgraph to provide aBFT consensus as to the order and validity of messages submitted to a topic, as well as a consensus timestamp for those messages.   
   
-Automatic renewal can be configured via an autoRenewAccount.   
+Automatic renewal can be configured via an autoRenewAccount \(not currently implemented\).   
 Any time an autoRenewAccount is added to a topic, that createTopic/updateTopic transaction must be signed by the autoRenewAccount.   
   
 The autoRenewPeriod on an account must currently be set a value in createTopic between MIN\_AUTORENEW\_PERIOD \(6999999seconds\) and MAX\_AUTORENEW\_PERIOD \(8000001 seconds\). During creation this sets the initial expirationTime of the topic \(see more below\).   
