@@ -29,5 +29,12 @@ Community members contribute to SDKs in other languages.
 | Hedera SDK for Rust | Community | Apache 2.0 | [github.com/launchbadge](https://github.com/launchbadge/hedera-sdk-rust) |
 | Hedera SDK for .NET | Community | Apache 2.0 | [github.com/bugbytesinc](https://github.com/bugbytesinc/Hashgraph) |
 
-Want to help contribute or have a project you'd like to see, here? Get in touch in [discord](https://discordapp.com/invite/FFb9YFX) or add a pull request.
+## Community Supported Development Tools
 
+Community members contribute to development tools other then SDKs that can be used to bootstrap your own projects.
+
+| Project | Maintainer | License | Download |
+| :--- | :--- | :--- | :--- |
+| Serverless Hedera REST API | Community | Apache 2.0 | [docs.trust.enterprises](https://docs.trust.enterprises/) |
+
+Want to help contribute or have a project you'd like to see, here? Get in touch in [discord](https://discordapp.com/invite/FFb9YFX) or add a pull request.
