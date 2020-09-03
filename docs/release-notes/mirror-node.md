@@ -7,20 +7,39 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.15.3 | 0.16.0 |
-| **Testnet** | 0.16.0 | 0.17.0 |
-| **Preview Testnet** | 0.16.0 | 0.17.0 |
+| **Testnet** | 0.17.3 | 0.18.0 |
 
 ## Upcoming Releases
 
+## [v0.18.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.18.0)
+
+Building upon the availability of the [State Proof Alpha REST API](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/docs/design/stateproofalpha.md) in the last release, we've added [sample code](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/hedera-mirror-rest/state-proof-demo) in JavaScript to retrieve the state proof from a mirror node and locally verify it. This allows users to obtain cryptographic proof that a particular transaction took place on Hedera. The validity of the proof can be checked independently to ensure that the supermajority of Hedera mainnet stake had reached consensus on that transaction. Similar to the promise of the ultimate state proofs, the user can trust this state proof alpha served by the mirror nodes, even when the user does not trust the mirror nodes.
+
+Importer can now be configured to connect to Amazon S3 using temporary security credentials via [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html). With this, a user that does not have permission to access an AWS resource can request a temporary role that will grant them that permission. See the [configuration documentation](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/docs/configuration.md#connect-to-s3-with-assumerole) for more information.
+
+Importer also added two new properties to control the subset of data it should download and validate. The `hedera.mirror.importer.startDate` property can be used to exclude data from before this date and "fast-forward" to the point in time of interest. By default, the `startDate` will be set to the current time so mirror node operators can get up and running quicker with the latest data and reduce cloud storage retrieval costs. Note that this property only applies on the importer's first startup and can't be changed after that. The `hedera.mirror.importer.endDate` property can be used to exclude data after this date and halt the importer. By default it is set to a date far in the future so it will effectively never stop.
+
+### Breaking Changes
+
+The aforementioned `startDate` property does change how the mirror node operators on initial start from previous releases. By defaulting to now, users standing up a new mirror node will no longer retrieve all historical data and will instead only retrieve the latest data. Current users upgrading to this release will not be affected even if their data ingest is not fully caught up since this property only applies if the database is empty like it is on first start. To revert to the previous behavior, a date in the past can be specified like the Unix epoch `1970-01-01T00:00:00Z`.
+
+## [v0.17.3](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.3)
+
+This release contains the port of a bug fix to better manage the `VertxException: Thread blocked` issue seen in [\#945](https://github.com/hashgraph/hedera-mirror-node/issues/945)
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: September 3, 2020**
+{% endhint %}
+
+## [v0.17.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.2)
+
+A small bug fix to better support resetting the mirror node when a stream reset is performed on the network environment
+
+## [v0.17.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.1)
+
+A small fix to correct a performance regression with not properly caching a heavily used query.
+
 ## [v0.17.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.0)
-
-{% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: TBD**
-{% endhint %}
-
-{% hint style="info" %}
-**TESTNET UPGRADE SCHEDULED: TBD**
-{% endhint %}
 
 This release adds support for the storage of the network address books from file `0.0.101` and `0.0.102`in the mirror node database.  
 The mirror node will now retrieve file address book contents which include node identifiers and their public keys from the database instead of the file system at startup.
@@ -29,8 +48,6 @@ This sets the stage for an additional feature which is the State Proof alpha RES
 With this release it is possible to request the address book, record file and signature files that contain the contents of a transaction and allow for cryptographic verification of the transaction. Mirror node users can now actively verify submitted transactions for themselves.
 
 Other changes include support for continuous deployment \(CD\) using [Github Actions](https://github.com/features/actions) that use [FluxCD](https://fluxcd.io/) to deploy master versions to a Kubernetes cluster. Additionally, this release includes fixes to the database copy operation optimization and improved handling of buffer size used when copying large topic messages.
-
-
 
 ## [v0.16.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.16.0)
 

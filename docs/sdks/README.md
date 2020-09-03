@@ -38,3 +38,4 @@ Community members contribute to development tools other then SDKs that can be us
 | Serverless Hedera REST API | Community | Apache 2.0 | [docs.trust.enterprises](https://docs.trust.enterprises/) |
 
 Want to help contribute or have a project you'd like to see, here? Get in touch in [discord](https://discordapp.com/invite/FFb9YFX) or add a pull request.
+
