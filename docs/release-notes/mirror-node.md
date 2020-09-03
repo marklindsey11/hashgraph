@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.15.3 | 0.16.0 |
+| **Mainnet** | 0.15.3 | 0.17.3 |
 | **Testnet** | 0.17.3 | 0.18.0 |
 
 ## Upcoming Releases
@@ -25,11 +25,15 @@ The aforementioned `startDate` property does change how the mirror node operator
 
 ## [v0.17.3](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.3)
 
-This release contains the port of a bug fix to better manage the `VertxException: Thread blocked` issue seen in [\#945](https://github.com/hashgraph/hedera-mirror-node/issues/945)
+{% hint style="info" %}
+**MAINNET UPGRADE SCHEDULED: September 9, 2020**
+{% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPGRADE COMPLETED: September 3, 2020**
+**TESTNET UPGRADE COMPLETED: September 3, 2020** 
 {% endhint %}
+
+This release contains the port of a bug fix to better manage the `VertxException: Thread blocked` issue seen in [\#945](https://github.com/hashgraph/hedera-mirror-node/issues/945)
 
 ## [v0.17.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.2)
 
