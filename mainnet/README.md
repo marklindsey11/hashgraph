@@ -32,29 +32,26 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
   <tbody>
     <tr>
       <td style="text-align:left">Cryptocurrency Transactions</td>
-      <td style="text-align:left">
-        <p>CryptoTransfer transactions: 10,000 tps</p>
-        <p>All other cryptocurrency transactions<b>: </b>13 tps</p>
-      </td>
+      <td style="text-align:left">10,000 tps</td>
     </tr>
     <tr>
       <td style="text-align:left">Consensus Transactions</td>
       <td style="text-align:left">
-        <p>MessageSubmit transactions: 1,000 tps</p>
-        <p>getTopicInfo/createTopic/updateTopic/deleteTopic: 100 tps</p>
+        <p>6,000 tps</p>
+        <p>CreateTopic: 5 tps</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">File Transactions</td>
-      <td style="text-align:left">All transaction types: 13 tps</td>
+      <td style="text-align:left">13 tps</td>
     </tr>
     <tr>
       <td style="text-align:left">Smart Contract Transactions</td>
-      <td style="text-align:left">All transaction types: 13 tps</td>
+      <td style="text-align:left">13 tps</td>
     </tr>
     <tr>
       <td style="text-align:left">Queries</td>
-      <td style="text-align:left">6,500 tps</td>
+      <td style="text-align:left">10,000 tps</td>
     </tr>
     <tr>
       <td style="text-align:left">Receipts</td>
