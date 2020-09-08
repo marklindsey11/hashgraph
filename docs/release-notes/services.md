@@ -13,8 +13,8 @@ description: Hedera Services release information
 
 ## [v0.7.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.7.0-alpha1)
 
-{% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: September 8, 2020**
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: September 8, 2020**
 {% endhint %}
 
 {% hint style="success" %}
