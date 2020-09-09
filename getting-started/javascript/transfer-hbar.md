@@ -154,7 +154,7 @@ async function main() {
         .setAccountId(newAccountId)
         .execute(client);
 
-    console.log("The new account balance is: " +accountBalance +" tinybar.");
+    console.log("The new account balance is: " +accountBalance +" hbar.");
 
     //Create the transfer transaction
     const transferTransactionId = await new CryptoTransferTransaction()
