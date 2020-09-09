@@ -91,7 +91,7 @@ const getNewBalance = await new AccountBalanceQuery()
     .setAccountId(newAccountId)
     .execute(client);
 
-console.log("The account balance after the transfer is: " +getNewBalance +" tinybar.")
+console.log("The account balance after the transfer is: " +getNewBalance +" hbar.")
 ```
 {% endcode %}
 
@@ -179,7 +179,7 @@ async function main() {
         .setAccountId(newAccountId)
         .execute(client);
 
-    console.log("The account balance after the transfer is: " +getNewBalance +" tinybar.")
+    console.log("The account balance after the transfer is: " +getNewBalance +" hbar.")
 
 }
 main();

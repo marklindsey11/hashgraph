@@ -11,9 +11,9 @@ With the Hedera Consensus Service you can develop applications like stock market
 * **Mirror node client** - a mirror node client is used to subscribe to a topic and get messages that are in consensus order from a mirror node. 
 * **Mirror node**: Mirror nodes receive information from Hedera network consensus nodes, but do not participate in consensus themselves. You can get more information about mirror nodes [here](https://docs.hedera.com/guides/core-concepts/mirror-nodes).
 * **Topic** - a topic is the subject of information you would like to send messages to and what clients would subscribe to
-* **Message** - a message is the content published to the Hedera network 
+* **Message** - a message is the content published to the Hedera network
 
-   to a topic which gets placed in consensus order 
+  to a topic which gets placed in consensus order
 
 * **Subscriber** - a client that subscribes to a desired topic in order to receive the appropriate messages
 * **Publisher -** publishes messages to a topic 
@@ -27,8 +27,8 @@ Create a topic by submitting a transaction from the Hedera client to a Hedera ne
 What you will need to be successful with this tutorial:
 
 💥 [Testnet account ID and associated private key](https://portal.hedera.com/register)  
-💥 [Hedera Java SDK](https://github.com/hashgraph/hedera-sdk-java)   
-💥 [Mirror node](https://learn.hedera.com/l/576593/2020-01-13/7z5jb) `host:port`    
+💥 [Hedera Java SDK](https://github.com/hashgraph/hedera-sdk-java)  
+💥 [Mirror node](https://learn.hedera.com/l/576593/2020-01-13/7z5jb) `host:port`  
 💥 IDE of your choice
 
 ### 1. Get a testnet account
@@ -74,10 +74,9 @@ What you will need to be successful with this tutorial:
   <artifactId>java-dotenv</artifactId>
   <version>5.1.3</version>
 </dependency>
-
 ```
 
-### 4. Set-up your enviornment variables 
+### 4. Set-up your enviornment variables
 
 * Create a .env file in the projects root directory 
 * Add the following:
@@ -174,7 +173,7 @@ new MirrorConsensusTopicQuery()
         .setMessage("hello, HCS! ")
         .execute(client)
         .get(0)
-        .getReceipt(client);       
+        .getReceipt(client);
 ```
 
 * If you have successfully followed the steps in this tutorial, you should see the following print to your console 🤩 :
@@ -183,6 +182,6 @@ new MirrorConsensusTopicQuery()
 
 **NOTE**: It may take 10-15 seconds before the message appears on your console from the mirror node.
 
-Having trouble or have any comments, suggestions, or feedback?   
+Having trouble or have any comments, suggestions, or feedback?  
 Connect with us on [Discord](https://discordapp.com/invite/FFb9YFX)🤓!
 
