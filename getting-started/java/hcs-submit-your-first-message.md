@@ -173,6 +173,7 @@ new MirrorConsensusTopicQuery()
         .setTopicId(topicId)
         .setMessage("hello, HCS! ")
         .execute(client)
+        .get(0)
         .getReceipt(client);       
 ```
 
