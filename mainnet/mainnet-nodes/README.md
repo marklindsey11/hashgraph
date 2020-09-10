@@ -132,8 +132,7 @@ The **address book** contains the list of consensus nodes that can submit transa
       <td style="text-align:left">50211</td>
       <td style="text-align:left">
         <p>9708430331078f5682c7f3244d82c3b3e281a91879578deeacdcc2a2ebe541af188115ad2e83865e5f5d247b4a18c1ee</p>
-        <p><b>(currently offline)</b>
-        </p>
+        <p></p>
       </td>
     </tr>
     <tr>
