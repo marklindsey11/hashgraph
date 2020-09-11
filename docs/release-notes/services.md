@@ -6,7 +6,7 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.6.0 | 0.7.0 |
+| **Mainnet** | 0.7.0 | 0.8.0 |
 | **Testnet** | 0.7.0 | 0.8.0 |
 
 ## Upcoming Releases
