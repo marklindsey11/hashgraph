@@ -11,6 +11,10 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
+## [v0.18.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.18.1)
+
+Contains a small change to the State Proof Alpha REST API to only return the current address book for now.
+
 ## [v0.18.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.18.0)
 
 Building upon the availability of the [State Proof Alpha REST API](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/docs/design/stateproofalpha.md) in the last release, we've added [sample code](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/hedera-mirror-rest/state-proof-demo) in JavaScript to retrieve the state proof from a mirror node and locally verify it. This allows users to obtain cryptographic proof that a particular transaction took place on Hedera. The validity of the proof can be checked independently to ensure that the supermajority of Hedera mainnet stake had reached consensus on that transaction. Similar to the promise of the ultimate state proofs, the user can trust this state proof alpha served by the mirror nodes, even when the user does not trust the mirror nodes.
