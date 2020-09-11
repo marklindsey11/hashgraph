@@ -11,6 +11,18 @@ description: Hedera Services release information
 
 ## Upcoming Releases
 
+## v0.8.0
+
+{% hint style="info" %}
+**MAINNET UPDATE SCHEDULED: OCTOBER 1, 2020**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE SCHEDULED: SEPTEMBER 17, 2020**
+{% endhint %}
+
+Release notes coming soon...
+
 ## Latest Releases
 
 ## [v0.7.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.7.0-alpha1)
@@ -71,13 +83,13 @@ In Hedera Services v0.6.0, we’ve enhanced the Hedera Consensus Service by supp
 ## \*\*\*\*[**v0.5.8**](https://github.com/hashgraph/hedera-services/releases/tag/oa-release-r5-rc8)\*\*\*\*
 
 {% hint style="success" %}
-**MAINNET UPGRADE COMPLETED: June 18, 2020**  
+**MAINNET UPGRADE COMPLETED: JUNE 18, 2020**  
   
 v0.5.8 includes all of the updates found in [v0.5.0](services.md#v-0-5-0)
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPGRADE COMPLETED: June 8, 2020**
+**TESTNET UPGRADE COMPLETED: JUNE 8, 2020**
 {% endhint %}
 
 Version 0.5.8 includes a patch which addresses the resilience of peer-to-peer networking in the hashgraph consensus platform.
