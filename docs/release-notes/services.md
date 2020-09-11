@@ -11,6 +11,8 @@ description: Hedera Services release information
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.7.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.7.0-alpha1)
 
 {% hint style="success" %}
@@ -45,8 +47,6 @@ In Hedera Services v0.7.0, we’ve moved to Swirlds SDK release `0.7.3` which en
 * Validate total ledger balance before starting up Services [\#258](https://github.com/hashgraph/hedera-services/issues/258)
 * Add a new rolling file to log all queries with controlled maximum rate [\#59](https://github.com/hashgraph/hedera-services/issues/59)
 * Other minor bugs [\#373](https://github.com/hashgraph/hedera-services/issues/373)
-
-## Latest Releases
 
 ## [v0.6.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.6.0)
 
