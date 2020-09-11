@@ -25,10 +25,6 @@ The aforementioned `startDate` property does change how the mirror node operator
 
 ## [v0.17.3](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.3)
 
-{% hint style="info" %}
-**MAINNET UPGRADE SCHEDULED: September 9, 2020**
-{% endhint %}
-
 {% hint style="success" %}
 **TESTNET UPGRADE COMPLETED: September 3, 2020** 
 {% endhint %}
