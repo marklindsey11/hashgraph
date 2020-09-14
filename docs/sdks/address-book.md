@@ -53,9 +53,7 @@ main();
 {% endtab %}
 {% endtabs %}
 
-### Output
-
-
+### Output:
 
 ```java
 File content query results: 
