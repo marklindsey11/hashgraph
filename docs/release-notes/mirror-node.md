@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.15.3 | 0.17.3 |
+| **Mainnet** | 0.17.3 | 0.18.0 |
 | **Testnet** | 0.17.3 | 0.18.0 |
 
 ## Upcoming Releases
@@ -27,10 +27,16 @@ Importer also added two new properties to control the subset of data it should d
 
 The aforementioned `startDate` property does change how the mirror node operators on initial start from previous releases. By defaulting to now, users standing up a new mirror node will no longer retrieve all historical data and will instead only retrieve the latest data. Current users upgrading to this release will not be affected even if their data ingest is not fully caught up since this property only applies if the database is empty like it is on first start. To revert to the previous behavior, a date in the past can be specified like the Unix epoch `1970-01-01T00:00:00Z`.
 
+## Latest Releases
+
 ## [v0.17.3](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.3)
 
 {% hint style="success" %}
-**TESTNET UPGRADE COMPLETED: September 3, 2020** 
+**MAINNET UPGRADE COMPLETED: SEPTEMBER 14. 2020**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPGRADE COMPLETED: SEPTEMBER 3, 2020** 
 {% endhint %}
 
 This release contains the port of a bug fix to better manage the `VertxException: Thread blocked` issue seen in [\#945](https://github.com/hashgraph/hedera-mirror-node/issues/945)
@@ -64,8 +70,6 @@ This release includes the foundation for some larger features to come. Notably, 
 Additionally, this release streamlines the helm chart architecture with a common chart for shared resources. It also adds dependabot to facilitate dependency update management. The parser was also update to handle signature files across multiple time bucket groups for greater parsing robustness.
 
 Memory improvements were also made in the parser to improve ingestion performance. Due to performance pg notify was also removed in favor of direct psql notify to support faster streaming of incoming topic messages.
-
-## Latest Releases
 
 ## [v0.15.3](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.3)
 
