@@ -6,10 +6,18 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.17.3 | 0.18.0 |
-| **Testnet** | 0.17.3 | 0.18.0 |
+| **Mainnet** | 0.17.3 | 0.18.2 |
+| **Testnet** | 0.18.2 | 0.19.0 |
 
 ## Upcoming Releases
+
+## [v0.18.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.18.2)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETE: SEPTEMBER 15, 2020**
+{% endhint %}
+
+Fix two regressions in the 0.18 release train.
 
 ## [v0.18.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.18.1)
 
