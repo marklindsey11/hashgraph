@@ -189,6 +189,8 @@ The **address book** contains the list of consensus nodes that can submit transa
 
 ## Mainnet Node Public Keys
 
+Below you will beind the mainnet node public keys found in the mainnet address book file 0.0.102. You can also access the address book by using the [state proof alpha API](../../docs/mirror-node-api/cryptocurrency-api.md) or [SDKs](../../docs/sdks/address-book.md) as well. The public keys stored in the address book are hex encoded keys \(x509\).
+
 | Node Account ID | Public Key |
 | :--- | :--- |
 | **0.0.3** | 308201a2300d06092a864886f70d01010105000382018f003082018a02820181009098865def2f2ab376c7f0f738c1d87a27ac01afd008620c35cb6ebfcbb0c33003193a388c346d30231727012193bb76fd3004b864312c689ef5213cbb901101509deab94f26a732e637929da4c4cb32517e3adbb3811d50ac4c77c1fce8b651606215f34707f3e7265545e58c894609e28376bdb7775fe30439e0e1592fdcb0c3ee1c305773d072a6b8957eafce1a11be965edaff3843366cb6a44ec25a890106e6247567f76b550fda482baec6307d698ec88841fd66f23f210e47b8a9dcba6ba4e1fa716db33c80e30819496dcb5e5609fb6e7c615379bdded427e9231b9254c2baf943608a86d698ae9a3c8639df887d6f6b5a71385d24338d911a212bf71f1e2acc8b186b96ec8e69c86b6d058217776a09c9c68953edb5916578b5a263b2f469e3b0c07eada71a447eea7f8fc1bb8074255567b7f0bd1e6afb0358718c98b429e24b2298596fc76cf6af396ca9434d7926ec7d37d4b92af56d45feff8196095224a916c1ffe6b667e255fc3ac8cccef920dc044b25003132b87806742f0203010001 |
