@@ -6,7 +6,7 @@ description: An overview of Hedera API transactions and queries
 
 ## Transactions
 
-**Transactions** are requests sent by a client to a node with the expectation that it be submitted to the network for processing into consensus order and subsequent application to state. Each transaction \(e.g. `FileCreateTransaction()`\) has an associated transaction fee that compensates the network for that processing and subsequent maintenance in consensus state. 
+**Transactions** are requests sent by a client to a node with the expectation that it be submitted to the network for processing into consensus order and subsequent application to state. Each transaction \(e.g. `FileCreateTransaction()`\) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state. 
 
 **Transaction ID**
 
@@ -17,23 +17,23 @@ Each transaction has a unique transaction ID. The transaction ID is used for the
 * Instantiating a smart contract with bytecode in a file just created
 * Internally by the network for detecting when duplicate transactions are submitted
 
-The transaction ID is composed by using the transaction valid start time and the account ID of the account that paid for the transaction. A transaction ID looks something like  `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is timestamp in seconds.nanoseconds.
+The transaction ID is composed by using the transaction valid start time and the account ID of the account that paid for the transaction. The transaction valid start is the timestamp in seconds.nanseconds format. A transaction ID looks something like  `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is the timestamp in seconds.nanoseconds.
 
 A **transaction** generally includes the following:
 
 * **Node account**: the account of the node the transaction is being sent to \(e.g. `0.0.3`\)
-* Transaction Identifier: the identifier for a transaction has two components, the account identifier of the paying account plus the transaction’s valid start time
+* **Transaction ID**: the identifier for a transaction has two components, the account ID of the paying account plus the transaction’s valid start time
 * **TransactionFee**: the maximum fee the paying account is willing to pay for the transaction
-* **Valid duration**: the number of seconds that the client wishes the transaction to be deemed valid for, starting at the validity period start time
-* **Memo**: a string of text up to 100 bytes of data \(optional\)
+* **Valid duration**: the number of seconds that the client wishes the transaction to be deemed valid for, starting at the transaction valid start time
+* **Memo**:  a string of text up to 100 bytes of data \(optional\)
 * **Transaction**: type of request, for instance an HBAR transfer or a smart contract call
 * **Signatures**: at minimum, the paying account will sign the transaction as authorization. Other signatures may be present as well.
 
-For more information about Hedera transaction fees, please visit Hedera API fees [overview](https://www.hedera.com/fees).
-
 The lifecycle of a transaction in the Hedera ecosystem begins when a client creates a transaction. Once the transaction is created it is cryptographically signed at minimum by the account paying for the fees associated with the transaction. Additional signatures may be required depending on the properties set for the account, topic, smart contract, or file. The client is able to stipulate the maximum fee it is willing to pay for the processing of the transaction and, for a smart contract operation, the maximum amount of gas. Once the required signatures are applied to the transaction the client then submits the transaction to any node on the Hedera network.
 
-The receiving node validates \(for instance, confirms the paying account has sufficient balance to pay the fee\) the transaction and, if validation is successful, submits the transaction to the Hedera network for consensus by adding the transaction to an event and gossiping that event to another node. Quickly, that event flows out to all the other nodes. The network receives this transaction exponentially fast via the [gossip about gossip protocol](https://docs.hedera.com/docs/gossip-about-gossip). The consensus timestamp for an event \(and so the transactions within\) is calculated by each node independently calculating the median of the times that the nodes of the network received that event. You may find more information on how the consensus timestamp is calculated [here](https://docs.hedera.com/docs/hashgraph-overview#section-fair-timestamps). . The hashgraph algorithm delivers finality of consensus. Once assigned a consensus timestamp the transaction is then applied to the consensus state in the order determined by each transaction’s consensus timestamp. At that point the fees for the transaction are also processed. In this manner, every node in the network maintains a consensus state because they all apply the same transactions in the same order. Each node also creates and temporarily stores receipts/records in support of the client subsequently querying for the status of a transaction.
+The receiving node validates \(for instance, confirms the paying account has sufficient balance to pay the fee\) the transaction and, if validation is successful, submits the transaction to the Hedera network for consensus by adding the transaction to an event and gossiping that event to another node. Quickly, that event flows out to all the other nodes. The network receives this transaction exponentially fast via the [gossip about gossip protocol](https://docs.hedera.com/docs/gossip-about-gossip). The consensus timestamp for an event \(and so the transactions within\) is calculated by each node independently calculating the median of the times that the nodes of the network received that event. You may find more information on how the consensus timestamp is calculated [here](https://docs.hedera.com/docs/hashgraph-overview#section-fair-timestamps). The hashgraph algorithm delivers finality of consensus. Once assigned a consensus timestamp the transaction is then applied to the consensus state in the order determined by each transaction’s consensus timestamp. At that point the fees for the transaction are also processed. In this manner, every node in the network maintains a consensus state because they all apply the same transactions in the same order. Each node also creates and temporarily stores receipts/records in support of the client subsequently querying for the status of a transaction.
+
+For more information about Hedera transaction fees, please visit Hedera API fees [overview](https://www.hedera.com/fees).
 
 ## Queries
 
@@ -45,7 +45,7 @@ A client can determine the appropriate fee for a query by first asking a node fo
 
 For more information about query fees, please visit Hedera API fees [overview](https://www.hedera.com/fees).
 
-## Recall:
+### Recall:
 
 {% hint style="info" %}
 Recall   
@@ -64,6 +64,14 @@ Once a transaction has been submitted to the network, clients may seek confirmat
 * **Receipts:** Receipts provide minimal information - simply whether or not the transaction was successfully processed into consensus state. Receipts are generated by default and are persisted for 3 minutes. Receipts are free.
 * **Records:** Records provide greater detail about the transaction than do receipts — such as the consensus timestamp it received or the results of a smart contract function call. Records are generated by default but are persisted for 3 minutes. Longer lived records \(24 hours\) are created if a crypto transfer transaction surpasses a threshold defined on the accounts involved.
 * **State proofs \(coming soon\):** When querying for a record, a client can optionally indicate that it desires the network to return a state proof in addition to the record. A state proof documents network consensus on the contents of that record in the consensus state — this collective assertion includes signatures of most of the network nodes. Because state proofs are cryptographically signed by a super majority of the network, they are secure and potentially admissible in a court of law.
+
+{% hint style="info" %}
+An early version of a state proof, state proof alpha, is now available. Please check out the Mirror Node REST API section to get started. 
+{% endhint %}
+
+{% page-ref page="../docs/mirror-node-api/cryptocurrency-api.md" %}
+
+
 
 For a more detailed review of confirmation methods check out this [blog post](https://www.hedera.com/blog/transaction-confirmation-methods-in-hedera).
 

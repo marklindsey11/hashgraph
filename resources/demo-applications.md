@@ -26,6 +26,7 @@ description: Examples of different use cases and projects built on Hedera.
 | Proof-of-action pasteboard | [GitHub](https://github.com/hashgraph/hedera-docs/tree/f9fdc6723c914551fc113056a289a0c39fef4dd9/hashgraph/hedera-proof-of-action-demo-pasteboard/README.md) | Hedera |
 | HCS based chat | [GitHub](https://github.com/hashgraph/hedera-docs/tree/f9fdc6723c914551fc113056a289a0c39fef4dd9/hashgraph/hedera-hcs-chat-js/README.md) | Hedera |
 | Theft prevention | [GitHub](https://github.com/hashgraph/hedera-theft-prevention-demo) | Hedera |
+| Check State Proof | [Github](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof) | Hedera |
 | Others | Coming soon! | Community |
 {% endtab %}
 
