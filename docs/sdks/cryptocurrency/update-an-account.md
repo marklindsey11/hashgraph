@@ -87,7 +87,8 @@ new AccountUpdateTransaction()
         </p>
       </td>
       <td style="text-align:left">Hbar/long</td>
-      <td style="text-align:left">Set the threshold for generating records when sending currency, in tinybar.</td>
+      <td style="text-align:left"><b>[deprecated v0.8.0]<br /></b>Set the threshold for generating records
+        when sending currency, in tinybar.</td>
     </tr>
     <tr>
       <td style="text-align:left">
@@ -98,8 +99,8 @@ new AccountUpdateTransaction()
       </td>
       <td style="text-align:left">Hbar/long</td>
       <td style="text-align:left">
-        <p>Creates a record for any transaction that deposits more than x value of
-          tinybars.</p>
+        <p><b>[deprecated v0.8.0]<br /></b>Creates a record for any transaction that
+          deposits more than x value of tinybars.</p>
         <p><em>default:  None</em>
         </p>
       </td>

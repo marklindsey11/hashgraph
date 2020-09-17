@@ -128,12 +128,11 @@ main();
       </td>
       <td style="text-align:center">Hbar/long</td>
       <td style="text-align:left">
-        <p>Creates a record for any transaction that deposits more than x value of
-          tinybars.
+        <p><b>[deprecated v0.8.0]<br /></b>Creates a record for any transaction that
+          deposits more than x value of tinybars.
           <br />
         </p>
         <p>Note: You will incur a charge each time the record is generated.</p>
-        <p></p>
       </td>
     </tr>
     <tr>
@@ -141,8 +140,8 @@ main();
       </td>
       <td style="text-align:center">Hbar/long</td>
       <td style="text-align:left">
-        <p>Creates a record for any transaction that withdraws more than x value
-          of tinybars.</p>
+        <p><b>[deprecated v0.8.0]<br /></b>Creates a record for any transaction that
+          withdraws more than x value of tinybars.</p>
         <p></p>
         <p>Note: You will incur a charge each time the record is generated.</p>
       </td>
