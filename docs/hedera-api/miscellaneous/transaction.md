@@ -7,8 +7,8 @@ A single signed transaction, including all its signatures. The SignatureList wil
 | Field | Type | Description |  |
 | :--- | :--- | :--- | :--- |
 | bodyData | oneof |  |  |
-|  | body | [TransactionBody](transactionbody.md) | the body of the transaction, which needs to be signed |
-|  | bodyBytes |  | TransactionBody serialized into bytes , which needs to be signed |
-| sigs | [SignatureList](../basic-types/signature-list.md) | The signatures on the body, to authorize the transaction; deprecated and to be succeeded by SignatureMap field |  |
+|  | body | [TransactionBody](transactionbody.md) | **\[Deprecated\]** The body of the transaction, which needs to be signed |
+|  | bodyBytes |  | **\[**TransactionBody serialized into bytes , which needs to be signed |
+| sigs | [SignatureList](../basic-types/signature-list.md) | The signatures on the body, to authorize the transaction; deprecated and to be succeeded by SignatureMap field | **\[Deprecated**\] |
 | sigMap | [SignatureMap](../basic-types/signaturemap.md) | The signatures on the body with the new format, to authorize the transaction |  |
 

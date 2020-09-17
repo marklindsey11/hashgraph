@@ -123,4 +123,6 @@
 | TOPIC\_EXPIRED | The topic has expired, was not automatically renewed, and is in a 7 day grace period before the topic will be deleted unrecoverably. This error response code will not be returned until autoRenew functionality is supported by HAPI. |
 | INVALID\_CHUNK\_NUMBER | Chunk number must be from 1 to total \(chunks\) inclusive |
 | INVALID\_CHUNK\_TRANSACTION\_ID | For every chunk, the payer account that is part of initialTransactionID must match the Payer Account of this transaction. The entire initialTransactionID should match the transactionID of the first chunk, but this is not checked or enforced by Hedera except when the chunk number is 1. |
+| INVALID\_RECEIVE\_RECORD\_THRESHOLD | **\[Deprecated v0.8.0**\] Attempt to set negative receive record threshold |
+| INVALID\_SEND\_RECORD\_THRESHOLD | **\[Deprecated v0.8.0**\] Attempt to set negative send record threshold |
 

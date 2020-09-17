@@ -191,6 +191,7 @@
     * [TransactionReceipt](docs/hedera-api/miscellaneous/transactionreceipt.md)
     * [TransactionRecord](docs/hedera-api/miscellaneous/transactionrecord.md)
     * [TransactionResponse](docs/hedera-api/miscellaneous/transactionresponse.md)
+    * [UncheckedSubmit](docs/hedera-api/miscellaneous/uncheckedsubmit.md)
 * [Mirror Node API](docs/mirror-node-api/README.md)
   * [REST API](docs/mirror-node-api/cryptocurrency-api.md)
   * [Hedera Consensus Service gRPC API](docs/mirror-node-api/hedera-consensus-service-api-1.md)

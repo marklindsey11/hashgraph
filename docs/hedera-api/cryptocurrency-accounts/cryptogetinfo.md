@@ -31,8 +31,8 @@ Response when the client sends the node CryptoGetInfoQuery
 | proxyReceived |  | The total number of tinybars proxy staked to this account |
 | key | [Key](../basic-types/key.md) | The key for the account, which must sign in order to transfer out, or to modify the account in any way other than extending its expiration date. |
 | balance |  | The current balance of account in tinybars |
-| generateSendRecordThreshold |  | The threshold amount \(in tinybars\) for which an account record is created \(and this account charged for them\) for any send/withdraw transaction. |
-| generateReceiveRecordThreshold |  | The threshold amount \(in tinybars\) for which an account record is created \(and this account charged for them\) for any transaction above this amount. |
+| generateSendRecordThreshold |  | **\[Deprecated v0.8.0**\] The threshold amount \(in tinybars\) for which an account record is created \(and this account charged for them\) for any send/withdraw transaction. |
+| generateReceiveRecordThreshold |  | **\[Deprecated v0.8.0**\] The threshold amount \(in tinybars\) for which an account record is created \(and this account charged for them\) for any transaction above this amount. |
 | receiverSigRequired |  | If true, no transaction can transfer to this account unless signed by this account's key |
 | expirationTime | [Timestamp](../miscellaneous/timestamp.md#timestamp) | The TimeStamp time at which this account is set to expire |
 | autoRenewPeriod | [Duration](../miscellaneous/duration.md) | The duration for expiration time will extend every this many seconds. If there are insufficient funds, then it extends as long as possible. If it is empty when it expires, then it is deleted. |
