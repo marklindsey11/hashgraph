@@ -7,7 +7,7 @@ description: Hedera Services release information
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.7.0 | 0.8.0 |
-| **Testnet** | 0.7.0 | 0.8.0 |
+| **Testnet** | 0.8.0 | 0.9.0 |
 
 ## Upcoming Releases
 
@@ -17,8 +17,8 @@ description: Hedera Services release information
 **MAINNET UPDATE SCHEDULED: OCTOBER 1, 2020**
 {% endhint %}
 
-{% hint style="info" %}
-**TESTNET UPDATE SCHEDULED: SEPTEMBER 17, 2020**
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: SEPTEMBER 17, 2020**
 {% endhint %}
 
 In Hedera Services v0.8.0, Hedera Services v0.8.0 includes minor fixes and improvements listed below:
