@@ -23,7 +23,7 @@ description: Hedera Services release information
 
 In Hedera Services v0.8.0, Hedera Services v0.8.0 includes minor fixes and improvements listed below:
 
-### Enhancements
+#### Enhancements
 
 * Deprecated fields related to threshold records in HAPI protobuf  [\#506](https://github.com/hashgraph/hedera-services/issues/506)
 * Update Receipt proto to pair each Status with NodeID - Receipt is deleted only when the latest \(duplicate\) transaction expires. `getTxRecord` API will continue to return ALL records with the transaction ID.
