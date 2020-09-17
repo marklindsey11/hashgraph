@@ -4,12 +4,66 @@
 
 Testnet nodes belong to the test network and run the same code as the Hedera mainnet nodes. 
 
-| Node ID | Node Account ID | Node Address |
-| :--- | :--- | :--- |
-| 0 | **0.0.3** | 0.testnet.hedera.com:50211 |
-| 1 | **0.0.4** | 1.testnet.hedera.com:50211 |
-| 2 | **0.0.5** | 2.testnet.hedera.com:50211 |
-| 3 | **0.0.6** | 3.testnet.hedera.com:50211 |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Node ID</th>
+      <th style="text-align:left">Node Account ID</th>
+      <th style="text-align:left">Node IP Address</th>
+      <th style="text-align:left">Port</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">1</td>
+      <td style="text-align:left"><b>0.0.3</b>
+      </td>
+      <td style="text-align:left">
+        <p>0.testnet.hedera.com</p>
+        <p>34.94.106.61</p>
+        <p>50.18.132.211</p>
+        <p>138.91.142.219</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">2</td>
+      <td style="text-align:left"><b>0.0.4</b>
+      </td>
+      <td style="text-align:left">
+        <p>1.testnet.hedera.com</p>
+        <p>35.237.119.55</p>
+        <p>3.212.6.13</p>
+        <p>52.168.76.241</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">3</td>
+      <td style="text-align:left"><b>0.0.5</b>
+      </td>
+      <td style="text-align:left">
+        <p>2.testnet.hedera.com</p>
+        <p>35.245.27.193</p>
+        <p>52.20.18.86</p>
+        <p>40.79.83.124</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">4</td>
+      <td style="text-align:left"><b>0.0.6</b>
+      </td>
+      <td style="text-align:left">
+        <p>3.testnet.hedera.com</p>
+        <p>34.83.112.116</p>
+        <p>54.70.192.33</p>
+        <p>52.183.45.65</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+  </tbody>
+</table>
 
 You will need to create complete your Hedera portal profile to receive a testnet account ID.
 
@@ -30,12 +84,66 @@ Below you will find the testnet account public keys. The public keys stored in t
 
 Preview testnet nodes belong to the the preview test network. The preview testnet nodes run code that is currently under development as an early preview for users. This network is unstable and is not recommended as a suitable pre-production enviornment. 
 
-| Node ID | Node Account ID | Node Address |
-| :--- | :--- | :--- |
-| 0 | **0.0.3** | 0.previewnet.hedera.com:50211 |
-| 1 | **0.0.4** | 1.previewnet.hedera.com:50211 |
-| 2 | **0.0.5** | 2.previewnet.hedera.com:50211 |
-| 3 | **0.0.6** | 3.previewnet.hedera.com:50211 |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Node ID</th>
+      <th style="text-align:left">Node Account ID</th>
+      <th style="text-align:left">Node IP Address</th>
+      <th style="text-align:left">Port</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">1</td>
+      <td style="text-align:left"><b>0.0.3</b>
+      </td>
+      <td style="text-align:left">
+        <p>0.previewnet.hedera.com</p>
+        <p>35.231.208.148</p>
+        <p>3.211.248.172</p>
+        <p>40.121.64.48</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">2</td>
+      <td style="text-align:left"><b>0.0.4</b>
+      </td>
+      <td style="text-align:left">
+        <p>1.previewnet.hedera.com</p>
+        <p>35.199.15.177</p>
+        <p>3.133.213.146</p>
+        <p>40.70.11.202</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">3</td>
+      <td style="text-align:left"><b>0.0.5</b>
+      </td>
+      <td style="text-align:left">
+        <p>2.previewnet.hedera.com</p>
+        <p>35.225.201.195</p>
+        <p>52.15.105.130</p>
+        <p>104.43.248.63</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">4</td>
+      <td style="text-align:left"><b>0.0.6</b>
+      </td>
+      <td style="text-align:left">
+        <p>3.previewnet.hedera.com</p>
+        <p>35.247.109.135</p>
+        <p>54.241.38.1</p>
+        <p>13.88.22.47</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+  </tbody>
+</table>
 
 You will need to create complete your Hedera portal profile to receive a previewnet testnet account ID.
 
