@@ -11,7 +11,7 @@ description: Hedera Services release information
 
 ## Upcoming Releases
 
-## v0.8.0
+## [v0.8.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.8.0-rc1)
 
 {% hint style="info" %}
 **MAINNET UPDATE SCHEDULED: OCTOBER 1, 2020**
@@ -21,7 +21,12 @@ description: Hedera Services release information
 **TESTNET UPDATE SCHEDULED: SEPTEMBER 17, 2020**
 {% endhint %}
 
-Release notes coming soon...
+In Hedera Services v0.8.0, Hedera Services v0.8.0 includes minor fixes and improvements listed below:
+
+### Enhancements
+
+* Deprecated fields related to threshold records in HAPI protobuf  [\#506](https://github.com/hashgraph/hedera-services/issues/506)
+* Update Receipt proto to pair each Status with NodeID - Receipt is deleted only when the latest \(duplicate\) transaction expires. `getTxRecord` API will continue to return ALL records with the transaction ID.
 
 ## Latest Releases
 
