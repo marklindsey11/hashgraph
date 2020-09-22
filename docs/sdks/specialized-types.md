@@ -268,8 +268,8 @@ System.out.println(topicId)
 
 {% tab title="JavaScript" %}
 ```javascript
-const txId = new TransactionId(newAccountId);
-console.log(`${txId}`);
+const topicId = new ConsensusTopicId(0,0,100);
+System.out.println(topicId)
 ```
 {% endtab %}
 {% endtabs %}
