@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.17.3 | 0.18.2 |
+| **Mainnet** | 0.18.2 | 0.19.0 |
 | **Testnet** | 0.18.2 | 0.19.0 |
 
 ## Upcoming Releases
@@ -20,6 +20,10 @@ There's been some changes to the public Hedera environments lately and we've upd
 We added proper liveness and readiness probe endpoints for all our components. If you're not familiar with the concept of liveness and readiness probes, check out the Kubernetes [documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) on the subject. Our new liveness endpoint now does not fail if external dependencies are down like the database, ensuring the application doesn't restart unnecessarily. Even if you're not using Kubernetes it would be worthwhile to look into to ensure your mirror node is using the appropriate endpoint for health checks, based upon your needs.
 
 ## [v0.18.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.18.2)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETE: SEPTEMBER 22, 2020**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETE: SEPTEMBER 15, 2020**
