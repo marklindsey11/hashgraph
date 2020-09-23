@@ -19,6 +19,7 @@ Hashgraph is a distributed consensus algorithm and data structure that is fast, 
 The following features of the Hedera mainnet are still under development and therefore not yet available:
 
 * State Proofs
+  * An alpha version of the state proof is available [here](docs/mirror-node-api/cryptocurrency-api.md#state-proof-alpha)
 * Live Hashes
 * Staking
 
