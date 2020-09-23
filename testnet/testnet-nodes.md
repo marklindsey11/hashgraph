@@ -71,7 +71,7 @@ You will need to create complete your Hedera portal profile to receive a testnet
 
 #### Testnet Node Public Keys
 
-Below you will find the testnet account public keys. The public keys stored in the address book are hex encoded keys \(x509\).
+Below you will find the testnet account public keys. The public keys stored in the address book are hex encoded keys \(x509\). The testnet address book file ID on mainnet is `0.0.102`
 
 | Node Account ID | Public Key |
 | :--- | :--- |
