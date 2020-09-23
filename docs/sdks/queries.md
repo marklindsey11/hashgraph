@@ -4,10 +4,10 @@ Queries are requests that do not require network consensus. Queries are processe
 
 | Cryptocurrency Accounts | Consensus | File Service | Smart Contracts |
 | :--- | :--- | :--- | :--- |
-| AccountBalanceQuery | ConsensusTopicInfoQuery | FileContentsQuery | ContractCallQuery |
-| AccountInfoQuery |  | FileInfoQuery | ContractByteCodeQuery |
-| AccountRecordQuery |  |  | ContractInfoQuery |
-|  |  |  | ContractRecordQuery |
+| [AccountBalanceQuery](cryptocurrency/get-account-balance.md) | [ConsensusTopicInfoQuery](consensus/get-topic-info.md) | [FileContentsQuery](file-storage/get-file-contents.md) | [ContractCallQuery](smart-contracts/get-smart-contract-bytecode.md) |
+| [AccountInfoQuery](cryptocurrency/get-account-info.md) |  | [FileInfoQuery](file-storage/get-file-info.md) | [ContractByteCodeQuery](../hedera-api/smart-contracts/smartcontractservice.md) |
+| [AccountRecordQuery](cryptocurrency/get-account-record.md) |  |  | [ContractInfoQuery](smart-contracts/get-smart-contract-info.md) |
+|  |  |  | [ContractRecordQuery](smart-contracts/get-smart-contract-record.md) |
 
 The following methods can be called when building the above queries
 
