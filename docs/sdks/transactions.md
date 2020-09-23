@@ -17,16 +17,77 @@ Transactions have a 6,144 kb transaction size limit. This includes the signature
 
 The following methods can be called when building the above transaction types:
 
-| Methods | Type | Description |
-| :--- | :--- | :--- |
-| `setMaxTransactionFee(<fee>)` | long | Sets the maximum fee, in tinybar, that the client is willing to pay to execute this transaction, which is split between the network and the node. The actual fee assessed may be less than this, in which case you will only be charged that amount. An error is thrown if the assessed fee is greater than this. |
-| `setTransactionMemo(<memo>)` | String | Sets any notes or description that should be put into the transaction record \(if one is requested\). Note that a max of length of 100 is enforced. |
-| `setTransactionValidDuration(<Duration>)` | Duration | The Duration in which the transaction will be valid from transactionValidStart time |
-| `setNodeAccountId(<accountId>)` | AccountId | The account of the node that submits the client's transaction to the network |
-| `setTransactionId(<transactionId>)` | TransactionId | The ID for this transaction, which includes the payer's account \(the account paying the transaction fee\). If two transactions have the same transactionID, they won't both have an effect |
-| `build(<client>)` | Client | Builds the transaction |
-| `sign(<key>)` | PrivateKey&lt; extends PublicKey&gt; | Expliclity sign the transaction with a private key |
-| `execute(<client>)` | Client | Submits the transaction to the Hedera network for consensus  |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Methods</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>setMaxTransactionFee(&lt;fee&gt;)</code>
+      </td>
+      <td style="text-align:left">long</td>
+      <td style="text-align:left">Sets the maximum fee, in tinybar, that the client is willing to pay to
+        execute this transaction, which is split between the network and the node.
+        The actual fee assessed may be less than this, in which case you will only
+        be charged that amount. An error is thrown if the assessed fee is greater
+        than this.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setTransactionMemo(&lt;memo&gt;)</code>
+      </td>
+      <td style="text-align:left">String</td>
+      <td style="text-align:left">Sets any notes or description that should be put into the transaction
+        record (if one is requested). Note that a max of length of 100 is enforced.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setTransactionValidDuration(&lt;Duration&gt;)</code>
+      </td>
+      <td style="text-align:left">Duration</td>
+      <td style="text-align:left">
+        <p>The Duration in which the transaction will be valid from transactionValidStart
+          time</p>
+        <p>Max: 180 seconds</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setNodeAccountId(&lt;accountId&gt;)</code>
+      </td>
+      <td style="text-align:left">AccountId</td>
+      <td style="text-align:left">The account of the node that submits the client&apos;s transaction to
+        the network</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setTransactionId(&lt;transactionId&gt;)</code>
+      </td>
+      <td style="text-align:left">TransactionId</td>
+      <td style="text-align:left">The ID for this transaction, which includes the payer&apos;s account (the
+        account paying the transaction fee). If two transactions have the same
+        transactionID, they won&apos;t both have an effect</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>build(&lt;client&gt;)</code>
+      </td>
+      <td style="text-align:left">Client</td>
+      <td style="text-align:left">Builds the transaction</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>sign(&lt;key&gt;)</code>
+      </td>
+      <td style="text-align:left">PrivateKey&lt; extends PublicKey&gt;</td>
+      <td style="text-align:left">Expliclity sign the transaction with a private key</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>execute(&lt;client&gt;)</code>
+      </td>
+      <td style="text-align:left">Client</td>
+      <td style="text-align:left">Submits the transaction to the Hedera network for consensus</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Transaction Receipt
 
