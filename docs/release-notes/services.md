@@ -21,12 +21,15 @@ description: Hedera Services release information
 **TESTNET UPDATE COMPLETED: SEPTEMBER 17, 2020**
 {% endhint %}
 
-In Hedera Services v0.8.0, Hedera Services v0.8.0 includes minor fixes and improvements listed below:
+In Hedera Services v0.8.0, we made several minor fixes and improvements. This tag also includes pre-release implementations of several operations for an incipient Hedera Token Service \(HTS\).
+
+**NOTE:** HTS operations will remain disabled in non-development environments for some time. These operations are under active development; please consult `master` for up-to-date semantics.
 
 #### Enhancements
 
 * Deprecated fields related to threshold records in HAPI protobuf  [\#506](https://github.com/hashgraph/hedera-services/issues/506)
 * Update Receipt proto to pair each Status with NodeID - Receipt is deleted only when the latest \(duplicate\) transaction expires. `getTxRecord` API will continue to return ALL records with the transaction ID.
+* First drafts of `tokenCreate`, `tokenUpdate`, `tokenDelete`, `tokenTransfer`, `tokenFreeze`, `tokenUnfreeze`, `tokenGrantKyc`, `tokenRevokeYc`, `tokenWipe`, and `getTokenInfo` HAPI operations. [\#505](https://github.com/hashgraph/hedera-services/pull/505) and [\#522](https://github.com/hashgraph/hedera-services/pull/522) 
 
 ## Latest Releases
 
