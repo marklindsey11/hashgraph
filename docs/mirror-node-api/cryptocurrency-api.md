@@ -7,10 +7,16 @@ description: >-
 
 # REST API
 
-{% hint style="danger" %}
+{% hint style="info" %}
+**MAINNET**  
 For our whitelisted partners, you may use the following root endpoints:  
-[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)  
 [https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)  
+  
+**TESTNET**  
+[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)  
+  
+**PREVIEWNET**  
+[https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)  
   
 For all other users, you may check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh/) as alternatives.‌
 {% endhint %}
