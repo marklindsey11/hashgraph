@@ -71,7 +71,7 @@ You will need to create complete your Hedera portal profile to receive a testnet
 
 #### Testnet Node Public Keys
 
-Below you will find the testnet node public keys. The public keys stored in the address book file are hex encoded keys \(x509\). The testnet address book file ID on is `0.0.102`.
+Below you will find the testnet node public keys. The public keys stored in the address book file are hex encoded keys \(x509\). The testnet address book file ID is `0.0.102`.
 
 | Node Account ID | Public Key |
 | :--- | :--- |
@@ -151,7 +151,7 @@ You will need to create complete your Hedera portal profile to receive a preview
 
 #### Previewnet Node Public Keys
 
-Below you will find the previewnet node public keys. The public keys stored in the address book file are hex encoded keys \(x509\). The previewnet address book file ID on is `0.0.102`.
+Below you will find the previewnet node public keys. The public keys stored in the address book file are hex encoded keys \(x509\). The previewnet address book file ID is `0.0.102`.
 
 | Node Account ID | Public Key |
 | :--- | :--- |
