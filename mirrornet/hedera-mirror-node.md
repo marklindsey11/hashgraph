@@ -22,7 +22,7 @@ The Hedera Consensus Service \(HCS\) gRPC API is a public mirror node managed by
 **REST API Testnet Root Endpoint:**[ ****https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
 {% endhint %}
 
-### Preview Testnet:
+### Previewnet:
 
 {% hint style="info" %}
 **HCS Preview Testnet Mirror Node Endpoints:** hcs.previewnet.mirrornode.hedera.com:5600
