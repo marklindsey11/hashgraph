@@ -145,7 +145,7 @@ Preview testnet nodes belong to the the preview test network. The preview testne
   </tbody>
 </table>
 
-You will need to create complete your Hedera portal profile to receive a previewnet testnet account ID.
+You will need to create complete your Hedera portal profile to receive a previewnet account ID.
 
 {% page-ref page="testnet-access.md" %}
 
