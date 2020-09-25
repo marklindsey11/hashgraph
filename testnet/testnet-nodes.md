@@ -151,7 +151,7 @@ You will need to create complete your Hedera portal profile to receive a preview
 
 
 
-#### Testnet Node Public Keys
+#### Previewnet Node Public Keys
 
 Below you will find the previewnet node public keys. The public keys stored in the address book are hex encoded keys \(x509\). The previewnet address book file ID on is `0.0.102`.
 
