@@ -14,7 +14,7 @@ description: Hedera Services release information
 ## [v0.8.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.8.0-rc1)
 
 {% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: OCTOBER 1, 2020**
+**MAINNET UPDATE SCHEDULED: TBD**
 {% endhint %}
 
 {% hint style="success" %}
