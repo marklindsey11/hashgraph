@@ -18,8 +18,8 @@ new AccountCreateTransaction()
 
 | Method | Type | Description |
 | :--- | :---: | :--- |
-| `setKey(<key>)` | Ed25519 | The public key generated for the new account. |
-| `setInitialBalance(<initialBalance>)` | Hbar/long | Set the initial balance of the account, transferred from the operator account, in tinybar. |
+| `setKey(<key>)` | Ed25519 | The public key for the new account. |
+| `setInitialBalance(<initialBalance>)` | Hbar/long | Set the initial balance of the account, transferred from the operator account, in hbar. |
 
 ### Example:
 
