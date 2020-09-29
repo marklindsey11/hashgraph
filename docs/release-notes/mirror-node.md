@@ -7,11 +7,15 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.18.2 | 0.19.0 |
-| **Testnet** | 0.18.2 | 0.19.0 |
+| **Testnet** | 0.19.0 | 0.20.0 |
 
 ## Upcoming Releases
 
 ## [v0.19.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.19.0)
+
+{% hint style="success" %}
+**TESTNE UPDATE COMPLETE: SEPTEMBER 29, 2020**
+{% endhint %}
 
 This release finishes the State Proof alpha REST API and makes it [generally available](http://www.hedera.com/blog/introducing-state-proof-alpha). As part of this, we made a lot of improvements to the check-state-proof command line tool that queries the API and validates the files locally. We also now store the node account used to verify record file, ensuring greater accuracy as to the provenance of the state proof.
 
