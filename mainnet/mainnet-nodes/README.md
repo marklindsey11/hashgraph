@@ -113,7 +113,7 @@ The **address book** contains the list of consensus nodes that can submit transa
       <td style="text-align:left"><b>0.0.10</b>
       </td>
       <td style="text-align:left">
-        <p>35.242.233.15</p>
+        <p>65.52.68.254</p>
         <p>35.242.233.154</p>
         <p>3.248.27.48</p>
       </td>
@@ -141,8 +141,8 @@ The **address book** contains the list of consensus nodes that can submit transa
       </td>
       <td style="text-align:left">
         <p>35.204.86.32</p>
-        <p>40.89.139.247</p>
-        <p>3.121.238.26</p>
+        <p>35.177.162.180
+          <br />51.140.102.228</p>
       </td>
       <td style="text-align:left">50211</td>
       <td style="text-align:left">c974bb982c81913b7326d5a3f9dcc48612a15f7aad02f207b0f10cd2017a6fbff5803e7ca9bfb4709ab28b6b09d5b13f</td>
@@ -152,9 +152,9 @@ The **address book** contains the list of consensus nodes that can submit transa
       <td style="text-align:left"><b>0.0.13</b>
       </td>
       <td style="text-align:left">
-        <p>51.140.102.228</p>
-        <p>35.234.132.107</p>
-        <p>35.177.162.180</p>
+        <p>34.215.192.104
+          <br />35.234.132.107</p>
+        <p>13.77.158.252</p>
       </td>
       <td style="text-align:left">50211</td>
       <td style="text-align:left">a2ecc1b2ae98bd28bc1a08d8f371a0d4f745c768d0c773962562e343b25d83425eeea7ef8ea14295342b8eb78d32ec3f</td>
@@ -177,9 +177,9 @@ The **address book** contains the list of consensus nodes that can submit transa
       <td style="text-align:left"><b>0.0.15</b>
       </td>
       <td style="text-align:left">
-        <p>40.114.107.85</p>
+        <p>3.121.238.26</p>
         <p>35.228.11.53</p>
-        <p>34.239.82.6</p>
+        <p>40.89.139.247</p>
       </td>
       <td style="text-align:left">50211</td>
       <td style="text-align:left">5846a53f447529fd9cdb7804cd31688ed6eebe3b63da2f5f211ffbc737197cf3f1cfbfda61be7d1510f0e92398117f74</td>
