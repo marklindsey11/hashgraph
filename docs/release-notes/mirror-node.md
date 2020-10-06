@@ -6,12 +6,18 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.18.2 | 0.19.0 |
+| **Mainnet** | 0.19.0 | 0.20.0 |
 | **Testnet** | 0.19.0 | 0.20.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.19.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.19.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETE: OCTOBER 6, 2020**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNE UPDATE COMPLETE: SEPTEMBER 29, 2020**
@@ -22,8 +28,6 @@ This release finishes the State Proof alpha REST API and makes it [generally ava
 There's been some changes to the public Hedera environments lately and we've updated the mirror node to reflect that. We added support for the new previewnet environment and we updated the configuration to point to the new testnet bucket after its recent reset. Please ensure your mirror node has all of the data in the previous bucket before updating to this release, assuming you're not specifying the bucket name manually.
 
 We added proper liveness and readiness probe endpoints for all our components. If you're not familiar with the concept of liveness and readiness probes, check out the Kubernetes [documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) on the subject. Our new liveness endpoint now does not fail if external dependencies are down like the database, ensuring the application doesn't restart unnecessarily. Even if you're not using Kubernetes it would be worthwhile to look into to ensure your mirror node is using the appropriate endpoint for health checks, based upon your needs.
-
-## Latest Releases
 
 ## [v0.18.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.18.2)
 
