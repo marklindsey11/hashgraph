@@ -71,7 +71,7 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
     <tr>
       <td style="text-align:left">Consensus Transactions</td>
       <td style="text-align:left">
-        <p>3,000 tps</p>
+        <p>6,000 tps</p>
         <p>CreateTopic: 5 tps</p>
       </td>
     </tr>
