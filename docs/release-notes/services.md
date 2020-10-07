@@ -6,16 +6,22 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.7.0 | 0.8.0 |
-| **Testnet** | 0.8.0 | 0.9.0 |
+| **Mainnet** | 0.7.0 | 0.8.1 |
+| **Testnet** | 0.8.1 | 0.9.0 |
 
 ## Upcoming Releases
 
-## [v0.8.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.8.0-rc1)
+## [v0.8.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.8.1-rc1)
 
 {% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: TBD**
+**MAINNET UPDATE SCHEDULED: OCTOBER 22, 2020**
 {% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: OCTOBER 7, 2020**
+{% endhint %}
+
+## [v0.8.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.8.0-rc1)
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: SEPTEMBER 17, 2020**
