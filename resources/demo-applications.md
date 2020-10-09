@@ -10,7 +10,7 @@ description: Examples of different use cases and projects built on Hedera.
 | :--- | :--- | :--- |
 | Android Wallet | [GitHub](https://github.com/hashgraph/hedera-wallet-android) | Hedera |
 | Corda Notary | [GitHub](https://github.com/hashgraph/corda-notary-hedera) | Hedera |
-| HCS Secure Extension Components | GitHub | Hedera |
+| HCS Secure Extension Components | [GitHub](https://github.com/hashgraph/hedera-hcs-sxc-java) | Hedera |
 | Log4J Integration | [GitHub](https://github.com/hashgraph/log4j2-hedera) | Hedera |
 | Logstash Integration | [GitHub](https://github.com/hashgraph/logstash-output-hedera) | Hedera |
 | Proof-of-action microservice | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-microservice) | Hedera |
