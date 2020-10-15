@@ -21,6 +21,8 @@ description: Hedera Services release information
 **TESTNET UPDATE COMPLETED: OCTOBER 7, 2020**
 {% endhint %}
 
+The mainnet release includes the 0.8.0 version updates. 
+
 ## [v0.8.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.8.0-rc1)
 
 {% hint style="success" %}
