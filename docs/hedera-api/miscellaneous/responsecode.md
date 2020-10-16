@@ -125,4 +125,38 @@
 | INVALID\_CHUNK\_TRANSACTION\_ID | For every chunk, the payer account that is part of initialTransactionID must match the Payer Account of this transaction. The entire initialTransactionID should match the transactionID of the first chunk, but this is not checked or enforced by Hedera except when the chunk number is 1. |
 | INVALID\_RECEIVE\_RECORD\_THRESHOLD | **\[Deprecated v0.8.0**\] Attempt to set negative receive record threshold |
 | INVALID\_SEND\_RECORD\_THRESHOLD | **\[Deprecated v0.8.0**\] Attempt to set negative send record threshold |
+| ACCOUNT\_FROZEN\_FOR\_TOKEN | Account is frozen and cannot transact with the token |
+| TOKENS\_PER\_ACCOUNT\_LIMIT\_EXCEEDED | Maximum number of token relations for agiven account is exceeded |
+| INVALID\_TOKEN\_ID | The token is invalid or does not exist |
+| INVALID\_TOKEN\_DECIMALS | Invalid token decimals |
+| INVALID\_TOKEN\_INITIAL\_SUPPLY | Invalid token initial supply |
+| INVALID\_TREASURY\_ACCOUNT\_FOR\_TOKEN | Treasury Account does not exist or is deleted |
+| INVALID\_TOKEN\_SYMBOL | Token Symbol is not UTF-8 capitalized alphabetical string |
+| TOKEN\_HAS\_NO\_FREEZE\_KEY | Freeze key is not set on token |
+| TRANSFERS\_NOT\_ZERO\_SUM\_FOR\_TOKEN | Amounts in transfer list are not net zero |
+| MISSING\_TOKEN\_SYMBOL | Token Symbol is not provided |
+| TOKEN\_SYMBOL\_TOO\_LONG | Token Symbol is too long |
+| ACCOUNT\_KYC\_NOT\_GRANTED\_FOR\_TOKEN | KYC must be granted and account does not have KYC granted |
+| TOKEN\_HAS\_NO\_KYC\_KEY | KYC key is not set on token |
+| INSUFFICIENT\_TOKEN\_BALANCE | Token balance is not sufficient for the transaction |
+| TOKEN\_WAS\_DELETED | Token transactions cannot be executed on deleted token |
+| TOKEN\_HAS\_NO\_SUPPLY\_KEY | Supply key is not set on token |
+| TOKEN\_HAS\_NO\_WIPE\_KEY | Wipe key is not set on token |
+| INVALID\_TOKEN\_MINT\_AMOUNT |  |
+| INVALID\_TOKEN\_BURN\_AMOUNT |  |
+| TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT |  |
+| CANNOT\_WIPE\_TOKEN\_TREASURY\_ACCOUNT | Cannot execute wipe operation on treasury account |
+| INVALID\_KYC\_KEY |  |
+| INVALID\_WIPE\_KEY |  |
+| INVALID\_FREEZE\_KEY |  |
+| INVALID\_SUPPLY\_KEY |  |
+| MISSING\_TOKEN\_NAME | Token Name is not provided |
+| TOKEN\_NAME\_TOO\_LONG | Token Name is too long |
+| INVALID\_WIPING\_AMOUNT | The provided wipe amount must not be negative, zero or bigger than the token holder balance |
+| TOKEN\_IS\_IMMUTABLE | Token does not have Admin key set, thus update/delete transactions cannot be performed |
+| TOKEN\_ALREADY\_ASSOCIATED\_TO\_ACCOUNT | An associateToken operation specified a token already associated to the account |
+| TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES | An attempted operation is invalid until all token balances for the target account are zero |
+| ACCOUNT\_IS\_TREASURY | An attempted operation is invalid because the account is a treasury |
+
+
 
