@@ -18,4 +18,20 @@ Response when the client sends the node CryptoGetAccountBalanceQuery
 | header | [ResponseHeader](../miscellaneous/responseheader.md) | Standard response from node to client, including the requested fields: cost, or state proof, or both, or neither |
 | accountID | [AccountID](../basic-types/accountid.md) | The account ID that is being described \(this is useful with state proofs, for proving to a third party\) |
 | balance |  | The current balance, in tinybars |
+| tokenBalances | TokenBalance | The array of tokens that the account possesses |
+
+#### TokenBalance
+
+Contains information the balance of an Account in regards to the corresponding Token ID
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| tokenId | [TokenID](../basic-types/tokenid.md) | The ID of the token |
+| balance |  | The current token balance |
+
+#### TokenBalances
+
+| Field | Type |
+| :--- | :--- |
+| tokenBalances | TokenBalance |
 

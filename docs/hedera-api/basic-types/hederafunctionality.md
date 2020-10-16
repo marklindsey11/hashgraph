@@ -49,6 +49,21 @@ The functionality provided by hedera hashgraph
 | `ConsensusDeleteTopic` | Delete a topic |
 | `ConsensusGetTopicInfo` | Get topic info |
 | `ConsensusSubmitMessage` | Submit a message to a topic |
+| `UncheckedSubmit` |  |
+| `TokenCreate` | Create Token |
+| `TokenTransact` | Transfer Tokens |
+| `TokenGetInfo` | Transfer Tokens |
+| `TokenFreezeAccount` | Freeze Account |
+| `TokenUnfreezeAccount` | Unfreeze Account |
+| `TokenGrantKycToAccount` | Grant KYC to Account |
+| `TokenRevokeKycFromAccount` | Revoke KYC from Account |
+| `TokenDelete` | Delete Token |
+| `TokenUpdate` | Update Token |
+| `TokenMint` | Mint tokens to treasury |
+| `TokenBurn` | Burn tokens from treasury |
+| `TokenAccountWipe` | Wipe token amount from Account holder |
+| `TokenAssociateToAccount` | Wipe token amount from Account holder |
+| `TokenDissociateFromAccount` | Dissociate tokens from an account |
 
 
 

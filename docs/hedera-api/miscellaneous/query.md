@@ -25,6 +25,7 @@ A single query, which is sent from the client to the node. This includes all pos
 |  | transactionGetFastRecord | [TransactionGetFastRecordQuery](transactiongetfastrecord.md#transactiongetfastrecordquery) | Get a record for a transaction \(lasts 180 seconds\) |
 |  | consensusGetTopicInfo | [ConsensusGetTopicInfoQuery](../consensus-service/consensusgettopicinfo.md#consensusgettopicinfoquery) | Get the parameters of and state of a consensus topic. |
 |  | networkGetVersionInfo | NetworkGetVersionInfoQuery | Get the version of the network |
+|  | tokenGetInfo | TokenGetInfoQuery | Get all information about a token |
 
 
 

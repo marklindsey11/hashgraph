@@ -23,5 +23,5 @@ A list of accounts and amounts to transfer out of each account \(negative\) or i
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| accountAmounts | AccountAmount | Multiple list of AccountAmount pairs, each of which has an account and an amount to transfer into it \(positive\) or out of it \(negativ |
+| accountAmounts | [AccountAmount](../basic-types/accountamount.md) | Multiple list of AccountAmount pairs, each of which has an account and an amount to transfer into it \(positive\) or out of it \(negative\) |
 

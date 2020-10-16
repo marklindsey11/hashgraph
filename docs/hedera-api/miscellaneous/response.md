@@ -22,4 +22,6 @@ A single response, which is returned from the node to the client, after the clie
 |  | transactionGetRecord | [TransactionGetRecordResponse](transactiongetrecord.md#transactiongetrecordresponse) | Get a record for a transaction \(lasts 1 hour\) |
 |  | transactionGetFastRecord | [TransactionGetFastRecordResponse](transactiongetfastrecord.md#transactiongetfastrecordresponse) | Get a record for a transaction \(lasts 180 seconds\) |
 |  | consensusGetTopicInfo | [ConsensusGetTopicInfoResponse](../consensus-service/consensusgettopicinfo.md#consensusgettopicinforesponse) | Parameters of and state of a consensus topic. |
+|  | networkGetVersionInfo | NetworkGetVersionInfoResponse | Semantic versions of Hedera Services and HAPI proto |
+|  | tokenGetInfo | TokenGetInfoResponse | Get all information about a token |
 

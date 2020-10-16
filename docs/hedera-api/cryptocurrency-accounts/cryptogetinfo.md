@@ -37,4 +37,17 @@ Response when the client sends the node CryptoGetInfoQuery
 | expirationTime | [Timestamp](../miscellaneous/timestamp.md#timestamp) | The TimeStamp time at which this account is set to expire |
 | autoRenewPeriod | [Duration](../miscellaneous/duration.md) | The duration for expiration time will extend every this many seconds. If there are insufficient funds, then it extends as long as possible. If it is empty when it expires, then it is deleted. |
 | liveHashes | [Claim](cryptoaddclaim.md#claim) | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it \) |
+| tokenRelationships | TokenRelationship | All tokens related to this account |
+
+#### TokenRelationship
+
+Token's information related to the given Account
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| tokenId | TokenID | The ID of the token |
+| symbol |  | The Symbol of the token |
+| balance |  | The balance that the Account holds in the smallest denomination |
+| kycStatus | TokenKycStatus | The KYC status of the account \(KycNotApplicable, Granted or Revoked\). If the token does not have KYC key, KycNotApplicable is returned |
+| freezeStatus | TokenFreezeStatus | The Freeze status of the account \(FreezeNotApplicable, Frozen or Unfrozen\). If the token does not have Freeze key, FreezeNotApplicable is returned |
 
