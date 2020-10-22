@@ -7,7 +7,7 @@ Constructs a `TokenId`.
 | `new TokenId(<shard>,<realm>,<token>)` | Initializes the TokenCreateTransaction object |
 
 ```java
-new TokenCreateTransaction()
+new TokenId()
 ```
 
 ### Methods
