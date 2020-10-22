@@ -34,7 +34,7 @@ System.out.println("The token balance(s) for this account: " +tokenBalance);
     .setAccountId(accountId)
     .execute(client);
 
-console.log("The token balance(s) for this account: " +tokenBalance);
+console.log("The token balance(s) for this account: " +tokenBalance.get("<tokenId>"));
 //Version 1.4.2
 ```
 {% endtab %}
