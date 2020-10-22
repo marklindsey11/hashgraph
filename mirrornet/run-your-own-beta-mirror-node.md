@@ -68,9 +68,11 @@ cd hedera-mirror-node
 
 | Provider | **Network** | Name |
 | :--- | :--- | :--- |
-| GCP | Testnet | hedera-stable-testnet-streams-2020-08-27 |
+| GCS | Previewnet | hedera-preview-testnet-streams |
+|  | Testnet | hedera-stable-testnet-streams-2020-08-27 |
 |  | Mainnet | hedera-mainnet-streams |
-| S3 | Testnet | hedera-stable-testnet-streams-2020-08-27 |
+| S3 | Previewnet | hedera-preview-testnet-streams |
+|  | Testnet | hedera-stable-testnet-streams-2020-08-27 |
 |  | Mainnet | hedera-mainnet-streams |
 
 {% tabs %}
