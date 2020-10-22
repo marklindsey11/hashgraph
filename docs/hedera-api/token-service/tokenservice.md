@@ -6,7 +6,7 @@ Transactions and queries for the Token Service.
 
 | Method Name | Request Type | Response Type | Description |
 | :--- | :--- | :--- | :--- |
-| createToken | [Transaction](../miscellaneous/transaction.md) | TransactionResponse | Creates a new Token by submitting the transaction |
+| createToken | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Creates a new Token by submitting the transaction |
 | updateToken | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Updates the account by submitting the transaction |
 | mintToken | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Mints an amount of the token to the defined treasury account |
 | burnToken | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Burns an amount of the token from the defined treasury account |
