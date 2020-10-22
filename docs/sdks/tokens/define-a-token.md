@@ -132,7 +132,10 @@ new TokenCreateTransaction()
       <td style="text-align:left"><code>setAutoRenewPeriod(&lt;period&gt;)</code>
       </td>
       <td style="text-align:left">Duration</td>
-      <td style="text-align:left">Optional</td>
+      <td style="text-align:left">
+        <p>Optional</p>
+        <p>(default: 131,500 minutes)</p>
+      </td>
     </tr>
   </tbody>
 </table>
