@@ -30,13 +30,12 @@ System.out.println("The token balance(s) for this account: " +tokenBalance);
 
 {% tab title="JavaScript" %}
 ```javascript
-//Issue identified 
-const tokenBalance = await new TokenBalanceQuery()
+ const tokenBalance = await new TokenBalanceQuery()
     .setAccountId(accountId)
     .execute(client);
 
 console.log("The token balance(s) for this account: " +tokenBalance);
-//Version 1.4.1
+//Version 1.4.2
 ```
 {% endtab %}
 {% endtabs %}
