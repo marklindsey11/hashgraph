@@ -45,9 +45,9 @@ Token's information related to the given Account
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| tokenId | TokenID | The ID of the token |
+| tokenId | [TokenID](../basic-types/tokenid.md) | The ID of the token |
 | symbol |  | The Symbol of the token |
 | balance |  | The balance that the Account holds in the smallest denomination |
-| kycStatus | TokenKycStatus | The KYC status of the account \(KycNotApplicable, Granted or Revoked\). If the token does not have KYC key, KycNotApplicable is returned |
-| freezeStatus | TokenFreezeStatus | The Freeze status of the account \(FreezeNotApplicable, Frozen or Unfrozen\). If the token does not have Freeze key, FreezeNotApplicable is returned |
+| kycStatus | [TokenKycStatus](../basic-types/tokenkycstatus.md) | The KYC status of the account \(KycNotApplicable, Granted or Revoked\). If the token does not have KYC key, KycNotApplicable is returned |
+| freezeStatus | [TokenFreezeStatus](../basic-types/tokenfreezestatus.md) | The Freeze status of the account \(FreezeNotApplicable, Frozen or Unfrozen\). If the token does not have Freeze key, FreezeNotApplicable is returned |
 

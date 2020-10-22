@@ -4,9 +4,9 @@ Possible KYC statuses returned on TokenGetInfoQuery or CryptoGetInfoResponse in 
 
 | Enum Name | Description |
 | :--- | :--- |
-| KycNotApplicable |  |
-| Granted |  |
-| Revoked |  |
+| KycNotApplicable | KYC n/a |
+| Granted | KYC was granted |
+| Revoked | KYC was revoked |
 
 #### 
 

@@ -75,6 +75,12 @@ The summary of a transaction’s result so far. If the transaction has not reach
       <td style="text-align:left">In the receipt of a ConsensusSubmitMessage, the version of the SHA-384
         digest used to update the running hash.</td>
     </tr>
+    <tr>
+      <td style="text-align:left">tokenId</td>
+      <td style="text-align:left"><a href="../basic-types/tokenid.md">TokenID</a>
+      </td>
+      <td style="text-align:left">In the receipt of a CreateToken, the id of the newly created token</td>
+    </tr>
   </tbody>
 </table>
 

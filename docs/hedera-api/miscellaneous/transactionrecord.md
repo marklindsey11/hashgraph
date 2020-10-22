@@ -16,4 +16,5 @@ Response when the client sends the node TransactionGetRecordResponse
 |  | contractCallResult | ContractFunctionResult | Record of the value returned by the smart contract function \(if it completed and didn't fail\) from ContractCallTransaction |
 |  | contractCreateResult | ContractFunctionResult | Record of the value returned by the smart contract constructor \(if it completed and didn't fail\) from ContractCreateTransaction |
 | transferList | [TransferList](../cryptocurrency-accounts/cryptotransfer.md#transferlist) | All hbar transfers as a result of this transaction, such as fees, or transfers performed by the transaction, or by a smart contract it calls, or by the creation of threshold records that it triggers. |  |
+| tokenTransferLists | TokenTransferList | All Token transfers as a result of this transaction |  |
 
