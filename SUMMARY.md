@@ -206,6 +206,7 @@
     * [TimeStamp](docs/hedera-api/miscellaneous/timestamp.md)
     * [Transaction](docs/hedera-api/miscellaneous/transaction.md)
     * [Transaction Contents](docs/hedera-api/miscellaneous/transaction-contents.md)
+    * [TransactionBody](docs/hedera-api/miscellaneous/transactionbody.md)
     * [TransactionGetFastRecord](docs/hedera-api/miscellaneous/transactiongetfastrecord.md)
     * [TransactionGetReceipt](docs/hedera-api/miscellaneous/transactiongetreceipt.md)
     * [TransactionGetRecord](docs/hedera-api/miscellaneous/transactiongetrecord.md)

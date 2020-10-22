@@ -20,6 +20,6 @@ Once executed the Account is marked as KYC Granted.
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| token | [TokenID](file:///Users/simihunjan/Downloads/hedera-services-master/hapi-proto/HAPI.html#proto.TokenID) | The token for which this account will be granted KYC. If token does not exist, transaction results in INVALID\_TOKEN\_ID  |
-| account | [AccountID](file:///Users/simihunjan/Downloads/hedera-services-master/hapi-proto/HAPI.html#proto.AccountID) | The account to be KYCed  |
+| token | [TokenID](../basic-types/tokenid.md) | The token for which this account will be granted KYC. If token does not exist, transaction results in INVALID\_TOKEN\_ID  |
+| account | [AccountID](../basic-types/accountid.md) | The account to be KYCed  |
 

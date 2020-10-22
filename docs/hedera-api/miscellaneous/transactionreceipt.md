@@ -54,13 +54,13 @@ The summary of a transaction’s result so far. If the transaction has not reach
     </tr>
     <tr>
       <td style="text-align:left">topicSequenceNumber</td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">uint64</td>
       <td style="text-align:left">In the receipt of a ConsensusSubmitMessage, the new sequence number of
         the topic that received the message</td>
     </tr>
     <tr>
       <td style="text-align:left">topicRunningHash</td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">bytes</td>
       <td style="text-align:left">
         <p></p>
         <p>In the receipt of a ConsensusSubmitMessage, the new running hash of the
@@ -71,7 +71,7 @@ The summary of a transaction’s result so far. If the transaction has not reach
     </tr>
     <tr>
       <td style="text-align:left">topicRunningHashVersion</td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">uint64</td>
       <td style="text-align:left">In the receipt of a ConsensusSubmitMessage, the version of the SHA-384
         digest used to update the running hash.</td>
     </tr>

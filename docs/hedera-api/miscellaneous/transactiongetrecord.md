@@ -8,7 +8,7 @@ Get the record for a transaction. If the transaction requested a record, then th
 | :--- | :--- | :--- |
 | header | [QueryHeader](queryheader.md) | Standard info sent from client to node, including the signed payment, and what kind of response is requested \(cost, state proof, both, or neither\). |
 | transactionID | [TransactionID](../basic-types/transactionid.md) | The ID of the transaction for which the record is requested. |
-| includeDuplicates |  | Whether records of processing duplicate transactions should be returned along with the record of processing the first consensus transaction with the given id whose status was neither INVALID\_NODE\_ACCOUNT nor INVALID\_PAYER\_SIGNATURE; **or**, if no such record exists, the record of processing the first transaction to reach consensus with the given transaction id. |
+| includeDuplicates | bool | Whether records of processing duplicate transactions should be returned along with the record of processing the first consensus transaction with the given id whose status was neither INVALID\_NODE\_ACCOUNT nor INVALID\_PAYER\_SIGNATURE; **or**, if no such record exists, the record of processing the first transaction to reach consensus with the given transaction id. |
 
 ## TransactionGetRecordResponse
 

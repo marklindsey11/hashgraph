@@ -1,9 +1,5 @@
 # TokenTransfer
 
-
-
-#### TokenTransfersTransactionBody <a id="proto.TokenTransfersTransactionBody"></a>
-
 Transfer tokens from some accounts to other accounts. Each negative amount is withdrawn from the corresponding account \(a sender\), and each positive one is added to the corresponding account \(a receiver\). All amounts must have sum of zero.
 
 Each amount is a number with the lowest denomination possible for a token. Example:
@@ -12,7 +8,9 @@ Token X has 2 decimals. Account A transfers amount of 100 tokens by providing 10
 
 If any sender account fails to have sufficient token balance, then the entire transaction fails and none of the transfers occur, though transaction fee is still charged.
 
-| Field | Type | Label | Description |
-| :--- | :--- | :--- | :--- |
-| tokenTransfers | [TokenTransferList](file:///Users/simihunjan/Downloads/hedera-services-master/hapi-proto/HAPI.html#proto.TokenTransferList) | repeated |  |
+#### TokenTransfersTransactionBody <a id="proto.TokenTransfersTransactionBody"></a>
+
+| Field | Type | Label |
+| :--- | :--- | :--- |
+| tokenTransfers | [TokenTransferList](../basic-types/tokentransferlist.md) | repeated |
 

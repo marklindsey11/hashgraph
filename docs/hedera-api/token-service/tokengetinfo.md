@@ -6,8 +6,8 @@ Gets information about Token instance
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| header | [QueryHeader](https://github.com/hashgraph/hedera-protobuf/tree/hedera-protobuf-java-api-0.9.0-alpha5#QueryHeader) | Standard info sent from client to node, including the signed payment, and what kind of response is requested \(cost, state proof, both, or neither\) |
-| token | [TokenID](https://github.com/hashgraph/hedera-protobuf/tree/hedera-protobuf-java-api-0.9.0-alpha5#TokenID) | The token for which information is requested. If invalid token is provided, INVALID\_TOKEN\_ID response is returned. |
+| header | [QueryHeader](../miscellaneous/queryheader.md) | Standard info sent from client to node, including the signed payment, and what kind of response is requested \(cost, state proof, both, or neither\) |
+| token | [TokenID](../basic-types/tokenid.md) | The token for which information is requested. If invalid token is provided, INVALID\_TOKEN\_ID response is returned. |
 
 ## TokenGetInfoResponse
 
@@ -15,7 +15,7 @@ Response when the client sends the node TokenGetInfoQuery
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| header | ResponseHeader | Standard response from node to client, including the requested fields: cost, or state proof, or both, or neither |
+| header | [ResponseHeader](../miscellaneous/responseheader.md) | Standard response from node to client, including the requested fields: cost, or state proof, or both, or neither |
 | tokenInfo | TokenInfo | The information requested about this token instance |
 
 ## TokenInfo
