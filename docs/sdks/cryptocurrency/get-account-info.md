@@ -12,6 +12,7 @@ This information includes:
 * Whether the account is deleted or not
 * Whether the receiver signature is required or not
 * The proxy account ID, if any
+* The token transfers list as the result of a tokens transferred in the transaction
 
 | Constructor | Description |
 | :--- | :--- |
