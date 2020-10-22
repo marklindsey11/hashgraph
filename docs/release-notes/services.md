@@ -6,16 +6,18 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.7.0 | 0.8.1 |
+| **Mainnet** | 0.8.1 | 0.9.0 |
 | **Testnet** | 0.8.1 | 0.9.0 |
 | **Previewnet** | 0.9.0-alpha.1 |  |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.8.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.8.1-rc1)
 
-{% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: OCTOBER 22, 2020**
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: OCTOBER 22, 2020**
 {% endhint %}
 
 {% hint style="success" %}
@@ -39,8 +41,6 @@ In Hedera Services v0.8.0, we made several minor fixes and improvements. This ta
 * Deprecated fields related to threshold records in HAPI protobuf  [\#506](https://github.com/hashgraph/hedera-services/issues/506)
 * Update Receipt proto to pair each Status with NodeID - Receipt is deleted only when the latest \(duplicate\) transaction expires. `getTxRecord` API will continue to return ALL records with the transaction ID.
 * First drafts of `tokenCreate`, `tokenUpdate`, `tokenDelete`, `tokenTransfer`, `tokenFreeze`, `tokenUnfreeze`, `tokenGrantKyc`, `tokenRevokeYc`, `tokenWipe`, and `getTokenInfo` HAPI operations. [\#505](https://github.com/hashgraph/hedera-services/pull/505) and [\#522](https://github.com/hashgraph/hedera-services/pull/522) 
-
-## Latest Releases
 
 ## [v0.7.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.7.0-alpha1)
 
