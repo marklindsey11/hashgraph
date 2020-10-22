@@ -36,7 +36,7 @@ accounts
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+The account information for 0.0.1562
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -73,19 +73,32 @@ Returns the account information for the specified public key
     "accounts": [
         {
             "balance": {
-                "timestamp": "1568420100.066845000",
-                "balance": 628318531
+                "timestamp": "1602804267.903201001",
+                "balance": 1809568709,
+                "tokens": [
+                    {
+                        "token_id": "0.0.1561",
+                        "balance": 100000
+                    },
+              
+                    {
+                        "token_id": "0.0.2003",
+                        "balance": 999997650
+                    }
+                ]
             },
-            "account": "0.0.1",
+            "account": "0.0.1562",
             "expiry_timestamp": null,
-            "auto_renew_period": null,
-            "key": null,
-            "deleted": null,
-            "entity_type": "account"
+            "auto_renew_period": 7890000,
+            "key": {
+                "_type": "ED25519",
+                "key": "ecda99c4c366e8069743d6fbb70c99dd3785c257e4e6f7567e795f3f5c77cb3b"
+            },
+            "deleted": false
         }
     ],
     "links": {
-        "next": "/api/v1/accounts?limit=1&account.id=gt:0.0.1"
+        "next": null
     }
 }
 ```
@@ -100,6 +113,7 @@ Returns the account information for the specified public key
 | :--- | :--- |
 | **accounts** | The list of information returned for all accounts |
 | **balance** | The timestamp and account balance of the account |
+| **tokens** | The tokens and their balances associated to the specified account |
 | **account** | The ID of the account |
 | **expiry timestamp** | The expiry date for the entity as set by a create or update transaction |
 | **auto renew period** | The period in which the account autorenews |
@@ -206,36 +220,26 @@ Returns the balance object for a specific public key
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-
+The balance for account 0.0.2004
 {% endapi-method-response-example-description %}
 
 ```
 {
-    "timestamp": "1568420100.066845000",
+    "timestamp": "1602804267.903201001",
     "balances": [
         {
-            "account": "0.0.16316",
-            "balance": 500005000
-        },
-        {
-            "account": "0.0.16315",
-            "balance": 500005000
-        },
-        {
-            "account": "0.0.16314",
-            "balance": 500005000
-        },
-        {
-            "account": "0.0.16313",
-            "balance": 500005000
-        },
-        {
-            "account": "0.0.16312",
-            "balance": 500005000
+            "account": "0.0.2004",
+            "balance": 10000000,
+            "tokens": [
+                {
+                    "token_id": "0.0.2003",
+                    "balance": 2350
+                }
+            ]
         }
     ],
     "links": {
-        "next": "/api/v1/balances?limit=5&account.id=lt:0.0.16312"
+        "next": "/api/v1/balances?limit=1&account.id=lt:0.0.2004"
     }
 }
 
@@ -253,6 +257,9 @@ Returns the balance object for a specific public key
 | **balances** | List of balances for each account |
 | **account** | The ID of the account |
 | **balance** | The balance of the account |
+| **tokens** | The tokens that are associated to this account |
+| **tokens.token\_id** | The ID of the token associated to this account |
+| **tokens.balance** | The token balance for the specified token associated to this account |
 | **links.next** | Hyperlink to the next page of results |
 
 ### Optional Filtering <a id="optional-filtering-1"></a>
@@ -357,41 +364,54 @@ If `type=debit` the query returns all transactions that withdrew from an account
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-
+A request to return information for a transaction that was provided a specific timestamp
 {% endapi-method-response-example-description %}
 
 ```
- "transactions": [
+{
+    "transactions": [
         {
-            "consensus_timestamp": "1592946499.489772000",
-            "transaction_hash": "Vqes7MbclJ6ygnr2crDtzLxuB3c1ikX67UUEq5s8zEx6ZQcSP4+Q/ROAeZ4/bSIP",
-            "valid_start_timestamp": "1592946489.339479000",
-            "charged_tx_fee": 238219,
-            "memo_base64": "TmV0d29yayBwaW5n",
+            "consensus_timestamp": "1602718525.642096000",
+            "transaction_hash": "rcJfUqXgznzsV5p9SYW0BsmzmQ4jEmIjDJ4Xgl8R+j5d1uk95XWYhSyG00KAbAXl",
+            "valid_start_timestamp": "1602718515.568165000",
+            "charged_tx_fee": 85551,
+            "memo_base64": "VHJhbnNmZXIgdG9rZW5fMjAyMC0xMC0xNFQyMzozNToyNS41NjEwODVa",
             "result": "SUCCESS",
-            "name": "CRYPTOTRANSFER",
-            "max_fee": "100000000",
+            "name": "TOKENTRANSFERS",
+            "max_fee": "1000000",
             "valid_duration_seconds": "120",
             "node": "0.0.3",
-            "transaction_id": "0.0.88-1592946489-339479000",
+            "transaction_id": "0.0.1562-1602718515-568165000",
             "transfers": [
                 {
                     "account": "0.0.3",
-                    "amount": 14536
-                },
-                {
-                    "account": "0.0.88",
-                    "amount": -238220
+                    "amount": 5232
                 },
                 {
                     "account": "0.0.98",
-                    "amount": 223684
+                    "amount": 80319
+                },
+                {
+                    "account": "0.0.1562",
+                    "amount": -85551
+                }
+            ],
+            "token_transfers": [
+                {
+                    "token_id": "0.0.1588",
+                    "account": "0.0.1589",
+                    "amount": 2350
+                },
+                {
+                    "token_id": "0.0.1588",
+                    "account": "0.0.1562",
+                    "amount": -2350
                 }
             ]
         }
     ],
     "links": {
-        "next": "/api/v1/transactions?limit=1&timestamp=lt:1592946499.489772000"
+        "next": null
     }
 }
 ```
@@ -416,6 +436,7 @@ If `type=debit` the query returns all transactions that withdrew from an account
 | **valid duration seconds** | The seconds for which a submitted transaction is to be deemed valid beyond the start time. The transaction is invalid if consensusTimestamp is greater than transactionValidStart + valid\_duration\_seconds. |
 | **node** | The ID of the node that submitted the transaction to the network |
 | **transfers** | A list of the account IDs the crypto transfer occurred between and the amount that was transferred. A negative \(-\) sign indicates a debit to that account. The transfer list includes the transfers between the from account and to account, the transfer of the [node fee](https://www.hedera.com/fees), the transfer of the [network fee](https://www.hedera.com/fees), and the transfer of the [service fee](https://www.hedera.com/fees) for that transaction. If the transaction was not processed, a [network fee](https://www.hedera.com/fees) is still assessed. |
+| **token transfers** | The token ID, account, and amount that was transferred to by this account in this transaction. This will not be listed if it did not occur in the transaction |
 | **links.next** | A hyperlink to the next page of responses |
 
 ### Optional Filtering <a id="optional-filtering-2"></a>
