@@ -23,11 +23,14 @@ new TokenDeleteTransaction()
 TokenDeleteTransaction transaction = new TokenDeleteTransaction()
     .setTokenId(newTokenId);
 
-Status transactionStatus = transaction.build(client) //Build the unsigned transaction
-    .sign(adminKey) //Sign with the admin private key of the token
-    .execute(client) //Submit the transaction to the hedera network
-    .getReceipt(client) //Request the receipt of the transaction
-    .status; // Obtain the transaction consensus status
+//Build the unsigned transaction, sign with the admin private key of the account, submit the transaction to a Hedera network
+TransacionId transactionId = transaction.build(client).sign(adminKey).execute(client);
+    
+//Request the receipt of the transaction
+TransactionReceipt getReceipt = transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+Status transactionStatus = getReceipt.status;
 
 System.out.println("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
@@ -40,14 +43,17 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 const transaction = await new TokenDeleteTransaction()
     .setTokenId(newTokenId);
 
-const transactionStatus = await (await (await transaction.build(client) //Build the unsigned transaction
-    .sign(adminKey) //Sign with the admin private key of the token
-    .execute(client)) //Submit the transaction to the hedera network
-    .getReceipt(client)) //Request the receipt of the transaction
-    .status; //Obtain the transaction consensus status
+//Build the unsigned transaction, sign with admin private key of the token, submit the transaction to a Hedera network
+const transactionId = await transaction.build(client).sign(adminKey).execute(client);
+    
+//Request the receipt of the transaction
+const getReceipt = await transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+const transactionStatus = await getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
-//Version 1.4.1
+//Version 1.4.2
 ```
 {% endtab %}
 {% endtabs %}

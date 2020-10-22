@@ -33,11 +33,14 @@ TokenUnfreezeTransaction transaction = new TokenUnfreezeTransaction()
     .setAccountId(newAccountId)
     .setTokenId(newTokenId);
 
-Status transactionStatus = transaction.build(client) //Build the unsigned transaction
-    .sign(freezeKey) //Sign with the freeze key of the token
-    .execute(client) //Submit the transaction to a Hedera network
-    .getReceipt(client) //Request the receipt of a transaction 
-    .status; //Obtain the transaction consensus status
+//Build the unsigned transaction, sign with the sender freeze private key of the token, submit the transaction to a Hedera network
+TransacionId transactionId = transaction.build(client).sign(freezeKey).execute(client);
+    
+//Request the receipt of the transaction
+TransactionReceipt getReceipt = transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+Status transactionStatus = getReceipt.status;
 
 System.out.print("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
@@ -51,14 +54,17 @@ const transaction = await new TokenUnfreezeTransaction()
     .setAccountId(newAccountId)
     .setTokenId(newTokenId);
 
-const transactionStatus = await (await (await transaction.build(client) //Build the unsigned transaction
-    .sign(freezeKey) //Sign with the freeze key of the token
-    .execute(client)) //Submit the transaction to the Hedera network
-    .getReceipt(client)) //Request the receipt of the transaction
-    .status; //Obtain the transaction consensus status
+//Build the unsigned transaction, sign with the freeze private key of the token, submit the transaction to a Hedera network
+const transactionId = await transaction.build(client).sign(freezeKey).execute(client);
+    
+//Request the receipt of the transaction
+const getReceipt = await transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+const transactionStatus = await getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
-//Version 1.4.1
+//Version 1.4.2
 ```
 {% endtab %}
 {% endtabs %}

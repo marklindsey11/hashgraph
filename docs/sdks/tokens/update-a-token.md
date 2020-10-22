@@ -49,12 +49,15 @@ new TokenUpdateTransaction()
 TokenUpdateTransaction transaction = new TokenUpdateTransaction()
     .setTokenId(newTokenId)
     .setName("Your New Token Name");
+
+//Build the unsigned transaction, sign with the admin private key of the token, submit the transaction to a Hedera network
+TransacionId transactionId = transaction.build(client).sign(adminKey).execute(client);
     
-Status transactionStatus = transaction.build(client) //Build the unsigned transaction
-    .sign(adminKey) //Sign with the admin private key
-    .execute(client) //Submit the transaction to the Hedera network
-    .getReceipt(client) //Request the receipt of the transaction
-    .status; //Obtain the transaction consensus status
+//Request the receipt of the transaction
+TransactionReceipt getReceipt = transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+Status transactionStatus = getReceipt.status;
 
 System.out.println("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
@@ -68,14 +71,17 @@ const transaction = await new TokenUpdateTransaction()
     .setTokenId(newTokenId)
     .setName("Your New Token Name");
     
-const transactionStatus = await (await (await transaction.build(client) //Build the unsigned transaction
-    .sign(adminKey) //Sign with the admin private key
-    .execute(client))//Submit the transaction to the Hedera network
-    .getReceipt(client)) //Request the receipt of the transaction
-    .status; //Obtain the transaction consensus status
+//Build the unsigned transaction, sign with the token admin private key of the token, submit the transaction to a Hedera network
+const transactionId = await transaction.build(client).sign(adminKey).execute(client);
+    
+//Request the receipt of the transaction
+const getReceipt = await transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+const transactionStatus = await getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
-//Version: 1.4.1
+//Version: 1.4.2
 ```
 {% endtab %}
 {% endtabs %}

@@ -37,11 +37,14 @@ TokenDissociateTransaction transaction = new TokenDissociateTransaction()
     .setAccountId(accountId)
     .addTokenId(tokenId);
         
-Status transactionStatus = transaction.build(client) //Build the unsigned transaction
-    .sign(accountKey) //Sign with the account private key
-    .execute(client) //Submit the transaction to the Hedera network
-    .getReceipt(client) //Request the transaction receipt
-    .status; //Obtain the consensus status of the transaction
+//Build the unsigned transaction, sign with the private key of the account that is being dissociated from a token, submit the transaction to a Hedera network
+TransacionId transactionId = transaction.build(client).sign(accountKey).execute(client);
+    
+//Request the receipt of the transaction
+TransactionReceipt getReceipt = transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+Status transactionStatus = getReceipt.status;
 
 System.out.println("The transaction consensus status is: " +transactionStatus);
 //Version: 1.2.2
@@ -55,14 +58,17 @@ const transaction = await new TokenDissociateTransaction()
     .setAccountId(accountId)
     .addTokenId(tokenId);
         
-const transactionStatus = await (await (await transaction.build(client) //Build the unsigned transaction
-    .sign(accountKey) //Sign with the account private key
-    .execute(client)) //Submit the transaction to the Hedera network
-    .getReceipt(client)) //Request the transaction receipt
-    .status; //Obtain the consensus status of the transaction
+//Build the unsigned transaction, sign with the private key of the account that is being dissociated from a token, submit the transaction to a Hedera network
+const transactionId = await transaction.build(client).sign(accountKey).execute(client);
+    
+//Request the receipt of the transaction
+const getReceipt = await transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+const transactionStatus = await getReceipt.status;
 
 console.log("The transaction consensus status is: " +transactionStatus);
-//Version 1.4.1
+//Version 1.4.2
 ```
 {% endtab %}
 {% endtabs %}

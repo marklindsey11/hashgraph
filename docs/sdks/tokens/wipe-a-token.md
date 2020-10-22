@@ -38,12 +38,14 @@ TokenWipeTransaction transaction = new TokenWipeTransaction()
     .setTokenId(tokenId)
     .setAmount(100);
 
-Status transactionStatus = transaction.build(client) //Build the unsigned transaction
-    .sign(wipeKey) //Sign with the wipe private key
-    .sign(accountKey) //Sign with the account private key
-    .execute(client) //Submit the transaction to the Hedera network
-    .getReceipt(client) //Request the receipt of the transaction
-    .status; //Obtain the consensus status of the transaction
+//Build the unsigned transaction, sign with the private key of the account that is being wiped, sign with the wipe private key of the token, submit the transaction to a Hedera network
+TransacionId transactionId = transaction.build(client).sign(accountKey).sign(wipeKey).execute(client);
+    
+//Request the receipt of the transaction
+TransactionReceipt getReceipt = transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+Status transactionStatus = getReceipt.status;
 
 System.out.println("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
@@ -57,16 +59,18 @@ const transaction = await new TokenWipeTransaction()
     .setAccountId(accountId)
     .setTokenId(tokenId)
     .setAmount(100);
-
-const transactionStatus = await (await (await transaction.build(client) //Build the unsigned transaction
-    .sign(wipeKey) //Sign with the wipe private key
-    .sign(accountKey) //Sign with the account private key
-    .execute(client)) //Submit the transaction to the Hedera network
-    .getReceipt(client)) //Request the receipt of the transaction
-    .status; //Obtain the consensus status of the transaction
+    
+//Build the unsigned transaction, sign with the accounnt private key of the token, sign with the wipe private key, submit the transaction to a Hedera network
+const transactionId = await transaction.build(client).sign(accountKey).sign(wipeKey).execute(client);
+    
+//Request the receipt of the transaction
+const getReceipt = await transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+const transactionStatus = await getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
-//Version 1.4.1
+//Version 1.4.2
 ```
 {% endtab %}
 {% endtabs %}

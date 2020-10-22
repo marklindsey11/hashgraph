@@ -1,6 +1,6 @@
 # Associate tokens to an account
 
-Associates the provided account with the provided tokens. Accounts must be associated with a token first before you can transfer tokens to that account. 
+Associates the provided account with the provided tokens. Accounts must be associated with a token first before you can transfer tokens to that account. The account that is being associated to a token is required to sign the transaction.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
@@ -33,11 +33,14 @@ TokenAssociateTransaction transaction = new TokenAssociateTransaction()
         .setAccountId(accountId)
         .addTokenId(tokenId);
 
-Status transactionStatus = transaction.build(client) //Build the unsigned transaction
-         .sign(accountKey) //Sign with the account key
-         .execute(client) //Submit the transaction to the Hedera network 
-         .getReceipt(client) //Request the transaction receipt
-         .status; //Obtain the transaction consensus status
+//Build the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
+TransacionId transactionId = transaction.build(client).sign(accountKey).execute(client);
+    
+//Request the receipt of the transaction
+TransactionReceipt getReceipt = transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+Status transactionStatus = getReceipt.status;
 
 System.out.println("The transaction consensus status " +transactionStatus);
 //Version: 1.2.2
@@ -49,16 +52,19 @@ System.out.println("The transaction consensus status " +transactionStatus);
 //Associate a token to an account 
 const transaction = await new TokenAssociateTransaction()
         .setAccountId(accountId)
-        .setTokenIds(tokenId); //Will change to addTokenId()
+        .addTokenId(tokenId); //Will change to addTokenId()
 
-const transactionStatus = await (await (await transaction.build(client) //Build the unsigned transaction
-         .sign(accountKey) //Sign with the account key
-         .execute(client)) //Submit the transaction to the Hedera network 
-         .getReceipt(client)) //Request the transaction receipt
-         .status; //Obtain the transaction consensus status
+//Build the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
+const transactionId = await transaction.build(client).sign(accountKey).execute(client);
+    
+//Request the receipt of the transaction
+const getReceipt = await transactionId.getReceipt(client);
+    
+//Obtain the transaction consensus status
+const transactionStatus = await getReceipt.status;
 
 console.log("The transaction consensus status " +transactionStatus);
-//Version 1.4.1
+//Version 1.4.2
 ```
 {% endtab %}
 {% endtabs %}

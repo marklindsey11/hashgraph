@@ -151,12 +151,14 @@ TokenCreateTransaction transaction = new TokenCreateTransaction()
     .setInitialSupply(5000)
     .setAdminKey(adminKey.publicKey);
 
-TokenId newTokenId = transaction.build(client) //Build the unsigned transaction
-    .sign(adminKey) //Sign with the admin private key
-    .sign(treasuryAccountKey) //Sign with the treasury account private key
-    .execute(client) //Submit the transaction to the Hedera network
-    .getReceipt(client) //Request the reciept of the transaction
-    .getTokenId(); //Obtain the token ID
+//Build the unsigned transaction, sign with admin private key of the token, sign with the token treasury private key, submit the transaction to a Hedera network
+TransactionId transactionId = transaction.build(client).sign(adminKey).sign(treasuryKey).execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt getReceipt = transactionId.getReceipt(client);
+
+//Obtain the token ID
+TokenId tokenId = getReceipt.getTokenId();
 
 System.out.println("The new token ID is " +newTokenId);
 //Version: 1.2.2
@@ -173,15 +175,17 @@ const transaction = await new TokenCreateTransaction()
     .setInitialSupply(5000)
     .setAdminKey(adminKey.publicKey);
 
-const newTokenId = await (await (await transaction.build(client) //Build the unsigned transaction
-    .sign(adminKey) //Sign with the admin private key
-    .sign(treasuryAccountKey) //Sign with the treasury account private key
-    .execute(client)) //Submit the transaction to the Hedera network
-    .getReceipt(client)) //Request the reciept of the transaction
-    .getTokenId(); //Obtain the token ID
+//Build the unsigned transaction, sign with the admin private key of the token, sign with the token treasury private key, submit the transaction to a Hedera network
+const transactionId = await transaction.build(client).sign(adminKey).sign(treasuryKey).execute(client);
+
+//Request the receipt of the transaction
+const getReceipt = await transactionId.getReceipt(client);
+
+//Obtain the token ID
+const tokenId = await getReceipt.getTokenId();
 
 console.log("The new token ID is " +newTokenId);
-//Version: 1.4.1
+//Version: 1.4.2
 ```
 {% endtab %}
 {% endtabs %}
