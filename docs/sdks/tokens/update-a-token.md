@@ -12,9 +12,9 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 | Freeze Key | The new Freeze Key of the Token. If the Token does not have currently a Freeze Key, transaction will resolve to TOKEN\_HAS\_NO\_FREEZE\_KEY. |
 | Wipe Key | The new Wipe Key of the Token. If the Token does not have currently a Wipe Key, transaction will resolve to TOKEN\_HAS\_NO\_WIPE\_KEY. |
 | Supply Key | The new Supply Key of the Token. If the Token does not have currently a Supply Key, transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. |
-| Expiration Time | The new expiry time of the token. Expiry can be updated even if the Admin Key is not set. If the provided expiry is earlier than the current token expiry, transaction wil resolve to INVALID\_EXPIRATION\_TIME |
+| Expiration Time | The new expiry time of the token. Expiry can be updated even if the Admin Key is not set. If the provided expiry is earlier than the current token expiry, transaction wil resolve to INVALID\_EXPIRATION\_TIME.  |
 | Auto Renew Account | The new account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. |
-| Auto Renew Period | The new interval at which the auto-renew account will be charged to extend the token's expiry. |
+| Auto Renew Period | The new interval at which the auto-renew account will be charged to extend the token's expiry. Default:  |
 
 | Constructor | Description |
 | :--- | :--- |
