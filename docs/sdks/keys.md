@@ -17,7 +17,7 @@ The SDK currently suppports Ed25519 key system.
 | `Ed25519PrivateKey.generate()` | [Ed25519PrivateKey](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/crypto/ed25519/Ed25519PrivateKey.java) | Generates a Ed25519 private key |
 | `<newKey>.PublicKey()` | [Ed25519PublicKey](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/crypto/ed25519/Ed25519PublicKey.java) | Gets the corresponding public key to the previously generated private key |
 
-## Example
+### Example
 
 {% tabs %}
 {% tab title="Java" %}
@@ -66,7 +66,7 @@ new KeyList()
 | `add(<key>)` | [Ed25519PublicKey](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/crypto/ed25519/Ed25519PublicKey.java) | Add one public key to the key list |
 | `addAll(<keys>)` | [Ed25519PublicKey](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/crypto/ed25519/Ed25519PublicKey.java) | Add all keys to the key list |
 
-
+### Example
 
 {% tabs %}
 {% tab title="Java" %}
@@ -143,7 +143,7 @@ new ThresholdKey(<threshold>)
 | `add(<key>)` | [Ed25519PublicKey](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/crypto/ed25519/Ed25519PublicKey.java) | Add one public key to the key list |
 | `addAll(<keys>)` | [Ed25519PublicKey](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/crypto/ed25519/Ed25519PublicKey.java) | Add all keys to the key list |
 
-
+### Example
 
 {% tabs %}
 {% tab title="Java" %}
