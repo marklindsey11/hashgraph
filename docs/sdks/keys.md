@@ -128,7 +128,7 @@ const txId = await transaction.execute(client);
 
 ## Threshold Keys
 
-Create a key list where each key in the list is required to sign the transaction.
+Create a threshold key where the threshold is required to sign the transaction.
 
 | Constructor | Type | Description |
 | :--- | :--- | :--- |
