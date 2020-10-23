@@ -119,7 +119,7 @@ const transaction = new AccountCreateTransaction()
     .setInitialBalance(new Hbar(10));
 
 //Submit the transaction to a Hedera network
-const txId = await transaction.execute(client);
+const transactionId = await transaction.execute(client);
 
 //v1.4.2
 ```
@@ -159,7 +159,7 @@ Ed25519PrivateKey key3 = Ed25519PrivateKey.generate();
 Ed25519PublicKey publicKey3 = key3.publicKey;
 
 // require 2 of the 3 keys we generated to sign on anything modifying this account
-ThresholdKey thresholdKeys = new ThresholdKey(2).add(publicKey1).add(publicKey2).add(publicKe
+ThresholdKey thresholdKeys = new ThresholdKey(2).add(publicKey1).add(publicKey2).add(publicKey3);
 
 //Create an account with a key list       
 AccountCreateTransaction transaction = new AccountCreateTransaction()
@@ -187,7 +187,7 @@ const key3 = await Ed25519PrivateKey.generate();
 const publicKey3 = key3.publicKey;
 
 //Create a threshold key of 2/3
-const thresholdKeys = new ThresholdKey(2).add(publicKey1).add(publicKey2).add(publicKey3);
+const thresholdKeys = new ThresholdKey(2).add(publicKey1).add(publicKey2).add(publicKey3);     
     
 const transaction = new AccountCreateTransaction()
     // require 2 of the 3 keys we generated to sign on anything modifying this account
@@ -195,7 +195,7 @@ const transaction = new AccountCreateTransaction()
     .setInitialBalance(new Hbar(10));
 
 //Submit the transaction to a Hedera network
-const txId = await transaction.execute(client);
+const transactionId = await transaction.execute(client);
 
 
 //v1.4.2
