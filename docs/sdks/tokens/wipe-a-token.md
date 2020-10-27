@@ -25,9 +25,9 @@ new TokenWipeAccountTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The ID of the token to wipe from the account | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The ID of the token to wipe from the account | Required |
 | `setAmount(<amount>)` | long | The amount of token to wipe from the specified account. Amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account \(0; balance\] | Required |
-| `setAccount(<accountId>)` | AccountId | The account ID to wipe the tokens from | Required |
+| `setAccount(<accountId>)` | [AccountId](../specialized-types.md#accountid) | The account ID to wipe the tokens from | Required |
 
 {% tabs %}
 {% tab title="Java" %}

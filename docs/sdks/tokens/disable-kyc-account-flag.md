@@ -22,8 +22,8 @@ new TokenRevokeKycTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token ID that is associated with the account to remove the KYC flag | Required |
-| `setAccountId(<setAccountId>)` | AccountId | The account ID that is associated with the account to remove the KYC flag | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The token ID that is associated with the account to remove the KYC flag | Required |
+| `setAccountId(<setAccountId>)` | [AccountId](../specialized-types.md#accountid) | The account ID that is associated with the account to remove the KYC flag | Required |
 
 {% tabs %}
 {% tab title="Java" %}

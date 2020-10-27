@@ -23,8 +23,8 @@ new TokenGrantKycTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token for this account to have passed KYC | Required |
-| `setAccountId(<accountId>)` | AccountId | The account for this token to have passed KYC | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The token for this account to have passed KYC | Required |
+| `setAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | The account for this token to have passed KYC | Required |
 
 {% tabs %}
 {% tab title="Java" %}

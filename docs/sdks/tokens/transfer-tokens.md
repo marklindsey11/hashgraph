@@ -18,9 +18,9 @@ new TokenTransferTransaction()
 
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `addSender(<tokenId, accountId, amount>)` | TokenId, AccountId, long | Negative token amount is withdrawn from this account |
-| `addRecipient(<tokenId, accountId, amount>)` | TokenId, AccountId, long | Postive token amount is added to this account |
-| `addTransfer(<tokenId, accountId, amount>)` | TokenId, AccountId, long | Transfer tokens between accounts |
+| `addSender(<tokenId, accountId, amount>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | Negative token amount is withdrawn from this account |
+| `addRecipient(<tokenId, accountId, amount>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | Postive token amount is added to this account |
+| `addTransfer(<tokenId, accountId, amount>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | Transfer tokens between accounts |
 
 {% tabs %}
 {% tab title="Java" %}

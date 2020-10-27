@@ -115,22 +115,22 @@ new TokenInfoQuery()
 
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | Required |
-| `<TokenInfoQuery>.tokenId` | TokenId | Optional |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | Required |
+| `<TokenInfoQuery>.tokenId` | [TokenId](token-id.md) | Optional |
 | `<TokenInfoQuery>.name` | String | Optional |
 | `<TokenInfoQuery>.symbol` | String | Optional |
 | `<TokenInfoQuery>.decimals` | int | Optional |
 | `<TokenInfoQuery>.totalSupply` | long | Optional |
-| `<TokenInfoQuery>.treasury` | AccountId | Optional |
-| `<TokenInfoQuery>.adminKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.kycKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.freezeKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.wipeKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.supplyKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.treasury` | [AccountId](../specialized-types.md#accountid) | Optional |
+| `<TokenInfoQuery>.adminKey` | [PublicKey](../keys.md) | Optional |
+| `<TokenInfoQuery>.kycKey` | [PublicKey](../keys.md) | Optional |
+| `<TokenInfoQuery>.freezeKey` | [PublicKey](../keys.md) | Optional |
+| `<TokenInfoQuery>.wipeKey` | [PublicKey](../keys.md) | Optional |
+| `<TokenInfoQuery>.supplyKey` | [PublicKey](../keys.md) | Optional |
 | `<TokenInfoQuery>.defaultFreezeStatus` | Boolean | Optional |
 | `<TokenInfoQuery>.defaultKycStatus` | Boolean | Optional |
 | `<TokenInfoQuery>.isDeleted` | Boolean | Optional |
-| `<TokenInfoQuery>.autoRenewAccount` | AccountId | Optional |
+| `<TokenInfoQuery>.autoRenewAccount` | [AccountId](../specialized-types.md#accountid) | Optional |
 | `<TokenInfoQuery>.autoRenewPeriod` | Duration | Optional |
 | `<TokenInfoQuery>.expiry` | Instant | Optional |
 

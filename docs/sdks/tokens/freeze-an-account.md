@@ -22,8 +22,8 @@ new TokenFreezeTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token for this account to be frozen | Required |
-| `setAccountId(<accountId>)` | AccountId | The account to be frozen | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The token for this account to be frozen | Required |
+| `setAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | The account to be frozen | Required |
 
 {% tabs %}
 {% tab title="Java" %}

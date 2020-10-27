@@ -75,37 +75,43 @@ new TokenCreateTransaction()
     <tr>
       <td style="text-align:left"><code>setTreasury(&lt;treasury&gt;)</code>
       </td>
-      <td style="text-align:left">AccountId</td>
+      <td style="text-align:left"><a href="../specialized-types.md#accountid">AccountId</a>
+      </td>
       <td style="text-align:left">Required</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setAdminKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left">PublicKey</td>
+      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setKycKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left">PublicKey</td>
+      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setFreezeKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left">PublicKey</td>
+      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setWipeKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left">PublicKey</td>
+      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setSupplyKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left">PublicKey</td>
+      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
@@ -125,7 +131,8 @@ new TokenCreateTransaction()
     <tr>
       <td style="text-align:left"><code>setAutoRenewAccount(&lt;account&gt;)</code>
       </td>
-      <td style="text-align:left">AccountId</td>
+      <td style="text-align:left"><a href="../specialized-types.md#accountid">AccountId</a>
+      </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>

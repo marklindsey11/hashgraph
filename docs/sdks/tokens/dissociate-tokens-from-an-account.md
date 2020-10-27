@@ -26,8 +26,8 @@ new TokenDissociateTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The tokens to be dissociated with the provided account | Required |
-| `setAccountId(<accountId>)` | AccountId | The account to be dissociated with the provided tokens | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The tokens to be dissociated with the provided account | Required |
+| `setAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | The account to be dissociated with the provided tokens | Required |
 
 {% tabs %}
 {% tab title="Java" %}

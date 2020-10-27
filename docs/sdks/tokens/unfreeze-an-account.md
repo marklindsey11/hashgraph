@@ -22,8 +22,8 @@ new TokenUnfreezeTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token for this account to unfreeze | Required |
-| `setAccountId(<accountId>)` | AccountId | The account to unfreeze | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The token for this account to unfreeze | Required |
+| `setAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | The account to unfreeze | Required |
 
 {% tabs %}
 {% tab title="Java" %}

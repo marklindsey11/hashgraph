@@ -14,7 +14,7 @@ new TokenBalanceQuery()
 
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
-| `setAccountId(<tokenId>)` | TokenId | Required |
+| `setAccountId(<tokenId>)` | [TokenId](token-id.md) | Required |
 
 {% tabs %}
 {% tab title="Java" %}

@@ -22,8 +22,8 @@ new TokenAssociateTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountId | The account to be associated with the provided tokens | Required |
-| `addTokenId(<tokenId>)` | TokenId | The tokens to be associated with the provided account | Required |
+| `setAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | The account to be associated with the provided tokens | Required |
+| `addTokenId(<tokenId>)` | [TokenId](token-id.md) | The tokens to be associated with the provided account | Required |
 
 {% tabs %}
 {% tab title="Java" %}

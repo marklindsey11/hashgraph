@@ -14,7 +14,7 @@ new TokenMintTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token for which to mint tokens | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The token for which to mint tokens | Required |
 | `setAmount(<amount>)` | long | The amount to mint to the Treasury Account. Amount must be a positive non-zero number represented in the lowest denomination of the token. The new supply must be lower than 2^63. | Required |
 
 {% tabs %}
