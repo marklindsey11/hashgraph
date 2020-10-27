@@ -149,13 +149,12 @@ System.out.println("The total supply of this token is " +totalSupply)
 
 {% tab title="JavaScript" %}
 ```javascript
-//Issue identified
 const tokenInfo = await new TokenInfoQuery()
     .setTokenId(newTokenId);
 
 const totalSupply = await tokenInfo.execute(client).totalSupply;
 console.log("The total supply of this token is " +totalSupply)
-//Version 1.4.1
+//Version 1.4.3
 ```
 {% endtab %}
 {% endtabs %}
