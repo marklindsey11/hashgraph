@@ -91,7 +91,7 @@ The following methods can be called when building the above transaction types:
 
 ## Transaction Receipt
 
-The receipt of a transaction returns whether the transaction has reached consensus or not. It also returns the a new `accountId`, `consensusTopicId`, `contractId`, and `fileId` if generated in the transaction.
+The receipt of a transaction returns whether the transaction has reached consensus or not. It also returns the a new `accountId`, `consensusTopicId`, `contractId`, `tokenId` and `fileId` if generated in the transaction.
 
 | Method | Type | Description |
 | :--- | :--- | :--- |
@@ -121,6 +121,7 @@ const transactionReceipt = await transactionId.getReceipt(client);
 | `getConsensusTopicSequenceNumber()` | long | The topic sequence number |
 | `getContractId()` | ContractId | The newly generated contract ID |
 | `getFileId()` | FileId | The newly generated file ID |
+| `getTokenId()` | `TokenId` | The newly generated token ID |
 
 ## Transaction Record
 
