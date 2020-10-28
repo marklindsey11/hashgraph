@@ -130,6 +130,7 @@ A transaction record returns the following information about a transaction:
 * Transaction hash
 * Transaction fee
 * List of transfers
+* List of token transfers
 * Consensus timestamp
 * Receipt 
 * Memo
@@ -168,4 +169,5 @@ const transactionRecord = await transactionId.getRecord(client)
 | `consensusTimeStamp` | Instant | The consensus timestamp |
 | `receipt` | TransactionReceipt | The status \(reach consensus, or failed, or is unknown\), and the ID of any new account/file/instance created |
 | `transactionMemo` | String | The memo that was submitted as part of the transaction \(max 100 bytes\) |
+| `tokenTransfers` | Map&lt;TokenId, Map&lt;AccountId, List&lt;Long&gt;&gt;&gt; | The token ID and the account ID the tokens were debited and creditied from |
 
