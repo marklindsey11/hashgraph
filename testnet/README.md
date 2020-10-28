@@ -66,7 +66,11 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
   <tbody>
     <tr>
       <td style="text-align:left">Cryptocurrency Transactions</td>
-      <td style="text-align:left">8,000 tps</td>
+      <td style="text-align:left">8,000 tps (excludes CryptoCreate)</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">CryptoCreate Transactions</td>
+      <td style="text-align:left">13 tps</td>
     </tr>
     <tr>
       <td style="text-align:left">Consensus Transactions</td>
