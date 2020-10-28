@@ -32,12 +32,16 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
   <tbody>
     <tr>
       <td style="text-align:left">Cryptocurrency Transactions</td>
-      <td style="text-align:left">10,000 tps</td>
+      <td style="text-align:left">8,000 tps (excludes CryptoCreate)</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">CryptoCreate Transactions</td>
+      <td style="text-align:left">13 tps</td>
     </tr>
     <tr>
       <td style="text-align:left">Consensus Transactions</td>
       <td style="text-align:left">
-        <p>6,000 tps</p>
+        <p>3,000 tps</p>
         <p>CreateTopic: 5 tps</p>
       </td>
     </tr>
@@ -51,11 +55,11 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
     </tr>
     <tr>
       <td style="text-align:left">Queries</td>
-      <td style="text-align:left">10,000 tps</td>
+      <td style="text-align:left">8,000 tps</td>
     </tr>
     <tr>
       <td style="text-align:left">Receipts</td>
-      <td style="text-align:left">unlimited (no throttle)</td>
+      <td style="text-align:left">unlimited (no throttle</td>
     </tr>
   </tbody>
 </table>
