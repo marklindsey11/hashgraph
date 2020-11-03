@@ -12,6 +12,16 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
+## [v0.21.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.21.0)
+
+This release continues our focus on the Hedera Token Service \(HTS\) by adding three new token REST APIs. A token discovery REST API `/api/v1/tokens` shows available tokens on the network. A token REST API `/api/v1/tokens/${tokenId}` shows details for a token on the network. A token supply distribution REST API `/api/v1/tokens/${tokenId}/balances` shows token distribution across accounts. These APIs have already made their way to previewnet so check them out!
+
+Continuing our HTS theme, we enhanced our testing frameworks with token support. Our acceptance tests can send HTS transactions to HAPI and wait for those transactions to show up via the mirror node REST API. Additionally, our performance tests can simulate a HTS load to test how the system responds to HTS transactions.
+
+We improved our existing REST APIs by adding a way to filter by transaction type. When searching for transactions or showing the transactions for a particular account you can now filter via an optional `transactionType` query parameter. This feature can be used with the transactions API in the format `/api/v1/transactions?transactionType=tokentransfers` while the format for the accounts API is `/api/v1/accounts/0.0.8?transactionType=TOKENTRANSFERS`.
+
+We improved our Kubernetes support with AlertManager integration. There are now custom `PrometheusRule` alerts for each component that trigger notifications based upon Prometheus metrics. A custom Grafana dashboard was created that shows currently firing alerts.
+
 ## [v0.20.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.20.0)
 
 {% hint style="success" %}
