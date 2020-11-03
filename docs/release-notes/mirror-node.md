@@ -7,12 +7,16 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.19.0 | 0.20.0 |
-| **Testnet** | 0.19.0 | 0.20.0 |
-| **Previewnet** | 0.20.0 | 0.21.0 |
+| **Testnet** | 0.20.0 | 0.21.0 |
+| **Previewnet** | 0.21.0 | 0.22.0 |
 
 ## Upcoming Releases
 
 ## [v0.20.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.20.0)
+
+{% hint style="success" %}
+**TESTNE UPDATE COMPLETED: NOVEMBER 3, 2020**
+{% endhint %}
 
 This is a big release that contains support for a new HAPI service and whole new runtime component to dramatically improve performance. Due to the magnitude of the changes, it did take us a little longer to mark it as generally available as we wanted to ensure it was tested as much as possible beforehand.
 
@@ -29,11 +33,11 @@ We also added support for the HAPI protobuf [changes](https://hedera.com/blog/ch
 ## [v0.19.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.19.0)
 
 {% hint style="success" %}
-**MAINNET UPDATE COMPLETE: OCTOBER 6, 2020**
+**MAINNET UPDATE COMPLETED: OCTOBER 6, 2020**
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNE UPDATE COMPLETE: SEPTEMBER 29, 2020**
+**TESTNE UPDATE COMPLETED: SEPTEMBER 29, 2020**
 {% endhint %}
 
 This release finishes the State Proof alpha REST API and makes it [generally available](http://www.hedera.com/blog/introducing-state-proof-alpha). As part of this, we made a lot of improvements to the check-state-proof command line tool that queries the API and validates the files locally. We also now store the node account used to verify record file, ensuring greater accuracy as to the provenance of the state proof.
@@ -45,11 +49,11 @@ We added proper liveness and readiness probe endpoints for all our components. I
 ## [v0.18.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.18.2)
 
 {% hint style="success" %}
-**MAINNET UPDATE COMPLETE: SEPTEMBER 22, 2020**
+**MAINNET UPDATE COMPLETED: SEPTEMBER 22, 2020**
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE COMPLETE: SEPTEMBER 15, 2020**
+**TESTNET UPDATE COMPLETED: SEPTEMBER 15, 2020**
 {% endhint %}
 
 Fix two regressions in the 0.18 release train.
