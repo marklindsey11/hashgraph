@@ -33,9 +33,10 @@ Community members contribute to SDKs in other languages.
 
 Community members contribute to development tools other then SDKs that can be used to bootstrap your own projects.
 
-| Project | Maintainer | License | Download |
-| :--- | :--- | :--- | :--- |
-| Serverless Hedera REST API | Community | Apache 2.0 | [docs.trust.enterprises](https://docs.trust.enterprises/) |
+| Project | Maintainer | License | Documentation | Download
+| :--- | :--- | :--- | :--- | :--- |
+| Serverless Hedera REST API | Community | Apache 2.0 | [docs.trust.enterprises](https://docs.trust.enterprises/) | [mattsmithies/hedera-serverless-consensus](https://github.com/mattsmithies/hedera-serverless-consensus) |
+| Serverless Hedera Laravel Package | Community | Apache 2.0 | [docs.trust.enterprises/laravel](https://docs.trust.enterprises/laravel/working-with-laravel) | [mattsmithies/laravel-hashgraph](https://github.com/mattsmithies/laravel-hashgraph)|
 
 Want to help contribute or have a project you'd like to see, here? Get in touch in [discord](https://discordapp.com/invite/FFb9YFX) or add a pull request.
 
