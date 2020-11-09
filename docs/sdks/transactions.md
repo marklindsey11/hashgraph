@@ -6,12 +6,21 @@ Transactions are requests that are submitted by a client to a node in the Hedera
 Transactions have a 6,144 kb transaction size limit. This includes the signatures on the transaction. The estimated single signature size is about 80-100 bytes.
 {% endhint %}
 
-| Cryyptocurrency Accounts | Consensus | File Service | Smart Contracts |
-| :--- | :--- | :--- | :--- |
-| [AccountCreateTransaction](cryptocurrency/create-an-account.md) | [ConsensusTopicCreateTransaction](consensus/create-a-topic.md) | [FileCreateTransaction](file-storage/create-a-file.md) | [ContractCreateTransaction](smart-contracts/create-a-smart-contract.md) |
-| [AccountUpdateTransaction](cryptocurrency/update-an-account.md) | [ConsensusTopicUpdateTransaction](consensus/update-a-topic.md) | [FileAppendTransaction](file-storage/append-to-a-file.md) | [ContractUpdateTransaction](smart-contracts/update-a-smart-contract.md) |
-| [CryptoTransferTransaction](cryptocurrency/transfer-cryptocurrency.md) | [ConsensusMessageSubmitTransaction](consensus/submit-a-message.md) | [FileUpdateTransaction](file-storage/update-a-file.md) | [ContractDeleteTransaction](smart-contracts/delete-a-smart-contract.md) |
-| [AccountDeleteTransaction](cryptocurrency/delete-an-account.md) | [ConsensusTopicDeleteTransaction](consensus/delete-a-topic.md) | [FileDeleteTransaction](file-storage/delete-a-file.md) |  |
+| Cryyptocurrency Accounts | Consensus | Tokens | File Service | Smart Contracts |
+| :--- | :--- | :--- | :--- | :--- |
+| [AccountCreateTransaction](cryptocurrency/create-an-account.md) | [ConsensusTopicCreateTransaction](consensus/create-a-topic.md) | [TokenCreateTransaction](tokens/define-a-token.md) | [FileCreateTransaction](file-storage/create-a-file.md) | [ContractCreateTransaction](smart-contracts/create-a-smart-contract.md) |
+| [AccountUpdateTransaction](cryptocurrency/update-an-account.md) | [ConsensusTopicUpdateTransaction](consensus/update-a-topic.md) | [TokenUpdateTransaction](tokens/update-a-token.md) | [FileAppendTransaction](file-storage/append-to-a-file.md) | [ContractUpdateTransaction](smart-contracts/update-a-smart-contract.md) |
+| [CryptoTransferTransaction](cryptocurrency/transfer-cryptocurrency.md) | [ConsensusMessageSubmitTransaction](consensus/submit-a-message.md) | [TokenTransferTransaction](tokens/transfer-tokens.md) | [FileUpdateTransaction](file-storage/update-a-file.md) | [ContractDeleteTransaction](smart-contracts/delete-a-smart-contract.md) |
+| [AccountDeleteTransaction](cryptocurrency/delete-an-account.md) | [ConsensusTopicDeleteTransaction](consensus/delete-a-topic.md) | [TokenDeleteTransaction](tokens/delete-a-token.md) | [FileDeleteTransaction](file-storage/delete-a-file.md) |  |
+|  |  | [TokenAssociateTransaction](tokens/associate-tokens-to-an-account.md) |  |  |
+|  |  | [TokenDissociateTransaction](tokens/dissociate-tokens-from-an-account.md) |  |  |
+|  |  | [TokenMintTransaction](tokens/mint-a-token.md) |  |  |
+|  |  | [TokenBurnTransaction](tokens/burn-a-token.md) |  |  |
+|  |  | [TokenFreezeTransaction](tokens/freeze-an-account.md) |  |  |
+|  |  | [TokenUnfreezeTransaction](tokens/unfreeze-an-account.md) |  |  |
+|  |  | [TokenGrantKycTransaction](tokens/enable-kyc-account-flag-1.md) |  |  |
+|  |  | [TokenRevokeKycTransaction](tokens/disable-kyc-account-flag.md) |  |  |
+|  |  | [TokenWipeTransaction](tokens/wipe-a-token.md) |  |  |
 
 
 
