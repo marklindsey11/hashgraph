@@ -53,6 +53,7 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
 | Consensus Service | Limited |
 | File Service | Limited |
 | Smart Contract Service | Limited  |
+| Tokens | Available on previewnet |
 
 #### Test Network Throttles
 
