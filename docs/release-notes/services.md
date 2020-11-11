@@ -8,9 +8,25 @@ description: Hedera Services release information
 | :--- | :--- | :--- |
 | **Mainnet** | 0.8.1 | 0.9.0 |
 | **Testnet** | 0.8.1 | 0.9.0 |
-| **Previewnet** | 0.9.0-alpha.1 |  |
+| **Previewnet** | 0.9.0-alpha.7 |  |
 
 ## Upcoming Releases
+
+## [v0.9.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.9.0-rc.1)
+
+{% hint style="info" %}
+**MAINNET UPDATE SCHEDULED: December 3, 2020**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE SCHEDULED: November 19, 2020**
+{% endhint %}
+
+In Hedera Services v0.9.0, we finished the alpha implementation of the Hedera Token Service \(HTS\). Note that all HTS operations are enabled on Previewnet, but remain disabled on Testnet and Mainnet. Please consult the [SDK documentation](https://docs.hedera.com/452354233115445331/token-service) for HTS semantics.
+
+We made several changes to the HAPI protobuf. First, we removed the deprecated `SignatureList` message type. Second, we added a top-level `signedTransactionBytes` field to the `Transaction` message to ensure deterministic transaction hashes across different client libraries; the top-level `bodyBytes` and `sigMap` fields are now deprecated and the already-deprecated `body` field is removed. Third, we deprecated all fields related to non-payer records, include account send and receive thresholds. This followed from the effective removal of non-payer records in v0.8.1.
+
+For the same reason, the semantics of the `CryptoGetRecords` and `ContractGetRecords` queries have also changed. The only queryable records are now those granted to the effective payer of a transaction that was handled while the network property `ledger.keepRecordsInState=true`. Such records have an expiry of 180 seconds. It is important to note that because a contract account can never be the effective payer for a transaction, any `ContractGetRecords` query will always return an empty record list, and we have deprecated the query.
 
 ## Latest Releases
 
