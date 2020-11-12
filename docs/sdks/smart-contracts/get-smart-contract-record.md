@@ -4,7 +4,7 @@
 
 | Constructor | Description |
 | :--- | :--- |
-| `ContractRecordsQuery()` | Initializes the ContractRecordQuery object |
+| `ContractRecordsQuery()` | Initializes the ContractRecordsQuery object |
 
 ```java
 new ContractRecordsQuery()

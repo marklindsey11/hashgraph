@@ -12,7 +12,7 @@
 
 | Constructor | Description |
 | :--- | :--- |
-| `ContractInfoQuery()` | Initializes a ContractCallInfoQuery object |
+| `ContractInfoQuery()` | Initializes a ContractInfoQuery object |
 
 ```java
 new ContractInfoQuery()

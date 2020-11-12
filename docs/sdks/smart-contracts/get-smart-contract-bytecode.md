@@ -1,13 +1,13 @@
 # Get smart contract bytecode
 
-`ContractByteCodeQuery()` returns the bytecode for a smart contract instance.
+`ContractBytecodeQuery()` returns the bytecode for a smart contract instance.
 
 | Constructor | Description |
 | :--- | :--- |
-| `ContractByteCodeQuery()` | Initalizes a ContractByteCodeQuery object |
+| `ContractBytecodeQuery()` | Initalizes a ContractBytecodeQuery object |
 
 ```java
-new ContractByteCodeQuery()
+new ContractBytecodeQuery()
 ```
 
 ## Basic
