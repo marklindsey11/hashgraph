@@ -4,7 +4,7 @@
 
 | Constructor | Description |
 | :--- | :--- |
-| `FileContentsQuery()` | Initializes a FileContentQuery object |
+| `FileContentsQuery()` | Initializes a FileContentsQuery object |
 
 ```java
 new FileContentsQuery()
