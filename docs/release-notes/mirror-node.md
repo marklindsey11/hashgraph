@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.19.0 | 0.20.0 |
+| **Mainnet** | 0.20.0 | 0.21.0 |
 | **Testnet** | 0.20.0 | 0.21.0 |
 | **Previewnet** | 0.21.0 | 0.22.0 |
 
@@ -25,7 +25,11 @@ We improved our Kubernetes support with AlertManager integration. There are now 
 ## [v0.20.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.20.0)
 
 {% hint style="success" %}
-**TESTNE UPDATE COMPLETED: NOVEMBER 3, 2020**
+**MAINNET UPDATE COMPLETED: NOVEMBER 11, 2020**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: NOVEMBER 3, 2020**
 {% endhint %}
 
 This is a big release that contains support for a new HAPI service and whole new runtime component to dramatically improve performance. Due to the magnitude of the changes, it did take us a little longer to mark it as generally available as we wanted to ensure it was tested as much as possible beforehand.
