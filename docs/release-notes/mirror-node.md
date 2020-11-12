@@ -12,6 +12,17 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
+## [v0.22.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.22.0)
+
+This release continues our improvements to our Kubernetes support as well as monitoring and performance improvements across the modules.
+
+We improved our custom PrometheusRule alerts for the Importer, GRPC and REST API modules, as well as added dashboards for our gRPC and REST API modules. Additionally, we increased our pod resources limits to optimize Importer ingestion and gRPC streaming performance in a Kubernetes cluster. Our existing js based monitor and REST performance tests were both updated to include HTS support.
+
+We also improved our data generator module with support for the majority of HAPI transactions the mirror node importer ingests. Additionally, we also added a java based monitor module that supports generation and publishing of transactions.
+
+This release also includes an improvements to avoid the stale account info bug that stems from balance stream files being received at a slower frequency than record stream files. Now account creations and account info changes will be reflected in REST API call even though the updated balance may not have been received.  
+We also extended our REST API support to include case insensitive support query parameters. `/api/v1/transactions?transactionType=tokentransfers` and `/api/v1/transactions?transactiontype=tokentransfers` are now both acceptable.
+
 ## [v0.21.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.21.0)
 
 This release continues our focus on the Hedera Token Service \(HTS\) by adding three new token REST APIs. A token discovery REST API `/api/v1/tokens` shows available tokens on the network. A token REST API `/api/v1/tokens/${tokenId}` shows details for a token on the network. A token supply distribution REST API `/api/v1/tokens/${tokenId}/balances` shows token distribution across accounts. These APIs have already made their way to previewnet so check them out!
