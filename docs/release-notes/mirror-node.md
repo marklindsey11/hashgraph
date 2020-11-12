@@ -2,7 +2,7 @@
 description: Hedera mirror node release notes
 ---
 
-# Mirror Node
+# Hedera Mirror Node
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
