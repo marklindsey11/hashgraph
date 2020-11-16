@@ -7,7 +7,7 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.20.0 | 0.21.0 |
-| **Testnet** | 0.20.0 | 0.21.0 |
+| **Testnet** | 0.21.0 | 0.22.0 |
 | **Previewnet** | 0.22.0 | 0.23.0 |
 
 ## Upcoming Releases
@@ -24,6 +24,10 @@ This release also includes an improvements to avoid the stale account info bug t
 We also extended our REST API support to include case insensitive support query parameters. `/api/v1/transactions?transactionType=tokentransfers` and `/api/v1/transactions?transactiontype=tokentransfers` are now both acceptable.
 
 ## [v0.21.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.21.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: NOVEMBER 13, 2020**
+{% endhint %}
 
 This release continues our focus on the Hedera Token Service \(HTS\) by adding three new token REST APIs. A token discovery REST API `/api/v1/tokens` shows available tokens on the network. A token REST API `/api/v1/tokens/${tokenId}` shows details for a token on the network. A token supply distribution REST API `/api/v1/tokens/${tokenId}/balances` shows token distribution across accounts. These APIs have already made their way to previewnet so check them out!
 
