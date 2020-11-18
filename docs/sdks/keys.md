@@ -8,8 +8,6 @@ Hedera conveniently supplies support for different key types without the use of 
 * **Key List**: A list of keys that are all required to sign transactions to modify the account
 * **Threshold Keys**: Requires a minimum of x number of signatures from a total of y signatures to modify the account.
 
-
-
 The SDK currently suppports Ed25519 key system. 
 
 | **Method** | Type | Description |
