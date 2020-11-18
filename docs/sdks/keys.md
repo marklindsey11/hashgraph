@@ -132,7 +132,7 @@ Create a threshold key where the threshold is required to sign the transaction.
 
 | Constructor | Type | Description |
 | :--- | :--- | :--- |
-| `new ThresholdKey(<threshold>)` | int | Initializes a KeyList object |
+| `new ThresholdKey(<threshold>)` | int | Initializes a ThresholdKey object |
 
 ```java
 new ThresholdKey(<threshold>)
