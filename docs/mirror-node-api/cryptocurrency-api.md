@@ -550,7 +550,7 @@ A single transaction can also be returned by specifying the transaction ID in th
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>api/v1/transactions?transactionType=cryptotransfer</code>
+      <td style="text-align:left"><code>/api/v1/transactions?transactionType=cryptotransfer</code>
       </td>
       <td style="text-align:left">Returns all cryptotransfer transactions</td>
     </tr>
