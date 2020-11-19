@@ -1,82 +1,206 @@
 # Delete a file
 
-`FileDeleteTransaction()` deletes a file stored on the Hedera network. Once the file has been deleted, it will be marked as deleted until it expires and will not retain any of its contents.
+A transaction that deletes a file from a Hedera network. When deleted, a file's contents are truncated to zero length and it can no longer be updated or appended to, or its expiration time extended. When you request the contents or info of a deleted file, the network will return FILE\_DELETED. 
+
+**Transaction Signing Requirements**
+
+* The key\(s\) on the file are required to sign the transaction
+* If you do not sign with the key\(s\) on the file, you will receive an INVALID\_SIGNATURE network error
 
 | Constructor | Description |
 | :--- | :--- |
-| `FileDeleteTransaction()` | Initializes the FileDeleteTransaction object |
+| `new FileDeleteTransaction()` | Initializes the FileDeleteTransaction object |
 
 ```java
 new FileDeleteTransaction()
 ```
 
-## Basic
-
-| Methods | Type | Description |
-| :--- | :--- | :--- |
-| `setFileId(<fileId>)` | FileId | The ID of the file to delete |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to delete in x.y.z format |
+
+{% code title="Java" %}
 ```java
-TransactionId fileDeleteTxnId = new FileDeleteTransaction()
-     .setFileId(newFileId)
-     .execute(client);
+//Create the transaction
+FileDeleteTransaction transaction = new FileDeleteTransaction()
+    .setFileId(newFileId);
 
-// if this doesn't throw then the transaction was a success
-fileDeleteTxnId.getReceipt(client);
+//Modify the default max transaction fee to from 1 to 2 hbars
+FileDeleteTransaction modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2));
 
-System.out.println("File deleted successfully.");
+//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
+TransactionResponse txResponse = modifyMaxTransactionFee.freezeWith(client).sign(key).execute(client);
 
-FileInfo fileInfo = new FileInfoQuery()
-     .setFileId(newFileId)
-     .execute(client);
+//Request the receipt
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " + transactionStatus);
+
+//v2.0.0
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
-const operatorAccount = process.env.OPERATOR_ID;
-const operatorPrivateKey = process.env.OPERATOR_KEY;
-const operatorPublicKey = Ed25519PublicKey.fromString(process.env.OPERATOR_PUB_KEY);
+//Create the transaction
+const transaction = new FileDeleteTransaction()
+    .setFileId(newFileId);
 
- if (operatorPrivateKey == null || operatorAccount == null) {
-  throw new Error(
-    "environment variables OPERATOR_KEY and OPERATOR_ID must be present"
-  );
+//Modify the default max transaction fee to from 1 to 2 hbars
+const modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2));
+
+//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
+const txResponse = await modifyMaxTransactionFee.freezeWith(client).sign(key).execute(client);
+
+//Request the receipt
+const receipt = await txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " + transactionStatus);
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewFileDeleteTransaction().
+	  SetFileID(fileId)
+
+//Modify the default max transaction fee to from 1 to 2 hbars
+modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
+
+//Prepare the transaction for signing
+freezeTransaction, err := modifyMaxTransactionFee.FreezeWith(client)
+if err != nil {
+		panic(err)
 }
 
-const client = new Client({
-   network: { "0.testnet.hedera.com:50211": "0.0.3" },
-   operator: {
-     account: operatorAccount,
-     privateKey: operatorPrivateKey
-   }
-});
+//Sign with the key on the file, sign with the client operator key and submit to a Hedera network
+txResponse, err := freezeTransaction.Sign(fileKey).Execute(client)
+if err != nil {
+		panic(err)
+}
 
-// First, we'll create a file with our operator as an admin
-const transactionId = await new FileCreateTransaction()
-   .setContents("creating a file to test deletion")
-   .setMaxTransactionFee(Hbar.of(100))
-   .addKey(operatorPublicKey)
-   .execute(client);
+//Request the receipt
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+		panic(err)
+}
 
-// The receipt will contain the FileId, or where it exists on the network
-const createFileReceipt = await transactionId.getReceipt(client);
-console.log("create file receipt ", JSON.stringify(createFileReceipt) + "\n");
+//Get the transaction status
+transactionStatus := receipt.Status
 
-// Then we'll delete this newly created file
-const deleteFileTransactionId = await new FileDeleteTransaction()
-   .setFileId(createFileReceipt._fileId) // Define which file to delete
-   .setMaxTransactionFee(Hbar.of(100))
-   .execute(client); // Presumes the client is the file's admin key
+fmt.Println("The transaction consensus status is ", transactionStatus)
 
-// After deletion, the receipt should NOT contain a file ID
-const deleteFileReceipt = await deleteFileTransactionId.getReceipt(client);
-console.log("deleted file receipt, won't contain a file ID ", JSON.stringify(deleteFileReceipt) + "\n");  
+//v2.0.0
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to delete in x.y.z format |
+
+{% code title="Java" %}
+```java
+FileDeleteTransaction transaction = new FileDeleteTransaction()
+    .setFileId(newFileId);
+
+//Change the default transaction fee to 2 hbars
+FileDeleteTransaction newMaxFee = transaction.setMaxTransactionFee(new Hbar(2));
+
+//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
+TransactionId txId = newMaxFee.build(client).sign(key).execute(client);
+
+//Request the receipt
+TransactionReceipt receipt = txId.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " + transactionStatus);
+
+//v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+const transaction = new FileDeleteTransaction()
+    .setFileId(newFileId);
+
+//Change the default transaction fee to 2 hbars
+const newMaxFee = transaction.setMaxTransactionFee(new Hbar(2));
+
+//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
+const txId = await newMaxFee.build(client).sign(key).execute(client);
+
+//Request the receipt
+const receipt = await txId.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " + transactionStatus);
+
+//v1.4.4 (issue: returns unauthorized)
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## Get transaction values
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getFileId(<fileId>)` | FileId | The ID of the file to delete \(x.z.y\) |
+
+{% code title="Java" %}
+```java
+//Create the transaction
+FileDeleteTransaction transaction = new FileDeleteTransaction()
+    .setFileId(newFileId);
+
+//Get the file ID
+FileId getFileId = transaction.getFileId();
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = new FileDeleteTransaction()
+    .setFileId(newFileId);
+    
+//Get the file ID
+FileId getFileId = transaction.getFileId();
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewFileDeleteTransaction().
+	  SetFileID(fileId)
+	
+//Get the file ID
+getFileId := transaction.GetFileID()
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 

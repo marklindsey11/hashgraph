@@ -1,5 +1,7 @@
 # General Errors
 
+Network errors and their descriptions.
+
 | Error  | Description |
 | :--- | :--- |
 | `AUTORENEW_DURATION_NOT_IN_RANGE` | The duration is not a subset of \[MINIMUM\_AUTORENEW\_DURATION,MAXIMUM\_AUTORENEW\_DURATION\] |

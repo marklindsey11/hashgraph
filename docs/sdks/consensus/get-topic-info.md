@@ -1,55 +1,120 @@
 # Get topic info
 
-The `ConsensusTopicInfoQuery()` returns the following information about a topic:
+Subscribe to a topic ID's messages from a mirror node. You will recieve all messages for the specified topic or within the defined start and end time.
 
-| Info Item | Description |
+{% tabs %}
+{% tab title="V2" %}
+| Constructor | Description |
 | :--- | :--- |
-| **topicId** | The ID of the topic |
-| **adminKey** | Access control for update/delete of the topic. Null if there is no key. |
-| **submitKey** | Access control for ConsensusService.submitMessage. Null if there is no key. |
-| **sequenceNumber** | Current sequence number \(starting at 1 for the first submitMessage\) of messages on the topic. |
-| **runningHash** | SHA-384 running hash  |
-| **expirationTime** | Effective consensus timestamp at \(and after\) which submitMessage calls will no longer succeed on the topic and the topic will expire and be marked as deleted. |
-| **topicMemo** | Short publicly visible memo about the topic. No guarantee of uniqueness. |
-| **autoRenewPeriod** | The lifetime of the topic and the amount of time to extend the topic's lifetime by |
-| **autoRenewAccoun**t | Null if there is no autoRenewAccount.  |
+| `new TopicMessageQuery()` | Initializes the TopicMessageQuery object |
+
+```java
+new TopicMessageQuery()
+```
+
+### Methods
+
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTopicId` | TopicId | The topic ID to subsribe to | Required |
+| `setStartTime` | Instant | The time to start subscribing to a topic's messages | Optional |
+| `setEndTime` | Instant | The time to stop subscribing to a topic's messages | Optional |
+| `setLimit` | long | The number of messages to return | Optional |
+| `subscribe(<client, onNext)` | SubscriptionHandle | Client, Consumer&lt;TopicMessage&gt; | Required |
+
+{% code title="Java" %}
+```java
+new TopicMessageQuery()
+    .setTopicId(newTopicId)
+    .subscribe(client, topicMessage -> {
+        System.out.println("at " + topicMessage.consensusTimestamp + " ( seq = " + topicMessage.sequenceNumber + " ) received topic message of " + topicMessage.contents.length + " bytes");
+    });
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+new TopicMessageQuery()
+        .setTopicId(topicId)
+        .setStartTime(0)
+        .subscribe(
+            client,
+            (message) => console.log(Buffer.from(message.contents, "utf8").toString())
+        );
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+_, err = hedera.NewTopicMessageQuery().
+	SetTopicID(topicID).
+	Subscribe(client, func(message hedera.TopicMessage) {
+		if string(message.Contents) == content {
+		wait = false
+	}
+})
+
+if err != nil {
+	panic(err)
+}
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+
 
 | Constructor | Description |
 | :--- | :--- |
-| `ConsensusTopicInfoQuery()` | Initializes the ConsensusTopicInfoQuery object |
+| `new MirrorConsensusTopicQuery()` | Initializes the MirrorConsensusTopicQuery object |
 
 ```java
-new ConsensusTopicInfoQuery()
+new MirrorConsensusTopicQuery()
 ```
 
-## Basic
+### Methods
 
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setTopicId(<topicId>)` | TopicId | The ID of the topic to return information for |
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTopicId` | TopicId | The topic ID to subsribe to | Required |
+| `setStartTime` | Instant | The time to start subscribing to a topic's messages | Optional |
+| `setEndTime` | Instant | The time to stop subscribing to a topic's messages | Optional |
+| `setLimit` | long | The number of messages to return | Optional |
+| `subscribe(<mirrorClient,onNext onError)` | MirrorClient, Consumer&lt;MirrorConsensusTopicResponse&gt;, Consumer&lt;Throwable&gt; | Subscribe and get the  messages for a topic | Required |
 
-### Example
-
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
 ```java
-// Returns the current sequence numnber for the specified topic
-ConsensusTopicInfo topicInfo = new ConsensusTopicInfoQuery()
+new MirrorConsensusTopicQuery()
     .setTopicId(topicId)
-    .execute(client);
-        
-System.out.println(topicInfo.sequenceNumber);
-```
-{% endtab %}
+    .subscribe(mirrorClient, resp -> {
+                String messageAsString = new String(resp.message, StandardCharsets.UTF_8);
 
-{% tab title="JavaScript" %}
-```javascript
-const topicInfo = await new ConsensusTopicInfoQuery()
-     .setTopicId(topicId)
-     .execute(client);
-     
-console.log(`${topicInfo.sequenceNumber}`)
+                System.out.println(resp.consensusTimestamp + " received topic message: " + messageAsString);
+            },
+            // On gRPC error, print the stack trace
+            Throwable::printStackTrace);
+//v1.3.2
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+new MirrorConsensusTopicQuery()
+    .setTopicId(topicId)
+    .subscribe(
+        consensusClient,
+        (message) => console.log(message.toString()),
+        (error) => console.log(`Error: ${error}`)
+    );
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## 
 

@@ -60,5 +60,3 @@ console.log("The transaction consensus status is " +transactionStatus);
 
 
 
-
-

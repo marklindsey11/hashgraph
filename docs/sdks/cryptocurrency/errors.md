@@ -1,5 +1,7 @@
 # Errors
 
+Network errors and their descriptions.
+
 | **Errors** | **Description** |
 | :--- | :--- |
 | `ACCOUNT_ID_DOES_NOT_EXIST` | The account id passed has not yet been created. |

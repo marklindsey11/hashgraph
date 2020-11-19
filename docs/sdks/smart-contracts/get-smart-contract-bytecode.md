@@ -1,96 +1,139 @@
 # Get smart contract bytecode
 
-`ContractBytecodeQuery()` returns the bytecode for a smart contract instance.
+A query that returns the bytecode for a smart contract instance**.** Anyone can request the byte code of a smart contract instance on the network.  Queries do not change the state of the smart contract or require network consensus. The information is returned from a single node processing the query.
+
+**Query Signing Requirements**
+
+* The client operator account's private key \(fee payer\) is required to sign this query
 
 | Constructor | Description |
 | :--- | :--- |
-| `ContractBytecodeQuery()` | Initalizes a ContractBytecodeQuery object |
+| `new ContractByteCodeQuery()` | Initalizes a ContractByteCodeQuery object |
 
 ```java
-new ContractBytecodeQuery()
+new ContractByteCodeQuery()
 ```
 
-## Basic
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setContractId(<contractId>)` | ContractId | The ID for the contract for which the bytecode is requested |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description | Requirements |
+| :--- | :--- | :--- | :--- |
+| `setContractId(<contractId>)` | ContractId | The ID of the contract to return the bytecode for | Required |
+
+{% code title="Java" %}
 ```java
-ClassLoader cl = CreateStatefulContract.class.getClassLoader();
+//Create the query
+ContractByteCodeQuery query = new ContractByteCodeQuery()
+    .setContractId(newContractId);
 
-Gson gson = new Gson();
-
-JsonObject jsonObject;
-
-try (InputStream jsonStream = cl.getResourceAsStream("stateful.json")) {
-    if (jsonStream == null) {
-        throw new RuntimeException("failed to get stateful.json");
-    }
-
-    jsonObject = gson.fromJson(new InputStreamReader(jsonStream), JsonObject.class);
-}
-
-String byteCodeHex = jsonObject.getAsJsonPrimitive("object")
-    .getAsString();
-byte[] byteCode = byteCodeHex.getBytes();
-
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
-
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
-
-// default max fee for all transactions executed by this client
-client.setMaxTransactionFee(new Hbar(100));
-client.setMaxQueryPayment(new Hbar(10));
-
-// create the contract's bytecode file
-TransactionId fileTxId = new FileCreateTransaction()
-    // Use the same key as the operator to "own" this file
-    .addKey(OPERATOR_KEY.publicKey)
-    .setContents(byteCode)
-    .execute(client);
-
-TransactionReceipt fileReceipt = fileTxId.getReceipt(client);
-FileId newFileId = fileReceipt.getFileId();
-
-System.out.println("contract bytecode file: " + newFileId);
-
-TransactionId contractTxId = new ContractCreateTransaction()
-    .setBytecodeFileId(newFileId)
-    .setGas(100_000_000)
-    .setConstructorParams(
-        new ContractFunctionParams()
-            .addString("hello from hedera!"))
-    .execute(client);
-
-TransactionReceipt contractReceipt = contractTxId.getReceipt(client);
-ContractId newContractId = contractReceipt.getContractId();
-
-System.out.println("new contract ID: " + newContractId);
-
-byte [] byteCodeQuery = new ContractBytecodeQuery()
-    .setContractId(newContractId)
-    .execute(client);
-
-System.out.println("Length " + byteCodeQuery.length);
-
-
+//Sign with the client operator private key and submit to a Hedera network
+ByteString bytecode = query.execute(client);
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```java
+//Create the query
+const query = new ContractByteCodeQuery()
+    .setContractId(newContractId);
+
+//Sign with the client operator private key and submit to a Hedera network
+const bytecode = query.execute(client);
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the query
+query := hedera.NewContractByteCodeQuery().
+    SetContractID(contractId)
+
+//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
+bytecode, err := query.Execute(client)
+
+if err != nil {
+		panic(err)
+}
+```
+{% endcode %}
 {% endtab %}
 
-{% tab title="JavaScript" %}
-```javascript
-const byteCodeQuery = new ContractBytecodeQuery()
-    .setContractId(newContractId)
-    .execute(client);
+{% tab title="V1" %}
+| Method | Type | Description | Requirements |
+| :--- | :--- | :--- | :--- |
+| `setContractId(<contractId>)` | ContractId | The ID of the contract to return the bytecode for | Required |
+
+{% code title="Java" %}
+```java
+ContractBytecodeQuery query = new ContractBytecodeQuery()
+    .setContractId(newContractId);
+
+byte[] byteCode = query.execute(client);
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+const query = new ContractBytecodeQuery()
+    .setContractId(newContractId);
+
+const byteCode = await query.execute(client);
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## Get query values
+
+
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Description | Requirements |
+| :--- | :--- | :--- | :--- |
+| `getContractId(<contractId>)` | ContractId | Get the contract ID on the transaction | Required |
+
+{% code title="Java" %}
+```java
+//Create the query
+ContractByteCodeQuery query = new ContractByteCodeQuery()
+    .setContractId(newContractId);
+
+//Get the contract ID
+query.getContractId()
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```java
+//Create the query
+const query = new ContractByteCodeQuery()
+    .setContractId(newContractId);
+
+//Get the contract ID
+query.getContractId()
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the query
+query := hedera.NewContractByteCodeQuery().
+    SetContractID(conractId)
+
+query.GetContractID()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 

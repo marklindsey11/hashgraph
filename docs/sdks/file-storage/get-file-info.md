@@ -1,96 +1,172 @@
 # Get file info
 
-`FileInfoQuery()` returns all the information related to the file. If a file has expired, there will be no information to retrieve.
+A query that returns the current state of a file. Queries do not change the state of the file or require network consensus. The information is returned from a single node processing the query.
+
+**File Info Response**
+
+| **Field** | Description |
+| :--- | :--- |
+| **File ID** | The Hedera ID of the file |
+| **Key\(s\)** | The current admin key\(s\) on the account |
+| **Size** | The number of bytes in the file contents |
+| **Expiration Time** | The current time at which the file is set to expire |
+| **Deleted** | Whether or not the file has been deleted |
+
+  
+**Query Signing Requirements**
+
+* The client operator account paying for the query fees is required to sign
 
 | Constructor | Description |
 | :--- | :--- |
-| `FileInfoQuery()` | Initializes the FileInfoQuery object |
+| `new FileInfoQuery()` | Initializes the FileInfoQuery object |
 
 ```java
 new FileInfoQuery()
 ```
 
-## Basic
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setFileId(<fileId>)` | FileId | The `fileId` of the file to return information for |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to get information for \(x.y.z\) |
+
+{% code title="Java" %}
 ```java
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
+//Create the query
+FileInfoQuery query = new FileInfoQuery()
+  .setFileId(fileId);
 
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+//Sign the query with the client operator private key and submit to a Hedera network
+FileInfo getInfo = query.execute(client);
 
-// The file is required to be a byte array,
-// you can easily use the bytes of a file instead.
-byte[] fileContents = "Hedera hashgraph is great!".getBytes();
-
-TransactionId txId = new FileCreateTransaction()
-    // Use the same key as the operator to "own" this file
-    .addKey(OPERATOR_KEY.publicKey)
-    .setContents(fileContents)
-    // The default max fee of 1 HBAR is not enough to make a file ( starts around 1.1 HBAR )
-    .setMaxTransactionFee(200_000_000) // 2 HBAR
-    .execute(client);
-
-TransactionReceipt receipt = txId.getReceipt(client);
-FileId newFileId = receipt.getFileId();
-
-System.out.println("file: " + newFileId);
-
-FileInfo info = new FileInfoQuery()
-    .setFileId(newFileId)
-    .execute(client);
-
-System.out.println(info.size);
+System.out.println("File info response: " +getInfo);
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query
+const query = new FileInfoQuery()
+  .setFileId(fileId);
+
+//Sign the query with the client operator private key and submit to a Hedera network
+const getInfo = await query.execute(client);
+
+System.out.println("File info response: " +getInfo);
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the query
+query := hedera.NewFileInfoQuery().
+    SetFileID(newFileId)
+
+//Sign the query with the client operator private key and submit to a Hedera network
+getInfo, err := query.Execute(client)
+
+fmt.Println(getInfo)
+```
+{% endcode %}
+
+**Sample Output:**  
+  
+`FileInfo{  
+     fileId=0.0.104926,   
+     size=26,   
+     expirationTime=2021-02-10T17:48:15Z,   
+     deleted=false,   
+     keys=[ 302a300506032b6570032100100059296cc51f5d362a3859d3c3c74c6a480cffad9d669a10c1d447ce56e5bf  
+     ]  
+}`
 {% endtab %}
 
-{% tab title="JavaScript" %}
-```javascript
-const { Client, FileCreateTransaction, Ed25519PrivateKey, Hbar, FileInfoQuery } = require("@hashgraph/sdk");
-require("dotenv").config();
+{% tab title="V1" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to get information for \(x.y.z\) |
 
-async function main() {
-  
-  const operatorAccount = process.env.OPERATOR_ID;
-  const operatorPrivateKey = Ed25519PrivateKey.fromString(process.env.OPERATOR_KEY);
-  const operatorPublicKey = operatorPrivateKey.publicKey;
+{% code title="Java" %}
+```java
+//Create the query
+FileInfoQuery query = new FileInfoQuery()
+  .setFileId(fileId);
 
-  if (operatorPrivateKey == null || operatorAccount == null) {
-    throw new Error(
-      "environment variables OPERATOR_KEY and OPERATOR_ID must be present"
-    );
-  }
+//Sign the query with the client operator private key and submit to a Hedera network
+FileInfo getInfo = query.execute(client);
 
-  const client = Client.forTestnet()
-  client.setOperator(operatorAccount, operatorPrivateKey);
+System.out.println("File info response: " +getInfo.keys);
 
-  const transactionId = await new FileCreateTransaction()
-    .setContents("Hello, Hedera's file service!")
-    .addKey(operatorPublicKey) // Defines the "admin" of this file
-    .setMaxTransactionFee(new Hbar(15))
-    .execute(client);
-
-  const receipt = await transactionId.getReceipt(client);  
-  console.log("new file id = ", receipt.getFileId());
-
-  const fileInfo = await new FileInfoQuery()
-    .setFileId(receipt.getFileId())
-    .execute(client);
-
-  console.log(fileInfo.size);
-}
-
-main();
+//v1.3.2
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query
+const query = new FileInfoQuery()
+  .setFileId(fileId);
+
+//Sign the query with the client operator private key and submit to a Hedera network
+const getInfo = await query.execute(client);
+
+console.log("File info response: " +getInfo.keys);
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## Get query values
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getFileId()` | FileId | The ID of the file to get contents for \(x.z.y\) |
+
+{% code title="Java" %}
+```java
+//Create the query
+FileInfoQuery query = new FileInfoQuery()
+  .setFileId(fileId);
+
+//Get file ID
+FileId getFileId = query.getFileId();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query
+FileInfoQuery query = new FileInfoQuery()
+  .setFileId(fileId);
+
+//Get file ID
+const getFileId = query.getFileId();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the query
+query := hedera.NewFileContentsQuery().
+		SetFileID(newFileId)
+		
+//Get file ID
+getFileId := query.GetFileID()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 

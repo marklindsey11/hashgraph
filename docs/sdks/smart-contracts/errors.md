@@ -1,5 +1,7 @@
 # Errors
 
+Network errors and their descriptions.
+
 | **Errors** | **Description** |
 | :--- | :--- |
 | `CONTRACT_BYTECODE_EMPTY`  | Bytecode for smart contract is of length zero |

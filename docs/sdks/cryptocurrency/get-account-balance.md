@@ -1,64 +1,109 @@
 # Get account balance
 
-`AccountBalanceQuery()` returns the current account balance of an account on the Hedera network. 
+A query that returns the account balance for the specified account. Requesting an account balance is currently free of charge.  Queries do not change the state of the account or require network consensus. The information is returned from a single node processing the query.
 
 | Constructor | Description |
 | :--- | :--- |
-| `AccountBalanceQuery()` | Initializes the AccountBalanceQuery object |
+| `new AccountBalanceQuery()` | Initializes the AccountBalanceQuery object |
 
 ```java
-new AccountBalanceQuery()
+new AccountBalanceQuery
 ```
 
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setAccountId(<account>)` | AccountId | The accountId of the account to retrieve the balance for |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setAccountId(<accountId>)` | AccountID | The account ID to return the current balance for |
+
+{% code title="Java" %}
 ```java
-// Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
+//Create the account balance query
+AccountBalanceQuery query = new AccountBalanceQuery()
+     .setAccountId(accountId);
 
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+//Sign with client operator private key and submit the query to a Hedera network
+AccountBalance accountBalance = query.execute(client);
 
-Hbar balance = new AccountBalanceQuery()
-    .setAccountId(OPERATOR_ID)
-    .execute(client);
+//Print the balance of hbars
+System.out.println("The hbar account balance for this account is " +accountBalance.hbars);
 
-System.out.println("balance = " + balance);
+//v2.0.0
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
-const { Client, AccountBalanceQuery } = require("@hashgraph/sdk");
+//Create the account balance query
+const query = new AccountBalanceQuery()
+     .setAccountId(accountId);
 
-async function main() {
-    const operatorPrivateKey = process.env.OPERATOR_KEY;
-    const operatorAccount = process.env.OPERATOR_ID;
+//Submit the query to a Hedera network
+const accountBalance = await query.execute(client);
 
-    if (operatorPrivateKey == null || operatorAccount == null) {
-        throw new Error("environment variables OPERATOR_KEY and OPERATOR_ID must be present");
-    }
+//Print the balance of hbars
+System.out.println("The hbar account balance for this account is " +accountBalance.hbars);
 
-    const client = Client.forTestnet();
+```
+{% endcode %}
 
-    client.setOperator(operatorAccount, operatorPrivateKey);
+{% code title="Go" %}
+```go
+//Create the account balance query
+query := hedera.NewAccountBalanceQuery().
+     SetAccountID(newAccountId)
 
-    const balance = await new AccountBalanceQuery()
-        .setAccountId(operatorAccount)
-        .execute(client);
-
-    console.log(`${operatorAccount} balance = ${balance.asTinybar()}`);
+//Sign with client operator private key and submit the query to a Hedera network
+accountBalance, err := query.Execute(client)
+if err != nil {
+    panic(err)
 }
 
-main();
+//Print the balance of hbars
+fmt.Println("The hbar account balance for this account is ", accountBalance.Hbars.String())
+//v2.0.0
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setAccountId(<accountId>)` | AccountID | The account ID to return the current balance for |
+
+{% code title="Java" %}
+```java
+//Create the query
+AccountBalanceQuery query = new AccountBalanceQuery()
+     .setAccountId(newAccountId);
+
+//Sign with the client operator account private key and submit to a Hedera network
+Hbar accountBalance = query.execute(client);
+
+System.out.println(accountBalance);
+
+//v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query
+const query = new AccountBalanceQuery()
+     .setAccountId(newAccountId);
+
+//Sign with the client operator account private key and submit to a Hedera network
+Hbar accountBalance = await query.execute(client);
+
+System.out.println(accountBalance);
+
+//v1.4.4
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## 
 

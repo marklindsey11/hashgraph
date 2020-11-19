@@ -9,7 +9,7 @@ Burns tokens from the Treasury Account. If no Supply Key is defined, the transac
 
 | Constructor | Description |
 | :--- | :--- |
-| `new TokenBurnTransaction()` |      Initializes the TokenBurnTransaction object |
+| `new TokenBurnTransaction()` |     Initializes the TokenBurnTransaction object |
 
 ```java
 new TokenBurnTransaction()

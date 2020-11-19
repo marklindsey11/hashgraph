@@ -1,78 +1,230 @@
 # Create a topic
 
-`ConsensusTopicCreateTransaction()` creates a new topic recognized by the Hedera network. The newly generated topic can be referenced by its `topicId`. The `topicId` is used to identify a specific topic to submit messages to. All messages within a topic are sequenced with respect to one another and are provided sequence number.
+A transaction that creates a new topic recognized by the Hedera network. The newly generated topic can be referenced by its `topicId`. The `topicId` is used to identify a unique topic to submit messages to. You can obtain the new topic ID by requesting the receipt of the transaction. All messages within a topic are sequenced with respect to one another and are provided a unique sequence number.
+
+#### Private topic
 
 You can also create a private topic where only authorized parties can submit messages to that topic. To create a private topic you would need to set the `submitKey` property of the transaction. The `submitKey` value is then shared with the authorized parties and is required to successfully submit messages to the private topic. 
 
+#### Topic Properties
+
+| Field | Description |
+| :--- | :--- |
+| **Admin Key** | Access control for updateTopic/deleteTopic. Anyone can increase the topic's expirationTime regardless of the adminKey. If no adminKey is specified, updateTopic may only be used to extend the topic's expirationTime, and deleteTopic is disallowed. |
+| **Submit Key** | Access control for submitMessage. If unspecified, no access control is performed ro submit messages \(all submissions are allowed\). |
+| **Topic Memo** | Set a short publicly visible memo on the new topic and is stored with the topic. \(100 bytes\) |
+| **Auto Renew Account** | Optional account to be used at the topic's expirationTime to extend the life of the topic \(once autoRenew functionality is supported by HAPI\). The topic lifetime will be extended up to a maximum of the autoRenewPeriod or however long the topic can be extended using all funds on the account \(whichever is the smaller duration/amount and if any extension is possible with the account's funds\). |
+| **Auto Renew Period** | The initial lifetime of the topic and the amount of time to attempt to extend the topic's lifetime by automatically at the topic's expirationTime, if the autoRenewAccount is configured \(once autoRenew functionality is supported by HAPI\). |
+
+**Transaction Signing Requirements:**
+
+* If an adminKey is specified, the adminKey must sign the transaction.
+* If not adminKey is specified the topic is immutable
+* If an autoRenewAccount is specified, that account must also sign this transaction.
+
+{% tabs %}
+{% tab title="V2" %}
 | Constructor | Description |
 | :--- | :--- |
-| `ConsensusTopicCreateTransaction()` | Initializes the ConsensusTopicCreateTransaction object |
+| `new TopicCreateTransaction()` | Initializes the TopicCreateTransaction object |
+
+```java
+new TopicCreateTransaction()
+```
+
+### Methods
+
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `setAdminKey(<adminKey>)` | Key | Optional |
+| `setSubmitKey(<submitKey>)` | Key | Optional |
+| `setTopicMemo(<memo>)` | String | Optional |
+| `setAutoRenewAccountId(<accountId>)` | AccountId | Disabled |
+| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Disabled |
+
+{% code title="Java" %}
+```java
+//Create the transaction
+TopicCreateTransaction transaction = new TopicCreateTransaction();
+
+//Sign with the client operator private key and submit the transaction to a Hedera network
+TransactionResponse txResponse = transaction.execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the topic ID
+TopicId newTopicId = receipt.topicId;
+
+System.out.println("The new topic ID is " + newTopicId);
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = new TopicCreateTransaction();
+
+//Sign with the client operator private key and submit the transaction to a Hedera network
+const txResponse = await transaction.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the topic ID
+const newTopicId = receipt.topicId;
+
+console.log("The new topic ID is " + newTopicId);
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Create the transaction
+transaction := hedera.NewTopicCreateTransaction()
+
+//Sign with the client operator private key and submit the transaction to a Hedera network
+txResponse, err := transaction.Execute(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt of the transaction
+transactionReceipt, err := txResponse.GetReceipt(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Get the topic ID
+newTopicID := *transactionReceipt.TopicID
+
+fmt.Printf("The new topic ID is %v\n", newTopicID)
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Constructor | Description |
+| :--- | :--- |
+| `new ConsensusTopicCreateTransaction()` | Initializes the ConsensusTopicCreateTransaction object |
 
 ```java
 new ConsensusTopicCreateTransaction()
 ```
 
+### Methods
 
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `setAdminKey(<adminKey>)` | PublicKey | Optional |
+| `setSubmitKey(<submitKey>)` | PublicKey | Optional |
+| `setTopicMemo(<memo>)` | String | Optional |
+| `setAutoRenewAccountId(<accountId>)` | AccountId | Disabled |
+| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Disabled |
 
-### Example
-
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
 ```java
- final TransactionId transactionId = new ConsensusTopicCreateTransaction()
-     .execute(client);
-```
-{% endtab %}
+//Create the transaction
+ConsensusTopicCreateTransaction transaction = new ConsensusTopicCreateTransaction();
+ 
+//Submit the transaction to a Hedera network, store the transaction ID
+TransactionId txId = transaction.execute(client);
 
-{% tab title="JavaScript" %}
-```javascript
-const transactionId = await new ConsensusTopicCreateTransaction()
-    .execute(client);
+//Request the receipt of the transaction
+TransactionReceipt receipt = txId.getReceipt(client);
+
+//Get the topic ID
+ConsensusTopicId newTopicId = receipt.getConsensusTopicId();
+
+System.out.println("New topic created: " + newTopicId);
+
+//v2.0.0
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = new ConsensusTopicCreateTransaction();
+ 
+//Submit the transaction to a Hedera network, store the transaction ID
+const txId = await transaction.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txId.getReceipt(client);
+
+//Get the topic ID
+const newTopicId = receipt.getConsensusTopicId();
+
+console.log("New topic created: " + newTopicId);
+
+//v2.0.0
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-## Advanced
-
-The `adminKey` and `submitKey` on the topic can be any of the following key structures:
-
-* **Simple Key**: one key has the authority to modify the topic \(`adminKey)` or to submit a message to that topic \(`submitKey`\)
-* **Key List**: A list of keys that are all required to sign transactions to modify the properties of a  topic \(`adminKey)` or to submit a message to that topic  \(`submitKey`\)
-* **Threshold Keys**: Requires a minimum of x number of signatures from a total of y signatures to modify the properties of a topic \(`adminKey)` or to submit a message to that topic  \(`submitKey`\)
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setAdminKey(<key>)` | PublicKey | The key that has the ability to update or delete the topic. `expirationTime` can be modified by anyone. If no `adminKey` is specified, `updateTopic` may only be used to extend the `expirationTime`, and `deleteTopic` is disallowed. |
-| `setSubmitKey(<key>)` | PublicKey | Access control for `submitMessage`. If this property is not set, no access control is performed on `ConsensusService.submitMessage` \(all submissions allowed\).  |
-| `setTopicMemo(<memo>)` | String | Short publicly visible memo about the topic. No guarantee of uniqueness. |
-| `setAutoRenewPeriod(<autoRenewPeriod>)` | Duration | The initial lifetime of the topic and the amount of time to attempt to extend the topic's lifetime by \(once autoRenew functionality is supported by HAPI\) |
-| `setAutoRenewAccountId(<autoRenewAccountId>)` | AccountId | Optional account to be used at the topic's `expirationTime` to extend the life of the topic \(once autoRenew functionality is supported by HAPI\) |
-
-### Create a topic with a submitKey
-
-Creating a topic with a submitKey creates a private topic. In order to submit messages to a private topic, you will need the `submitKey`. The `submitKey` can be a simple key that is shared amongst those who have been granted permission to submit messages to that topic. The `submitKey` can also be a KeyList or ThresholdKey.
-
-#### Example
+## Get transaction values
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `getAdminKey(<adminKey>)` | Key | Optional |
+| `getSubmitKey(<submitKey>)` | Key | Optional |
+| `getTopicMemo(<memo>)` | String | Optional |
+| `getAutoRenewAccountId(<accountId>)` | AccountId | Disabled |
+| `getAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Disabled |
+
+{% code title="Java" %}
 ```java
-// Generate a Ed25519 private, public key pair
-submitKey = Ed25519PrivateKey.generate();
-Ed25519PublicKey submitPublicKey = submitKey.publicKey;
+//Create the transaction
+TopicCreateTransaction transaction = new TopicCreateTransaction()
+    .setAdminKey(adminKey);
+    
+//Get the admin key from the transaction    
+Key getKey = transaction.getAdminKey();
 
-final TransactionId transactionId = new ConsensusTopicCreateTransaction()
-    .setMaxTransactionFee(20000000)
-    .setTopicMemo("HCS topic with submit key")
-    .setSubmitKey(submitPublicKey)// The key that is assigned to the topic and required when submitting messages to this topic
-    .execute(hapiClient);
-
-topicId = transactionId.getReceipt(hapiClient).getConsensusTopicId();
-System.out.println("Created new topic " + topicId + " with ED25519 submitKey of " + submitKey);
-
+//V2.0.0
 ```
-{% endtab %}
+{% endcode %}
 
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = await TopicCreateTransaction()
+    .setAdminKey(adminKey);
+    
+//Get the admin key from the transaction    
+const getKey = transaction.getAdminKey();
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewTopicCreateTransaction().
+    SetAdminKey(adminKey)
+
+getKey := transaction.GetAdminKey()
+
+//V2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
+
+{% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
 const { Client, ConsensusTopicCreateTransaction, Ed25519PrivateKey, Ed25519PublicKey} = require("@hashgraph/sdk");

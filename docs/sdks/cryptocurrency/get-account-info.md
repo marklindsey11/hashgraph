@@ -1,103 +1,189 @@
 # Get account info
 
-`AccountInfoQuery()` returns all of the information about an account. This **does not** include the list of records associated with the account.
+A query that returns the current state of the account. This query **does not** include the list of records associated with the account. Anyone on the network can request an account info for a given account.  Queries do not change the state of the account or require network consensus. The information is returned from a single node processing the query.
 
-This information includes:
+**Account Info Response:**
 
-* Account ID
-* Key\(s\)
-* Balance
-* Expiration time
-* AutoRenewPeriod
-* Whether the account is deleted or not
-* Whether the receiver signature is required or not
-* The proxy account ID, if any
-* All tokens related to this account, if any
+| Field | Description |
+| :--- | :--- |
+| **Account ID** | The account ID of the account the information was requested for. |
+| **Contract Account ID** | The Contract Account ID comprising of both the contract instance and the cryptocurrency account owned by the contract instance, in the format used by Solidity. |
+| **Key\(s\)** | The keys that are currently on the account. |
+| **Balance** | The current balance of hbars on the account. |
+| **Expiration Time** | The account's expiration time. |
+| **Auto Renew Period** | The duration at which the account is charged to renew. |
+| **Deleted** | Whether or not the account is marked as deleted. |
+| **Receiver Signature** | Whether or not the signature of this account is required for other accounts to transfer to it |
+| **Proxy Account** | The Account ID of the account to which this is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null.  |
+| **Proxy Received**  | The total number of tinybars proxy staked to this account.  |
+| **LiveHash** | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it\).  |
+| **Tokens** | All tokens related to this account |
 
 | Constructor | Description |
 | :--- | :--- |
-| `AccountInfoQuery()` | Initializes the AccountInfoQuery object |
+| `new AccountInfoQuery()` | Initializes the AccountInfoQuery object |
 
 ```java
 new AccountInfoQuery()
 ```
 
-## Basic
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountId | The accountId of the account to return the information for |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setAccountId(<accountId>)` | AccountId | Required |
+| `<AccountInfo>.accountId` | AccountId | Optional |
+| `<AccountInfo>.contractAccountId` | String | Optional |
+| `<AccountInfo>.isDeleted` | boolean | Optional |
+| `<AccountInfo>.key` | Key | Optional |
+| `<AccountInfo>.balance` | Hbar | Optional |
+| `<AccountInfo>.isReceiverSignatureRequired` | boolean | Optional |
+| `<AccountInfo>.liveHashes` | List&lt;LiveHash&gt; | Optional |
+| `<AccountInfo>.tokenRelationships` | Map&lt;TokenId, TokenRelationships&gt; | Optional |
+| `<AccountInfo>.sendRecordThreshold` | Hbar | Optional |
+| `<AccountInfo>.receiveRecordThreshold` | Hbar | Optional |
+| `<AccountInfo>.expirationTime` | Instant | Optional |
+| `<AccountInfo>.proxyReceived` | Hbar | Optional |
+| `<AccountInfo>.proxyAccountId` | AccountId | Optional |
+| `<AccountInfo>.autoRenewPeriod` | Duration | Optional |
+
+{% code title="Java" %}
 ```java
-// Generate a Ed25519 private, public key pair
-Ed25519PrivateKey newKey = Ed25519PrivateKey.generate();
-Ed25519PublicKey newPublicKey = newKey.publicKey;
+//Create the account info query
+AccountInfoQuery query = new AccountInfoQuery()
+    .setAccountId(newAccountId);
 
-System.out.println("private key = " + newKey);
-System.out.println("public key = " + newPublicKey);
+//Submit the query to a Hedera network
+AccountInfo accountInfo = query.execute(client);
+    
+//Print the account key to the console
+System.out.println(accountInfo);
 
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
-
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
-
-TransactionId txId = new AccountCreateTransaction()
-    // The only _required_ property here is `key`
-    .setKey(newPublicKey)
-    .setInitialBalance(Hbar.fromTinybar(1000))
-    .execute(client);
-
-// This will wait for the receipt to become available
-TransactionReceipt receipt = txId.getReceipt(client);
-
-AccountId newAccountId = receipt.getAccountId();
-
-System.out.println("account = " + newAccountId);
-
-AccountInfo accountInfo = new AccountInfoQuery()
-    .setAccountId(newAccountId)
-    .execute(client);
-
-System.out.println("The public key returned by requesting the account info is: " +accountInfo.key);
+//v2.0.0
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
-```javascript
-const { Client, AccountInfoQuery } = require("@hashgraph/sdk");
-require("dotenv").config();
+{% code title="JavaScript" %}
+```java
+//Create the account info query
+const query = new AccountInfoQuery()
+    .setAccountId(newAccountId);
 
-async function main() {
-    const operatorPrivateKey = process.env.OPERATOR_KEY;
-    const operatorAccount = process.env.OPERATOR_ID;
+//Sign with client operator private key and submit the query to a Hedera network
+const accountInfo = query.execute(client);
 
-    if (operatorPrivateKey == null || operatorAccount == null) {
-        throw new Error("environment variables OPERATOR_KEY and OPERATOR_ID must be present");
-    }
+//Print the account info to the console
+console.log(accountInfo);
+```
+{% endcode %}
 
-    const client = new Client({
-        network: { "0.testnet.hedera.com:50211": "0.0.3" },
-        operator: {
-            account: operatorAccount,
-            privateKey: operatorPrivateKey
-        }
-    });
+{% code title="Go" %}
+```go
+//Create the account info query
+query := hedera.NewAccountInfoQuery().SetAccountID(newAccountId)
 
-    const info = await new AccountInfoQuery()
-        .setAccountId(operatorAccount)
-        .execute(client);
-
-    console.log(`${operatorAccount} info = ${JSON.stringify(info, null, 4)}`);
+//Sign with client operator private key and submit the query to a Hedera network
+accountInfo, err := query.Execute(client)
+if err != nil {
+    panic(err)
 }
 
-main();
+//Print the account info to the console
+fmt.Println(accountInfo)
 ```
+{% endcode %}
+
+#### Sample Output:
+
+`{   
+     accountId=0.0.96928,   
+     contractAccountId=0000000000000000000000000000000000017aa0,   
+     "deleted=false",   
+     "proxyAccountId=null",   
+     proxyReceived=0 tℏ,       
+     key=302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a297697ad ef1e04510c9d4ecc5db3f,   
+     balance=1 ℏ,   
+     sendRecordThreshold=92233720368.54775807 ℏ,  
+     receiveRecordThreshold=9223372 0368.54775807 ℏ,   
+     "receiverSignatureRequired=false",  
+     expirationTime=2021-02-02T19:29:36Z,   
+     autoRenewPeriod=PT2160H,   
+     "liveHashes="[]   
+}`
+{% endtab %}
+
+{% tab title="V1" %}
+
+
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setAccountId(<accountId>)` | AccountId | Required |
+| `<AccountInfo>.accountId` | AccountId | Optional |
+| `<AccountInfo>.contractAccountId` | String | Optional |
+| `<AccountInfo>.isDeleted` | boolean | Optional |
+| `<AccountInfo>.key` | Key | Optional |
+| `<AccountInfo>.balance` | long | Optional |
+| `<AccountInfo>.isReceiverSignatureRequired` | boolean | Optional |
+| `<AccountInfo>.liveHashes` | List&lt;LiveHash&gt; | Optional |
+| `<AccountInfo>.tokenRelationships` | Map&lt;TokenId, TokenRelationships&gt; | Optional |
+| `<AccountInfo>.sendRecordThreshold` | long | Optional |
+| `<AccountInfo>.receiveRecordThreshold` | long | Optional |
+| `<AccountInfo>.expirationTime` | Instant | Optional |
+| `<AccountInfo>.proxyReceived` | long | Optional |
+| `<AccountInfo>.proxyAccountId` | AccountId | Optional |
+| `<AccountInfo>.autoRenewPeriod` | Duration | Optional |
+
+{% code title="Java" %}
+```java
+//Create the account info query
+AccountInfoQuery query = new AccountInfoQuery()
+    .setAccountId(newAccountId);
+
+//Submit the query to a Hedera network
+AccountInfo accountInfo = query.execute(client);
+    
+//Print the account key to the console
+System.out.println(accountInfo);
+
+//v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the account info query
+const query = new AccountInfoQuery()
+    .setAccountId(newAccountId);
+
+//Sign with client operator private key and submit the query to a Hedera network
+const accountInfo = await query.execute(client);
+
+//Print the account info to the console
+console.log(accountInfo);
+
+//v1.4.4
+```
+{% endcode %}
+
+#### Sample Output:
+
+`{   
+     accountId=0.0.96928,   
+     contractAccountId=0000000000000000000000000000000000017aa0,   
+     "deleted=false",   
+     "proxyAccountId=null",   
+     proxyReceived=0 tℏ,       
+     key=302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a297697ad ef1e04510c9d4ecc5db3f,   
+     balance=1 ℏ,   
+     sendRecordThreshold=92233720368.54775807 ℏ,  
+     receiveRecordThreshold=9223372 0368.54775807 ℏ,   
+     "receiverSignatureRequired=false",  
+     expirationTime=2021-02-02T19:29:36Z,   
+     autoRenewPeriod=PT2160H,   
+     "liveHashes="[]   
+}`
 {% endtab %}
 {% endtabs %}
 

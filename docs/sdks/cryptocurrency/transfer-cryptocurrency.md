@@ -1,94 +1,213 @@
 # Transfer cryptocurrency
 
-`CryptoTransferTransaction()` transfers tinybars from one Hedera account to different Hedera account in the Hedera network. The amount is in **tinybars** \(not hbars\). The transaction must be signed by all the keys from all sender accounts. If the sender fails to have insufficient funds in their account to process the transaction, the transaction fails and the tinybars will not be transferred to the receiving account. The service fee will still be charged in the case of insufficient funds.
 
-{% hint style="info" %}
-There are `100_000_000` tinybars in one hbar. 
-{% endhint %}
 
+A transaction that transfers hbars and tokens between Hedera accounts. You can enter multiple transfers in a single transaction. The net value of hbars between the sending accounts and receiving accounts must equal zero. 
+
+{% tabs %}
+{% tab title="V2" %}
 | Constructor | Description |
 | :--- | :--- |
-| `CryptoTransferTransaction()` | Initializes the CryptoTransferTransaction object |
+| `new TransferTransaction()` | Initializes the TransferTransaction object |
 
 ```java
-new CryptoTransferTransaction()
+new TransferTransaction()
 ```
 
-## Basic
+### Methods
 
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `addSender(<accountId>, <amount>)` | AccountId, long | The sender is the account ID of the account and the amount \(value\) of tinybars that will be withdrawn from that account. The amount being withdrawn from the sender has to equal the amount that will be deposited into the recipient account. This method can be called multple times. |
-| `addRecipient(<accountId>, <amount>)` | AccountId, long | The recipient is account ID of the account the tinybars will be deposited into and the amount \(value\). The amount being withdrawn from the sender account has to equal the amount that will be deposited into the recipient account. |
-| `addTransfer(accountId, value)` | AccountId, long | Transfer to an account with the provided value |
+| `addHbarTransfer(<accountId, value>)` | AccountID, Hbar | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
+| `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer |
 
-### Example
-
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
 ```java
-TransactionId transactionId = new CryptoTransferTransaction()
-    // .addSender and .addRecipient can be called as many times as you want as long as the total sum from
-    // both sides is equivalent
-    .addSender(OPERATOR_ID, amount)
-    .addRecipient(recipientId, amount)
-    .setTransactionMemo("transfer test")
-    .execute(client);
+// Create a transaction to transfer 100 hbars
+TransferTransaction transaction1 = new TransferTransaction()
+     .addHbarTransfer(OPERATOR_ID, new Hbar(10))
+     .addHbarTransfer(newAccountId, new Hbar(10));
 
-System.out.println("transaction ID: " + transactionId);
+//Submit the transaction to a Hedera network
+TransactionResponse txResponse = transaction.execute(client);
 
-TransactionRecord record = transactionId.getRecord(client);
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
 
-System.out.println("transferred " + amount + "...");
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
 
-Hbar senderBalanceAfter = new AccountBalanceQuery()
-    .setAccountId(OPERATOR_ID)
-    .execute(client);
+System.out.println("The transaction consensus status is " +transactionStatus);
 
-Hbar receiptBalanceAfter = new AccountBalanceQuery()
-    .setAccountId(recipientId)
-    .execute(client);
-
-System.out.println("" + OPERATOR_ID + " balance = " + senderBalanceAfter);
-System.out.println("" + recipientId + " balance = " + receiptBalanceAfter);
-System.out.println("Transfer memo: " + record.transactionMemo);
+//Version 2.0.0
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
-const { Client, CryptoTransferTransaction } = require("@hashgraph/sdk");
+// Create a transaction to transfer 100 hbars
+const transaction = new CryptoTransferTransaction()
+    .addSender(OPERATOR_ID, new Hbar(100))
+    .addRecipient(newAccountId, new Hbar(100));
+    
+//Submit the transaction to a Hedera network
+const txResponse = await transaction.execute(client);
 
-async function main() {
-    const operatorPrivateKey = process.env.OPERATOR_KEY;
-    const operatorAccount = process.env.OPERATOR_ID;
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
 
-    if (operatorPrivateKey == null || operatorAccount == null) {
-        throw new Error("environment variables OPERATOR_KEY and OPERATOR_ID must be present");
-    }
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
 
-    const client = new Client({
-        network: { "0.testnet.hedera.com:50211": "0.0.3" },
-        operator: {
-            account: operatorAccount,
-            privateKey: operatorPrivateKey
-        }
-    });
+console.log("The transaction consensus status is " +transactionStatus);
 
-    const receipt = await (await new CryptoTransferTransaction()
-        .addSender(operatorAccount, 1)
-        .addRecipient("0.0.3", 1)
-        .setTransactionMemo("sdk example")
-        .execute(client))
-        .getReceipt(client);
+//v2.0.0
+```
+{% endcode %}
 
-    console.log(receipt);
+{% code title="Go" %}
+```java
+// Create a transaction to transfer 100 hbars
+transaction := hedera.NewTransferTransaction().
+		AddHbarTransfer(client.GetOperatorAccountID(), hedera.NewHbar(-1)).
+		AddHbarTransfer(hedera.AccountID{Account: 3}, hedera.NewHbar(1))
+
+//Submit the transaction to a Hedera network
+txResponse, err := transaction.Execute(client)
+
+if err != nil {
+    panic(err)
 }
 
-main();
+//Request the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+
+if err != nil {
+    panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", transactionReceipt.Status)
+
+//Version 2.0.0
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Constructor | Description |
+| :--- | :--- |
+| `new TransferTransaction()` | Initializes the TransferTransaction object |
+
+```java
+new TransferTransaction()
+```
+
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `addHbarTransfer(<accountId, value>)` | AccountId, Hbar/long | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
+| `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer |
+
+{% code title="Java" %}
+```java
+//Create the transfer transaction
+TransferTransaction transaction1 = new TransferTransaction()
+    .addHbarTransfer(OPERATOR_ID, new Hbar(10))
+    .addHbarTransfer(newAccountId, new Hbar(10));
+
+
+//Sign with the client operator key and submit the transaction to a Hedera network
+TransactionId txId = transaction.execute(client);
+        
+//Request the receipt of the transaction
+TransactionReceipt receipt = txId.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v1.3.2
+
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transfer transaction
+const transaction1 = new TransferTransaction()
+    .addHbarTransfer(OPERATOR_ID, new Hbar(10))
+    .addHbarTransfer(newAccountId, new Hbar(10));
+
+
+//Sign with the client operator key and submit the transaction to a Hedera network
+const txId = transaction.execute(client);
+        
+//Request the receipt of the transaction
+const receipt = txId.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 
+
+## Get transaction values
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getHbarTransfers()` | Map&lt;AccountId,  Hbar&gt; | Returns a list of the hbar transfers in this transaction |
+| `getTokenTransfers()` | Map&lt;TokenId, Map&lt;AccountId, long&gt;&gt; | Returns the list of token transfers in the transaction |
+
+{% code title="Java" %}
+```java
+// Create a transaction 
+CryptoTransferTransaction transaction = new CryptoTransferTransaction()
+    .addSender(OPERATOR_ID, new Hbar(10))
+    .addRecipient(newAccountId, new Hbar(10));
+
+//Get transfers
+List<Transfer> transfers = transaction.getTransfers();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+// Create a transaction 
+const transaction = new CryptoTransferTransaction()
+    .addSender(OPERATOR_ID, new Hbar(10))
+    .addRecipient(newAccountId, new Hbar(10));
+
+//Get transfers
+const transfers = transaction.getTransfers();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+// Create a transaction 
+transaction := hedera.NewTransferTransaction().
+		AddHbarTransfer(client.GetOperatorAccountID(), hedera.NewHbar(-1)).
+		AddHbarTransfer(hedera.AccountID{Account: 3}, hedera.NewHbar(1))
+//Get transfers
+transfers := transaction.GetTransfers()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 

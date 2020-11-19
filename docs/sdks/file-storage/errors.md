@@ -1,5 +1,7 @@
 # Errors
 
+Network errors and their descriptions.
+
 | Errors | Description |
 | :--- | :--- |
 | `FEE_SCHEDULE_FILE_PART_UPLOADED` | Fee Schedule Proto File Part uploaded |

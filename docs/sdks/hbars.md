@@ -291,7 +291,7 @@ const hbarZero = Hbar.ZERO;
 
 ## Hbar units
 
-Define the unit of hbar to represent.
+Modify the hbar representation to one of the hbar denominations.
 
 {% tabs %}
 {% tab title="V2" %}

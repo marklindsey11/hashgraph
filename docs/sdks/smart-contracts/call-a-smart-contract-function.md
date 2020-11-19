@@ -1,171 +1,137 @@
 # Call a smart contract function
 
-`ContractCallQuery()` calls a function from a smart contract instance without updating its state or requiring consensus.
+A query that calls a function of the given smart contract instance, giving it functionParameters as its inputs. It will consume the entire given amount of gas. 
+
+**Query Signing Requirements**
+
+* The client operator account's private key \(fee payer\) is required to sign this query
 
 | Constructor | Description |
 | :--- | :--- |
-| `ContractCallQuery()` | Initializes a ContractCallQuery object |
+| `new ContractCallQuery()` | Initializes a ContractCallQuery object |
 
 ```java
 new ContractCallQuery()
 ```
 
-## Basic
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setContractId(<contractId>)` | ContractId | The ID of the contract instance to call |
-| `setGas(<gas>)` | long | Gas amount to run the constructor |
-| `setFunctionParameters(<parameters>)` | byte \[ \] | Which funtion to call from the contract instance and the parameters |
-| `setFunction(<functionName>)` | String | The name of the function in String format |
-| `setMaxResultSize(<size>)` | long | Max number of bytes that the result might include. The run will fail if it would have returned more than this number of bytes. |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setContractId(<contractId>)` | ContractId | Sets the contract instance to call, in the format used in transactions \(x.z.y\). | Required |
+| `setGas(<gas>)` | long | Sets the amount of gas to use for the call. | Required |
+| `setFunction(<name>)` | String | Sets the function name to call. The function will be called with no parameters.  | Required |
+| `setFunction(<name, params>)` | String,  Contract FunctionParameters | Sets the function to call, and the parameters to pass to the function. | Optional |
+| `setMaxResultSize(<size>)` | long | Sets the max number of bytes that the result might include. The run will fail if it would have returned more than this number of bytes. | Optional |
+
+{% code title="Java" %}
 ```java
-ClassLoader cl = CreateSimpleContract.class.getClassLoader();
-
-Gson gson = new Gson();
-
-JsonObject jsonObject;
-
-try (InputStream jsonStream = cl.getResourceAsStream("hello_world.json")) {
-    if (jsonStream == null) {
-        throw new RuntimeException("failed to get hello_world.json");
-    }
-
-    jsonObject = gson.fromJson(new InputStreamReader(jsonStream), JsonObject.class);
-}
-
-String byteCodeHex = jsonObject.getAsJsonPrimitive("object")
-    .getAsString();
-
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
-
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
-// create the contract's bytecode file
-TransactionId fileTxId = new FileCreateTransaction()
-    // Use the same key as the operator to "own" this file
-    .addKey(OPERATOR_KEY.publicKey)
-    .setContents(byteCode)
-    .execute(client);
-
-TransactionReceipt fileReceipt = fileTxId.getReceipt(client);
-FileId newFileId = fileReceipt.getFileId();
-
-System.out.println("contract bytecode file: " + newFileId);
-
-TransactionId contractTxId = new ContractCreateTransaction()
-    .setBytecodeFileId(newFileId)
-    .setGas(100_000_000)
-    .setConstructorParams(
-        new ContractFunctionParams()
-            .addString("hello from hedera!"))
-    .execute(client);
-
-TransactionReceipt contractReceipt = contractTxId.getReceipt(client);
-ContractId newContractId = contractReceipt.getContractId();
-
-System.out.println("new contract ID: " + newContractId);
-
-ContractFunctionResult contractCallResult = new ContractCallQuery()
+//Contract call query
+ContractCallQuery query = new ContractCallQuery()
     .setContractId(newContractId)
-    .setGas(1000)
-    .setFunction("get_message")
-    .execute(client);
+    .setGas(600)
+    .setFunction("greet");
 
-if (contractCallResult.errorMessage != null) {
-    System.out.println("error calling contract: " + contractCallResult.errorMessage);
-    return;
+//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
+ContractFunctionResult contractFunctionResult = query.execute(client);
+
+System.out.println(contractFunctionResult);
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Contract call query
+const query = new ContractCallQuery()
+    .setContractId(newContractId)
+    .setGas(600)
+    .setFunction("greet");
+
+//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
+const contractFunctionResult = await query.execute(client);
+
+console.log(contractFunctionResult);
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Contract call query
+query := hedera.NewContractCallQuery().
+		SetContractID(newContractID).
+		SetGas(600).
+		SetFunction("greet", nil)
+
+//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
+contractFunctionResult, err := query.Execute(client)
+
+if err != nil {
+		panic(err)
 }
 
-String message = contractCallResult.getString(0);
-System.out.println("contract returned message: " + message);
-
+//Print the query results to the console
+println(contractFunctionResult)
+//v2.0.0
 ```
+{% endcode %}
+
+**Sample Output**  
+  
+`ContractFunctionResult{  
+     contractId=0.0.104984  
+     rawResult=000000000000000000000000000000000000000000000000000000000000002  
+        0000000000000000000000000000000000000000000000000000000000000000d48656c  
+        6c6f2c20776f726c642100000000000000000000000000000000000000,   
+     bloom=,   
+     gasUsed=581,   
+     errorMessage=null,   
+     logs=[]  
+}`
 {% endtab %}
 
-{% tab title="JavaScript" %}
-```javascript
-const [ operatorPrivateKey, hederaClient ] = createHederaClient();
+{% tab title="V1" %}
 
-const smartContract = require("./stateful.json");
-const smartContractByteCode = smartContract.contracts[ "stateful.sol:StatefulContract" ].bin;
 
-console.log("contract bytecode size:", smartContractByteCode.length, "bytes");
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setContractId(<contractId>)` | ContractId | Sets the contract instance to call, in the format used in transactions \(x.z.y\). | Required |
+| `setGas(<gas>)` | long | Sets the amount of gas to use for the call. | Required |
+| `setFunction(<name>)` | String | Sets the function name to call. The function will be called with no parameters.  | Required |
+| `setFunction(<name, params>)` | String,  Contract FunctionParameters | Sets the function to call, and the parameters to pass to the function. | Optional |
+| `setMaxResultSize(<size>)` | long | Sets the max number of bytes that the result might include. The run will fail if it would have returned more than this number of bytes. | Optional |
 
-// First we must upload a file containing the byte code
-const byteCodeFileId = (await (await new FileCreateTransaction()
-    .setMaxTransactionFee(new Hbar(3))
-    .addKey(operatorPrivateKey.publicKey)
-    .setContents(smartContractByteCode)
-    .execute(hederaClient))
-    .getReceipt(hederaClient))
-    .getFileId();
-
-console.log("contract bytecode file:", byteCodeFileId.toString());
-
-// Next we instantiate the contract instance
-const record = await (await new ContractCreateTransaction()
-    .setMaxTransactionFee(new Hbar(100))
-    // Failing to set this to an adequate amount
-    // INSUFFICIENT_GAS
-    .setGas(2000) // ~1260
-    // Failing to set parameters when parameters are required
-    // CONTRACT_REVERT_EXECUTED
-    .setConstructorParams(new ContractFunctionParams()
-        .addString("hello from hedera"))
-    .setBytecodeFileId(byteCodeFileId)
-    .execute(hederaClient))
-    .getRecord(hederaClient);
-
-const newContractId = record.receipt.getContractId();
-
-console.log("contract create gas used:", record.getContractCreateResult().gasUsed);
-console.log("contract create transaction fee:", record.transactionFee.asTinybar());
-console.log("contract:", newContractId.toString());
-
-// Next let's ask for the current message (we set on creation)
-let callResult = await new ContractCallQuery()
+{% code title="Java" %}
+```java
+//Contract call query
+ContractCallQuery query = new ContractCallQuery()
     .setContractId(newContractId)
-    .setGas(1000) // ~897
-    .setFunction("getMessage", null)
-    .execute(hederaClient);
+    .setGas(600)
+    .setFunction("greet");
 
-console.log("call gas used:", callResult.gasUsed);
-console.log("message:", callResult.getString(0));
+//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
+ContractFunctionResult contractFunctionResult = query.execute(client);
 
-// Update the message
-const getRecord = await (await new ContractExecuteTransaction()
-    .setContractId(newContractId)
-    .setGas(7000) // ~6016
-    .setFunction("setMessage", new ContractFunctionParams()
-        .addString("hello from hedera again!"))
-    .execute(hederaClient))
-    // [getReceipt] or [getRecord] waits for consensus before continuing
-    //      and will throw an exception
-    //      on an error received during that process like INSUFFICENT_GAS
-    .getRecord(hederaClient);
-
-console.log("execute gas used:", getRecord.getContractExecuteResult().gasUsed);
-
-// Next let's ask for the new message
-callResult = await new ContractCallQuery()
-    .setContractId(newContractId)
-    .setGas(1000) // ~897
-    .setFunction("getMessage", null)
-    .execute(hederaClient);
-
-console.log("call gas used:", callResult.gasUsed);
-console.log("message:", callResult.getString(0));
-
-hederaClient.close();
+System.out.println(contractFunctionResult);
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Contract call query
+const query = new ContractCallQuery()
+    .setContractId(newContractId)
+    .setGas(600)
+    .setFunction("greet");
+
+//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
+const contractFunctionResult = await query.execute(client);
+
+console.log(contractFunctionResult);
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 

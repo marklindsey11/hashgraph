@@ -1,135 +1,239 @@
 # Update a file
 
-`FileUpdateTransaction()` updates the metadata for a file. This transaction must be signed by all the keys assigned to the file.
+A transaction that updates the state of an existing file on a Hedera network. Once the transaction has been processed, the network will be updated with the new field values of the file. If you need to access a previous state of the file, you can query a mirror node.
+
+**Transaction Signing Requirements**
+
+* The key or keys on the file are required to sign this transaction to modify the file properties
+* If you are updating the keys on the file, you must sign with the old key and the new key
+* If you do not sign with the key\(s\) on the file, you will receive an INVALID\_SIGNATURE network error
+
+#### File Properties
+
+| Field | Description |
+| :--- | :--- |
+| **Key\(s\)** | Update the keys which must sign any transactions modifying this file. All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time \(except the one for the operator account paying for the transaction\). The network currently requires a file to have at least one key \(or key list or threshold key\) but this requirement may be lifted in the future. |
+| **Contents** | The content to update the files with.  |
+| **Expiration Time** | If set, update the expiration time of the file. Must be in the future \(may only be used to extend the expiration\). To make a file inaccessible use FileDeleteTransaction. |
 
 | Constructor | Description |
 | :--- | :--- |
-| `FileUpdateTransaction()` | Intializes the FileUpdateTransaction object |
+| `new FileUpdateTransaction()` | Initializes the FileUpdateTransaction object |
 
 ```java
 new FileUpdateTransaction()
 ```
 
-## Basic
+### Methods
 
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setFileId(<fileId>)` | FileId | The FileID of the file to update |
-| `addKey(<key>)` | [Ed25519PublicKey](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/crypto/ed25519/Ed25519PublicKey.java) | The public key\(s\) to add to update the file with |
-| `setContents(<contents>)` | byte\[ \] | The contents to update the file with |
-| `setExpirationTime(<expiration>)` | Instant | The new expiration time  |
-
-## Example
+{% hint style="info" %}
+**Note:** The total size for a given transaction is limited to 6KiB. If you exceed this value you will need to submit a FileUpdateTransaction that is less than 6KiB and  then submit a FileAppendTransaction to add the remaining content to the file.
+{% endhint %}
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | Required |
+| `setKey(<keys>)` | Key | Optional |
+| `setContents(<bytes>)` | byte \[ \] | Optional |
+| `setContents(<text>)` | String | Optional |
+| `setExpirationTime(<expiration>)` | Instant | Optional |
+
+{% code title="Java" %}
 ```java
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
+//Create the transaction
+FileUpdateTransaction transaction = new FileUpdateTransaction()
+    .setFileId(fileId)
+    .setKeys(newKey);
+        
+//Modify the max transaction fee
+FileUpdateTransaction txFee = transaction.setMaxTransactionFee(new Hbar(3));
 
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+//Freeze the transaction, sign with the original key, sign with the new key, sign with the client opeator key and submit the transaction to a Hedera network
+TransactionResponse txResponse = txFee.freezeWith(client).sign(fileKey).sign(newKey).execute(client);
 
-// Content to be stored in the file
-byte[] fileContents = ("Hedera is great!").getBytes();
+//Get the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
 
-// Create the new file and set its properties
-TransactionId newFileTxId = new FileCreateTransaction()
-    .addKey(OPERATOR_KEY.publicKey) // The public key of the owner of the file
-    .setContents(fileContents) // Contents of the file
-    .setMaxTransactionFee(new Hbar(2))
-    .execute(client);
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
 
-FileId newFileId = newFileTxId.getReceipt(client).getFileId();
+System.out.println("The transaction consensus status is " +transactionStatus);
 
-//Print the file ID to console
-System.out.println("The new file ID is " + newFileId.toString());
-
-// Get file contents
-byte[] contents = new FileContentsQuery()
-    .setFileId(newFileId)
-    .execute(client);
-
-// Prints query results to console
-System.out.println("File content query results: " + new String(contents));
-
-TransactionId updateFileTx = new FileUpdateTransaction()
-    .setFileId(newFileId)
-    .setContents(("This is the updated content to the file ").getBytes())
-    .execute(client);
-
-byte[] updateContents = new FileContentsQuery()
-    .setFileId(newFileId)
-    .execute(client);
-    
-System.out.println("File content query results: " + new String(updateContents));
+//v2.0.0
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
-async function main() {
+//Create the transaction
+const transaction = new FileUpdateTransaction()
+    .setFileId(fileId)
+    .setKeys(newKey);
+        
+//Modify the max transaction fee
+const txFee = transaction.setMaxTransactionFee(new Hbar(3));
 
-    const operatorAccount = process.env.OPERATOR_ID;
-    const operatorPrivateKey = Ed25519PrivateKey.fromString(process.env.OPERATOR_KEY);
-    const operatorPublicKey = operatorPrivateKey.publicKey;
+//Freeze the transaction, sign with the original key, sign with the new key, sign with the client opeator key and submit the transaction to a Hedera network
+TransactionResponse txResponse = await txFee.freezeWith(client).sign(fileKey).sign(newKey).execute(client);
 
-    if (operatorPrivateKey == null || operatorAccount == null) {
-     throw new Error(
-          "environment variables OPERATOR_KEY and OPERATOR_ID must be present"
-     );
-    }
-    // `Client.forMainnet()` is provided for connecting to Hedera mainnet
-    const client = Client.forTestnet()
+//Get the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
 
-    // Defaults the operator account ID and key such that all generated transactions will be paid for
-    // by this account and be signed by this key   
-    client.setOperator(operatorAccount, operatorPrivateKey);
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
 
-    // Create a file with contents
-    const transactionId = await new FileCreateTransaction()
-        .setContents("Hello, Hedera's file service!")
-        .addKey(operatorPublicKey) // Defines the "admin" of this file
-        .setMaxTransactionFee(new Hbar(15))
-        .execute(client);
+console.log("The transaction consensus status is " +transactionStatus);
+```
+{% endcode %}
 
-    // Grabt the file ID from the receipt 
-    const receipt = await transactionId.getReceipt(client); 
-    const fileId = receipt.getFileId(); 
-    console.log("new file id = ", fileId);
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewFileUpdateTransaction().
+	  SetFileID(fileId).
+		SetKeys(newKey)
 
-    //Get file contents
-    const fileContents = await new FileContentsQuery()
-        .setFileId(fileId)
-        .execute(client);
+//Modify the max transaction fee
+modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
 
-    // Print the contents to the console
-    console.log(`file contents: ${new TextDecoder().decode(fileContents)}`)
-
-    // Update the file with new contents
-    // Updating the file will replace the existing contents
-    const fileUpdateTransactionId = await new FileUpdateTransaction()
-        .setFileId(fileId)
-        .setContents("You updated the file!")
-        .execute(client);
-
-    // Make sure the file update with the new contents before retreiving the contents
-    const updateReceipt = await fileUpdateTransactionId.getReceipt(client);
-    console.log(`Status: ${updateReceipt.status}`)
-
-    // Get the new file contents
-    const fileContentsUpdate = await new FileContentsQuery()
-     .setFileId(fileId)
-     .execute(client);
-
-    // Print the updated file contents to the console
-    console.log(`new file contents: ${new TextDecoder().decode(fileContentsUpdate)}`)
-
+//Prepare the transaction for signing
+freezeTransaction, err := modifyMaxTransactionFee.FreezeWith(client)
+if err != nil {
+		panic(err)
 }
 
-main();
+//Sign with the key on the file, sign with the client operator key and submit to a Hedera network
+txResponse, err := freezeTransaction.Sign(fileKey).Sign(newKey).Execute(client)
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+		panic(err)
+}
+
+//Get the transaction status
+transactionStatus := receipt.Status
+
+fmt.Println("The transaction consensus status is ", transactionStatus)
+
+//v2.0.0
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | Required |
+| `addKey(<keys>)` | PublicKey | Optional |
+| `setContents(<bytes>)` | byte \[ \] | Optional |
+| `setContents(<text>)` | String | Optional |
+| `setExpirationTime(<expiration>)` | Instant | Optional |
+
+{% code title="Java" %}
+```java
+//Create the transaction
+FileUpdateTransaction transaction = new FileUpdateTransaction()
+    .addKey(newPublicKey)
+    .setFileId(newFileId);
+
+//Modify the default max transaction fee from 1 hbar to 2 hbars
+FileUpdateTransaction txFee = transaction.setMaxTransactionFee(new Hbar(3));
+
+//Build the transaction, sign with the original key, sign with the new key, sign with the client opeator key and submit the transaction to a Hedera network
+TransactionId txId = txFee.build(client).sign(key).sign(newKey).execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txId.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = new FileUpdateTransaction()
+    .addKey(newPublicKey)
+    .setFileId(newFileId);
+
+//Modify the default max transaction fee from 1 hbar to 2 hbars
+const txFee = transaction.setMaxTransactionFee(new Hbar(3));
+
+//Build the transaction, sign with the original key, sign with the new key, sign with the client opeator key and submit the transaction to a Hedera network
+const txId = await txFee.build(client).sign(key).sign(newKey).execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txId.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## Get transaction values
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `getFileId()` | FileId | Optional |
+| `getKey()` | Key | Optional |
+| `setContents()` | ByteString | Optional |
+| `getExpirationTime()` | Instant | Optional |
+
+{% code title="Java" %}
+```java
+//Create the transaction
+FileUpdateTransaction transaction = new FileUpdateTransaction()
+    .setFileId(fileId)
+    .setKeys(newKey);
+
+//Get the contents of a file
+Key getKey = transaction.getKey();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```java
+//Create the transaction
+const transaction = new FileUpdateTransaction()
+    .setFileId(newFileId);
+
+//Get the contents of a file
+const getKey = transaction.getKey();
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewFileUpdateTransaction().
+	  SetFileID(fileId).
+		SetKeys(newKey)
+
+//Get the contents of a file
+getKey := transaction.GetKeys()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 

@@ -1,2 +1,2 @@
-# Cryptocurrency
+# Accounts
 

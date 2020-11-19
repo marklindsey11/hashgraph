@@ -1,5 +1,7 @@
 # Errors
 
+Network errors and their descriptions.
+
 | Errors | Description |
 | :--- | :--- |
 | ACCOUNT\_FROZEN\_FOR\_TOKEN | Account is frozen and cannot transact with the token |

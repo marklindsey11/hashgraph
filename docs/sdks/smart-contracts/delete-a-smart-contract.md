@@ -1,116 +1,99 @@
 # Delete a smart contract
 
-`ContractDeleteTransaction()` deletes a smart contract. 
+A transaction that deletes a smart contract from a Hedera network. Once a smart contract is marked deleted, you will not be able to modify any of the contract's properties. ****If a smart contract did not have an admin key defined, you cannot delete the smart contract. You can verify the smart contract was deleted by submitting a smart contract info query to the network.
+
+**Transaction Signing Requirements**
+
+* If the admin key was defined for the smart contract is it required to sign the transaction
+* The client operator \(fee payer account\) private key is required to sign the transaction.
 
 | Constructor | Description |
 | :--- | :--- |
-| `ContractDeleteTransaction()` | ​Initializes the ContractDeleteTransaction object |
+| `new ContractDeleteTransaction()` | Initializes a ContractDeleteTransaction object |
 
 ```java
 new ContractDeleteTransaction()
 ```
 
-## Basic
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setContractId(<contractID>)` | ContractID | The ID of the contract |
-
-## Example <a id="example"></a>
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setContractId(<contractId>)` | ContractId | Sets the contract ID \(x.z.y\) which should be deleted. | Required |
+| `setTransferAccountId(<transferAccountId>)` | AccountId | Sets the account ID \(x.z.y\) which will receive all remaining hbars | Optional |
+| `setTransferContractId(<contractId>)` | ContractId | Sets the contract ID \(x.z.y\) which will receive all remaining hbars. | Optional |
+
+{% code title="Java" %}
 ```java
-ClassLoader cl = CreateSimpleContract.class.getClassLoader();
+//Create the transaction
+ContractDeleteTransaction transaction = new ContractDeleteTransaction()
+    .setContractId(newContractId);
 
-Gson gson = new Gson();
+//Freeze the transaction for signing, sign with the admin key on the contract, sign with the client operator private key and submit to a Hedera network
+TransactionResponse txResponse = transaction.freezeWith(client).sign(adminKey).execute(client);
 
-JsonObject jsonObject;
+//Get the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
 
-try (InputStream jsonStream = cl.getResourceAsStream("hello_world.json")) {
-    if (jsonStream == null) {
-        throw new RuntimeException("failed to get hello_world.json");
-    }
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
 
-    jsonObject = gson.fromJson(new InputStreamReader(jsonStream), JsonObject.class);
-}
+System.out.println("The transaction consensus status is " +transactionStatus);
 
-String byteCodeHex = jsonObject.getAsJsonPrimitive("object")
-    .getAsString();
-
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
-
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
-
-// create the contract's bytecode file
-TransactionId fileTxId = new FileCreateTransaction().setExpirationTime(
-    Instant.now()
-        .plus(Duration.ofSeconds(3600)))
-    // Use the same key as the operator to "own" this file
-    .addKey(OPERATOR_KEY.publicKey)
-    .setContents(byteCodeHex.getBytes())
-    .execute(client);
-
-TransactionReceipt fileReceipt = fileTxId.getReceipt(client);
-FileId newFileId = fileReceipt.getFileId();
-
-System.out.println("contract bytecode file: " + newFileId);
-
-// create the contract itself
-TransactionId contractTxId = new ContractCreateTransaction().setAutoRenewPeriod(Duration.ofHours(1))
-    .setGas(217000)
-    .setBytecodeFileId(newFileId)
-    // set an admin key so we can delete the contract later
-    .setAdminKey(OPERATOR_KEY.publicKey)
-    .execute(client);
-
-TransactionReceipt contractReceipt = contractTxId.getReceipt(client);
-
-System.out.println(contractReceipt.toProto());
-
-ContractId newContractId = contractReceipt.getContractId();
-
-System.out.println("new contract ID: " + newContractId);
-
-ContractFunctionResult contractCallResult = new ContractCallQuery()
-    .setGas(30000)
-    .setContractId(newContractId)
-    .setFunction("greet")
-    .execute(client);
-
-if (contractCallResult.errorMessage != null) {
-    System.out.println("error calling contract: " + contractCallResult.errorMessage);
-    return;
-}
-
-String message = contractCallResult.getString(0);
-System.out.println("contract message: " + message);
-
-// now delete the contract
-TransactionId contractDeleteTxnId = new ContractDeleteTransaction()
-    .setContractId(newContractId)
-    .execute(client);
-
-TransactionReceipt contractDeleteResult = contractDeleteTxnId.getReceipt(client);
-
-if (contractDeleteResult.status != Status.Success) {
-    System.out.println("error deleting contract: " + contractDeleteResult.status);
-    return;
-}
-System.out.println("Contract successfully deleted");
+//v2.0.0
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
-const deleteContractTxId = new ContractDeleteTransaction()
-    .setContractId(newContractId)
-    .execute(client);
+//Create the transaction
+const transaction = new ContractDeleteTransaction()
+    .setContractId(newContractId);
 
+//Freeze the transaction for signing, sign with the admin key on the contract, sign with the client operator private key and submit to a Hedera network
+const txResponse = await transaction.freezeWith(client).sign(adminKey).execute(client);
+
+//Get the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+
+//v2.0.0
 ```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create and freeze the transaction
+transaction := hedera.NewContractDeleteTransaction().
+	  SetContractID(newContractID)
+	  FreezeWith(client)
+	
+//Sign with the admin key on the contract, sign with the client operator private key and submit to a Hedera network
+txResponse. err := transaction.Sign(adminKey).Execute(client)
+if err != nil {
+		panic(err)
+}
+
+//Get the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+		panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+fmt.Printf("The transaction consensus status %v\n", transactionStatus)
+
+//v2.0.0
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 

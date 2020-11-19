@@ -6,15 +6,105 @@ Queries are requests that do not require network consensus. Queries are processe
 | :--- | :--- | :--- | :--- | :--- |
 | [AccountBalanceQuery](cryptocurrency/get-account-balance.md) | [ConsensusTopicInfoQuery](consensus/get-topic-info.md) | [TokenBalanceQuery](tokens/get-account-token-balance.md) | [FileContentsQuery](file-storage/get-file-contents.md) | [ContractCallQuery](smart-contracts/get-smart-contract-bytecode.md) |
 | [AccountInfoQuery](cryptocurrency/get-account-info.md) |  | [TokenInfoQuery](tokens/get-token-info.md) | [FileInfoQuery](file-storage/get-file-info.md) | [ContractByteCodeQuery](../hedera-api/smart-contracts/smartcontractservice.md) |
-| [AccountRecordQuery](cryptocurrency/get-account-record.md) |  |  |  | [ContractInfoQuery](smart-contracts/get-smart-contract-info.md) |
-|  |  |  |  | [ContractRecordQuery](smart-contracts/get-smart-contract-record.md) |
+| [AccountRecordQuery]() |  |  |  | [ContractInfoQuery](smart-contracts/get-smart-contract-info.md) |
+|  |  |  |  | [ContractRecordQuery]() |
 
-The following methods can be called when building the above queries
+## Get Query Cost
 
+A query that returns the cost of a query prior to submitting the query to network node for processing. If the cost of the query greater than the default max query payment \(1 hbar\) you can use `setMaxQueryPayment(<hbar>)` to change the default. 
+
+{% tabs %}
+{% tab title="V2" %}
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `setQueryPayment(<paymentAmount>)` | Hbar/long | Explicitly specify that the operator account is paying for the query; when the query is executed a payment transaction will be constructed with a transfer of this amount from the operator account to the node which will handle the query. |
-| `setMaxQueryPayment(<paymentAmount>)` | Hbar/long | The maximum payment amount to be paid for this query. The actual payment amount may be less, but will never be greater than this value. |
-| `getCost(<client>)` | Client | Returns the cost of the query prior to submitting the request |
-| `execute(<client>)` | Client | Submits the transaction to the Hedera network |
+| `getCost(<client>)` | Client | Get the cost of the query in Hbar |
+| `getCost(<client, timeout>)` | Client, Duration | The max length of time the sdk will attempt to retry for in the event of repeated busy responses from node\(s\) |
+| `getCostAsync(<client>)` | Client | Get the cost of a query asynchronously  |
+
+{% code title="Java" %}
+```java
+//Create the query request
+AccountBalanceQuery query = new AccountBalanceQuery()
+     .setAccountId(accountId);
+
+//Get the cost of the query
+Hbar queryCost = query.getCost(client);
+
+System.out.println("The account balance query cost is " +queryCost);
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query request
+const query = new AccountBalanceQuery()
+     .setAccountId(accountId);
+
+//Get the cost of the query
+const queryCost = await query.getCost(client);
+
+console.log("The account balance query cost is " +queryCost);
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the query request
+query :+ hedera.NewAccountBalanceQuery().
+     SetAccountID(newAccountId)
+
+//Get the cost of the query
+     cost, err := fileQuery.GetCost(client)
+if err != nil {
+		panic(err)
+}
+
+println("The account balance query cost is: ", cost.String())
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getCost(<client>)` | Client | Get the cost of the query in long representation |
+| `getCostAsync(<client, withCost, onError>)` | Client, Consumer&lt;long&gt;, Consumer&lt;HederaThrowable&gt; | Get the cost of a query asynchronously  |
+
+{% code title="Java" %}
+```java
+//Create the query request
+AccountBalanceQuery query = new AccountBalanceQuery()
+     .setAccountId(accountId);
+
+//Get the cost of the query
+long queryCost = query.getCost(client);
+
+System.out.println("The account balance query cost is " +queryCost);
+
+//v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query request
+const query = new AccountBalanceQuery()
+     .setAccountId(accountId);
+
+//Get the cost of the query
+const queryCost = await query.getCost(client);
+
+console.log("The account balance query cost is " +queryCost);
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 

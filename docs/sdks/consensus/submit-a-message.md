@@ -1,75 +1,173 @@
 # Submit a message
 
-`ConsensusMessageSubmitTransaction()` submits a message to a topic. If you are trying to submit a message to a private topic, you will need the associated `submitKey` to successfully submit messages to it.
+A transaction that submits a topic message to the Hedera network. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash. 
+
+**Transaction Signing Requirements**
+
+* Anyone can submit a message to a public topic
+* The submitKey is required to sign the transaction for a private topic
+
+{% hint style="info" %}
+Max size of a transaction \(including signatures\) is 6144 bytes.
+{% endhint %}
+
+{% tabs %}
+{% tab title="V2" %}
+| Constructor | Description |
+| :--- | :--- |
+| `new TopicMessageSubmitTransaction()` | Initializes a TopicMessageSubmitTransaction object |
+
+```java
+new TopicMessageSubmitTransaction()
+```
+
+### Methods
+
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTopicId(<topicId>)` | TopicId | The topic ID to submit the message to | Required |
+| `setMessage(<message>)` | String | The message in a String format | Optional |
+| `setMessage(<message>)` | byte \[ \] | The message in a byte array format | Optional |
+| `setMessage(<message>)` | ByteString | The message in a  ByteString format | Optional |
+
+{% code title="Java" %}
+```java
+TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
+    .setTopicId(newTopicId)
+    .setMessage("hello, HCS! ");
+
+//Sign with the client operator key and submit transaction to a Hedera network, get transaction ID
+TransactionResponse txResponse = transaction.execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+await new TopicMessageSubmitTransaction({
+        topicId: createReceipt.topicId,
+        message: "Hello World",
+    }).execute(client);
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewTopicSubmitTransaction().
+		SetTopicID(topicID).
+		SetMessage([]byte(content))
+
+//Sign with the client operator private key and submit the transaction to a Hedera network
+txResponse, err := transaction.Execute(client)
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt of the transaction
+transactionReceipt, err := txResponse.GetReceipt(client)
+if err != nil {
+		panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+
 
 | Constructor | Description |
 | :--- | :--- |
-| `ConsensusMessageSubmitTransaction()` | Initializes a ConsensusMessageSubmitTransaction object |
+| `new ConsensusMessageSubmitTransaction()` | Initializes a ConsensusMessageSubmitTransaction object |
 
 ```java
 new ConsensusMessageSubmitTransaction()
 ```
 
-## Basic
+
+
+### Methods
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Methods</th>
+      <th style="text-align:left">Method</th>
       <th style="text-align:left">Type</th>
       <th style="text-align:left">Description</th>
+      <th style="text-align:left">Requirement</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><code>setTopicID(&lt;topic&gt;</code>
+      <td style="text-align:left"><code>setTopicId(&lt;topicId&gt;)</code>
       </td>
-      <td style="text-align:left">TopicID</td>
-      <td style="text-align:left">The ID of the topic to submit a message to</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setMessage(&lt;message&gt;)</code>
-      </td>
-      <td style="text-align:left">byte[ ]</td>
-      <td style="text-align:left">The message to submit in byte format. Max size of the transaction (including
-        signatures) is 6144 bytes.</td>
+      <td style="text-align:left">TopicId</td>
+      <td style="text-align:left">The topic ID to submit the message to</td>
+      <td style="text-align:left">Required</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setMessage(&lt;message&gt;)</code>
       </td>
       <td style="text-align:left">String</td>
-      <td style="text-align:left">The message to submit in string format</td>
+      <td style="text-align:left">The message in a String format</td>
+      <td style="text-align:left">Optional</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>setMaxChunks(&lt;chunks&gt;)</code>
+      <td style="text-align:left"><code>setMessage(&lt;message&gt;)</code>
       </td>
-      <td style="text-align:left">long</td>
-      <td style="text-align:left">
-        <p>Number of transactions to break the entire message into</p>
-        <p>Default Value: 10</p>
-        <p>v1.2.0</p>
-      </td>
+      <td style="text-align:left">byte [ ]</td>
+      <td style="text-align:left">The message in a byte array format</td>
+      <td style="text-align:left">Optional</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>setChunkInfo(&lt;initaliId, total, number&gt;)</code>
+      <td style="text-align:left"><code>setMessage(&lt;message&gt;)</code>
       </td>
-      <td style="text-align:left">TransactionID, int, int</td>
+      <td style="text-align:left">ByteString</td>
+      <td style="text-align:left">The message in a ByteString format</td>
+      <td style="text-align:left">Optional</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setMaxChunk(&lt;maxChunks&gt;)</code>
+      </td>
+      <td style="text-align:left">int</td>
+      <td style="text-align:left">The number of chunks to break the message into. Default:10</td>
+      <td style="text-align:left">Optional</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setMaxChunkInfo(&lt;initial<br />Transactionid<br />,totalNumber, number&gt;) </code>
+      </td>
+      <td style="text-align:left">TransactionId, int, int</td>
       <td style="text-align:left">
         <p>initialId: TransactionID of the first chunk, gets copied to every subsequent
           chunk in a fragmented message.</p>
         <p>total: total number of chunks</p>
         <p>number: The sequence number (from 1 to total) of the current chunk in
           the message.</p>
-        <p>v1.2.0</p>
       </td>
+      <td style="text-align:left">Optional</td>
     </tr>
   </tbody>
 </table>
 
-### Example
 
-{% tabs %}
-{% tab title="Java" %}
+
+{% code title="Java" %}
 ```java
 //Submits a message to a public topic 
 new ConsensusMessageSubmitTransaction()
@@ -78,10 +176,12 @@ new ConsensusMessageSubmitTransaction()
     .build(client)
     .execute(client)
     .getReceipt(client);
-```
-{% endtab %}
 
-{% tab title="JavaScript" %}
+//v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
 ```javascript
 //Submits a message to a public topic 
 await new ConsensusMessageSubmitTransaction()
@@ -90,77 +190,64 @@ await new ConsensusMessageSubmitTransaction()
     .build(client)
     .execute(client)
     .getReceipt(client);
+
+//v1.4.4
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
-## Advanced
-
-### Submit a message to a private topic
-
-To submit a message to a private topic, you will need access to the the `submitKey`. The `submitKey` is a property set at the time the topic is created and can be modified. If you do not have the appropriate `submitKey,` you will not be able to submit messages to that topic. 
+## Get transaction values
 
 {% tabs %}
-{% tab title="Java" %}
-```javascript
-new ConsensusMessageSubmitTransaction()
-     .setTopicId(topicId)
-     .setMessage(message)
-     .build(hapiClient)
-     // The transaction is automatically signed by the payer.
-     // Due to the topic having a submitKey requirement, additionally sign the transaction with that key.
-    .sign(submitKey)
-    .execute(hapiClient)
-    .getReceipt(hapiClient);
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getTopicId()` | TopicId | The topic ID to submit the message to |
+| `getMessage()` | ByteString | The message being submitted  |
+| `getAllTransactionHash()` | byte \[ \] | The hash for each transaction |
 
-```
-{% endtab %}
-
-{% tab title="JavaScript" %}
-```javascript
-await new ConsensusMessageSubmitTransaction()
-     .setTopicId(topicId)
-     .setMessage(message)
-     .build(hapiClient)
-     // The transaction is automatically signed by the payer.
-     // Due to the topic having a submitKey requirement, additionally sign the transaction with that key.
-    .sign(submitKey)
-    .execute(hapiClient)
-    .getReceipt(hapiClient);
-```
-{% endtab %}
-{% endtabs %}
-
-You can view the complete example [here](https://github.com/hashgraph/hedera-sdk-java/blob/master/examples/src/main/java/com/hedera/hashgraph/sdk/examples/ConsensusPubSubWithSubmitKey.java). 
-
-
-
-### Submit a message by chunks
-
-A message that is more than 4-6kb can be sent in multiple transactions by chunking the entire message. Use `setMaxChunks()` in your transaction to designate the number of chunks you would like the message  to be broken into.  
-
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
 ```java
-// SDK version 1.2.0
-// send a message that would fit into more than one chunk (4-6k per chunk)
-List<TransactionId> ids = new ConsensusMessageSubmitTransaction()
-     .setMaxChunks(5) // this is 10 by default
-     .setTopicId(newTopicId)
-     .setMessage(bigContents.toString())
-     .execute(client);
+//Create the transaction
+TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
+    .setTopicId(newTopicId)
+    .setMessage("hello, HCS! ");
+        
+//Get the transactio message
+ByteString getMessage = transaction.getMessage();
+//v2.0.0
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
-// SDK version 1.2.0
-await new ConsensusMessageSubmitTransaction()
-     .setTopicId(topicId)
-     .setMaxChunks(4) // default: 10
-     .setMessage(bigContents)
-     .execute(client); //transactionId []
+//Create the transaction
+const transaction = await new TopicMessageSubmitTransaction()
+    .setTopicId(newTopicId)
+    .setMessage("hello, HCS! ");
+        
+//Get the transactio message
+const getMessage = transaction.getMessage();
+
+//v2.0.0
 ```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewTopicSubmitTransaction().
+		SetTopicID(topicID).
+		SetMessage([]byte(content))
+		
+//Get the transactio message
+getMessage := transaction.GetMessage()
+//v2.0.0
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+
 

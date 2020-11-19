@@ -1,4 +1,4 @@
-# Address Book
+# Network address book
 
 The address book contains the node ID and and node address information to sync with Hedera node\(s\) in a specific network.  The address book file ID for each network is `0.0.102`. You can obtain the address book information by requesting the contents of the file `0.0.102` \([`FileContentsQuery()`]()\). The network information can also be found in your Hedera portal account.
 

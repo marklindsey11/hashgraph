@@ -4,7 +4,7 @@
 Before you get started with smart contracts consider if the Hedera Consensus Service is better for your use case. For most, it provides greater performance and lower costs. Learn more in the blog series, Exploring [Tokenized Assets on HCS](https://www.hedera.com/blog/exploring-tokenized-assets-on-hedera-consensus-service-part-1).
 {% endhint %}
 
-`ContractCreateTransaction()` creates a new smart contract instance. The ID of the smart contract can be obtained from the record or receipt. The instance will run the bytecode stored in the given file, referenced either by FileID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. Similar to accounts, the instance will exist for autoRenewSeconds and when it is reached the instance will renew itself for another autoRenewSeconds seconds. The associated cryptocurrency account will be charged for each auto-renew period. 
+A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. You will first need to create a file that stores the bytecode of the contract. Then you will create the smart contract instance  that will run the bytecode stored in the given file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. Similar to accounts the instance will exist for autoRenewPeriod seconds. When that is reached, it will renew itself for another autoRenewPeriod seconds by charging its associated cryptocurrency account \(which it creates here\). If it has insufficient cryptocurrency to extend that long, it will extend as long as it can. If its balance is zero, the instance will be deleted.
 
 {% hint style="warning" %}
 **Solidity Support**  
@@ -16,175 +16,251 @@ Hedera smart contracts support Solidity versions up to **v0.5.9**.
 Each smart contract has a maximum state size of 1MB which can store up to approximately 16,000 key-value pairs.
 {% endhint %}
 
+**Transaction Signing Requirements**
+
+* The client operator account is required to sign the transaction
+
+**Smart Contract Properties**
+
+| **Field** | **Description** |
+| :--- | :--- |
+| **Admin Key** | Sets the state of the instance and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. |
+| **Gas** | The gas to run the constructor. Failing to  |
+| **Initial Balance**  | The initial number of hbars to put into the cryptocurrency account associated with and owned by the smart contract. |
+| **Byte Code File** | The file containing the smart contract byte code. |
+| **Proxy Account** | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null. |
+| **Auto Renew Period** | The period that the instance will charge its account every this many seconds to renew. |
+| **Constructor Parameters** | The constructor parameters to pass. |
+| **Memo** | The memo to be associated with this contract. |
+
 | Constructor | Description |
 | :--- | :--- |
-| `ContractCreateTransaction()` | Initializes the ContractCreateTransaction\(\) |
+| `new ContractCreateTransaction()` | Initializes the ContractCreateTransaction\(\) |
 
 ```java
 new ContractCreateTransaction()
 ```
 
-## Basic
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setAdminKey(<key>)` | [Ed25519PublicKey](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/crypto/ed25519/Ed25519PublicKey.java) | The state of the instance and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. |
-| `setByteCodeFile(<fileId>)` | FileId | The `fileId` of the file that contains the smart contract bytecode |
-| `setGas(<gas>)` | long | Gas amount to run the constructor |
-| `setInitialBalance(<amount>)` | long | The initial number of tinybars to put into the cryptocurrency account associated with and owned by the smart contract. |
-| `setAutoRenewPeriod(<duration>)` | Duration | The period of time in which the smart contract will auto-renew in seconds. Duration type is in seconds. For example, one hour would result in the input value of 3600 seconds. |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setGas(<gas>)` | long | Required |
+| `setBytecodeFileId(<fileId>)` | FileId | Required |
+| `setInitialBalance(<initialBalance>)` | Hbar |  |
+| `setAdminKey(<keys>)` | PublicKey | Optional |
+| `setProxyAccountId(<accountId>`\) | AccountId | Optional |
+| `setConstructorParameters(<constructorParameters>)` | byte \[ \] | Optional |
+| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional |
+| `setContractMemo(<memo>)` | String | Optional |
+| `setAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Optional |
+
+{% code title="Java" %}
 ```java
-ClassLoader cl = CreateStatefulContract.class.getClassLoader();
+//Create the transaction
+ContractCreateTransaction transaction = new ContractCreateTransaction()
+    .setGas(500)
+    .setBytecodeFileId(bytecodeFileId)
+    .setAdminKey(adminKey);
+    
+//Modify the default max transaction fee (1 hbar)
+ContractCreateTransaction modifyTransactionFee = transaction.setMaxTransactionFee(new Hbar(16));
 
-Gson gson = new Gson();
+//Sign the transaction with the client operator key and submit to a Hedera network
+TransactionResponse txResponse = modifyTransactionFee.execute(client);
 
-JsonObject jsonObject;
+//Get the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
 
-try (InputStream jsonStream = cl.getResourceAsStream("stateful.json")) {
-    if (jsonStream == null) {
-        throw new RuntimeException("failed to get stateful.json");
-    }
+//Get the new contract ID
+ContractId newContractId = receipt.contractId;
+        
+System.out.println("The new contract ID is " +newContractId);
+//v2.0.0
+```
+{% endcode %}
 
-    jsonObject = gson.fromJson(new InputStreamReader(jsonStream), JsonObject.class);
-}
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = new ContractCreateTransaction()
+    .setGas(500)
+    .setBytecodeFileId(bytecodeFileId)
+    .setAdminKey(adminKey);
 
-String byteCodeHex = jsonObject.getAsJsonPrimitive("object")
-    .getAsString();
-byte[] byteCode = byteCodeHex.getBytes();
+//Modify the default max transaction fee (1 hbar)
+const modifyTransactionFee = transaction.setMaxTransactionFee(new Hbar(16));
 
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
+//Sign the transaction with the client operator key and submit to a Hedera network
+const txResponse = await modifyTransactionFee.execute(client);
 
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+//Get the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
 
-// default max fee for all transactions executed by this client
-client.setMaxTransactionFee(new Hbar(100));
-client.setMaxQueryPayment(new Hbar(10));
-
-// create the contract's bytecode file
-TransactionId fileTxId = new FileCreateTransaction()
-    // Use the same key as the operator to "own" this file
-    .addKey(OPERATOR_KEY.publicKey)
-    .setContents(byteCode)
-    .execute(client);
-
-TransactionReceipt fileReceipt = fileTxId.getReceipt(client);
-FileId newFileId = fileReceipt.getFileId();
-
-System.out.println("contract bytecode file: " + newFileId);
-
-TransactionId contractTxId = new ContractCreateTransaction()
-    .setBytecodeFileId(newFileId)
-    .setGas(100_000_000)
-    .setConstructorParams(
-        new ContractFunctionParams()
-            .addString("hello from hedera!"))
-    .execute(client);
-
-TransactionReceipt contractReceipt = contractTxId.getReceipt(client);
-ContractId newContractId = contractReceipt.getContractId();
-
-System.out.println("new contract ID: " + newContractId);
+//Get the new contract ID
+const newContractId = receipt.contractId;
+        
+console.log("The new contract ID is " +newContractId);
 
 ```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewContractCreateTransaction().
+		SetGas(500).
+		SetBytecodeFileID(byteCodeFileID).
+		SetAdminKey(adminKey)
+
+//Sign the transaction with the client operator key and submit to a Hedera network
+txResponse, err := transaction.Execute(client)
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt of the transaction
+receipt, err = txResponse.GetReceipt(client)
+if err != nil {
+		panic(err)
+}
+
+//Get the topic ID
+newContractId := *receipt.ContractID
+
+fmt.Printf("The new topic ID is %v\n", newContractId)
+//v2.0.0
+```
+{% endcode %}
 {% endtab %}
 
-{% tab title="JavaScript" %}
-```javascript
-async function main() {
-    const operatorAccount = process.env.OPERATOR_ID;
-    const operatorPrivateKey = Ed25519PrivateKey.fromString(process.env.OPERATOR_KEY);
+{% tab title="V1" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setGas(<gas>)` | long | Required |
+| `setBytecodeFileId(<fileId>)` | FileId | Required |
+| `setInitialBalance(<initialBalance>)` | long/Hbar | Optional |
+| `setAdminKey(<publicKeys>)` | Ed25519PublicKey | Optional |
+| `setProxyAccountId(<accountId>`\) | AccountId | Optional |
+| `setConstructorParameters(<constructorParameters>)` | byte \[ \] | Optional |
+| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional |
+| `setContractMemo(<memo>)` | String | Optional |
+| `setAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Optional |
 
-    // `Client.forMainnet()` is provided for connecting to Hedera mainnet
-    const client = Client.forTestnet();
+{% code title="Java" %}
+```java
+//Create the transaction
+ContractCreateTransaction transaction = new ContractCreateTransaction()
+     .setBytecodeFileId(fileId)
+     .setGas(100_000_000)
+     .setConstructorParams(new ContractFunctionParams().addString("hello from hedera!"));
 
-    // Defaults the operator account ID and key such that all generated transactions will be paid for
-    // by this account and be signed by this key
-    client.setOperator(operatorAccount, operatorPrivateKey);
+//Sign with the client operator account private key, submit to a Hedera network        
+TransactionId txId = transaction.execute(client);
 
+//Get the receipt of the transaction
+TransactionReceipt receipt = txId.getReceipt(client);
 
-    const smartContract = require("./stateful.json");
-    const smartContractByteCode = smartContract.contracts[ "stateful.sol:StatefulContract" ].bin;
+//Get the new contract ID
+ContractId newContractId = receipt.getContractId();
+        
+System.out.println("The new contract ID is " + newContractId);
 
-    console.log("contract bytecode size:", smartContractByteCode.length, "bytes");
-
-    // First we must upload a file containing the byte code
-    const byteCodeFileId = (await (await new FileCreateTransaction()
-        .setMaxTransactionFee(new Hbar(3))
-        .addKey(operatorPrivateKey.publicKey)
-        .setContents(smartContractByteCode)
-        .execute(client))
-        .getReceipt(client))
-        .getFileId();
-
-    console.log("contract bytecode file:", byteCodeFileId.toString());
-
-    // Next we instantiate the contract instance
-    const record = await (await new ContractCreateTransaction()
-        .setMaxTransactionFee(new Hbar(100))
-        // Failing to set this to an adequate amount
-        // INSUFFICIENT_GAS
-        .setGas(2000) // ~1260
-        // Failing to set parameters when parameters are required
-        // CONTRACT_REVERT_EXECUTED
-        .setConstructorParams(new ContractFunctionParams()
-            .addString("hello from hedera"))
-        .setBytecodeFileId(byteCodeFileId)
-        .execute(client))
-        .getRecord(client);
-
-    const newContractId = record.receipt.getContractId();
-
-    console.log("contract create gas used:", record.getContractCreateResult().gasUsed);
-    console.log("contract create transaction fee:", record.transactionFee.asTinybar());
-    console.log("contract:", newContractId.toString());
-
-    // Next let's ask for the current message (we set on creation)
-    let callResult = await new ContractCallQuery()
-        .setContractId(newContractId)
-        .setGas(1000) // ~897
-        .setFunction("getMessage", null)
-        .execute(client);
-
-    console.log("call gas used:", callResult.gasUsed);
-    console.log("message:", callResult.getString(0));
-
-    // Update the message
-    const getRecord = await (await new ContractExecuteTransaction()
-        .setContractId(newContractId)
-        .setGas(7000) // ~6016
-        .setFunction("setMessage", new ContractFunctionParams()
-            .addString("hello from hedera again!"))
-        .execute(client))
-        // [getReceipt] or [getRecord] waits for consensus before continuing
-        //      and will throw an exception
-        //      on an error received during that process like INSUFFICENT_GAS
-        .getRecord(client);
-
-    console.log("execute gas used:", getRecord.getContractExecuteResult().gasUsed);
-
-    // Next let's ask for the new message
-    callResult = await new ContractCallQuery()
-        .setContractId(newContractId)
-        .setGas(1000) // ~897
-        .setFunction("getMessage", null)
-        .execute(client);
-
-    console.log("call gas used:", callResult.gasUsed);
-    console.log("message:", callResult.getString(0));
-
-    client.close();
-}
-
-main();
+//v1.3.2
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = new ContractCreateTransaction()
+     .setBytecodeFileId(fileId)
+     .setGas(100_000_000)
+     .setConstructorParams(new ContractFunctionParams().addString("hello from hedera!"));
+
+//Sign with the client operator account private key, submit to a Hedera network        
+const txId = await transaction.execute(client);
+
+//Get the receipt of the transaction
+const receipt = await txId.getReceipt(client);
+
+//Get the new contract ID
+const newContractId = receipt.getContractId();
+        
+System.out.println("The new contract ID is " + newContractId);
+
+//v1.4.4
+
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## Get transaction values
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `getAdminKey(<keys>)` | Key | Optional |
+| `getGas(<gas>)` | long | Optional |
+| `getInitialBalance(<initialBalance>)` | Hbar | Optional |
+| `getBytecodeFileId(<fileId>)` | FileId | Optional |
+| `getProxyAccountId(<accountId>`\) | AccountId | Optional |
+| `getConstructorParameters(<constructorParameters>)` | ByteString | Optional |
+| `getContractMemo(<memo>)` | String | Optional |
+| `getAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Optional |
+
+{% code title="Java" %}
+```java
+//Create the transaction
+ContractCreateTransaction transaction = new ContractCreateTransaction()
+    .setGas(500)
+    .setBytecodeFileId(bytecodeFileId)
+    .setAdminKey(adminKey);
+
+//Get admin key
+transaction.getAdminKey()
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = await new ContractCreateTransaction()
+    .setGas(500)
+    .setBytecodeFileId(bytecodeFileId)
+    .setAdminKey(adminKey);
+
+//Get admin key
+transaction.getAdminKey()
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewContractCreateTransaction().
+		SetGas(500).
+		SetBytecodeFileID(byteCodeFileID).
+		SetAdminKey(adminKey)
+
+//Get admin key
+transaction.GetAdminKey()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+
+
+## 
 

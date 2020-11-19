@@ -1,150 +1,253 @@
 # Update a topic
 
-`ConsensusTopicUpdateTransaction()` updates the properties of an existing topic. This includes the topic memo, admin key, submit key, and expiration time. If the `adminKey` was set upon the creation of the topic, the `adminKey` is required to sign the transaction to modify any of the topic properties.
+A transaction that updates the properties of an existing topic. This includes the topic memo, admin key, submit key, auto renew account, and auto renew period. 
 
+#### Topic Properties
+
+| Field | Description |
+| :--- | :--- |
+| **Topic ID** | Update the topic ID |
+| **Admin Key** | Set a new admin key that authorizes update topic and delete topic transactions.  |
+| **Submit Key** | Set a new submit key for a topic that authorizes sending messages to this topic.  |
+| **Topic Memo** | Set a new short publicly visible memo on the new topic and is stored with the topic. \(100 bytes\) |
+| **Auto Renew Account** | Set a new auto renew account ID for this topic \(once autoRenew functionality is supported by HAPI\). |
+| **Auto Renew Period** | Set a new auto renew period for this topic \(once autoRenew functionality is supported by HAPI\). |
+
+**Transaction Signing Requirements**
+
+* If an adminKey is updated, the transaction must be signed by the pre-update adminKey and post-update adminKey.
+* If the adminKey was set during the creation of the topic, the admin key must sign the transaction to update any of the topic's properties 
+* If no adminKey was defined during the creation of the topic, you can only extend the expirationTime.
+
+{% tabs %}
+{% tab title="V2" %}
 | Constructor | Description |
 | :--- | :--- |
-| `ConsensusTopicUpdateTransaction()` | Initializes the ConsensusTopicUpdateTransaction object |
+| `new TopicUpdateTransaction()` | Initializes the TopicUpdateTransaction object |
+
+```java
+new TopicUpdateTransaction()
+```
+
+### Methods
+
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `setAdminKey(<adminKey>)` | Key | Optional |
+| `setSubmitKey(<submitKey>)` | Key | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setTopicMemo(<memo>)` | String | Optional |
+| `setAutoRenewAccountId(<accountId>)` | AccountId | Optional |
+| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Optional |
+| `clearAdminKey()` |  | Optional |
+| `clearSubmitKey()` |  | Optional |
+| `clearTopicMemo()` |  | Optional |
+| `clearAutoRenewAccountId()` |  | Optional |
+
+{% code title="Java" %}
+```java
+ //Create a transaction to add a submit key
+TopicUpdateTransaction transaction = new TopicUpdateTransaction()
+    .setSubmitKey(submitKey);
+
+//Sign the transaction with the admin key to authorize the update
+TopicUpdateTransaction signTx = transaction.freezeWith(client).sign(adminKey);
+
+//Sign the transaction with the client operator, submit to a Hedera network, get the transaction ID
+TransactionResponse txResponse = signTx.execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create a transaction to add a submit key
+const transaction = await new TopicUpdateTransaction()
+    .setSubmitKey(submitKey);
+
+//Sign the transaction with the admin key to authorize the update
+const signTx = transaction.freezeWith(client).sign(adminKey);
+
+//Sign the transaction with the client operator, submit to a Hedera network, get the transaction ID
+const txResponse = await signTx.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewTopicUpdateTransaction()
+    SetTopicMemo("new memo)
+
+//Sign with the client operator private key and submit the transaction to a Hedera network
+txResponse, err := transaction.FreezeWith(client).Sign(adminkey)Execute(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Constructor | Description |
+| :--- | :--- |
+| `new ConsensusTopicUpdateTransaction()` | Initializes the ConsensusTopicUpdateTransaction object |
 
 ```java
 new ConsensusTopicUpdateTransaction()
 ```
 
-## Basic
+### Methods
 
-The `adminKey` and `submitKey` on the topic can be updated to any of the following key structures:
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `setTopicId(<topicId>)` | TopicId | Required |
+| `setAdminKey(<adminKey>)` | Key | Optional |
+| `setSubmitKey(<submitKey>)` | Key | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setTopicMemo(<memo>)` | String | Optional |
+| `setAutoRenewAccountId(<accountId>)` | AccountId | Optional |
+| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Optional |
+| `clearAdminKey()` |  | Optional |
+| `clearSubmitKey()` |  | Optional |
+| `clearTopicMemo()` |  | Optional |
+| `clearAutoRenewAccountId()` |  | Optional |
 
-* **Simple Key**: one key has the authority to modify the topic \(`adminKey)` or to submit a message to that topic \(`submitKey`\)
-* **Key List**: A list of keys that are all required to sign transactions to modify the properties of a  topic \(`adminKey)` or to submit a message to that topic  \(`submitKey`\)
-* **Threshold Keys**: Requires a minimum of x number of signatures from a total of y signatures to modify the properties of a topic \(`adminKey)` or to submit a message to that topic  \(`submitKey`\)
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Methods</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>setTopicId(&lt;topicId&gt;)</code>
-      </td>
-      <td style="text-align:left">TopicId</td>
-      <td style="text-align:left">The ID of the topic to update</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setTopicMemo(&lt;memo&gt;)</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">Adds/updates the memo for a topic. No guarantee of uniqueness. Null for
-        &quot;do not update&quot;.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setAdminKey(&lt;key&gt;)</code>
-      </td>
-      <td style="text-align:left">PublicKey</td>
-      <td style="text-align:left">Access control for update/delete of the topic. If unspecified, no change.
-        If empty keyList - the <code>adminKey</code> is cleared.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setSubmitKey(&lt;key&gt;)</code>
-      </td>
-      <td style="text-align:left">PublicKey</td>
-      <td style="text-align:left">Access control for <code>ConsensusService.submitMessage</code>. If unspecified,
-        no change. If empty keyList - the submitKey is cleared.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p><code>setExpirationTime</code>
-        </p>
-        <p><code>(&lt;expirationTime&gt;)</code>
-        </p>
-      </td>
-      <td style="text-align:left">Instant</td>
-      <td style="text-align:left">Effective consensus timestamp at (and after) which all consensus transactions
-        and queries will fail. The <code>expirationTime </code>may be no longer
-        than 90 days from the consensus timestamp of this transaction. If unspecified,
-        no change.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p><code>setAutoRenewPeriod</code>
-        </p>
-        <p><code>(&lt;autoRenewPeriod&gt;)</code>
-        </p>
-      </td>
-      <td style="text-align:left">Duration</td>
-      <td style="text-align:left">The initial lifetime of the topic and the amount of time to attempt to
-        extend the topic&apos;s lifetime by automatically at the topic&apos;s <code>expirationTime</code>,
-        if the <code>autoRenewAccount</code> is configured (once autoRenew functionality
-        is supported by HAPI). Limited to MIN_AUTORENEW_PERIOD and MAX_AUTORENEW_PERIOD
-        value by server-side configuration.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p><code>setAutoRenewAccountId</code>
-        </p>
-        <p><code>(&lt;autoRenewAccountId&gt;)</code>
-        </p>
-      </td>
-      <td style="text-align:left">AccountId</td>
-      <td style="text-align:left">Optional account to be used at the topic&apos;s expirationTime to extend
-        the life of the topic (once autoRenew functionality is supported by HAPI).
-        The topic lifetime will be extended up to a maximum of the autoRenewPeriod
-        or however long the topic can be extended using all funds on the account
-        (whichever is the smaller duration/amount and if any extension is possible
-        with the account&apos;s funds).If specified, there must be an adminKey
-        and the autoRenewAccount must sign this transaction.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>clearTopicMemo()</code>
-      </td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">Explicitly clear any memo on the topic</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>clearAdminKey()</code>
-      </td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">Explicitly clear any adminKey on the topic</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>clearSubmitKey()</code>
-      </td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">Explicitly clear any submitKey on the topic</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>clearAutoRenewAccountId()</code>
-      </td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">Explicitly clear any auto renew account ID on the topic</td>
-    </tr>
-  </tbody>
-</table>
-
-### Example
-
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
 ```java
-TransactionId updateTopicTx = new ConsensusTopicUpdateTransaction()
-    .setTopicId(topicId)
-    .setTopicMemo("Update topic memo")
-    .execute(client);
-```
-{% endtab %}
+//Create a transaction to add a submit key
+ConsensusTopicUpdateTransaction transaction = new ConsensusTopicUpdateTransaction()
+    .setSubmitKey(submitKey);
 
-{% tab title="JavaScript" %}
-```javascript
-const updateTopicTx = await new ConsensusTopicUpdateTransaction()
-    .setTopicId(topicId)
-    .setTopicMemo("Update topic memo")
-    .execute(client);
+//Sign the transaction with the admin key to authorize the update
+ConsensusTopicUpdateTransaction signTx = transaction.build(client).sign(adminKey);
+
+//Sign the transaction with the client operator, submit to a Hedera network, get the transaction ID
+TransactionId txId = signTx.execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txId.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v1.3.2
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create a transaction to add a submit key
+const transaction = new ConsensusTopicUpdateTransaction()
+    .setSubmitKey(submitKey);
+
+//Sign the transaction with the admin key to authorize the update
+const signTx = transaction.build(client).sign(adminKey);
+
+//Sign the transaction with the client operator, submit to a Hedera network, get the transaction ID
+const txId = await signTx.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txId.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+
+//v1.4.4
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
+## Get transaction values
 
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `getTopicId()` | TopicId | Optional |
+| `getAdminKey()` | Key | Optional |
+| `getSubmitKey()` | Key | Optional |
+| `getTopicMemo()` | String | Optional |
+| `getAutoRenewAccountId()` | AccountId | Disabled |
+| `getAutoRenewPeriod()` | Duration | Disabled |
+
+{% code title="Java" %}
+```java
+ //Create a transaction to add a submit key
+TopicUpdateTransaction transaction = new TopicUpdateTransaction()
+    .setSubmitKey(submitKey);
+
+//Get submit key
+transaction.getSubmitKey()
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+ //Create a transaction to add a submit key
+const transaction = new TopicUpdateTransaction()
+    .setSubmitKey(submitKey);
+
+//Get submit key
+transaction.getSubmitKey()
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction := hedera.NewTopicUpdateTransaction()
+    SetSubmitKey()
+
+transaction := transaction.GetSubmitKey()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 

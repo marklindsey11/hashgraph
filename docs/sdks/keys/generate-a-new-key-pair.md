@@ -1,6 +1,6 @@
 # Generate a new key pair
 
-Create a new Ed25519 key pair used to sign transactions and queries on the Hedera network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file on the network. The public key can be shared with other users on the network.
+Create a new Ed25519 key pair used to sign transaction and queries on the Hedera network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file on the network. The public key can be shared with other users on the network.
 
 {% tabs %}
 {% tab title="V2" %}
@@ -9,7 +9,7 @@ Create a new Ed25519 key pair used to sign transactions and queries on the Heder
 | **Method**  | Type | Description |
 | :--- | :--- | :--- |
 | `PrivateKey.generate()` | PrivateKey | Generates a Ed25519 private key |
-| `PrivateKey.generate().getPublicKey()` | PublicKey | Gets the corresponding public key from this private key |
+| `PrivateKey.generate().getPublicKey()` | PublicKey | Derive a public key from this private key |
 
 {% code title="Java" %}
 ```java
@@ -88,8 +88,4 @@ console.log("public = " + publicKey);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-\`\`
-
-## 
 

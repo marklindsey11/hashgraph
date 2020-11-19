@@ -1,139 +1,205 @@
 # Delete an account
 
-`AccountDeleteTransaction()` deletes an existing account from the Hedera network. Before deleting an account, the existing hbars must be transferred to another account. If you fail to transfer the hbars, you will receive an error message "setTransferAccountId\(\) required." Transfers cannot be made into a deleted account. A record of the deleted account will remain in the ledger until it expires.The expiration of a deleted account can be extended. 
+A transaction that deletes an existing account from the Hedera network. Before deleting an account, the existing hbars must be transferred to another account. If you fail to transfer the hbars, you will receive an error message "`setTransferAccountId() required.`" Transfers cannot be made into a deleted account. A record of the deleted account will remain in the ledger until it expires.The expiration of a deleted account can be extended. The account that is being deleted is required to sign the transaction.
 
-{% hint style="info" %}
-Note: Deleting an account requires you to call the `setTransactionId()` and use the accountId of the account that is going to be deleted. Please see example below. 
-{% endhint %}
+**Transaction Signing Requirements**
 
 | Constructor | Description |
 | :--- | :--- |
-| `AccountDeleteTransaction()` | Initializes the AccountDeleteTransaction object |
+| `new AccountDeleteTransaction()` | Initializes the AccountDeleteTransaction object |
 
 ```java
 new AccountDeleteTransaction()
 ```
 
-## Basic
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setTransferAccountId(<accountId>)` | AccountId | The ID of the account the tinybars will be transferred to from the account that will be deleted |
-| `setDeleteAccountId(<accountId>)` | AccountId | The ID of the account to be deleted from the Hedera network |
-
-##  Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setAccountId(<accountId>)` | AccountId | The account to delete | Required |
+| `setTransferAccountId(<transferAccountId>)` | AccountId | The account to transfer the remaining funds to | Optional |
+
+{% code title="Java" %}
 ```java
-// Generate a Ed25519 private, public key pair
-Ed25519PrivateKey newKey = Ed25519PrivateKey.generate();
-Ed25519PublicKey newPublicKey = newKey.publicKey;
+//Create the transaction to delete an account
+AccountDeleteTransaction transaction = new AccountDeleteTransaction()
+    .setAccountId(accountId)
+    .setTransferAccountId(OPERATOR_ID);
 
-System.out.println("private key = " + newKey);
-System.out.println("public key = " + newPublicKey);
+//Freeze the transaction for signing, sign with the private key of the account that will be deleted, sign with the operator key and submit to a Hedera network
+TransactionResponse  txResponse = transaction.freezeWith(client).sign(newKey).execute(client);
 
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
 
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
 
-TransactionId txId = new AccountCreateTransaction()
-    // The only _required_ property here is `key`
-    .setKey(newKey.publicKey)
-    .setInitialBalance(new Hbar(2))
-    .execute(client);
-
-// This will wait for the receipt to become available
-TransactionReceipt receipt = txId.getReceipt(client);
-
-AccountId newAccountId = receipt.getAccountId();
-
-System.out.println("account = " + newAccountId);
-
-new AccountDeleteTransaction()
-    // note the transaction ID has to use the ID of the account being deleted
-    .setTransactionId(new TransactionId(newAccountId))
-    .setDeleteAccountId(newAccountId)
-    .setTransferAccountId(OPERATOR_ID)
-    .build(client)
-    .sign(newKey)
-    .execute(client)
-    .getReceipt(client);
-
-final AccountInfo accountInfo = new AccountInfoQuery()
-    .setAccountId(newAccountId)
-    .setQueryPayment(25)
-    .execute(client);
-
-// note the above accountInfo will fail with ACCOUNT_DELETED due to a known issue on Hedera
-
-System.out.println("account info: " + accountInfo);
+System.out.println("The transaction consensus status is " +transactionStatus);
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
-const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountDeleteTransaction, Hbar, TransactionId } = require("@hashgraph/sdk");
+//Create the transaction to delete an account
+const transaction = new AccountDeleteTransaction()
+    .setAccountId(accountId)
+    .setTransferAccountId(OPERATOR_ID);
 
-async function main() {
-    const operatorPrivateKey = process.env.OPERATOR_KEY;
-    const operatorAccount = process.env.OPERATOR_ID;
+//Freeze the transaction for signing, sign with the private key of the account that will be deleted, sign with the operator key and submit to a Hedera network
+const  txResponse = await transaction.freezeWith(client).sign(newKey).execute(client);
 
-    if (operatorPrivateKey == null || operatorAccount == null) {
-        throw new Error("environment variables OPERATOR_KEY and OPERATOR_ID must be present");
-    }
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
 
-    const client = new Client({
-        network: { "0.testnet.hedera.com:50211": "0.0.3" },
-        operator: {
-            account: operatorAccount,
-            privateKey: operatorPrivateKey
-        }
-    });
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
 
-    const privateKey = await Ed25519PrivateKey.generate();
+console.log("The transaction consensus status is " +transactionStatus);
 
-    console.log("Creating an account to delete");
-    console.log(`private = ${privateKey.toString()}`);
-    console.log(`public = ${privateKey.publicKey.toString()}`);
+//2.0.0
+```
+{% endcode %}
 
-    let transactionId = await new AccountCreateTransaction()
-        .setKey(privateKey.publicKey)
-        .setInitialBalance(new Hbar(2))
-        .execute(client);
-
-    let transactionReceipt = await transactionId.getReceipt(client);
-    const newAccountId = transactionReceipt.getAccountId();
-
-    console.log(`account = ${newAccountId}`);
-    console.log("Deleting created account");
-
-    // To delete an account you **MUST** do the following:
-    transactionId = await new AccountDeleteTransaction()
-        // Set which account to delete.
-        .setDeleteAccountId(newAccountId)
-        // Set which account to transfer the remaining balance to.
-        .setTransferAccountId("0.0.3")
-        // Manually set a `TransactionId` constructed from the `AccountId` you are  deleting.
-        .setTransactionId(new TransactionId(newAccountId))
-        .build(client)
-        // Sign the transaction with the same key as on the acount being deleted.
-        .sign(privateKey)
-        // Finally, execute the transaction with `Transaction.execute()`
-        .execute(client);
-
-    transactionReceipt = await transactionId.getReceipt(client);
-
-    console.log(`status: ${transactionReceipt.status}`);
+{% code title="Go" %}
+```java
+//Create the transaction to delete an account, freeze the transaction for signing
+transaction, err := hedera.NewAccountDeleteTransaction().
+		SetAccountID(newAccountID).
+		SetTransferAccountID(operatorAccountID).
+		FreezeWith(client)
+if err != nil {
+    panic(err)
 }
 
-main();
+//Sign with the private key of the account that will be deleted, sign with the operator key and submit to a Hedera network
+txResponse, err := transaction.Sign(accountKey).Execute(client)
+if err != nil {
+    panic(err)
+}
+
+//Request the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+    panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
+
+//v2.0.0
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setAccountId(<accountId>)` | AccountId | The account ID to delete | Required |
+| `setTransferAccountId(<transferAccountId>)` | AccountId | The account to transfer the remaining funds to | Optional |
+
+{% code title="Java" %}
+```java
+//Create the transaction
+AccountDeleteTransaction transaction = new AccountDeleteTransaction()
+    .setDeleteAccountId(accountId)
+    .setTransferAccountId(OPERATOR_ID);
+
+//Build the unsigned transaction, sign with account key, sign with the client operator account private key and submit to a Hedera network
+TransactionId txId = transaction.build(client).sign(newKey).execute(client);
+        
+//Request the receipt of the transaction
+TransactionReceipt receipt = txId.getReceipt(client);
+        
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const transaction = new AccountDeleteTransaction()
+    .setDeleteAccountId(accountId)
+    .setTransferAccountId(OPERATOR_ID);
+
+//Build the unsigned transaction, sign with account key, sign with the client operator account private key and submit to a Hedera network
+const txId = transaction.build(client).sign(newKey).execute(client);
+        
+//Request the receipt of the transaction
+const receipt = txId.getReceipt(client);
+        
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
+## Get transaction values
 
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getAccountId(<accountId>)` | AccountId | The account to delete |
+| `getTransferAccountId(<transferAccountId>)` | AccountId | The account to transfer the remaining funds to |
+
+{% code title="Java" %}
+```java
+//Create the transaction to delete an account
+AccountDeleteTransaction transaction = new AccountDeleteTransaction()
+    .setAccountId(newAccountId)
+    .setTransferAccountId(OPERATOR_ID);
+        
+//Get the account ID from the transaction
+AccountId transactionAccountId = transaction.getAccountId()
+
+System.out.println("The account to be deleted in this transaction is " +transactionAccountId)
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```java
+//Create the transaction to delete an account
+const transaction = new AccountDeleteTransaction()
+    .setAccountId(newAccountId)
+    .setTransferAccountId(OPERATOR_ID);
+        
+//Get the account ID from the transaction
+const transactionAccountId = transaction.getAccountId()
+
+console.log("The account to be deleted in this transaction is " +transactionAccountId)
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction to delete an account
+transaction, err := hedera.NewAccountDeleteTransaction().
+		SetAccountID(newAccountID).
+		SetTransferAccountID(operatorAccountID)
+		
+//Get the account ID from the transaction
+transactionAccountId := transaction.GetAccountID()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 

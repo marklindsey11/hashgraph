@@ -1,96 +1,161 @@
 # Get file contents
 
-`FileContentsQuery()` returns the contents of a file. If the file is empty the content field is empty. The response returns the file ID and the file contents in bytes.
+A query to get the contents of a file. Queries do not change the state of the file or require network consensus. The information is returned from a single node processing the query.
+
+**Query Signing Requirements**
+
+* The client operator private key is required to sign the query request
 
 | Constructor | Description |
 | :--- | :--- |
-| `FileContentsQuery()` | Initializes a FileContentsQuery object |
+| `new FileContentsQuery()` | Initializes a FileContentsQuery object |
 
 ```java
 new FileContentsQuery()
 ```
 
-## Basic
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setAccountId(<account>)` | AccountId | The ID of the file to get contents from |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to get contents for \(x.z.y\) |
+
+{% code title="Java" %}
 ```java
-byte[] fileContents = ("Hedera is great!").getBytes();
+//Create the query
+FileContentsQuery query = new FileContentsQuery()
+    .setFileId(newFileId);
 
-// Create the new file and set its properties
-TransactionId newFileTxId = new FileCreateTransaction()
-    .addKey(OPERATOR_KEY.getPublicKey()) // The public key of the owner of the file
-    .setContents(fileContents) // Contents of the file
-    .setMaxTransactionFee(200000000) // 2h
-    .execute(client);
+//Sign with client operator private key and submit the query to a Hedera network
+ByteString contents = query.execute(client);
 
-FileId newFileId = newFileTxId.getReceipt(client).getFileId();
+//Change to Utf-8 encoding
+String contentsToUtf8 = contents.toStringUtf8();
 
-//Print the file ID to console
-System.out.println("The new file ID is " + newFileId.toString());
+System.out.println(contentsToUtf8);
 
-// Get file contents
-FileGetContentsResponse contents = new FileContentsQuery()
-    .setFileId(newFileId)
-    .execute(client);
-
-// Prints query results to console
-System.out.println("File content query results: " + contents.getFileContents().getContents().toStringUtf8());
+//v2.0.0
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query
+const query = new FileContentsQuery()
+    .setFileId(newFileId);
+
+//Sign with client operator private key and submit the query to a Hedera network
+const contents = await query.execute(client);
+
+//Change to Utf-8 encoding
+const contentsToUtf8 = contents.toStringUtf8();
+
+console.log(contentsToUtf8);
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the query
+query := hedera.NewFileContentsQuery().
+		SetFileID(newFileId)
+
+//Sign with client operator private key and submit the query to a Hedera network
+contents, err := query.Execute(client)
+
+fmt.Println(string(contents))
+
+//v2.0.0
+```
+{% endcode %}
 {% endtab %}
 
-{% tab title="JavaScript" %}
-```javascript
-async function main() {
-  
-  const operatorAccount = process.env.OPERATOR_ID;
-  const operatorPrivateKey = Ed25519PrivateKey.fromString(process.env.OPERATOR_KEY);
-  const operatorPublicKey = operatorPrivateKey.publicKey;
+{% tab title="V1" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to get contents for \(x.z.y\) |
 
-  if (operatorPrivateKey == null || operatorAccount == null) {
-    throw new Error(
-      "environment variables OPERATOR_KEY and OPERATOR_ID must be present"
-    );
-  }
+{% code title="Java" %}
+```java
+//Create the query
+FileContentsQuery query = new FileContentsQuery()
+    .setFileId(newFileId);
 
-  // `Client.forMainnet()` is provided for connecting to Hedera mainnet
-  const client = Client.forTestnet()
+//Sign with client operator private key and submit the query to a Hedera network
+byte [] contents = query.execute(client);
 
-  // Defaults the operator account ID and key such that all generated transactions will be paid for
-  // by this account and be signed by this key  
-  client.setOperator(operatorAccount, operatorPrivateKey);
+//Change to Utf-8 encoding
+String contentsToUtf8 = contents.toStringUtf8();
 
-  // Create a new file with contents
-  const transactionId = await new FileCreateTransaction()
-    .setContents("Hello, Hedera's file service!")
-    .addKey(operatorPublicKey) // Defines the "admin" of this file
-    .setMaxTransactionFee(new Hbar(15))
-    .execute(client);
+System.out.println(contentsToUtf8);
 
-  // Get the new file ID by requesting the receipt
-  const receipt = await transactionId.getReceipt(client); 
-  const fileId = receipt.getFileId(); 
-  console.log("new file id = ", fileId);
-
-  //Get file contents
-  const fileContents = await new FileContentsQuery()
-    .setFileId(fileId)
-    .execute(client);
-
-
-  console.log(`file contents: ${new TextDecoder().decode(fileContents)}`)
-
-}
-
-main();
-
+//v1.3.2
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query
+const query = new FileContentsQuery()
+    .setFileId(newFileId);
+
+//Sign with client operator private key and submit the query to a Hedera network
+const contents = await query.execute(client);
+
+console.log(contents);
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## Get query values
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getFileId()` | FileId | The ID of the file to get contents for \(x.z.y\) |
+
+{% code title="Java" %}
+```java
+//Create the query
+FileContentsQuery query = new FileContentsQuery()
+    .setFileId(newFileId);
+
+//Get file ID
+FileId getFileId = query.getFileId();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query
+const query = new FileContentsQuery()
+    .setFileId(newFileId);
+
+//Get file ID
+const getFileId = query.getFileId();
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the query
+query := hedera.NewFileContentsQuery().
+		SetFileID(newFileId)
+		
+//Get file ID
+getFileId := query.GetFileID()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 

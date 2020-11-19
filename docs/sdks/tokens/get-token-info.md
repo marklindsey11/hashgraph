@@ -11,57 +11,69 @@ Gets information about a token instance. The token info query returns the follow
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">TokenId</td>
+      <td style="text-align:left"><b>TokenId</b>
+      </td>
       <td style="text-align:left">ID of the token instance</td>
     </tr>
     <tr>
-      <td style="text-align:left">Name</td>
+      <td style="text-align:left"><b>Name</b>
+      </td>
       <td style="text-align:left">The name of the token. It is a string of ASCII only characters</td>
     </tr>
     <tr>
-      <td style="text-align:left">Symbol</td>
+      <td style="text-align:left"><b>Symbol</b>
+      </td>
       <td style="text-align:left">The symbol of the token. It is a UTF-8 capitalized alphabetical string</td>
     </tr>
     <tr>
-      <td style="text-align:left">Decimals</td>
+      <td style="text-align:left"><b>Decimals</b>
+      </td>
       <td style="text-align:left">The number of decimal places a token is divisible by</td>
     </tr>
     <tr>
-      <td style="text-align:left">Total Supply</td>
+      <td style="text-align:left"><b>Total Supply</b>
+      </td>
       <td style="text-align:left">The total supply of tokens that are currently in circulation</td>
     </tr>
     <tr>
-      <td style="text-align:left">Treasury</td>
+      <td style="text-align:left"><b>Treasury</b>
+      </td>
       <td style="text-align:left">The ID of the account which is set as Treasury</td>
     </tr>
     <tr>
-      <td style="text-align:left">Admin Key</td>
+      <td style="text-align:left"><b>Admin Key</b>
+      </td>
       <td style="text-align:left">The key which can perform update/delete operations on the token. If empty,
         the token can be perceived as immutable (not being able to be updated/deleted)</td>
     </tr>
     <tr>
-      <td style="text-align:left">KYC Key</td>
+      <td style="text-align:left"><b>KYC Key</b>
+      </td>
       <td style="text-align:left">The key which can grant or revoke KYC of an account for the token&apos;s
         transactions. If empty, KYC is not required, and KYC grant or revoke operations
         are not possible.</td>
     </tr>
     <tr>
-      <td style="text-align:left">Freeze Key</td>
+      <td style="text-align:left"><b>Freeze Key</b>
+      </td>
       <td style="text-align:left">The key which can freeze or unfreeze an account for token transactions.
         If empty, freezing is not possible</td>
     </tr>
     <tr>
-      <td style="text-align:left">Wipe Key</td>
+      <td style="text-align:left"><b>Wipe Key</b>
+      </td>
       <td style="text-align:left">The key which can wipe token balance of an account. If empty, wipe is
         not possible</td>
     </tr>
     <tr>
-      <td style="text-align:left">Supply Key</td>
+      <td style="text-align:left"><b>Supply Key</b>
+      </td>
       <td style="text-align:left">The key which can change the supply of a token. The key is used to sign
         Token Mint/Burn operations</td>
     </tr>
     <tr>
-      <td style="text-align:left">Default Freeze Status</td>
+      <td style="text-align:left"><b>Default Freeze Status</b>
+      </td>
       <td style="text-align:left">
         <p>The default Freeze status (not applicable = null, frozen = false, or unfrozen
           = true) of Hedera accounts relative to this token.<b> </b>FreezeNotApplicable
@@ -74,7 +86,8 @@ Gets information about a token instance. The token info query returns the follow
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Default KYC Status</td>
+      <td style="text-align:left"><b>Default KYC Status</b>
+      </td>
       <td style="text-align:left">
         <p>The default KYC status (KycNotApplicable or Revoked) of Hedera accounts
           relative to this token. KycNotApplicable is returned if KYC key is not
@@ -85,17 +98,20 @@ Gets information about a token instance. The token info query returns the follow
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Auto Renew Account</td>
+      <td style="text-align:left"><b>Auto Renew Account</b>
+      </td>
       <td style="text-align:left">An account which will be automatically charged to renew the token&apos;s
         expiration, at autoRenewPeriod interval</td>
     </tr>
     <tr>
-      <td style="text-align:left">Auto Renew Period</td>
+      <td style="text-align:left"><b>Auto Renew Period</b>
+      </td>
       <td style="text-align:left">The interval at which the auto-renew account will be charged to extend
         the token&apos;s expiry</td>
     </tr>
     <tr>
-      <td style="text-align:left">Expiry</td>
+      <td style="text-align:left"><b>Expiry</b>
+      </td>
       <td style="text-align:left">The epoch second at which the token will expire; if an auto-renew account
         and period are specified, this is coerced to the current epoch second plus
         the autoRenewPeriod</td>

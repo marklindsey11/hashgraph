@@ -1,4 +1,4 @@
-# Build your Hedera network client
+# Build your Hedera client
 
 ## 1. Configure your Hedera network
 
@@ -374,8 +374,6 @@ client.setMaxTransactionFee(new Hbar(2));
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 

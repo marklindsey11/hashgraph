@@ -8,7 +8,7 @@ The account must be associated to the token prior to transfering tokens to that 
 
 | Constructor | Description |
 | :--- | :--- |
-| `new TokenTransferTransaction()` | Initializes a TokenTransferTransaction object |
+| `new TransferTransaction()` | Initializes a TokenTransferTransaction object |
 
 ```java
 new TokenTransferTransaction()
@@ -18,38 +18,40 @@ new TokenTransferTransaction()
 
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `addSender(<tokenId, accountId, amount>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | Negative token amount is withdrawn from this account |
-| `addRecipient(<tokenId, accountId, amount>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | Postive token amount is added to this account |
-| `addTransfer(<tokenId, accountId, amount>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | Transfer tokens between accounts |
+| `addHbarTransfer(<accountId, value>)` | AccountID, Hbar/long | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
+| `addTokenTransfer(<tokenId, accountId,value>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer |
 
 {% tabs %}
 {% tab title="Java" %}
 ```java
-//Transfer 100 tokens between two accounts
-TokenTransferTransaction transaction = new TokenTransferTransaction()
-    .addSender(newTokenId,newAccountId,100)
-    .addRecipient(newTokenId, OPERATOR_ID,100);
+//Create the transfer transaction
+TransferTransaction transaction1 = new TransferTransaction()
+    .addTokenTransfer(tokenId, OPERATOR_ID, new Hbar(10))
+    .addTokenTransfer(tokenId, accountId, new Hbar(10));
 
-//Build the unsigned transaction, sign with the sender account private key, submit the transaction to a Hedera network
-TransacionId transactionId = transaction.build(client).sign(senderKey).execute(client);
-    
+
+//Sign with the client operator key and submit the transaction to a Hedera network
+TransactionId txId = transaction.execute(client);
+        
 //Request the receipt of the transaction
-TransactionReceipt getReceipt = transactionId.getReceipt(client);
-    
-//Obtain the transaction consensus status
-Status transactionStatus = getReceipt.status;
+TransactionReceipt receipt = txId.getReceipt(client);
 
-System.out.println("The transaction consensus status " +transactionStatus);
-//Version: 1.2.2
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v1.3.2
+
 ```
 {% endtab %}
 
 {% tab title="JavaScript" %}
 ```javascript
 //Transfer 100 tokens between two accounts
-const transaction = new TokenTransferTransaction()
-    .addSender(newTokenId,newAccountId,100)
-    .addRecipient(newTokenId, OPERATOR_ID,100);
+const transaction = new TransferTransaction()
+    .addTokenTransfer(tokenId,accountId,100)
+    .addTokenTransfer(tokenId, OPERATOR_ID,100);
 
 //Build the unsigned transaction, sign with sender account private key, submit the transaction to a Hedera network
 const transactionId = await transaction.build(client).sign(senderKey).execute(client);
@@ -61,7 +63,7 @@ const getReceipt = await transactionId.getReceipt(client);
 const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status " +transactionStatus);
-//Version 1.4.2
+//Version 1.3.2
 ```
 {% endtab %}
 {% endtabs %}

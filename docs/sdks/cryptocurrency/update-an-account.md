@@ -1,153 +1,281 @@
 # Update an Account
 
-`AccountUpdateTransaction()` updates/changes the properties for an existing account. Any null field is ignored \(left unchanged\). Any of the following properties can be updated for an account:
+A transaction that updates the properties of an existing account. The network will store the latest updates on the account. If you would like to retreive the state of an account in the past, you can query a mirror node.
 
-* Key\(s\)
-* Auto Renew Period
-* Expiration Time
-* Send Record Threshold
-* Receive Record Threshold 
-* Proxy Account
+**Transaction Signing Requirements**
 
-{% hint style="danger" %}
-The account must be signed by the **old key\(s\)** and **new key\(s\)** when updating the keys of an account.
-{% endhint %}
+* The account key\(s\) are required to sign the transaction
+* If you are updating the keys on the account the OLD KEY and NEW KEY must sign
+  * If either is a key list then the key list keys are all required to sign
+  * If either is a threshold kye, the threshold value is required to sign
+* If you do not have the required signatures, the network will throw an INVALID\_SIGNATURE error
 
-| Constructor | Description |
-| :--- | :--- |
-| `AccountUpdateTransaction()` | Initializes the AccountUpdateTransaction object |
-
-```java
-new AccountUpdateTransaction()
-```
-
-## Basic
+**Account Properties** 
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Method</th>
-      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Field</th>
       <th style="text-align:left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><code>setAccountId(&lt;accountId&gt;)</code>
+      <td style="text-align:left"><b>Key</b>
       </td>
-      <td style="text-align:left">AccountId</td>
-      <td style="text-align:left">
-        <p>The ID of the account to update in this transaction</p>
-        <p><em>default:  None</em>
-        </p>
-        <p></p>
-      </td>
+      <td style="text-align:left">The new key for the account. The old key and new key must sign the transaction.
+        If the old key or new key is a threshold key then only the threshold of
+        the old key and new key are required to sign the transaction.</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>setKey(&lt;publicKey&gt;)</code>
+      <td style="text-align:left"><b>Expiration</b>
       </td>
-      <td style="text-align:left">Ed25519</td>
-      <td style="text-align:left">The public key to set the account to</td>
+      <td style="text-align:left">The new expiration for the account</td>
     </tr>
     <tr>
-      <td style="text-align:left">
-        <p><code>setAutoRenewPeriod</code>
-        </p>
-        <p><code>(&lt;autoRenewPeriod&gt;)</code>
-        </p>
+      <td style="text-align:left"><b>Receiver signature required</b>
       </td>
-      <td style="text-align:left">Duration</td>
       <td style="text-align:left">
-        <p>The period of time in which the account will auto-renew in seconds. Duration
-          type is in seconds. For example, one hour would result in the input value
-          of <code>3600 </code>seconds</p>
-        <p><em>default:  None</em>
+        <p>If true, all the account keys must sign any transaction depositing into
+          this account (in addition to all withdrawals)</p>
+        <p><em>default: false</em>
         </p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">
-        <p><code>setExpirationTime</code>
-        </p>
-        <p><code>(&lt;expirationTime&gt;)</code>
-        </p>
+      <td style="text-align:left"><b>Auto renew period</b>
       </td>
-      <td style="text-align:left">Instant</td>
       <td style="text-align:left">
-        <p>The new expiration time to extend to.</p>
-        <p><em>default:  None</em>
+        <p>The new period of time in which the account will auto-renew in seconds.
+          The account is charged tinybars for every auto-renew period. Duration type
+          is in seconds. For example, one hour would result in the input value of
+          3,600 seconds.
+          <br />
+          <br /><b>NOTE:</b> This is fixed to approximately 3 months (7890000 seconds).
+          Any other value will return the following error: AUTORENEW_DURATION_NOT_IN_RANGE.</p>
+        <p><em>default: 2,592,000 seconds</em><b> </b>
         </p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">
-        <p><code>setSendRecordThreshold</code>
-        </p>
-        <p><code>(&lt;sendRecordThreshold&gt;)</code>
-        </p>
+      <td style="text-align:left"><b>Proxy account</b>
       </td>
-      <td style="text-align:left">Hbar/long</td>
-      <td style="text-align:left"><b>[deprecated v0.8.0]<br /></b>Set the threshold for generating records
-        when sending currency, in tinybar.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p><code>setReceiveRecordThreshold</code>
-        </p>
-        <p><code>(&lt;receiveRecordThreshold)</code>
-        </p>
-      </td>
-      <td style="text-align:left">Hbar/long</td>
-      <td style="text-align:left">
-        <p><b>[deprecated v0.8.0]<br /></b>Creates a record for any transaction that
-          deposits more than x value of tinybars.</p>
-        <p><em>default:  None</em>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setProxyAccount(&lt;accountId&gt;)</code>
-      </td>
-      <td style="text-align:left">AccountId</td>
-      <td style="text-align:left">
-        <p>ID of account to which this account should be proxy staked.</p>
-        <p><em>default:  None</em>
-        </p>
-      </td>
+      <td style="text-align:left">The new account ID to which this account is proxy staked</td>
     </tr>
   </tbody>
 </table>
 
+| Constructor | Description |
+| :--- | :--- |
+| `new AccountUpdateTransaction()` | Initializes the AccountUpdateTransaction object |
 
+```java
+new AccountUpdateTransaction()
+```
 
-## Example:
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setAccountId(<accountId>)` | AccountId | Required |
+| `setKey(<key>)` | Key | Optional |
+| `setAutoRenewPeriod(<duration>)` | Duration | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setReceiverSignatureRequired(<boolean>)` | Boolean | Optional |
+| `setProxyAccountId(<accountId>)` | AccountId | Optional |
+
+{% code title="Java" %}
 ```java
-Transaction transaction = new AccountUpdateTransaction()
-     .setAccountId(accountId)
-     .setKey(newKey.getPublicKey())
-     // Sign with the previous key and the new key
-     .build(client)
-     .sign(originalKey)
-     .sign(newKey);
+//Create the transaction to update the key on the account
+AccountUpdateTransaction transaction = new AccountUpdateTransaction()
+    .setAccountId(accountId)
+    .setKey(updateKey);
 
-System.out.println("transaction ID: " + transaction.id);
+//Sign the transaction with the old key and new key, submit to a Hedera network   
+TransactionResponse txResponse = transaction.freezeWith(client).sign(oldKey).sign(newKey).execute(client);
 
-transaction.execute(client);
-// (important!) wait for the transaction to complete by querying the receipt
-transaction.getReceipt(client);
+//Request the reciept of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
 
-// Now we fetch the account information to check if the key was changed
-System.out.println(" :: getAccount and check our current key");
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
 
-AccountInfo info = client.getAccount(accountId);
+System.out.println("The transaction consensus status is " +transactionStatus);
 
-System.out.println("key = " + info.key);
+//Version 2.0.0
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```java
+//Create the transaction to update the key on the account
+const transaction = new AccountUpdateTransaction()
+    .setAccountId(accountId)
+    .setKey(updateKey);
+
+//Sign the transaction with the old key and new key, submit to a Hedera network   
+const txResponse = transaction.freezeWith(client).sign(oldKey).sign(newKey).execute(client);
+
+//Request the reciept of the transaction
+const receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+
+
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Create the transaction to update the key on the account
+transaction, err := hedera.NewAccountUpdateTransaction().
+		SetAccountID(newAccountId).
+		SetKey(updateKey.PublicKey()).
+		FreezeWith(client)
+
+if err != nil {
+	panic(err)
+}
+
+//Sign the transaction with the old key and new key, submit to a Hedera network   
+txResponse, err := transaction.Sign(newKey).Sign(updateKey).Execute(client)
+
+//Request the reciept of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+	panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+println("The transaction consensus status is ", transactionStatus)
+
+//Version 2.0.0
+```
+{% endcode %}
 {% endtab %}
 
+{% tab title="V1" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setAccountId(<accountId>)` | AccountId | Required |
+| `setKey(<key>)` | PublicKey | Optional |
+| `setAutoRenewPeriod(<duration>)` | Duration | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setReceiverSignatureRequired(<boolean>)` | Boolean | Optional |
+| `setProxyAccountId(<accountId>)` | AccountId | Optional |
+
+{% code title="Java" %}
+```java
+//Create the transaction to update the key on the account
+AccountUpdateTransaction transaction = new AccountUpdateTransaction()
+    .setAccountId(accountId)
+    .setKey(updateKey);
+
+//Sign the transaction with the old key and new key, submit to a Hedera network   
+TransactionId txId = transaction.build(client).sign(oldKey).sign(newKey).execute(client);
+
+//Request the reciept of the transaction
+TransactionReceipt receipt = txId.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//Version 1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction to update the key on the account
+const transaction = new AccountUpdateTransaction()
+    .setAccountId(accountId)
+    .setKey(updateKey);
+
+//Sign the transaction with the old key and new key, submit to a Hedera network   
+const txId = await transaction.build(client).sign(oldKey).sign(newKey).execute(client);
+
+//Request the reciept of the transaction
+const receipt = await txId.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+
+
+## Get transaction values
+
+Return the properties of an account create transaction.
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getKey()` | Key | Returns the public key on the account |
+| `getInitialBalance()` | Hbar | Returns the initial balance of the account |
+| `getReceiverSignatureRequired()` | boolean | Returns whether the receiver signature is required or not |
+| `getExpirationTime()` | Instant | Returns the expiration time |
+| `getAutoRenewPeriod()` | Duration | Returns the auto renew period on the account |
+
+{% code title="Java" %}
+```java
+//Create a transaction
+AccountUpdateTransaction transaction = new AccountUpdateTransaction()
+    .setAccountId(accountId)
+    .setKey(newKeyUpdate);
+
+//Get the key on the account
+Key accountKey = transaction.getKey();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create a transaction
+const transaction = new AccountUpdateTransaction()
+    .setAccountId(accountId)
+    .setKey(newKeyUpdate);
+
+//Get the key of an account
+const accountKey = transaction.getKey();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction 
+transaction, err := hedera.NewAccountUpdateTransaction().
+		SetAccountID(newAccountId).
+		SetKey(updateKey.PublicKey())
+
+//Get the key of an account
+accountKey := transaction.GetKey()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
 const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountUpdateTransaction, AccountInfoQuery, AccountId} = require("@hashgraph/sdk");

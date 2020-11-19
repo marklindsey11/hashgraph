@@ -1,5 +1,7 @@
 # Errors
 
+Network errors and their descriptions.
+
 | Error | Description |
 | :--- | :--- |
 | `INVALID_TOPIC_ID` | The Topic ID specified is not in the system. |

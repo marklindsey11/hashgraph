@@ -1,6 +1,10 @@
 # Append to a file
 
-`FileAppendTransaction()` appends content to the end of an existing file.
+A transaction that appends new file content to the end of an existing file. The contents of the file can be viewed by submitting a FileContentsQuery request. 
+
+**Transaction Signing Requirements**
+
+* The key on the file is required to sign the transaction if different than the client operator account key
 
 | Constructor | Description |
 | :--- | :--- |
@@ -10,124 +14,205 @@
 new FileAppendTransaction()
 ```
 
-## Basic
+{% hint style="info" %}
+The default max transaction fee \(1 hbar\) is not enough to create a a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars
+{% endhint %}
 
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setFileId(<fileId>)` | FileId | The `fileId` of the file to append content to |
-| `setContents(<content>)` | byte\[ \] | The content to append in byte format |
-
-## Example
+### Methods
 
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to append | Required |
+| `setContents(<text>)` | String | The content in String format | Optional |
+| `setContents(<content>)` | byte \[ \] | The content in byte format | Optional |
+
+{% code title="Java" %}
 ```java
-// `Client.forMainnet()` is provided for connecting to Hedera mainnet
-Client client = Client.forTestnet();
-
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
-
-// Content to be stored in the file
-byte[] fileContents = ("Hedera is great!").getBytes();
-
-// Create the new file and set its properties
-TransactionId newFileTxId = new FileCreateTransaction()
-    .addKey(OPERATOR_KEY.publicKey) // The public key of the owner of the file
-    .setContents(fileContents) // Contents of the file
-    .setMaxTransactionFee(new Hbar(2))
-    .execute(client);
-
-FileId newFileId = newFileTxId.getReceipt(client).getFileId();
-
-//Print the file ID to console
-System.out.println("The new file ID is " + newFileId.toString());
-
-// Get file contents
-byte[] contents = new FileContentsQuery()
+//Create the transaction
+FileAppendTransaction transaction = new FileAppendTransaction()
     .setFileId(newFileId)
-    .execute(client);
-
-// Prints query results to console
-System.out.println("File content query results: " + new String(contents));
-
-// Appends the content to the end of the file
-TransactionId appendToFileTx = new FileAppendTransaction()
-    .setFileId(newFileId)
-    .setContents(("This is the appended content to the file ").getBytes())
-    .execute(client);
+    .setContents("The appended contents");
     
-// Get file contents
-byte[] appendContents = new FileContentsQuery()
-    .setFileId(newFileId)
-    .execute(client);
-    
-// Prints query results to console
-System.out.println("File content query results: " + new String(appendContents));
+//Change the default max transaction fee to 2 hbars
+FileCreateTransaction modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2)); 
+
+//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
+TransactionResponse txResponse = modifyMaxTransactionFee.freezeWith(client).sign(key).execute(client);
+
+//Request the receipt
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v2.0.0
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```java
+//Create the transaction
+const transaction = new FileAppendTransaction()
+    .setFileId(newFileId)
+    .setContents("The appended contents");
+
+//Change the default max transaction fee to 2 hbars
+const modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2)); 
+
+//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
+const txResponse = modifyMaxTransactionFee.transaction.freezeWith(client).sign(key).execute(client);
+
+//Request the receipt
+const receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction2 := hedera.NewFileAppendTransaction().
+		SetFileID(newFileId).
+		SetContents([]byte("The appended contents"))
+
+//Change the default max transaction fee to 2 hbars
+modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
+
+//Prepare transaction for signing, 
+freezeTransaction, err := modifyMaxTransactionFee.FreezeWith(client)
+if err != nil {
+		panic(err)
+}
+
+//Sign with the key on the file, sign with the client operator key and submit to a Hedera network
+txResponse2 err := freezeTransaction.Sign(fileKey).Execute(client)
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+		panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+fmt.Println("The transaction consensus status is ", transactionStatus)
+
+//v2.0.0
+```
+{% endcode %}
 {% endtab %}
 
-{% tab title="JavaScript" %}
-```javascript
- async function main() {
-  
-  const operatorAccount = process.env.OPERATOR_ID;
-  const operatorPrivateKey = Ed25519PrivateKey.fromString(process.env.OPERATOR_KEY);
-  const operatorPublicKey = operatorPrivateKey.publicKey;
+{% tab title="V1" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to append | Required |
+| `setContents(<content>)` | byte \[ \] | The content in byte format | Optional |
+| `setContents(<content>)` | String | The content in string format | Optional |
 
-  if (operatorPrivateKey == null || operatorAccount == null) {
-    throw new Error(
-      "environment variables OPERATOR_KEY and OPERATOR_ID must be present"
-    );
-  }
+{% code title="Java" %}
+```java
+FileAppendTransaction tranaaction = new FileAppendTransaction()
+       .setFileId(newFileId)
+       .setContents("The appended contents")
+       .setMaxTransactionFee(new Hbar(2));
 
-  // `Client.forMainnet()` is provided for connecting to Hedera mainnet
-  const client = Client.forTestnet()
+//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
+TransactionId txId = tranaaction.build(client).sign(key).execute(client);
 
-  // Defaults the operator account ID and key such that all generated transactions will be paid for
-  // by this account and be signed by this key  
-  client.setOperator(operatorAccount, operatorPrivateKey);
+//Request the receipt
+TransactionReceipt receipt1 = txId.getReceipt(client);
 
-  // Create a new file with contents
-  const transactionId = await new FileCreateTransaction()
-    .setContents("Hello, Hedera's file service!")
-    .addKey(operatorPublicKey) // Defines the "admin" of this file
-    .setMaxTransactionFee(new Hbar(15))
-    .execute(client);
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
 
-  // Get the new file ID by requesting the receipt
-  const receipt = await transactionId.getReceipt(client); 
-  const fileId = receipt.getFileId(); 
-  console.log("new file id = ", fileId);
-
-  //Get file contents
-  const fileContents = await new FileContentsQuery()
-    .setFileId(fileId)
-    .execute(client);
-
-
-  console.log(`file contents: ${new TextDecoder().decode(fileContents)}`)
-
-  // Append contents to the file
-  const fileAppendTransactionId = await new FileAppendTransaction()
-    .setFileId(receipt.getFileId())
-    .setContents(" The appended contents at the end!") 
-    .execute(client);
-
-  // Request to the receipt to make sure the file update before requesting the new contents 
-  const appendReceipt = await fileAppendTransactionId.getReceipt(client);
-  console.log(`Transaction Status: ${appendReceipt.status}`)
-
-  // Get the updated file contents
-  const fileContentsAppend = await new FileContentsQuery()
-    .setFileId(fileId)
-    .execute(client);
-  
-  // Print the file contents to the console
-  console.log(`file contents: ${new TextDecoder().decode(fileContentsAppend)}`)
-}
+System.out.println("The transaction consensus status is " +transactionStatus)
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+const tranaaction = new FileAppendTransaction()
+       .setFileId(newFileId)
+       .setContents("The appended contents")
+       .setMaxTransactionFee(new Hbar(2));
+
+//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
+const txId = await tranaaction.build(client).sign(key).execute(client);
+
+//Request the receipt
+const receipt = await txId.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus)
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## Get transaction values
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `getFileId()` | FileId | The file ID in the transaction | Optional |
+| `getContents()` | String | The content in the transaction | Optional |
+
+{% code title="Java" %}
+```java
+//Create the transaction
+FileAppendTransaction transaction = new FileAppendTransaction()
+    .setFileId(newFileId)
+    .setContents("The appended contents");
+
+//Get the contents
+ByteString getContents = tranaaction.getContents();
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```java
+//Create the transaction
+const transaction = new FileAppendTransaction()
+    .setFileId(newFileId)
+    .setContents("The appended contents");
+
+//Get the contents
+const getContents = tranaaction.getContents();
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+transaction2 := hedera.NewFileAppendTransaction().
+    SetFileID(newFileId).
+		SetContents([]byte("The appended contents"))
+
+//Get the contents
+getContents2 := transaction2.GetContents()
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 
 
