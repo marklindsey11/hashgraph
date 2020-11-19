@@ -1,4 +1,4 @@
-# Get topic message
+# Get topic messages
 
 Subscribe to a topic ID's messages from a mirror node. You will recieve all messages for the specified topic or within the defined start and end time.
 

@@ -50,5 +50,11 @@ A single client can make a maximum of **5** concurrent subscription calls per co
 
 ### Subscribe to a topic
 
-{% page-ref page="hedera-consensus-service-api-1.md" %}
+Please click the link below to see how you can subscribe to a topic.
+
+{% page-ref page="../sdks/consensus/get-topic-message.md" %}
+
+
+
+
 

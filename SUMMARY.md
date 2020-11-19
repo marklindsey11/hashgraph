@@ -94,7 +94,7 @@
     * [Update a topic](docs/sdks/consensus/update-a-topic.md)
     * [Submit a message](docs/sdks/consensus/submit-a-message.md)
     * [Delete a topic](docs/sdks/consensus/delete-a-topic.md)
-    * [Get topic message](docs/sdks/consensus/get-topic-message.md)
+    * [Get topic messages](docs/sdks/consensus/get-topic-message.md)
     * [Get topic info](docs/sdks/consensus/get-topic-info.md)
     * [Errors](docs/sdks/consensus/errors.md)
   * [Tokens](docs/sdks/tokens/README.md)
