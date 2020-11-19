@@ -85,7 +85,7 @@ new MirrorConsensusTopicQuery()
 | `setStartTime` | Instant | The time to start subscribing to a topic's messages | Optional |
 | `setEndTime` | Instant | The time to stop subscribing to a topic's messages | Optional |
 | `setLimit` | long | The number of messages to return | Optional |
-| `subscribe(<mirrorClient,onNext onError)` | MirrorClient, Consumer&lt;MirrorConsensusTopicResponse&gt;, Consumer&lt;Throwable&gt; | Subscribe and get the  messages for a topic | Required |
+| `subscribe(<mirrorClient, onNext onError)` | MirrorClient, Consumer &lt;MirrorConsensusTopicResponse&gt;, Consumer&lt;Throwable&gt; | Subscribe and get the  messages for a topic | Required |
 
 {% code title="Java" %}
 ```java
