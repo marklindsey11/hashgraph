@@ -8,7 +8,7 @@ description: Hedera Services release information
 | :--- | :--- | :--- |
 | **Mainnet** | 0.8.1 | 0.9.0 |
 | **Testnet** | 0.9.0 | 0.10.0 |
-| **Previewnet** | 0.9.0-alpha.7 | 0.10.0 |
+| **Previewnet** | 0.9.0 | 0.10.0 |
 
 ## Upcoming Releases
 
