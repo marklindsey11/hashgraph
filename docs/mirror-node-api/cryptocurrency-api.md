@@ -36,7 +36,7 @@ accounts
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+The account information for 0.0.1562
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -49,7 +49,7 @@ Returns information for a specific account ID
 
 {% api-method-query-parameters %}
 {% api-method-parameter name="transactionType" type="string" required=false %}
-Filter an account ID by transaction type. Please see link below to view the transaction types that you can query.
+Filter the account ID by transaction type. Please see the reference to the transaction types you can query for.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="account.id" type="string" required=false %}
@@ -69,7 +69,7 @@ Returns the account information for the specified public key
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-The account information for account 0.0.1562.
+
 {% endapi-method-response-example-description %}
 
 ```
@@ -188,7 +188,7 @@ The account information for account 0.0.1562.
 | `/api/v1/accounts?account.id=0.0.1001` | Returns the account information of account 1001 |
 | `/api/v1/accounts?account.balance=gt:1000` | Returns all account information that have a balance greater than 1000 tinybars |
 | `/api/v1/accounts?account.publickey=2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed 15e301049517438d61864` | Returns all account information for 2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed15e301049517438d61864 public key |
-| `api/v1/accounts/2?transactionType=cryptotransfer` | Returns the crypto transfer transactions for account 2. |
+| `/api/v1/accounts/2?transactionType=cryptotransfer` | Returns the crypto transfer transactions for account 2. |
 
 ## Balances <a id="balances"></a>
 
@@ -349,7 +349,7 @@ transactions
 {% api-method-request %}
 {% api-method-query-parameters %}
 {% api-method-parameter name="transactionType" type="string" required=false %}
-Filter by transaction type. Please see link below to view all transaction types that you can query.
+Filter transactions by the transaction type. Please see link below to view all the transaction types you can query.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="account.id" type="string" required=false %}
@@ -615,374 +615,7 @@ The consensus timestamp of a message in seconds.nanoseconds
 | **running\_hash** | The new running hash of the topic that received the message |
 | **sequence\_number** | The sequence number of the message relative to all other messages for the same topic |
 
-## Tokens
-
-{% hint style="info" %}
-Available for use on previewnet only.
-{% endhint %}
-
-{% api-method method="get" host="" path="/api/v1/tokens" %}
-{% api-method-summary %}
-tokens
-{% endapi-method-summary %}
-
-{% api-method-description %}
-Returns the list of tokens created in a Hedera network. 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="tokens" type="string" required=false %}
-The tokens created on a Hedera network.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-{
-    "tokens": [
-        {
-            "token_id": "0.0.2844",
-            "symbol": "VCIQSEQBONTOMXCBEWUG",
-            "admin_key": {
-                "_type": "ED25519",
-                "key": "f3cfc6e46bf3234db7d9c6bb462014cc86362a04e606c02ea634883ae69284d7"
-            }
-        }
-    ],
-    "links": {
-        "next": "/api/v1/tokens?limit=1&token.id=gt:0.0.2844"
-    }
-}
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-### Response Details
-
-| Response Item | Description |
-| :--- | :--- |
-| **token\_Id** | The ID of the token in x.y.z format |
-| **symbol** | The symbol of the token |
-| **adminKey** | The admin key for the token |
-
-### Optional filtering
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Operator</th>
-      <th style="text-align:left">Example</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>lt</code> (less than)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>lte</code> (less than or equal to)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gt</code> (greater than)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gte</code> (greater than or equal to)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>order</code> (order <code>asc</code> or <code>desc</code> values)</td>
-      <td
-      style="text-align:left">
-        <p>&lt;code&gt;&lt;/code&gt;</p>
-        <p>&#x200B;</p>
-        </td>
-        <td style="text-align:left">
-          <p></p>
-          <p>&#x200B;</p>
-        </td>
-    </tr>
-  </tbody>
-</table>
-
-### Additional Examples
-
-| Example Request | Description |
-| :--- | :--- |
-| \`\` |  |
-|  |  |
-|  |  |
-|  |  |
-
-{% api-method method="get" host="" path="/api/v1/tokens/:token\_id/balances" %}
-{% api-method-summary %}
-token balances
-{% endapi-method-summary %}
-
-{% api-method-description %}
-Returns all the accounts and token balance for the specified token ID.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=true %}
-
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-The request response
-{% endapi-method-response-example-description %}
-
-```
-   {
-        "timestamp": "0.000002345",
-        "balances": [
-          {
-            "account": "0.15.10",
-            "balance": 100
-          },
-          {
-            "account": "0.15.9",
-            "balance": 90
-          },
-          {
-            "account": "0.15.8",
-            "balance": 80
-          }
-        ],
-        "links": {
-          "next": null
-        }
-    }
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-### Response Details
-
-### Optional Filtering
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Operator</th>
-      <th style="text-align:left">Example</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>lt</code> (less than)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>lte</code> (less than or equal to)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gt</code> (greater than)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gte</code> (greater than or equal to)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>order</code> (order <code>asc</code> or <code>desc</code> values)</td>
-      <td
-      style="text-align:left">
-        <p>&lt;code&gt;&lt;/code&gt;</p>
-        <p>&#x200B;</p>
-        </td>
-        <td style="text-align:left">
-          <p></p>
-          <p>&#x200B;</p>
-        </td>
-    </tr>
-  </tbody>
-</table>
-
-### Additional Examples
-
-| Example Request | Description |
-| :--- | :--- |
-|  |  |
-|  |  |
-
-
-
-{% api-method method="get" host="" path="/api/v1/tokens/:tokenId" %}
-{% api-method-summary %}
-token info
-{% endapi-method-summary %}
-
-{% api-method-description %}
-Returns the specified token information.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="token\_id" type="object" required=true %}
-The ID of the token to return the information for in x.y.z format.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-{
-    "admin_key": {
-        "_type": "ED25519",
-        "key": "ae73aced5f817a772d9db4389d198cfccd73496912a3d2581efba9638c6558a2"
-    },
-    "auto_renew_account": "0.0.2848",
-    "auto_renew_period": null,
-    "created_timestamp": "1605365995.140259000",
-    "decimals": "3",
-    "expiry_timestamp": null,
-    "freeze_default": false,
-    "freeze_key": {
-        "_type": "ED25519",
-        "key": "5446f4d87f8091dadcf2c290c52dcfe433276abbdc9153b797c50845b4917d1c"
-    },
-    "initial_supply": "1300000000",
-    "kyc_key": {
-        "_type": "ED25519",
-        "key": "4882f24d220b9e595e99a5ab6cd50c55b95cde3ccaaf9146d503e901bb513133"
-    },
-    "modified_timestamp": "1605365995.140259000",
-    "name": "CwOE78V-ainb0MNHPeIc4Sd9nYS9*PCJAWjTW1SkB75!tGFdyR",
-    "supply_key": {
-        "_type": "ED25519",
-        "key": "84dfe9ec8519a4f1a8aa3e2e771e3025fd1c3b4b3b5ad41622e202602e63832d"
-    },
-    "symbol": "WWHNTTGINMPLZELLJLRX",
-    "token_id": "0.0.2849",
-    "total_supply": "1300000000",
-    "treasury_account_id": "0.0.2847",
-    "wipe_key": {
-        "_type": "ED25519",
-        "key": "074f7d073c6e910ee29f55dca78494da54216ec528eae10c448888c5d8e22e8f"
-    }
-}
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-### Response Details
-
-| Response Item | Description |
-| :--- | :--- |
-| **admin\_key** | The token's admin key |
-| **auto\_renew\_account** | The auto renew account ID |
-| **auto\_renew\_period** | The period at which the auto renew account will be charged a renewal fee |
-| **created\_timestamp** | The timestamp of when the token was created |
-| **decimals** | The number of decimal places a token is divisible by |
-| **expiry\_timestamp** | The epoch second at which the token should expire |
-| **freeze\_default** | Whether or not accounts created  |
-| **freeze\_key** | The freeze key for the token |
-| **initial\_suppl**y | The initial supply of the token |
-| **kyc\_key** | The KYC key for the token |
-| **modified\_timestamp** | The last time the token properties were modified |
-| **name** | The name of the token |
-| **supply\_key** | The supply key for the token |
-| **symbol** | The token symbol |
-| **token\_id** | The token ID |
-| **total\_supply** | The total supply of the token |
-| **treasury\_account\_id** | The treasury account of the token |
-| **wipe\_key** | The wipe key for the token |
-
-### Optional Filtering
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Operator</th>
-      <th style="text-align:left">Example</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>lt</code> (less than)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>lte</code> (less than or equal to)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gt</code> (greater than)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gte</code> (greater than or equal to)</td>
-      <td style="text-align:left">&lt;code&gt;&lt;/code&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>order</code> (order <code>asc</code> or <code>desc</code> values)</td>
-      <td
-      style="text-align:left">
-        <p>&lt;code&gt;&lt;/code&gt;</p>
-        <p>&#x200B;</p>
-        </td>
-        <td style="text-align:left">
-          <p></p>
-          <p>&#x200B;</p>
-        </td>
-    </tr>
-  </tbody>
-</table>
-
-### Additional Examples
-
-| Example Request | Description |
-| :--- | :--- |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-
-
+## 
 
 ## State Proof Alpha
 
