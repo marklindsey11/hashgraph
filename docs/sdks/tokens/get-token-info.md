@@ -122,11 +122,11 @@ new TokenInfoQuery()
 | `<TokenInfoQuery>.decimals` | int | Optional |
 | `<TokenInfoQuery>.totalSupply` | long | Optional |
 | `<TokenInfoQuery>.treasury` | [AccountId](../specialized-types.md#accountid) | Optional |
-| `<TokenInfoQuery>.adminKey` | [PublicKey](../keys.md) | Optional |
-| `<TokenInfoQuery>.kycKey` | [PublicKey](../keys.md) | Optional |
-| `<TokenInfoQuery>.freezeKey` | [PublicKey](../keys.md) | Optional |
-| `<TokenInfoQuery>.wipeKey` | [PublicKey](../keys.md) | Optional |
-| `<TokenInfoQuery>.supplyKey` | [PublicKey](../keys.md) | Optional |
+| `<TokenInfoQuery>.adminKey` | [PublicKey](../keys/) | Optional |
+| `<TokenInfoQuery>.kycKey` | [PublicKey](../keys/) | Optional |
+| `<TokenInfoQuery>.freezeKey` | [PublicKey](../keys/) | Optional |
+| `<TokenInfoQuery>.wipeKey` | [PublicKey](../keys/) | Optional |
+| `<TokenInfoQuery>.supplyKey` | [PublicKey](../keys/) | Optional |
 | `<TokenInfoQuery>.defaultFreezeStatus` | Boolean | Optional |
 | `<TokenInfoQuery>.defaultKycStatus` | Boolean | Optional |
 | `<TokenInfoQuery>.isDeleted` | Boolean | Optional |

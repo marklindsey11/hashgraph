@@ -32,11 +32,11 @@ new TokenUpdateTransaction()
 | `setName(<name>)` | String | Optional |
 | `setSybmol(<symbol>)` | String | Optional |
 | `setTreasury(<treasury>)` | AccountId | Optional |
-| `setAdminKey(<key>)` | [PublicKey](../keys.md) | Optional |
-| `setKycKey(<key>)` | [PublicKey](../keys.md) | Optional |
-| `setFreezeKey(<key>)` | [PublicKey](../keys.md) | Optional |
-| `setWipeKey(<key>)` | [PublicKey](../keys.md) | Optional |
-| `setSupplyKey(<key>)` | [PublicKey](../keys.md) | Optional |
+| `setAdminKey(<key>)` | [PublicKey](../keys/) | Optional |
+| `setKycKey(<key>)` | [PublicKey](../keys/) | Optional |
+| `setFreezeKey(<key>)` | [PublicKey](../keys/) | Optional |
+| `setWipeKey(<key>)` | [PublicKey](../keys/) | Optional |
+| `setSupplyKey(<key>)` | [PublicKey](../keys/) | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
 | `setAutoRenewAccount(<account>)` | [AccountId](../specialized-types.md#accountid) | Optional |

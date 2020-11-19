@@ -1,109 +1,381 @@
-# Client
+# Build your Hedera network client
 
+## 1. Configure your Hedera network
 
+Build your client to interact with any of the Hedera network nodes. Mainnet, testnet, and previewnet are the three Hedera networks you can submit transactions and queries to.
 
-You will need the following pieces of information to construct your Hedera client. 
+{% tabs %}
+{% tab title="V2" %}
+For a predefined network \(preview, testnet, and mainnet\), the mirror node client is configured to the corresponding network mirror node.
 
-**User Information**
-
-The operator is the user paying for the transactions fees.  
-
-* **Operator ID:** The account ID of the user paying for the transaction/query fees
-* **Operator key:** The private key of the user paying for the transaction/query fees
-
-You can store these variables in a .env file at the root directory of the sdk. Please see the env.sample file in the SDK for how to set this up.
-
-| Constructor | Type | Description |
+| Method | Type | Description |
 | :--- | :--- | :--- |
-| `Client(<nodes>)` | Map&lt;accountId, string&gt; | Constructs a client object |
+| `Client.forPreviewnet()` |  | Constructs a Hedera client pre-configured for Previewnet access |
+| `Client.forTestnet()` |  | Constructs a Hedera client pre-configured for Testnet access |
+| `Client.forMainnet()` |  | Constructs a Hedera client pre-configured for Mainnet access |
+| `Client.forNetwork(<network>)` | Map&lt;String, AccountId&gt; | Construct a client given a set of nodes. It is the responsibility of the caller to ensure that all nodes in the map are part of the same Hedera network. Failure to do so will result in undefined behavior. |
+| `Client.fromJson(<json>)` | String | Configure a client from the given JSON string |
+| `Client.fromJson(<json>)` | Reader | Configure a client from the given JSON reader |
+| `Client.fromJsonFile(<file>)` | File | Configure a client based on a JSON file. |
+| `Client.fromJsonFile(<fileName>)` | String | Configure a client based on a JSON file at the given path. |
+| `Client.<network>.setMirrorNetwork(network)` | List&lt;String&gt;\) | Define a specific mirror network node\(s\) ip:port in string format |
 
+{% code title="Java" %}
 ```java
-new Client()
+// From a pre-configured network
+Client client = Client.forTestnet();
+
+//For a specified node(s)
+Map<String, AccountId> nodes = new HashMap<>();
+nodes.put("34.94.106.61:50211" ,AccountId.fromString("0.0.10"));
+
+Client.forNetwork(nodes);
+
+//v2.0.0
 ```
+{% endcode %}
 
-## Basic
+{% code title="JavaScript" %}
+```java
+// From a pre-configured network
+const client = Client.forTestnet();
+```
+{% endcode %}
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Methods</th>
-      <th style="text-align:center">Type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>forTestnet()</code>
-      </td>
-      <td style="text-align:center"></td>
-      <td style="text-align:left">Configures a client for Hedera testnet access</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>forMainnet()</code>
-      </td>
-      <td style="text-align:center"></td>
-      <td style="text-align:left">Configures a client for Hedera mainnet access</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>forPreviewnet()</code>
-      </td>
-      <td style="text-align:center"></td>
-      <td style="text-align:left">Configures a client for Hedera previewnet access</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setOperator(&lt;operatorId&gt;, &lt;operatorKey&gt;)</code>
-      </td>
-      <td style="text-align:center">
-        <p>AccountId,</p>
-        <p>ED25519PrivateKey</p>
-      </td>
-      <td style="text-align:left">Defaults the operator account ID and key such that all generated transactions
-        will be paid for by this account Id and and signed by this key</td>
-    </tr>
-  </tbody>
-</table>
+{% code title="Go" %}
+```java
+// From a pre-configured network
+client := hedera.ClientForTestnet()
+
+//From a specifed node(s)
+node := map[string]AccountID{
+	"34.94.106.61:50211": {Account: 10}
+}
+
+client := Client.forNetwork(nodes)
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `Client.forPreviewnet()` |  | Constructs a Hedera client pre-configured for Previewnet access |
+| `Client.forTestnet()` |  | Constructs a Hedera client pre-configured for Testnet access |
+| `Client.forMainnet()` |  |  Constructs a Hedera client pre-configured for Mainnet access |
+| `Client.fromFile(<file>)` | File | Configures a client from a file |
+| `Client.fromFile(<fileName>)` | String | Contructs a network from a file |
+| `Client.fromJson(<json>)` | String | Configure a client from the given JSON string |
+| `Client.fromJson(<json>)` | Reader | Configure a client from the given JSON reader |
+| `Client.replaceNodes(<nodes>)` | Map&lt;AccountId, String&gt; | Replaces nodes in the network |
+
+{% code title="Java" %}
+```java
+// From a pre-configured network
+Client client = Client.forTestnet();
+
+//Replace nodes
+Map<AccountId, String> nodes = new HashMap<>();
+nodes.put(AccountId.fromString("0.0.10"), "34.94.106.61:50211" ,);
+
+client.replaceNodes(nodes);
+
+//v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+// From a pre-configured network
+const client = Client.forTestnet();
+
+//v1.4.4
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## 2. Define the operator account ID and private key
+
+The operator is the account that will, by default, pay the transaction fee for transactions and queries built with this client. The operator account ID is used to generate the default transaction ID for all transactions executed with this client. The operator private key is used to sign all transactions executed by this client.
+
+| Method | Type |
+| :--- | :--- |
+| `setOperator(<accountId, privateKey>)` | AccountId, PrivateKey |
+| `setOperatorWith(<accountId, privateKey, transactionSigner>)` | AccountId, PrivateKey, Function&lt;byte\[ \], byte \[ \]&gt; |
+
+### From an account ID and private key
 
 {% tabs %}
 {% tab title="Java" %}
 ```java
-// Configures testnet client
+// Operator account ID and private key from string value
+AccountId OPERATOR_ID = AccountId.fromString("0.0.96928");
+Ed25519PrivateKey OPERATOR_KEY = Ed25519PrivateKey.fromString("302e020100300506032b657004220420b9c3ebac81a72aafa5490cc78111643d016d311e60869436fbb91c7330796928");
+
+// Pre-configured client for test network (testnet)
 Client client = Client.forTestnet()
 
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
+//Set the operator with the operator ID and operator key
 client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 ```
 {% endtab %}
 
 {% tab title="JavaScript" %}
 ```javascript
-// Configures testnet client
+// Operator account ID and private key from string value
+const OPERATOR_ID = AccountId.fromString("0.0.96928");
+const OPERATOR_KEY = Ed25519PrivateKey.fromString("302e020100300506032b657004220420b9c3ebac81a72aafa5490cc78111643d016d311e60869436fbb91c7330796928");
+
+// Pre-configured client for test network (testnet)
 const client = Client.forTestnet()
 
-// Defaults the operator account ID and key such that all generated transactions will be paid for
-// by this account and be signed by this key
-client.setOperator(operatorAccount, operatorPrivateKey);
+//Set the operator with the operator ID and operator key
+client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+// Operator account ID and private key from string value
+operatorAccountID, err := hedera.AccountIDFromString("0.0.96928")
+if err != nil {
+	panic(err)
+}
+
+operatorKey, err := hedera.PrivateKeyFromString("302e020100300506032b65700422042012a4a4add3d885bd61d7ce5cff88c5ef2d510651add00a7f64cb90de33596928")
+if err != nil {
+	panic(err)
+}
+
+// Pre-configured client for test network (testnet)
+client := hedera.ClientForTestnet()
+
+//Set the operator with the operator ID and operator key
+client.SetOperator(operatorAccountID, operatorKey)
 ```
 {% endtab %}
 {% endtabs %}
 
-## Advanced
+### From a .env file
 
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `fromJson(<json>)` | String | Configures a client based off the given JSON string |
-| `fromJson(<json>)` | Reader | Configures a client based off the given JSON reader |
-| `fromFile(<fileName>)` | String | Configures a client based on a JSON file at the given path |
-| `fromFile(<file>)` | File | Configures a client based on a JSON file. |
-| `replaceNodes(<nodes>)` | Map&lt;AccountId, String&gt; | Replace all nodes in this Client with a new set of nodes \(e.g. for an Address Book update\). If a node URL for a given account ID is the same, it is not replaced. |
-| `setMaxTransactionFee(<fee>)` | long | Set the maximum fee to be paid for transactions executed by this client. The actual fee may be less, but will never be greater than this value. |
-| `setMaxTransactionFee(<fee>)` | Hbar | Set the maximum fee to be paid for transactions executed by this client. The actual fee may be less, but will never be greater than this value. |
-| `setMaxQueryPayment(<maxQueryPayment>)` | long | Set the maximum default payment value allowable for queries. |
-| `setMaxQueryPayment(<maxQueryPayment>)` | Hbar | Set the maximum default payment allowable for queries. |
-| `getMaxQueryPayment()` | long | Returns the maximum payment value |
-| `getMaxTransactionFee()` | long | Returns the set maximum fee |
+The .env file is created in the root directory of the SDK. The .env file stores account ID and the associated private key information to reference throughout your code. You will need to import the relevent dotenv module to your project files. The sample .env file may look something like this:
+
+{% code title=".env" %}
+```text
+OPERATOR_ID= 0.0.9410
+OPERATOR_KEY= 302e020100300506032b65700422042012a4a4add3d885bd61d7ce5cff88c5ef2d510651add00a7f64cb90de3359bc5e
+```
+{% endcode %}
+
+{% tabs %}
+{% tab title="Java" %}
+```java
+//Grab the account ID and private key of the operator account from the .env file
+AccountId OPERATOR_ID = AccountId.fromString(Objects.requireNonNull(Dotenv.load().get("OPERATOR_ID")));
+Ed25519PrivateKey OPERATOR_KEY = Ed25519PrivateKey.fromString(Objects.requireNonNull(Dotenv.load().get("OPERATOR_KEY")));
+
+// Pre-configured client for test network (testnet)
+Client client = Client.forTestnet()
+
+//Set the operator with the operator ID and operator key
+client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+//Grab the account ID and private key of the operator account from the .env file
+const operatorAccount = process.env.OPERATOR_ID;
+const operatorPrivateKey = process.env.OPERATOR_KEY;
+
+// Pre-configured client for test network (testnet)
+const client = Client.forTestnet()
+
+//Set the operator with the operator ID and operator key
+client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+	err := godotenv.Load(".env")
+	if err != nil {
+		panic(fmt.Errorf("Unable to load enviroment variables from demo.env file. Error:\n%v\n", err))
+	}
+
+	//Get the operator ID and operator key
+	OPERATOR_ID := os.Getenv("OPERATOR_ID")
+	OPERATOR_KEY := os.Getenv("OPERATOR_KEY")
+
+
+	operatorAccountID, err := hedera.AccountIDFromString(OPERATOR_ID)
+	if err != nil {
+		panic(err)
+	}
+
+	operatorKey, err := hedera.PrivateKeyFromString(OPERATOR_KEY)
+	if err != nil {
+		panic(err)
+	}
+```
+{% endtab %}
+{% endtabs %}
+
+## 3. Additional client modifications
 
 {% hint style="warning" %}
 The **max transaction fee** and **max query payment** are both set to 100\_000\_000 tinybar \(1 hbar\).  This amount can be modified by using `setMaxTransactionFee()`and `setMaxQueryPayment().`
 {% endhint %}
+
+{% tabs %}
+{% tab title="V2" %}
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Method</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>setMaxTransactionFee(&lt;fee&gt;)</code>
+      </td>
+      <td style="text-align:left">Hbar</td>
+      <td style="text-align:left">The maximum transaction fee the client is willing to pay. Default: 1 hbar</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setMaxQueryPayment(&lt;maxQueryPayment&gt;)</code>
+      </td>
+      <td style="text-align:left">Hbar</td>
+      <td style="text-align:left">
+        <p>The maximum query payment the client will pay.</p>
+        <p>Default: 1 hbar</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setNetwork(&lt;nodes&gt;)</code>
+      </td>
+      <td style="text-align:left">Map&lt;String, AccountId&gt;</td>
+      <td style="text-align:left">Replace all nodes in this Client with a new set of nodes (e.g. for an
+        Address Book update)</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setRequestTimeout(&lt;requestTimeout&gt;)</code>
+      </td>
+      <td style="text-align:left">Duration</td>
+      <td style="text-align:left">The period of time a transaction or query request will retry from a &quot;busy&quot;
+        network response</td>
+    </tr>
+  </tbody>
+</table>
+
+{% code title="Java" %}
+```java
+// For test network (testnet)
+Client client = Client.forTestnet()
+
+//Set the operator and operator private key
+client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+
+//Set the max transaction fee the client is willing to pay to 2 hbars
+client.setMaxTransactionFee(new Hbar(2)); 
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```java
+// For test network (testnet)
+const client = Client.forTestnet()
+
+//Set the operator and operator private key
+client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+
+//Set the max transaction fee the client is willing to pay to 2 hbars
+client.setMaxTransactionFee(new Hbar(2));
+
+//v2.0.0
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+// For test network (testnet)
+client := hedera.ClientForTestnet()
+
+//Set the operator and operator private key
+client.SetOperator(operatorAccountID, operatorKey)
+
+//Set the max transaction fee the client is willing to pay to 2 hbars
+client.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
+
+//v2.0.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Method</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>setMaxTransactionFee(&lt;fee&gt;)</code>
+      </td>
+      <td style="text-align:left">Hbar/long</td>
+      <td style="text-align:left">The maximum transaction fee the client is willing to pay. Default: 1 hbar</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>setMaxQueryPayment(&lt;maxQueryPayment&gt;)</code>
+      </td>
+      <td style="text-align:left">Hbar/long</td>
+      <td style="text-align:left">
+        <p>The maximum query payment the client will pay.</p>
+        <p>Default: 1 hbar</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% code title="Java" %}
+```java
+ Client client = Client.forTestnet();
+ 
+ client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+ 
+ client.setMaxTransactionFee(new Hbar(2));
+ 
+ //v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+// For test network (testnet)
+const client = Client.forTestnet()
+
+//Set the operator and operator private key
+client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+
+//Set the max transaction fee the client is willing to pay to 2 hbars
+client.setMaxTransactionFee(new Hbar(2)); 
+
+//v1.4.4
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+
+
+
 

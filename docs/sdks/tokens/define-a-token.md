@@ -82,35 +82,35 @@ new TokenCreateTransaction()
     <tr>
       <td style="text-align:left"><code>setAdminKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      <td style="text-align:left"><a href="../keys/">PublicKey</a>
       </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setKycKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      <td style="text-align:left"><a href="../keys/">PublicKey</a>
       </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setFreezeKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      <td style="text-align:left"><a href="../keys/">PublicKey</a>
       </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setWipeKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      <td style="text-align:left"><a href="../keys/">PublicKey</a>
       </td>
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>setSupplyKey(&lt;key&gt;)</code>
       </td>
-      <td style="text-align:left"><a href="../keys.md">PublicKey</a>
+      <td style="text-align:left"><a href="../keys/">PublicKey</a>
       </td>
       <td style="text-align:left">Optional</td>
     </tr>
