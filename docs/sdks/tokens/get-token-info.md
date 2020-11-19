@@ -149,7 +149,7 @@ System.out.println("The total supply of this token is " +totalSupply)
 
 {% tab title="JavaScript" %}
 ```javascript
-const tokenInfo = await new TokenInfoQuery()
+const tokenInfo = new TokenInfoQuery()
     .setTokenId(newTokenId);
 
 const totalSupply = await tokenInfo.execute(client).totalSupply;

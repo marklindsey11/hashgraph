@@ -175,7 +175,7 @@ System.out.println("The new token ID is " +newTokenId);
 {% tab title="JavaScript" %}
 ```javascript
 //Create a token
-const transaction = await new TokenCreateTransaction()
+const transaction = new TokenCreateTransaction()
     .setName("Your Token Name")
     .setSymbol("F")
     .setTreasury(treasuryAccountId)
@@ -189,7 +189,7 @@ const transactionId = await transaction.build(client).sign(adminKey).sign(treasu
 const getReceipt = await transactionId.getReceipt(client);
 
 //Obtain the token ID
-const tokenId = await getReceipt.getTokenId();
+const tokenId = getReceipt.getTokenId();
 
 console.log("The new token ID is " +newTokenId);
 //Version: 1.4.2

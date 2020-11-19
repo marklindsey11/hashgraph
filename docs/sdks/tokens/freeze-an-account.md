@@ -50,7 +50,7 @@ System.out.print("The transaction consensus status is " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Freeze an account from transferring a token
-const transaction = await new TokenFreezeTransaction()
+const transaction = new TokenFreezeTransaction()
     .setAccountId(newAccountId)
     .setTokenId(newTokenId);
 
@@ -61,7 +61,7 @@ const transactionId = await transaction.build(client).sign(freezeKey).execute(cl
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
     
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2

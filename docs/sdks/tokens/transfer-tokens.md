@@ -47,7 +47,7 @@ System.out.println("The transaction consensus status " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Transfer 100 tokens between two accounts
-const transaction = await new TokenTransferTransaction()
+const transaction = new TokenTransferTransaction()
     .addSender(newTokenId,newAccountId,100)
     .addRecipient(newTokenId, OPERATOR_ID,100);
 
@@ -58,7 +58,7 @@ const transactionId = await transaction.build(client).sign(senderKey).execute(cl
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status " +transactionStatus);
 //Version 1.4.2

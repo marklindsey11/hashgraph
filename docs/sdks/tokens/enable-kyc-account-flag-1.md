@@ -51,7 +51,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Enable KYC flag on account
-const transaction = await new TokenGrantKycTransaction()
+const transaction = new TokenGrantKycTransaction()
     .setTokenId(newTokenId)
     .setAccountId(newAccountId);
 
@@ -62,7 +62,7 @@ const transactionId = await transaction.build(client).sign(kycKey).execute(clien
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2 

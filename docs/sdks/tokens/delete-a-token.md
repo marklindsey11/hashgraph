@@ -40,7 +40,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Delete a token
-const transaction = await new TokenDeleteTransaction()
+const transaction = new TokenDeleteTransaction()
     .setTokenId(newTokenId);
 
 //Build the unsigned transaction, sign with admin private key of the token, submit the transaction to a Hedera network
@@ -50,7 +50,7 @@ const transactionId = await transaction.build(client).sign(adminKey).execute(cli
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2

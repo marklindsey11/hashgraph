@@ -42,7 +42,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Mint another 1,000 tokens
-const transaction = await new TokenMintTransaction()
+const transaction = new TokenMintTransaction()
     .setTokenId(newTokenId)
     .setAmount(1000);
 
@@ -53,7 +53,7 @@ const transactionId = await transaction.build(client).sign(supplyKey).execute(cl
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2

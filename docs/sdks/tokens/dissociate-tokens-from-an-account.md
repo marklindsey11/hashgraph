@@ -54,7 +54,7 @@ System.out.println("The transaction consensus status is: " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Disassociate a token from an account
-const transaction = await new TokenDissociateTransaction()
+const transaction = new TokenDissociateTransaction()
     .setAccountId(accountId)
     .addTokenId(tokenId);
         
@@ -65,7 +65,7 @@ const transactionId = await transaction.build(client).sign(accountKey).execute(c
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status is: " +transactionStatus);
 //Version 1.4.2

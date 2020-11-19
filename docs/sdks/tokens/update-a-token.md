@@ -67,7 +67,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Update the name of the token
-const transaction = await new TokenUpdateTransaction()
+const transaction = new TokenUpdateTransaction()
     .setTokenId(newTokenId)
     .setName("Your New Token Name");
     
@@ -78,7 +78,7 @@ const transactionId = await transaction.build(client).sign(adminKey).execute(cli
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
 //Version: 1.4.2

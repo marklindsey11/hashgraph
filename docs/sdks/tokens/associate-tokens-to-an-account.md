@@ -50,7 +50,7 @@ System.out.println("The transaction consensus status " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Associate a token to an account 
-const transaction = await new TokenAssociateTransaction()
+const transaction = new TokenAssociateTransaction()
         .setAccountId(accountId)
         .addTokenId(tokenId); //Will change to addTokenId()
 
@@ -61,7 +61,7 @@ const transactionId = await transaction.build(client).sign(accountKey).execute(c
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status " +transactionStatus);
 //Version 1.4.2

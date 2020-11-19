@@ -55,7 +55,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% tab title="JavaScript" %}
 ```javascript
 //Wipe 100 tokens from an account
-const transaction = await new TokenWipeTransaction()
+const transaction = new TokenWipeTransaction()
     .setAccountId(accountId)
     .setTokenId(tokenId)
     .setAmount(100);
@@ -67,7 +67,7 @@ const transactionId = await transaction.build(client).sign(accountKey).sign(wipe
 const getReceipt = await transactionId.getReceipt(client);
     
 //Obtain the transaction consensus status
-const transactionStatus = await getReceipt.status;
+const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2
