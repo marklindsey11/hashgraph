@@ -349,7 +349,7 @@ transactions
 {% api-method-request %}
 {% api-method-query-parameters %}
 {% api-method-parameter name="transactionType" type="string" required=false %}
-Filter transactions by the transaction type. Please see link below to view all the transaction types you can query.
+Filter transactions by transaction type. Please see link below to view all the transaction types you can query by.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="account.id" type="string" required=false %}
