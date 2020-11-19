@@ -615,7 +615,303 @@ The consensus timestamp of a message in seconds.nanoseconds
 | **running\_hash** | The new running hash of the topic that received the message |
 | **sequence\_number** | The sequence number of the message relative to all other messages for the same topic |
 
-## 
+## Tokens
+
+{% hint style="info" %}
+Available for use on previewnet only.
+{% endhint %}
+
+{% api-method method="get" host="" path="/api/v1/tokens" %}
+{% api-method-summary %}
+tokens
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Returns the list of tokens created in a Hedera network. 
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="tokens" type="string" required=false %}
+The tokens created on a Hedera network.
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="publickey" type="string" required=false %}
+The public key to return all tokens for
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="token.id" type="string" required=false %}
+The ID of the token to return the query for
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="account.id" type="string" required=false %}
+The ID of the account to return the tokens for
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "tokens": [
+        {
+            "token_id": "0.0.2844",
+            "symbol": "VCIQSEQBONTOMXCBEWUG",
+            "admin_key": {
+                "_type": "ED25519",
+                "key": "f3cfc6e46bf3234db7d9c6bb462014cc86362a04e606c02ea634883ae69284d7"
+            }
+        }
+    ],
+    "links": {
+        "next": "/api/v1/tokens?limit=1&token.id=gt:0.0.2844"
+    }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response Details
+
+| Response Item | Description |
+| :--- | :--- |
+| **token\_Id** | The ID of the token in x.y.z format |
+| **symbol** | The symbol of the token |
+| **adminKey** | The admin key for the token |
+
+### Additional Examples
+
+| Example Request | Description |
+| :--- | :--- |
+| `/api/v1/tokens?publickey=3c3d546321ff6f63d70 1d2ec5c277095874e19f4a235bee1e6bb19258bf362be` | All tokens with matching admin key |
+| `/api/v1/tokens?account.id=0.0.8` | All tokens for matching account |
+| `/api/v1/tokens?token.id=gt:0.0.1001` | All tokens in range |
+| `/api/v1/tokens?order=desc` | All tokens in descending order of `token.id` |
+| `/api/v1/tokens?limit=x` | All tokens taking the first `x` number of tokens |
+
+{% api-method method="get" host="" path="/api/v1/tokens/:token\_id/balances" %}
+{% api-method-summary %}
+token balances
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Returns all the accounts and token balance for the specified token ID.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="token\_id" type="string" required=true %}
+The token ID to get the balances for
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="account.publickey" type="string" required=false %}
+The public key
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="account.id" type="string" required=false %}
+The ID of the account
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="account.balance" type="string" required=false %}
+The balance to query for
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="timestamp" type="string" required=false %}
+The timestamp to query for
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+The request response
+{% endapi-method-response-example-description %}
+
+```
+   {
+        "timestamp": "0.000002345",
+        "balances": [
+          {
+            "account": "0.15.10",
+            "balance": 100
+          },
+          {
+            "account": "0.15.9",
+            "balance": 90
+          },
+          {
+            "account": "0.15.8",
+            "balance": 80
+          }
+        ],
+        "links": {
+          "next": null
+        }
+    }
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response Details
+
+| Response Item | Description |
+| :--- | :--- |
+| **timestamp** | The timestamp of the recorded  balances in seconds.nanoseconds |
+| **balances** | The balance of the tokens in those accounts |
+| **account** | The ID of the account that has the token balance |
+| **balance** | The balance of the token associated with the account |
+
+### Additional Examples
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Example Request</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p></p>
+        <p><code>/api/v1/tokens/&lt;token_id&gt;/balances?order=asc</code>
+        </p>
+      </td>
+      <td style="text-align:left">The balance of the token in ascending order</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>/api/v1/tokens/&lt;token_id&gt;/balances?account.id=0.0.1000</code>
+      </td>
+      <td style="text-align:left">The balance of the token for account ID 0.0.1000</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>/api/v1/tokens/&lt;token_id&gt;/balances?account.balance=gt:1000</code>
+      </td>
+      <td style="text-align:left">The balance for the token greater than 1000</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>/api/v1/tokens/&lt;token_id&gt;/balances?timestamp=1566562500.040961001</code>
+      </td>
+      <td style="text-align:left">The token balances for the specified timestamp</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+{% api-method method="get" host="" path="/api/v1/tokens/:tokenId" %}
+{% api-method-summary %}
+token info
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Returns the specified token information.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="token\_id" type="object" required=true %}
+The ID of the token to return the information for in x.y.z format.
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "admin_key": {
+        "_type": "ED25519",
+        "key": "ae73aced5f817a772d9db4389d198cfccd73496912a3d2581efba9638c6558a2"
+    },
+    "auto_renew_account": "0.0.2848",
+    "auto_renew_period": null,
+    "created_timestamp": "1605365995.140259000",
+    "decimals": "3",
+    "expiry_timestamp": null,
+    "freeze_default": false,
+    "freeze_key": {
+        "_type": "ED25519",
+        "key": "5446f4d87f8091dadcf2c290c52dcfe433276abbdc9153b797c50845b4917d1c"
+    },
+    "initial_supply": "1300000000",
+    "kyc_key": {
+        "_type": "ED25519",
+        "key": "4882f24d220b9e595e99a5ab6cd50c55b95cde3ccaaf9146d503e901bb513133"
+    },
+    "modified_timestamp": "1605365995.140259000",
+    "name": "CwOE78V-ainb0MNHPeIc4Sd9nYS9*PCJAWjTW1SkB75!tGFdyR",
+    "supply_key": {
+        "_type": "ED25519",
+        "key": "84dfe9ec8519a4f1a8aa3e2e771e3025fd1c3b4b3b5ad41622e202602e63832d"
+    },
+    "symbol": "WWHNTTGINMPLZELLJLRX",
+    "token_id": "0.0.2849",
+    "total_supply": "1300000000",
+    "treasury_account_id": "0.0.2847",
+    "wipe_key": {
+        "_type": "ED25519",
+        "key": "074f7d073c6e910ee29f55dca78494da54216ec528eae10c448888c5d8e22e8f"
+    }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response Details
+
+| Response Item | Description |
+| :--- | :--- |
+| **admin\_key** | The token's admin key |
+| **auto\_renew\_account** | The auto renew account ID |
+| **auto\_renew\_period** | The period at which the auto renew account will be charged a renewal fee |
+| **created\_timestamp** | The timestamp of when the token was created |
+| **decimals** | The number of decimal places a token is divisible by |
+| **expiry\_timestamp** | The epoch second at which the token should expire |
+| **freeze\_default** | Whether or not accounts created  |
+| **freeze\_key** | The freeze key for the token |
+| **initial\_suppl**y | The initial supply of the token |
+| **kyc\_key** | The KYC key for the token |
+| **modified\_timestamp** | The last time the token properties were modified |
+| **name** | The name of the token |
+| **supply\_key** | The supply key for the token |
+| **symbol** | The token symbol |
+| **token\_id** | The token ID |
+| **total\_supply** | The total supply of the token |
+| **treasury\_account\_id** | The treasury account of the token |
+| **wipe\_key** | The wipe key for the token |
+
+| Example Request | Description |
+| :--- | :--- |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
+
 
 ## State Proof Alpha
 
