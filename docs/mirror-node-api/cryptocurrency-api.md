@@ -49,7 +49,7 @@ Returns information for a specific account ID
 
 {% api-method-query-parameters %}
 {% api-method-parameter name="transactionType" type="string" required=false %}
-Filter the account ID by transaction type. Please see the reference to the transaction types you can query for.
+Filter the account ID by transaction type. Please see the reference to the transaction types you can query for below.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="account.id" type="string" required=false %}
