@@ -17,21 +17,29 @@ Community supported mirror node information can be found here:
 
 ## Build a Mirror Node Client
 
+{% tabs %}
+{% tab title="V2" %}
+If you building your client with a predefined Hedera network \(previewnet, testnet, mainnet\), you do not need to define the mirror client as it is built in. If you would like to modify the mirror client, you can use [`Client.<network>.setMirrorNetwork(network)`](https://docs.hedera.com/guides/docs/sdks/client#1-configure-your-hedera-network).
+{% endtab %}
+
+{% tab title="V1" %}
+
+
 | Constructor | Description |
 | :--- | :--- |
-| `MirrorClient(<endpoint>)` | Initializes the MirrorClient object |
+| `new MirrorClient(<endpoint>)` | Initializes the MirrorClient object |
 
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
 ```java
 final MirrorClient mirrorClient = new MirrorClient(MIRROR_NODE_ADDRESS);
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
 const mirrorClient = new MirrorClient(mirrorNodeAddress);
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -42,43 +50,5 @@ A single client can make a maximum of **5** concurrent subscription calls per co
 
 ### Subscribe to a topic
 
-| Constructor | Description |
-| :--- | :--- |
-| `MirrorConsensusTopicQuery()` | Initializes the MirrorConsensusTopicQuery object |
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `setTopicId(<topicId>)` | ConsensusTopicId | ID of the topic |
-| `subscribe(<mirrorClient, onNext, onError>)` | MirrorClient, Consumer&lt;MirrorConsensusTopicResponse&gt;, Consumer&lt;Throwable&gt; | Subscribe to a topic |
-| `setStartTime(<startTime>)` | Instant | The time to start receiving messages from the topic |
-| `setEndTime(<endTime>)` | Instant | The time to stop receiving messages from the topic |
-| `setLimit(<limit>)` | long | The limit to the number of messages to receive for that topic |
-
-{% tabs %}
-{% tab title="Java" %}
-```java
-new MirrorConsensusTopicQuery()
-    .setTopicId(topicId)
-    .subscribe(mirrorClient, resp -> {
-        String messageAsString = new String(resp.message, StandardCharsets.UTF_8);
-
-        System.out.println(resp.consensusTimestamp + " received topic message: " + messageAsString);
-    },
-        // On gRPC error, print the stack trace
-        Throwable::printStackTrace);
-```
-{% endtab %}
-
-{% tab title="JavaScript" %}
-```javascript
-new MirrorConsensusTopicQuery()
-    .setTopicId(topicId)
-    .subscribe(
-        consensusClient,
-        (message) => console.log(message.toString()),
-        (error) => console.log(`Error: ${error}`)
-    );
-```
-{% endtab %}
-{% endtabs %}
+{% page-ref page="hedera-consensus-service-api-1.md" %}
 
