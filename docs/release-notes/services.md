@@ -7,8 +7,8 @@ description: Hedera Services release information
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.8.1 | 0.9.0 |
-| **Testnet** | 0.8.1 | 0.9.0 |
-| **Previewnet** | 0.9.0-alpha.7 |  |
+| **Testnet** | 0.9.0 | 0.10.0 |
+| **Previewnet** | 0.9.0-alpha.7 | 0.10.0 |
 
 ## Upcoming Releases
 
@@ -18,8 +18,8 @@ description: Hedera Services release information
 **MAINNET UPDATE SCHEDULED: December 3, 2020**
 {% endhint %}
 
-{% hint style="info" %}
-**TESTNET UPDATE SCHEDULED: November 19, 2020**
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: November 19, 2020**
 {% endhint %}
 
 In Hedera Services v0.9.0, we finished the alpha implementation of the Hedera Token Service \(HTS\). Note that all HTS operations are enabled on Previewnet, but remain disabled on Testnet and Mainnet. Please consult the [SDK documentation](https://docs.hedera.com/452354233115445331/token-service) for HTS semantics.
