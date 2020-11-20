@@ -6,11 +6,23 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.21.0 | 0.22.0 |
+| **Mainnet** | 0.20.0 | 0.21.0 |
 | **Testnet** | 0.23.0 | 0.24.0 |
 | **Previewnet** | 0.23.0 | 0.24.0 |
 
 ## Upcoming Releases
+
+## [v0.23.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.23.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: NOVEMBER 20, 2020**
+{% endhint %}
+
+This release focuses on finalizing our support for the new Hedera Token Service \(HTS\) provided by the Hedera API [v0.9.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.9.0). There are no new HTS features, just various fixes to make it compatible with the latest protobuf. HTS is currently enabled in previewnet and should be enabled in testnet very soon, so please try it out and let us know if you have any feedback.
+
+A new Helm [chart](https://github.com/hashgraph/hedera-mirror-node/tree/master/charts/hedera-mirror-monitor) was added to run the monitor application. The monitor is still under heavy development so stay tuned.
+
+Most of the other changes were bug fixes. We now use SonarCloud to scan for vulnerabilities and bugs and have addressed all the major items. You can view our SonarCloud [dashboard](https://sonarcloud.io/dashboard?id=hedera-mirror-node) to track our progress. Entities are now only inserted for successful transactions and we fixed the wrong address book being updated. There were multiple issues with the state proof alpha API that were resolved. For the gRPC API, we improved its performance and lowered its CPU usage. Also related to gRPC, we now enable server sent keep alive messages and permit a lower client sent keep alive messages of 90 seconds, which should hopefully address timeout issues that some users have reported.
 
 ## [v0.22.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.22.0)
 
