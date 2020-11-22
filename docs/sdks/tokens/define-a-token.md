@@ -18,7 +18,7 @@ You can set the following properties when creating a token:
 | **Symbol** | The publicly visible token symbol. It is UTF-8 capitalized alphabetical string identifying the token. |
 | **Decimal** | The number of decimal places a token is divisible by. This field can never be changed! |
 | **Initial Supply** | Specifies the initial supply of tokens to be put in circulation.The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible. Max supply: 2^63-1 tokens. |
-| **Treasury Account** | The account which will act as a treasury for the token. This account will receive the specified initial supply. . The Token Treasury Account is required to sign the TokenCreateTransaction. |
+| **Treasury Account** | The account which will act as a treasury for the token. This account will receive the specified initial supply. The Token Treasury Account is required to sign the TokenCreateTransaction. |
 | **Admin Key** | The key which can perform update/delete operations on the token.The Admin Key has the authority to change the Freeze Key, Wipe Key, and KYC Key. It can also update the treasury account.  If empty, the token can be perceived as immutable \(not being able to be updated/deleted\). This key is required to sign transaction if present. |
 | **KYC Key** | The key which can grant or revoke KYC of an account for the token's transactions. If empty, KYC is not required, and KYC grant or revoke operations are not possible.  |
 | **Freeze Key** | The key which can sign to freeze or unfreeze an account for token transactions. If empty, freezing is not possible.  |
