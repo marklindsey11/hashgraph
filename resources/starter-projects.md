@@ -11,7 +11,7 @@ description: Integrations with popular development environments to get you set u
 | Framework | Reference | Developer |
 | :--- | :--- | :--- |
 | Aviator | [GitHub](https://github.com/TxMQ/aviator-core) | Community |
-| Spring | Coming soon! | Community |
+| Spring | [GitHub](https://github.com/rahul-kothari/hedera-starter-spring) | Community |
 | Others | Coming soon! | Community |
 {% endtab %}
 
