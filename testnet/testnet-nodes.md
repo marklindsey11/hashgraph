@@ -62,6 +62,18 @@ Testnet nodes belong to the test network and run the same code as the Hedera mai
       </td>
       <td style="text-align:left">50211</td>
     </tr>
+    <tr>
+      <td style="text-align:left">5</td>
+      <td style="text-align:left"><b>0.0.7</b>
+      </td>
+      <td style="text-align:left">
+        <p>4.testnet.hedera.com</p>
+        <p>34.94.160.4
+          <br />54.176.199.109
+          <br />13.64.181.136</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
   </tbody>
 </table>
 
