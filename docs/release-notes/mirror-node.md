@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.20.0 | 0.21.0 |
+| **Mainnet** | 0.21.0 | 0.22.0 |
 | **Testnet** | 0.23.0 | 0.24.0 |
 | **Previewnet** | 0.23.0 | 0.24.0 |
 
@@ -35,7 +35,13 @@ We also improved our data generator module with support for the majority of HAPI
 This release also includes an improvements to avoid the stale account info bug that stems from balance stream files being received at a slower frequency than record stream files. Now account creations and account info changes will be reflected in REST API call even though the updated balance may not have been received.  
 We also extended our REST API support to include case insensitive support query parameters. `/api/v1/transactions?transactionType=tokentransfers` and `/api/v1/transactions?transactiontype=tokentransfers` are now both acceptable.
 
+## Latest Releases
+
 ## [v0.21.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.21.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: NOVEMBER 24, 2020**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: NOVEMBER 13, 2020**
@@ -68,8 +74,6 @@ We made a lot of strides in improving the ingestion performance in previous rele
 In this release, we add a new notification mechanism without sacrificing speed or latency with our support for Redis pub/sub. With Redis, the mirror node can now ingest at least 10,000 TPS while still remaining under 10 seconds from submitting the topic message and receiving it back via the mirror node's streaming API. Redis is enabled by default, but it can be turned off if HCS latency is not a concern and you want to avoid another runtime dependency.
 
 We also added support for the HAPI protobuf [changes](https://hedera.com/blog/changes-to-hedera-api-hapi-for-v0-8-0-and-v0-9-0) that are coming in v0.9.0. The protobuf is removing two deprecated fields while adding a new `signedTransactionBytes` field. Since the mirror node still needs to support historical transactions we retain support for parsing transactions that contain the old payload format.
-
-## Latest Releases
 
 ## [v0.19.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.19.0)
 
