@@ -14,8 +14,8 @@ You can set the following properties when creating a token:
 
 | Property | Description |
 | :--- | :--- |
-| **Name** | Set the publicly visible name of the token, specified as a string of only ASCII characters. Maximum of 100 characters. |
-| **Symbol** | The publicly visible token symbol. It is UTF-8 capitalized alphabetical string identifying the token. |
+| **Name** | Set the publicly visible name of the token, specified as a string of UTF-8 characters. Maximum of 100 characters. The token name is not unique. |
+| **Symbol** | The publicly visible token symbol. It is UTF-8 capitalized alphabetical string identifying the token. The token symbol is not unique. Maximum of 100 characters. |
 | **Decimal** | The number of decimal places a token is divisible by. This field can never be changed! |
 | **Initial Supply** | Specifies the initial supply of tokens to be put in circulation.The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible. Max supply: 2^63-1 tokens. |
 | **Treasury Account** | The account which will act as a treasury for the token. This account will receive the specified initial supply. The Token Treasury Account is required to sign the TokenCreateTransaction. |
