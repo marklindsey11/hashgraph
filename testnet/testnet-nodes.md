@@ -15,7 +15,7 @@ Testnet nodes belong to the test network and run the same code as the Hedera mai
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">1</td>
+      <td style="text-align:left">0</td>
       <td style="text-align:left"><b>0.0.3</b>
       </td>
       <td style="text-align:left">
@@ -27,7 +27,7 @@ Testnet nodes belong to the test network and run the same code as the Hedera mai
       <td style="text-align:left">50211</td>
     </tr>
     <tr>
-      <td style="text-align:left">2</td>
+      <td style="text-align:left">1</td>
       <td style="text-align:left"><b>0.0.4</b>
       </td>
       <td style="text-align:left">
@@ -39,7 +39,7 @@ Testnet nodes belong to the test network and run the same code as the Hedera mai
       <td style="text-align:left">50211</td>
     </tr>
     <tr>
-      <td style="text-align:left">3</td>
+      <td style="text-align:left">2</td>
       <td style="text-align:left"><b>0.0.5</b>
       </td>
       <td style="text-align:left">
@@ -51,7 +51,7 @@ Testnet nodes belong to the test network and run the same code as the Hedera mai
       <td style="text-align:left">50211</td>
     </tr>
     <tr>
-      <td style="text-align:left">4</td>
+      <td style="text-align:left">3</td>
       <td style="text-align:left"><b>0.0.6</b>
       </td>
       <td style="text-align:left">
@@ -63,7 +63,7 @@ Testnet nodes belong to the test network and run the same code as the Hedera mai
       <td style="text-align:left">50211</td>
     </tr>
     <tr>
-      <td style="text-align:left">5</td>
+      <td style="text-align:left">4</td>
       <td style="text-align:left"><b>0.0.7</b>
       </td>
       <td style="text-align:left">
@@ -107,7 +107,7 @@ Preview testnet nodes belong to the the preview test network. The preview testne
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">1</td>
+      <td style="text-align:left">0</td>
       <td style="text-align:left"><b>0.0.3</b>
       </td>
       <td style="text-align:left">
@@ -119,7 +119,7 @@ Preview testnet nodes belong to the the preview test network. The preview testne
       <td style="text-align:left">50211</td>
     </tr>
     <tr>
-      <td style="text-align:left">2</td>
+      <td style="text-align:left">1</td>
       <td style="text-align:left"><b>0.0.4</b>
       </td>
       <td style="text-align:left">
@@ -131,7 +131,7 @@ Preview testnet nodes belong to the the preview test network. The preview testne
       <td style="text-align:left">50211</td>
     </tr>
     <tr>
-      <td style="text-align:left">3</td>
+      <td style="text-align:left">2</td>
       <td style="text-align:left"><b>0.0.5</b>
       </td>
       <td style="text-align:left">
@@ -143,7 +143,7 @@ Preview testnet nodes belong to the the preview test network. The preview testne
       <td style="text-align:left">50211</td>
     </tr>
     <tr>
-      <td style="text-align:left">4</td>
+      <td style="text-align:left">3</td>
       <td style="text-align:left"><b>0.0.6</b>
       </td>
       <td style="text-align:left">
@@ -151,6 +151,18 @@ Preview testnet nodes belong to the the preview test network. The preview testne
         <p>35.247.109.135</p>
         <p>54.241.38.1</p>
         <p>13.88.22.47</p>
+      </td>
+      <td style="text-align:left">50211</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">4</td>
+      <td style="text-align:left"><b>0.0.7</b>
+      </td>
+      <td style="text-align:left">
+        <p>4.previewnet.hedera.com</p>
+        <p>35.235.65.51</p>
+        <p>54.177.51.127</p>
+        <p>13.64.170.40</p>
       </td>
       <td style="text-align:left">50211</td>
     </tr>
