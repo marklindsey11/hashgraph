@@ -41,7 +41,7 @@ Status transactionStatus = receipt.status;
 
 System.out.println("The transaction consensus status is " +transactionStatus);
 
-//v1.3.2
+//v1.3.3
 
 ```
 {% endtab %}
