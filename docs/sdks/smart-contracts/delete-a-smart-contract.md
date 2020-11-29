@@ -95,5 +95,54 @@ fmt.Printf("The transaction consensus status %v\n", transactionStatus)
 ```
 {% endcode %}
 {% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setContractId(<contractId>)` | ContractId | Sets the contract ID \(x.z.y\) which should be deleted. | Required |
+| `setTransferAccountId(<transferAccountId>)` | AccountId | Sets the account ID \(x.z.y\) which will receive all remaining hbars | Optional |
+| `setTransferContractId(<contractId>)` | ContractId | Sets the contract ID \(x.z.y\) which will receive all remaining hbars. | Optional |
+
+{% code title="Java" %}
+```java
+//Create the transaction
+ContractDeleteTransaction transaction = new ContractDeleteTransaction()
+     .setContractId(newContractId);
+
+//Sign the transaction with the admin key, client operator private key and submit the transaction to a Hedera network
+TransactionId txResponse = transaction.build(client).sign(newAdminKey).execute(client);
+
+//Get the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v1.3.2
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+const transaction = new ContractDeleteTransaction()
+     .setContractId(newContractId);
+
+//Sign the transaction with the admin key, client operator private key and submit the transaction to a Hedera network
+const txResponse = await transaction.build(client).sign(newAdminKey).execute(client);
+
+//Get the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+
+//v1.4.4
+```
+{% endcode %}
+{% endtab %}
 {% endtabs %}
 

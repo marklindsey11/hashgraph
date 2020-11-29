@@ -54,7 +54,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 
 {% code title="JavaScript" %}
-```java
+```javascript
 //Create the transaction
 const transaction = new FileAppendTransaction()
     .setFileId(newFileId)
@@ -64,10 +64,10 @@ const transaction = new FileAppendTransaction()
 const modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2)); 
 
 //Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-const txResponse = modifyMaxTransactionFee.transaction.freezeWith(client).sign(key).execute(client);
+const txResponse = await modifyMaxTransactionFee.transaction.freezeWith(client).sign(key).execute(client);
 
 //Request the receipt
-const receipt = txResponse.getReceipt(client);
+const receipt = await txResponse.getReceipt(client);
 
 //Get the transaction consensus status
 const transactionStatus = receipt.status;
