@@ -1,34 +1,46 @@
 # Get topic info
 
-Subscribe to a topic ID's messages from a mirror node. You will recieve all messages for the specified topic or within the defined start and end time.
+Topic info returns the the following values for a topic.  Queries do not change the state of the topic or require network consensus. The information is returned from a single node processing the query.
+
+**Topic Info Response:**
+
+| **Field** | **Description** |
+| :--- | :--- |
+| **Topic ID** | The ID of the topic |
+| **Admin Key** | Access control for update/delete of the topic. Null if there is no key. |
+| **Submit Key** | Access control for ConsensusService.submitMessage. Null if there is no key. |
+| **Sequence Number** | Current sequence number \(starting at 1 for the first submitMessage\) of messages on the topic. |
+| **Running Hash** | SHA-384 running hash  |
+| **Expiration Time** | Effective consensus timestamp at \(and after\) which submitMessage calls will no longer succeed on the topic and the topic will expire and be marked as deleted. |
+| **Topic Memo** | Short publicly visible memo about the topic. No guarantee of uniqueness. |
+| **Auto Renew Period** | The lifetime of the topic and the amount of time to extend the topic's lifetime by |
+| **Auto Renew Account** | Null if there is no autoRenewAccount.  |
 
 {% tabs %}
 {% tab title="V2" %}
 | Constructor | Description |
 | :--- | :--- |
-| `new TopicMessageQuery()` | Initializes the TopicMessageQuery object |
+| `new TopicInfoQuery()` | Initializes the TopicInfoQuery object |
 
 ```java
-new TopicMessageQuery()
+new TopicInfoQuery()
 ```
-
-### Methods
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTopicId` | TopicId | The topic ID to subsribe to | Required |
-| `setStartTime` | Instant | The time to start subscribing to a topic's messages | Optional |
-| `setEndTime` | Instant | The time to stop subscribing to a topic's messages | Optional |
-| `setLimit` | long | The number of messages to return | Optional |
-| `subscribe(<client, onNext)` | SubscriptionHandle | Client, Consumer&lt;TopicMessage&gt; | Required |
+| `setTopicId(<topicId>)` | TopicId | The ID of the topic to get information for | Required |
 
 {% code title="Java" %}
 ```java
-new TopicMessageQuery()
-    .setTopicId(newTopicId)
-    .subscribe(client, topicMessage -> {
-        System.out.println("at " + topicMessage.consensusTimestamp + " ( seq = " + topicMessage.sequenceNumber + " ) received topic message of " + topicMessage.contents.length + " bytes");
-    });
+//Create the account info query
+TopicInfoQuery query = new TopicInfoQuery()
+    .setTopicId(newTopicId);
+
+//Submit the query to a Hedera network
+TopicInfo info = query.execute(client);
+
+//Print the account key to the console
+System.out.println(info);
 
 //v2.0.0
 ```
@@ -36,85 +48,104 @@ new TopicMessageQuery()
 
 {% code title="JavaScript" %}
 ```javascript
-new TopicMessageQuery()
-        .setTopicId(topicId)
-        .setStartTime(0)
-        .subscribe(
-            client,
-            (message) => console.log(Buffer.from(message.contents, "utf8").toString())
-        );
+//Create the account info query
+const query = new TopicInfoQuery()
+    .setTopicId(newTopicId);
+
+//Submit the query to a Hedera network
+const info = await query.execute(client);
+
+//Print the account key to the console
+console.log(info);
+
 //v2.0.0
 ```
 {% endcode %}
 
 {% code title="Go" %}
-```java
-_, err = hedera.NewTopicMessageQuery().
-	SetTopicID(topicID).
-	Subscribe(client, func(message hedera.TopicMessage) {
-		if string(message.Contents) == content {
-		wait = false
-	}
-})
+```go
+//Create the account info query
+query, err := hedera.NewTopicInfoQuery().
+		SetTopicID(topicID)
 
+//Submit the query to a Hedera network
+info, err := query.Execute(client)
 if err != nil {
-	panic(err)
+		panic(err)
 }
+
+//Print the account key to the console
+println(info)
 
 //v2.0.0
 ```
 {% endcode %}
+
+**Sample Output:**
+
+`TopicInfo{  
+     topicId=0.0.102736,   
+     topicMemo=,   
+     runningHash=[   
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,            0. 0, 0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0  
+     ],   
+     sequenceNumber=0,   
+     expirationTime=2021-02-09T03:17:07.258292001Z,   
+     adminKey=null,   
+     submitKey=null,   
+     autoRenewPeriod=PT2160H,   
+     autoRenewAccountId=null  
+}`
 {% endtab %}
 
 {% tab title="V1" %}
-
-
 | Constructor | Description |
 | :--- | :--- |
-| `new MirrorConsensusTopicQuery()` | Initializes the MirrorConsensusTopicQuery object |
+| `new ConsensusTopicInfoQuery()` | Initializes the ConsensusTopicInfoQuery object |
 
 ```java
-new MirrorConsensusTopicQuery()
+new ConsensusTopicInfoQuery()
 ```
 
-### Methods
+
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTopicId` | TopicId | The topic ID to subsribe to | Required |
-| `setStartTime` | Instant | The time to start subscribing to a topic's messages | Optional |
-| `setEndTime` | Instant | The time to stop subscribing to a topic's messages | Optional |
-| `setLimit` | long | The number of messages to return | Optional |
-| `subscribe(<mirrorClient,onNext onError)` | MirrorClient, Consumer&lt;MirrorConsensusTopicResponse&gt;, Consumer&lt;Throwable&gt; | Subscribe and get the  messages for a topic | Required |
+| `setTopicId(<topicId>)` | TopicId | The ID of the topic to get information for | Required |
 
 {% code title="Java" %}
 ```java
-new MirrorConsensusTopicQuery()
-    .setTopicId(topicId)
-    .subscribe(mirrorClient, resp -> {
-                String messageAsString = new String(resp.message, StandardCharsets.UTF_8);
+//Create the account info query
+TopicInfoQuery query = new TopicInfoQuery()
+    .setTopicId(newTopicId);
 
-                System.out.println(resp.consensusTimestamp + " received topic message: " + messageAsString);
-            },
-            // On gRPC error, print the stack trace
-            Throwable::printStackTrace);
+//Submit the query to a Hedera network
+TopicInfo info = query.execute(client);
+
+//Print the account key to the console
+System.out.println(info);
+
 //v1.3.2
 ```
 {% endcode %}
 
 {% code title="JavaScript" %}
 ```javascript
-new MirrorConsensusTopicQuery()
-    .setTopicId(topicId)
-    .subscribe(
-        consensusClient,
-        (message) => console.log(message.toString()),
-        (error) => console.log(`Error: ${error}`)
-    );
+//Create the account info query
+const query = new TopicInfoQuery()
+    .setTopicId(newTopicId);
+
+//Submit the query to a Hedera network
+const info = await query.execute(client);
+
+//Print the account key to the console
+console.log(info);
+
+//v1.4.4
 ```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
-## 
+
 
