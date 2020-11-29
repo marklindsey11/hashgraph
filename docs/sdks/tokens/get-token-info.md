@@ -153,6 +153,7 @@ new TokenInfoQuery()
 {% tabs %}
 {% tab title="Java" %}
 ```java
+//Create the query
 TokenInfoQuery tokenInfo = new TokenInfoQuery()
     .setTokenId(newTokenId);
 
@@ -165,9 +166,11 @@ System.out.println("The total supply of this token is " +totalSupply)
 
 {% tab title="JavaScript" %}
 ```javascript
+//Create the query
 const tokenInfo = new TokenInfoQuery()
     .setTokenId(newTokenId);
 
+//Submit the query to the network and obtain the token supply
 const totalSupply = await tokenInfo.execute(client).totalSupply;
 console.log("The total supply of this token is " +totalSupply)
 //Version 1.4.3
