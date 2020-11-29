@@ -63,6 +63,7 @@ const getReceipt = await transactionId.getReceipt(client);
 const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status " +transactionStatus);
+//Version 1.3.2
 ```
 {% endtab %}
 {% endtabs %}
