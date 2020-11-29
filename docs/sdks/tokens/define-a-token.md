@@ -167,7 +167,7 @@ TransactionReceipt getReceipt = transactionId.getReceipt(client);
 //Obtain the token ID
 TokenId tokenId = getReceipt.getTokenId();
 
-System.out.println("The new token ID is " +newTokenId);
+System.out.println("The new token ID is " +tokenId);
 //Version: 1.2.2
 ```
 {% endtab %}
@@ -191,7 +191,7 @@ const getReceipt = await transactionId.getReceipt(client);
 //Obtain the token ID
 const tokenId = getReceipt.getTokenId();
 
-console.log("The new token ID is " +newTokenId);
+console.log("The new token ID is " +tokenId);
 //Version: 1.4.2
 ```
 {% endtab %}
