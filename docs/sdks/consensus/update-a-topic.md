@@ -71,7 +71,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create a transaction to add a submit key
-const transaction = await new TopicUpdateTransaction()
+const transaction = new TopicUpdateTransaction()
     .setSubmitKey(submitKey);
 
 //Sign the transaction with the admin key to authorize the update
