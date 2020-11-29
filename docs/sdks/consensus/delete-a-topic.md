@@ -47,7 +47,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = await new TopicDeleteTransaction()
+const transaction = new TopicDeleteTransaction()
     .setTopicId(newTopicId);
         
 //Sign the transaction with the admin key, sign with the client operator and submit the transaction to a Hedera network, get the transaction ID
