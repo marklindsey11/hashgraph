@@ -8,7 +8,7 @@ The account must be associated to the token prior to transfering tokens to that 
 
 | Constructor | Description |
 | :--- | :--- |
-| `new TransferTransaction()` | Initializes a TokenTransferTransaction object |
+| `new TransferTransaction()` | Initializes a TransferTransaction object |
 
 ```java
 new TransferTransaction()
@@ -63,7 +63,6 @@ const getReceipt = await transactionId.getReceipt(client);
 const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status " +transactionStatus);
-//Version 1.3.2
 ```
 {% endtab %}
 {% endtabs %}
