@@ -11,7 +11,7 @@ The account must be associated to the token prior to transfering tokens to that 
 | `new TransferTransaction()` | Initializes a TokenTransferTransaction object |
 
 ```java
-new TokenTransferTransaction()
+new TransferTransaction()
 ```
 
 ### Methods
@@ -25,7 +25,7 @@ new TokenTransferTransaction()
 {% tab title="Java" %}
 ```java
 //Create the transfer transaction
-TransferTransaction transaction1 = new TransferTransaction()
+TransferTransaction transaction = new TransferTransaction()
     .addTokenTransfer(tokenId, OPERATOR_ID, new Hbar(10))
     .addTokenTransfer(tokenId, accountId, new Hbar(10));
 
