@@ -34,7 +34,7 @@ TokenAssociateTransaction transaction = new TokenAssociateTransaction()
         .addTokenId(tokenId);
 
 //Build the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
-TransacionId transactionId = transaction.build(client).sign(accountKey).execute(client);
+TransactionId transactionId = transaction.build(client).sign(accountKey).execute(client);
     
 //Request the receipt of the transaction
 TransactionReceipt getReceipt = transactionId.getReceipt(client);

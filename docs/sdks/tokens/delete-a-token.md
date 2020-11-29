@@ -24,7 +24,7 @@ TokenDeleteTransaction transaction = new TokenDeleteTransaction()
     .setTokenId(newTokenId);
 
 //Build the unsigned transaction, sign with the admin private key of the account, submit the transaction to a Hedera network
-TransacionId transactionId = transaction.build(client).sign(adminKey).execute(client);
+TransactionId transactionId = transaction.build(client).sign(adminKey).execute(client);
     
 //Request the receipt of the transaction
 TransactionReceipt getReceipt = transactionId.getReceipt(client);

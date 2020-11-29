@@ -34,7 +34,7 @@ TokenUnfreezeTransaction transaction = new TokenUnfreezeTransaction()
     .setTokenId(newTokenId);
 
 //Build the unsigned transaction, sign with the sender freeze private key of the token, submit the transaction to a Hedera network
-TransacionId transactionId = transaction.build(client).sign(freezeKey).execute(client);
+TransactionId transactionId = transaction.build(client).sign(freezeKey).execute(client);
     
 //Request the receipt of the transaction
 TransactionReceipt getReceipt = transactionId.getReceipt(client);

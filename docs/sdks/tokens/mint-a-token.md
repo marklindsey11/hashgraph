@@ -26,7 +26,7 @@ TokenMintTransaction transaction = new TokenMintTransaction()
     .setAmount(1000);
 
 //Build the unsigned transaction, sign with the supply private key of the token, submit the transaction to a Hedera network
-TransacionId transactionId = transaction.build(client).sign(supplyKey).execute(client);
+TransactionId transactionId = transaction.build(client).sign(supplyKey).execute(client);
     
 //Request the receipt of the transaction
 TransactionReceipt getReceipt = transactionId.getReceipt(client);

@@ -34,7 +34,7 @@ TokenRevokeKycTransaction transaction = new TokenRevokeKycTransaction()
     .setAccountId(newAccountId);
 
 //Build the unsigned transaction, sign with the kyc private key of the token, submit the transaction to a Hedera network
-TransacionId transactionId = transaction.build(client).sign(kycKey).execute(client);
+TransactionId transactionId = transaction.build(client).sign(kycKey).execute(client);
     
 //Request the receipt of the transaction
 TransactionReceipt getReceipt = transactionId.getReceipt(client);
