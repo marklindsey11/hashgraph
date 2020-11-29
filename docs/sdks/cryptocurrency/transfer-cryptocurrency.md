@@ -143,10 +143,10 @@ const transaction1 = new TransferTransaction()
 
 
 //Sign with the client operator key and submit the transaction to a Hedera network
-const txId = transaction.execute(client);
+const txId = await transaction.execute(client);
         
 //Request the receipt of the transaction
-const receipt = txId.getReceipt(client);
+const receipt = await txId.getReceipt(client);
 
 //Get the transaction consensus status
 const transactionStatus = receipt.status;

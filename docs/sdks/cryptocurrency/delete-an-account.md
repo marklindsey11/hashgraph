@@ -132,10 +132,10 @@ const transaction = new AccountDeleteTransaction()
     .setTransferAccountId(OPERATOR_ID);
 
 //Build the unsigned transaction, sign with account key, sign with the client operator account private key and submit to a Hedera network
-const txId = transaction.build(client).sign(newKey).execute(client);
+const txId = await transaction.build(client).sign(newKey).execute(client);
         
 //Request the receipt of the transaction
-const receipt = txId.getReceipt(client);
+const receipt = await txId.getReceipt(client);
         
 //Get the transaction consensus status
 const transactionStatus = receipt.status;

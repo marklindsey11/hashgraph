@@ -119,7 +119,7 @@ System.out.println("The new account ID is " +newAccountId);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = await new AccountCreateTransaction()
+const transaction = new AccountCreateTransaction()
     .setKey(privateKey.getPublicKey())
     .setInitialBalance(new Hbar(1000));
 

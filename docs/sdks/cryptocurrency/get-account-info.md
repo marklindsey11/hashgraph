@@ -66,13 +66,13 @@ System.out.println(accountInfo);
 {% endcode %}
 
 {% code title="JavaScript" %}
-```java
+```javascript
 //Create the account info query
 const query = new AccountInfoQuery()
     .setAccountId(newAccountId);
 
 //Sign with client operator private key and submit the query to a Hedera network
-const accountInfo = query.execute(client);
+const accountInfo = await query.execute(client);
 
 //Print the account info to the console
 console.log(accountInfo);

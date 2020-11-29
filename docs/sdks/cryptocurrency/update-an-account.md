@@ -109,24 +109,22 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 
 {% code title="JavaScript" %}
-```java
+```javascript
 //Create the transaction to update the key on the account
 const transaction = new AccountUpdateTransaction()
     .setAccountId(accountId)
     .setKey(updateKey);
 
 //Sign the transaction with the old key and new key, submit to a Hedera network   
-const txResponse = transaction.freezeWith(client).sign(oldKey).sign(newKey).execute(client);
+const txResponse = await transaction.freezeWith(client).sign(oldKey).sign(newKey).execute(client);
 
 //Request the reciept of the transaction
-const receipt = txResponse.getReceipt(client);
+const receipt = await txResponse.getReceipt(client);
 
 //Get the transaction consensus status
 const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
-
-
 ```
 {% endcode %}
 
