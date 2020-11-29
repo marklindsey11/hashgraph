@@ -34,13 +34,13 @@ ByteString bytecode = query.execute(client);
 {% endcode %}
 
 {% code title="JavaScript" %}
-```java
+```javascript
 //Create the query
 const query = new ContractByteCodeQuery()
     .setContractId(newContractId);
 
 //Sign with the client operator private key and submit to a Hedera network
-const bytecode = query.execute(client);
+const bytecode = await query.execute(client);
 ```
 {% endcode %}
 
