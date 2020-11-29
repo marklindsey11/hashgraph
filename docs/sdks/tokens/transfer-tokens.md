@@ -26,8 +26,8 @@ new TransferTransaction()
 ```java
 //Create the transfer transaction
 TransferTransaction transaction = new TransferTransaction()
-    .addTokenTransfer(tokenId, OPERATOR_ID, new Hbar(10))
-    .addTokenTransfer(tokenId, accountId, new Hbar(10));
+    .addTokenTransfer(tokenId, OPERATOR_ID, 10)
+    .addTokenTransfer(tokenId, accountId, 10);
 
 
 //Sign with the client operator key and submit the transaction to a Hedera network
@@ -63,7 +63,6 @@ const getReceipt = await transactionId.getReceipt(client);
 const transactionStatus = getReceipt.status;
 
 console.log("The transaction consensus status " +transactionStatus);
-//Version 1.3.2
 ```
 {% endtab %}
 {% endtabs %}
