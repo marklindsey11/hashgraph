@@ -20,7 +20,7 @@ new TokenBurnTransaction()
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
 | `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The ID of the token to burn supply | Required |
-| `setTokenAmount(<amount>)` | long | The number of tokens to burn | Required |
+| `setAmount(<amount>)` | long | The number of tokens to burn | Required |
 
 {% tabs %}
 {% tab title="Java" %}
