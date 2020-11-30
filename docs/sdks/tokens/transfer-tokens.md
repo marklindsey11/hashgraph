@@ -18,8 +18,8 @@ new TransferTransaction()
 
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `addHbarTransfer(<accountId, value>)` | AccountID, Hbar/long | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
-| `addTokenTransfer(<tokenId, accountId,value>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer |
+| `addHbarTransfer(<accountId, value>)` | AccountID, Hbar/long | Add the from and to account to transfer hbars \(you will need to call this method twice\). The sending account must sign the transaction. The sender and recipient values must net zero. |
+| `addTokenTransfer(<tokenId, accountId,value>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), long | Add the from and to account to transfer tokens \(you will need to call this method twice\).The ID of the token, the account ID to transfer the tokens from or to, and the value of the token to transfer. The sender and recipient values must net zero. |
 
 {% tabs %}
 {% tab title="Java" %}
