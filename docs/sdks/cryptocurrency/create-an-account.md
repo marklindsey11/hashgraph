@@ -120,7 +120,7 @@ System.out.println("The new account ID is " +newAccountId);
 ```javascript
 //Create the transaction
 const transaction = new AccountCreateTransaction()
-    .setKey(privateKey.getPublicKey())
+    .setKey(privateKey.PublicKey())
     .setInitialBalance(new Hbar(1000));
 
 //Sign the transaction with the client operator private key and submit to a Hedera network
