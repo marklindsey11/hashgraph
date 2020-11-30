@@ -33,13 +33,13 @@ System.println(keyStructure)
 ```java
 //Generate 3 keys
 const key1 = PrivateKey.generate();
-const publicKey1 = key1.getPublicKey();
+const publicKey1 = key1.publicKey();
 
 const key2 = PrivateKey.generate();
-const publicKey2 = key2.getPublicKey();
+const publicKey2 = key2.publicKey();
 
 const key3 = PrivateKey.generate();
-const publicKey3 = key3.getPublicKey();
+const publicKey3 = key3.publicKey();
 
 //Create a key list where all 3 keys are required to sign
 const keyStructure = KeyList.of(key1, key2, key3);
