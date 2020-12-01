@@ -213,9 +213,9 @@ const receipt = await txId.getReceipt(client);
 //Get the new account ID
 const newAccountId =  receipt.getAccountId();
 
-System.out.println("The new account ID is " +newAccountId);
+console.log("The new account ID is " +newAccountId);
 
-//v2.0.0
+//v1.4.4
 ```
 {% endcode %}
 {% endtab %}
