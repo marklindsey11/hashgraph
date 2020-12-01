@@ -44,12 +44,16 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction to delete an account
-const transaction = new AccountDeleteTransaction()
+const transaction = await new AccountDeleteTransaction()
     .setAccountId(accountId)
-    .setTransferAccountId(OPERATOR_ID);
+    .setTransferAccountId(OPERATOR_ID)
+    .freezeWith(client);
 
-//Freeze the transaction for signing, sign with the private key of the account that will be deleted, sign with the operator key and submit to a Hedera network
-const  txResponse = await transaction.freezeWith(client).sign(newKey).execute(client);
+//Sign the transaction with the account key
+const signTx = await transaction.sign(accountKey);
+    
+//Sign with the client operator private key and submit to a Hedera network
+const txResponse = await signTx.execute(client);
 
 //Request the receipt of the transaction
 const receipt = await txResponse.getReceipt(client);
@@ -59,7 +63,7 @@ const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
 
-//2.0.0
+//2.0.5
 ```
 {% endcode %}
 

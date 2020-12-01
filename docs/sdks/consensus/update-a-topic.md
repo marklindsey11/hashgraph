@@ -71,13 +71,14 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create a transaction to add a submit key
-const transaction = new TopicUpdateTransaction()
-    .setSubmitKey(submitKey);
+const transaction = await new TopicUpdateTransaction()
+    .setSubmitKey(submitKey
+    .freezeWith(client);
 
 //Sign the transaction with the admin key to authorize the update
-const signTx = transaction.freezeWith(client).sign(adminKey);
-
-//Sign the transaction with the client operator, submit to a Hedera network, get the transaction ID
+const signTx = await transaction.sign(adminKey);
+    
+//Sign with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
 
 //Request the receipt of the transaction

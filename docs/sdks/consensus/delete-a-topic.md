@@ -47,11 +47,15 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = new TopicDeleteTransaction()
-    .setTopicId(newTopicId);
+const transaction = await new TopicDeleteTransaction()
+    .setTopicId(newTopicId)
+    .freezeWith(client);
         
-//Sign the transaction with the admin key, sign with the client operator and submit the transaction to a Hedera network, get the transaction ID
-const txResponse = await transaction.freezeWith(client).sign(adminKey).execute(client);
+//Sign the transaction with the admin key
+const signTx = await transaction.sign(adminKey);
+    
+//Sign with the client operator private key and submit to a Hedera network
+const txResponse = await signTx.execute(client);
 
 //Request the receipt of the transaction
 const receipt = await txResponse.getReceipt(client);
@@ -61,7 +65,7 @@ const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
 
-//v2.0.0
+//v2.0.5
 ```
 {% endcode %}
 
