@@ -56,15 +56,17 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = new FileAppendTransaction()
+const transaction = await new FileAppendTransaction()
     .setFileId(newFileId)
-    .setContents("The appended contents");
+    .setContents("The appended contents")
+    .setMaxTransactionFee(new Hbar(2))
+    .freezeWith(client);
 
-//Change the default max transaction fee to 2 hbars
-const modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2)); 
+//Sign with the file private key
+const signTx = await transaction.sign(fileKey);
 
-//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-const txResponse = await modifyMaxTransactionFee.transaction.freezeWith(client).sign(key).execute(client);
+//Sign with the client operator key and submit to a Hedera network
+const txResponse = await signTx.execute(client);
 
 //Request the receipt
 const receipt = await txResponse.getReceipt(client);
@@ -73,6 +75,8 @@ const receipt = await txResponse.getReceipt(client);
 const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
+
+//v2.0.5
 ```
 {% endcode %}
 
