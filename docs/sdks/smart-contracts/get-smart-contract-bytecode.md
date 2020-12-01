@@ -26,7 +26,7 @@ new ContractByteCodeQuery()
 ```java
 //Create the query
 ContractByteCodeQuery query = new ContractByteCodeQuery()
-    .setContractId(newContractId);
+    .setContractId(contractId);
 
 //Sign with the client operator private key and submit to a Hedera network
 ByteString bytecode = query.execute(client);
@@ -37,7 +37,7 @@ ByteString bytecode = query.execute(client);
 ```javascript
 //Create the query
 const query = new ContractByteCodeQuery()
-    .setContractId(newContractId);
+    .setContractId(contractId);
 
 //Sign with the client operator private key and submit to a Hedera network
 const bytecode = await query.execute(client);
