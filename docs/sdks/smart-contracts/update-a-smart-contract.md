@@ -64,18 +64,19 @@ System.out.println("The consensus status of the transaction is " +transactionSta
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = new ContractUpdateTransaction()
+const transaction = await new ContractUpdateTransaction()
     .setContractId(contractId)
-    .setAdminKey(adminKey);
+    .setAdminKey(adminKey)
+    .setMaxTransactionFee(new Hbar(20))
+    .freezeWith(client);
 
-//Modify the default transaction fee
-const modifyTransactionFee = transaction.setMaxTransactionFee(new Hbar(20));
+//Sign the transaction with the old admin key and new admin key
+const signTx = await transaction.sign(newAdminKey).sign(adminKey);
 
-//Freeze the transaction, sign with the new admin key, sign with the old admin key, sign with the client operator account and submit to a Hedera network
-const txResponse = await modifyTransactionFee.freezeWith(client).sign(newAdminKey).sign(adminKey).execute(client);
+//Sign the transaction with the client operator private key and submit to a Hedera network
+const txResponse = await signTx.execute(client);
 
 //Request the receipt of the transaction
-
 const receipt = await txResponse.getReceipt(client)
 
 //Get the consensus status of the transaction
@@ -83,7 +84,7 @@ const transactionStatus = receipt.status;
 
 console.log("The consensus status of the transaction is " +transactionStatus);
 
-//v2.0.0
+//v2.0.5
 ```
 {% endcode %}
 
