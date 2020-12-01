@@ -29,7 +29,7 @@ new ContractDeleteTransaction()
 ```java
 //Create the transaction
 ContractDeleteTransaction transaction = new ContractDeleteTransaction()
-    .setContractId(newContractId);
+    .setContractId(contractId);
 
 //Freeze the transaction for signing, sign with the admin key on the contract, sign with the client operator private key and submit to a Hedera network
 TransactionResponse txResponse = transaction.freezeWith(client).sign(adminKey).execute(client);
@@ -50,7 +50,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 ```javascript
 //Create the transaction
 const transaction = await new ContractDeleteTransaction()
-    .setContractId(newContractId)
+    .setContractId(contractId)
     .freezeWith(client);
 
 //Sign with the admin key on the contract
@@ -75,7 +75,7 @@ console.log("The transaction consensus status is " +transactionStatus);
 ```java
 //Create and freeze the transaction
 transaction := hedera.NewContractDeleteTransaction().
-	  SetContractID(newContractID)
+	  SetContractID(contractID)
 	  FreezeWith(client)
 	
 //Sign with the admin key on the contract, sign with the client operator private key and submit to a Hedera network
