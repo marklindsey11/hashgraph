@@ -50,7 +50,7 @@ FileUpdateTransaction transaction = new FileUpdateTransaction()
 //Modify the max transaction fee
 FileUpdateTransaction txFee = transaction.setMaxTransactionFee(new Hbar(3));
 
-//Freeze the transaction, sign with the original key, sign with the new key, sign with the client opeator key and submit the transaction to a Hedera network
+//Freeze the transaction, sign with the original key, sign with the new key, sign with the client operator key and submit the transaction to a Hedera network
 TransactionResponse txResponse = txFee.freezeWith(client).sign(fileKey).sign(newKey).execute(client);
 
 //Get the receipt of the transaction
@@ -68,23 +68,27 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = new FileUpdateTransaction()
+const transaction = await new FileUpdateTransaction()
     .setFileId(fileId)
-    .setKeys(newKey);
-        
-//Modify the max transaction fee
-const txFee = transaction.setMaxTransactionFee(new Hbar(3));
+    .setContents("The new contents")
+    .setMaxTransactionFee(new Hbar(2))
+    .freezeWith(client);
 
-//Freeze the transaction, sign with the original key, sign with the new key, sign with the client opeator key and submit the transaction to a Hedera network
-TransactionResponse txResponse = await txFee.freezeWith(client).sign(fileKey).sign(newKey).execute(client);
+//Sign with the file private key
+const signTx = await transaction.sign(fileKey);
 
-//Get the receipt of the transaction
-const receipt = await txResponse.getReceipt(client);
+//Sign with the client operator private key and submit to a Hedera network
+const submitTx = await signTx.execute(client);
 
-//Get the transaction consensus status
-const transactionStatus = receipt.status;
+//Request the receipt
+const receipt = await submitTx.getReceipt(client);
 
-console.log("The transaction consensus status is " +transactionStatus);
+//Get the file ID
+const newFileId = receipt.fileId;
+
+console.log("The new file ID is: " + newFileId);
+
+//v2.0.5
 ```
 {% endcode %}
 
