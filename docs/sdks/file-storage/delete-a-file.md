@@ -50,22 +50,26 @@ System.out.println("The transaction consensus status is " + transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = new FileDeleteTransaction()
-    .setFileId(newFileId);
+const transaction = await new FileDeleteTransaction()
+    .setFileId(fileId)
+    .setMaxTransactionFee(new Hbar(2))
+    .freezeWith(client);
 
-//Modify the default max transaction fee to from 1 to 2 hbars
-const modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2));
+//Sign with the file private key
+const signTx = await transaction.sign(fileKey);
 
-//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-const txResponse = await modifyMaxTransactionFee.freezeWith(client).sign(key).execute(client);
+//Sign with the client operator private key and submit to a Hedera network
+const submitTx = await signTx.execute(client);
 
 //Request the receipt
-const receipt = await txResponse.getReceipt(client);
+const receipt = await submitTx.getReceipt(client);
 
 //Get the transaction consensus status
 const transactionStatus = receipt.status;
 
-console.log("The transaction consensus status is " + transactionStatus);
+console.log("The transaction consensus status " +transactionStatus3.toString());
+
+//v2.0.5
 ```
 {% endcode %}
 

@@ -49,10 +49,7 @@ const query = new FileContentsQuery()
 //Sign with client operator private key and submit the query to a Hedera network
 const contents = await query.execute(client);
 
-//Change to Utf-8 encoding
-const contentsToUtf8 = contents.toStringUtf8();
-
-console.log(contentsToUtf8);
+console.log(contents);
 ```
 {% endcode %}
 

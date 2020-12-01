@@ -83,10 +83,10 @@ const submitTx = await signTx.execute(client);
 //Request the receipt
 const receipt = await submitTx.getReceipt(client);
 
-//Get the file ID
-const newFileId = receipt.fileId;
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
 
-console.log("The new file ID is: " + newFileId);
+console.log("The transaction consensus status " +transactionStatus3.toString());
 
 //v2.0.5
 ```
