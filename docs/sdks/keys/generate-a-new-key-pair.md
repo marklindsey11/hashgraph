@@ -26,7 +26,7 @@ System.out.println("public = " + publicKey);
 {% code title="JavaScript" %}
 ```javascript
 const privateKey = await PrivateKey.generate();
-const publicKey = privateKey.publicKey();
+const publicKey = privateKey.publicKey;
 
 console.log("private = " + privateKey);
 console.log("public = " + publicKey);
@@ -61,7 +61,7 @@ public key = 302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a297697ad
 | **Method**  | Type | Description |
 | :--- | :--- | :--- |
 | `Ed25519PrivateKey.generate()` | Ed25519PrivateKey | Generates a Ed25519 private key |
-| `Ed25519PrivateKey.generate().publicKey()` | Ed25519PublicKey | Gets the corresponding public key to the generated private key |
+| `Ed25519PrivateKey.generate().publicKey` | Ed25519PublicKey | Gets the corresponding public key to the generated private key |
 
 {% code title="Java" %}
 ```java
