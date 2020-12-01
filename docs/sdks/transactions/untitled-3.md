@@ -31,17 +31,14 @@ AccountCreateTransaction signedTransaction = freezeTransaction
 {% code title="JavaScript" %}
 ```javascript
 //Create any transaction
-const transaction = new AccountUpdateTransaction()
+const transaction = await new AccountUpdateTransaction()
      .setAccountId(accountId)
-     .setKey(key);
-
-//Freeze the transaction for signing
-const freezeTransaction = transaction.freezeWith(client);
+     .setKey(key)
+     .freezeWith(client);
 
 //Sign the transaction with a private key
-const signedTransaction = freezeTransaction
+const signedTransaction = transaction
     .sign(PrivateKey.fromString("302e020100300506032b65700422042012a4a4add3d885bd61d7ce5cff88c5ef2d510651add00a7f64cb90de3359bc5c");
-
 ```
 {% endcode %}
 
