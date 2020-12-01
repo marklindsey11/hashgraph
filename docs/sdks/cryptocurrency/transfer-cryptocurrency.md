@@ -115,7 +115,6 @@ TransferTransaction transaction1 = new TransferTransaction()
     .addHbarTransfer(OPERATOR_ID, new Hbar(10))
     .addHbarTransfer(newAccountId, new Hbar(10));
 
-
 //Sign with the client operator key and submit the transaction to a Hedera network
 TransactionId txId = transaction.execute(client);
         
@@ -128,7 +127,6 @@ Status transactionStatus = receipt.status;
 System.out.println("The transaction consensus status is " +transactionStatus);
 
 //v1.3.2
-
 ```
 {% endcode %}
 
@@ -138,7 +136,6 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 const transaction1 = new TransferTransaction()
     .addHbarTransfer(OPERATOR_ID, new Hbar(10))
     .addHbarTransfer(newAccountId, new Hbar(10));
-
 
 //Sign with the client operator key and submit the transaction to a Hedera network
 const txId = await transaction.execute(client);
