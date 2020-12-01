@@ -45,8 +45,8 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 ```javascript
 // Create a transaction to transfer 100 hbars
 const transaction = new TransferTransaction()
-    .addSender(OPERATOR_ID, new Hbar(-100))
-    .addRecipient(newAccountId, new Hbar(100));
+    .addHbarTransfer(OPERATOR_ID, new Hbar(-100))
+    .addHbarTransfer(newAccountId, new Hbar(100));
     
 //Submit the transaction to a Hedera network
 const txResponse = await transaction.execute(client);
@@ -57,7 +57,7 @@ const receipt = await txResponse.getReceipt(client);
 //Get the transaction consensus status
 const transactionStatus = receipt.status;
 
-console.log("The transaction consensus status is " +transactionStatus);
+console.log("The transaction consensus status is " +transactionStatus.toString());
 
 //v2.0.0
 ```
