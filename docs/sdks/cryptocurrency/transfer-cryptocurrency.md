@@ -133,7 +133,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transfer transaction
-const transaction1 = new TransferTransaction()
+const transaction = new TransferTransaction()
     .addHbarTransfer(OPERATOR_ID, new Hbar(10))
     .addHbarTransfer(newAccountId, new Hbar(10));
 

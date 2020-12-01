@@ -202,7 +202,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 //Create the transaction to update the key on the account
 const transaction = new AccountUpdateTransaction()
     .setAccountId(accountId)
-    .setKey(updateKey);
+    .setKey(newKey);
 
 //Sign the transaction with the old key and new key, submit to a Hedera network   
 const txId = await transaction.build(client).sign(oldKey).sign(newKey).execute(client);
@@ -214,12 +214,12 @@ const receipt = await txId.getReceipt(client);
 const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
+
+//v1.4.4
 ```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 ## Get transaction values
 
