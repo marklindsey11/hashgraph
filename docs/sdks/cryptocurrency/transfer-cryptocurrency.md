@@ -44,8 +44,8 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 // Create a transaction to transfer 100 hbars
-const transaction = new CryptoTransferTransaction()
-    .addSender(OPERATOR_ID, new Hbar(100))
+const transaction = new TransferTransaction()
+    .addSender(OPERATOR_ID, new Hbar(-100))
     .addRecipient(newAccountId, new Hbar(100));
     
 //Submit the transaction to a Hedera network
