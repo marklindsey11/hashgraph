@@ -128,7 +128,7 @@ const receipt = await txResponse.getReceipt(client);
 //Get the transaction consensus status
 const transactionStatus = receipt.status;
 
-console.log("The transaction consensus status is " +transactionStatus);
+console.log("The transaction consensus status is " +transactionStatus.toString());
 
 //v2.0.5
 ```
