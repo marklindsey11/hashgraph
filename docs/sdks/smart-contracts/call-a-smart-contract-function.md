@@ -30,7 +30,7 @@ new ContractCallQuery()
 ```java
 //Contract call query
 ContractCallQuery query = new ContractCallQuery()
-    .setContractId(newContractId)
+    .setContractId(contractId)
     .setGas(600)
     .setFunction("greet");
 
@@ -46,7 +46,7 @@ System.out.println(contractFunctionResult);
 ```javascript
 //Contract call query
 const query = new ContractCallQuery()
-    .setContractId(newContractId)
+    .setContractId(contractId)
     .setGas(600)
     .setFunction("greet");
 
@@ -61,7 +61,7 @@ console.log(contractFunctionResult);
 ```java
 //Contract call query
 query := hedera.NewContractCallQuery().
-		SetContractID(newContractID).
+		SetContractID(contractID).
 		SetGas(600).
 		SetFunction("greet", nil)
 
