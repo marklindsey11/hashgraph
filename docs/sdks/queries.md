@@ -6,8 +6,6 @@ Queries are requests that do not require network consensus. Queries are processe
 | :--- | :--- | :--- | :--- | :--- |
 | [AccountBalanceQuery](cryptocurrency/get-account-balance.md) | [ConsensusTopicInfoQuery](consensus/get-topic-info.md) | [TokenBalanceQuery](tokens/get-account-token-balance.md) | [FileContentsQuery](file-storage/get-file-contents.md) | [ContractCallQuery](smart-contracts/get-smart-contract-bytecode.md) |
 | [AccountInfoQuery](cryptocurrency/get-account-info.md) |  | [TokenInfoQuery](tokens/get-token-info.md) | [FileInfoQuery](file-storage/get-file-info.md) | [ContractByteCodeQuery](../hedera-api/smart-contracts/smartcontractservice.md) |
-| [AccountRecordQuery]() |  |  |  | [ContractInfoQuery](smart-contracts/get-smart-contract-info.md) |
-|  |  |  |  | [ContractRecordQuery]() |
 
 ## Get Query Cost
 
