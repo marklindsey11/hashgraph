@@ -1,7 +1,5 @@
 # Transfer cryptocurrency
 
-
-
 A transaction that transfers hbars and tokens between Hedera accounts. You can enter multiple transfers in a single transaction. The net value of hbars between the sending accounts and receiving accounts must equal zero. 
 
 {% tabs %}

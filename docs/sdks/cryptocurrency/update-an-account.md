@@ -111,7 +111,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction to update the key on the account
-const transaction = new AccountUpdateTransaction()
+const transaction = await new AccountUpdateTransaction()
     .setAccountId(accountId)
     .setKey(updateKey);
 
