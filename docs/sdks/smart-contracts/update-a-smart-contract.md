@@ -71,7 +71,7 @@ const transaction = await new ContractUpdateTransaction()
     .freezeWith(client);
 
 //Sign the transaction with the old admin key and new admin key
-const signTx = await transaction.sign(newAdminKey).sign(adminKey);
+const signTx = await (await transaction.sign(newAdminKey)).sign(adminKey);
 
 //Sign the transaction with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
