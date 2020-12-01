@@ -134,7 +134,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 ```javascript
 //Create the transfer transaction
 const transaction = new TransferTransaction()
-    .addHbarTransfer(OPERATOR_ID, new Hbar(10))
+    .addHbarTransfer(OPERATOR_ID, new Hbar(-10))
     .addHbarTransfer(newAccountId, new Hbar(10));
 
 //Sign with the client operator key and submit the transaction to a Hedera network
@@ -147,6 +147,8 @@ const receipt = await txId.getReceipt(client);
 const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
+
+//v1.4.4
 ```
 {% endcode %}
 {% endtab %}
