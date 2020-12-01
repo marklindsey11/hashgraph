@@ -65,23 +65,27 @@ System.out.println("The new file ID is: " + newFileId);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = new FileCreateTransaction()
-    .setKeys(fileKey) //A different key then the client operator key
-    .setContents(fileContents);
-        
-//Change the default max transaction fee to 2 hbars
-const modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2)); 
+const transaction = await new FileCreateTransaction()
+    .setKeys([filePublicKey]) //A different key then the client operator key
+    .setContents("the file contents")
+    .setMaxTransactionFee(new Hbar(2))
+    .freezeWith(client);
 
-//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-const txResponse = await modifyMaxTransactionFee.freezeWith(client).sign(fileKey).execute(client);
+//Sign with the file private key
+const signTx = await transaction.sign(fileKey);
+
+//Sign with the client operator private key and submit to a Hedera network
+const submitTx = await signTx.execute(client);
 
 //Request the receipt
-const receipt = await txResponse.getReceipt(client);
+const receipt = await submitTx.getReceipt(client);
 
 //Get the file ID
 const newFileId = receipt.fileId;
 
 console.log("The new file ID is: " + newFileId);
+
+//v2.0.5
 ```
 {% endcode %}
 
