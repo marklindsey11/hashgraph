@@ -145,8 +145,6 @@ TransactionReceipt receipt = txId.getReceipt(client);
 ConsensusTopicId newTopicId = receipt.getConsensusTopicId();
 
 System.out.println("New topic created: " + newTopicId);
-
-//v2.0.0
 ```
 {% endcode %}
 
@@ -165,8 +163,6 @@ const receipt = await txId.getReceipt(client);
 const newTopicId = receipt.getConsensusTopicId();
 
 console.log("New topic created: " + newTopicId);
-
-//v2.0.0
 ```
 {% endcode %}
 {% endtab %}
