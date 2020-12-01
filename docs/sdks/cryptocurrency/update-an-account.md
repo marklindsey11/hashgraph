@@ -113,10 +113,14 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 //Create the transaction to update the key on the account
 const transaction = await new AccountUpdateTransaction()
     .setAccountId(accountId)
-    .setKey(updateKey);
+    .setKey(updateKey)
+    .freezeWith(client);
 
-//Sign the transaction with the old key and new key, submit to a Hedera network   
-const txResponse = await transaction.freezeWith(client).sign(oldKey).sign(newKey).execute(client);
+//Sign the transaction with the old key and new key
+const signTx = await (await transaction.sign(oldKey)).sign(newKey);
+
+//SIgn the transaction with the client operator private key and submit to a Hedera network
+const txResponse = await signTx.execute(client);
 
 //Request the reciept of the transaction
 const receipt = await txResponse.getReceipt(client);
@@ -125,6 +129,8 @@ const receipt = await txResponse.getReceipt(client);
 const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
+
+//v2.0.5
 ```
 {% endcode %}
 
