@@ -59,7 +59,7 @@ const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus.toString());
 
-//v2.0.0
+//v2.0.5
 ```
 {% endcode %}
 
