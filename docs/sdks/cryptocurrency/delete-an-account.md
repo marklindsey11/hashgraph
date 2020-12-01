@@ -131,13 +131,17 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction
-const transaction = new AccountDeleteTransaction()
+const transaction = await new AccountDeleteTransaction()
     .setDeleteAccountId(accountId)
-    .setTransferAccountId(OPERATOR_ID);
+    .setTransferAccountId(OPERATOR_ID)
+    .builc(client);
 
-//Build the unsigned transaction, sign with account key, sign with the client operator account private key and submit to a Hedera network
-const txId = await transaction.build(client).sign(newKey).execute(client);
-        
+//Sign the transaction with the account key
+const signTx = await transaction.sign(accountKey);
+    
+//Sign with the client operator private key and submit to a Hedera network
+const txId = await signTx.execute(client);
+       
 //Request the receipt of the transaction
 const receipt = await txId.getReceipt(client);
         
