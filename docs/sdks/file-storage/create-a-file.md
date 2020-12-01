@@ -76,10 +76,10 @@ const modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2));
 const txResponse = await modifyMaxTransactionFee.freezeWith(client).sign(fileKey).execute(client);
 
 //Request the receipt
-TransactionReceipt receipt = await txResponse.getReceipt(client);
+const receipt = await txResponse.getReceipt(client);
 
 //Get the file ID
-FileId newFileId = receipt.fileId;
+const newFileId = receipt.fileId;
 
 console.log("The new file ID is: " + newFileId);
 ```
