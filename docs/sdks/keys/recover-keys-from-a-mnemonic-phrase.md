@@ -22,10 +22,10 @@ PublicKey publicKey = privateKey.publicKey();
 {% code title="JavaScript" %}
 ```java
 //Use the mnemonic to recover the private key
-const privateKey = PrivateKey.fromMnemonic(mnemonic);
-const publicKey = privateKey.publicKey();
+const mnemonic = await Mnemonic.fromString(mnemonic.toString());
+const privateKey = await recoveredMnemonic.toPrivateKey();
 
-//v2.0.0
+//v2.0.5
 ```
 {% endcode %}
 
