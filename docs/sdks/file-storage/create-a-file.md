@@ -179,6 +179,8 @@ const receipt = await txId.getReceipt(client);
 const newFileId = receipt.getFileId();
 
 console.log("The new file ID is: " + newFileId);
+
+//v1.4.4
 ```
 {% endcode %}
 {% endtab %}
