@@ -55,7 +55,7 @@ const query = new FileInfoQuery()
 //Sign the query with the client operator private key and submit to a Hedera network
 const getInfo = await query.execute(client);
 
-System.out.println("File info response: " +getInfo);
+console.log("File info response: " +getInfo);
 ```
 {% endcode %}
 

@@ -49,7 +49,9 @@ const query = new FileContentsQuery()
 //Sign with client operator private key and submit the query to a Hedera network
 const contents = await query.execute(client);
 
-console.log(contents);
+console.log(contents.toString());
+
+//v2.0.7
 ```
 {% endcode %}
 
