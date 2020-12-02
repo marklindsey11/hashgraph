@@ -4,7 +4,7 @@ A transaction that deletes a smart contract from a Hedera network. Once a smart 
 
 **Transaction Signing Requirements**
 
-* If the admin key was defined for the smart contract is it required to sign the transaction
+* If the admin key was defined for the smart contract it is required to sign the transaction.
 * The client operator \(fee payer account\) private key is required to sign the transaction.
 
 | Constructor | Description |
