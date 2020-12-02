@@ -87,8 +87,6 @@ const byteCode = await query.execute(client);
 
 ## Get query values
 
-
-
 {% tabs %}
 {% tab title="V2" %}
 | Method | Type | Description | Requirements |
