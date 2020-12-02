@@ -18,9 +18,9 @@ You can also create a private topic where only authorized parties can submit mes
 
 **Transaction Signing Requirements:**
 
-* If an adminKey is specified, the adminKey must sign the transaction.
+* If an adminKey is specified, the adminKey must sign the transaction
 * If not adminKey is specified the topic is immutable
-* If an autoRenewAccount is specified, that account must also sign this transaction.
+* If an autoRenewAccount is specified, that account must also sign this transaction
 
 {% tabs %}
 {% tab title="V2" %}
