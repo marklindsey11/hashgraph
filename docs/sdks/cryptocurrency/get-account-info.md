@@ -84,7 +84,8 @@ console.log(accountInfo);
 {% code title="Go" %}
 ```go
 //Create the account info query
-query := hedera.NewAccountInfoQuery().SetAccountID(newAccountId)
+query := hedera.NewAccountInfoQuery().
+     SetAccountID(newAccountId)
 
 //Sign with client operator private key and submit the query to a Hedera network
 accountInfo, err := query.Execute(client)
