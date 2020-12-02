@@ -29,10 +29,6 @@ You can set the following properties when creating a token:
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign transaction if present. |
 | **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
 
-
-
-
-
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenCreateTransaction()` | Initializes the TokenCreateTransaction object |
