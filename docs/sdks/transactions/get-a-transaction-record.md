@@ -35,6 +35,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | `<TransactionRecord>.transactionHash` | ByteString | Optional |
 | `<TransactionRecord>.transactionMemo` | String | Optional |
 | `<TransactionRecord>.transfers` | List&lt;Transfer&gt; | Optional |
+| `<TransactionRecord>.tokentransfers` | Map&lt;TokenId, Map&lt;AccountId, List&lt;Long&gt;&gt;&gt; | Optional |
 
 {% code title="Java" %}
 ```java

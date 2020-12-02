@@ -44,8 +44,9 @@ const query = new AccountBalanceQuery()
 const accountBalance = await query.execute(client);
 
 //Print the balance of hbars
-System.out.println("The hbar account balance for this account is " +accountBalance.hbars);
+console.log("The hbar account balance for this account is " +accountBalance.hbars);
 
+//v2.0.7
 ```
 {% endcode %}
 
@@ -97,7 +98,7 @@ const query = new AccountBalanceQuery()
 //Sign with the client operator account private key and submit to a Hedera network
 Hbar accountBalance = await query.execute(client);
 
-System.out.println(accountBalance);
+console.log(accountBalance);
 
 //v1.4.4
 ```

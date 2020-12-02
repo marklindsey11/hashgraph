@@ -85,7 +85,7 @@ const newFileId = receipt.fileId;
 
 console.log("The new file ID is: " + newFileId);
 
-//v2.0.5
+//v2.0.7
 ```
 {% endcode %}
 
