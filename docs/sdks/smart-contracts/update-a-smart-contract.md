@@ -5,7 +5,7 @@ A transaction that allows you to modify a smart contract's state. Once the trans
 **Transaction Signing Requirements**
 
 * If only the contractInstanceExpirationTime is being modified, then no signature is ****needed on this transaction other than for the account paying for the transaction itself.
-* If any other field is being modified, the transaction must be signed by the adminKey
+* If any other field is being modified, the transaction must be signed by the adminKey.
 
 **Smart Contract Properties**
 
