@@ -161,7 +161,7 @@ const receipt = await txId.getReceipt(client);
 //Get the transaction consensus status
 Status transactionStatus = receipt.status;
 
-System.out.println("The transaction consensus status is " +transactionStatus)
+console.log("The transaction consensus status is " +transactionStatus)
 ```
 {% endcode %}
 {% endtab %}
