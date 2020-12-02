@@ -25,7 +25,7 @@ Each smart contract has a maximum state size of 1MB which can store up to approx
 | **Field** | **Description** |
 | :--- | :--- |
 | **Admin Key** | Sets the state of the instance and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. |
-| **Gas** | The gas to run the constructor. Failing to  |
+| **Gas** | The gas to run the constructor. |
 | **Initial Balance**  | The initial number of hbars to put into the cryptocurrency account associated with and owned by the smart contract. |
 | **Byte Code File** | The file containing the smart contract byte code. |
 | **Proxy Account** | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null. |

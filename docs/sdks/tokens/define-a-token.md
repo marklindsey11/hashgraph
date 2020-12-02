@@ -49,7 +49,7 @@ new TokenCreateTransaction()
 | `setTokenSybmol(<symbol>)` | String | Required |
 | `setDecimals(<decimal>)` | int | Optional |
 | `setInitialSupply(<initialSupply>)`   | int | Optional |
-| `setTreasuryAccountId(<treasury>)` | AccountId | Required |
+| `setTreasuryAccountId(<treasury>)` | [AccountId](../specialized-types.md#accountid) | Required |
 | `setAdminKey(<key>)` | Key | Optional |
 | `setKycKey(<key>)` | Key | Optional |
 | `setFreezeKey(<key>)` | Key | Optional |
@@ -57,7 +57,7 @@ new TokenCreateTransaction()
 | `setSupplyKey(<key>)` | Key | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Required |
-| `setAutoRenewAccountId(<account>)` | AccountId | Optional |
+| `setAutoRenewAccountId(<account>)` | [AccountId](../specialized-types.md#accountid) | Optional |
 | `setAutoRenewPeriod(<period>)` | Duration | Optional |
 
 {% code title="Java" %}
@@ -159,15 +159,15 @@ fmt.Printf("The new token ID is %v\n", tokenId)
 | `setSybmol(<symbol>)` | String | Required |
 | `setDecimals(<decimal>)` | int | Optional |
 | `setInitialSupply(<initialSupply>)`   | int | Optional |
-| `setTreasury(<treasury>)` | AccountId | Required |
-| `setAdminKey(<key>)` | PublicKey | Required |
-| `setKycKey(<key>)` | PublicKey | Optional |
-| `setFreezeKey(<key>)` | PublicKey | Optional |
-| `setWipeKey(<key>)` | PublicKey | Optional |
-| `setSupplyKey(<key>)` | PublicKey | Optional |
+| `setTreasury(<treasury>)` | [AccountId](../specialized-types.md#accountid) | Required |
+| `setAdminKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Required |
+| `setKycKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
+| `setFreezeKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
+| `setWipeKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
+| `setSupplyKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Required |
-| `setAutoRenewAccount(<account>)` | AccountId | Optional |
+| `setAutoRenewAccount(<account>)` | [AccountId](../specialized-types.md#accountid) | Optional |
 | `setAutoRenewPeriod(<period>)` | Duration | Optional |
 
 {% code title="Java" %}
