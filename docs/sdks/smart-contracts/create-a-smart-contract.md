@@ -49,7 +49,7 @@ new ContractCreateTransaction()
 | :--- | :--- | :--- |
 | `setGas(<gas>)` | long | Required |
 | `setBytecodeFileId(<fileId>)` | FileId | Required |
-| `setInitialBalance(<initialBalance>)` | Hbar |  |
+| `setInitialBalance(<initialBalance>)` | Hbar | Optional |
 | `setAdminKey(<keys>)` | PublicKey | Optional |
 | `setProxyAccountId(<accountId>`\) | AccountId | Optional |
 | `setConstructorParameters(<constructorParameters>)` | byte \[ \] | Optional |
