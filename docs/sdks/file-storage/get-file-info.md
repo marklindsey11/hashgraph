@@ -114,6 +114,8 @@ const query = new FileInfoQuery()
 const getInfo = await query.execute(client);
 
 console.log("File info response: " +getInfo.keys);
+
+//v1.4.4
 ```
 {% endcode %}
 {% endtab %}
