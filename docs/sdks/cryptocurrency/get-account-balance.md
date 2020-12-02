@@ -16,7 +16,7 @@ new AccountBalanceQuery
 {% tab title="V2" %}
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountID | The account ID to return the current balance for |
+| `setAccountId(<accountId>)` | AccountID | The account ID to return the current balance for. |
 
 {% code title="Java" %}
 ```java
@@ -72,7 +72,7 @@ fmt.Println("The hbar account balance for this account is ", accountBalance.Hbar
 {% tab title="V1" %}
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountID | The account ID to return the current balance for |
+| `setAccountId(<accountId>)` | AccountID | The account ID to return the current balance for. |
 
 {% code title="Java" %}
 ```java
