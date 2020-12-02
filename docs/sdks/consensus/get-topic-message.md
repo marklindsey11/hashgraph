@@ -16,10 +16,10 @@ new TopicMessageQuery()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTopicId` | TopicId | The topic ID to subsribe to | Required |
-| `setStartTime` | Instant | The time to start subscribing to a topic's messages | Optional |
-| `setEndTime` | Instant | The time to stop subscribing to a topic's messages | Optional |
-| `setLimit` | long | The number of messages to return | Optional |
+| `setTopicId(<topicId>)` | TopicId | The topic ID to subsribe to | Required |
+| `setStartTime(<startTime>)` | Instant | The time to start subscribing to a topic's messages | Optional |
+| `setEndTime(<endTime>)` | Instant | The time to stop subscribing to a topic's messages | Optional |
+| `setLimit(<limit>)` | long | The number of messages to return | Optional |
 | `subscribe(<client, onNext)` | SubscriptionHandle | Client, Consumer&lt;TopicMessage&gt; | Required |
 
 {% code title="Java" %}
@@ -81,10 +81,10 @@ new MirrorConsensusTopicQuery()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTopicId` | TopicId | The topic ID to subsribe to | Required |
-| `setStartTime` | Instant | The time to start subscribing to a topic's messages | Optional |
-| `setEndTime` | Instant | The time to stop subscribing to a topic's messages | Optional |
-| `setLimit` | long | The number of messages to return | Optional |
+| `setTopicId(<topicId>)` | TopicId | The topic ID to subsribe to | Required |
+| `setStartTime(<startTime>)` | Instant | The time to start subscribing to a topic's messages | Optional |
+| `setEndTime(<endTime>)` | Instant | The time to stop subscribing to a topic's messages | Optional |
+| `setLimit(<limit>)` | long | The number of messages to return | Optional |
 | `subscribe(<mirrorClient, onNext onError)` | MirrorClient, Consumer &lt;MirrorConsensusTopicResponse&gt;, Consumer&lt;Throwable&gt; | Subscribe and get the  messages for a topic | Required |
 
 {% code title="Java" %}
