@@ -23,12 +23,14 @@ System.out.println(contents.toStringUtf8());
 ```javascript
 //Create the query
 const fileQuery = new FileContentsQuery()
-            .setFileId(FileId.ADDRESS_BOOK);
+     .setFileId( FileId.fromString("102"));
 
 //Sign with the operator private key and submit to a Hedera network
 const contents = await fileQuery.execute(client);
 
-//v2.0.0
+console.log(contents.toString())
+
+//v2.0.7
 ```
 {% endcode %}
 
@@ -69,10 +71,12 @@ System.out.println("File content query results: " + new String(contents));
 ```javascript
 //Create the query
 const fileQuery = new FileContentsQuery()
-            .setFileId(FileId.ADDRESS_BOOK);
+     .setFileId( FileId.fromString("102"));
 
 //Sign with the operator private key and submit to a Hedera network
 const contents = await fileQuery.execute(client);
+
+console.log(contents.toString())
 
 //1.4.4
 ```
