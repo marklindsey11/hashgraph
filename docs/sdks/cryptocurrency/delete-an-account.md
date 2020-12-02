@@ -1,6 +1,6 @@
 # Delete an account
 
-A transaction that deletes an existing account from the Hedera network. Before deleting an account, the existing hbars must be transferred to another account. If you fail to transfer the hbars, you will receive an error message "`setTransferAccountId() required.`" Transfers cannot be made into a deleted account. A record of the deleted account will remain in the ledger until it expires.The expiration of a deleted account can be extended. The account that is being deleted is required to sign the transaction.
+A transaction that deletes an existing account from the Hedera network. Before deleting an account, the existing hbars must be transferred to another account. If you fail to transfer the hbars, you will receive an error message "setTransferAccountId\(\) required." Transfers cannot be made into a deleted account. A record of the deleted account will remain in the ledger until it expires.The expiration of a deleted account can be extended. The account that is being deleted is required to sign the transaction.
 
 **Transaction Signing Requirements**
 
@@ -18,8 +18,8 @@ new AccountDeleteTransaction()
 {% tab title="V2" %}
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountId | The account to delete | Required |
-| `setTransferAccountId(<transferAccountId>)` | AccountId | The account to transfer the remaining funds to | Optional |
+| `setAccountId(<accountId>)` | AccountId | The ID of the account to delete. | Required |
+| `setTransferAccountId(<transferAccountId>)` | AccountId | The ID of the account to transfer the remaining funds to. | Optional |
 
 {% code title="Java" %}
 ```java
@@ -103,8 +103,8 @@ fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
 {% tab title="V1" %}
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountId | The account ID to delete | Required |
-| `setTransferAccountId(<transferAccountId>)` | AccountId | The account to transfer the remaining funds to | Optional |
+| `setAccountId(<accountId>)` | AccountId | The ID of the account to delete. | Required |
+| `setTransferAccountId(<transferAccountId>)` | AccountId | The ID of the account to transfer the remaining funds to. | Optional |
 
 {% code title="Java" %}
 ```java
