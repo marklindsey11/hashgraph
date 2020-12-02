@@ -76,6 +76,8 @@ const accountInfo = await query.execute(client);
 
 //Print the account info to the console
 console.log(accountInfo);
+
+//v2.0.0
 ```
 {% endcode %}
 
@@ -92,6 +94,8 @@ if err != nil {
 
 //Print the account info to the console
 fmt.Println(accountInfo)
+
+//v2.0.0
 ```
 {% endcode %}
 
