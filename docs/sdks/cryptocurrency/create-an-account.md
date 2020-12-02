@@ -8,7 +8,7 @@ When creating a **new account** an existing account will need to pay for the tra
 
 **Transaction Signing Requirements**
 
-* The account paying for the transaction fee is required to the transaction \(usually client.operator account key\)
+* The account paying for the transaction fee is required to sign the transaction \(usually client operator account private key\)
 
 **Transaction Properties**
 
