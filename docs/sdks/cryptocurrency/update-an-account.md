@@ -37,7 +37,7 @@ A transaction that updates the properties of an existing account. The network wi
       </td>
       <td style="text-align:left">
         <p>If true, all the account keys must sign any transaction depositing into
-          this account (in addition to all withdrawals)</p>
+          this account (in addition to all withdrawals).</p>
         <p><em>default: false</em>
         </p>
       </td>
@@ -60,7 +60,7 @@ A transaction that updates the properties of an existing account. The network wi
     <tr>
       <td style="text-align:left"><b>Proxy account</b>
       </td>
-      <td style="text-align:left">The new account ID to which this account is proxy staked</td>
+      <td style="text-align:left">The new account ID to which this account is proxy staked .</td>
     </tr>
   </tbody>
 </table>

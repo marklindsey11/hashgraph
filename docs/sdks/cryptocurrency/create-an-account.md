@@ -58,7 +58,7 @@ When creating a **new account** an existing account will need to pay for the tra
     <tr>
       <td style="text-align:left"><b>Proxy Account</b>
       </td>
-      <td style="text-align:left">ID of the account to which this account is proxy staked <b>(</b>DISABLED)</td>
+      <td style="text-align:left">ID of the account to which this account is proxy staked <b>(</b>DISABLED).</td>
     </tr>
   </tbody>
 </table>
