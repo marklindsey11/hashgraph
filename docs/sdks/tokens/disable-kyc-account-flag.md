@@ -20,13 +20,105 @@ new TokenRevokeKycTransaction()
 
 ### Methods
 
+{% tabs %}
+{% tab title="V2" %}
+
+
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The token ID that is associated with the account to remove the KYC flag | Required |
-| `setAccountId(<setAccountId>)` | [AccountId](../specialized-types.md#accountid) | The account ID that is associated with the account to remove the KYC flag | Required |
+| `setTokenId(<tokenId>)` | TokenId | The token ID that is associated with the account to remove the KYC flag for | Required |
+| `setAccountId(<setAccountId>)` | AccountId | The account ID that is associated with the account to remove the KYC flag | Required |
 
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
+```java
+//Remove the KYC flag from an account
+TokenRevokeKycTransaction transaction = new TokenRevokeKycTransaction()
+    .setTokenId(tokenId)
+    .setAccountId(accountId);
+
+//Freeze the unsigned transaction, sign with the kyc private key of the token, submit the transaction to a Hedera network
+TransactionResponse txResponse = transaction.freezeWith(client).sign(kycKey).execute(client);
+    
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+    
+//Obtain the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+//Version: 2.0.1
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Remove the KYC flag on account
+const transaction = await new TokenRevokeKycTransaction()
+     .setAccountId(accountId)
+     .setTokenId(tokenId)
+     .freezeWith(client);
+
+//Sign with the kyc private key of the token
+const signTx = await transaction.sign(kycKey)
+
+//Submit the transaction to a Hedera network    
+const txResponse = await signTx.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+    
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status " +transactionStatus.toString());
+
+//v2.0.5
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Remove the KYC flag from an account and freeze the transaction for signing
+transaction, err = hedera.NewTokenRevokeKycTransaction().
+		SetTokenID(tokenId).
+		SetAccountID(accountId).
+		FreezeWith(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Sign with the kyc private key of the token, submit the transaction to a Hedera network
+txResponse, err := transaction.Sign(kycKey).Execute(client)
+		
+if err != nil {
+		panic(err)
+}
+
+//Get the receipt of the transaction
+receipt, err = txResponse.GetReceipt(client)
+
+if err != nil {
+		panic(err)
+}
+	
+//Get the transaction consensus status
+status := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", status)
+
+//v2.1.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTokenId(<tokenId>)` | TokenId | The token ID that is associated with the account to remove the KYC flag | Required |
+| `setAccountId(<setAccountId>)` | AccountId | The account ID that is associated with the account to remove the KYC flag | Required |
+
+{% code title="Java" %}
 ```java
 //Remove the KYC flag from an account
 TokenRevokeKycTransaction transaction = new TokenRevokeKycTransaction()
@@ -45,9 +137,9 @@ Status transactionStatus = getReceipt.status;
 System.out.println("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
 //Remove the KYC flag from an account
 const transaction = new TokenRevokeKycTransaction()
@@ -66,10 +158,9 @@ const transactionStatus = getReceipt.status;
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2 
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 

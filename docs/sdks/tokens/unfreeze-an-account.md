@@ -20,13 +20,106 @@ new TokenUnfreezeTransaction()
 
 ### Methods
 
+{% tabs %}
+{% tab title="V2" %}
+
+
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The token for this account to unfreeze | Required |
-| `setAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | The account to unfreeze | Required |
+| `setTokenId(<tokenId>)` | TokenId | The token for this account to unfreeze | Required |
+| `setAccountId(<accountId>)` | AccountId | The account to unfreeze | Required |
 
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
+```java
+//Unfreeze an account
+TokenUnfreezeTransaction transaction = new TokenUnfreezeTransaction()
+     .setAccountId(accountId)
+     .setTokenId(tokenId);
+
+//Freeze the unsigned transaction, sign with the sender freeze private key of the token, submit the transaction to a Hedera network
+TransactionResponse txResponse = transaction.freezeWith(client).sign(freezeKey).execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Obtain the transaction consensus status
+Status transactionStatus = receipt8.status;
+
+System.out.print("The transaction consensus status is " +transactionStatus);
+
+//v2.0.1
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Unfreeze an account and freeze the unsigned transaction for signing
+const transaction = await new TokenUnfreezeTransaction()
+     .setAccountId(accountId)
+     .setTokenId(tokenId)
+     .freezeWith(client);
+
+//Sign with the sender freeze private key of the token 
+const signTx = await transaction.sign(freezeKey);
+
+//Submit the transaction to a Hedera network
+const txResponse = await signTx.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Obtain the transaction consensus status
+const transactionStatus = receipt8.status;
+
+console.log("The transaction consensus status is " +transactionStatus.toString());
+
+//v2.0.7
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Unfreeze an account
+transaction, err = hedera.NewUnTokenFreezeTransaction().
+	  SetAccountID(accountId).
+		SetTokenID(tokenId).
+		FreezeWith(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Sign with the freeze private key of the token, submit the transaction to a Hedera network
+txResponse, err := transaction.Sign(freezeKey).Execute(client)
+		
+if err != nil {
+		panic(err)
+}
+
+//Get the receipt of the transaction
+receipt, err = txResponse.GetReceipt(client)
+
+if err != nil {
+		panic(err)
+}
+	
+//Get the transaction consensus status
+status := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", status)
+
+//v2.1.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTokenId(<tokenId>)` | TokenId | The token for this account to unfreeze | Required |
+| `setAccountId(<accountId>)` | AccountId | The account to unfreeze | Required |
+
+{% code title="Java" %}
 ```java
 //Unfreeze an account
 TokenUnfreezeTransaction transaction = new TokenUnfreezeTransaction()
@@ -45,9 +138,9 @@ Status transactionStatus = getReceipt.status;
 System.out.print("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
 //Unfreeze an account
 const transaction = new TokenUnfreezeTransaction()
@@ -66,10 +159,9 @@ const transactionStatus = getReceipt.status;
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 

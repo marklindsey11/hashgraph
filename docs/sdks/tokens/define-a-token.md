@@ -29,6 +29,10 @@ You can set the following properties when creating a token:
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign transaction if present. |
 | **Set Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
 
+
+
+
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenCreateTransaction()` | Initializes the TokenCreateTransaction object |
@@ -39,116 +43,138 @@ new TokenCreateTransaction()
 
 ### Methods
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Method</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Requirement</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>setName(&lt;name&gt;)</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">Required</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setSybmol(&lt;symbol&gt;)</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">Required</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setDecimals(&lt;decimal&gt;)</code>
-      </td>
-      <td style="text-align:left">int</td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setInitialSupply(&lt;initialSupply&gt;) </code>
-      </td>
-      <td style="text-align:left">int</td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setTreasury(&lt;treasury&gt;)</code>
-      </td>
-      <td style="text-align:left"><a href="../specialized-types.md#accountid">AccountId</a>
-      </td>
-      <td style="text-align:left">Required</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setAdminKey(&lt;key&gt;)</code>
-      </td>
-      <td style="text-align:left"><a href="../keys/">PublicKey</a>
-      </td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setKycKey(&lt;key&gt;)</code>
-      </td>
-      <td style="text-align:left"><a href="../keys/">PublicKey</a>
-      </td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setFreezeKey(&lt;key&gt;)</code>
-      </td>
-      <td style="text-align:left"><a href="../keys/">PublicKey</a>
-      </td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setWipeKey(&lt;key&gt;)</code>
-      </td>
-      <td style="text-align:left"><a href="../keys/">PublicKey</a>
-      </td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setSupplyKey(&lt;key&gt;)</code>
-      </td>
-      <td style="text-align:left"><a href="../keys/">PublicKey</a>
-      </td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setFreezeDefault(&lt;freeze&gt;</code>)</td>
-      <td style="text-align:left">boolean</td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setExpirationTime(&lt;expirationTime&gt;)</code>
-      </td>
-      <td style="text-align:left">Instant</td>
-      <td style="text-align:left">
-        <p>Optional</p>
-        <p>(default: 90 days)</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setAutoRenewAccount(&lt;account&gt;)</code>
-      </td>
-      <td style="text-align:left"><a href="../specialized-types.md#accountid">AccountId</a>
-      </td>
-      <td style="text-align:left">Optional</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setAutoRenewPeriod(&lt;period&gt;)</code>
-      </td>
-      <td style="text-align:left">Duration</td>
-      <td style="text-align:left">
-        <p>Optional</p>
-        <p>(default: 131,500 minutes)</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
 {% tabs %}
-{% tab title="Java" %}
+{% tab title="V2" %}
+
+
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setTokenName(<name>)` | String | Required |
+| `setTokenSybmol(<symbol>)` | String | Required |
+| `setDecimals(<decimal>)` | int | Optional |
+| `setInitialSupply(<initialSupply>)`   | int | Optional |
+| `setTreasuryAccountId(<treasury>)` | AccountId | Required |
+| `setAdminKey(<key>)` | Key | Optional |
+| `setKycKey(<key>)` | Key | Optional |
+| `setFreezeKey(<key>)` | Key | Optional |
+| `setWipeKey(<key>)` | Key | Optional |
+| `setSupplyKey(<key>)` | Key | Optional |
+| `setFreezeDefault(<freeze>`\) | boolean | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Required |
+| `setAutoRenewAccountId(<account>)` | AccountId | Optional |
+| `setAutoRenewPeriod(<period>)` | Duration | Optional |
+
+{% code title="Java" %}
+```java
+//Create a token
+TokenCreateTransaction transaction = new TokenCreateTransaction()
+        .setTokenName("Your Token Name")
+        .setTokenSymbol("F")
+        .setTreasuryAccountId(treasuryAccountId)
+        .setInitialSupply(5000)
+        .setAdminKey(adminKey.getPublicKey());
+
+//Build the unsigned transaction, sign with admin private key of the token, sign with the token treasury private key, submit the transaction to a Hedera network
+TransactionResponse txResponse = transaction.freezeWith(client).sign(adminKey).sign(treasuryKey).execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the token ID from the receipt
+TokenId tokenId = receipt.tokenId;
+
+System.out.println("The new token ID is " + tokenId);
+
+//v2.0.1
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction and freeze for manual signing
+const transaction = await new TokenCreateTransaction().
+     .setTokenName("Your Token Name")
+     .setTokenSymbol("F")
+     .setTreasuryAccountId(client.operatorAccountId)
+     .setInitialSupply(5000)
+     .setAdminKey(adminPublicKey)
+     .freezeWith(client);
+
+//Sign the transaction with the adminKey and treasury account ID key
+const signTx =  await (await transaction.sign(adminKey)).sign(treasuryKey)
+
+//Sign the transaction with the client operator private key and submit to a Hedera network
+const txResponse = await signTx.execute(client);
+    
+//Get the receipt from the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the token ID from the receipt
+const tokenId = receipt.tokenId;
+
+console.log("The new token ID is " + tokenId);
+
+//v2.0.5
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Create a token and freeze the unsigned transaction
+tokenCreateTransaction, err := hedera.NewTokenCreateTransaction().
+	  SetTokenName("Your Token Name").
+		SetTokenSymbol("F").
+		SetTreasuryAccountID(treasuryAccountID).
+		SetInitialSupply(1000).
+		SetAdminKey(adminKey).
+		FreezeWith(client)
+
+if err != nil {
+	panic(err)
+}
+
+//Sign with the admin private key of the token, sign with the token treasury private key, sign with the client operator private key and submit the transaction to a Hedera networ
+txResponse, err := tokenCreateTransaction.Sign(adminKey).Sign(treasuryKey).Execute(client)
+
+if err != nil {
+	panic(err)
+}
+
+//Request the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+	panic(err)
+}
+
+//Get the token ID from the receipt
+tokenId := *receipt.TokenID
+
+fmt.Printf("The new token ID is %v\n", tokenId)
+
+//v2.1.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setName(<name>)` | String | Required |
+| `setSybmol(<symbol>)` | String | Required |
+| `setDecimals(<decimal>)` | int | Optional |
+| `setInitialSupply(<initialSupply>)`   | int | Optional |
+| `setTreasury(<treasury>)` | AccountId | Required |
+| `setAdminKey(<key>)` | PublicKey | Required |
+| `setKycKey(<key>)` | PublicKey | Optional |
+| `setFreezeKey(<key>)` | PublicKey | Optional |
+| `setWipeKey(<key>)` | PublicKey | Optional |
+| `setSupplyKey(<key>)` | PublicKey | Optional |
+| `setFreezeDefault(<freeze>`\) | boolean | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Required |
+| `setAutoRenewAccount(<account>)` | AccountId | Optional |
+| `setAutoRenewPeriod(<period>)` | Duration | Optional |
+
+{% code title="Java" %}
 ```java
 //Create a token
 TokenCreateTransaction transaction = new TokenCreateTransaction()
@@ -164,15 +190,16 @@ TransactionId transactionId = transaction.build(client).sign(adminKey).sign(trea
 //Request the receipt of the transaction
 TransactionReceipt getReceipt = transactionId.getReceipt(client);
 
-//Obtain the token ID
+//Get the token ID from the receipt
 TokenId tokenId = getReceipt.getTokenId();
 
 System.out.println("The new token ID is " +tokenId);
+
 //Version: 1.2.2
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
 //Create a token
 const transaction = new TokenCreateTransaction()
@@ -188,16 +215,16 @@ const transactionId = await transaction.build(client).sign(adminKey).sign(treasu
 //Request the receipt of the transaction
 const getReceipt = await transactionId.getReceipt(client);
 
-//Obtain the token ID
+//Get the token ID from the receipt
 const tokenId = getReceipt.getTokenId();
 
 console.log("The new token ID is " +tokenId);
+
 //Version: 1.4.2
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 

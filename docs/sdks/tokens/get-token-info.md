@@ -129,29 +129,101 @@ new TokenInfoQuery()
 
 ### Methods
 
+{% tabs %}
+{% tab title="V2" %}
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | Required |
-| `<TokenInfoQuery>.tokenId` | [TokenId](token-id.md) | Optional |
+| `setTokenId(<tokenId>)` | TokenId | Required |
+| `<TokenInfoQuery>.tokenId` | TokenId | Optional |
 | `<TokenInfoQuery>.name` | String | Optional |
 | `<TokenInfoQuery>.symbol` | String | Optional |
 | `<TokenInfoQuery>.decimals` | int | Optional |
 | `<TokenInfoQuery>.totalSupply` | long | Optional |
-| `<TokenInfoQuery>.treasury` | [AccountId](../specialized-types.md#accountid) | Optional |
-| `<TokenInfoQuery>.adminKey` | [PublicKey](../keys/) | Optional |
-| `<TokenInfoQuery>.kycKey` | [PublicKey](../keys/) | Optional |
-| `<TokenInfoQuery>.freezeKey` | [PublicKey](../keys/) | Optional |
-| `<TokenInfoQuery>.wipeKey` | [PublicKey](../keys/) | Optional |
-| `<TokenInfoQuery>.supplyKey` | [PublicKey](../keys/) | Optional |
+| `<TokenInfoQuery>.treasury` | AccountId | Optional |
+| `<TokenInfoQuery>.adminKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.kycKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.freezeKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.wipeKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.supplyKey` | PublicKey | Optional |
 | `<TokenInfoQuery>.defaultFreezeStatus` | Boolean | Optional |
 | `<TokenInfoQuery>.defaultKycStatus` | Boolean | Optional |
 | `<TokenInfoQuery>.isDeleted` | Boolean | Optional |
-| `<TokenInfoQuery>.autoRenewAccount` | [AccountId](../specialized-types.md#accountid) | Optional |
+| `<TokenInfoQuery>.autoRenewAccount` | AccountId | Optional |
 | `<TokenInfoQuery>.autoRenewPeriod` | Duration | Optional |
 | `<TokenInfoQuery>.expiry` | Instant | Optional |
 
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
+```java
+//Create the query
+TokenInfoQuery query = new TokenInfoQuery()
+    .setTokenId(newTokenId);
+
+//Submit the query to the network and obtain the token supply
+long tokeinInfo = query.execute(client).totalSupply;
+
+System.out.println("The total supply of this token is " +tokenInfo);
+
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the query (issue logged)
+const query = new TokenInfoQuery()
+    .setTokenId(newTokenId);
+
+//Submit the query to the network and obtain the token supply
+const tokenInfo = await query.execute(client).totalSupply;
+
+console.log("The total supply of this token is " +tokenInfo);
+
+//v2.0.7
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Create the query (issue logged)
+query := hedera.NewTokenInfoQuery().
+		SetTokenID(tokenId)
+
+//Sign with the client operator private key and submit to a Hedera network
+tokenInfo, err := query.Execute(client)
+
+if err != nil {
+		panic(err)
+}
+
+fmt.Printf("The token info is %v\n", tokenIinfo)
+
+//v2.1.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setTokenId(<tokenId>)` | TokenId | Required |
+| `<TokenInfoQuery>.tokenId` | TokenId | Optional |
+| `<TokenInfoQuery>.name` | String | Optional |
+| `<TokenInfoQuery>.symbol` | String | Optional |
+| `<TokenInfoQuery>.decimals` | int | Optional |
+| `<TokenInfoQuery>.totalSupply` | long | Optional |
+| `<TokenInfoQuery>.treasury` | AccountId | Optional |
+| `<TokenInfoQuery>.adminKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.kycKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.freezeKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.wipeKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.supplyKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.defaultFreezeStatus` | Boolean | Optional |
+| `<TokenInfoQuery>.defaultKycStatus` | Boolean | Optional |
+| `<TokenInfoQuery>.isDeleted` | Boolean | Optional |
+| `<TokenInfoQuery>.autoRenewAccount` | AccountId | Optional |
+| `<TokenInfoQuery>.autoRenewPeriod` | Duration | Optional |
+| `<TokenInfoQuery>.expiry` | Instant | Optional |
+
+{% code title="Java" %}
 ```java
 //Create the query
 TokenInfoQuery tokenInfo = new TokenInfoQuery()
@@ -162,9 +234,9 @@ long totalSupply = tokenInfo.execute(client).totalSupply;
 System.out.println("The total supply of this token is " +totalSupply)
 //Version: 1.2.2
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript \(Not working\)" %}
 ```javascript
 //Create the query
 const tokenInfo = new TokenInfoQuery()
@@ -172,13 +244,14 @@ const tokenInfo = new TokenInfoQuery()
 
 //Submit the query to the network and obtain the token supply
 const totalSupply = await tokenInfo.execute(client).totalSupply;
+
 console.log("The total supply of this token is " +totalSupply)
+
 //Version 1.4.3
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 

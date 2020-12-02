@@ -14,7 +14,7 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 | **Supply Key** | The new Supply Key of the Token. If the Token does not have currently a Supply Key, transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. |
 | **Expiration Time** | The new expiry time of the token. Expiry can be updated even if the Admin Key is not set. If the provided expiry is earlier than the current token expiry, transaction wil resolve to INVALID\_EXPIRATION\_TIME.  |
 | **Auto Renew Account** | The new account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. |
-| **Auto Renew Period** | The new interval at which the auto-renew account will be charged to extend the token's expiry. Default:  |
+| **Auto Renew Period** | The new interval at which the auto-renew account will be charged to extend the token's expiry. |
 
 | Constructor | Description |
 | :--- | :--- |
@@ -26,24 +26,127 @@ new TokenUpdateTransaction()
 
 ### Methods
 
+{% tabs %}
+{% tab title="V2" %}
+
+
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setTokenId(<tokenId>)` | TokenId | Required |
+| `setTokenName(<name>)` | String | Optional |
+| `setTokenSybmol(<symbol>)` | String | Optional |
+| `setTreasuryAccountId(<treasury>)` | AccountId | Optional |
+| `setAdminKey(<key>)` | PublicKey | Optional |
+| `setKycKey(<key>)` | PublicKey | Optional |
+| `setFreezeKey(<key>)` | PublicKey | Optional |
+| `setWipeKey(<key>)` | PublicKey | Optional |
+| `setSupplyKey(<key>)` | PublicKey | Optional |
+| `setFreezeDefault(<freeze>`\) | boolean | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setAutoRenewAccountId(<account>)` | AccountId | Optional |
+| `setAutoRenewPeriod(<period>)` | Duration | Optional |
+
+{% code title="Java" %}
+```java
+//Update the name of the token
+TokenUpdateTransaction transaction = new TokenUpdateTransaction()
+     .setTokenId(tokenId)
+     .setTokenName("Your New Token Name");
+
+//Freeze the unsigned transaction, sign with the admin private key of the token, submit the transaction to a Hedera network
+TransactionResponse txResponse = transaction.freezeWith(client).sign(adminKey).execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v2.0.1
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction and freeze for manual signing
+const transaction = await new TokenUpdateTransaction()
+     .setTokenId(tokenId)
+     .setTokenName("Your New Token Name")
+     .freezeWith(client);
+
+//Sign the transaction with the admin key
+const signTx = await transaction.sign(adminKey)
+
+//Submit the signed transaction to a Hedera network
+const txResponse = await signTx.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status.toString();
+
+console.log("The transaction consensus status is " +transactionStatus);
+
+//v2.0.5
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Create the transaction and freeze for manual signing 
+tokenUpdateTransaction, err := hedera.NewTokenUpdateTransaction().
+	  SetTokenID(tokenId).
+		SetTokenName("Your New Token Name").
+		FreezeWith(client)
+
+if err != nil {
+	panic(err)
+}
+
+//Sign with the admin private key of the token, sign with the client operator private key and submit the transaction to a Hedera network
+txResponse, err := tokenUpdateTransaction.Sign(adminKey).Execute(client)
+
+if err != nil {
+	panic(err)
+}
+
+//Request the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+	panic(err)
+}
+
+//Get the transaction consensus status
+status := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", status)
+
+//v2.1.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setTokenId(<tokenId>)` | TokenId | Required  |
 | `setName(<name>)` | String | Optional |
 | `setSybmol(<symbol>)` | String | Optional |
 | `setTreasury(<treasury>)` | AccountId | Optional |
-| `setAdminKey(<key>)` | [PublicKey](../keys/) | Optional |
-| `setKycKey(<key>)` | [PublicKey](../keys/) | Optional |
-| `setFreezeKey(<key>)` | [PublicKey](../keys/) | Optional |
-| `setWipeKey(<key>)` | [PublicKey](../keys/) | Optional |
-| `setSupplyKey(<key>)` | [PublicKey](../keys/) | Optional |
+| `setAdminKey(<key>)` | PublicKey | Optional |
+| `setKycKey(<key>)` | PublicKey | Optional |
+| `setFreezeKey(<key>)` | PublicKey | Optional |
+| `setWipeKey(<key>)` | PublicKey | Optional |
+| `setSupplyKey(<key>)` | PublicKey | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
-| `setAutoRenewAccount(<account>)` | [AccountId](../specialized-types.md#accountid) | Optional |
+| `setAutoRenewAccount(<account>)` | AccountId | Optional |
 | `setAutoRenewPeriod(<period>)` | Duration | Optional |
 
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
 ```java
 //Update the name of the token
 TokenUpdateTransaction transaction = new TokenUpdateTransaction()
@@ -54,17 +157,17 @@ TokenUpdateTransaction transaction = new TokenUpdateTransaction()
 TransactionId transactionId = transaction.build(client).sign(adminKey).execute(client);
     
 //Request the receipt of the transaction
-TransactionReceipt getReceipt = transactionId.getReceipt(client);
+TransactionReceipt receipt = transactionId.getReceipt(client);
     
-//Obtain the transaction consensus status
-Status transactionStatus = getReceipt.status;
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
 
 System.out.println("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
 //Update the name of the token
 const transaction = new TokenUpdateTransaction()
@@ -75,18 +178,17 @@ const transaction = new TokenUpdateTransaction()
 const transactionId = await transaction.build(client).sign(adminKey).execute(client);
     
 //Request the receipt of the transaction
-const getReceipt = await transactionId.getReceipt(client);
+const receipt = await transactionId.getReceipt(client);
     
-//Obtain the transaction consensus status
-const transactionStatus = getReceipt.status;
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus);
 //Version: 1.4.2
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 

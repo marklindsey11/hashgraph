@@ -23,14 +23,106 @@ new TokenWipeAccountTransaction()
 
 ### Methods
 
+{% tabs %}
+{% tab title="V2" %}
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The ID of the token to wipe from the account | Required |
+| `setTokenId(<tokenId>)` | TokenId | The ID of the token to wipe from the account | Required |
 | `setAmount(<amount>)` | long | The amount of token to wipe from the specified account. Amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account \(0; balance\] | Required |
-| `setAccount(<accountId>)` | [AccountId](../specialized-types.md#accountid) | The account ID to wipe the tokens from | Required |
+| `setAccount(<accountId>)` | AccountId | The account ID to wipe the tokens from | Required |
 
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
+```java
+//Wipe 100 tokens from an account
+TokenWipeTransaction transaction = new TokenWipeTransaction()
+    .setAccountId(accountId)
+    .setTokenId(tokenId)
+    .setAmount(100);
+
+//Build the unsigned transaction, sign with the private key of the account that is being wiped, sign with the wipe private key of the token, submit the transaction to a Hedera network
+TransactionResponse txResponse = transaction.freezeWith(client).sign(accountKey).sign(wipeKey).execute(client);
+    
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+    
+//Obtain the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+//v2.0.1
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Wipe 100 tokens from an account
+const transaction = await new TokenWipeTransaction()
+    .setAccountId(accountId)
+    .setTokenId(tokenId)
+    .setAmount(100)
+    .freezeWith(client);
+
+//Sign with the private key of the account that is being wiped, sign with the wipe private key of the token
+const signTx = await (await transaction.sign(accountKey)).sign(wipeKey);    
+
+//Submit the transaction to a Hedera network    
+const txResponse = await signTx.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Obtain the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Wipe 100 tokens and freeze the unsigned transaction for manual signing
+transaction, err = hedera.NewTokenBurnTransaction().
+		SetAccountId(accountId).
+		SetTokenID(tokenId).
+		SetAmount(1000).
+		FreezeWith(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Sign with the private key of the account that is being wiped, sign with the wipe private key of the token
+txResponse, err := transaction.Sign(accountKey).Sign(wipeKey).Execute(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt of the transaction
+receipt, err = txResponse.GetReceipt(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Get the transaction consensus status
+status := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", status)
+
+//v2.1.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTokenId(<tokenId>)` | TokenId | The ID of the token to wipe from the account | Required |
+| `setAmount(<amount>)` | long | The amount of token to wipe from the specified account. Amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account \(0; balance\] | Required |
+| `setAccount(<accountId>)` | AccountId | The account ID to wipe the tokens from | Required |
+
+{% code title="Java" %}
 ```java
 //Wipe 100 tokens from an account
 TokenWipeTransaction transaction = new TokenWipeTransaction()
@@ -50,9 +142,9 @@ Status transactionStatus = getReceipt.status;
 System.out.println("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
 //Wipe 100 tokens from an account
 const transaction = new TokenWipeTransaction()
@@ -72,10 +164,9 @@ const transactionStatus = getReceipt.status;
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 

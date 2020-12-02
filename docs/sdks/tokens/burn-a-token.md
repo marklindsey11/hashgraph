@@ -17,18 +17,111 @@ new TokenBurnTransaction()
 
 ### Methods
 
+{% tabs %}
+{% tab title="V2" %}
+
+
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The ID of the token to burn supply | Required |
+| `setTokenId(<tokenId>)` | TokenId | The ID of the token to burn supply | Required |
 | `setAmount(<amount>)` | long | The number of tokens to burn | Required |
 
-{% tabs %}
-{% tab title="Java" %}
+{% code title="Java" %}
+```java
+//Burn 1,000 tokens
+TokenBurnTransaction transaction = new TokenBurnTransaction()
+     .setTokenId(tokenId)
+     .setAmount(1000);
+
+//Freeze the unsigned transaction, sign with the supply private key of the token, submit the transaction to a Hedera network
+TransactionResponse txResponse = transaction.freezeWith(client).sign(supplyKey).execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Obtain the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v2.0.1
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Burn 1,000 tokens
+const transaction = await new TokenBurnTransaction()
+     .setTokenId(tokenId)
+     .setAmount(1000)
+     .FreezeWith(client);
+
+//Sign with the supply private key of the token 
+const signTx = await transaction.sign(supplyKey)
+
+//Submit the transaction to a Hedera network    
+const txResponse = await signTx.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+    
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status " +transactionStatus.toString());
+
+//v2.0.5
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Burn 1,000 tokens and freeze the unsigned transaction for manual signing
+transaction, err = hedera.NewTokenBurnTransaction().
+		SetTokenID(tokenId).
+		SetAmount(1000).
+		FreezeWith(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Sign with the supply private key of the token, submit the transaction to a Hedera network
+txResponse, err := transaction.Sign(supplyKey).Execute(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt of the transaction
+receipt, err = txResponse.GetReceipt(client)
+
+if err != nil {
+		panic(err)
+}
+
+//Get the transaction consensus status
+status := receipt.Status
+
+fmt.Printf("The transaction consensus status is %v\n", status)
+
+//v2.1.0
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTokenId(<tokenId>)` | TokenId | The ID of the token to burn supply | Required |
+| `setTokenAmount(<amount>)` | long | The number of tokens to burn | Required |
+
+{% code title="Java" %}
 ```java
 //Burn 1,000 tokens
 TokenBurnTransaction transaction = new TokenBurnTransaction()
     .setTokenId(newTokenId)
-    .setAmount(1000);
+    .setAmount(1000)
 
 //Build the unsigned transaction, sign with the supply private key of the token, submit the transaction to a Hedera network
 TransactionId transactionId = transaction.build(client).sign(supplyKey).execute(client);
@@ -42,9 +135,9 @@ Status transactionStatus = getReceipt.status;
 System.out.println("The transaction consensus status is " +transactionStatus);
 //Version: 1.2.2
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="JavaScript" %}
+{% code title="JavaScript" %}
 ```javascript
 //Burn 1,000 tokens
 const transaction = new TokenBurnTransaction()
@@ -63,10 +156,9 @@ const transactionStatus = getReceipt.status;
 console.log("The transaction consensus status is " +transactionStatus);
 //Version 1.4.2
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 
