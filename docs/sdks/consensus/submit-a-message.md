@@ -32,6 +32,7 @@ new TopicMessageSubmitTransaction()
 
 {% code title="Java" %}
 ```java
+//Create the transaction
 TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
     .setTopicId(newTopicId)
     .setMessage("hello, HCS! ");
@@ -52,6 +53,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 {% code title="JavaScript" %}
 ```javascript
+//Create the transaction
 await new TopicMessageSubmitTransaction({
         topicId: createReceipt.topicId,
         message: "Hello World",
