@@ -4,7 +4,7 @@ A query that calls a function of the given smart contract instance, giving it fu
 
 **Query Signing Requirements**
 
-* The client operator account's private key \(fee payer\) is required to sign this query.
+* The client operator account's private key \(fee payer\) is required to sign this query
 
 | Constructor | Description |
 | :--- | :--- |
