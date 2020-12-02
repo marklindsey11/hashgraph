@@ -34,6 +34,8 @@ const privateKey = PrivateKey.fromString("302e020100300506032b6570042204201d5b75
 
 //The public key associated with the private key
 const publicKey = PublicKey.fromString("302a300506032b6570032100d292412f1c86507224c1db656050c2162c91983540d608f6a31e9b43359bc5e");
+
+//v2.0.7
 ```
 {% endcode %}
 
