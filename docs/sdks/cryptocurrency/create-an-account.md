@@ -29,28 +29,17 @@ When creating a **new account** an existing account will need to pay for the tra
       <td style="text-align:left"><b>Initial balance</b>
       </td>
       <td style="text-align:left">The initial balance of the account, transferred from the operator account,
-        in Hbar</td>
+        in Hbar.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Receiver signature required</b>
       </td>
       <td style="text-align:left">
         <p>If true, all the account keys must sign any transaction depositing into
-          this account (in addition to all withdrawals)</p>
+          this account (in addition to all withdrawals).</p>
         <p><em>default: false</em>
         </p>
       </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Send record threshold</b>
-      </td>
-      <td style="text-align:left">The new threshold to generate records for transferring hbars out of the
-        account<b> </b>[deprecated]</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Receive Record Threshold</b>
-      </td>
-      <td style="text-align:left">The new threshold to generate records for receiving hbars into the account<b> </b>[deprecated]</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Auto Renew Period</b>
