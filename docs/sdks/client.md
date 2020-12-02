@@ -25,7 +25,7 @@ For a predefined network \(preview, testnet, and mainnet\), the mirror node clie
 // From a pre-configured network
 Client client = Client.forTestnet();
 
-//For a specified node(s)
+//For a specified network
 Map<String, AccountId> nodes = new HashMap<>();
 nodes.put("34.94.106.61:50211" ,AccountId.fromString("0.0.10"));
 
@@ -39,6 +39,12 @@ Client.forNetwork(nodes);
 ```java
 // From a pre-configured network
 const client = Client.forTestnet();
+
+//For a specified network
+const nodes = {"35.237.200.180:50211": new AccountId(3)}
+const client = Client.forNetwork(nodes);
+
+//v2.0.7
 ```
 {% endcode %}
 
@@ -47,12 +53,13 @@ const client = Client.forTestnet();
 // From a pre-configured network
 client := hedera.ClientForTestnet()
 
-//From a specifed node(s)
+//For a specified network
 node := map[string]AccountID{
 	"34.94.106.61:50211": {Account: 10}
 }
 
 client := Client.forNetwork(nodes)
+
 //v2.0.0
 ```
 {% endcode %}
