@@ -24,6 +24,7 @@ new TopicMessageQuery()
 
 {% code title="Java" %}
 ```java
+//Create the query
 new TopicMessageQuery()
     .setTopicId(newTopicId)
     .subscribe(client, topicMessage -> {
@@ -36,6 +37,7 @@ new TopicMessageQuery()
 
 {% code title="JavaScript" %}
 ```javascript
+//Create the query
 new TopicMessageQuery()
         .setTopicId(topicId)
         .setStartTime(0)
@@ -49,6 +51,7 @@ new TopicMessageQuery()
 
 {% code title="Go" %}
 ```java
+//Create the query
 _, err = hedera.NewTopicMessageQuery().
 	SetTopicID(topicID).
 	Subscribe(client, func(message hedera.TopicMessage) {

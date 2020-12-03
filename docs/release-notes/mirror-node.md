@@ -6,13 +6,19 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.21.0 | 0.22.0 |
+| **Mainnet** | 0.23.1 | 0.24.0 |
 | **Testnet** | 0.23.0 | 0.24.0 |
 | **Previewnet** | 0.23.0 | 0.24.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.23.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.23.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: DECEMBER 2, 2020**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: NOVEMBER 20, 2020**
@@ -34,8 +40,6 @@ We also improved our data generator module with support for the majority of HAPI
 
 This release also includes an improvements to avoid the stale account info bug that stems from balance stream files being received at a slower frequency than record stream files. Now account creations and account info changes will be reflected in REST API call even though the updated balance may not have been received.  
 We also extended our REST API support to include case insensitive support query parameters. `/api/v1/transactions?transactionType=tokentransfers` and `/api/v1/transactions?transactiontype=tokentransfers` are now both acceptable.
-
-## Latest Releases
 
 ## [v0.21.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.21.0)
 

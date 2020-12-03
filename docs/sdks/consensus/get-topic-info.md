@@ -116,7 +116,7 @@ new ConsensusTopicInfoQuery()
 {% code title="Java" %}
 ```java
 //Create the account info query
-TopicInfoQuery query = new TopicInfoQuery()
+TopicInfoQuery query = new ConsensusTopicInfoQuery()
     .setTopicId(newTopicId);
 
 //Submit the query to a Hedera network
@@ -132,7 +132,7 @@ System.out.println(info);
 {% code title="JavaScript" %}
 ```javascript
 //Create the account info query
-const query = new TopicInfoQuery()
+const query = new ConsensusTopicInfoQuery()
     .setTopicId(newTopicId);
 
 //Submit the query to a Hedera network

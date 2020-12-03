@@ -134,7 +134,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 ```javascript
 //Transfer 100 tokens between two accounts
 const transaction = new TransferTransaction()
-    .addTokenTransfer(tokenId, accountId, 100)
+    .addTokenTransfer(tokenId, accountId, -100)
     .addTokenTransfer(tokenId, OPERATOR_ID, 100);
 
 //Build the unsigned transaction, sign with sender account private key, submit the transaction to a Hedera network
