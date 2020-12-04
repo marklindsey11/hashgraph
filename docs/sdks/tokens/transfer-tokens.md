@@ -49,12 +49,12 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 ```javascript
 //Create the transfer transaction
 const transaction = await new TransferTransaction()
-     .addTokenTransfer(tokenId, accountId, -10)
-     .addTokenTransfer(tokenId, treasuryAccountId, 10)
+     .addTokenTransfer(tokenId, accountId1, -10)
+     .addTokenTransfer(tokenId, accountId2, 10)
      .freezeWith(client);
 
 //Sign with the sender account private key
-const signTx = await transaction.sign(accountKey);
+const signTx = await transaction.sign(accountKey1);
     
 //Sign with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
@@ -79,7 +79,7 @@ transaction, err := hedera.NewTransferTransaction().
 		AddTokenTransfer(tokenId, accountId2, 10).
 		FreezeWith(client)
 
-//Sign with the accountID1 private key, sign with the client operator key and submit to a Hedera network
+//Sign with the accountId1 private key, sign with the client operator key and submit to a Hedera network
 txResponse, err := transaction.Sign(accountKey1).Execute(client)
 
 if err != nil {
