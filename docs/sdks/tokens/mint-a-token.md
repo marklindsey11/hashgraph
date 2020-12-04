@@ -49,7 +49,7 @@ System.out.println("The transaction consensus status is " +transactionStatus;
 const transaction = await new TokenMintTransaction()
      .setTokenId(tokenId)
      .setAmount(1000)
-     .FreezeWith(client);
+     .freezeWith(client);
 
 //Sign with the supply private key of the token 
 const signTx = await transaction.sign(supplyKey);
