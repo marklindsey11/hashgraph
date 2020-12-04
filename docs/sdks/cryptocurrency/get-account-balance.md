@@ -2,6 +2,10 @@
 
 A query that returns the account balance for the specified account. Requesting an account balance is currently free of charge.  Queries do not change the state of the account or require network consensus. The information is returned from a single node processing the query.
 
+**Query Signing Requirements**
+
+* The client operator private key is required to sign the query request
+
 | Constructor | Description |
 | :--- | :--- |
 | `new AccountBalanceQuery()` | Initializes the AccountBalanceQuery object |

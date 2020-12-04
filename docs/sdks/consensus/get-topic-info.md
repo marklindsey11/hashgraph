@@ -16,6 +16,10 @@ Topic info returns the the following values for a topic.  Queries do not change 
 | **Auto Renew Period** | The lifetime of the topic and the amount of time to extend the topic's lifetime by |
 | **Auto Renew Account** | Null if there is no autoRenewAccount.  |
 
+**Query Signing Requirements**
+
+* The client operator private key is required to sign the query request
+
 {% tabs %}
 {% tab title="V2" %}
 | Constructor | Description |

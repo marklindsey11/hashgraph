@@ -19,6 +19,10 @@ A query that returns the current state of the account. This query **does not** i
 | **LiveHash** | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it\).  |
 | **Tokens** | All tokens related to this account |
 
+**Query Signing Requirements**
+
+* The client operator private key is required to sign the query request
+
 | Constructor | Description |
 | :--- | :--- |
 | `new AccountInfoQuery()` | Initializes the AccountInfoQuery object |
