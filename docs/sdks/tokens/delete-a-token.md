@@ -46,7 +46,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 //Mint 1,000 tokens
 const transaction = await new TokenDeleteTransaction()
      .setTokenId(tokenId)
-     .FreezeWith(client);
+     .freezeWith(client);
 
 //Sign with the admin private key of the token 
 const signTx = await transaction.sign(adminKey);
