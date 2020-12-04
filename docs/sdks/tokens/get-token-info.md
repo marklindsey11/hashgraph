@@ -159,9 +159,9 @@ TokenInfoQuery query = new TokenInfoQuery()
     .setTokenId(newTokenId);
 
 //Sign with the client operator private key, submit the query to the network and get the token supply
-long tokeinInfo = query.execute(client).totalSupply;
+long tokenSupply = query.execute(client).totalSupply;
 
-System.out.println("The token info is " +tokenInfo);
+System.out.println("The token info is " +tokenSupply);
 
 ```
 {% endcode %}
@@ -173,9 +173,9 @@ const query = new TokenInfoQuery()
     .setTokenId(newTokenId);
 
 //Sign with the client operator private key, submit the query to the network and get the token supply
-const tokenInfo = await query.execute(client).totalSupply;
+const tokenSupply = await query.execute(client).totalSupply;
 
-console.log("The total supply of this token is " +tokenInfo);
+console.log("The total supply of this token is " +tokenSupply);
 
 //v2.0.7
 ```
