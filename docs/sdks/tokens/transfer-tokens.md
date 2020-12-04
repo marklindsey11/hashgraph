@@ -53,8 +53,10 @@ const transaction = await new TransferTransaction()
      .addTokenTransfer(tokenId, treasuryAccountId, 10)
      .freezeWith(client);
 
+//Sign with the sender account private key
 const signTx = await transaction.sign(accountKey);
     
+//Sign with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
     
 //Request the receipt of the transaction

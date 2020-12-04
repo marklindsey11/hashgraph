@@ -57,7 +57,7 @@ const transaction = await new TokenBurnTransaction()
      .freezeWith(client);
 
 //Sign with the supply private key of the token 
-const signTx = await transaction.sign(supplyKey)
+const signTx = await transaction.sign(supplyKey);
 
 //Submit the transaction to a Hedera network    
 const txResponse = await signTx.execute(client);

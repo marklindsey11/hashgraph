@@ -96,7 +96,7 @@ const transaction = await new TokenCreateTransaction().
      .setAdminKey(adminPublicKey)
      .freezeWith(client);
 
-//Sign the transaction with the adminKey and treasury account ID key
+//Sign the transaction with the token adminKey and the token treasury account private key
 const signTx =  await (await transaction.sign(adminKey)).sign(treasuryKey);
 
 //Sign the transaction with the client operator private key and submit to a Hedera network

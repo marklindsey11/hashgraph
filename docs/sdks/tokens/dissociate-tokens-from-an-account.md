@@ -40,7 +40,7 @@ TokenDissociateTransaction transaction = new TokenDissociateTransaction()
     .setAccountId(accountId)
     .setTokenIds(tokenId);
         
-//Build the unsigned transaction, sign with the private key of the account that is being dissociated from a token, submit the transaction to a Hedera network
+//Freeze the unsigned transaction, sign with the private key of the account that is being dissociated from a token, submit the transaction to a Hedera network
 TransactionResponse txResponse = transaction.freezeWith(client).sign(accountKey).execute(client);
     
 //Request the receipt of the transaction

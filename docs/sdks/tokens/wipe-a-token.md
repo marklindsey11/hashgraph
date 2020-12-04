@@ -39,7 +39,7 @@ TokenWipeTransaction transaction = new TokenWipeTransaction()
     .setTokenId(tokenId)
     .setAmount(100);
 
-//Build the unsigned transaction, sign with the private key of the account that is being wiped, sign with the wipe private key of the token, submit the transaction to a Hedera network
+//Freeze the unsigned transaction, sign with the private key of the account that is being wiped, sign with the wipe private key of the token, submit the transaction to a Hedera network
 TransactionResponse txResponse = transaction.freezeWith(client).sign(accountKey).sign(wipeKey).execute(client);
     
 //Request the receipt of the transaction

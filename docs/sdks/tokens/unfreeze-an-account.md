@@ -59,7 +59,7 @@ const transaction = await new TokenUnfreezeTransaction()
      .setTokenId(tokenId)
      .freezeWith(client);
 
-//Sign with the sender freeze private key of the token 
+//Sign with the freeze private key of the token 
 const signTx = await transaction.sign(freezeKey);
 
 //Submit the transaction to a Hedera network
