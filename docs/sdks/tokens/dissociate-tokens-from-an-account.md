@@ -63,7 +63,7 @@ const transaction = await new TokenDissociateTransaction()
      .freezeWith(client);
 
 //Sign with the private key of the account that is being associated to a token 
-const signTx = await transaction.sign(accountKey)
+const signTx = await transaction.sign(accountKey);
 
 //Submit the transaction to a Hedera network    
 const txResponse = await signTx.execute(client);

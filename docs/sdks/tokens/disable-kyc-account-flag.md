@@ -59,7 +59,7 @@ const transaction = await new TokenRevokeKycTransaction()
      .freezeWith(client);
 
 //Sign with the kyc private key of the token
-const signTx = await transaction.sign(kycKey)
+const signTx = await transaction.sign(kycKey);
 
 //Submit the transaction to a Hedera network    
 const txResponse = await signTx.execute(client);
