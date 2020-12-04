@@ -253,5 +253,3 @@ console.log("The total supply of this token is " +totalSupply)
 {% endtab %}
 {% endtabs %}
 
-
-
