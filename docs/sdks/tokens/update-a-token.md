@@ -77,7 +77,7 @@ const transaction = await new TokenUpdateTransaction()
      .freezeWith(client);
 
 //Sign the transaction with the admin key
-const signTx = await transaction.sign(adminKey)
+const signTx = await transaction.sign(adminKey);
 
 //Submit the signed transaction to a Hedera network
 const txResponse = await signTx.execute(client);
