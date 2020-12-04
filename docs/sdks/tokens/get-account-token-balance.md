@@ -42,7 +42,7 @@ const tokenBalance = await query.execute(client);
 
 console.log("The token balance(s) for this account: " +tokenBalance.tokens);
 
-//v2.0.5
+//v2.0.7
 ```
 {% endcode %}
 
