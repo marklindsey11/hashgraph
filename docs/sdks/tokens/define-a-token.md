@@ -102,7 +102,7 @@ const signTx =  await (await transaction.sign(adminKey)).sign(treasuryKey);
 //Sign the transaction with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
     
-//Get the receipt from the transaction
+//Get the receipt of the transaction
 const receipt = await txResponse.getReceipt(client);
 
 //Get the token ID from the receipt
