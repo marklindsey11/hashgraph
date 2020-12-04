@@ -53,7 +53,7 @@ const transaction = await new TransferTransaction()
      .addTokenTransfer(tokenId, treasuryAccountId, 10)
      .freezeWith(client);
 
-const signTx = await transaction.sign(accountKey)
+const signTx = await transaction.sign(accountKey);
     
 const txResponse = await signTx.execute(client);
     
