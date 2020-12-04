@@ -49,7 +49,7 @@ const transaction = await new TokenDeleteTransaction()
      .FreezeWith(client);
 
 //Sign with the admin private key of the token 
-const signTx = await transaction.sign(adminKey)
+const signTx = await transaction.sign(adminKey);
 
 //Submit the transaction to a Hedera network    
 const txResponse = await signTx.execute(client);
