@@ -1,6 +1,6 @@
 # Wipe a token
 
-Wipes the provided amount of tokens from the specified Account. This transaction must be signed by the token's Wipe Key and the key of the account is being wiped. Wiping an accounts tokens burns the tokens and decreases the total supply.
+Wipes the provided amount of tokens from the specified Hedera account. This transaction must be signed by the token's Wipe Key and the key of the account is being wiped. Wiping an accounts tokens burns the tokens and decreases the total supply.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 *  If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED

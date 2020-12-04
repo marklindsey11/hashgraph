@@ -1,6 +1,6 @@
 # Unfreeze an account
 
-Unfreezes transfers of the specified token for the account. Must be signed by the token's Freeze Key. 
+Unfreezes transfers of the specified token for the account. The transaction must be signed by the token's Freeze Key. 
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.

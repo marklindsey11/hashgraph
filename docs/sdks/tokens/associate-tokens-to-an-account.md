@@ -1,6 +1,6 @@
 # Associate tokens to an account
 
-Associates the provided account with the provided tokens. Accounts must be associated with a token first before you can transfer tokens to that account. The account that is being associated to a token is required to sign the transaction.
+Associates the provided Hedera account with the provided Hedera tokens. Hedera accounts must be associated with a token first before you can transfer tokens to that account. The Hedera account that is being associated to a token is required to sign the transaction.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.

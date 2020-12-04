@@ -1,6 +1,6 @@
 # Dissociate tokens from an account
 
-Disassociates the provided account from the provided tokens. This transaction must be signed by the provided Account's Key. Once the association is removed, no token related operation can be performed to that account. AccountBalanceQuery and AccountInfoQuery will not return anything related to the token that was disassociated.
+Disassociates the provided Hedera account from the provided Hedera tokens. This transaction must be signed by the provided account's key. Once the association is removed, no token related operation can be performed to that account. AccountBalanceQuery and AccountInfoQuery will not return anything related to the token that was disassociated.
 
 *  If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 *  If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
