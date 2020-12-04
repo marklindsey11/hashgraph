@@ -45,7 +45,7 @@ System.out.println("The transaction consensus status is " +transactionStatus;
 
 {% code title="JavaScript" %}
 ```javascript
-//Mint 1,000 tokens
+//Mint another 1,000 tokens and freeze the unsigned transaction for manual signing
 const transaction = await new TokenMintTransaction()
      .setTokenId(tokenId)
      .setAmount(1000)
@@ -71,7 +71,7 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 {% code title="Go" %}
 ```go
-//Mint 1,000 tokens and freeze the unsigned transaction for manual signing
+//Mint another 1,000 tokens and freeze the unsigned transaction for manual signing
 transaction, err = hedera.NewTokenMintTransaction().
 		SetTokenID(tokenId).
 		SetAmount(1000).

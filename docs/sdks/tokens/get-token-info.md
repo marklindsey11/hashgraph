@@ -168,7 +168,7 @@ System.out.println("The total supply of this token is " +tokenInfo);
 
 {% code title="JavaScript" %}
 ```javascript
-//Create the query (issue logged)
+//Create the query
 const query = new TokenInfoQuery()
     .setTokenId(newTokenId);
 

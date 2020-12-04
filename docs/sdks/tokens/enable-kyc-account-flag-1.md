@@ -54,7 +54,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 {% code title="JavaScript" %}
 ```javascript
-//Enable KYC flag on account
+//Enable KYC flag on account and freeze the transaction for manual signing
 const transaction = await new TokenGrantKycTransaction()
      .setAccountId(accountId)
      .setTokenId(tokenId)

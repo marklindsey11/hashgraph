@@ -50,7 +50,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 {% code title="JavaScript" %}
 ```javascript
-//Burn 1,000 tokens
+//Burn 1,000 tokens and freeze the unsigned transaction for manual signing
 const transaction = await new TokenBurnTransaction()
      .setTokenId(tokenId)
      .setAmount(1000)

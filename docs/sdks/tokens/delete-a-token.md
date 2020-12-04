@@ -22,7 +22,7 @@ new TokenDeleteTransaction()
 
 {% code title="Java" %}
 ```java
-//Delete a token
+//Create the transaction
 TokenDeleteTransaction transaction = new TokenDeleteTransaction()
      .setTokenId(tokenId);
 
@@ -43,7 +43,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 {% code title="JavaScript" %}
 ```javascript
-//Mint 1,000 tokens
+//Create the transaction and freeze the unsigned transaction for manual signing
 const transaction = await new TokenDeleteTransaction()
      .setTokenId(tokenId)
      .freezeWith(client);
@@ -68,7 +68,7 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 {% code title="Go" %}
 ```go
-//Delete a token transaction and freeze the unsigned transaction for manual signing
+//Create the transaction and freeze the unsigned transaction for manual signing
 transaction, err = hedera.NewTokenDeleteTransaction().
 		SetTokenID(tokenId).
 		FreezeWith(client)

@@ -52,7 +52,7 @@ System.out.println("The transaction consensus status " +transactionStatus);
 
 {% code title="JavaScript" %}
 ```javascript
-//Associate a token to an account
+//Associate a token to an account and freeze the unsigned transaction for signing
 const transaction = await new TokenAssociateTransaction()
      .setAccountId(accountId)
      .setTokenIds([tokenId])

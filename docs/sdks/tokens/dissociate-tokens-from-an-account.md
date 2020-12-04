@@ -56,7 +56,7 @@ System.out.println("The transaction consensus status is: " +transactionStatus);
 
 {% code title="JavaScript" %}
 ```javascript
-//Dissociate a token to an account
+//Dissociate a token from an account and freeze the unsigned transaction for signing
 const transaction = await new TokenDissociateTransaction()
      .setAccountId(accountId)
      .setTokenIds([tokenId])

@@ -79,7 +79,7 @@ console.log("The transaction consensus status is " +transactionStatus.toString()
 
 {% code title="Go" %}
 ```go
-//Unfreeze an account
+//Unfreeze an account and freeze the unsigned transaction for signing
 transaction, err = hedera.NewUnTokenFreezeTransaction().
 	  SetAccountID(accountId).
 		SetTokenID(tokenId).

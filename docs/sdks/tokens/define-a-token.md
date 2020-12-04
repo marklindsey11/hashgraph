@@ -62,7 +62,7 @@ new TokenCreateTransaction()
 
 {% code title="Java" %}
 ```java
-//Create a token
+//Create the transaction
 TokenCreateTransaction transaction = new TokenCreateTransaction()
         .setTokenName("Your Token Name")
         .setTokenSymbol("F")
@@ -116,7 +116,7 @@ console.log("The new token ID is " + tokenId);
 
 {% code title="Go" %}
 ```go
-//Create a token and freeze the unsigned transaction
+//Create the transaction and freeze the unsigned transaction
 tokenCreateTransaction, err := hedera.NewTokenCreateTransaction().
 	  SetTokenName("Your Token Name").
 		SetTokenSymbol("F").

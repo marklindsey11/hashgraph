@@ -55,7 +55,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 {% code title="JavaScript" %}
 ```javascript
-//Wipe 100 tokens from an account
+//Wipe 100 tokens from an account and freeze the unsigned transaction for manual signing
 const transaction = await new TokenWipeTransaction()
     .setAccountId(accountId)
     .setTokenId(tokenId)

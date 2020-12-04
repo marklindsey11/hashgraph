@@ -52,7 +52,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 {% code title="JavaScript" %}
 ```javascript
-//Remove the KYC flag on account
+//Remove the KYC flag on account and freeze the transaction for signing
 const transaction = await new TokenRevokeKycTransaction()
      .setAccountId(accountId)
      .setTokenId(tokenId)

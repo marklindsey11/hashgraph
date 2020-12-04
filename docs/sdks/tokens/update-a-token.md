@@ -48,7 +48,7 @@ new TokenUpdateTransaction()
 
 {% code title="Java" %}
 ```java
-//Update the name of the token
+//Create the transaction 
 TokenUpdateTransaction transaction = new TokenUpdateTransaction()
      .setTokenId(tokenId)
      .setTokenName("Your New Token Name");
