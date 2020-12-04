@@ -158,10 +158,10 @@ new TokenInfoQuery()
 TokenInfoQuery query = new TokenInfoQuery()
     .setTokenId(newTokenId);
 
-//Submit the query to the network and obtain the token supply
+//Sign with the client operator private key, submit the query to the network and get the token supply
 long tokeinInfo = query.execute(client).totalSupply;
 
-System.out.println("The total supply of this token is " +tokenInfo);
+System.out.println("The token info is " +tokenInfo);
 
 ```
 {% endcode %}
@@ -172,7 +172,7 @@ System.out.println("The total supply of this token is " +tokenInfo);
 const query = new TokenInfoQuery()
     .setTokenId(newTokenId);
 
-//Submit the query to the network and obtain the token supply
+//Sign with the client operator private key, submit the query to the network and get the token supply
 const tokenInfo = await query.execute(client).totalSupply;
 
 console.log("The total supply of this token is " +tokenInfo);
