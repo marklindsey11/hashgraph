@@ -91,7 +91,7 @@ System.out.println("The new token ID is " + tokenId);
 const transaction = await new TokenCreateTransaction().
      .setTokenName("Your Token Name")
      .setTokenSymbol("F")
-     .setTreasuryAccountId(client.operatorAccountId)
+     .setTreasuryAccountId(treasuryAccountId)
      .setInitialSupply(5000)
      .setAdminKey(adminPublicKey)
      .freezeWith(client);
@@ -120,7 +120,7 @@ console.log("The new token ID is " + tokenId);
 tokenCreateTransaction, err := hedera.NewTokenCreateTransaction().
 	  SetTokenName("Your Token Name").
 		SetTokenSymbol("F").
-		SetTreasuryAccountID(treasuryAccountID).
+		SetTreasuryAccountID(treasuryAccountId).
 		SetInitialSupply(1000).
 		SetAdminKey(adminKey).
 		FreezeWith(client)
