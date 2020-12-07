@@ -29,9 +29,10 @@ You can find instructions on how to operate your own Hedera mirror node below.
 
 The following SDKs support HTS: 
 
-* [Java](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjn-P7Q15ntAhVKvZ4KHSGuDNwQjBAwAXoECAgQAQ&url=https%3A%2F%2Fgithub.com%2Fhashgraph%2Fhedera-sdk-java&usg=AOvVaw0x6wHX5Xukck7RsLPVxkIx) 
-* [JavaScript](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjn-P7Q15ntAhVKvZ4KHSGuDNwQjBAwAnoECAkQAQ&url=https%3A%2F%2Fgithub.com%2Fhashgraph%2Fhedera-sdk-js&usg=AOvVaw0LMv-BqBXFjJgHjQghRWLD) 
+* [Java](https://github.com/hashgraph/hedera-sdk-java) 
+* [JavaScript](https://github.com/hashgraph/hedera-sdk-js) 
 * [Go](https://github.com/hashgraph/hedera-sdk-go) 
+* [.NET](https://github.com/bugbytesinc/Hashgraph)
 
 Documentation can be found below.
 
