@@ -618,7 +618,7 @@ The consensus timestamp of a message in seconds.nanoseconds
 ## Tokens
 
 {% hint style="info" %}
-Available for use on previewnet only.
+Available for use on previewnet and testnet only.
 {% endhint %}
 
 {% api-method method="get" host="" path="/api/v1/tokens" %}
