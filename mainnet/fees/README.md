@@ -30,7 +30,7 @@ Mainnet transaction and query fees can be estimated using the [Hedera Fee Estima
 
 All fees are subject to change.
 
-### Cryptocurrency Accounts
+### Accounts
 
 | Operations | USD \($\) |
 | :--- | :--- |
@@ -57,6 +57,10 @@ All fees are subject to change.
 | ConsensusSubmitMessage | $0.0001 |
 | ConsensusGetInfo | $0.0001 |
 
+### Token Service
+
+Coming soon...
+
 ### File Service
 
 | Operations | USD \($\) |
@@ -68,9 +72,7 @@ All fees are subject to change.
 | FileGetContents | $0.0001 |
 | FileGetInfo | $0.0001 |
 
-
-
-### Smart Contract
+### Smart Contract Service
 
 | Operations | USD \($\) |
 | :--- | :--- |

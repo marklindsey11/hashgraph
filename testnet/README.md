@@ -53,7 +53,7 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
 | Consensus Service | Limited |
 | File Service | Limited |
 | Smart Contract Service | Limited  |
-| Tokens | Available on previewnet |
+| Token Service | Available on previewnet/testnet |
 
 #### Test Network Throttles
 
@@ -79,6 +79,18 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
         <p>3,000 tps</p>
         <p>CreateTopic: 5 tps</p>
       </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Token Transfer Transactions</td>
+      <td style="text-align:left">8,000 tps</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Token Create/Associate Transactions</td>
+      <td style="text-align:left">100 tps</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Token Transactions (other)</td>
+      <td style="text-align:left">3,000 tps</td>
     </tr>
     <tr>
       <td style="text-align:left">File Transactions</td>
