@@ -97,10 +97,7 @@ The **address book** contains the list of consensus nodes that can submit transa
         <p>23.96.185.18</p>
       </td>
       <td style="text-align:left">50211</td>
-      <td style="text-align:left">
-        <p>dd3b3e7cd3a257d8276e46535361b018b70091f48665e820010e81ec0592b69bd4be1fbd7ecd509d07013dd0412842fd</p>
-        <p>&lt;b&gt;&lt;/b&gt;</p>
-      </td>
+      <td style="text-align:left">dd3b3e7cd3a257d8276e46535361b018b70091f48665e820010e81ec0592b69bd4be1fbd7ecd509d07013dd0412842fd</td>
     </tr>
     <tr>
       <td style="text-align:left">6</td>
