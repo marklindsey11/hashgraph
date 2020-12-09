@@ -27,11 +27,11 @@ The **address book** contains the list of consensus nodes that can submit transa
       </td>
       <td style="text-align:left">
         <p>35.237.200.180</p>
-        <p>13.82.40.153</p>
         <p>34.239.82.6</p>
+        <p>13.82.40.153</p>
       </td>
       <td style="text-align:left">50211</td>
-      <td style="text-align:left">907d19a35c3e667d91b10e32bc4d560d5e2a35535296757394c67dba8ac9678fa63fc21eb9f8eb0a3757f4d96c071d03</td>
+      <td style="text-align:left">337390d8fea144afc12e81254a28dac6ea82893836ac072effd85e0a7748580ef28096648c5a7f8dbb4ce81476815137</td>
     </tr>
     <tr>
       <td style="text-align:left">1</td>
@@ -53,6 +53,9 @@ The **address book** contains the list of consensus nodes that can submit transa
         <p>35.192.2.25</p>
         <p>3.18.18.254</p>
         <p>104.43.194.202</p>
+        <p>23.111.186.250</p>
+        <p>74.50.117.35</p>
+        <p>107.155.64.98</p>
       </td>
       <td style="text-align:left">50211</td>
       <td style="text-align:left">5a86415a08a0a825f3b2eb75010155202e31243fe41a033384e78c18c11e5e8f209d493b0b2fd45e06b374f2b69df5d7</td>
@@ -63,11 +66,14 @@ The **address book** contains the list of consensus nodes that can submit transa
       </td>
       <td style="text-align:left">
         <p>35.199.161.108</p>
-        <p>13.64.151.232</p>
         <p>13.52.108.243</p>
+        <p>13.64.151.232</p>
+        <p>13.235.15.32</p>
+        <p>104.211.205.124</p>
+        <p>13.71.90.154</p>
       </td>
       <td style="text-align:left">50211</td>
-      <td style="text-align:left">5cf6eb92de1e68772ac340f38fbd4a039f1ac968f420361560e790c1c5de961e45f561363a3daa5d3bfb25bc89000e6e</td>
+      <td style="text-align:left">d464039803792079eccd5a44311ca0dc22b50ec895b56e53d12b29f72dc6dba3cafe2e5b8104fbda038af5b447d0fb12</td>
     </tr>
     <tr>
       <td style="text-align:left">4</td>
@@ -79,7 +85,7 @@ The **address book** contains the list of consensus nodes that can submit transa
         <p>23.102.74.34</p>
       </td>
       <td style="text-align:left">50211</td>
-      <td style="text-align:left">a4b172ef224d8002387689240666df3d02431e6415592df38a6fe7e0a8dce698bda322ddf27597d92a6f6c866b0c03c0</td>
+      <td style="text-align:left">6e9a8abcdcde6e1149a3ebe17fd58d8905839a86db72b06a3ea20aa176f868b2548852ae423d7a9c6b7cff9e714629a2</td>
     </tr>
     <tr>
       <td style="text-align:left">5</td>
@@ -106,16 +112,16 @@ The **address book** contains the list of consensus nodes that can submit transa
         <p>23.97.237.125</p>
       </td>
       <td style="text-align:left">50211</td>
-      <td style="text-align:left">74f56d514a379afd06ca9a56d83a42635207a8caa7089e3bcc486d76ebf0f9af983c3853b658e868732a72c2e5099781</td>
+      <td style="text-align:left">3e02a6720c446659e86305d55bfee820b35e650fecacc553097455e2c4e032cc9ded16b1bb44d3b592bbacb6c2bff1e6</td>
     </tr>
     <tr>
       <td style="text-align:left">7</td>
       <td style="text-align:left"><b>0.0.10</b>
       </td>
       <td style="text-align:left">
-        <p>65.52.68.254</p>
         <p>35.242.233.154</p>
         <p>3.248.27.48</p>
+        <p>65.52.68.254</p>
       </td>
       <td style="text-align:left">50211</td>
       <td style="text-align:left">740af6bf739e883c88f3344c9a0f8b301e39dc981c5163e0de2a3ff42b99e426ed7e56b67f4218503845df62f49c9fb0</td>
@@ -126,8 +132,11 @@ The **address book** contains the list of consensus nodes that can submit transa
       </td>
       <td style="text-align:left">
         <p>35.240.118.96</p>
-        <p>23.97.247.27</p>
         <p>13.53.119.185</p>
+        <p>23.97.247.27</p>
+        <p>69.87.222.61</p>
+        <p>96.126.72.172</p>
+        <p>69.87.221.231</p>
       </td>
       <td style="text-align:left">50211</td>
       <td style="text-align:left">
@@ -141,8 +150,8 @@ The **address book** contains the list of consensus nodes that can submit transa
       </td>
       <td style="text-align:left">
         <p>35.204.86.32</p>
-        <p>35.177.162.180
-          <br />51.140.102.228</p>
+        <p>35.177.162.180</p>
+        <p>51.140.102.228</p>
       </td>
       <td style="text-align:left">50211</td>
       <td style="text-align:left">c974bb982c81913b7326d5a3f9dcc48612a15f7aad02f207b0f10cd2017a6fbff5803e7ca9bfb4709ab28b6b09d5b13f</td>
@@ -152,8 +161,8 @@ The **address book** contains the list of consensus nodes that can submit transa
       <td style="text-align:left"><b>0.0.13</b>
       </td>
       <td style="text-align:left">
-        <p>34.215.192.104
-          <br />35.234.132.107</p>
+        <p>35.234.132.107</p>
+        <p>34.215.192.104</p>
         <p>13.77.158.252</p>
       </td>
       <td style="text-align:left">50211</td>
@@ -164,9 +173,9 @@ The **address book** contains the list of consensus nodes that can submit transa
       <td style="text-align:left"><b>0.0.14</b>
       </td>
       <td style="text-align:left">
-        <p>52.8.21.141</p>
-        <p>40.118.206.154</p>
         <p>35.236.2.27</p>
+        <p>52.8.21.141</p>
+        <p>40.114.107.85</p>
         <p></p>
       </td>
       <td style="text-align:left">50211</td>
@@ -177,8 +186,8 @@ The **address book** contains the list of consensus nodes that can submit transa
       <td style="text-align:left"><b>0.0.15</b>
       </td>
       <td style="text-align:left">
-        <p>3.121.238.26</p>
         <p>35.228.11.53</p>
+        <p>3.121.238.26</p>
         <p>40.89.139.247</p>
       </td>
       <td style="text-align:left">50211</td>
@@ -188,7 +197,14 @@ The **address book** contains the list of consensus nodes that can submit transa
       <td style="text-align:left">13</td>
       <td style="text-align:left"><b>0.0.16</b>
       </td>
-      <td style="text-align:left">34.91.181.183 18.157.223.230 13.69.120.73</td>
+      <td style="text-align:left">
+        <p>34.91.181.183</p>
+        <p>18.157.223.230</p>
+        <p>13.69.120.73</p>
+        <p>50.7.176.235</p>
+        <p>198.16.99.40</p>
+        <p>50.7.124.46</p>
+      </td>
       <td style="text-align:left">50211</td>
       <td style="text-align:left">000abcd59a30a5388c500be682f6ca294046295c9275881c20d34bb0d690eda7b38b6bbd07a3dd1fdfb6a7044bb09cff</td>
     </tr>
@@ -215,4 +231,3 @@ Below you will beind the mainnet node public keys found in the mainnet address b
 | **0.0.14** | 308201a2300d06092a864886f70d01010105000382018f003082018a028201810098755a408b5321e263052000d6d7d4a2c3a554d5e1384a9cb5ebf474ae882c63b486bd08d144ddf1a94ce9a7d6251963006afdaac458846f17640195fe2539a656930efa854f2148e68ec1a08c1c49d200c3f3045fe7147f06d534c4bd262100cb1dd39739d760d81a0bd20f83f255d2507d4ccb1106b53618c6a94409c887cae262d4cee9c86232147cec1404e0c57bba7317130ee39643888af3d598edd82b8c61e65ae81a4e1a56bc06d397143a98d41ca87d3ef433ef0aeab6801191b3e38480968f66b6e88662af45a9e212994f68b288eb967beb98478c243e2136c1a1591f061f5bc04b21ff2ba48b29f18431088873bdfe99f8a52e9408971856e804dea602a311786c985652963c3a3770329b409f74fdfc746b22a5f8418912071c4ce846c9b4b320fedf6e9b64e2cbe384f9a82b6aaad4b20907431df1a33f69207a565600be81070d0832900995859a4498d5b59315bcebefee807eb0a3a942f1cdf3367dd4444fdb29886efcdd0be4abe9a188803953875eda33db72989f763b0203010001 |
 | **0.0.15** | 308201a2300d06092a864886f70d01010105000382018f003082018a0282018100a9db7f8baa126898fab789115a3b5d89744f197e28041ae098f3e886c69871721e11bb0ad11f3ce9124aa961d6a0dc845f49765c3fab19958402676f564462bf281dba5588780f03e905798e184269aaa60f7a1472331e2fb1deadd877c84cbcb641ca9e5c8ad6e45bc159cb079fcb0d449cdcd8d9239c1a047e7b448da0cdca26610a25f296d96e7469b676d4a444516e7a59e85293a8086f840c052854e02a8cb2002dad35825be4d83b52fa91e8c73ff049746148862787c1118f924d31cbac1b44feff22d436b3979eadf9b43a4bfa72e15b4755fcab260e06a279c3bb73bc7f16a060d4d522fd490580388aa595d8044736e522f6424915f7803b7583e095cdf78c32519697de81b89fb50054753b1a17f9aafb064d84c992f9ab11ccbc8cb10814dcaf5264aa45f21bdefac82ccacaaf358e31373ee1ba4e7402fd8a70ea0c28ca5cc74dc42510c969cd2c459b1ec3688a01ea39a992710cd2297c98a84b6348a577804fdc234d3fe1903e2c21e172da28b59ae6e4c7e8edd8b71c49d70203010001 |
 | **0.0.16** | 308201a2300d06092a864886f70d01010105000382018f003082018a0282018100a8ceac367eb1f1de5f0d9ef3eaf0df9b98448fe20808476562a060c51c289770b4cacfe92cb65569823e962c2a2c9fed53bd36ca3a122de1c525a582f25a4d7d628c1a3d5bdb8936aece7510e7554ee7033025c092c828eeb5738be02ed963da81a59205634ce9454577ab82f40f13f1ee55e0ae727e23c30284b1f44b99ace4ddc5f9ac7ad88d9fa2255935b24dcba8400642e16cf2532c0b0d6892904608715c4076f46d84a0e0fed36e76ccdc96355e7a26160945c2b54ae26cc00fd082326346eeeea7dd75f91911e99dbcb99ea4ac6ba056c33228d881d85831d9cc879593da1746dd0ee95dc2b96fe93bafcff2cd7d92958d78df33f205d7115ed9fac4db6f4cc60e56a5441da5b5b55fa5999902e958a6b6c44d810ddc56181241b87f22f059a6880e8021736d01897db65449ce817a2375d03551cb0de507c609a0c8030ecf4bfdeb213c03daa764a1821b724334f71f768d7aecb277052a7033765f07218056c78f2a87af18386d8f61a5cfcb3f2ba4dd59915f13d38634d16957570203010001 |
-
