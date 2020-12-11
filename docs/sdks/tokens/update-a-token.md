@@ -9,9 +9,9 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 | **Treasury Account** | The new treasury account of the token. If the provided treasury account is not existing or deleted, the response will be INVALID\_TREASURY\_ACCOUNT\_FOR\_TOKEN. If successful, the Token balance held in the previous Treasury Account is transferred to the new one. |
 | **Admin Key** | The new admin key of the token. If token is immutable \(no Admin Key was assigned during token creation\), transaction will resolve to TOKEN\_IS\_IMMUTABlE. |
 | **KYC Key** | The new KYC key of the token. If token does not have currently a KYC key, transaction will resolve to TOKEN\_HAS\_NO\_KYC\_KEY. |
-| **Freeze Key** | The new freeze key of the Token. If the token does not have currently a freeze key, transaction will resolve to TOKEN\_HAS\_NO\_FREEZE\_KEY. |
+| **Freeze Key** | The new freeze key of the token. If the token does not have currently a freeze key, transaction will resolve to TOKEN\_HAS\_NO\_FREEZE\_KEY. |
 | **Wipe Key** | The new wipe key of the token. If the token does not have currently a wipe key, transaction will resolve to TOKEN\_HAS\_NO\_WIPE\_KEY. |
-| **Supply Key** | The new supply key of the token. If the yoken does not have currently a supply key, transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. |
+| **Supply Key** | The new supply key of the token. If the token does not have currently a supply key, transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. |
 | **Expiration Time** | The new expiry time of the token. Expiry can be updated even if the admin key is not set. If the provided expiry is earlier than the current token expiry, transaction wil resolve to INVALID\_EXPIRATION\_TIME.  |
 | **Auto Renew Account** | The new account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. |
 | **Auto Renew Period** | The new interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
