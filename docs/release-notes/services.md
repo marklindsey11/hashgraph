@@ -8,20 +8,38 @@ description: Hedera Services release information
 | :--- | :--- | :--- |
 | **Mainnet** | 0.9.0 | 0.10.0 |
 | **Testnet** | 0.9.0 | 0.10.0 |
-| **Previewnet** | 0.9.0 | 0.10.0 |
+| **Previewnet** | 0.10.0 | 0.11.0 |
 
 ## Upcoming Releases
+
+## [v0.10.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.10.0)
+
+{% hint style="info" %}
+**MAINNET UPDATE COMPLETED: JANUARY 7, 2020**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE SCHEDULED: DECEMBER 17, 2020**
+{% endhint %}
+
+In Hedera Services v0.10.0, we improved the usability of the Hedera Token Service \(HTS\) with a `newTotalSupply` field in the receipts of `TokenMint` and `TokenBurn` transactions. Without this field, a client must follow the entire record stream of a token's supply changes to be certain of its supply at the consensus timestamp in the receipt. \(Note that HTS operations are now enabled on Previewnet and Testnet, but remain disabled on Mainnet at this time. Please consult the [SDK documentation](https://docs.hedera.com/452354233115445331/token-service) for HTS semantics.\)
+
+Also for HTS, we added a property `fees.tokenTransferUsageMultiplier` that scales the resource usage assigned to a `CryptoTransfer` that changes token balances. This scaling factor is expected to be set so that the cost of a `CryptoTransfer` that changes two token balances is roughly 10x the cost of a `CryptoTransfer` that changes only two hbar balances.
+
+Apart from HTS, this release drops a restriction on what payer accounts can be used for `CryptoUpdate` transactions that target system accounts. \(That is, accounts with number not greater than `hedera.numReservedSystemEntities`.\) In earlier versions, only three payers were accepted: The target account itself, the system admin account, or the treasury account. Other payers resulted in a status of `AUTHORIZATION_FAILED`. This entire restriction is removed, with one exception---the treasury must pay for a `CryptoUpdate` targeting the treasury.
+
+Apart from these functional changes, we fixed an unintentional change in the naming of the crypto balances CSV file, and improved the usefulness of clients under _test-clients/_ for testing reconnect scenarios.
 
 ## Latest Releases
 
 ## [v0.9.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.9.0-rc.1)
 
 {% hint style="success" %}
-**MAINNET UPDATE COMPLETED: December 3, 2020**
+**MAINNET UPDATE COMPLETED: DECEMBER 3, 2020**
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE COMPLETED: November 19, 2020**
+**TESTNET UPDATE COMPLETED: NOVEMBER 19, 2020**
 {% endhint %}
 
 In Hedera Services v0.9.0, we finished the alpha implementation of the Hedera Token Service \(HTS\). Note that all HTS operations are enabled on Previewnet, but remain disabled on Testnet and Mainnet. Please consult the [SDK documentation](https://docs.hedera.com/452354233115445331/token-service) for HTS semantics.
