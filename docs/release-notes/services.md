@@ -7,7 +7,7 @@ description: Hedera Services release information
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.9.0 | 0.10.0 |
-| **Testnet** | 0.9.0 | 0.10.0 |
+| **Testnet** | 0.10.0 | 0.11.0 |
 | **Previewnet** | 0.10.0 | 0.11.0 |
 
 ## Upcoming Releases
@@ -15,11 +15,11 @@ description: Hedera Services release information
 ## [v0.10.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.10.0)
 
 {% hint style="info" %}
-**MAINNET UPDATE COMPLETED: JANUARY 7, 2020**
+**MAINNET UPDATE SCHEDULED: JANUARY 7, 2020**
 {% endhint %}
 
-{% hint style="info" %}
-**TESTNET UPDATE SCHEDULED: DECEMBER 17, 2020**
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: DECEMBER 17, 2020** 
 {% endhint %}
 
 In Hedera Services v0.10.0, we improved the usability of the Hedera Token Service \(HTS\) with a `newTotalSupply` field in the receipts of `TokenMint` and `TokenBurn` transactions. Without this field, a client must follow the entire record stream of a token's supply changes to be certain of its supply at the consensus timestamp in the receipt. \(Note that HTS operations are now enabled on Previewnet and Testnet, but remain disabled on Mainnet at this time. Please consult the [SDK documentation](https://docs.hedera.com/452354233115445331/token-service) for HTS semantics.\)
