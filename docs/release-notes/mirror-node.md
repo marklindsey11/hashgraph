@@ -6,13 +6,19 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.23.1 | 0.24.0 |
+| **Mainnet** | 0.24.0 | 0.25.0 |
 | **Testnet** | 0.24.0 | 0.25.0 |
 | **Previewnet** | 0.24.0 | 0.25.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.24.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.24.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: DECEMBER 28, 2020**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: DECEMBER 10, 2020**
@@ -23,8 +29,6 @@ This release adds [OpenAPI 3.0](https://swagger.io/specification) specification 
 We now have support for the [AWS Default Credential Provider Chain](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html). Now instead of only being able to provide static access and secret keys in the configuration, you can rely on the default provider chain to retrieve your credentials automatically from the environment \(environment variables, `~/.aws/credentials`, etc\). See our [documentation](https://github.com/hashgraph/hedera-mirror-node/blob/master/docs/configuration.md#connect-to-s3-with-the-default-credentials-provider) for more information.
 
 We've enhanced our monitoring tools to provide greater observability into the mirror node's operation. In addition to publishing, our monitor tool now supports subscribing to the gRPC and REST APIs to verify end to end functionality of Hedera. It will also generate metrics off this information. We take advantage of Loki's new log alerting capability and now can alert off of any errors we see in logs that might be cause for concern.
-
-## Latest Releases
 
 ## [v0.23.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.23.0)
 
