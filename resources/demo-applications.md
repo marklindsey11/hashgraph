@@ -27,6 +27,7 @@ description: Examples of different use cases and projects built on Hedera.
 | HCS based chat | [GitHub](https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |
 | Theft prevention | [GitHub](https://github.com/hashgraph/hedera-theft-prevention-demo) | Hedera |
 | Check State Proof | [Github](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof) | Hedera |
+| Hedera Token Service | [Github](https://github.com/hashgraph/hedera-hts-demo) | Hedera |
 | Others | Coming soon! | Community |
 {% endtab %}
 
