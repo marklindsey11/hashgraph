@@ -22,7 +22,7 @@ description: Examples of different use cases and projects built on Hedera.
 | Project | Source | Developer |
 | :--- | :--- | :--- |
 | HCS based stable coin | [GitHub](https://github.com/hashgraph/hedera-stable-coin-demo) | Hedera |
-| MyHbarWallet | [GitHub](https://github.com/hashgraph/hedera-docs/tree/f9fdc6723c914551fc113056a289a0c39fef4dd9/hashgraph/MyHbarWallet/README.md) | Hedera |
+| MyHbarWallet | [GitHub](https://github.com/hashgraph/MyHbarWallet) | Hedera |
 | Proof-of-action pasteboard | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-demo-pasteboard) | Hedera |
 | HCS based chat | [GitHub](https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |
 | Theft prevention | [GitHub](https://github.com/hashgraph/hedera-theft-prevention-demo) | Hedera |
