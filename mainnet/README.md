@@ -47,18 +47,6 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Token Transfer Transactions</td>
-      <td style="text-align:left">8,000 tps</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Token Create/Associate Transactions</td>
-      <td style="text-align:left">100 tps</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Token Transactions (other)</td>
-      <td style="text-align:left">3,000 tps</td>
-    </tr>
-    <tr>
       <td style="text-align:left">File Transactions</td>
       <td style="text-align:left">13 tps</td>
     </tr>
