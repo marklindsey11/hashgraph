@@ -22,11 +22,6 @@ Community members contribute to SDKs in other languages.
 
 | SDK | Maintainer | License | Download |
 | :--- | :--- | :--- | :--- |
-| Hedera SDK for C | Community | Apache 2.0 | [github.com/launchbadge](https://github.com/launchbadge/hedera-sdk-rust) |
-| Hedera SDK for Go | Community | Apache 2.0 | [github.com/launchbadge](https://github.com/launchbadge/hedera-sdk-go) |
-| Hedera SDK for iOS | Community | Apache 2.0 | [github.com/rejolut](https://github.com/Rejolut/hedera-ios-sdk) |
-| Hedera SDK for Python | Community | Apache 2.0 | [github.com/launchbadge](https://github.com/launchbadge/hedera-sdk-python) |
-| Hedera SDK for Rust | Community | Apache 2.0 | [github.com/launchbadge](https://github.com/launchbadge/hedera-sdk-rust) |
 | Hedera SDK for .NET | Community | Apache 2.0 | [github.com/bugbytesinc](https://github.com/bugbytesinc/Hashgraph) |
 
 ## Community Supported Development Tools
