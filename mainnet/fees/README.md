@@ -30,7 +30,7 @@ Mainnet transaction and query fees can be estimated using the [Hedera Fee Estima
 
 All fees are subject to change.
 
-### Accounts
+### Cryptocurrency Service
 
 | Operations | USD \($\) |
 | :--- | :--- |
