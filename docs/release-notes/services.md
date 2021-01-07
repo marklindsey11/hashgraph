@@ -6,16 +6,18 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.9.0 | 0.10.0 |
+| **Mainnet** | 0.10.0 | 0.11.0 |
 | **Testnet** | 0.10.0 | 0.11.0 |
 | **Previewnet** | 0.10.0 | 0.11.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.10.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.10.0)
 
-{% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: JANUARY 7, 2021**
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JANUARY 7, 2021**
 {% endhint %}
 
 {% hint style="success" %}
@@ -29,8 +31,6 @@ Also for HTS, we added a property `fees.tokenTransferUsageMultiplier` that scale
 Apart from HTS, this release drops a restriction on what payer accounts can be used for `CryptoUpdate` transactions that target system accounts. \(That is, accounts with number not greater than `hedera.numReservedSystemEntities`.\) In earlier versions, only three payers were accepted: The target account itself, the system admin account, or the treasury account. Other payers resulted in a status of `AUTHORIZATION_FAILED`. This entire restriction is removed, with one exception---the treasury must pay for a `CryptoUpdate` targeting the treasury.
 
 Apart from these functional changes, we fixed an unintentional change in the naming of the crypto balances CSV file, and improved the usefulness of clients under _test-clients/_ for testing reconnect scenarios.
-
-## Latest Releases
 
 ## [v0.9.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.9.0-rc.1)
 
