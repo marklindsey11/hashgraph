@@ -33,17 +33,25 @@ Transactions are currently throttled for mainnet and testnet. You will receive a
   <tbody>
     <tr>
       <td style="text-align:left">Cryptocurrency Transactions</td>
-      <td style="text-align:left">8,000 tps (excludes CryptoCreate)</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">CryptoCreate Transactions</td>
-      <td style="text-align:left">13 tps</td>
+      <td style="text-align:left">
+        <p>AccountCreateTransaction: 2 tps</p>
+        <p>Other: 6,000 tps (excludes CryptoCreate)</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">Consensus Transactions</td>
       <td style="text-align:left">
-        <p>3,000 tps</p>
-        <p>CreateTopic: 5 tps</p>
+        <p>TopicCreateTransaction: 5 tps</p>
+        <p>TopicMessageSubmitTransaction: 8,000 tps</p>
+        <p>Other: 3,000 tps</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Token Transactions</td>
+      <td style="text-align:left">
+        <p>TokenCreateTransaction: 100 tps</p>
+        <p>TokenAssociateTransaction: 100 tps</p>
+        <p>Other: 3,000 tps</p>
       </td>
     </tr>
     <tr>
