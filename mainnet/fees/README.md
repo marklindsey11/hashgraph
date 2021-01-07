@@ -59,7 +59,22 @@ All fees are subject to change.
 
 ### Token Service
 
-Coming soon...
+| Operations | USD \($\) |
+| :--- | :--- |
+| TokenCreate | $1.00 |
+| TokenUpdate | $0.001 |
+| TokenTransfer | $0.001 |
+| TokenDelete | $0.001 |
+| TokenAssociate | $0.05 |
+| TokenDissociate | $0.05 |
+| TokenMint | $0.001 |
+| TokenBurn | $0.001 |
+| TokenGrantKyc | $0.001 |
+| TokenRevokeKyc | $0.001 |
+| TokenFreeze | $0.001 |
+| TokenUnfreeze | $0.001 |
+| TokenWipe | $0.001 |
+| TokenGetInfo | $0.0001 |
 
 ### File Service
 
