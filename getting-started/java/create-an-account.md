@@ -78,7 +78,7 @@ Additional properties for account creation are explained [here](https://docs.hed
 
 ## Step 3. Get the new account ID
 
-When you issue a transaction that creates a new entity \(account, topic, token, file, smart contract\), the new entity ID is stored in the receipt of the transaction. You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
+The new entity \(account, topic, token, file, smart contract\) ID is stored in the receipt of the transaction.  You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
 
 {% tabs %}
 {% tab title="v2.0" %}

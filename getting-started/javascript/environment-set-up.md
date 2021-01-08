@@ -31,7 +31,7 @@ Note: you can just say “yes” to all of the defaults and/or plugin what makes
 ```bash
 {
   "name": "hello-hedera-js-sdk",
-  "version": "1.0.0",
+  "version": "",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -46,21 +46,36 @@ Note: you can just say “yes” to all of the defaults and/or plugin what makes
 ## Step 2: Install the Hedera Hashgraph JavaScript SDK
 
 {% hint style="warning" %}
-Note: This example uses **Hedera JavaScript SDK 1.1.2.** The latest version may not be compatible with the provided examples. View Hedera Hashgraph's JavaScript SDK [here](https://github.com/hashgraph/hedera-sdk-js). 
+Note: Please follow the example in the version of the SDK you are using. Code specific to v2.0 of the SDK will be marked in code block tab title, otherwise it works for both v2.0 and v1.0. The examples may may be not be compatible if you are using a different version than what is listed.
 {% endhint %}
 
 Now that you have your node environment setup, we can get started with Hedera’s JS SDK! You can open this project in your favorite text editor like [Visual Studio Code](https://code.visualstudio.com/Download).
 
 * Install it with your favorite package manager.
 
-```text
+{% tabs %}
+{% tab title="v2.0" %}
+```
 // install Hedera's JS SDK with NPM
-// This example uses Hedera JavaScript SDK v1.1.12
-npm install --save @hashgraph/sdk
+// This example uses Hedera JavaScript SDK v2.0.12
+npm install --save @hashgraph/sdk@2.0.12
 
 // Install with Yarn
-yarn add @hashgraph/sdk
+yarn add @hashgraph/sdk@2.0.12
 ```
+{% endtab %}
+
+{% tab title="v1.0" %}
+```text
+// install Hedera's JS SDK with NPM
+// This example uses Hedera JavaScript SDK v1.4.4
+npm install --save @hashgraph/sdk@1.4.4
+
+// Install with Yarn
+yarn add @hashgraph/sdk@1.4.4
+```
+{% endtab %}
+{% endtabs %}
 
 * Install `dotenv` with your favorite package manager. This will allow our node environment to use your testnet account ID and private key that we will store in a .env file next.
 
@@ -95,7 +110,6 @@ This file will contain the code we will right in the following samples. Your pro
 
 Grab your Hedera testnet account ID and private key from the .env file.
 
-{% code title="index.js" %}
 ```javascript
 const { Client } = require("@hashgraph/sdk");
 require("dotenv").config();
@@ -114,7 +128,6 @@ async function main() {
 }
 main();
 ```
-{% endcode %}
 
 ## Step 5: Create your Hedera testnet client
 

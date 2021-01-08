@@ -20,7 +20,7 @@ Construct hbars from different representations.
 | `Hbar.from(<hbars, unit>)` | long / BigDecimal , HbarUnit | Returns an Hbar representing the value in the given units |
 | `Hbar.fromString(<text>)` | CharSequence  | Converts the provided string into an amount of hbars |
 | `Hbar.fromString(<text, unit>)` | CharSequence, HbarUnit | Converts the provided string into an amount of hbars |
-| `Hbar.fromTinybar(<tinybars>)` | long | Returns an Hbar converted from the specified number of tinybars |
+| `Hbar.fromTinybars(<tinybars>)` | long | Returns an Hbar converted from the specified number of tinybars |
 
 {% code title="Java" %}
 ```java
@@ -117,7 +117,7 @@ Convert hbars to a different unit/format.
 | :--- | :--- | :--- |
 | `to(<unit>)` | HbarUnit | Specifiy the unit of hbar to convert to. Use `As` for Go. |
 | `toString(<unit>)` | HbarUnit | String value of the hbar unit to convert to. Use `String()` for Go. |
-| `toTinybar()` | Long | Hbar value converted to tinybars |
+| `toTinybars()` | Long | Hbar value converted to tinybars |
 
 {% code title="Java" %}
 ```java

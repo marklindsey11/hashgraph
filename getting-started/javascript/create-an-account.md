@@ -11,28 +11,50 @@ The following sample will show you how to make a simple Hedera account. Hedera a
 {% page-ref page="../../core-concepts/accounts.md" %}
 
 {% hint style="warning" %}
-Note: This example uses **Hedera JavaScript SDK 1.1.2.** The latest version may not be compatible with the provided examples. View Hedera Hashgraph's JavaScript SDK [here](https://github.com/hashgraph/hedera-sdk-js). 
+Note: Please follow the example in the version of the SDK you are using. The examples may may be not be compatible if you are using a different version than what is listed.
 {% endhint %}
 
 ## Step 1: Import the following modules to your project
 
 Continue building on the index.js from the previous example \([Environment Set-up](../java/environment-set-up.md)\) and add the following modules:
 
-* Ed25519PrivateKey
-* AccountCreateTransaction
-* AccountBalanceQuery
+{% tabs %}
+{% tab title="v2.0" %}
+```javascript
+const { Client, PrivateKey, AccountCreateTransaction, AccountBalanceQuery, Hbar } = require("@hashgraph/sdk");
+require("dotenv").config();
+```
+{% endtab %}
 
+{% tab title="v1.0" %}
 {% code title="index.js" %}
 ```javascript
-const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery } = require("@hashgraph/sdk");
+const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery, Hbar } = require("@hashgraph/sdk");
 require("dotenv").config();
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ## Step 2: Generate keys for the new account
 
-You will need to generate a pair of keys to assign to the new account in the next step. Within the async function,  generate they private and public key pair for the new account. 
+You will need to generate public and private key pair to assign to the new account in the next step. Within the async function,  generate they private and public key pair for the new account. 
 
+{% tabs %}
+{% tab title="v2.0" %}
+```javascript
+//const client = Client.forTestnet();
+//client.setOperator(myAccountId, myPrivateKey);
+//-----------------------<enter code below>--------------------------------------
+
+
+//Create new keys
+const newAccountPrivateKey = await PrivateKey.generate(); 
+const newAccountPublicKey = newAccountPrivateKey.publicKey;
+```
+{% endtab %}
+
+{% tab title="v1.0" %}
 {% code title="index.js" %}
 ```javascript
 //const client = Client.forTestnet();
@@ -44,6 +66,8 @@ const newAccountPrivateKey = await Ed25519PrivateKey.generate();
 const newAccountPublicKey = newAccountPrivateKey.publicKey;
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ## Step 3: Create the new account 
 
@@ -54,31 +78,58 @@ To create a new account you will submit an account create transaction to the Hed
 //Create a new account with 1,000 tinybar starting balance
 const newAccountTransactionId = await new AccountCreateTransaction()
     .setKey(newAccountPublicKey)
-    .setInitialBalance(1000)
+    .setInitialBalance(Hbar.fromTinybars(1000))
     .execute(client);
 ```
 {% endcode %}
 
-Additional properties can be set for accounts [here](https://docs.hedera.com/guides/docs/sdks/cryptocurrency/create-an-account). 
+Additional properties for accounts are explained [here](https://docs.hedera.com/guides/docs/sdks/cryptocurrency/create-an-account). 
 
 ## Step 4: Get the new account ID
 
-When you issue a transaction where it creates a new entity \(account, topic, etc\) the new entity ID is stored in the receipt of the transaction. You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
+The new entity \(account, topic, token, file, smart contract\) ID is stored in the receipt of the transaction. You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
 
+{% tabs %}
+{% tab title="v2.0" %}
+```javascript
+// Get the new account ID
+const getReceipt = await newAccountTransactionResponse.getReceipt(client);
+const newAccountId = getReceipt.accountId;
+
+console.log("The new account ID is: " +newAccountId);
+```
+{% endtab %}
+
+{% tab title="v1.0" %}
 {% code title="index.js" %}
 ```javascript
-//Grab your Hedera testnet account ID and private key
+// Get the new account ID
 const getReceipt = await newAccountTransactionId.getReceipt(client);
 const newAccountId = getReceipt.getAccountId();
 
 console.log("The new account ID is: " +newAccountId);
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ## Step 5: Verify the new account balance
 
 Next, you will submit a query to the Hedera test network to return the balance of the new account using the new account ID. The current account balance for the new account should be 1,000 tinybars. 
 
+{% tabs %}
+{% tab title="v2.0" %}
+```javascript
+//Verify the account balance
+const accountBalance = await new AccountBalanceQuery()
+     .setAccountId(newAccountId)
+     .execute(client);
+
+console.log("The new account balance is: " +accountBalance.hbars.toTinybars() +" tinybar.");
+```
+{% endtab %}
+
+{% tab title="v1.0" %}
 {% code title="index.js" %}
 ```javascript
 //Verify the account balance
@@ -86,9 +137,11 @@ const accountBalance = await new AccountBalanceQuery()
     .setAccountId(newAccountId)
     .execute(client);
 
-console.log("The new account balance is: " +accountBalance +" tinybar.");
+console.log("The new account balance is: " +accountBalance.asTinybar() +" tinybar.");
 ```
 {% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ⭐ Congratulations! You have successfully completed the following:
 
@@ -102,6 +155,59 @@ You are now ready to transfer some hbar to the new account 🤑!
 
 Your index.js file should look like this: 
 
+{% tabs %}
+{% tab title="v2.0" %}
+```javascript
+const { Client, PrivateKey, AccountCreateTransaction, AccountBalanceQuery, Hbar} = require("@hashgraph/sdk");
+require("dotenv").config();
+
+async function main() {
+
+    //Grab your Hedera testnet account ID and private key from your .env file
+    const myAccountId = process.env.MY_ACCOUNT_ID;
+    const myPrivateKey = process.env.MY_PRIVATE_KEY;
+
+    // If we weren't able to grab it, we should throw a new error
+    if (myAccountId == null ||
+        myPrivateKey == null ) {
+        throw new Error("Environment variables myAccountId and myPrivateKey must be present");
+    }
+
+    // Create our connection to the Hedera network
+    // The Hedera JS SDK makes this reallyyy easy!
+    const client = Client.forTestnet();
+
+    client.setOperator(myAccountId, myPrivateKey);
+
+    //Create new keys
+    const newAccountPrivateKey = await PrivateKey.generate(); 
+    const newAccountPublicKey = newAccountPrivateKey.publicKey;
+
+    //Create a new account with 1,000 tinybar starting balance
+    const newAccountTransactionResponse = await new AccountCreateTransaction()
+        .setKey(newAccountPublicKey)
+        .setInitialBalance(Hbar.fromTinybars(1000))
+        .execute(client);
+
+    // Get the new account ID
+    const getReceipt = await newAccountTransactionResponse.getReceipt(client);
+    const newAccountId = getReceipt.accountId;
+
+    console.log("The new account ID is: " +newAccountId);
+
+    //Verify the account balance
+    const accountBalance = await new AccountBalanceQuery()
+        .setAccountId(newAccountId)
+        .execute(client);
+
+    console.log("The new account balance is: " +accountBalance.hbars.toTinybars() +" tinybar.");
+
+}
+main();
+```
+{% endtab %}
+
+{% tab title="v1.0" %}
 ```javascript
 const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery } = require("@hashgraph/sdk");
 require("dotenv").config();
@@ -146,9 +252,11 @@ async function main() {
         .setAccountId(newAccountId)
         .execute(client);
 
-    console.log("The new account balance is: " +accountBalance +" tinybar.");
+    console.log("The new account balance is: " +accountBalance.asTinybar() +" tinybar.");
 
 }
 main();
 ```
+{% endtab %}
+{% endtabs %}
 
