@@ -134,7 +134,6 @@ console.log("The cost of query is: " +getBalanceCost);
 
 You will verify the account balance was updated for the new account by requesting a get account balance query. The current account balance should be the sum of the initial balance \(1,000 tinybar\) plus the transfer amount \(1,000 tinybar\) and equal to 2,000 tinybars. 
 
-{% code title="index.js" %}
 ```javascript
 //Check the new account's balance
 const getNewBalance = await new AccountBalanceQuery()
@@ -143,7 +142,6 @@ const getNewBalance = await new AccountBalanceQuery()
 
 console.log("The account balance after the transfer is: " +getNewBalance.hbars.toTinybars() +" tinybar.")
 ```
-{% endcode %}
 
 ⭐ Congratulations!  You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
@@ -161,6 +159,7 @@ Your complete index.js file should look something like this:
 
 {% tabs %}
 {% tab title="v2.0" %}
+{% code title="index.js" %}
 ```javascript
 const { Client, PrivateKey, AccountCreateTransaction, AccountBalanceQuery, Hbar, TransferTransaction} = require("@hashgraph/sdk");
 require("dotenv").config();
@@ -226,6 +225,7 @@ async function main() {
 }
 main();
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="v1.0" %}

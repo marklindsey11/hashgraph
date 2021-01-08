@@ -27,12 +27,10 @@ require("dotenv").config();
 {% endtab %}
 
 {% tab title="v1.0" %}
-{% code title="index.js" %}
 ```javascript
 const { Client, Ed25519PrivateKey, AccountCreateTransaction, AccountBalanceQuery, Hbar } = require("@hashgraph/sdk");
 require("dotenv").config();
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -55,7 +53,6 @@ const newAccountPublicKey = newAccountPrivateKey.publicKey;
 {% endtab %}
 
 {% tab title="v1.0" %}
-{% code title="index.js" %}
 ```javascript
 //const client = Client.forTestnet();
 //client.setOperator(myAccountId, myPrivateKey);
@@ -65,7 +62,6 @@ const newAccountPublicKey = newAccountPrivateKey.publicKey;
 const newAccountPrivateKey = await Ed25519PrivateKey.generate(); 
 const newAccountPublicKey = newAccountPrivateKey.publicKey;
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -73,7 +69,6 @@ const newAccountPublicKey = newAccountPrivateKey.publicKey;
 
 To create a new account you will submit an account create transaction to the Hedera test network. The account minimally requires you to set the key of the account at creation. This means that the corresponding private key will be required to sign transactions for the new account. The account will additionally have a starting balance of 1,000 tinybars. This initial balance is funded from your account to the new account. You can optionally choose to create an account with a zero balance. 
 
-{% code title="index.js" %}
 ```javascript
 //Create a new account with 1,000 tinybar starting balance
 const newAccountTransactionId = await new AccountCreateTransaction()
@@ -81,7 +76,6 @@ const newAccountTransactionId = await new AccountCreateTransaction()
     .setInitialBalance(Hbar.fromTinybars(1000))
     .execute(client);
 ```
-{% endcode %}
 
 Additional properties for accounts are explained [here](https://docs.hedera.com/guides/docs/sdks/cryptocurrency/create-an-account). 
 
@@ -101,7 +95,6 @@ console.log("The new account ID is: " +newAccountId);
 {% endtab %}
 
 {% tab title="v1.0" %}
-{% code title="index.js" %}
 ```javascript
 // Get the new account ID
 const getReceipt = await newAccountTransactionId.getReceipt(client);
@@ -109,7 +102,6 @@ const newAccountId = getReceipt.getAccountId();
 
 console.log("The new account ID is: " +newAccountId);
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -130,7 +122,6 @@ console.log("The new account balance is: " +accountBalance.hbars.toTinybars() +"
 {% endtab %}
 
 {% tab title="v1.0" %}
-{% code title="index.js" %}
 ```javascript
 //Verify the account balance
 const accountBalance = await new AccountBalanceQuery()
@@ -139,7 +130,6 @@ const accountBalance = await new AccountBalanceQuery()
 
 console.log("The new account balance is: " +accountBalance.asTinybar() +" tinybar.");
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
