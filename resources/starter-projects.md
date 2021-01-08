@@ -16,7 +16,7 @@ description: Integrations with popular development environments to get you set u
 {% tab title="JavaScript" %}
 | Framework | Reference | Maintainer |
 | :--- | :--- | :--- |
-| React.js | [GitHub](https://github.com/hashgraph/hedera-docs/tree/49a9d9bf9eeb79766a93f9862ca7c88c07073d48/publu/hedera-reactjs-boilerplate/README.md) | Community |
+| React.js | [GitHub](https://github.com/publu/hedera-reactjs-boilerplate) | Community |
 | Express.js | [GitHub](https://github.com/publu/hedera-express-boilerplate) | Community |
 | Express.js \(chat\) | [GitHub](https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |
 | React Native | Coming soon | Community |
