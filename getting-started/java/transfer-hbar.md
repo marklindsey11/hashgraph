@@ -40,10 +40,9 @@ TransactionResponse sendHbar = new TransferTransaction()
 //System.out.println("The new account balance is: " +accountBalance);
 //-----------------------<enter code below>--------------------------------------
 
-//Transfer hbar
-TransactionId sendHbar = new CryptoTransferTransaction()
-     .addSender(myAccountId, 1000)
-     .addRecipient(newAccountId, 1000)
+TransactionId sendHbar = new TransferTransaction()
+     .addHbarTransfer((myAccountId, Hbar.fromTinybar(-1000)) //Sending account
+     .addHbarTransfer(newAccountId, Hbar.fromTinybar(1000)) //Receiving account
      .execute(client);
 ```
 {% endtab %}
@@ -234,7 +233,7 @@ import com.hedera.hashgraph.sdk.TransactionId;
 import com.hedera.hashgraph.sdk.account.AccountBalanceQuery;
 import com.hedera.hashgraph.sdk.account.AccountCreateTransaction;
 import com.hedera.hashgraph.sdk.account.AccountId;
-import com.hedera.hashgraph.sdk.account.CryptoTransferTransaction;
+import com.hedera.hashgraph.sdk.account.TransferTransaction;
 import com.hedera.hashgraph.sdk.crypto.ed25519.Ed25519PublicKey;
 import com.hedera.hashgraph.sdk.crypto.ed25519.Ed25519PrivateKey;
 import io.github.cdimascio.dotenv.Dotenv;
