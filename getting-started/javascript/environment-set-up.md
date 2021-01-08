@@ -57,11 +57,11 @@ Now that you have your node environment setup, we can get started with Hedera’
 {% tab title="v2.0" %}
 ```
 // install Hedera's JS SDK with NPM
-// This example uses Hedera JavaScript SDK v2.0.12
-npm install --save @hashgraph/sdk@2.0.12
+// This example uses Hedera JavaScript SDK v2.0.13
+npm install --save @hashgraph/sdk@2.0.13
 
 // Install with Yarn
-yarn add @hashgraph/sdk@2.0.12
+yarn add @hashgraph/sdk@2.0.13
 ```
 {% endtab %}
 

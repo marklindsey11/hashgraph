@@ -106,7 +106,6 @@ You can request the cost of a query \(or transaction\) prior to submitting the q
 {% tabs %}
 {% tab title="v2.0" %}
 ```javascript
-//Issue identified with API, you may skip this step
 //Request the cost of the query
 const getBalanceCost = await new AccountBalanceQuery()
      .setAccountId(newAccountId)
