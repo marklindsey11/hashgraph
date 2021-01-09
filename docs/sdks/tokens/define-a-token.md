@@ -69,7 +69,7 @@ TokenCreateTransaction transaction = new TokenCreateTransaction()
         .setTreasuryAccountId(treasuryAccountId)
         .setInitialSupply(5000)
         .setAdminKey(adminKey.getPublicKey())
-        .setMaxTransactionFee(new Hbar(30));
+        .setMaxTransactionFee(new Hbar(30)); //Change the default max transaction fee
 
 //Build the unsigned transaction, sign with admin private key of the token, sign with the token treasury private key, submit the transaction to a Hedera network
 TransactionResponse txResponse = transaction.freezeWith(client).sign(adminKey).sign(treasuryKey).execute(client);
@@ -95,7 +95,7 @@ const transaction = await new TokenCreateTransaction().
      .setTreasuryAccountId(treasuryAccountId)
      .setInitialSupply(5000)
      .setAdminKey(adminPublicKey)
-     .setMaxTransactionFee(new Hbar(30))
+     .setMaxTransactionFee(new Hbar(30)) //Change the default max transaction fee
      .freezeWith(client);
 
 //Sign the transaction with the token adminKey and the token treasury account private key
@@ -125,7 +125,7 @@ tokenCreateTransaction, err := hedera.NewTokenCreateTransaction().
 		SetTreasuryAccountID(treasuryAccountId).
 		SetInitialSupply(1000).
 		SetAdminKey(adminKey).
-		SetMaxTransactionFee(hedera.NewHbar(30)).
+		SetMaxTransactionFee(hedera.NewHbar(30)). //Change the default max transaction fee
 		FreezeWith(client)
 
 if err != nil {
