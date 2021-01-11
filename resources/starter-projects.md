@@ -2,7 +2,7 @@
 description: Integrations with popular development environments to get you set up quickly.
 ---
 
-# Starter projects
+# Starter Projects
 
 {% tabs %}
 {% tab title="Java" %}

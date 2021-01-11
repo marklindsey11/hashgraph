@@ -244,8 +244,8 @@
 
 ## Resources
 
-* [Starter projects](resources/starter-projects.md)
-* [Demo applications](resources/demo-applications.md)
+* [Starter Projects](resources/starter-projects.md)
+* [Demo Applications](resources/demo-applications.md)
 * [Tutorials](resources/tutorials/README.md)
   * [Set up a message queue with the Hedera Consensus Service and JavaScript](resources/tutorials/hcs-javascript-setup.md)
   * [Run the JavaScript Hedera Consensus Service Chat Demo](resources/tutorials/run-the-hedera-consensus-service-chat-demo.md)
