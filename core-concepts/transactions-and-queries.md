@@ -21,10 +21,10 @@ The transaction ID is composed by using the transaction valid start time and the
 
 A **transaction** generally includes the following:
 
-* **Node account**: the account of the node the transaction is being sent to \(e.g. `0.0.3`\)
+* **Node Account**: the account of the node the transaction is being sent to \(e.g. `0.0.3`\)
 * **Transaction ID**: the identifier for a transaction has two components, the account ID of the paying account plus the transaction’s valid start time
-* **TransactionFee**: the maximum fee the paying account is willing to pay for the transaction
-* **Valid duration**: the number of seconds that the client wishes the transaction to be deemed valid for, starting at the transaction valid start time
+* **Transaction Fee**: the maximum fee the paying account is willing to pay for the transaction
+* **Valid Duration**: the number of seconds that the client wishes the transaction to be deemed valid for, starting at the transaction valid start time
 * **Memo**:  a string of text up to 100 bytes of data \(optional\)
 * **Transaction**: type of request, for instance an HBAR transfer or a smart contract call
 * **Signatures**: at minimum, the paying account will sign the transaction as authorization. Other signatures may be present as well.
