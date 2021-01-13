@@ -412,6 +412,11 @@ In version 5, the record stream signature file format is the same as event strea
       <td style="text-align:left">Byte size of the signature bytes</td>
     </tr>
     <tr>
+      <td style="text-align:left">CheckSum</td>
+      <td style="text-align:left">int (4)</td>
+      <td style="text-align:left">101 - length of signature bytes</td>
+    </tr>
+    <tr>
       <td style="text-align:left">Signature bytes</td>
       <td style="text-align:left">byte[]</td>
       <td style="text-align:left">Serialized Signature bytes</td>
