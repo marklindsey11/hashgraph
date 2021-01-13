@@ -14,7 +14,15 @@ description: Hedera Services release information
 
 ## v0.11.0
 
-Coming soon...
+{% hint style="info" %}
+**MAINNET UPDATE SCHEDULED: FEBRUARY 4, 2021**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE SCHEDULED: JANUARY 21, 2021**
+{% endhint %}
+
+Release notes coming soon...
 
 ## Latest Releases
 
