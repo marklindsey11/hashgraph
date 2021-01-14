@@ -57,8 +57,8 @@ new TokenCreateTransaction()
 | `setSupplyKey(<key>)` | Key | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Required |
-| `setAutoRenewAccountId(<account>)` | [AccountId](../specialized-types.md#accountid) | Optional |
-| `setAutoRenewPeriod(<period>)` | Duration | Optional |
+| `setAutoRenewAccountId(<account>)` | [AccountId](../specialized-types.md#accountid) | Disabled |
+| `setAutoRenewPeriod(<period>)` | Duration | Disabled |
 
 {% code title="Java" %}
 ```java

@@ -43,8 +43,8 @@ new TokenUpdateTransaction()
 | `setSupplyKey(<key>)` | PublicKey | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
-| `setAutoRenewAccountId(<account>)` | AccountId | Optional |
-| `setAutoRenewPeriod(<period>)` | Duration | Optional |
+| `setAutoRenewAccountId(<account>)` | AccountId | Disabled |
+| `setAutoRenewPeriod(<period>)` | Duration | Disabled |
 
 {% code title="Java" %}
 ```java
