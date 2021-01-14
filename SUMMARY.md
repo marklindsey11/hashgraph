@@ -179,7 +179,6 @@
     * [TokenService](docs/hedera-api/token-service/tokenservice.md)
     * [TokenCreate](docs/hedera-api/token-service/tokencreate.md)
     * [TokenUpdate](docs/hedera-api/token-service/tokenupdate.md)
-    * [TokenTransfer](docs/hedera-api/token-service/tokentransfer.md)
     * [TokenDelete](docs/hedera-api/token-service/tokendelete.md)
     * [TokenMint](docs/hedera-api/token-service/tokenmint.md)
     * [TokenBurn](docs/hedera-api/token-service/tokenburn.md)
