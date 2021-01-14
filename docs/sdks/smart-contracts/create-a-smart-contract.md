@@ -1,7 +1,7 @@
 # Create a smart contract
 
 {% hint style="info" %}
-Before you get started with smart contracts consider if the Hedera Token Service is better for your use case. For most, it provides greater performance and lower costs. Learn more in the blog series, Exploring [Getting Started with Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1).
+Before you get started with smart contracts consider if the Hedera Token Service is better for your use case. For most, it provides greater performance and lower costs. Learn more in the blog series, [Getting Started with Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1).
 {% endhint %}
 
 A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. You will first need to create a file that stores the bytecode of the contract. Then you will create the smart contract instance  that will run the bytecode stored in the given file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. Similar to accounts the instance will exist for autoRenewPeriod seconds. When that is reached, it will renew itself for another autoRenewPeriod seconds by charging its associated cryptocurrency account \(which it creates here\). If it has insufficient cryptocurrency to extend that long, it will extend as long as it can. If its balance is zero, the instance will be deleted.

@@ -1,6 +1,6 @@
 # Mainnet Access
 
-You will need a Hedera mainnet account to interact with and pay for any of the network services \(cryptocurrency, consensus, file service, and smart contracts\). Your Hedera account is what holds a balance of hbar to be used for transfers to other accounts or payments for network services.
+You will need a Hedera mainnet account to interact with and pay for any of the network services \(cryptocurrency, consensus, tokens, files and smart contracts\). Your Hedera account is what holds a balance of hbar to be used for transfers to other accounts or payments for network services.
 
 One of the primary means of acquiring hbar and a mainnet account for use on the network will be through an exchange. Exchanges typically allow users to create an account on the Hedera mainnet, and transfer in an initial amount of hbar in exchange for some other coin or currency. Some of those exchanges supporting hbar can be found [here](https://help.hedera.com/hc/en-us/articles/360002480238-Where-might-I-be-able-to-buy-hbars-).
 

@@ -1,6 +1,6 @@
 # Testnet Access
 
-You will need a Hedera **testnet account** or **preview testnet** **account** to interact with and pay for any of the network services \(cryptocurrency, consensus, file service, and smart contracts\). Your Hedera testnet account is what holds a balance of hbar to be used for transfers to other accounts or payments for network services.
+You will need a Hedera **testnet account** or **preview testnet** **account** to interact with and pay for any of the network services \(cryptocurrency, consensus, tokens, files, and smart contracts\). Your Hedera testnet account is what holds a balance of hbar to be used for transfers to other accounts or payments for network services.
 
 ### Create Hedera Portal Profile
 
