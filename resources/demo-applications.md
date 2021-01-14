@@ -15,6 +15,7 @@ description: Examples of different use cases and projects built on Hedera.
 | Logstash Integration | [GitHub](https://github.com/hashgraph/logstash-output-hedera) | Hedera |
 | Proof-of-action microservice | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-microservice) | Hedera |
 | Decentralized Identity SDK | [GitHub](https://github.com/hashgraph/did-sdk-java) | Hedera |
+| Trusted Business Networks | [GitHub](https://github.com/hashgraph/hedera-hcs-sxc-java/tree/master/hcs-sxc-java-examples/hcs-sxc-java-queue-consumer) | Hedera |
 | Others | Coming soon! | Community |
 {% endtab %}
 
@@ -29,13 +30,14 @@ description: Examples of different use cases and projects built on Hedera.
 | HCS based chat | [GitHub](https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |
 | Theft prevention | [GitHub](https://github.com/hashgraph/hedera-theft-prevention-demo) | Hedera |
 | Check State Proof | [Github](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof) | Hedera |
+| Trading Post | [Github](https://github.com/launchbadge/trading-post) | Launchbadge |
 | Others | Coming soon! | Community |
 {% endtab %}
 
 {% tab title="Go" %}
 | Project | Source | Developer |
 | :--- | :--- | :--- |
-| Hyplerledger Fabric Plugin | [GitHub](https://github.com/hashgraph/hedera-docs/tree/f9fdc6723c914551fc113056a289a0c39fef4dd9/hyperledger-labs/pluggable-hcs/README.md) | Hyperledger |
+| Hyplerledger Fabric Plugin | [GitHub](https://github.com/hashgraph/fabric-samples-hcs/tree/feature/hcs) | Hyperledger |
 | Audit Logs | [GitHub](https://github.com/hashgraph/hello-hedera-audit-log-go) | AdsDax |
 | Others | Coming soon! | Community |
 {% endtab %}
