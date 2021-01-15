@@ -3,7 +3,7 @@
 Create a new token on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
 
 * The specified Treasury Account is receiving the initial supply of tokens as-well as the tokens from the Token Mint operation once executed. 
-* The balance of the treasury account is decreased when the Token Burn operation is executed. You must the Supply Key if you wish to burn tokens in the future. If you do not set the Supply Key upon creation of the token, you may update the token properties using the TokenUpdateTransaction.
+* The balance of the treasury account is decreased when the Token Burn operation is executed. You must set the Supply Key if you wish to burn tokens in the future. If you do not set the Supply Key upon creation of the token, you may update the token properties using the TokenUpdateTransaction.
 * The supply that is going to be put in circulation is going to be the initial supply provided
 * The maximum supply a token can have is 9,223,372,036,854,775,807 \(`2^63-1`\) tokens
 * The supply is in the lowest denomination possible
