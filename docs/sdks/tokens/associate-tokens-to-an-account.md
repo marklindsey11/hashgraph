@@ -10,6 +10,10 @@ Associates the provided Hedera account with the provided Hedera tokens. Hedera a
 * If the provided account's associations count exceed the constraint of maximum token associations per account, the transaction will resolve to TOKENS\_PER\_ACCOUNT\_LIMIT\_EXCEEDED.
 * On success, associations between the provided account and tokens are made and the account is ready to interact with the tokens.
 
+{% hint style="info" %}
+The maximum number of tokens that can be associated to an account is 1,000. 
+{% endhint %}
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenAssociateTransaction()` | Initializes a TokenAssociateTransaction object |
