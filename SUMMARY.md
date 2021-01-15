@@ -89,7 +89,7 @@
     * [Errors](docs/sdks/consensus/errors.md)
   * [Token Service](docs/sdks/tokens/README.md)
     * [Token ID](docs/sdks/tokens/token-id.md)
-    * [Define a token](docs/sdks/tokens/define-a-token.md)
+    * [Create a token](docs/sdks/tokens/define-a-token.md)
     * [Update a token](docs/sdks/tokens/update-a-token.md)
     * [Transfer tokens](docs/sdks/tokens/transfer-tokens.md)
     * [Delete a token](docs/sdks/tokens/delete-a-token.md)

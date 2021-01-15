@@ -1,4 +1,4 @@
-# Define a token
+# Create a token
 
 Create a new token on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
 
