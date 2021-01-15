@@ -4,7 +4,11 @@ Create a new token. After the token is created, the Token ID for it is in the re
 
 The specified Treasury Account is receiving the initial supply of tokens as-well as the tokens from the Token Mint operation once executed. The balance of the treasury account is decreased when the Token Burn operation is executed.
 
-The supply that is going to be put in circulation is going to be the initial supply provided. The maximum supply a token can have is `2^63-1` \(`9,223,372,036,854,775,807`\). If the total supply is `S` tokens, and `S` is an `N` digit number, and the token is using `D` decimals, then `S * 10^D` must be equal to or less than `2^63-1`, which is  `9,223,372,036,854,775,807.`This means it is always ok if `N+D` is 18 or less.It is also ok if `N+D` is 19, and the first digit of `S` is 8 or less.If decimals is 8 or 11, then the total supply can be a few billions or millions, respectively. For example, it could match Bitcoin \(21 million tokens with 8 decimals\) or hbars \(50 billion tokens with 8 decimals\). It could even match Bitcoin with milli-satoshis \(21 million tokens with 11 decimals\).
+The `initialSupply` is the initial supply of the smallest parts of tokens \(like a tinybar, not an hbar\).The supply that is going to be put in circulation is going to be the initial supply provided. 
+
+The supply can change over time. If the total supply at some moment is `S` parts of tokens, and the token is using `D` decimals, then `S` must be less than or equal to  `2^63-1`, which is  `9,223,372,036,854,775,807`.  The number of whole tokens \(not parts\) will `S / 10^D`.  
+  
+If `decimals` is 8 or 11, then the number of whole tokens can be at most a few billions or millions, respectively. For example, it could match Bitcoin \(21 million whole tokens with 8 decimals\) or hbars \(50 billion whole tokens with 8 decimals\). It could even match Bitcoin with milli-satoshis \(21 million whole tokens with 11 decimals\). \(ed
 
 Example:
 
