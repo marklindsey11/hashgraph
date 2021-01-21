@@ -161,6 +161,8 @@ const transaction = new AccountCreateTransaction() //Any transaction can be appl
 | `getNodeAccountId()` | AccountID | Optional |
 | `getMaxTransactionFee()` | Hbar | Optional |
 | `getTransactionHash()` | byte\[ \] | Optional |
+| `getTransactionHashPerNode()` | Map&lt;AccountId, byte \[ \]&gt; | Optional |
+| `getSignatures()` | Map&lt;AccountId, Map&lt;PublicKey, byte \[ \]&gt;&gt; | Optional |
 
 {% code title="Java" %}
 ```java
