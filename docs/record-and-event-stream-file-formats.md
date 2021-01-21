@@ -458,7 +458,12 @@ In version 5 there are 3 different hashes being calculated:
 * If some contents of an object were removed from a file, the metadata hash would still be valid. 
 * Metadata hash is calculated as following: 
 
-   `metaHash[i] = hash(head[i] || startHash[i] || endHash[i])`   
+   `metaHash[i] = hash(head[i] || startHash[i] || endHash[i])`     
+
+
+**Migration fo the record stream from v2 to v5**
+
+`Hash Bytes` in `Start Object Running Hash` in the first v5 .rcd file is the same as `File Hash` in the last v2 .rcd\_sig file, which is also the hash of the last v2 .rcd file.
 
 ## Version 3 Event Stream File Format 
 
