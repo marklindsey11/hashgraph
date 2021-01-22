@@ -52,7 +52,7 @@ console.log("The account balance query cost is " +queryCost);
 {% code title="Go" %}
 ```java
 //Create the query request
-query :+ hedera.NewAccountBalanceQuery().
+query := hedera.NewAccountBalanceQuery().
      SetAccountID(newAccountId)
 
 //Get the cost of the query
