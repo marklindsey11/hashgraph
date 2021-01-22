@@ -56,7 +56,7 @@ query :+ hedera.NewAccountBalanceQuery().
      SetAccountID(newAccountId)
 
 //Get the cost of the query
-cost, err := fileQuery.GetCost(client)
+cost, err := query.GetCost(client)
 
 if err != nil {
 		panic(err)
