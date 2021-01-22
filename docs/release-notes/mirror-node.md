@@ -12,9 +12,15 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
-## v0.26.0
+## [v0.26.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.26.0)
 
-Coming soon...
+This release is mainly focused on adding support for the upcoming features in the main nodes. We added support for the `newTotalSupply` field to the transaction record in HAPI `0.10.0`. We also documented our [design](https://github.com/hashgraph/hedera-mirror-node/blob/master/docs/design/scheduled-transactions.md) for the upcoming [scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/spec.md) services that's coming in a future release of HAPI. Our next minor version will have preliminary support for that.
+
+But by far the biggest change is support for the new record file V5 and signature file V5 format. These files are uploaded to cloud storage and pulled by the mirror nodes to populate its database. Since it's the core communication format between the main nodes and mirror nodes, it took a bit of refactoring and new code to support the new format while retaining compatibility with previous stream files.
+
+#### Warning! If you don't upgrade your Mirror Node to v0.26.0 or later before HAPI v0.11.0 is released in a few weeks, your mirror node will be unable to process new transactions.
+
+We continued our progress on switching to TimescaleDB. We integrated a TimescaleDB helm chart into our Kubernetes deployment and added migration scripts to convert from PostgreSQL to TimescaleDB. We're still in the testing phase so it's still recommended to stick with the v1 schema \(the default\) for now.
 
 ## Latest Releases
 
