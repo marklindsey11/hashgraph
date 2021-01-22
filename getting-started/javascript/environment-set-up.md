@@ -146,7 +146,7 @@ client.setOperator(myAccountId, myPrivateKey);
 {% endcode %}
 
 {% hint style="info" %}
-The client has a default **max transaction fee** of 100,000,000 tinybars \(1hbar\) and default **max query payment** of 100,000,000 tinybars \(1 hbar\). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries. 
+The client has a default **max transaction fee** of 100,000,000 tinybars \(1 hbar\) and default **max query payment** of 100,000,000 tinybars \(1 hbar\). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries. 
 {% endhint %}
 
 Your project environment is now set-up to successfully submit transactions/queries to the Hedera test network! 
