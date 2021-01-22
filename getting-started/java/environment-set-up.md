@@ -90,7 +90,7 @@ public class HederaExamples {
 {% endtab %}
 {% endtabs %}
 
-## Step 3: Create your Hedera testnet client
+## Step 4: Create your Hedera testnet client
 
 You have the option to create a client for the Hedera previewnet, testnet or mainnet. Since we are using a Hedera testnet account ID and private key, we will create a client for the Hedera testnet.
 
