@@ -22,10 +22,10 @@ Creating immutable token: Token can be created as immutable if the adminKey is o
 
 | Field | Type | Description | Signature Required |
 | :--- | :--- | :--- | :--- |
-| name | string | The publicly visible name of the token, specified as a string of only ASCII characters | N/A |
-| symbol | string | The publicly visible token symbol. It is UTF-8 capitalized alphabetical string identifying the token | N/A |
+| name | string | The publicly visible name of the token, specified as a string of only ASCII characters. Maximum of 100 characters. | N/A |
+| symbol | string | The publicly visible token symbol. It is UTF-8 capitalized alphabetical string identifying the token. Maximum of 100 characters. | N/A |
 | decimals | uint32 | The number of decimal places a token is divisible by. This field can never be changed! | N/A |
-| initialSupply | uint64 | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible | N/A |
+| initialSupply | uint64 | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible. Maximum supply of tokens:`9,223,372,036,854,775,807` . | N/A |
 | treasury | [AccountID](../basic-types/accountid.md) | The account which will act as a treasury for the token. This account will receive the specified initial supply | Required |
 | adminKey | [Key](../basic-types/key.md) | The key which can perform update/delete operations on the token. If empty, the token can be perceived as immutable \(not being able to be updated/deleted\) | If set, required |
 | kycKey | [Key](../basic-types/key.md) | The key which can grant or revoke KYC of an account for the token's transactions. If empty, KYC is not required, and KYC grant or revoke operations are not possible. | If set, required |
