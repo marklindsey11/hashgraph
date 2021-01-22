@@ -14,6 +14,10 @@ description: Hedera mirror node release notes
 
 ## [v0.26.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.26.0)
 
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: JANUARY 22, 2021**
+{% endhint %}
+
 This release is mainly focused on adding support for the upcoming features in the main nodes. We added support for the `newTotalSupply` field to the transaction record in HAPI `0.10.0`. We also documented our [design](https://github.com/hashgraph/hedera-mirror-node/blob/master/docs/design/scheduled-transactions.md) for the upcoming [scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/spec.md) services that's coming in a future release of HAPI. Our next minor version will have preliminary support for that.
 
 But by far the biggest change is support for the new record file V5 and signature file V5 format. These files are uploaded to cloud storage and pulled by the mirror nodes to populate its database. Since it's the core communication format between the main nodes and mirror nodes, it took a bit of refactoring and new code to support the new format while retaining compatibility with previous stream files.
