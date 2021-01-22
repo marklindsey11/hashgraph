@@ -62,7 +62,7 @@ if err != nil {
 		panic(err)
 }
 
-println("The account balance query cost is: ", cost.String())
+fmt.Printf("The account balance query cost is: %v\n ", cost.String())
 
 //v2.0.0
 ```
