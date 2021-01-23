@@ -18,5 +18,7 @@ Click on the programming language of your choice to get started. Be sure to have
 
 {% page-ref page="javascript/" %}
 
+{% page-ref page="go/" %}
+
 
 
