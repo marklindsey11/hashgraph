@@ -31,10 +31,6 @@
   * [Environment Set-up](getting-started/javascript/environment-set-up.md)
   * [Create an account](getting-started/javascript/create-an-account.md)
   * [Transfer hbar](getting-started/javascript/transfer-hbar.md)
-* [Go](getting-started/go/README.md)
-  * [Environment Set-up](getting-started/go/environment-set-up.md)
-  * [Create an account](getting-started/go/create-an-account.md)
-  * [Transfer hbar](getting-started/go/transfer-hbar.md)
 
 ## Core Concepts
 
