@@ -19,10 +19,10 @@ description: Hedera Services release information
 {% endhint %}
 
 {% hint style="info" %}
-**TESTNET UPDATE SCHEDULED: JANUARY 21, 2021**
+**TESTNET UPDATE SCHEDULED: JANUARY 26, 2021**
 {% endhint %}
 
-Release notes coming soon...
+In Hedera Services v0.11.0, we upgraded record stream from v2 to v5 and event stream from v3 to v5. The changes are described in [Record and Event Stream File Formats Document](https://docs.hedera.com/guides/docs/record-and-event-stream-file-formats). In [\#784](https://github.com/hashgraph/hedera-services/issues/784), we also made other production and pre-production networks to be similar to mainnet, namely accounts from 900 to 1000 are created if they don't exist.
 
 ## Latest Releases
 
