@@ -14,9 +14,10 @@ If an association between the provided account and any of the tokens does not ex
 
 If the provided account has a nonzero balance with any of the provided tokens, the transaction will resolve to TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES.
 
-## TokenDeleteTransactionBody
+## TokenDissociateTransactionBody
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| token | [TokenID](../basic-types/tokenid.md) | The token to be deleted. If invalid token is specified, transaction will result in INVALID\_TOKEN\_ID |
+| Field | Type | Label | Description |
+| :--- | :--- | :--- | :--- |
+| account | [AccountID](file:///Users/simihunjan/Downloads/hedera-services-master%203/hapi-proto/HAPI.html#proto.AccountID) |  | The account to be dissociated with the provided tokens  |
+| tokens | [TokenID](file:///Users/simihunjan/Downloads/hedera-services-master%203/hapi-proto/HAPI.html#proto.TokenID) | repeated | The tokens to be dissociated with the provided account |
 
