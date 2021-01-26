@@ -15,9 +15,8 @@ With the R4 release, how the HBAR balance changes of accounts involved in the tr
 | :--- | :--- | :--- | :--- | :--- |
 | [AccountCreateTransaction](../cryptocurrency/create-an-account.md) | [ConsensusTopicCreateTransaction](../consensus/create-a-topic.md) | [TokenCreateTransaction](../tokens/define-a-token.md) | [FileCreateTransaction](../file-storage/create-a-file.md) | [ContractCreateTransaction](../smart-contracts/create-a-smart-contract.md) |
 | [AccountUpdateTransaction](../cryptocurrency/update-an-account.md) | [ConsensusTopicUpdateTransaction](../consensus/update-a-topic.md) | [TokenUpdateTransaction](../tokens/update-a-token.md) | [FileAppendTransaction](../file-storage/append-to-a-file.md) | [ContractUpdateTransaction](../smart-contracts/update-a-smart-contract.md) |
-| [CryptoTransferTransaction](../cryptocurrency/transfer-cryptocurrency.md) | [ConsensusMessageSubmitTransaction](../consensus/submit-a-message.md) | [TokenTransferTransaction](../tokens/transfer-tokens.md) | [FileUpdateTransaction](../file-storage/update-a-file.md) | [ContractDeleteTransaction](../smart-contracts/delete-a-smart-contract.md) |
-| [AccountDeleteTransaction](../cryptocurrency/delete-an-account.md) | [ConsensusTopicDeleteTransaction](../consensus/delete-a-topic.md) | [TokenDeleteTransaction](../tokens/delete-a-token.md) | [FileDeleteTransaction](../file-storage/delete-a-file.md) |  |
-|  |  | [TokenAssociateTransaction](../tokens/associate-tokens-to-an-account.md) |  |  |
+| [CryptoTransferTransaction](../cryptocurrency/transfer-cryptocurrency.md) | [ConsensusMessageSubmitTransaction](../consensus/submit-a-message.md) | [TokenDeleteTransaction](../tokens/delete-a-token.md) | [FileUpdateTransaction](../file-storage/update-a-file.md) | [ContractDeleteTransaction](../smart-contracts/delete-a-smart-contract.md) |
+| [AccountDeleteTransaction](../cryptocurrency/delete-an-account.md) | [ConsensusTopicDeleteTransaction](../consensus/delete-a-topic.md) | [TokenAssociateTransaction](../tokens/associate-tokens-to-an-account.md) | [FileDeleteTransaction](../file-storage/delete-a-file.md) |  |
 |  |  | [TokenDissociateTransaction](../tokens/dissociate-tokens-from-an-account.md) |  |  |
 |  |  | [TokenMintTransaction](../tokens/mint-a-token.md) |  |  |
 |  |  | [TokenBurnTransaction](../tokens/burn-a-token.md) |  |  |
