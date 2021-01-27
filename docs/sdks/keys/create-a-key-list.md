@@ -41,6 +41,7 @@ const publicKey2 = key2.publicKey();
 const key3 = PrivateKey.generate();
 const publicKey3 = key3.publicKey();
 
+//Create a list of the keys
 const publicKeyList = [];
     
 publicKeyList.push(publicKey1);
