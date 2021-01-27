@@ -41,8 +41,15 @@ const publicKey2 = key2.publicKey();
 const key3 = PrivateKey.generate();
 const publicKey3 = key3.publicKey();
 
+const publicKeyList = [];
+    
+publicKeyList.push(publicKey1);
+publicKeyList.push(publicKey2);
+publicKeyList.push(publicKey3);
+
 //Create a key list where all 3 keys are required to sign
-const keyStructure = KeyList.of(key1, key2, key3);
+const keys = new KeyList(publicKeyList);
+//v2.0.13
 ```
 {% endcode %}
 
