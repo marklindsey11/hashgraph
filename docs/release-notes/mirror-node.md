@@ -6,13 +6,19 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.25.1 | 0.26.0 |
+| **Mainnet** | 0.26.0 | 0.27.0 |
 | **Testnet** | 0.26.0 | 0.27.0 |
 | **Previewnet** | 0.26.0 | 0.27.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.26.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.26.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: FEBRUARY 22, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: JANUARY 22, 2021**
@@ -25,8 +31,6 @@ But by far the biggest change is support for the new record file V5 and signatur
 #### Warning! If you don't upgrade your Mirror Node to v0.26.0 or later before HAPI v0.11.0 is released in a few weeks, your mirror node will be unable to process new transactions.
 
 We continued our progress on switching to TimescaleDB. We integrated a TimescaleDB helm chart into our Kubernetes deployment and added migration scripts to convert from PostgreSQL to TimescaleDB. We're still in the testing phase so it's still recommended to stick with the v1 schema \(the default\) for now.
-
-## Latest Releases
 
 ## [v0.25.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.25.0)
 
