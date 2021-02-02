@@ -1,5 +1,9 @@
 # Create a token
 
+{% hint style="info" %}
+Check out "Getting Started with the Hedera Token Service" video tutorial in JavaScript [here](https://youtu.be/JZDAMScxbpU).
+{% endhint %}
+
 Create a new token on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
 
 * The specified Treasury Account is receiving the initial supply of tokens as-well as the tokens from the Token Mint operation once executed. 
@@ -29,6 +33,8 @@ You can set the following properties when creating a token:
 | **Expiration Time** | The epoch second at which the token should expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod. The default expiration time is 90 days. |
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign transaction if present. |
 | **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
+
+
 
 | Constructor | Description |
 | :--- | :--- |
