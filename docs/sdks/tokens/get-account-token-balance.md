@@ -40,7 +40,7 @@ const query = new AccountBalanceQuery()
 //Sign with the client operator private key and submit to a Hedera network
 const tokenBalance = await query.execute(client);
 
-console.log("The token balance(s) for this account: " +tokenBalance.tokens);
+console.log("The token balance(s) for this account: " +tokenBalance.tokens.toString());
 
 //v2.0.7
 ```
