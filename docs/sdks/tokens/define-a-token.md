@@ -96,7 +96,7 @@ System.out.println("The new token ID is " + tokenId);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction and freeze for manual signing
-const transaction = await new TokenCreateTransaction().
+const transaction = await new TokenCreateTransaction()
      .setTokenName("Your Token Name")
      .setTokenSymbol("F")
      .setTreasuryAccountId(treasuryAccountId)
