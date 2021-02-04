@@ -71,6 +71,7 @@
     * [Create an unsigned transaction](docs/sdks/transactions/untitled-2.md)
     * [Manually sign a transaction](docs/sdks/transactions/manually-sign-a-transaction.md)
     * [Submit a transaction](docs/sdks/transactions/submit-a-transaction.md)
+    * [Sign a multisignature transaction](docs/sdks/transactions/sign-a-multisignature-transaction.md)
     * [Get a transaction receipt](docs/sdks/transactions/untitled-4.md)
     * [Get a transaction record](docs/sdks/transactions/get-a-transaction-record.md)
   * [Queries](docs/sdks/queries.md)
