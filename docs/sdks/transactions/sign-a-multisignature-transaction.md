@@ -129,7 +129,9 @@ if err != nil {
 
 ## 3. Create a single transaction with all three signatures
 
-Once you have collected all three signature bytes \(`signature1`, `signature2`, `signature 3`\), you will then apply them to the transaction \(`transaction`\) to create a single transaction with all three signatures to submit to the network. You will take the `transaction` that we started with and apply the signature bytes to the transaction using `addSignature()`. You will need the public keys of each of the signers to include in the method. You can add as many signatures to a single transaction as long as the transaction size does not exceed 6,144 kb. 
+Once you have collected all three signature bytes \(`signature1`, `signature2`, `signature 3`\), you will then apply them to the transaction \(`transaction`\) to create a single transaction with all three signatures to submit to the network. You will take the `transaction` that we started with and apply the signature bytes to the transaction using `addSignature()`. You will need the public keys of each of the signers to include in the method.   
+  
+You can add as many signatures to a single transaction as long as the transaction size does not exceed 6,144 kb. Each additional signature applied to the transaction will increase the transaction fee from its base cost of $0.0001. If the transaction fee increases beyond the SDK's default max transaction fee of 1 hbar, you will need to update the max transaction fee value by calling the `.setMaxTransactionFee()` before submitting the transaction to the network.
 
 {% tabs %}
 {% tab title="Java" %}
