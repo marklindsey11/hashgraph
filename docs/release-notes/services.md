@@ -24,7 +24,9 @@ description: Hedera Services release information
 **TESTNET UPDATE COMPLETED: JANUARY 26, 2021**
 {% endhint %}
 
-In Hedera Services v0.11.0, we upgraded record stream from v2 to v5 and event stream from v3 to v5. The changes are described in [Record and Event Stream File Formats Document](https://docs.hedera.com/guides/docs/record-and-event-stream-file-formats). In [\#784](https://github.com/hashgraph/hedera-services/issues/784), we also made other production and pre-production networks to be similar to mainnet, namely accounts from 900 to 1000 are created if they don't exist.
+In Hedera Services v0.11.0, we upgraded the record stream format from v2 to v5 and the event stream format from v3 to v5. These changes are described in detail in the "Record and Event Stream File Formats" [article](https://docs.hedera.com/guides/docs/record-and-event-stream-file-formats).
+
+We also updated startup code to make the number of system accounts in development and pre-production networks match the number of system accounts on mainnet, [creating](https://github.com/hashgraph/hedera-services/issues/784) account numbers `900-1000` on startup if they do not exist.
 
 ## [v0.10.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.10.0)
 
