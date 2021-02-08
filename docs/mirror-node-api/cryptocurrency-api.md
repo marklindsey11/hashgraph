@@ -431,7 +431,7 @@ A request to return information for a transaction that was provided a specific t
 {% endapi-method-spec %}
 {% endapi-method %}
 
-**Note:** The list of transaction types that you can query can be found [here](https://github.com/hashgraph/hedera-mirror-node/blob/master/hedera-mirror-rest/constants.js#L104).
+**Note:** The list of transaction types that you can query can be found [here](https://github.com/hashgraph/hedera-mirror-node/blob/master/hedera-mirror-importer/src/main/java/com/hedera/mirror/importer/domain/TransactionTypeEnum.java#L32).
 
 ### Response Details <a id="response-details-2"></a>
 
