@@ -7,12 +7,16 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.26.0 | 0.27.0 |
-| **Testnet** | 0.26.0 | 0.27.0 |
+| **Testnet** | 0.27.0 | 0.28.0 |
 | **Previewnet** | 0.27.0 | 0.28.0 |
 
 ## Upcoming Releases
 
 ## [0.27.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.27.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: FEBRUARY 11, 2021**
+{% endhint %}
 
 This release adds a new REST API component that implements the [Rosetta API](https://www.rosetta-api.org/). The Rosetta API is an open standard for integrating with blockchain-oriented systems. Implementing the Rosetta AP provides a number of advantages. It reduces the time and effort it takes for wallets, exchanges, etc. to integrate with the Hedera network if they have integrated with Rosetta in the past. Even if the systems integrator has not used Rosetta previously, using the Rosetta API in lieu of our separate [REST API](https://docs.hedera.com/guides/docs/mirror-node-api/cryptocurrency-api) might be useful to reduce the friction with using a non-blockchain DLT like Hedera.
 
