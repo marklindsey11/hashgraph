@@ -8,9 +8,27 @@ description: Hedera Services release information
 | :--- | :--- | :--- |
 | **Mainnet** | 0.11.0 | 0.12.0 |
 | **Testnet** | 0.11.0 | 0.12.0 |
-| **Previewnet** | 0.11.0 | 0.12.0 |
+| **Previewnet** | 0.12.0 | 0.13.0 |
 
 ## Upcoming Releases
+
+## [v0.12.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.12.0-rc.2)
+
+{% hint style="info" %}
+**MAINNET UPDATE: MARCH 4, 2021**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE: FEBRUARY 18, 2021 \[DELAYED\]**
+{% endhint %}
+
+In Hedera Services v0.12.0, we completed the MVP implementation of the Hedera Scheduled Transaction Service \(HSTS\) as detailed in [this](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/spec.md) design document. This service decouples _what_ should execute on the ledger from _when_ it should execute, giving new flexibility and programmability to users. Note that HSTS operations are enabled on Previewnet, but remain disabled on Testnet and Mainnet at this time.
+
+We have given users of the Hedera Token Service \(HTS\) more control over the lifecycle of their token associations. In v0.11.0, deleted tokens were immediately dissociated from all accounts. This automatic dissociation no longer occurs. If account `X` is associated with token `Y`, then even if token `Y` is marked for deletion, a `getAccountInfo` query for `X` will continue to show the association with `Y` _until_it is explicitly removed via a `tokenDissociateFromAccount` transaction. Note that for convenience, queries that return token balances now also return the `decimals` value for the relevant token. This allows a user to interpret e.g. `balance=10050` as `100.50` tokens given `decimals=2`.
+
+In a final Hedera API \(HAPI\) change, we have extended the `memo` field present on contract and topic entities to the account, file, token, and scheduled transaction entities. \(Note this `memo` is distinct from the short-lived `memo` that may be given to any `TransactionBody`for inclusion in the `TransactionRecord`.\) All of these changes to HAPI are now more easily browsed via GitHub pages [here](https://hashgraph.github.io/hedera-protobufs/); the new [`hashgraph/hedera-protobufs` repository](https://github.com/hashgraph/hedera-protobufs) is now the authortative source of the protobuf files defining HAPI.
+
+Apart from these enhancements to HAPI, the "streams" consumable by mirror node operators now include an alpha version of a protobuf file that contains the same information as the `_Balances.csv` files. The type of this file is [`AllAccountBalances`](https://hashgraph.github.io/hedera-protobufs/#proto.AllAccountBalances).
 
 ## Latest Releases
 
