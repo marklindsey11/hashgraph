@@ -57,15 +57,15 @@
 | INVALID\_TRANSACTION\_BODY | Invalid transaction body provided |
 | INVALID\_SIGNATURE\_TYPE\_MISMATCHING\_KEY | the type of key \(base ed25519 key, KeyList, or ThresholdKey\) does not match the type of signature \(base ed25519 signature, SignatureList, or ThresholdKeySignature\) |
 | INVALID\_SIGNATURE\_COUNT\_MISMATCHING\_KEY | the number of key \(KeyList, or ThresholdKey\) does not match that of signature \(SignatureList, or ThresholdKeySignature\). e.g. if a keyList has 3 base keys, then the corresponding signatureList should also have 3 base signatures. |
-| EMPTY\_LIVEHASH\_BODY | the claim body is empty |
-| EMPTY\_LIVE\_HASH | the hash for the claim is empty |
-| EMPTY\_LIVEHASH\_KEYS | the key list is empty |
-| INVALID\_LIVE\_HASH\_SIZE | the size of the claim hash is not 48 bytes |
+| EMPTY\_LIVE\_HASH\_BODY | the livehash body is empty |
+| EMPTY\_LIVE\_HASH | the livehash data is missing |
+| EMPTY\_LIVE\_HASH\_KEYS | the key list is empty |
+| INVALID\_LIVE\_HASH\_SIZE | the livehash data is not the output of a SHA-384 digest |
 | EMPTY\_QUERY\_BODY | the query body is empty |
-| EMPTY\_LIVE\_QUERY | the crypto claim query is empty |
-| LIVEHASH\_NOT\_FOUND | the crypto claim doesn't exists in the file system. It expired or was never persisted. |
+| EMPTY\_LIVE\_QUERY | the query body is empty |
+| LIVE\_HASH\_NOT\_FOUND | the livehash is not present |
 | ACCOUNT\_ID\_DOES\_NOT\_EXIST | the account id passed has not yet been created. |
-| LIVEHASH\_ALREADY\_EXISTS | the claim hash already exists |
+| LIVE\_HASH\_ALREADY\_EXISTS | the livehash already exists for a given account |
 | INVALID\_FILE\_WACL | File WACL keys are invalid |
 | SERIALIZATION\_FAILED | Serialization failure |
 | TRANSACTION\_OVERSIZE | The size of the Transaction is greater than transactionMaxBytes |
