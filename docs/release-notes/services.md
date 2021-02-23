@@ -15,11 +15,11 @@ description: Hedera Services release information
 ## [v0.12.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.12.0-rc.2)
 
 {% hint style="info" %}
-**MAINNET UPDATE: MARCH 4, 2021**
+**MAINNET UPDATE: MARCH 12, 2021**
 {% endhint %}
 
 {% hint style="info" %}
-**TESTNET UPDATE: FEBRUARY 18, 2021 \[DELAYED\]**
+**TESTNET UPDATE: FEBRUARY 26, 2021**
 {% endhint %}
 
 In Hedera Services v0.12.0, we completed the MVP implementation of the Hedera Scheduled Transaction Service \(HSTS\) as detailed in [this](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/spec.md) design document. This service decouples _what_ should execute on the ledger from _when_ it should execute, giving new flexibility and programmability to users. Note that HSTS operations are enabled on Previewnet, but remain disabled on Testnet and Mainnet at this time.
