@@ -12,8 +12,8 @@ Hedera smart contracts support Solidity versions up to **v0.5.9**.
 {% endhint %}
 
 {% hint style="warning" %}
-**Smart Contract State Size**  
-Each smart contract has a maximum state size of 1MB which can store up to approximately 16,000 key-value pairs.
+**Smart Contract State Size and Gas Limit**  
+Each smart contract has a maximum state size of 1MB which can store up to approximately 16,000 key-value pairs. The maximum gas limit is 300\_000.
 {% endhint %}
 
 **Transaction Signing Requirements**
