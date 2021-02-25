@@ -2,6 +2,10 @@
 
 A transaction that create a new file on a Hedera network. The file is referenced by its file ID which can be obtained from the receipt or record once the transaction reaches consensus on a Hedera network. The file does not have a file name. If the file is too big to create with a single `FileCreateTransaction()`, the file can be appended with the remaining content multiple times using the `FileAppendTransaction()`.
 
+{% hint style="info" %}
+The maximum file size is 1,024 kB. 
+{% endhint %}
+
 **Transaction Signing Requirements**
 
 * The key on the file is required to sign the transaction if different than the client operator account key
