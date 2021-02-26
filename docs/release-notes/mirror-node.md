@@ -15,6 +15,10 @@ description: Hedera mirror node release notes
 ## [0.27.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.27.0)
 
 {% hint style="success" %}
+**MAINNET UPDATE COMPLETED: FEBRUARY 22, 2021**
+{% endhint %}
+
+{% hint style="success" %}
 **TESTNET UPDATE COMPLETED: FEBRUARY 11, 2021**
 {% endhint %}
 
@@ -29,7 +33,7 @@ We made a concerted effort this release to improve our tests. Most of our flaky 
 ## [v0.26.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.26.0)
 
 {% hint style="success" %}
-**MAINNET UPDATE COMPLETED: FEBRUARY 22, 2021**
+**MAINNET UPDATE COMPLETED: FEBRUARY 1, 2021**
 {% endhint %}
 
 {% hint style="success" %}
