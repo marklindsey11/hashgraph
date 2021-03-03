@@ -209,13 +209,13 @@ The below tables describe the content that can be parsed from a record file.
       <td style="text-align:left">Hapi Proto Minor Version</td>
       <td style="text-align:left">int (4)</td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">y</td>
     </tr>
     <tr>
       <td style="text-align:left">Hapi Proto Patch Version</td>
       <td style="text-align:left">int (4)</td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">y</td>
     </tr>
     <tr>
       <td style="text-align:left">Object stream version</td>
