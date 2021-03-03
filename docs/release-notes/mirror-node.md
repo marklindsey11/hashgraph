@@ -8,9 +8,56 @@ description: Hedera mirror node release notes
 | :--- | :--- | :--- |
 | **Mainnet** | 0.27.0 | 0.28.0 |
 | **Testnet** | 0.27.0 | 0.28.0 |
-| **Previewnet** | 0.27.0 | 0.28.0 |
+| **Previewnet** | 0.28.0 | 0.29.0 |
 
 ## Upcoming Releases
+
+## [v0.28.0](https://github.com/hashgraph/hedera-mirror-node/releases)
+
+This releases finalizes support for scheduled transactions and HAPI protobuf v0.12. Two new schedule specific REST APIs were added including `/api/v1/schedules` and `/api/v1/schedules/:id`. The former lists all schedules with various filtering options available and the latter returns a specific schedule by its schedule ID.
+
+`GET /api/v1/schedules?account.id=0.0.1024&schedule.id=gte:4000&order=desc&limit=10`
+
+```text
+{
+    "schedules": [
+      {
+        "admin_key": {
+          "_type": "ProtobufEncoded",
+          "key": "7b2233222c2233222c2233227d"
+        },
+        "consensus_timestamp": "1234567890.000030003",
+        "creator_account_id": "0.0.1024",
+        "executed_timestamp": null,
+        "memo": "Created per governing council decision dated 02/03/21",
+        "payer_account_id": "0.0.1024",
+        "schedule_id": "0.0.4000",
+        "signatures": [
+          {
+            "consensus_timestamp": "1234567890.000030001",
+            "public_key_prefix": "CQkJ",
+            "signature": "CQkJ"
+          }
+        ],
+        "transaction_body": "AQECAgMD"
+      }
+    ],
+    "links": {
+      "next": null
+    }
+}
+```
+
+In HAPI v0.12, new memo fields were added to all entity types bringing parity across all services. Mirror node now supports the new fields including for update operations where the memo field can be set to `null`, empty string or a non-empty string to keep, clear or replace the existing memo, respectively.
+
+Historically, the importer application has always downloaded stream files and saved to the filesystem in one thread then read those files and ingested them into the database in another thread. This has sometimes caused the database and filesystem to get out of sync and require manual intervention to fix. It also makes the importer stateful and as a result could not support running multiple instances for high availability.
+
+With this release, we've removed the need for importer to read and write to the filesystem. Instead, the downloader and parser threads now communicate via an in-memory queue. To accomplish this, we also had to remove the `t_application_status` table in favor of calculating the last successful file directly from the stream file tables. In addition to fixing the aforementioned issues, the removal of the filesystem has resulted in a 5% latency improvement.
+
+Other changes include adding an `index` field to `record_file` table to simulate a blockchain index and updating our [Google Marketplace](https://console.cloud.google.com/marketplace/details/mirror-node-public/hedera-mirror-node) to v0.27. Also, we added support for the v5 stream files to the `check-state-proof` client app.  
+
+
+## Latest Releases
 
 ## [0.27.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.27.0)
 
@@ -27,8 +74,6 @@ This release adds a new REST API component that implements the [Rosetta API](htt
 [Scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/spec.md) is an new feature being added to the main nodes in a future release. Scheduled transactions allows transactions to be submitted without all the necessary signatures and will execute once all the required parties sign. The mirror node has been updated to understand and store these new types of transactions. Additionally, we've updated our existing REST APIs to expose this information. The next release will add additional schedule specific REST APIs.
 
 We made a concerted effort this release to improve our tests. Most of our flaky tests were fixed so that our continuous integration runs smoother. We also improved the stability of our acceptance tests. The REST API monitor also had some logging and useability fixes to aid in production observability.
-
-## Latest Releases
 
 ## [v0.26.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.26.0)
 
