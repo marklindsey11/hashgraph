@@ -8,7 +8,9 @@ The hashgraph consensus algorithm enables distributed consensus in an innovative
 
 Hedera is the only public ledger authorized to use hashgraph. The consensus algorithm is proprietary, the code will be made available for open review at version 1.0 of the the Hedera network.
 
-{% embed url="https://www.youtube.com/watch?time\_continue=4&v=Z6mn\_VYhXSI&feature=emb\_logo" %}
+{% embed url="https://www.youtube.com/watch?v=cje1vuVKhwY&t=5s" %}
+
+\*\*\*\*
 
 ## Performance
 
