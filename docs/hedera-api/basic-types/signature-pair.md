@@ -4,8 +4,8 @@ The client may use any number of bytes from 0 to the whole length of the public 
 
 | Field | Type | Description | ​ |
 | :--- | :--- | :--- | :--- |
-| pubKeyPrefix | ​ | First few bytes of the public key | ​ |
-| signature | oneof | ​ | ​ |
+| `pubKeyPrefix` | ​ | First few bytes of the public key | ​ |
+| `signature` | oneof | ​ | ​ |
 | ​ | contract | ​ | smart contract virtual signature \(always length zero\) |
 | ​ | ed25519 | ​ | ed25519 signature |
 | ​ | RSA\_3072 | ​ | RSA-3072 signature |

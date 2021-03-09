@@ -4,9 +4,9 @@ Possible Freeze statuses returned on TokenGetInfoQuery or CryptoGetInfoResponse 
 
 | Enum Name | Description |
 | :--- | :--- |
-| FreezeNotApplicable |  |
-| Frozen |  |
-| Unfrozen |  |
+| `FreezeNotApplicable` | Freeze n/a |
+| `Frozen` | Token cannot be transfered to the account |
+| `Unfrozen` | Token can be transferred to the account |
 
 #### 
 
