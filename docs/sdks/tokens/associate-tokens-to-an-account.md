@@ -38,7 +38,7 @@ new TokenAssociateTransaction()
 //Associate a token to an account
 TokenAssociateTransaction transaction = new TokenAssociateTransaction()
         .setAccountId(accountId)
-        .setTokenIds(tokenId);
+        .setTokenIds(Collections.singletonList(tokenId));
 
 //Freeze the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
 TransactionResponse txResponse = transaction.freezeWith(client).sign(accountKey).execute(client);
@@ -50,7 +50,7 @@ TransactionReceipt receipt = txResponse.getReceipt(client);
 Status transactionStatus = receipt.status;
 
 System.out.println("The transaction consensus status " +transactionStatus);
-//v2.0.1
+//v2.0.4
 ```
 {% endcode %}
 
