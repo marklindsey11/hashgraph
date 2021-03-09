@@ -142,6 +142,7 @@
     * [NodeAddress](docs/hedera-api/basic-types/nodeaddress.md)
     * [NodeAddressBook](docs/hedera-api/basic-types/nodeaddressbook.md)
     * [RealmID](docs/hedera-api/basic-types/realmid.md)
+    * [ScheduleID](docs/hedera-api/basic-types/scheduleid.md)
     * [SemanticVersion](docs/hedera-api/basic-types/semanticversion.md)
     * [ServicesConfigurationList](docs/hedera-api/basic-types/servicesconfigurationlist.md)
     * [Setting](docs/hedera-api/basic-types/setting.md)
