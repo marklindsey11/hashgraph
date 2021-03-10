@@ -24,7 +24,7 @@ Open your favorite IDE and create a new gradle project. Add the following depend
 dependencies {
 
     implementation 'com.hedera.hashgraph:sdk:2.0.3'
-    implementation 'io.grpc:grpc-netty-shaded:1.24.0'
+    implementation 'io.grpc:grpc-netty-shaded:1.35.0'
     compile 'io.github.cdimascio:java-dotenv:5.2.1' // Module that stores your environment variables from a .env file
 }
 ```
