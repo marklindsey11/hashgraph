@@ -64,7 +64,7 @@ Together these values make up your accountId. When an `FileId` is requested, be 
 
 | Constructor | Type | Description |
 | :--- | :---: | :--- |
-| `FileId(<shardNum>,<realmNum>,<fileNum>)` | long, long, long | Constructs an `FileId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<fileNum>`\) |
+| `FileId(<shardNum>,<realmNum>,<fileNum>)` | long, long, long | Constructs a `FileId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<fileNum>`\) |
 
 ### Methods
 
@@ -249,7 +249,7 @@ A `topicId` is composed of a &lt;shardNum&gt;.&lt;realmNum&gt;.&lt;topicNum&gt; 
 
 | Constructor | Type | Description |
 | :--- | :--- | :--- |
-| `ConsensusTopicId(<shardNum>,<realmNum>,<topicNum>)` | long, long, long | Constructs an `TopicId` with `0` for `shardNum` and `realmNum` \(e.g., `0.0.<topicNum>`\) |
+| `ConsensusTopicId(<shardNum>,<realmNum>,<topicNum>)` | long, long, long | Constructs a `TopicId` with `0` for `shardNum` and `realmNum` \(e.g., `0.0.<topicNum>`\) |
 
 | Methods | Type | Description |
 | :--- | :--- | :--- |
