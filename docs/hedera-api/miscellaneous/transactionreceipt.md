@@ -14,7 +14,8 @@ The summary of a transaction’s result so far. If the transaction has not reach
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">status</td>
+      <td style="text-align:left"><code>status</code>
+      </td>
       <td style="text-align:left"><a href="responsecode.md#responsecodeenum">ResponseCodeEnum</a>
       </td>
       <td style="text-align:left">The consensus status of the transaction; is UNKNOWN if consensus has not
@@ -22,44 +23,51 @@ The summary of a transaction’s result so far. If the transaction has not reach
         signature</td>
     </tr>
     <tr>
-      <td style="text-align:left">accountID</td>
+      <td style="text-align:left"><code>accountID</code>
+      </td>
       <td style="text-align:left"><a href="../basic-types/accountid.md">AccountID</a>
       </td>
       <td style="text-align:left">In the receipt of a CryptoCreate, the id of the newly created account</td>
     </tr>
     <tr>
-      <td style="text-align:left">fileID</td>
+      <td style="text-align:left"><code>fileID</code>
+      </td>
       <td style="text-align:left"><a href="../basic-types/fileid.md">FileID</a>
       </td>
       <td style="text-align:left">In the receipt of a FileCreate, the id of the newly created file</td>
     </tr>
     <tr>
-      <td style="text-align:left">contractID</td>
+      <td style="text-align:left"><code>contractID</code>
+      </td>
       <td style="text-align:left"><a href="../basic-types/contractid.md">ContractID</a>
       </td>
       <td style="text-align:left">In the receipt of a ContractCreate, the id of the newly created contract</td>
     </tr>
     <tr>
-      <td style="text-align:left">exchangeRate</td>
+      <td style="text-align:left"><code>exchangeRate</code>
+      </td>
       <td style="text-align:left"><a href="exchangerate.md#exchangerateset">ExchangeRateSet</a>
       </td>
       <td style="text-align:left">The exchange rates in effect when the transaction reached consensus</td>
     </tr>
     <tr>
-      <td style="text-align:left">topicID</td>
+      <td style="text-align:left"><code>topicID</code>
+      </td>
       <td style="text-align:left"><a href="../basic-types/topicid.md">TopicID</a>
       </td>
       <td style="text-align:left">In the receipt of a ConsensusCreateTopic, the id of the newly created
         topic.</td>
     </tr>
     <tr>
-      <td style="text-align:left">topicSequenceNumber</td>
+      <td style="text-align:left"><code>topicSequenceNumber</code>
+      </td>
       <td style="text-align:left">uint64</td>
       <td style="text-align:left">In the receipt of a ConsensusSubmitMessage, the new sequence number of
         the topic that received the message</td>
     </tr>
     <tr>
-      <td style="text-align:left">topicRunningHash</td>
+      <td style="text-align:left"><code>topicRunningHash</code>
+      </td>
       <td style="text-align:left">bytes</td>
       <td style="text-align:left">
         <p></p>
@@ -70,16 +78,26 @@ The summary of a transaction’s result so far. If the transaction has not reach
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">topicRunningHashVersion</td>
+      <td style="text-align:left"><code>topicRunningHashVersion</code>
+      </td>
       <td style="text-align:left">uint64</td>
       <td style="text-align:left">In the receipt of a ConsensusSubmitMessage, the version of the SHA-384
         digest used to update the running hash.</td>
     </tr>
     <tr>
-      <td style="text-align:left">tokenId</td>
+      <td style="text-align:left"><code>tokenID</code>
+      </td>
       <td style="text-align:left"><a href="../basic-types/tokenid.md">TokenID</a>
       </td>
       <td style="text-align:left">In the receipt of a CreateToken, the id of the newly created token</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>scheduleID</code>
+      </td>
+      <td style="text-align:left"><a href="../basic-types/scheduleid.md">ScheduleID</a>
+      </td>
+      <td style="text-align:left">In the receipt of a CreateSchedule, the id of the newly created Scheduled
+        Entity</td>
     </tr>
   </tbody>
 </table>

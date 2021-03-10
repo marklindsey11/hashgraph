@@ -6,13 +6,13 @@ Renamed from CryptoDeleteClaim to CryptoDeleteLiveHash \(Hedera Services v0.5.0\
 
 ## CryptoGetLiveHashQuery
 
-Get a single livehash attached to an account, or return null if it does not exist.
+Requests a livehash associated to an account.
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | header | [QueryHeader](../miscellaneous/queryheader.md) | Standard info sent from client to node, including the signed payment, and what kind of response is requested \(cost, state proof, both, or neither\). |
 | accountID | [AccountID](../basic-types/accountid.md) | The account ID to which the livehash was attached |
-| hash |  | The SHA-384 data in the livehash |
+| hash | bytes | The SHA-384 data in the livehash |
 
 ## CryptoGetLiveHashResponse
 

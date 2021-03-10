@@ -10,10 +10,11 @@ An entity \(account, file, or smart contract instance\) must be created in a par
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| expirationTime | ​[Timestamp](../miscellaneous/timestamp.md#timestamp)​ | The time at which this file should expire \(unless FileUpdateTransaction is used before then to extend its life\) |
-| keys | ​[KeyList](../basic-types/keylist.md)​ | All these keys must sign to create or modify the file. Any one of them can sign to delete the file. |
-| contents | ​Content | The bytes that are the contents of the file |
-| shardID | ​[ShardID](../basic-types/shardid.md)​ | Shard in which this file is created |
-| realmID | ​[RealmID](../basic-types/realmid.md)​ | The Realm in which to the file is created \(leave this null to create a new realm\) |
-| newRealmAdminKey | ​[Key](../basic-types/key.md)​ | If realmID is null, then this the admin key for the new realm that will be created |
+| `expirationTime` | ​[Timestamp](../miscellaneous/timestamp.md#timestamp)​ | The time at which this file should expire \(unless FileUpdateTransaction is used before then to extend its life\) |
+| `keys` | ​[KeyList](../basic-types/keylist.md)​ | All these keys must sign to create or modify the file. Any one of them can sign to delete the file. |
+| `contents` | ​Content | The bytes that are the contents of the file |
+| `shardID` | ​[ShardID](../basic-types/shardid.md)​ | Shard in which this file is created |
+| `realmID` | ​[RealmID](../basic-types/realmid.md)​ | The Realm in which to the file is created \(leave this null to create a new realm\) |
+| `newRealmAdminKey` | ​[Key](../basic-types/key.md)​ | If realmID is null, then this the admin key for the new realm that will be created |
+| `memo` | string  | The memo associated with the file \(UTF-8 encoding max 100 bytes\) |
 

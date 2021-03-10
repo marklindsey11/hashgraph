@@ -20,6 +20,6 @@ Once executed the Account is marked as Frozen and will not be able to receive or
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| token | [TokenID](../basic-types/tokenid.md) | The token for which this account will be frozen. If token does not exist, transaction results in INVALID\_TOKEN\_ID |
-| account | [AccountID](../basic-types/accountid.md) | The account to be frozen |
+| `token` | [TokenID](../basic-types/tokenid.md) | The token for which this account will be frozen. If token does not exist, transaction results in INVALID\_TOKEN\_ID |
+| `account` | [AccountID](../basic-types/accountid.md) | The account to be frozen |
 

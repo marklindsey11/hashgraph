@@ -6,8 +6,9 @@ Modify the metadata and/or contents of a file. If a field is not set in the tran
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| fileID | [FileID](../basic-types/fileid.md) | The ID of the file to update |
-| expirationTime | [Timestamp](../miscellaneous/timestamp.md#timestamp) | The new expiry time \(ignored if not later than the current expiry\) |
-| keys | [KeyList](../basic-types/keylist.md) | The new list of keys that can modify or delete the file |
-| contents |  | The new contents that should overwrite the file's current contents |
+| `fileID` | [FileID](../basic-types/fileid.md) | The ID of the file to update |
+| `expirationTime` | [Timestamp](../miscellaneous/timestamp.md#timestamp) | The new expiry time \(ignored if not later than the current expiry\) |
+| `keys` | [KeyList](../basic-types/keylist.md) | The new list of keys that can modify or delete the file |
+| `contents` | bytes | The new contents that should overwrite the file's current contents |
+| `memo` | string | The memo associated with the file \(UTF-8 encoding max 100 bytes\) |
 

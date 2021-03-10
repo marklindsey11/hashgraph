@@ -2,7 +2,7 @@
 
 A single response, which is returned from the node to the client, after the client sent the node a query. This includes all responses.
 
-| Field | Type | Description |  |
+| Field | Type | Description | Description |
 | :--- | :--- | :--- | :--- |
 | response | oneof |  |  |
 |  | getByKey | [GetByKeyResponse](getbykey.md#getbykeyresponse) | Get all entities associated with a given key |
@@ -14,7 +14,7 @@ A single response, which is returned from the node to the client, after the clie
 |  | cryptogetAccountBalance | [CryptoGetAccountBalanceResponse](../cryptocurrency-accounts/cryptogetaccountbalance.md#cryptogetaccountbalanceresponse) | Get the current balance in a cryptocurrency account |
 |  | cryptoGetAccountRecords | [CryptoGetAccountRecordsResponse](../cryptocurrency-accounts/cryptogetaccountrecords.md#cryptogetaccountrecordsresponse) | Get all the records that currently exist for transactions involving an account |
 |  | cryptoGetInfo | [CryptoGetInfoResponse](../cryptocurrency-accounts/cryptogetinfo.md#cryptogetinforesponse) | Get all information about an account |
-|  | cryptoGetLiveHash | CryptoGetLiveHash | Get a single claim from a single account \(or null if it doesn't exist\) |
+|  | cryptoGetLiveHash | [CryptoGetLiveHashResponse](../cryptocurrency-accounts/cryptogetclaim.md#cryptogetlivehashresponse) | Get a single claim from a single account \(or null if it doesn't exist\) |
 |  | cryptoGetProxyStakers | [CryptoGetStakersResponse](../cryptocurrency-accounts/cryptogetstakers.md#cryptogetstakersresponse) | Get all the accounts that proxy stake to a given account, and how much they proxy stake |
 |  | fileGetContents | [FileGetContentsResponse](../file-service/filegetcontents.md#filegetcontentsresponse) | Get the contents of a file \(the bytes stored in it\) |
 |  | fileGetInfo | [FileGetInfoResponse](../file-service/filegetinfo.md#filegetinforesponse) | Get information about a file, such as its expiration date |
@@ -22,6 +22,7 @@ A single response, which is returned from the node to the client, after the clie
 |  | transactionGetRecord | [TransactionGetRecordResponse](transactiongetrecord.md#transactiongetrecordresponse) | Get a record for a transaction \(lasts 1 hour\) |
 |  | transactionGetFastRecord | [TransactionGetFastRecordResponse](transactiongetfastrecord.md#transactiongetfastrecordresponse) | Get a record for a transaction \(lasts 180 seconds\) |
 |  | consensusGetTopicInfo | [ConsensusGetTopicInfoResponse](../consensus-service/consensusgettopicinfo.md#consensusgettopicinforesponse) | Parameters of and state of a consensus topic. |
-|  | networkGetVersionInfo | NetworkGetVersionInfoResponse | Semantic versions of Hedera Services and HAPI proto |
-|  | tokenGetInfo | TokenGetInfoResponse | Get all information about a token |
+|  | networkGetVersionInfo | [NetworkGetVersionInfoResponse](networkgetversioninfo.md#networkgetversioninforesponse) | Semantic versions of Hedera Services and HAPI proto |
+|  | tokenGetInfo | [TokenGetInfoResponse](../token-service/tokengetinfo.md#tokengetinforesponse) | Get all information about a token |
+|  | scheduleGetInfo | [ScheduleGetInfoResponse](../schedule-service/schedulegetinfo.md#consensusgettopicinforesponse) |  |
 

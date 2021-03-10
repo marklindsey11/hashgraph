@@ -6,8 +6,8 @@ An exact date and time. This is the same data structure as the protobuf Timestam
 
 | Field | Description |
 | :--- | :--- |
-| seconds | Number of complete seconds since the start of the epoch |
-| nanos | Number of nanoseconds since the start of the last second |
+| `seconds` | Number of complete seconds since the start of the epoch |
+| `nanos` | Number of nanoseconds since the start of the last second |
 
 ## TimestampSeconds
 
@@ -15,5 +15,5 @@ An exact date and time, with a resolution of one second \(no nanoseconds\).
 
 | Field | Description |
 | :--- | :--- |
-| seconds | Number of complete seconds since the start of the epoch |
+| `seconds` | Number of complete seconds since the start of the epoch |
 

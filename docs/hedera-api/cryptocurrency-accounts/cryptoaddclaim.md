@@ -10,10 +10,10 @@ A hash \(presumably of some kind of credential or certificate\), along with a li
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| accountID | [AccountID](../basic-types/accountid.md) | the account to which the livehash is attached |
-| hash |  | The SHA-384 hash of a credential or certificate |
-| keys | [KeyList](../basic-types/keylist.md) | list of keys: all must sign the transaction to attach the livehash, and any one of them can later delete it. Each "key" can actually be a threshold key containing multiple other keys \(including other threshold keys\). |
-| claimDuration | [Duration](../miscellaneous/duration.md) | the duration for which the livehash will remain valid |
+| `accountID` | [AccountID](../basic-types/accountid.md) | the account to which the livehash is attached |
+| `hash` | bytes | The SHA-384 hash of a credential or certificate |
+| `keys` | [KeyList](../basic-types/keylist.md) | list of keys: all must sign the transaction to attach the livehash, and any one of them can later delete it. Each "key" can actually be a threshold key containing multiple other keys \(including other threshold keys\). |
+| `claimDuration` | [Duration](../miscellaneous/duration.md) | the duration for which the livehash will remain valid |
 
 ## CryptoAddLiveHashTransactionBody
 
@@ -21,14 +21,7 @@ At consensus, attaches the given livehash to the given account. The hash can be 
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| liveHash | [LiveHash](cryptoaddclaim.md#livehash) | A hash of some credential/certificate, along with the keys that authorized it and are allowed to delete it |
+| `liveHash` | [LiveHash](cryptoaddclaim.md#livehash) | A hash of some credential/certificate, along with the keys that authorized it and are allowed to delete it |
 
-#### LiveHash
 
-| Field | Type | Description |  |
-| :--- | :--- | :--- | :--- |
-| accountId | [AccountID](../basic-types/accountid.md) | The account to which the livehash is attached |  |
-| hash |  | The SHA-384 hash of a credential or certificate |  |
-| keys | KeyList | A list of keys \(primitive or threshold\), all of which must sign to attach the livehash to an account, and any one of which can later delete it. |  |
-| duration | [Duration](../miscellaneous/duration.md) | The duration for which the livehash will remain valid |  |
 

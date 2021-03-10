@@ -6,14 +6,15 @@ Create a new account. After the account is created, the AccountID for it is in t
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| key | [Key](../basic-types/key.md) | The key that must sign each transfer out of the account. If receiverSigRequired is true, then it must also sign any transfer into the account. |
-| initialBalance |  | The initial number of tinybars to put into the account |
-| proxyAccountID | [AccountID](../basic-types/accountid.md) | ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null. |
-| sendRecordThreshold |  | **\[Deprecated v0.8.0**\] The threshold amount \(in tinybars\) for which an account record is created for any send/withdraw transaction |
-| receiveRecordThreshold |  | **\[Deprecated v0.8.0**\] The threshold amount \(in tinybars\) for which an account record is created for any receive/deposit transaction |
-| receiverSigRequired |  | If true, this account's key must sign any transaction depositing into this account \(in addition to all withdrawals\) |
-| autoRenewPeriod | [Duration](../miscellaneous/duration.md) | The account is charged to extend its expiration date every this many seconds. If it doesn't have enough balance, it extends as long as possible. If it is empty when it expires, then it is deleted. |
-| shardID | [ShardID](../basic-types/shardid.md) | The shard in which this account is created |
-| realmID | [RealmID](../basic-types/realmid.md) | The realm in which this account is created \(leave this null to create a new realm\) |
-| newRealmAdminKey | [Key](../basic-types/key.md) | If realmID is null, then this the admin key for the new realm that will be created |
+| `key` | [Key](../basic-types/key.md) | The key that must sign each transfer out of the account. If receiverSigRequired is true, then it must also sign any transfer into the account. |
+| `initialBalance` | uint64 | The initial number of tinybars to put into the account |
+| `proxyAccountID` | [AccountID](../basic-types/accountid.md) | ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null. |
+| `sendRecordThreshold` | uint64 | **\[Deprecated v0.8.0**\] The threshold amount \(in tinybars\) for which an account record is created for any send/withdraw transaction |
+| `receiveRecordThreshold` | uint64 | **\[Deprecated v0.8.0**\] The threshold amount \(in tinybars\) for which an account record is created for any receive/deposit transaction |
+| `receiverSigRequired` | bool | If true, this account's key must sign any transaction depositing into this account \(in addition to all withdrawals\) |
+| `autoRenewPeriod` | [Duration](../miscellaneous/duration.md) | The account is charged to extend its expiration date every this many seconds. If it doesn't have enough balance, it extends as long as possible. If it is empty when it expires, then it is deleted. |
+| `shardID` | [ShardID](../basic-types/shardid.md) | The shard in which this account is created |
+| `realmID` | [RealmID](../basic-types/realmid.md) | The realm in which this account is created \(leave this null to create a new realm\) |
+| `newRealmAdminKey` | [Key](../basic-types/key.md) | If realmID is null, then this the admin key for the new realm that will be created |
+| `memo` | string | The memo associated with the account \(UTF-8 encoding max 100 bytes\) |
 

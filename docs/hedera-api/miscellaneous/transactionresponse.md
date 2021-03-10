@@ -4,8 +4,8 @@ When the client sends the node a transaction of any kind, the node replies with 
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| nodeTransactionPrecheckCode | [ResponseCodeEnum](responsecode.md#responsecodeenum) | The response code that indicates the current status of the transaction. |
-| cost | uint64 | If the response code was INSUFFICIENT\_TX\_FEE, the actual transaction fee that would be required to execute the transaction. |
+| `nodeTransactionPrecheckCode` | [ResponseCodeEnum](responsecode.md#responsecodeenum) | The response code that indicates the current status of the transaction. |
+| `cost` | uint64 | If the response code was INSUFFICIENT\_TX\_FEE, the actual transaction fee that would be required to execute the transaction. |
 
 
 

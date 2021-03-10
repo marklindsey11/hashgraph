@@ -10,6 +10,6 @@ At consensus, deletes a livehash associated to the given account. The transactio
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| accountOfLiveHash | [AccountID](../basic-types/accountid.md) | The account owning the livehash |
-| liveHashToDelete |  | The SHA-384 livehash to delete from the account \(48 bytes\) |
+| `accountOfLiveHash` | [AccountID](../basic-types/accountid.md) | The account owning the livehash |
+| `liveHashToDelete` | bytes | The SHA-384 livehash to delete from the account \(48 bytes\) |
 

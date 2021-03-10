@@ -6,5 +6,5 @@ Delete the given file. After deletion, it will be marked as deleted and will hav
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| fileID | [FileID](../basic-types/fileid.md) | The file to delete. It will be marked as deleted until it expires. Then it will disappear. |
+| `fileID` | [FileID](../basic-types/fileid.md) | The file to delete. It will be marked as deleted until it expires. Then it will disappear. |
 

@@ -20,8 +20,8 @@ On success, associations between the provided account and tokens are made and th
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| account | [AccountID](../basic-types/accountid.md) | The account to be associated with the provided tokens |
-| tokens | [TokenID](../basic-types/tokenid.md) | The tokens to be associated with the provided account |
+| `account` | [AccountID](../basic-types/accountid.md) | The account to be associated with the provided tokens |
+| `tokens` | [TokenID](../basic-types/tokenid.md) | The tokens to be associated with the provided account |
 
 
 

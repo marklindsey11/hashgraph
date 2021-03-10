@@ -6,8 +6,8 @@ Get all of the information about a file, except for its contents. When a file ex
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| header | [QueryHeader](../miscellaneous/queryheader.md) | Standard info sent from client to node, including the signed payment, and what kind of response is requested \(cost, state proof, both, or neither\). |
-| fileID | [FileID](../basic-types/fileid.md) | The file ID of the file for which information is requested |
+| `header` | [QueryHeader](../miscellaneous/queryheader.md) | Standard info sent from client to node, including the signed payment, and what kind of response is requested \(cost, state proof, both, or neither\). |
+| `fileID` | [FileID](../basic-types/fileid.md) | The file ID of the file for which information is requested |
 
 ## FileGetInfoResponse
 
@@ -15,18 +15,19 @@ Response when the client sends the node FileGetInfoQuery
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| header | [ResponseHeader](../miscellaneous/responseheader.md#responseheader) | Standard response from node to client, including the requested fields: cost, or state proof, or both, or neither |
-| fileInfo | [FileGetInfoResponse.FileInfo](filegetinfo.md#filegetinforesponse-fileinfo) | The information about the file \(a state proof can be generated for this\) |
+| `header` | [ResponseHeader](../miscellaneous/responseheader.md#responseheader) | Standard response from node to client, including the requested fields: cost, or state proof, or both, or neither |
+| `fileInfo` | [FileGetInfoResponse.FileInfo](filegetinfo.md#filegetinforesponse-fileinfo) | The information about the file \(a state proof can be generated for this\) |
 
-## FileGetInfoResponse.FileInfo
+## FileGetInfoResponse
 
 Response when the client sends the node FileGetInfoQuery
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| fileID | [FileID](../basic-types/fileid.md) | The file ID of the file for which information is requested |
-| size |  | Number of bytes in contents |
-| expirationTime | [Timestamp](../miscellaneous/timestamp.md#timestamp) | The current time at which this account is set to expire |
-| deleted |  | True if deleted but not yet expired |
-| keys | [KeyList](../basic-types/keylist.md) | One of these keys must sign in order to modify or delete the file |
+| `fileID` | [FileID](../basic-types/fileid.md) | The file ID of the file for which information is requested |
+| `size` | int64 | Number of bytes in contents |
+| `expirationTime` | [Timestamp](../miscellaneous/timestamp.md#timestamp) | The current time at which this account is set to expire |
+| `deleted` | bool | True if deleted but not yet expired |
+| `keys` | [KeyList](../basic-types/keylist.md) | One of these keys must sign in order to modify or delete the file |
+| `memo` | string | The memo associated with the file \(UTF-8 encoding max 100 bytes\) |
 

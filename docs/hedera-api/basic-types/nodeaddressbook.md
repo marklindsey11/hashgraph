@@ -1,6 +1,6 @@
 # NodeAddressBook
 
-Gives the node addresses in the address book
+A list of nodes and their metadata.
 
 | Field | Type | Description |
 | :--- | :--- | :--- |

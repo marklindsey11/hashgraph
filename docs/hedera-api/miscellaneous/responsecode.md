@@ -114,8 +114,8 @@
 | MAX\_GAS\_LIMIT\_EXCEEDED | Gas exceeded currently allowable gas limit per transaction |
 | MAX\_FILE\_SIZE\_EXCEEDED | File size exceeded the currently allowable limit |
 | INVALID\_TOPIC\_ID | The Topic ID specified is not in the system. |
-| INVALID\_ADMIN\_KEY |  |
-| INVALID\_SUBMIT\_KEY |  |
+| INVALID\_ADMIN\_KEY | A provided admin key was invalid |
+| INVALID\_SUBMIT\_KEY | A provided submit key was invalid |
 | UNAUTHORIZED | An attempted operation was not authorized \(ie - a deleteTopic for a topic with no adminKey\). |
 | INVALID\_TOPIC\_MESSAGE | A ConsensusService message is empty. |
 | INVALID\_AUTORENEW\_ACCOUNT | The autoRenewAccount specified is not a valid, active account. |
@@ -142,14 +142,14 @@
 | TOKEN\_WAS\_DELETED | Token transactions cannot be executed on deleted token |
 | TOKEN\_HAS\_NO\_SUPPLY\_KEY | Supply key is not set on token |
 | TOKEN\_HAS\_NO\_WIPE\_KEY | Wipe key is not set on token |
-| INVALID\_TOKEN\_MINT\_AMOUNT |  |
-| INVALID\_TOKEN\_BURN\_AMOUNT |  |
-| TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT |  |
+| INVALID\_TOKEN\_MINT\_AMOUNT | The requested token mint amount would cause an invalid total supply |
+| INVALID\_TOKEN\_BURN\_AMOUNT | The requested token burn amount would cause an invalid total supply |
+| TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT | A required token-account relationship is missing |
 | CANNOT\_WIPE\_TOKEN\_TREASURY\_ACCOUNT | Cannot execute wipe operation on treasury account |
-| INVALID\_KYC\_KEY |  |
-| INVALID\_WIPE\_KEY |  |
-| INVALID\_FREEZE\_KEY |  |
-| INVALID\_SUPPLY\_KEY |  |
+| INVALID\_KYC\_KEY | The provided KYC key was invalid |
+| INVALID\_WIPE\_KEY | The provided wipe key was invalid |
+| INVALID\_FREEZE\_KEY | The provided freeze key was invalid |
+| INVALID\_SUPPLY\_KEY | The provided supply key was invalid |
 | MISSING\_TOKEN\_NAME | Token Name is not provided |
 | TOKEN\_NAME\_TOO\_LONG | Token Name is too long |
 | INVALID\_WIPING\_AMOUNT | The provided wipe amount must not be negative, zero or bigger than the token holder balance |
@@ -157,6 +157,20 @@
 | TOKEN\_ALREADY\_ASSOCIATED\_TO\_ACCOUNT | An associateToken operation specified a token already associated to the account |
 | TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES | An attempted operation is invalid until all token balances for the target account are zero |
 | ACCOUNT\_IS\_TREASURY | An attempted operation is invalid because the account is a treasury |
+| TOKEN\_ID\_REPEATED\_IN\_TOKEN\_LIST | Same TokenIDs present in the token list |
+| TOKEN\_TRANSFER\_LIST\_SIZE\_LIMIT\_EXCEEDED | Exceeded the number of token transfers \(both from and to\) allowed for token transfer list |
+| EMPTY\_TOKEN\_TRANSFER\_BODY | TokenTransfersTransactionBody has no TokenTransferList |
+| EMPTY\_TOKEN\_TRANSFER\_ACCOUNT\_AMOUNTS | TokenTransfersTransactionBody has a TokenTransferList with no AccountAmounts |
+| INVALID\_SCHEDULE\_ID | The Scheduled entity does not exist; or has now expired, been deleted, or been executed |
+| SCHEDULE\_IS\_IMMUTABLE | The Scheduled entity cannot be modified. Admin key not set |
+| INVALID\_SCHEDULE\_PAYER\_ID | The provided Scheduled Payer does not exist |
+| INVALID\_SCHEDULE\_ACCOUNT\_ID | The Schedule Create Transaction TransactionID account does not exist |
+| NO\_NEW\_VALID\_SIGNATURES | The provided sig map did not contain any new valid signatures from required signers of the scheduled transaction |
+| UNRESOLVABLE\_REQUIRED\_SIGNERS | The required signers for a scheduled transaction cannot be resolved, for example because they do not exist or have been deleted |
+| UNPARSEABLE\_SCHEDULED\_TRANSACTION | The bytes allegedly representing a transaction to be scheduled could not be parsed |
+| UNSCHEDULABLE\_TRANSACTION | ScheduleCreate and ScheduleSign transactions cannot be scheduled |
+| SOME\_SIGNATURES\_WERE\_INVALID | At least one of the signatures in the provided sig map did not represent a valid signature for any required signer |
+| TRANSACTION\_ID\_FIELD\_NOT\_ALLOWED | The scheduled and nonce fields in the TransactionID may not be set in a top-level transaction |
 
 
 
