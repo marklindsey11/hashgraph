@@ -112,7 +112,7 @@ AccountBalance accountBalance = new AccountBalanceQuery()
      .setAccountId(newAccountId)
      .execute(client);
 
-System.out.println("The new account balance is: " +accountBalance);
+System.out.println("The new account balance is: " +accountBalance.hbars);
 ```
 {% endtab %}
 
