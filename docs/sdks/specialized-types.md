@@ -14,7 +14,7 @@ Together these values make up your `AccountId`. When an `AccountId` is requested
 
 | Constructor | Type | Description |
 | :--- | :---: | :--- |
-| `AccountId(<shardNum>,<realmNum>,<accountNum>)` | long, long, long | Constructs an `AccountId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<accountNum>`\) |
+| `new AccountId(<shardNum>,<realmNum>,<accountNum>)` | long, long, long | Constructs an `AccountId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<accountNum>`\) |
 
 ### Methods
 
@@ -64,7 +64,7 @@ Together these values make up your accountId. When an `FileId` is requested, be 
 
 | Constructor | Type | Description |
 | :--- | :---: | :--- |
-| `FileId(<shardNum>,<realmNum>,<fileNum>)` | long, long, long | Constructs a `FileId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<fileNum>`\) |
+| `new FileId(<shardNum>,<realmNum>,<fileNum>)` | long, long, long | Constructs a `FileId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<fileNum>`\) |
 
 ### Methods
 
@@ -153,7 +153,7 @@ Together these values make up your `ContractId`. When an `ContractId` is request
 
 | Constructor | Type | Description |
 | :--- | :--- | :--- |
-| `ContractId(<shardNum>,<realmNum>,<contractNum>)` | long, long, long | Constructs a `ContractId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<contractNum>`\) |
+| `new ContractId(<shardNum>,<realmNum>,<contractNum>)` | long, long, long | Constructs a `ContractId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<contractNum>`\) |
 
 ### Methods
 
@@ -218,7 +218,7 @@ A `TransactionId` is composed of the current time and account that is primarily 
 
 | Constructor | Type | Description |
 | :--- | :--- | :--- |
-| `TransactionId(<accountId>)` | AccountId | Generates a new transaction ID for the given `accountId`. |
+| `new TransactionId(<accountId>)` | AccountId | Generates a new transaction ID for the given `accountId`. |
 
 ### Example
 
@@ -249,7 +249,7 @@ A `topicId` is composed of a &lt;shardNum&gt;.&lt;realmNum&gt;.&lt;topicNum&gt; 
 
 | Constructor | Type | Description |
 | :--- | :--- | :--- |
-| `ConsensusTopicId(<shardNum>,<realmNum>,<topicNum>)` | long, long, long | Constructs a `TopicId` with `0` for `shardNum` and `realmNum` \(e.g., `0.0.<topicNum>`\) |
+| `new ConsensusTopicId(<shardNum>,<realmNum>,<topicNum>)` | long, long, long | Constructs a `TopicId` with `0` for `shardNum` and `realmNum` \(e.g., `0.0.<topicNum>`\) |
 
 | Methods | Type | Description |
 | :--- | :--- | :--- |
