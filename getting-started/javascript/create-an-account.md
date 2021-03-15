@@ -71,7 +71,7 @@ To create a new account you will submit an account create transaction to the Hed
 
 ```javascript
 //Create a new account with 1,000 tinybar starting balance
-const newAccountTransactionId = await new AccountCreateTransaction()
+const newAccountTransactionResponse = await new AccountCreateTransaction()
     .setKey(newAccountPublicKey)
     .setInitialBalance(Hbar.fromTinybars(1000))
     .execute(client);
