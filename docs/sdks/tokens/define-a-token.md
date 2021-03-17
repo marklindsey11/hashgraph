@@ -33,6 +33,7 @@ You can set the following properties when creating a token:
 | **Expiration Time** | The epoch second at which the token should expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod. The default expiration time is 90 days. |
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign transaction if present. |
 | **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
+| **Memo** | Short publicly visible memo about the token. No guarantee of uniqueness. \(100 characters max\) |
 
 
 
@@ -63,7 +64,8 @@ new TokenCreateTransaction()
 | `setWipeKey(<key>)` | Key | Optional |
 | `setSupplyKey(<key>)` | Key | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
-| `setExpirationTime(<expirationTime>)` | Instant | Required |
+| `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setTokenMemo(<memo>)` | String | Optional |
 | `setAutoRenewAccountId(<account>)` | [AccountId](../specialized-types.md#accountid) | Disabled |
 | `setAutoRenewPeriod(<period>)` | Duration | Disabled |
 

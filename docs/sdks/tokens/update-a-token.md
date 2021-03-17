@@ -15,6 +15,7 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 | **Expiration Time** | The new expiry time of the token. Expiry can be updated even if the admin key is not set. If the provided expiry is earlier than the current token expiry, transaction wil resolve to INVALID\_EXPIRATION\_TIME.  |
 | **Auto Renew Account** | The new account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. |
 | **Auto Renew Period** | The new interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
+| **Memo** | Short publicly visible memo about the token. No guarantee of uniqueness. \(100 characters max\) |
 
 | Constructor | Description |
 | :--- | :--- |
@@ -43,6 +44,7 @@ new TokenUpdateTransaction()
 | `setSupplyKey(<key>)` | PublicKey | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setTokenMemo(<memo>)` | String | Optional |
 | `setAutoRenewAccountId(<account>)` | AccountId | Disabled |
 | `setAutoRenewPeriod(<period>)` | Duration | Disabled |
 

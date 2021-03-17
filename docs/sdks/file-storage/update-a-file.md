@@ -15,6 +15,7 @@ A transaction that updates the state of an existing file on a Hedera network. On
 | **Key\(s\)** | Update the keys which must sign any transactions modifying this file. All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time \(except the one for the operator account paying for the transaction\). The network currently requires a file to have at least one key \(or key list or threshold key\) but this requirement may be lifted in the future. |
 | **Contents** | The content to update the files with.  |
 | **Expiration Time** | If set, update the expiration time of the file. Must be in the future \(may only be used to extend the expiration\). To make a file inaccessible use FileDeleteTransaction. |
+| **Memo** | Short publicly visible memo about the file. No guarantee of uniqueness. \(100 characters max\) |
 
 | Constructor | Description |
 | :--- | :--- |
@@ -39,6 +40,7 @@ new FileUpdateTransaction()
 | `setContents(<bytes>)` | byte \[ \] | Optional |
 | `setContents(<text>)` | String | Optional |
 | `setExpirationTime(<expiration>)` | Instant | Optional |
+| `setFileMemo(<memo>)` | String | Optional |
 
 {% code title="Java" %}
 ```java
@@ -197,6 +199,7 @@ console.log("The transaction consensus status is " +transactionStatus);
 | `getKey()` | Key | Optional |
 | `setContents()` | ByteString | Optional |
 | `getExpirationTime()` | Instant | Optional |
+| `getFileMemo()` | String | Optional |
 
 {% code title="Java" %}
 ```java

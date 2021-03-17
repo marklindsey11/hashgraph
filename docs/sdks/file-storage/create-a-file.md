@@ -17,6 +17,7 @@ The maximum file size is 1,024 kB.
 | **Key\(s\)** | Set the keys which must sign any transactions modifying this file \(the owner\(s\) of the file\). All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time \(except the one for the operator account paying for the transaction\). The network currently requires a file to have at least one key \(or key list or threshold key\) but this requirement may be lifted in the future. |
 | **Contents** | The contents of the file. The file contents can be recovered from requesting the FileContentsQuery. Note that total size for a given transaction is limited to 6KiB \(as of March 2020\) by the network; if you exceed this you may receive a TRANSACTION\_OVERSIZE error. |
 | **Expiration Time** | Set the instant at which this file will expire, after which its contents will no longer be available. Defaults to 1/4 of a Julian year from the instant was invoked. |
+| **Memo** | Short publicly visible memo about the file. No guarantee of uniqueness. \(100 characters max\) |
 
 ### Methods
 
@@ -40,6 +41,7 @@ The default max transaction fee \(1 hbar\) is not enough to create a a file. Use
 | `setContents(<contents>)` | String | Optional |
 | `setContents(<bytes>)` | bytes \[ \] | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setFileMemo(<memo>)` | String | Optional |
 
 {% code title="Java" %}
 ```java
@@ -199,6 +201,7 @@ console.log("The new file ID is: " + newFileId);
 | `getKeys()` | Key | Optional |
 | `getContents()` | ByteString | Optional |
 | `getExpirationTime()` | Instant | Optional |
+| `getFileMemo()` | String | Optional |
 
 {% code title="Java" %}
 ```java

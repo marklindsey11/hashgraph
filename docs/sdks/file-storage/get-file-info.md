@@ -11,6 +11,7 @@ A query that returns the current state of a file. Queries do not change the stat
 | **Size** | The number of bytes in the file contents |
 | **Expiration Time** | The current time at which the file is set to expire |
 | **Deleted** | Whether or not the file has been deleted |
+| **Memo** | A short description, if any |
 
   
 **Query Signing Requirements**

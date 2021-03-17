@@ -116,6 +116,11 @@ Gets information about a token instance. The token info query returns the follow
         and period are specified, this is coerced to the current epoch second plus
         the autoRenewPeriod</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><b>Memo</b>
+      </td>
+      <td style="text-align:left">Short publicly visible memo about the token, if any</td>
+    </tr>
   </tbody>
 </table>
 

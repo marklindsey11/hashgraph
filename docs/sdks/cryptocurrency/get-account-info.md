@@ -18,6 +18,7 @@ A query that returns the current state of the account. This query **does not** i
 | **Proxy Received**  | The total number of tinybars proxy staked to this account.  |
 | **LiveHash** | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it\).  |
 | **Tokens** | All tokens related to this account |
+| **Memo** |  A note or description that is recorded with the account entity |
 
 **Query Signing Requirements**
 
