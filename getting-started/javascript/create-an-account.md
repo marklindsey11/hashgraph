@@ -1,12 +1,16 @@
 # Create an account
 
-The following sample will show you how to make a simple Hedera account. Hedera accounts are the entry  point by which you can interact with the Hedera APIs. Accounts hold a balance of hbars used to pay for API calls for the various transaction and query types.
+The following sample will show you how to make a simple Hedera account. Hedera accounts are the entry point by which you can interact with the Hedera APIs. Accounts hold a balance of hbars used to pay for API calls for the various transaction and query types.
 
 ## Pre-requisites:
 
 {% page-ref page="../introduction.md" %}
 
+{% endpage-ref %}
+
 {% page-ref page="environment-set-up.md" %}
+
+{% endpage-ref %}
 
 {% page-ref page="../../core-concepts/accounts.md" %}
 
@@ -36,7 +40,7 @@ require("dotenv").config();
 
 ## Step 2: Generate keys for the new account
 
-You will need to generate public and private key pair to assign to the new account in the next step. Within the async function,  generate they private and public key pair for the new account. 
+You will need to generate public and private key pair to assign to the new account in the next step. Within the async function, generate they private and public key pair for the new account.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -65,9 +69,9 @@ const newAccountPublicKey = newAccountPrivateKey.publicKey;
 {% endtab %}
 {% endtabs %}
 
-## Step 3: Create the new account 
+## Step 3: Create the new account
 
-To create a new account you will submit an account create transaction to the Hedera test network. The account minimally requires you to set the key of the account at creation. This means that the corresponding private key will be required to sign transactions for the new account. The account will additionally have a starting balance of 1,000 tinybars. This initial balance is funded from your account to the new account. You can optionally choose to create an account with a zero balance. 
+To create a new account you will submit an account create transaction to the Hedera test network. The account minimally requires you to set the key of the account at creation. This means that the corresponding private key will be required to sign transactions for the new account. The account will additionally have a starting balance of 1,000 tinybars. This initial balance is funded from your account to the new account. You can optionally choose to create an account with a zero balance.
 
 ```javascript
 //Create a new account with 1,000 tinybar starting balance
@@ -77,7 +81,7 @@ const newAccountTransactionResponse = await new AccountCreateTransaction()
     .execute(client);
 ```
 
-Additional properties for accounts are explained [here](https://docs.hedera.com/guides/docs/sdks/cryptocurrency/create-an-account). 
+Additional properties for accounts are explained [here](https://docs.hedera.com/guides/docs/sdks/cryptocurrency/create-an-account).
 
 ## Step 4: Get the new account ID
 
@@ -107,7 +111,7 @@ console.log("The new account ID is: " +newAccountId);
 
 ## Step 5: Verify the new account balance
 
-Next, you will submit a query to the Hedera test network to return the balance of the new account using the new account ID. The current account balance for the new account should be 1,000 tinybars. 
+Next, you will submit a query to the Hedera test network to return the balance of the new account using the new account ID. The current account balance for the new account should be 1,000 tinybars.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -141,9 +145,9 @@ console.log("The new account balance is: " +accountBalance.asTinybar() +" tinyba
 
 You are now ready to transfer some hbar to the new account 🤑!
 
-## Code Check ✅ 
+## Code Check ✅
 
-Your index.js file should look like this: 
+Your index.js file should look like this:
 
 {% tabs %}
 {% tab title="v2.0" %}

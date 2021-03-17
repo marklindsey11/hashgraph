@@ -6,13 +6,21 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.27.0 | 0.28.0 |
-| **Testnet** | 0.27.0 | 0.28.0 |
-| **Previewnet** | 0.28.0 | 0.29.0 |
+| **Mainnet** | 0.28.2 | 0.29.0 |
+| **Testnet** | 0.28.2 | 0.29.0 |
+| **Previewnet** | 0.28.2 | 0.29.0 |
 
 ## Upcoming Releases
 
-## [v0.28.0](https://github.com/hashgraph/hedera-mirror-node/releases)
+## [v0.28.](https://github.com/hashgraph/hedera-mirror-node/releases)2
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: MARCH 17, 2021**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: MARCH 10, 2021**
+{% endhint %}
 
 This releases finalizes support for scheduled transactions and HAPI protobuf v0.12. Two new schedule specific REST APIs were added including `/api/v1/schedules` and `/api/v1/schedules/:id`. The former lists all schedules with various filtering options available and the latter returns a specific schedule by its schedule ID.
 
