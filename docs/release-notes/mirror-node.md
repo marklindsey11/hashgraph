@@ -12,7 +12,11 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
-## [v0.28.](https://github.com/hashgraph/hedera-mirror-node/releases)2
+
+
+## Latest Releases
+
+## [v0.28.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.28.2)
 
 {% hint style="success" %}
 **MAINNET UPDATE COMPLETED: MARCH 17, 2021**
@@ -64,8 +68,6 @@ With this release, we've removed the need for importer to read and write to the 
 
 Other changes include adding an `index` field to `record_file` table to simulate a blockchain index and updating our [Google Marketplace](https://console.cloud.google.com/marketplace/details/mirror-node-public/hedera-mirror-node) to v0.27. Also, we added support for the v5 stream files to the `check-state-proof` client app.  
 
-
-## Latest Releases
 
 ## [0.27.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.27.0)
 
