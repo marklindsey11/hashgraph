@@ -12,8 +12,6 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
-
-
 ## Latest Releases
 
 ## [v0.28.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.28.2)
