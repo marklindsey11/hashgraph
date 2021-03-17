@@ -60,6 +60,13 @@ When creating a **new account** an existing account will need to pay for the tra
       </td>
       <td style="text-align:left">ID of the account to which this account is proxy staked <b>(</b>DISABLED).</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><b>Memo</b>
+      </td>
+      <td style="text-align:left">Set a note or description that should be recorded with the state of the
+        account entity (maximum length of 100 characters). Anyone can view this
+        memo on the network.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -80,6 +87,7 @@ new AccountCreateTransaction()
 | `setKey(<key>)` | Key | Required |
 | `setInitialBalance(<initialBalance>)` | HBar | Optional |
 | `setReceiverSignatureRequired(<booleanValue>)` | boolean | Optional |
+| `setAccountMemo(<memo>)` | String | Optional |
 | `setAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Disabled |
 | `setProxyAccount(<accountId>)` | AccountId | Disabled |
 
