@@ -62,6 +62,13 @@ A transaction that updates the properties of an existing account. The network wi
       </td>
       <td style="text-align:left">The new account ID to which this account is proxy staked .</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><b>Memo</b>
+      </td>
+      <td style="text-align:left">Add or update a short description that should be recorded with the state
+        of the account entity (maximum length of 100 characters). Anyone can view
+        this memo on the network.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -81,10 +88,11 @@ new AccountUpdateTransaction()
 | :--- | :--- | :--- |
 | `setAccountId(<accountId>)` | AccountId | Required |
 | `setKey(<key>)` | Key | Optional |
-| `setAutoRenewPeriod(<duration>)` | Duration | Optional |
-| `setExpirationTime(<expirationTime>)` | Instant | Optional |
 | `setReceiverSignatureRequired(<boolean>)` | Boolean | Optional |
-| `setProxyAccountId(<accountId>)` | AccountId | Optional |
+| `setAccountMemo(<memo>)` | String | Optional |
+| `setAutoRenewPeriod(<duration>)` | Duration | Disabled |
+| `setExpirationTime(<expirationTime>)` | Instant | Disabled |
+| `setProxyAccountId(<accountId>)` | AccountId | Disabled |
 
 {% code title="Java" %}
 ```java
