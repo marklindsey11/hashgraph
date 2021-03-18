@@ -178,7 +178,7 @@ const query = new TokenInfoQuery()
     .setTokenId(newTokenId);
 
 //Sign with the client operator private key, submit the query to the network and get the token supply
-const tokenSupply = await query.execute(client).totalSupply;
+const tokenSupply = (await query.execute(client)).totalSupply;
 
 console.log("The total supply of this token is " +tokenSupply);
 
