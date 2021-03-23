@@ -107,6 +107,7 @@
     * [Associate tokens to an account](docs/sdks/tokens/associate-tokens-to-an-account.md)
     * [Dissociate tokens from an account](docs/sdks/tokens/dissociate-tokens-from-an-account.md)
     * [Wipe a token](docs/sdks/tokens/wipe-a-token.md)
+    * [Atomic swaps](docs/sdks/tokens/atomic-swaps.md)
     * [Get account token balance](docs/sdks/tokens/get-account-token-balance.md)
     * [Get token info](docs/sdks/tokens/get-token-info.md)
     * [Errors](docs/sdks/tokens/errors.md)
