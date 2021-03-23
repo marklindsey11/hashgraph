@@ -12,6 +12,98 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
+## [v0.29.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.29.0)
+
+This release brings an assortment of under the hood improvements across modules and refinements of multiple REST API's.
+
+Historical entity information prior to OA is now available. In this release we've added a repeatable Java migration that will import entity information from a mainnet network snapshot. This runs during upgrade, is configureable \(`hedera.mirror.importer.importHistoricalAccountInfo`\) and works in combination with the `hedera.mirror.importer.startDate`setting.
+
+The REST API now expands its filtering options support specifically around transfers and in relation to tokens. Previously the `account.id`and `credit/debit` filtering options supported HBAR transfers only, this release expands both filters to include tokens also.
+
+The stateproof REST API and `check-state-proof` package have also been improved. The API now supports filtering for scheduled transactions via `/api/v1/transactions/:transactionId/stateproof?scheduled=true` as-well as a more compact response format. For record streams that utilize the newer improved HAPI v5 version the stateproof API response send back metadata hashes instead of the full raw bytes. With this, the response is more light weight.
+
+```text
+ {
+     "address_books": [
+       "address book content"
+     ],
+     "record_file": {
+       "head": "content of the head",
+       "start_running_hash_object": "content of the start running hash object",
+       "hashes_before": [
+         "hash of the 1st record stream object",
+         "hash of the 2nd record stream object",
+         "hash of the (m-1)th record stream object"
+       ],
+       "record_stream_object": "content of the mth record stream object",
+       "hashes_after": [
+         "hash of the (m+1)th record stream object",
+         "hash of the (m+2)th record stream object",
+         "hash of the nth record stream object"
+       ],
+       "end_running_hash_object": "content of the end running hash object",
+     },
+     "signature_files": {
+       "0.0.3": "signature file content of node 0.0.3",
+       "0.0.4": "signature file content of node 0.0.4",
+       "0.0.n": "signature file content of node 0.0.n"
+     },
+     "version": 5
+ }
+```
+
+The REST API now also supports repeatable `account.id` query parameters when filtering, with a configureable setting for the maximum number of repeated query parameters  
+`/api/v1/(accounts|balances|transactions)?account.id=:id&account.id=:id2...`
+
+`GET /api/v1/accounts?account.id=0.0.7&account.id=0.0.9`
+
+```text
+{
+     "accounts": [
+       {
+         "balance": {
+           "timestamp": "0.000002345",
+           "balance": 70,
+           "tokens": [
+             {
+               "token_id": "0.0.100001",
+               "balance": 7
+             },
+             {
+               "token_id": "0.0.100002",
+               "balance": 77
+             }
+           ]
+         },
+         "account": "0.0.7",
+         "expiry_timestamp": null,
+         "auto_renew_period": null,
+         "key": null,
+         "deleted": false
+       },
+       {
+         "balance": {
+           "timestamp": "0.000002345",
+           "balance": 90,
+           "tokens": []
+         },
+         "account": "0.0.9",
+         "expiry_timestamp": null,
+         "auto_renew_period": null,
+         "key": null,
+         "deleted": false
+       }
+     ],
+     "links": {
+       "next": null
+     }
+   }
+```
+
+Multiple modules have also seen security and standardization improvements by the addition of more robust automated analysis tools such as `gosec` as-well as the implementation of suggestions from a 3rd party code audit.
+
+This release also saw a step to support the new and improved v2 offerings of the \(Java SDK\)\[https://github.com/hashgraph/hedera-sdk-java\]. Both the monitor module and acceptance tests were updated to use the new SDK and utilize features such as in-built retry and support for scheduled transactions.
+
 ## Latest Releases
 
 ## [v0.28.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.28.2)
