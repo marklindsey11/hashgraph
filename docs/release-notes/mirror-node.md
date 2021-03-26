@@ -6,13 +6,17 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.28.2 | 0.29.0 |
-| **Testnet** | 0.28.2 | 0.29.0 |
-| **Previewnet** | 0.28.2 | 0.29.0 |
+| **Mainnet** | 0.28.2 | 0.29.1 |
+| **Testnet** | 0.29.1 | 0.30.0 |
+| **Previewnet** | 0.29.1 | 0.30.0 |
 
 ## Upcoming Releases
 
-## [v0.29.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.29.0)
+## [v0.29.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.29.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: MARCH 26, 2021**
+{% endhint %}
 
 This release brings an assortment of under the hood improvements across modules and refinements of multiple REST API's.
 
