@@ -6,13 +6,19 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.28.2 | 0.29.1 |
+| **Mainnet** | 0.29.1 | 0.30.0 |
 | **Testnet** | 0.29.1 | 0.30.0 |
 | **Previewnet** | 0.29.1 | 0.30.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.29.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.29.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: April 5, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: MARCH 26, 2021**
@@ -107,8 +113,6 @@ The REST API now also supports repeatable `account.id` query parameters when fil
 Multiple modules have also seen security and standardization improvements by the addition of more robust automated analysis tools such as `gosec` as-well as the implementation of suggestions from a 3rd party code audit.
 
 This release also saw a step to support the new and improved v2 offerings of the \(Java SDK\)\[https://github.com/hashgraph/hedera-sdk-java\]. Both the monitor module and acceptance tests were updated to use the new SDK and utilize features such as in-built retry and support for scheduled transactions.
-
-## Latest Releases
 
 ## [v0.28.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.28.2)
 
