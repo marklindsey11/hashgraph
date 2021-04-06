@@ -1,7 +1,7 @@
 # TokenDelete
 
 {% hint style="warning" %}
-API is temporarily disabled.
+API is enabled on testnet and temporarily disabled on mainnet. 
 {% endhint %}
 
 Marks a token as deleted, though it will remain in the ledger.
