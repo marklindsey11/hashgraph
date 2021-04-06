@@ -8,6 +8,10 @@ Hedera networks are comprised of two types of nodes: Consensus and Mirror nodes.
 
 The **address book** contains the list of consensus nodes that can submit transactions to mainnet for a user. For each node, the node account ID is the ID of the node \(0.0.x\) and the node address is the IP address and port for that node. The mainnet address book file ID on mainnet is `0.0.102`. The certificate hash value is the sha384 checksum of the TLS certificate presented from the various IP addresses on port 50212 in PEM format.
 
+{% hint style="info" %}
+Note: TLS port is currently not supported by Hedera SDKs
+{% endhint %}
+
 <table>
   <thead>
     <tr>
