@@ -904,7 +904,7 @@ The ID of the token to return the information for in x.y.z format.
 
 The Hedera Mirror Node state proof alpha api provides the ability to cryptographically prove a transaction is valid on Hedera network. The request returns the content of the address book file, signature files, and record file that can be used to validate the transaction occurred on the Hedera network. The address book file contains the consensus node account IDs and their public key files. The signature files are of the supermajority consensus nodes that signed the record file the transaction is contained in. 
 
-{% api-method method="get" host="" path="/api/v1/:transaction-id/stateproof" %}
+{% api-method method="get" host="" path="/api/v1/transactions/:transaction-id/stateproof" %}
 {% api-method-summary %}
 transaction state proof
 {% endapi-method-summary %}
