@@ -270,7 +270,7 @@
 
 ## Support & Community
 
-* [Developer Chat](https://discordapp.com/invite/FFb9YFX)
+* [Developer Chat](http://hedera.com/discord)
 * [Meetups](support-and-community/meetups.md)
 * [Hedera FAQ](https://help.hedera.com/hc/en-us)
 * [Status Page](https://status.hedera.com)
