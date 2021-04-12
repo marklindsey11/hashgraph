@@ -25,7 +25,7 @@ Construct hbars from different representations.
 {% code title="Java" %}
 ```java
 //100 hbars
-new Hbar(1000);
+new Hbar(100);
 
 //100 hbars from hbar value
 Hbar.from(100);
@@ -46,7 +46,7 @@ Hbar.fromString("100", HbarUnit.TINYBAR);
 {% code title="JavaScript" %}
 ```java
 // 100 hbars
-new Hbar(1000);
+new Hbar(100);
 
 //100 hbars
 Hbar.from(100);
