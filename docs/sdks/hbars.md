@@ -16,9 +16,9 @@ Construct hbars from different representations.
 {% tab title="V2" %}
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `Hbar.from(<hbars>)`  | long / BigDecimal | Returns an Hbar whose value is equal to the specified value |
+| `Hbar.from(<hbars>)` | long / BigDecimal | Returns an Hbar whose value is equal to the specified value |
 | `Hbar.from(<hbars, unit>)` | long / BigDecimal , HbarUnit | Returns an Hbar representing the value in the given units |
-| `Hbar.fromString(<text>)` | CharSequence  | Converts the provided string into an amount of hbars |
+| `Hbar.fromString(<text>)` | CharSequence | Converts the provided string into an amount of hbars |
 | `Hbar.fromString(<text, unit>)` | CharSequence, HbarUnit | Converts the provided string into an amount of hbars |
 | `Hbar.fromTinybars(<tinybars>)` | long | Returns an Hbar converted from the specified number of tinybars |
 
@@ -58,7 +58,7 @@ Hbar.from(100, HbarUnit.TINYBAR);
 Hbar.fromString("100");
 
 //100 tinybars from string value
-Hbar.fromString("100", HbarUnit.TINYBAR); 
+Hbar.fromString("100", HbarUnit.TINYBAR);
 ```
 {% endcode %}
 
@@ -230,7 +230,7 @@ const hbarMax = Hbar.MAX;
 const hbarMin = Hbar.MIN;
 
 //A constant value of zero hbars
-const hbarZero = Hbar.ZERO; 
+const hbarZero = Hbar.ZERO;
 ```
 {% endcode %}
 
@@ -361,6 +361,4 @@ Hbar.from(100, HbarUnit.Tinybar);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

@@ -1,6 +1,6 @@
 # Recover keys from a mnemonic phrase
 
-Recover private keys from a mnemonic phrase. 
+Recover private keys from a mnemonic phrase.
 
 {% tabs %}
 {% tab title="V2" %}
@@ -60,8 +60,4 @@ Ed25519PrivateKey privateKey = Ed25519PrivateKey.fromMnemonic(mnemonic);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
-
-## 
 

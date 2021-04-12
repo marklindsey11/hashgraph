@@ -10,8 +10,8 @@ A Signature corresponding to a Key. It is a sequence of bytes holding a public k
 | ​ | ed25519 | ​ | ed25519 signature bytes |
 | ​ | RSA\_3072 | ​ | RSA-3072 signature bytes |
 | ​ | ECDSA\_384 | ​ | ECDSA p-384 signature bytes |
-| ​ | thresholdSignature | ​[ThresholdSignature](https://docs.hedera.com/hedera-api/basic-types-1/thresholdsignature)​ | A list of signatures for a single N-of-M threshold Key. This must be a list of exactly M signatures, at least N of which are non-null. |
-| ​ | signatureList | ​[SignatureList](https://docs.hedera.com/hedera-api/basic-types-1/signaturelist)​ | A list of M signatures, each corresponding to a Key in a KeyList of the same length. |
+| ​ | thresholdSignature | ​[ThresholdSignature](thresholdsignature.md)​ | A list of signatures for a single N-of-M threshold Key. This must be a list of exactly M signatures, at least N of which are non-null. |
+| ​ | signatureList | ​[SignatureList](signature-list.md)​ | A list of M signatures, each corresponding to a Key in a KeyList of the same length. |
 
 ####   <a id="undefined"></a>
 
