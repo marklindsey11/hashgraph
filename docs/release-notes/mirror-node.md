@@ -12,6 +12,53 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
+## [v0.31.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.31.0)
+
+After scheduled transactions was made available in previewnet, we listened to user feedback and further iterated on the design to make it easier to use. This release adds support for this [revised scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/revised-spec.md) design planned to be released in HAPI v0.13. There was no impact to our REST API format, only the importer needed to be updated to parse and ingest the new proto format. Our monitor API and acceptance tests will be adjusted in the next release once the SDKs add support for the new design.
+
+This release also adds support for the newly announced account balance file format that was released in HAPI v0.12. The new [protobuf](https://github.com/hashgraph/hedera-protobufs/blob/main/streams/AccountBalanceFile.proto)based format will eventually replace the CSV format in July 2021. Until then, both formats will exist simultaneously in the bucket so users can transition at their leisure. Besides being more efficient to parse, the new files are also compressed using Gzip for reduced storage and download costs. We also took the time to improve the balance file parsing performance regardless of format. Average parse times should decrease by about 27%.
+
+For our REST API, we now expose an `entity_id` field on our transactions related APIs. This field represents that main entity associated with that transaction type. For example, if it was a HCS transaction it would be the topic ID created, updated, or deleted.
+
+`GET /api/v1/transactions/0.0.1009-1234567890-999999998`
+
+```text
+{
+  "transactions": [{
+    "consensus_timestamp": "1234567890.999999999",
+    "entity_id": "0.0.108763",
+    "valid_start_timestamp": "1234567890.999999998",
+    "charged_tx_fee": 0,
+    "memo_base64": null,
+    "result": "SUCCESS",
+    "scheduled": false,
+    "transaction_hash": "aGFzaA==",
+    "name": "CRYPTOUPDATEACCOUNT",
+    "node": "0.0.3",
+    "transaction_id": "0.0.1009-1234567890-999999998",
+    "valid_duration_seconds": "11",
+    "max_fee": "33",
+    "transfers": []
+  }]
+}
+```
+
+We continue to make progress towards our goal of switching to TimescaleDB. We fixed the user and database initialization issues and tested a migration from PostgreSQL. We switched out the TimescaleDB Helm chart to a more stable one and explored our hosting options for production. Finally we switched to SCRAM-SHA-256 to improve the security of our database user authentication.
+
+### Breaking changes:
+
+There were a number of breaking changes this release to be aware of. If you're using our Helm chart, we have switched the importer from a `StatefulSet` to a `Deployment` since it no longer has the need for a persistent volume. We also switched the Traefik dependency from a `Deployment` to a `DaemonSet`. Both of these will require manual intervention to delete the old workload before upgrading. Support for Helm 2 was dropped since it is no longer [supported](https://helm.sh/blog/helm-v2-deprecation-timeline/) by the community after November 13, 2020. If you're directly reading from our database, a rename of the `t_entities` table and its columns may impact you as well.
+
+## [v0.30.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.30.0)
+
+Mirror node v0.30 brings operational improvements with changes to our continuous integration and monitoring components.
+
+With this release, we've completed the migration from CircleCI to GitHub Actions. CircleCI had some limitations with our use of [Testcontainers](https://www.testcontainers.org/) for unit testing against 3rd party dependencies. We previously had a mixture of GitHub Actions and CircleCI with the latter using slightly different commands than local testing. Consolidating to GitHub Actions allowed us to reduce this difference and further parallelize our checks.
+
+To improve our runtime observability and testing coverage, we've continued to invest in our monitor tool this cycle. Scheduled transaction support was recently added supporting both `ScheduleCreate` and `ScheduleSign` operations. We've added the three new mainnet nodes the monitor's default configuration. A bug with the monitor unable to reach expected TPS with multiple scenarios was fixed.
+
+The REST API also saw some bug fixes including a fix to queries with a credit/debit parameter now able to retrieve token only transfers. The transaction API now populates the token transfers list for all transaction types instead of being limited to just crypto transfers.
+
 ## Latest Releases
 
 ## [v0.29.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.29.0)
