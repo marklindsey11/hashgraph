@@ -8,9 +8,30 @@ description: Hedera Services release information
 | :--- | :--- | :--- |
 | **Mainnet** | 0.12.0 | 0.13.0 |
 | **Testnet** | 0.12.0 | 0.13.0 |
-| **Previewnet** | 0.12.0 | 0.13.0 |
+| **Previewnet** | 0.13.0-alpha.2 | 0.14.0 |
 
 ## Upcoming Releases
+
+## [v0.13.0](https://github.com/hashgraph/hedera-services/releases)
+
+{% hint style="success" %}
+**MAINNET UPDATE SCHEDULED: MAY 6, 2021**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE SCHEDULED: APRIL 22, 2021**
+{% endhint %}
+
+In the second alpha release of Hedera Services v0.13.0, we have [redesigned](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/revised-spec.md) scheduled transactions. The new design gives collaborating nodes a well-defined workflow if they happen to schedule identical transactions, _even if_ they are using different gRPC client libraries \(for example, Go and JavaScript\). The new design also reduces the number of signatures required to submit a valid `ScheduleSign`transaction in many common use cases.
+
+The final release of v0.13.0 will include a notable deprecation in the [protobuf](https://hashgraph.github.io/hedera-protobufs/#proto.NodeAddress) that defines the contents of system files `0.0.101` and `0.0.102` \(known as the "address book" and "node details" files, respectively\). Instead of the `ipAddress`, `portno`, `memo` fields, we will supply a more complete set of node metadata via a new \(repeatable\) `ServiceEndpoint` message. Please track issue [\#750](https://github.com/hashgraph/hedera-services/issues/750) for details. After a six month window, the three deprecated fields will be removed from the `NodeAddress` type completely.
+
+In a minor point, Services now rejects any protobuf `string` field whose UTF-8 encoding includes the zero-byte character; that is, Unicode code point 0, `NUL`. Databases \(for example, PostgreSQL\) commonly reserve this character as a delimiter in their internal formats, so allowing it to occur in entity fields can make life harder for Mirror Node operators.
+
+To simplify tasks for network admins, we have also streamlined the signing requirements for updates to system accounts, and introduced a Docker-based utility called "yahcli" for admin actions such as updating system files.  
+
+
+## Latest Releases
 
 ## [v0.12.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.12.0-rc.2)
 
@@ -29,8 +50,6 @@ We have given users of the Hedera Token Service \(HTS\) more control over the li
 In a final Hedera API \(HAPI\) change, we have extended the `memo` field present on contract and topic entities to the account, file, token, and scheduled transaction entities. \(Note this `memo` is distinct from the short-lived `memo` that may be given to any `TransactionBody`for inclusion in the `TransactionRecord`.\) All of these changes to HAPI are now more easily browsed via GitHub pages [here](https://hashgraph.github.io/hedera-protobufs/); the new [`hashgraph/hedera-protobufs` repository](https://github.com/hashgraph/hedera-protobufs) is now the authortative source of the protobuf files defining HAPI.
 
 Apart from these enhancements to HAPI, the "streams" consumable by mirror node operators now include an alpha version of a protobuf file that contains the same information as the `_Balances.csv` files. The type of this file is [`AllAccountBalances`](https://hashgraph.github.io/hedera-protobufs/#proto.AllAccountBalances).
-
-## Latest Releases
 
 ## [v0.11.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.11.0)
 
