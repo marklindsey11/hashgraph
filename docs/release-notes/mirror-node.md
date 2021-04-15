@@ -6,13 +6,17 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.29.1 | 0.30.0 |
-| **Testnet** | 0.29.1 | 0.30.0 |
-| **Previewnet** | 0.29.1 | 0.30.0 |
+| **Mainnet** | 0.29.1 | 0.31.0 |
+| **Testnet** | 0.30.1 | 0.32.0 |
+| **Previewnet** | 0.31.0 | 0.32.0 |
 
 ## Upcoming Releases
 
 ## [v0.31.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.31.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: APRIL 26, 2021**
+{% endhint %}
 
 After scheduled transactions was made available in previewnet, we listened to user feedback and further iterated on the design to make it easier to use. This release adds support for this [revised scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/revised-spec.md) design planned to be released in HAPI v0.13. There was no impact to our REST API format, only the importer needed to be updated to parse and ingest the new proto format. Our monitor API and acceptance tests will be adjusted in the next release once the SDKs add support for the new design.
 
@@ -64,7 +68,7 @@ The REST API also saw some bug fixes including a fix to queries with a credit/de
 ## [v0.29.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.29.0)
 
 {% hint style="success" %}
-**MAINNET UPDATE COMPLETED: April 5, 2021**
+**MAINNET UPDATE COMPLETED: APRIL 5, 2021**
 {% endhint %}
 
 {% hint style="success" %}
