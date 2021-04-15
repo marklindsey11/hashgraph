@@ -7,7 +7,7 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.29.1 | 0.31.0 |
-| **Testnet** | 0.30.1 | 0.32.0 |
+| **Testnet** | 0.31.0 | 0.32.0 |
 | **Previewnet** | 0.31.0 | 0.32.0 |
 
 ## Upcoming Releases
