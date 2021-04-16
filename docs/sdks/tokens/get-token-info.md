@@ -199,7 +199,7 @@ if err != nil {
 		panic(err)
 }
 
-fmt.Printf("The token info is %v\n", tokenIinfo)
+fmt.Printf("The token info is %v\n", tokenInfo)
 
 //v2.1.0
 ```
