@@ -16,7 +16,7 @@ A single query, which is sent from the client to the node. This includes all pos
 |  | cryptogetAccountBalance | [CryptoGetAccountBalanceQuery](../cryptocurrency-accounts/cryptogetaccountbalance.md#cryptogetaccountbalancequery) | Get the current balance in a cryptocurrency account |
 |  | cryptoGetAccountRecords | [CryptoGetAccountRecordsQuery](../cryptocurrency-accounts/cryptogetaccountrecords.md#cryptogetaccountrecordsquery) | Get all the records that currently exist for transactions involving an account |
 |  | cryptoGetInfo | [CryptoGetInfoQuery](../cryptocurrency-accounts/cryptogetinfo.md#cryptogetinfoquery) | Get all information about an account |
-|  | cryptoGetLiveHash | CryptoGetLiveHash | Get a single livehash from a single account \(or null if it doesn't exist\) |
+|  | cryptoGetLiveHash | [CryptoGetLiveHashQuery](../cryptocurrency-accounts/cryptogetclaim.md#cryptogetlivehashquery) | Get a single livehash from a single account \(or null if it doesn't exist\) |
 |  | cryptoGetProxyStakers | [CryptoGetStakersQuery](../cryptocurrency-accounts/cryptogetstakers.md#cryptogetstakersquery) | Get all the accounts that proxy stake to a given account, and how much they proxy stake \(not yet implemented in the current API\) |
 |  | fileGetContents | [FileGetContentsQuery](../file-service/filegetcontents.md#filegetcontentsquery) | Get the contents of a file \(the bytes stored in it\) |
 |  | fileGetInfo | [FileGetInfoQuery](../file-service/filegetinfo.md#filegetinfoquery) | Get information about a file, such as its expiration date |
@@ -26,7 +26,7 @@ A single query, which is sent from the client to the node. This includes all pos
 |  | consensusGetTopicInfo | [ConsensusGetTopicInfoQuery](../consensus-service/consensusgettopicinfo.md#consensusgettopicinfoquery) | Get the parameters of and state of a consensus topic. |
 |  | networkGetVersionInfo | [NetworkGetVersionInfoQuery](networkgetversioninfo.md#networkgetversioninfoquery) | Get the version of the network |
 |  | tokenGetInfo | [TokenGetInfoQuery](../token-service/tokengetinfo.md#tokengetinfoquery) | Get all information about a token |
-|  | scheduleGetInfo | [ScheduleGetInfoResponse](../schedule-service/schedulegetinfo.md#consensusgettopicinforesponse) | Get all information about a schedule entity |
+|  | scheduleGetInfo | [ScheduleGetInfoQuery](../schedule-service/schedulegetinfo.md#schedulegetinfoquery) | Get all information about a schedule entity |
 
 
 

@@ -1,40 +1,27 @@
 # ScheduleCreate
 
-Create a new Scheduled Transaction. After the Scheduled Transaction is created, the Schedule ID for it is set in the receipt.
+Create a new schedule entity \(or simply, &lt;i&gt;schedule&lt;/i&gt;\) in the network's action queue. Upon SUCCESS, the receipt contains the \`ScheduleID\` of the created schedule. A schedule entity includes a scheduledTransactionBody to be executed when the schedule has collected enough signing Ed25519 keys to satisfy the scheduled transaction's signing requirements. Upon \`SUCCESS\`, the receipt also includes the scheduledTransactionID to use to query for the record of the scheduled transaction's execution \(if it occurs\). 
 
-Users are able to create the Scheduled Transactions without the need for them to sign the scheduled underlying transaction \(f.e Account A creates Scheduled Transaction for Account B, C and D to sign\).
+The expiration time of a schedule is always 30 minutes; it remains in state and can be queried using GetScheduleInfo until expiration, no matter if the scheduled transaction has executed or marked deleted.
 
-Creating immutable scheduled transaction: Scheduled Transaction can be created as immutable if the adminKey is omitted. In this case no one is able to execute ScheduleDelete operation and the Scheduled Transaction will either execute or expire.
+If the adminKey field is omitted, the resulting schedule is immutable. If the adminKey is set, the ScheduleDelete transaction can be used to mark it as deleted. The creator may also specify an optional memo whose UTF-8 encoding is at most 100 bytes and does not include the zero byte is also supported.
 
-Defining the Payer of the Transactions: By default, the payer of the Scheduled Transaction is the Account that creates it in the first place. However, users have the option to create Scheduled Transactions with Payer set to any account. If a Payer is provided, its signature will be required in order for the scheduled transaction to reach execution.
+When a scheduled transaction whose schedule has collected enough signing keys is executed, the network only charges its payer the service fee, and not the node and network fees. If the optional payerAccountID is set, the network charges this account. Otherwise it charges the payer of the originating ScheduleCreate.  
 
-Providing Signatures as part of the creation: Users are able to provide signatures for the Scheduled Transaction as part of the creation itself.
+Two ScheduleCreate transactions are identical if they are equal in all their fields other than payerAccountID. \(Here "equal" should be understood in the sense of gRPC object equality in the network software runtime. In particular, a gRPC object with [unknown fields](https://developers.google.com/protocol-buffers/docs/proto3#unknowns) is not equal to a gRPC object withoutunknown fields, even if they agree on all known fields.\) 
 
-Idempotent Creation: Creating Scheduled Transactions is an idempotent operation in the sense that if multiple parties perform ScheduleCreate operation specifying identical transactions, only the first one will create the transaction and the other operations will append the provided signatures.
+A ScheduleCreate transaction that attempts to re-create an identical schedule already in state will receive a receipt with status 
 
-The criteria for identical transactions is the following: If there is a previously created Scheduled Transaction, that hasn't yet been executed and all of the properties are exactly the same except for the sigMap \(transactionBody, adminKey, payerAccountID and memo\).
+IDENTICAL\_SCHEDULE\_ALREADY\_CREATED; the receipt will include the ScheduleID of the extant schedule, which may be used in a subsequent ScheduleSign transaction. \(The receipt will also include the TransactionID to use in querying or the receipt or record of the scheduled transaction.\)
 
-In that sense, ScheduleCreate transaction referring to an already created Scheduled Transaction and providing the rest of the required signature\(s\) will cause the underlying encoded transaction to be executed!
-
-Note: Even though only the first ScheduleCreate Transaction will create new Scheduled Entity and the rest of them will have their signatures from the sigMap witnessed, the ScheduleID property in the TransactionReceipt will be set on all of them.
-
-INVALID\_ACCOUNT\_ID is returned if the specified payerAccountID does not exist.
-
-UNRESOLVABLE\_REQUIRED\_SIGNERS is returned if the transactionBody defines required Signers that cannot be resolved \(f.e signature from non-existing account is requested\)
-
-UNPARSEABLE\_SCHEDULED\_TRANSACTION is returned if the transactionBody cannot be parsed into normal Transaction.
-
-UNSCHEDULABLE\_TRANSACTION is returned if the transactionBody is representing a transaction that is not allowed to be scheduled \(f.e scheduling a ScheduleCreate transaction\).
-
-SOME\_SIGNATURES\_WERE\_INVALID is returned if one of the signatures provided does not represent a valid signature for any required signer.
+Other notable response codes include, INVALID\_ACCOUNT\_ID, UNSCHEDULABLE\_TRANSACTION, UNRESOLVABLE\_REQUIRED\_SIGNER, INVALID\_SIGNATURE. 
 
 ## ScheduleCreateTransactionBody
 
-| Field | Type | Description | Signature Required |
-| :--- | :--- | :--- | :--- |
-| `transactionBody` | bytes | The transaction serialized into bytes that must be signed | Required |
-| `adminKey` | [Key](../basic-types/key.md) | The Key which is able to delete the Scheduled Transaction \(if tx is not already executed\) | Optional |
-| `payerAccountId` | [AccountID](../basic-types/accountid.md) | The account which is going to pay for the execution of the Scheduled TX. If not populated, the scheduling account is charged | Optional |
-| `sigMap` | [SignatureMap](../basic-types/signaturemap.md) | Signatures that could be provided \(similarly to how signatures are provided in ScheduleSign operation\) on Scheduled Transaction creation | Optional |
-| `memo` | string | Publicly visible information about the Scheduled entity, up to 100 bytes. No guarantee of uniqueness | Optional |
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `SchedulableTransactionBody` | scheduledTransactionBody | The scheduled transaction |
+| `adminKey` | [Key](../basic-types/key.md) | An optional Hedera key which can be used to sign a ScheduleDelete and remove the schedule |
+| `payerAccountId` | [AccountID](../basic-types/accountid.md) | An optional id of the account to be charged the service fee for the scheduled transaction at the consensus time that it executes \(if ever\); defaults to the ScheduleCreate payer if not give |
+| `memo` | string | An optional memo with a UTF-8 encoding of no more than 100 bytes which does not contain the zero byte |
 

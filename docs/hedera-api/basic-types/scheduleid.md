@@ -2,11 +2,11 @@
 
 A unique identifier for a Schedule. 
 
-| Field | Description |
-| :--- | :--- |
-| `shardNum` | The shard number \(nonnegative\) |
-| `realmNum` | The realm number \(nonnegative\) |
-| `scheduleNum` | A nonnegative schedule number |
+| Field | Type | yDescription |
+| :--- | :--- | :--- |
+| `shardNum` | int64 | The shard number \(nonnegative\) |
+| `realmNum` | int64 | The realm number \(nonnegative\) |
+| `scheduleNum` | int64 | A nonnegative schedule number |
 
   
   

@@ -64,6 +64,10 @@ The functionality provided by hedera hashgraph
 | `TokenAccountWipe` | Wipe token amount from Account holder |
 | `TokenAssociateToAccount` | Wipe token amount from Account holder |
 | `TokenDissociateFromAccount` | Dissociate tokens from an account |
+| `ScheduleCreate` | Create Scheduled Transaction |
+| `ScheduleDelete` | Delete Scheduled Transaction |
+| `ScheduleSign` | Sign Scheduled Transaction |
+| `ScheduleGetInfo` | Get Scheduled Transaction Information |
 
 
 

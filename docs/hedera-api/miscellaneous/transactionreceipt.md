@@ -99,6 +99,15 @@ The summary of a transaction’s result so far. If the transaction has not reach
       <td style="text-align:left">In the receipt of a CreateSchedule, the id of the newly created Scheduled
         Entity</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>scheduledTransactionID</code>
+      </td>
+      <td style="text-align:left"><a href="../basic-types/transactionid.md">TransactionID</a>
+      </td>
+      <td style="text-align:left">In the receipt of a ScheduleCreate or ScheduleSign that resolves to SUCCESS,
+        the TransactionID that should be used to query for the receipt or record
+        of the relevant scheduled transaction</td>
+    </tr>
   </tbody>
 </table>
 

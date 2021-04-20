@@ -30,8 +30,8 @@ Scheduled Transactions have a global expiry time txExpiryTimeSecs \(Currently se
 
 | RPC | Request | Response | Comments |
 | :--- | :--- | :--- | :--- |
-| `createSchedule` | Transaction | TransactionResponse | Creates a new Schedule by submitting the transaction |
-| `signSchedule` | Transaction | TransactionResponse | Signs a new Schedule by submitting the transaction |
-| `deleteSchedule` | Transaction | TransactionResponse | Deletes a new Schedule by submitting the transaction |
-| `getScheduleInfo` | Query | Response | Retrieves the metadata of a schedule entity |
+| `createSchedule` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Creates a new Schedule by submitting the transaction |
+| `signSchedule` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Signs a new Schedule by submitting the transaction |
+| `deleteSchedule` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Deletes a new Schedule by submitting the transaction |
+| `getScheduleInfo` | [Query](../miscellaneous/query.md) | [Response](../miscellaneous/response.md) | Retrieves the metadata of a schedule entity |
 
