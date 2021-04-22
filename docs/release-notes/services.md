@@ -54,7 +54,7 @@ The new protobuf avoid this duplication, letting us represent node 0 in a protob
 }
 ```
 
-**However**, Services will continue to populate the deprecated fields in duplicate entries for six months, to give all consumers of files `0.0.101` and `0.0.102` time to prepare for exclusive use of the new format. After six months, we will eliminate the duplication and the `ipAddress`, `portno`, and `memo` fields will be left empty. \(The fields will never be removed to ensure it remains possible to parse early versions of these system files.\)
+However, Services will continue to populate the deprecated fields in duplicate entries for six months, to give all consumers of files `0.0.101` and `0.0.102` time to prepare for exclusive use of the new format. After six months, we will eliminate the duplication and the `ipAddress`, `portno`, and `memo` fields will be left empty. \(The fields will never be removed to ensure it remains possible to parse early versions of these system files.\)
 
 In a minor point, Services now rejects any protobuf `string` field whose UTF-8 encoding includes the zero-byte character; that is, Unicode code point 0, `NUL`. Databases \(for example, PostgreSQL\) commonly reserve this character as a delimiter in their internal formats, so allowing it to occur in entity fields can make life harder for Mirror Node operators.
 
