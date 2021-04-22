@@ -8,7 +8,7 @@ A transaction that submits a topic message to the Hedera network. To access the 
 * The submitKey is required to sign the transaction for a private topic
 
 {% hint style="info" %}
-Max size of a transaction \(including signatures\) is 6144 bytes.
+HCS message size: 1024 bytes
 {% endhint %}
 
 {% tabs %}
