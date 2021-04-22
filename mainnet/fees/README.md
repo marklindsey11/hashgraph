@@ -30,15 +30,11 @@ Mainnet transaction and query fees can be estimated using the [Hedera Fee Estima
 
 All fees are subject to change.
 
-{% hint style="info" %}
-The CryptoCreate transaction fee will increase from $0.01 to $0.05 in the release scheduled for May.
-{% endhint %}
-
 ### Cryptocurrency Service
 
 | Operations | USD \($\) |
 | :--- | :--- |
-| CryptoCreate | $0.01 |
+| CryptoCreate | $0.05 |
 | CryptoAccountAutoRenew | $0.00022 |
 | CryptoUpdate | $0.00022 |
 | CryptoTransfer | $0.0001 |
