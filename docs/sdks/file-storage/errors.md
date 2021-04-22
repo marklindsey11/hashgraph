@@ -1,8 +1,8 @@
-# Errors
+# Network Response Messages
 
-Network errors and their descriptions.
+Network response messages and their descriptions.
 
-| Errors | Description |
+| Network Response | Description |
 | :--- | :--- |
 | `FEE_SCHEDULE_FILE_PART_UPLOADED` | Fee Schedule Proto File Part uploaded |
 | `FILE_CONTENT_EMPT` | The contents of file are provided as empty. |

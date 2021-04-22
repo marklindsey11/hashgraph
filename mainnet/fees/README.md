@@ -80,6 +80,15 @@ The CryptoCreate transaction fee will increase from $0.01 to $0.05 in the releas
 | TokenWipe | $0.001 |
 | TokenGetInfo | $0.0001 |
 
+### Schedule Transaction
+
+| Operations | USD \($\) |
+| :--- | :--- |
+| ScheduleCreate | $0.01 |
+| ScheduleSign | $0.001 |
+| ScheduleDelete | $0.001 |
+| ScheduleGetInfo | $0.0001 |
+
 ### File Service
 
 | Operations | USD \($\) |

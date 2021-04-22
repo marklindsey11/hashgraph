@@ -15,6 +15,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | **Transaction Memo** | The transaction memo if there was one added |
 | **Transfers** | A list of transfers made in the transaction. The list of transfers includes a payment made to the node, the service fee, and transaction fee |
 | **Token Transfers** | A list of the token transfers  |
+| **ScheduleRef** | The schedule ID of the schedule transaction the record represents |
 
 **Transaction Signing Requirements**
 
@@ -36,6 +37,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | `<TransactionRecord>.transactionMemo` | String | Optional |
 | `<TransactionRecord>.transfers` | List&lt;Transfer&gt; | Optional |
 | `<TransactionRecord>.tokentransfers` | Map&lt;TokenId, Map&lt;AccountId, List&lt;Long&gt;&gt;&gt; | Optional |
+| `<TransactionRecord>.scheduleRef` | ScheduleId | Optional |
 
 {% code title="Java" %}
 ```java
@@ -121,6 +123,8 @@ fmt.Printf("The transaction record is %v\n", record)
           Transfer{accountId=0.0.9401, amount=-1.25401241 ℏ}, (transaction fee) initial balance of new account  
           Transfer{accountId=0.0.97001, amount=1 ℏ} (Initial balance of the new account)  
      ]  
+     tokenTransfers={},  
+     scheduleRef=null  
 }`
 {% endtab %}
 

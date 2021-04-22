@@ -1,8 +1,8 @@
-# Errors
+# Network Response
 
-Network errors and their descriptions.
+Network response messages and their descriptions.
 
-| Error | Description |
+| Network Response Messages | Description |
 | :--- | :--- |
 | `INVALID_TOPIC_ID` | The Topic ID specified is not in the system. |
 | `TOPIC_DELETED` | The Topic has been deleted |

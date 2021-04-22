@@ -1,8 +1,8 @@
-# Errors
+# Network Response Messages
 
-Network errors and their descriptions.
+Network response messages and their descriptions.
 
-| **Errors** | **Description** |
+| Network Response | **Description** |
 | :--- | :--- |
 | `CONTRACT_BYTECODE_EMPTY`  | Bytecode for smart contract is of length zero |
 | `CONTRACT_DELETED` | Contract is marked as deleted |

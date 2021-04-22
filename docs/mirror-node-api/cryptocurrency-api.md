@@ -900,6 +900,181 @@ The ID of the token to return the information for in x.y.z format.
 | **treasury\_account\_id** | The treasury account of the token |
 | **wipe\_key** | The wipe key for the token |
 
+## Schedule Transactions
+
+{% api-method method="get" host="" path="/api/v1/schedules" %}
+{% api-method-summary %}
+schedule list
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Returns a list of all scheduled transactions for a network.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="schedule.id" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="account.id" type="string" required=false %}
+All schedule transactions matching the creator account
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="executed" type="boolean" required=false %}
+If equal to true, returns all schedule transactions that were executed
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="limit" type="integer" required=false %}
+Limits results to the first N schedule transactions
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+  "schedules": [
+    {
+      "admin_key": {
+        "_type": "ProtobufEncoded",
+        "key": "7b2233222c2233222c2233227d"
+      },
+      "consensus_timestamp": "1234567890.000000001",
+      "creator_account_id": "0.0.100",
+      "executed_timestamp": "1234567890.000000002",
+      "memo": "Created per council decision dated 1/21/21",
+      "payer_account_id": "0.0.101",
+      "schedule_id": "0.0.102",
+      "signatures": [
+        {
+          "consensus_timestamp": "1234567890.000000001",
+          "public_key_prefix": "H0vpig==",
+          "signature": "0o0gC7p9SPUH4UD6Yiirp/Kf+LKj8qjuuFdC3AU87HE="
+        },
+        {
+          "consensus_timestamp": "1234567890.000000002",
+          "public_key_prefix": "GvxuXg==",
+          "signature": "w9mHyHQpTrlbLfn9NrBlZiMxV2mvLvNEw1hoeAECtcA="
+        }
+      ],
+      "transaction_body": "KcyxTMX2XFL+t0KSsB1S/c8t5kXTlLU3BGgNttEy7Gw="
+    }
+  ],
+  "links": {
+    "next": null
+  }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response Details <a id="response-details-1"></a>
+
+| Response Item | Description |
+| :--- | :--- |
+| **schedules** | List of schedules |
+| **adminKey** | The admin key on the schedule |
+| **adminKey.\_type** | The type of key |
+| **adminKey.key** | The admin public key |
+| **consensus\_timestamp** | The consensus timestamp of when the schedule was created |
+| **creator\_account\_id** | The account ID of the creator of the schedule |
+| **executed\_timestamp** | The timestamp at which the transaction that was scheduled was executed at |
+| **memo** | A string of characters associated with the memo if set |
+| **payer\_account\_id** | The account ID of the account paying for the execution of the transaction |
+| **schedule\_id** | The ID of the schedule entity |
+| **signatures** | The list of keys that signed the transaction |
+| **signatures.consensus\_timestamp** | The consensus timestamp at which the signature was added |
+| **signatures.public\_key\_prefix** | The signatures public key prefix |
+| **signatures.signature** | The signature of the key that signed the schedule transaction |
+| **transaction\_body** | The transaction body of the transaction that was scheduled |
+| **links.next** | Hyperlink to the next page of results |
+
+###  <a id="optional-filtering-1"></a>
+
+{% api-method method="get" host="" path="/api/v1/schedules/{scheduleId}" %}
+{% api-method-summary %}
+schedule transaction
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Returns the specified schedule entity information.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="scheduleId" type="string" required=true %}
+The ID of the schedule to return the information for.
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+  "admin_key": {
+    "_type": "ProtobufEncoded",
+    "key": "7b2233222c2233222c2233227d"
+  },
+  "consensus_timestamp": "1234567890.000000001",
+  "creator_account_id": "0.0.100",
+  "executed_timestamp": "1234567890.000000002",
+  "memo": "Created per council decision dated 1/21/21",
+  "payer_account_id": "0.0.101",
+  "schedule_id": "0.0.102",
+  "signatures": [
+    {
+      "consensus_timestamp": "1234567890.000000001",
+      "public_key_prefix": "H0vpig==",
+      "signature": "0o0gC7p9SPUH4UD6Yiirp/Kf+LKj8qjuuFdC3AU87HE="
+    },
+    {
+      "consensus_timestamp": "1234567890.000000002",
+      "public_key_prefix": "GvxuXg==",
+      "signature": "w9mHyHQpTrlbLfn9NrBlZiMxV2mvLvNEw1hoeAECtcA="
+    }
+  ],
+  "transaction_body": "KcyxTMX2XFL+t0KSsB1S/c8t5kXTlLU3BGgNttEy7Gw="
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response Details <a id="response-details-1"></a>
+
+| Response Item | Description |
+| :--- | :--- |
+| **adminKey** | The admin key on the schedule |
+| **adminKey.\_type** | The type of key |
+| **adminKey.key** | The admin public key |
+| **consensus\_timestamp** | The consensus timestamp of when the schedule was created |
+| **creator\_account\_id** | The account ID of the creator of the schedule |
+| **executed\_timestamp** | The timestamp at which the transaction that was scheduled was executed at |
+| **memo** | A string of characters associated with the memo if set |
+| **payer\_account\_id** | The account ID of the account paying for the execution of the transaction |
+| **schedule\_id** | The ID of the schedule entity |
+| **signatures** | The list of keys that signed the transaction |
+| **signatures.consensus\_timestamp** | The consensus timestamp at which the signature was added |
+| **signatures.public\_key\_prefix** | The signatures public key prefix |
+| **signatures.signature** | The signature of the key that signed the schedule transaction |
+| **transaction\_body** | The transaction body of the transaction that was scheduled |
+
 ## State Proof Alpha
 
 The Hedera Mirror Node state proof alpha api provides the ability to cryptographically prove a transaction is valid on Hedera network. The request returns the content of the address book file, signature files, and record file that can be used to validate the transaction occurred on the Hedera network. The address book file contains the consensus node account IDs and their public key files. The signature files are of the supermajority consensus nodes that signed the record file the transaction is contained in. 

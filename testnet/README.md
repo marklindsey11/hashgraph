@@ -89,6 +89,13 @@ Transactions are currently throttled for testnets. You will receive a "BUSY" res
       </td>
     </tr>
     <tr>
+      <td style="text-align:left">Schedule Transactions</td>
+      <td style="text-align:left">
+        <p>ScheduleCreate: 100 tps</p>
+        <p>ScheduleSign: 100 tps</p>
+      </td>
+    </tr>
+    <tr>
       <td style="text-align:left">File Transactions</td>
       <td style="text-align:left">13 tps</td>
     </tr>

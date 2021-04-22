@@ -1,6 +1,6 @@
-# General Errors
+# General Network Response Messages
 
-Network errors and their descriptions.
+General network response messages and their descriptions.
 
 | Error  | Description |
 | :--- | :--- |

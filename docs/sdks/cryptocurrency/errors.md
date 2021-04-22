@@ -1,6 +1,6 @@
-# Errors
+# Network Response Messages
 
-Network errors and their descriptions.
+Network response messages and their descriptions.
 
 | **Errors** | **Description** |
 | :--- | :--- |

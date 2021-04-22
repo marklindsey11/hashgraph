@@ -5,7 +5,7 @@ The transaction receipt gives you information about a transaction including whet
 #### Transaction Receipt Fields
 
 * Whether the transaction reached consensus or not \(success or fail\)
-* The newly generated account ID, topic ID, token ID, file ID, or smart contract ID
+* The newly generated account ID, topic ID, token ID, file ID, schedule ID, or smart contract ID
 * The exchange rate
 * The topic running hash
 * The topic sequence number
@@ -31,9 +31,11 @@ Receipts can be requested from the Hedera network for up to 3 minutes.
 | `<TransactionReceipt>).fileId` | FileId | The newly generated file ID |
 | `<TransactionReceipt>).contractId` | ContractId | The newly generated contract ID |
 | `<TransactionReceipt>).tokenId` | TokenId | The newly generated token ID |
+| `<TransactionReceipt>).scheduleId` | ScheduleId | The newly generated schedule ID |
 | `<TransactionReceipt>).exchangeRate` | ExchangeRate | The exchange rate in hbar, cents, and expiration time |
 | `<TransactionReceipt>.topicRunningHash` | ByteString | The topic running hash |
 | `<TransactionReceipt>.topicSequenceNumber` | long | The topic sequence number |
+| `<TransactionReceipt>.totalSupply` | long | The total supply of a token |
 
 {% code title="Java" %}
 ```java
@@ -75,17 +77,21 @@ fmt.Printf("The transaction receipt %v\n", receipt)
 #### Sample Output:
 
 `TransactionReceipt{  
-     status=SUCCESS,   
+     status=SUCCESS,  
      exchangeRate=ExchangeRate{  
-          hbars=30000,   
-          cents=116646,   
-          expirationTime=2020-09-04T03:00:00Z  
+          hbars=1,  
+          cents=12,   
+          expirationTime=2100-01-01T00:00:00Z  
      },   
-     accountId=0.0.97000,   
+     accountId=null,  
      fileId=null,   
      contractId=null,   
      topicId=null,   
-     topicSequenceNumber=null  
+     tokenId=null,   
+     topicSequenceNumber=null,   
+     topicRunningHash=null,   
+     totalSupply=0,   
+     scheduleId=0.0.2531  
 }`
 {% endtab %}
 {% endtabs %}

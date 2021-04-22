@@ -188,7 +188,7 @@ console.log("The total supply of this token is " +tokenSupply);
 
 {% code title="Go" %}
 ```go
-//Create the query (issue logged)
+//Create the query
 query := hedera.NewTokenInfoQuery().
 		SetTokenID(tokenId)
 
