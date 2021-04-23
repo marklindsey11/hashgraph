@@ -40,7 +40,7 @@
 
 * [Accounts](core-concepts/accounts.md)
 * [Keys and Signatures](core-concepts/keys-and-signatures.md)
-* [Schedule Transaction](core-concepts/schedule-transaction.md)
+* [Scheduled Transaction](core-concepts/scheduled-transaction.md)
 * [Hashgraph Consensus Algorithm](core-concepts/hashgraph-consensus-algorithms/README.md)
   * [Gossip About Gossip](core-concepts/hashgraph-consensus-algorithms/gossip-about-gossip.md)
   * [Virtual Voting](core-concepts/hashgraph-consensus-algorithms/virtual-voting.md)
