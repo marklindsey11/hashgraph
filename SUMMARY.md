@@ -75,7 +75,7 @@
     * [Sign a multisignature transaction](docs/sdks/transactions/sign-a-multisignature-transaction.md)
     * [Get a transaction receipt](docs/sdks/transactions/untitled-4.md)
     * [Get a transaction record](docs/sdks/transactions/get-a-transaction-record.md)
-  * [Schedule Transaction](docs/sdks/schedule-transaction/README.md)
+  * [Scheduled Transaction](docs/sdks/schedule-transaction/README.md)
     * [Schedule ID](docs/sdks/schedule-transaction/schedule-id.md)
     * [Create a schedule transaction](docs/sdks/schedule-transaction/create-a-schedule-transaction.md)
     * [Sign a schedule transaction](docs/sdks/schedule-transaction/sign-a-schedule-transaction.md)
