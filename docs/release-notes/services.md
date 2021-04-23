@@ -6,30 +6,30 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.12.0 | 0.13.0 |
-| **Testnet** | 0.12.0 | 0.13.0 |
-| **Previewnet** | 0.13.0 | 0.13.1 |
+| **Mainnet** | 0.12.0 | 0.13.2 |
+| **Testnet** | 0.12.0 | 0.13.2 |
+| **Previewnet** | 0.13.0 | 0.13.2 |
 
 ## Upcoming Releases
 
-## [v0.13.0](https://github.com/hashgraph/hedera-services/releases)
+## [v0.13.2](https://github.com/hashgraph/hedera-services/releases/tag/v0.13.2)
 
 {% hint style="info" %}
 **MAINNET UPDATE SCHEDULED: MAY 6, 2021**
 {% endhint %}
 
 {% hint style="info" %}
-**TESTNET UPDATE SCHEDULED: APRIL 29, 2021 \[v0.13.1\]**
+**TESTNET UPDATE SCHEDULED: APRIL 29, 2021 \[v0.13.2\]**
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 **TESTNET UPDATE SCHEDULED: APRIL 22, 2021 \[v0.13.0\]**
 {% endhint %}
 
 In Hedera Services v0.13.0, we have [redesigned](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/revised-spec.md) schedule transactions. The new design gives collaborating nodes a well-defined workflow if they happen to schedule identical transactions, _even if_ they are using different gRPC client libraries \(for example, Go and JavaScript\). The new design also reduces the number of signatures required to submit a valid `ScheduleSign` transaction in many common use cases. Users will be able to schedule `CryptoTransfer` and `ConsensusSubmitMessage` transactions in this release. Other transaction types will be introduced in future releases. 
 
 {% hint style="warning" %}
-**Note:** The schedule transactions feature will not be enabled in this release; it's expected to be enabled on testnet in a subsequent v0.13.1 update on April 29th. This feature is enabled on previewnet.
+**Note:** The schedule transactions feature will not be enabled in this release; it's expected to be enabled on testnet in a subsequent v0.13.2 update on April 29th. This feature is enabled on previewnet.
 {% endhint %}
 
 This release deprecates three fields in the [protobuf](https://hashgraph.github.io/hedera-protobufs/#proto.NodeAddress) for system files `0.0.101` and `0.0.102`. The three deprecated fields are `ipAddress`, `portno`, and `memo`. When we rely on these fields, we cannot concisely represent node with multiple IP addresses. For example, take mainnet node 0 \(account `0.0.3`\), which as of this writing has proxy IPs `13.82.40.153`, `34.239.82.6`, and `35.237.200.180`. The mainnet `0.0.101` file must include a `NodeAddress` entry for each proxy, which means duplicating fields like `nodeCertHash`.
