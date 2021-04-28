@@ -121,7 +121,7 @@ Together these values make up your accountId. When an `FileId` is requested, be 
 FileId fileId = new FileId(0,0,15);
 System.out.println(fileId);
 
-//Contructs a FileId from string
+//Constructs a FileId from string
 FileId fileId = FileId.fromString("0.0.15");
 System.out.println(fileId);
 ```

@@ -1,6 +1,6 @@
 # Update an Account
 
-A transaction that updates the properties of an existing account. The network will store the latest updates on the account. If you would like to retreive the state of an account in the past, you can query a mirror node.
+A transaction that updates the properties of an existing account. The network will store the latest updates on the account. If you would like to retrieve the state of an account in the past, you can query a mirror node.
 
 **Transaction Signing Requirements**
 
@@ -104,7 +104,7 @@ AccountUpdateTransaction transaction = new AccountUpdateTransaction()
 //Sign the transaction with the old key and new key, submit to a Hedera network   
 TransactionResponse txResponse = transaction.freezeWith(client).sign(oldKey).sign(newKey).execute(client);
 
-//Request the reciept of the transaction
+//Request the receipt of the transaction
 TransactionReceipt receipt = txResponse.getReceipt(client);
 
 //Get the transaction consensus status
@@ -130,7 +130,7 @@ const signTx = await (await transaction.sign(oldKey)).sign(newKey);
 //SIgn the transaction with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
 
-//Request the reciept of the transaction
+//Request the receipt of the transaction
 const receipt = await txResponse.getReceipt(client);
 
 //Get the transaction consensus status
@@ -157,7 +157,7 @@ if err != nil {
 //Sign the transaction with the old key and new key, submit to a Hedera network   
 txResponse, err := transaction.Sign(newKey).Sign(updateKey).Execute(client)
 
-//Request the reciept of the transaction
+//Request the receipt of the transaction
 receipt, err := txResponse.GetReceipt(client)
 if err != nil {
 	panic(err)
@@ -193,7 +193,7 @@ AccountUpdateTransaction transaction = new AccountUpdateTransaction()
 //Sign the transaction with the old key and new key, submit to a Hedera network   
 TransactionId txId = transaction.build(client).sign(oldKey).sign(newKey).execute(client);
 
-//Request the reciept of the transaction
+//Request the receipt of the transaction
 TransactionReceipt receipt = txId.getReceipt(client);
 
 //Get the transaction consensus status
@@ -215,7 +215,7 @@ const transaction = new AccountUpdateTransaction()
 //Sign the transaction with the old key and new key, submit to a Hedera network   
 const txId = await transaction.build(client).sign(oldKey).sign(newKey).execute(client);
 
-//Request the reciept of the transaction
+//Request the receipt of the transaction
 const receipt = await txId.getReceipt(client);
 
 //Get the transaction consensus status

@@ -31,7 +31,7 @@ There are, in general, 5 types of accounts associated with a transaction:
 * The payer in general is different than either the sender or receiver. Nevertheless, a typical case is that the sender will also be the payer.
 * Not all transactions have a sender or receiver as there is no remittance aspect to the transaction, e.g. a FileCreate or ConsensusSubmitMessage transaction will have a fee, but no associated remittance. 
 * A single CryptoTransfer can have multiple senders, and multiple receivers.
-* A remittance can be the amount of hbars a CryptoTansfer directs be moved, or the amount of hbars a CryptoCreate directs be funded into the new account, or the amount of hbars in an account to be deleted, with those funds moved into another account. 
+* A remittance can be the amount of hbars a CryptoTransfer directs be moved, or the amount of hbars a CryptoCreate directs be funded into the new account, or the amount of hbars in an account to be deleted, with those funds moved into another account. 
 * A remittance will need to be authorized by the owner of those hbars.
 * An account owner can specify thresholds for transfers in and out of that account. If a transaction causes an account’s threshold to be triggered, then the record for that transaction will be persisted for 25 hours and not the default 3 minutes. 
 * The account owner that specified the threshold will pay a threshold fee – distinct from the fee for the transaction itself - for that extra storage time.
@@ -124,7 +124,7 @@ There is sufficient information in the combination of transaction and correspond
 
 A transaction record has a transfer list data structure that describes how hbars moved between accounts as a result of the transaction. 
 
-In the R3 \(the release prior to the update of Febrary 10, 2020\) version of the node software, there might be multiple transfers for each account involved in the transaction. For instance, there could be separate transfers indicating the 0.0.98 account receiving fees, which added up to the correct total fee. 
+In the R3 \(the release prior to the update of February 10, 2020\) version of the node software, there might be multiple transfers for each account involved in the transaction. For instance, there could be separate transfers indicating the 0.0.98 account receiving fees, which added up to the correct total fee. 
 
 Additionally, in R3 
 

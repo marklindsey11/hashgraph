@@ -94,7 +94,7 @@ Below you will find the testnet node public keys. The public keys stored in the 
 
 ## Preview Testnet Nodes
 
-Preview testnet nodes belong to the the preview test network. The preview testnet nodes run code that is currently under development as an early preview for users. This network is unstable and is not recommended as a suitable pre-production enviornment. 
+Preview testnet nodes belong to the the preview test network. The preview testnet nodes run code that is currently under development as an early preview for users. This network is unstable and is not recommended as a suitable pre-production environment. 
 
 <table>
   <thead>

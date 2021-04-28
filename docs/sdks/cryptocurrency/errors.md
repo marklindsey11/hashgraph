@@ -13,5 +13,5 @@ Network response messages and their descriptions.
 | `INVALID_SEND_RECORD_THRESHOLD` | Attempt to set negative send record threshold |
 | `SETTING_NEGATIVE_ACCOUNT_BALANCE` | Attempting to set negative balance value for crypto account |
 | `TRANSFER_LIST_SIZE_LIMIT_EXCEEDED` | Exceeded the number of accounts \(both from and to\) allowed for crypto transfer list |
-| `TRANSAFER_ACCOUNT_SAME_AS_DELETE_ACCOUNT` | Transfer Account should not be same as Account to be deleted |
+| `TRANSFER_ACCOUNT_SAME_AS_DELETE_ACCOUNT` | Transfer Account should not be same as Account to be deleted |
 

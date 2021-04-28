@@ -19,7 +19,7 @@ In it's early iteration, users can schedule CryptoTransfer and ConsensusSubmitMe
 
 ## 5. What happens if the scheduled transaction does not have sufficient balance?
 
-If the scheduled \(inner transaction\) fee payor does not have sufficient balance then the inner transaction will fail while the outer transaction will be successful.
+If the scheduled \(inner transaction\) fee payer does not have sufficient balance then the inner transaction will fail while the outer transaction will be successful.
 
 ## 6. Can you delay a transaction once it has been schedule?
 

@@ -5,7 +5,7 @@ Network response messages and their descriptions.
 | Network Response | Description |
 | :--- | :--- |
 | `ACCOUNT_FROZEN_FOR_TOKEN` | Account is frozen and cannot transact with the token |
-| `TOKENS_PER_ACCOUNT_LIMIT_EXCEEDED` | Maximum number of token relations for agiven account is exceeded |
+| `TOKENS_PER_ACCOUNT_LIMIT_EXCEEDED` | Maximum number of token relations for a given account is exceeded |
 | `INVALID_TOKEN_ID` | The token is invalid or does not exist |
 | `INVALID_TOKEN_DECIMALS` | Invalid token decimals |
 | `INVALID_TOKEN_INITIAL_SUPPLY` | Invalid token initial supply |

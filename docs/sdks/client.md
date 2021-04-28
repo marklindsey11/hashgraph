@@ -72,7 +72,7 @@ client := Client.forNetwork(nodes)
 | `Client.forTestnet()` |  | Constructs a Hedera client pre-configured for Testnet access |
 | `Client.forMainnet()` |  |  Constructs a Hedera client pre-configured for Mainnet access |
 | `Client.fromFile(<file>)` | File | Configures a client from a file |
-| `Client.fromFile(<fileName>)` | String | Contructs a network from a file |
+| `Client.fromFile(<fileName>)` | String | Constructs a network from a file |
 | `Client.fromJson(<json>)` | String | Configure a client from the given JSON string |
 | `Client.fromJson(<json>)` | Reader | Configure a client from the given JSON reader |
 | `Client.replaceNodes(<nodes>)` | Map&lt;AccountId, String&gt; | Replaces nodes in the network |
@@ -167,7 +167,7 @@ client.SetOperator(operatorAccountID, operatorKey)
 
 ### From a .env file
 
-The .env file is created in the root directory of the SDK. The .env file stores account ID and the associated private key information to reference throughout your code. You will need to import the relevent dotenv module to your project files. The sample .env file may look something like this:
+The .env file is created in the root directory of the SDK. The .env file stores account ID and the associated private key information to reference throughout your code. You will need to import the relevant dotenv module to your project files. The sample .env file may look something like this:
 
 {% code title=".env" %}
 ```text
@@ -209,7 +209,7 @@ client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 ```go
 	err := godotenv.Load(".env")
 	if err != nil {
-		panic(fmt.Errorf("Unable to load enviroment variables from demo.env file. Error:\n%v\n", err))
+		panic(fmt.Errorf("Unable to load environment variables from demo.env file. Error:\n%v\n", err))
 	}
 
 	//Get the operator ID and operator key

@@ -1,6 +1,6 @@
 # Create an account
 
-A transaction that creates a Hedera account. A Hedera account is required to interact with any of the Hedera network services as you need an account to pay for all associated transaction/query fees. You can visit portal.hedera.com to create a previewnet/testnet/mainnet account. To process an account create transaction, you will need an exisiting account to pay for the transaction fee. To obtain the new account ID, request the receipt of the transaction. 
+A transaction that creates a Hedera account. A Hedera account is required to interact with any of the Hedera network services as you need an account to pay for all associated transaction/query fees. You can visit portal.hedera.com to create a previewnet/testnet/mainnet account. To process an account create transaction, you will need an existing account to pay for the transaction fee. To obtain the new account ID, request the receipt of the transaction. 
 
 {% hint style="info" %}
 When creating a **new account** an existing account will need to pay for the transaction fee to create the new account.

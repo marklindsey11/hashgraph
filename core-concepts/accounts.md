@@ -8,7 +8,7 @@ description: Hedera accounts
 
 Accounts are the central starting point for Hedera. Accounts are stored on the public ledger and hold hbars which are used to pay for the transaction and query fees. 
 
-Accounts can be created, updated, or deleted. In order to create an account, you need an exisiting account that can pay for the associated transaction fees for the new account and to optionally fund the new account with an initial balance.
+Accounts can be created, updated, or deleted. In order to create an account, you need an existing account that can pay for the associated transaction fees for the new account and to optionally fund the new account with an initial balance.
 
 Accounts are comprised of:
 
@@ -35,7 +35,7 @@ The account ID is stored in the receipt of a transaction. In order to view the a
 
 ## Keys
 
-Each account has a public and private key pair. The private key of the account is used authorize and sign transactions for that account. This authorization allows for the modification of the account including deducting from the balance to pay for transaction and query fees. The private key is not to be shared with other members on the network as they can authorize transactions from your account on your behalf. The public key is what is visable to others on the network when account information is requested.
+Each account has a public and private key pair. The private key of the account is used authorize and sign transactions for that account. This authorization allows for the modification of the account including deducting from the balance to pay for transaction and query fees. The private key is not to be shared with other members on the network as they can authorize transactions from your account on your behalf. The public key is what is visible to others on the network when account information is requested.
 
 The private key should be kept secret to the owner. Private keys without an associated recovery phrase _cannot_ be recovered once they are lost. Private keys generated with a recovery phrase can be recovered. 
 

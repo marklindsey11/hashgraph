@@ -16,7 +16,7 @@ Note: This example uses **Hedera Go SDK v2.0.** The latest Hedera Go SDK version
 
 ## Step 1. Create a transfer transaction
 
-You should already have a new account ID from the account you created in the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your testnet account to the new account. The sender account's private key is required to sign the transaction. The sender account is your testnet account so the client is already set-up to sign with yout testnet account's private key to authorize the transfer. 
+You should already have a new account ID from the account you created in the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your testnet account to the new account. The sender account's private key is required to sign the transaction. The sender account is your testnet account so the client is already set-up to sign with your testnet account's private key to authorize the transfer. 
 
 ```java
 //Print the balance of tinybars
@@ -124,10 +124,10 @@ import (
 
 func main() {
 
-	//Loads the .env file and throws an error if it cannot load the variables from that file corectly
+	//Loads the .env file and throws an error if it cannot load the variables from that file correctly
 	err := godotenv.Load(".env")
 	if err != nil {
-		panic(fmt.Errorf("Unable to load enviroment variables from .env file. Error:\n%v\n", err))
+		panic(fmt.Errorf("Unable to load environment variables from .env file. Error:\n%v\n", err))
 	}
 
 	//Grab your testnet account ID and private key from the .env file

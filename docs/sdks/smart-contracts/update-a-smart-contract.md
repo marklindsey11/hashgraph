@@ -13,7 +13,7 @@ A transaction that allows you to modify a smart contract's state. Once the trans
 | :--- | :--- |
 | **Admin Key** | Sets the new admin key and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. The bytecode will also be immutable. |
 | **Byte Code File** | The new file ID containing the smart contract byte code. |
-| **Proxy Accoun**t | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null. |
+| **Proxy Account** | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null. |
 | **Auto Renew Period** | The new period that the instance will charge its account every this many seconds to renew. |
 | **Memo** | The new memo to be associated with this contract. |
 

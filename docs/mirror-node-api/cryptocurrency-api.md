@@ -122,7 +122,7 @@ Returns the account information for the specified public key
 | **tokens** | The tokens and their balances associated to the specified account |
 | **account** | The ID of the account |
 | **expiry timestamp** | The expiry date for the entity as set by a create or update transaction |
-| **auto renew period** | The period in which the account autorenews |
+| **auto renew period** | The period in which the account will autorenew |
 | **key** | The key associated with the account |
 | **deleted** | Whether the account was deleted or not \(Boolean\) |
 | **entity type** | The type of Hedera service: account, file, or contract |
@@ -181,7 +181,7 @@ Returns the account information for the specified public key
   </tbody>
 </table>
 
-### Addtional Examples <a id="addtional-examples"></a>
+### Additional Examples <a id="additional-examples"></a>
 
 | Example Requests | Description |
 | :--- | :--- |
@@ -329,7 +329,7 @@ The balance for account 0.0.2004
 | :--- | :--- |
 | `/api/v1/balances?account.id=0.0.1000` | Returns balance for account ID 1,000 |
 | `/api/v1/balances?account.balance=gt:1000` | Returns all account IDs that have a balance greater than 1000 tinybars |
-| `/api/v1/balances?timestamp=1566562500.040961001` | Returns all account balances referencing the latest snapshot that occured prior to 1566562500 seconds and 040961001 nanoseconds |
+| `/api/v1/balances?timestamp=1566562500.040961001` | Returns all account balances referencing the latest snapshot that occurred prior to 1566562500 seconds and 040961001 nanoseconds |
 | `/api/v1/balances?account.publickey=2b60955bcbf0cf5e9ea880b52e5b6 3f664b08edf6ed15e301049517438d61864` | Returns balance information for 2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed 15e301049517438d61864 public key |
 
 ## Transactions <a id="transactions"></a>

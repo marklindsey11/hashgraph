@@ -1,6 +1,6 @@
 # Create a threshold key
 
-Create a key structure that requires the defined threshold value to sign. You can use either the public key or private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGANTURE" error. 
+Create a key structure that requires the defined threshold value to sign. You can use either the public key or private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error. 
 
 {% tabs %}
 {% tab title="V2" %}
@@ -57,7 +57,7 @@ for (let i = 0; i < 4; i += 1) {
 // Create our threshold key
 const thresholdKey =  new KeyList(publicKeyList,1); 
 
-console.log("The 1/3 threshold key strcuture" +thresholdKey);
+console.log("The 1/3 threshold key structure" +thresholdKey);
 
 //2.0.2
 ```

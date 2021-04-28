@@ -48,7 +48,7 @@ A Hedera mirror node reads the ordered messages from a Hedera mainnet node and c
 
 **Hedera Mainnet Node**
 
-A Hedera mainnet node receives the Fabric transaction in fragmented message transactions from the HCS Hyperledger ordering node. That mainnet node gossips the transactions to the other mainnet nodes which collectvely assigns the transactions a consensus timestamp and order within the corresponding topic.
+A Hedera mainnet node receives the Fabric transaction in fragmented message transactions from the HCS Hyperledger ordering node. That mainnet node gossips the transactions to the other mainnet nodes which collectively assigns the transactions a consensus timestamp and order within the corresponding topic.
 
 **fabric-hcs Repository**
 
@@ -177,7 +177,7 @@ $ make configtxgen configtxlator cryptogen orderer peer docker
 
 ## 3. Hedera Network & HCS Hyperledger Fabric Orderer Configuration 
 
-You will now enter your Hedera testnet account ID and private key information to the relavent configuration files. If you have not previously generated your testnet account, please follow the instructions [here](https://docs.hedera.com/guides/testnet/testnet-access).
+You will now enter your Hedera testnet account ID and private key information to the relevant configuration files. If you have not previously generated your testnet account, please follow the instructions [here](https://docs.hedera.com/guides/testnet/testnet-access).
 
 * Navigate to the **first-network** directory from your terminal or favorite IDE
 

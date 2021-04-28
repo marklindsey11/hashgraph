@@ -11,7 +11,7 @@ Disassociates the provided Hedera account from the provided Hedera tokens. This 
 * On success, associations between the provided account and tokens are removed.
 
 {% hint style="info" %}
-The account is required to have a zero balance of the token you wish disassociates. If a token balance is present, you will receieve a TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES error.
+The account is required to have a zero balance of the token you wish disassociates. If a token balance is present, you will receive a TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES error.
 {% endhint %}
 
 | Constructor | Description |
@@ -82,7 +82,7 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 {% code title="Go" %}
 ```go
-//Disssociate the token from an account and freeze the unsigned transaction for signing
+//Dissociate the token from an account and freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenDissociateTransaction().
 		SetAccountID(accountId).
 		SetTokenIDs(tokenId).

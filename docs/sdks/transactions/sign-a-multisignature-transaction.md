@@ -45,7 +45,7 @@ const transferTransaction = new TransferTransaction()
     .addHbarTransfer(receiverAccountId, new Hbar(-1))
     .setNodeAccountIds(nodeId);
     
-//Freeze the tranaction from further modifications
+//Freeze the transaction from further modifications
 const transaction = await transferTransaction.freezeWith(client);
 ```
 {% endtab %}
@@ -72,7 +72,7 @@ transaction, err := transferTransaction.FreezeWith(client)
 
 ## 2. Collect required signatures
 
-Each signer can sign the `transaction`with their private key. The signed transactions are then returned to you from each of the 3 signers, resulting in 3 seperate signature bytes. The sample code below is for illustrative purposes as you would not have the private keys to sign the transaction for each signer.
+Each signer can sign the `transaction`with their private key. The signed transactions are then returned to you from each of the 3 signers, resulting in 3 separate signature bytes. The sample code below is for illustrative purposes as you would not have the private keys to sign the transaction for each signer.
 
 {% tabs %}
 {% tab title="Java" %}
@@ -225,7 +225,7 @@ submitTx, err := signedTransaction.Execute(client)
 txId := submitTx.TransactionID
 
 //Print the transaction ID to the console
-fmt.Println("The transactioin ID ", txId)
+fmt.Println("The transaction ID ", txId)
 ```
 {% endtab %}
 {% endtabs %}

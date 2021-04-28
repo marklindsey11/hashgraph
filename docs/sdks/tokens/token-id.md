@@ -19,7 +19,7 @@ new TokenId()
 | Method | Type | Description |
 | :--- | :--- | :--- |
 | `TokenId.fromtString(<tokenId>)` | String | Constructs a token ID from a String value |
-| `TokenId.fromSolidityAddress(<address>)` | String | Contructs a token ID from a solidity address |
+| `TokenId.fromSolidityAddress(<address>)` | String | Constructs a token ID from a solidity address |
 | `TokenId.fromBytes(<bytes>)` | byte\[ | Constructs a token ID from bytes  |
 
 {% code title="Java" %}
@@ -51,7 +51,7 @@ console.log(tokenIdFromString.toString());
 | Method | Type | Description |
 | :--- | :--- | :--- |
 | `TokenId.fromtString(<tokenId>)` | String | Constructs a token ID from a String value |
-| `TokenId.fromSolidityAddress(<address>)` | String | Contructs a token ID from a solidity address |
+| `TokenId.fromSolidityAddress(<address>)` | String | Constructs a token ID from a solidity address |
 
 ```java
 TokenId tokenId =  TokenId.fromString("0.0.3");

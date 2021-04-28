@@ -151,7 +151,7 @@ FileUpdateTransaction transaction = new FileUpdateTransaction()
 //Modify the default max transaction fee from 1 hbar to 2 hbars
 FileUpdateTransaction txFee = transaction.setMaxTransactionFee(new Hbar(3));
 
-//Build the transaction, sign with the original key, sign with the new key, sign with the client opeator key and submit the transaction to a Hedera network
+//Build the transaction, sign with the original key, sign with the new key, sign with the client operator key and submit the transaction to a Hedera network
 TransactionId txId = txFee.build(client).sign(key).sign(newKey).execute(client);
 
 //Request the receipt of the transaction
@@ -174,7 +174,7 @@ const transaction = new FileUpdateTransaction()
 //Modify the default max transaction fee from 1 hbar to 2 hbars
 const txFee = transaction.setMaxTransactionFee(new Hbar(3));
 
-//Build the transaction, sign with the original key, sign with the new key, sign with the client opeator key and submit the transaction to a Hedera network
+//Build the transaction, sign with the original key, sign with the new key, sign with the client operator key and submit the transaction to a Hedera network
 const txId = await txFee.build(client).sign(key).sign(newKey).execute(client);
 
 //Request the receipt of the transaction
