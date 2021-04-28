@@ -18,6 +18,6 @@ If the provided account has a nonzero balance with any of the provided tokens, t
 
 | Field | Type | Label | Description |
 | :--- | :--- | :--- | :--- |
-| `account` | [AccountID](file:///Users/simihunjan/Downloads/hedera-services-master%203/hapi-proto/HAPI.html#proto.AccountID) |  | The account to be dissociated with the provided tokens  |
-| `tokens` | [TokenID](file:///Users/simihunjan/Downloads/hedera-services-master%203/hapi-proto/HAPI.html#proto.TokenID) | repeated | The tokens to be dissociated with the provided account |
+| `account` | [AccountID](https://docs.hedera.com/guides/docs/hedera-api/basic-types/accountid) |  | The account to be dissociated with the provided tokens  |
+| `tokens` | [TokenID](https://docs.hedera.com/guides/docs/hedera-api/basic-types/tokenid) | repeated | The tokens to be dissociated with the provided account |
 

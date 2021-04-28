@@ -100,7 +100,7 @@ transaction := hedera.NewContractUpdateTransaction().
 modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
 
 //Freeze the transaction
-freezTransaction, err := modifyMaxTransactionFee.FreezeWith(client)
+freezeTransaction, err := modifyMaxTransactionFee.FreezeWith(client)
 if err != nil {
 		panic(err)
 }
