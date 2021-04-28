@@ -12,6 +12,14 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
+## [v0.32.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.32.0)
+
+This release we took the time to do some performance optimizations of both the importer and the monitor. If you're using a containerized mirror node, the Java applications now uses more of the available memory that's already been allocated to it. We optimized the size of some internal queues to reduce the likelihood of out of memory errors. And we now use a more efficient streaming method to write entities to the database and avoid large memory allocations. All these combine to greatly reducing overall memory usage and improve overall performance for the importer. The monitor also saw performance improvements to allow it to publish transactions at a rate of 10,000 TPS.
+
+This release updates more of our system to handle the revised scheduled transaction design that will be available soon on mainnet. Both the acceptance tests and monitor were updated to be able to publish the new transactions.
+
+We now expose the raw transaction bytes encoded in Base64 format in the REST API. Persisting the bytes of the `Transaction` protobuf in the database is an option that's been available for awhile but until now has not been available via the API. Persisting the data is off by default as does increase the size of the database quite a bit. The Hedera managed mirror nodes will not have that functionality turned on to reduce storage.
+
 ## [v0.31.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.31.0)
 
 {% hint style="success" %}
