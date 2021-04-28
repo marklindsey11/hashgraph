@@ -1,6 +1,6 @@
 # Create a key list
 
-Create a key list key structure where all the keys in the list are required to sign transactions that modify accounts, topics, tokens, smart contracts, or files. If all the keys in the key list key structure do not sign, the transaction will fail and return an "INVALID\_SIGNATURE" error. 
+Create a key list key structure where all the keys in the list are required to sign transactions that modify accounts, topics, tokens, smart contracts, or files. If all the keys in the key list key structure do not sign, the transaction will fail and return an "INVALID\_SIGNATURE" error. A key list can have repeated keys. A signature for the repeated key will count as many times as the key is listed in the key list. For example, a key list has three keys. Two of the three public keys in the list are the same. When a user signs a transaction with the repeated key it will account for two out of the three keys required signature. 
 
 {% tabs %}
 {% tab title="V2" %}
