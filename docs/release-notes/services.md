@@ -7,8 +7,8 @@ description: Hedera Services release information
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.12.0 | 0.13.2 |
-| **Testnet** | 0.13.0 | 0.13.2 |
-| **Previewnet** | 0.13.0 | 0.13.2 |
+| **Testnet** | 0.13.2 | 0.14.0 |
+| **Previewnet** | 0.13.2 | 0.14.0 |
 
 ## Upcoming Releases
 
@@ -18,12 +18,12 @@ description: Hedera Services release information
 **MAINNET UPDATE SCHEDULED: MAY 6, 2021**
 {% endhint %}
 
-{% hint style="info" %}
-**TESTNET UPDATE SCHEDULED: APRIL 29, 2021 \[v0.13.2\]**
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: APRIL 29, 2021 \[v0.13.2\]**
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE SCHEDULED: APRIL 22, 2021 \[v0.13.0\]**
+**TESTNET UPDATE COMPLETED: APRIL 22, 2021 \[v0.13.0\]**
 {% endhint %}
 
 In Hedera Services v0.13.0, we have [redesigned](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/revised-spec.md) schedule transactions. The new design gives collaborating nodes a well-defined workflow if they happen to schedule identical transactions, _even if_ they are using different gRPC client libraries \(for example, Go and JavaScript\). The new design also reduces the number of signatures required to submit a valid `ScheduleSign` transaction in many common use cases. Users will be able to schedule `CryptoTransfer` and `ConsensusSubmitMessage` transactions in this release. Other transaction types will be introduced in future releases. 
