@@ -67,8 +67,9 @@ Node Connectivity
   * Deployed with firewalled access to other mainnet consensus nodes
 * Node deployed in dedicated \(isolated\) DMZ network
   * Static IP \(FQDN is not supported\)
-  * TCP Port 50111 open to provided whitelist addresses \(other Hedera nodes\)
-  * TCP Port 50211 open to communication with assigned HAProxy\(ies\)
+  * TCP Port 50111 open to 0.0.0.0/0
+  * TCP Port 50211 open to 0.0.0.0/0
+  * TCP Port 50212 open to 0.0.0.0/0
   * TCP Port 443 open egress to 0.0.0.0/0
   * TCP Port 22 \(SSH\) open to 35.192.32.50/32 & 18.219.214.181/32
 
@@ -77,6 +78,7 @@ Proxy Connectivity
 * Static IP address \(FQDN not supported\)
 * 200Mb/s internet connectivity
 * TCP Port 50211 open to 0.0.0.0/0
+* TCP Port 50212 open to 0.0.0.0/0
 * TCP Port 22 \(SSH\) open to 35.192.32.50/32 & 18.219.214.181/32
 
 ### Hosting
