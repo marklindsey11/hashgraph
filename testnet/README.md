@@ -34,8 +34,7 @@ Hedera testnets provides developers with access to a free testing environment fo
           in an upcoming release, designed to give developers early exposure to features
           coming down the pipe. Updates to the network are made frequently. There
           is no guarantee a SDK will readily support the up and coming features.</p>
-        <p></p>
-        <p><b>Note: </b>Updates to this network are triggered by a new release and
+        <p><b>Note:</b> Updates to this network are triggered by a new release and
           are frequent. These updates will not be reflected on the status page.</p>
       </td>
     </tr>
@@ -47,15 +46,15 @@ Hedera testnets provides developers with access to a free testing environment fo
 Transactions are currently throttled for testnets. You will receive a "BUSY" response if the number of transactions submitted to the network exceeds the threshold value.
 {% endhint %}
 
-| Network Service | Availability  |
+| Network Service | Availability |
 | :--- | :--- |
 | Cryptocurrency | Limited |
 | Consensus Service | Limited |
 | File Service | Limited |
-| Smart Contract Service | Limited  |
+| Smart Contract Service | Limited |
 | Token Service | Limited |
 
-#### Test Network Throttles
+### Test Network Throttles
 
 <table>
   <thead>

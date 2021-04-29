@@ -2,7 +2,7 @@
 
 ## 1. What is a schedule transaction?
 
-A ****schedule transaction is a transaction that can schedule any Hedera transaction with the ability to collect the required signatures on the Hedera network in preparation for its execution. 
+A _\*\*_schedule transaction is a transaction that can schedule any Hedera transaction with the ability to collect the required signatures on the Hedera network in preparation for its execution.
 
 ## 2. Is there an entity ID assigned to a schedule transaction?
 
@@ -23,7 +23,7 @@ If the scheduled \(inner transaction\) fee payer does not have sufficient balanc
 
 ## 6. Can you delay a transaction once it has been schedule?
 
-No, you cannot delay or modify a schedule transaction once it's been submitted to a network. You would need to delete the schedule transaction and create a new one with the modifications.  
+No, you cannot delay or modify a schedule transaction once it's been submitted to a network. You would need to delete the schedule transaction and create a new one with the modifications.
 
 ## 7. What happens if multiple users create the same schedule transaction?
 
@@ -32,7 +32,7 @@ No, you cannot delay or modify a schedule transaction once it's been submitted t
 
 ## 8. When does the schedule transaction execute?
 
-The schedule transaction executes the scheduled transaction when the last signature is received. 
+The schedule transaction executes the scheduled transaction when the last signature is received.
 
 ## 9. How often does the network check to see if the inner transaction \(scheduled transaction\) has met the signature requirement?
 

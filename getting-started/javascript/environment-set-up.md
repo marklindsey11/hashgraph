@@ -10,11 +10,11 @@ In this section you will complete the following:
 
 {% page-ref page="../introduction.md" %}
 
-## Step 1: Set-up your node.js environment 
+## Step 1: Set-up your node.js environment
 
 ### 1.1 Create a new directory for our sample & move into it
 
-Open your terminal and create a directory called hello-hedera-js-sdk. After you create the project directory navigate into the directory. 
+Open your terminal and create a directory called hello-hedera-js-sdk. After you create the project directory navigate into the directory.
 
 ```bash
 mkdir hello-hedera-js-sdk && cd hello-hedera-js-sdk
@@ -40,7 +40,6 @@ Note: you can just say “yes” to all of the defaults and/or plugin what makes
   "author": "",
   "license": "ISC"
 }
-
 ```
 
 ## Step 2: Install the Hedera Hashgraph JavaScript SDK
@@ -55,7 +54,7 @@ Now that you have your node environment setup, we can get started with Hedera’
 
 {% tabs %}
 {% tab title="v2.0" %}
-```
+```text
 // install Hedera's JS SDK with NPM
 // This example uses Hedera JavaScript SDK v2.0.13
 npm install --save @hashgraph/sdk@2.0.13
@@ -104,7 +103,7 @@ MY_PRIVATE_KEY= TESTNET PRIVATE KEY (302e...)
 
 ## Step 4: Create an index.js file in the 'root' directory
 
-This file will contain the code we will right in the following samples. Your project structure should look something like this after: 
+This file will contain the code we will right in the following samples. Your project structure should look something like this after:
 
 ![](../../.gitbook/assets/project_directory.png)
 
@@ -146,14 +145,14 @@ client.setOperator(myAccountId, myPrivateKey);
 {% endcode %}
 
 {% hint style="info" %}
-The client has a default **max transaction fee** of 100,000,000 tinybars \(1 hbar\) and default **max query payment** of 100,000,000 tinybars \(1 hbar\). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries. 
+The client has a default **max transaction fee** of 100,000,000 tinybars \(1 hbar\) and default **max query payment** of 100,000,000 tinybars \(1 hbar\). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries.
 {% endhint %}
 
-Your project environment is now set-up to successfully submit transactions/queries to the Hedera test network! 
+Your project environment is now set-up to successfully submit transactions/queries to the Hedera test network!
 
 Next, you will learn how to create a Hedera testnet account.
 
-## Code Check ✅ 
+## Code Check ✅
 
 What your index.js file should look like at this point:
 
@@ -173,7 +172,7 @@ async function main() {
         myPrivateKey == null ) {
         throw new Error("Environment variables myAccountId and myPrivateKey must be present");
     }
-    
+
     // Create our connection to the Hedera network
     // The Hedera JS SDK makes this really easy!
     const client = Client.forTestnet();

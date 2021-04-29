@@ -1,6 +1,6 @@
 # Create an account
 
-A transaction that creates a Hedera account. A Hedera account is required to interact with any of the Hedera network services as you need an account to pay for all associated transaction/query fees. You can visit portal.hedera.com to create a previewnet/testnet/mainnet account. To process an account create transaction, you will need an existing account to pay for the transaction fee. To obtain the new account ID, request the receipt of the transaction. 
+A transaction that creates a Hedera account. A Hedera account is required to interact with any of the Hedera network services as you need an account to pay for all associated transaction/query fees. You can visit portal.hedera.com to create a previewnet/testnet/mainnet account. To process an account create transaction, you will need an existing account to pay for the transaction fee. To obtain the new account ID, request the receipt of the transaction.
 
 {% hint style="info" %}
 When creating a **new account** an existing account will need to pay for the transaction fee to create the new account.
@@ -52,7 +52,7 @@ When creating a **new account** an existing account will need to pay for the tra
           <br />
           <br /><b>NOTE:</b> This is fixed to approximately 3 months (7890000 seconds).
           Any other value will return the following error: AUTORENEW_DURATION_NOT_IN_RANGE.</p>
-        <p><em>default: 2,592,000 seconds</em><b> </b>(DISABLED)</p>
+        <p><em>default: 2,592,000 seconds</em> (DISABLED)</p>
       </td>
     </tr>
     <tr>
@@ -139,8 +139,8 @@ console.log("The new account ID is " +newAccountId);
 ```go
 //Create the transaction
 transaction := hedera.NewAccountCreateTransaction().
-		SetKey(privateKey.PublicKey()).
-		SetInitialBalance(hedera.NewHbar(1000))
+        SetKey(privateKey.PublicKey()).
+        SetInitialBalance(hedera.NewHbar(1000))
 
 //Sign the transaction with the client operator private key and submit to a Hedera network
 txResponse, err := AccountCreateTransaction.Execute(client)
@@ -219,8 +219,6 @@ console.log("The new account ID is " +newAccountId);
 {% endtab %}
 {% endtabs %}
 
-#### 
-
 ## Get transaction values
 
 {% tabs %}
@@ -263,7 +261,7 @@ const accountKey = transaction.getKey();
 //Create an account with 1,000 hbar
 AccountCreateTransaction := hedera.NewAccountCreateTransaction().
     SetKey(newKey.PublicKey()).
-		SetInitialBalance(hedera.NewHbar(1000))
+        SetInitialBalance(hedera.NewHbar(1000))
 
 //Return the key on the account
 accountKey, err := AccountCreateTransaction.GetKey()

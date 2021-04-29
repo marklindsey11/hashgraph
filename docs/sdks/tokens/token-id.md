@@ -10,17 +10,15 @@ Constructs a `TokenId`.
 new TokenId()
 ```
 
-### Methods
+## Methods
 
 {% tabs %}
 {% tab title="V2" %}
-
-
 | Method | Type | Description |
 | :--- | :--- | :--- |
 | `TokenId.fromtString(<tokenId>)` | String | Constructs a token ID from a String value |
 | `TokenId.fromSolidityAddress(<address>)` | String | Constructs a token ID from a solidity address |
-| `TokenId.fromBytes(<bytes>)` | byte\[ | Constructs a token ID from bytes  |
+| `TokenId.fromBytes(<bytes>)` | byte\[ | Constructs a token ID from bytes |
 
 {% code title="Java" %}
 ```java
@@ -69,8 +67,4 @@ console.log(tokenIdFromString);
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-
 

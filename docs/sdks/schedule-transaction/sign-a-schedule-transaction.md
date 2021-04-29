@@ -20,7 +20,7 @@ A transaction that appends signatures to a schedule transaction. You will need t
 new ScheduleSignTransaction()
 ```
 
-### Methods
+## Methods
 
 {% tabs %}
 {% tab title="V2" %}
@@ -74,25 +74,25 @@ console.log("The transaction consensus status is " +transactionStatus);
 ```go
 //Create the transaction and freeze the unsigned transaction
 transaction, err := hedera.NewScheduleSignTransaction().
-			SetScheduleID(scheduleId).
-			FreezeWith(client)
+            SetScheduleID(scheduleId).
+            FreezeWith(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Sign with one of the required signatures, sign with the client operator private key and submit the transaction to a Hedera network
 txResponse, err := transaction.Sign(privateKeySigner1).Execute(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Request the receipt of the transaction
 receipt, err := txResponse.GetReceipt(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Get the transaction consensus status
@@ -103,6 +103,4 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

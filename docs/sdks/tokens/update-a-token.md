@@ -12,7 +12,7 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 | **Freeze Key** | The new freeze key of the token. If the token does not have currently a freeze key, transaction will resolve to TOKEN\_HAS\_NO\_FREEZE\_KEY. |
 | **Wipe Key** | The new wipe key of the token. If the token does not have currently a wipe key, transaction will resolve to TOKEN\_HAS\_NO\_WIPE\_KEY. |
 | **Supply Key** | The new supply key of the token. If the token does not have currently a supply key, transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. |
-| **Expiration Time** | The new expiry time of the token. Expiry can be updated even if the admin key is not set. If the provided expiry is earlier than the current token expiry, transaction wil resolve to INVALID\_EXPIRATION\_TIME.  |
+| **Expiration Time** | The new expiry time of the token. Expiry can be updated even if the admin key is not set. If the provided expiry is earlier than the current token expiry, transaction wil resolve to INVALID\_EXPIRATION\_TIME. |
 | **Auto Renew Account** | The new account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. |
 | **Auto Renew Period** | The new interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
 | **Memo** | Short publicly visible memo about the token. No guarantee of uniqueness. \(100 characters max\) |
@@ -25,12 +25,10 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 new TokenUpdateTransaction()
 ```
 
-### Methods
+## Methods
 
 {% tabs %}
 {% tab title="V2" %}
-
-
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setTokenId(<tokenId>)` | TokenId | Required |
@@ -100,25 +98,25 @@ console.log("The transaction consensus status is " +transactionStatus);
 ```go
 //Create the transaction and freeze for manual signing 
 tokenUpdateTransaction, err := hedera.NewTokenUpdateTransaction().
-	  SetTokenID(tokenId).
-		SetTokenName("Your New Token Name").
-		FreezeWith(client)
+      SetTokenID(tokenId).
+        SetTokenName("Your New Token Name").
+        FreezeWith(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Sign with the admin private key of the token, sign with the client operator private key and submit the transaction to a Hedera network
 txResponse, err := tokenUpdateTransaction.Sign(adminKey).Execute(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Request the receipt of the transaction
 receipt, err := txResponse.GetReceipt(client)
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Get the transaction consensus status
@@ -134,7 +132,7 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% tab title="V1" %}
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | Required  |
+| `setTokenId(<tokenId>)` | TokenId | Required |
 | `setName(<name>)` | String | Optional |
 | `setSymbol(<symbol>)` | String | Optional |
 | `setTreasury(<treasury>)` | AccountId | Optional |
@@ -157,10 +155,10 @@ TokenUpdateTransaction transaction = new TokenUpdateTransaction()
 
 //Build the unsigned transaction, sign with the admin private key of the token, submit the transaction to a Hedera network
 TransactionId transactionId = transaction.build(client).sign(adminKey).execute(client);
-    
+
 //Request the receipt of the transaction
 TransactionReceipt receipt = transactionId.getReceipt(client);
-    
+
 //Get the transaction consensus status
 Status transactionStatus = receipt.status;
 
@@ -175,13 +173,13 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 const transaction = new TokenUpdateTransaction()
     .setTokenId(newTokenId)
     .setName("Your New Token Name");
-    
+
 //Build the unsigned transaction, sign with the token admin private key of the token, submit the transaction to a Hedera network
 const transactionId = await transaction.build(client).sign(adminKey).execute(client);
-    
+
 //Request the receipt of the transaction
 const receipt = await transactionId.getReceipt(client);
-    
+
 //Get the transaction consensus status
 const transactionStatus = receipt.status;
 
@@ -191,6 +189,4 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

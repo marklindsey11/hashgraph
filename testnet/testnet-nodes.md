@@ -2,7 +2,7 @@
 
 ## Testnet Nodes
 
-Testnet nodes belong to the test network and run the same code as the Hedera mainnet nodes. 
+Testnet nodes belong to the test network and run the same code as the Hedera mainnet nodes.
 
 <table>
   <thead>
@@ -81,7 +81,7 @@ You will need to create complete your Hedera portal profile to receive a testnet
 
 {% page-ref page="testnet-access.md" %}
 
-#### Testnet Node Public Keys
+### Testnet Node Public Keys
 
 Below you will find the testnet node public keys. The public keys stored in the address book file are hex encoded keys \(x509\). The testnet address book file ID is `0.0.102`.
 
@@ -94,7 +94,7 @@ Below you will find the testnet node public keys. The public keys stored in the 
 
 ## Preview Testnet Nodes
 
-Preview testnet nodes belong to the the preview test network. The preview testnet nodes run code that is currently under development as an early preview for users. This network is unstable and is not recommended as a suitable pre-production environment. 
+Preview testnet nodes belong to the the preview test network. The preview testnet nodes run code that is currently under development as an early preview for users. This network is unstable and is not recommended as a suitable pre-production environment.
 
 <table>
   <thead>
@@ -173,7 +173,7 @@ You will need to create complete your Hedera portal profile to receive a preview
 
 {% page-ref page="testnet-access.md" %}
 
-#### Previewnet Node Public Keys
+### Previewnet Node Public Keys
 
 Below you will find the previewnet node public keys. The public keys stored in the address book file are hex encoded keys \(x509\). The previewnet address book file ID is `0.0.102`.
 
@@ -184,7 +184,7 @@ Below you will find the previewnet node public keys. The public keys stored in t
 | **0.0.5** | 308201a2300d06092a864886f70d01010105000382018f003082018a02820181009ba457b73305f04a91cc46b1b965c4e841751abc8b1415a0badfd1f32c2482386a22725eb7ec74dea21e50617d648ea5ac393741ab01b8efb321239b8d4fdb1dfbeb9e3f39aa46580dd045d18ca44d002c37ddb527cce4ddc32bfc73419671f4ca4464a3f2a84fc85c71acf0e5a89626df69a81474ed16529f801a8afa97e435c4e04a964a357527288843e58f0a05cf5153ee4507b2c68b3d7fb54ae6a95a959c87a12f630e95c7b1b3c3695e858662417926d76c16983faf61225038745907e9cf13d67c2acd503ca451c85933ac4118acc279801cb968349903145ced27629dd08916317093587a77c2205cfa52543b53c3b6ea15b84e3d2c30c1ed752a4633c36b25b9893ea02ad562eb9b7868b3b4f47f4a25e356064962ac7b25e582944f00d30798a262f9214d8c5e74d0a8376cc2d6ba64e18f5e4a40afac625062d2ca23cd2800708321d3834314f0e5844859232673a32e70ae0d711e310581bcdb14e87134694c6e0930f46b37b96d49a64573947331e7e507d9e56de5e6146f2f0203010001 |
 | **0.0.6** | 308201a2300d06092a864886f70d01010105000382018f003082018a0282018100c42ccac5fbc691fbbebda87ffd1e75bdcd8922494cf44fdbccee49788521c378bf77db0934ec0d2183d7c51db66f864c11ab7de1ac3c4cfdc1f093a2d6f37e2b34cbe4c8131f9683ad42878c83d3554c645aa167bcfb064a83dc45c5b1158499f9d92587fff7abcd5f221cd8150548413000fa6e5659089b1dfd65766ea78eaedfca6b45455fd8ab5984dbe35e5795d2c635ea7974d43e8eae4febffe492e707b48b1b0fc6481ae9e09d39133009b7d26402e6e52e5e91b2b380d88f0be7fb4b303e70219785057aa94ce924c4926e916569286e86b3ba651ca2a0a63df4f6907fefe3483d93b4ce1d4d03c7142111375b2c2c51d4eb839e37af530b2cbd6f50d4cb36e27937170d9cddac0ace2cc24b804b0a27351cf830b76525e26dfb9dbf49a056624a76862494e7263d0d70cebae952943e55842f5cad13fcf60a2e6dcf7a1d533f3a5bb54ec21918c76e525ba29146675831e17e36c61fe85498828d09b762015412b2e527849baec1cffc77de4c294c550811e598ff24da15a34569dd0203010001 |
 
-## Test Network Mirror Nodes 
+## Test Network Mirror Nodes
 
 For test network mirror node information please visit the Hedera Mirror Node section below 👇 .
 

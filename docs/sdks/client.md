@@ -55,7 +55,7 @@ client := hedera.ClientForTestnet()
 
 //For a specified network
 node := map[string]AccountID{
-	"34.94.106.61:50211": {Account: 10}
+    "34.94.106.61:50211": {Account: 10}
 }
 
 client := Client.forNetwork(nodes)
@@ -70,7 +70,7 @@ client := Client.forNetwork(nodes)
 | :--- | :--- | :--- |
 | `Client.forPreviewnet()` |  | Constructs a Hedera client pre-configured for Previewnet access |
 | `Client.forTestnet()` |  | Constructs a Hedera client pre-configured for Testnet access |
-| `Client.forMainnet()` |  |  Constructs a Hedera client pre-configured for Mainnet access |
+| `Client.forMainnet()` |  | Constructs a Hedera client pre-configured for Mainnet access |
 | `Client.fromFile(<file>)` | File | Configures a client from a file |
 | `Client.fromFile(<fileName>)` | String | Constructs a network from a file |
 | `Client.fromJson(<json>)` | String | Configure a client from the given JSON string |
@@ -148,12 +148,12 @@ client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 // Operator account ID and private key from string value
 operatorAccountID, err := hedera.AccountIDFromString("0.0.96928")
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 operatorKey, err := hedera.PrivateKeyFromString("302e020100300506032b65700422042012a4a4add3d885bd61d7ce5cff88c5ef2d510651add00a7f64cb90de33596928")
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 // Pre-configured client for test network (testnet)
@@ -207,25 +207,25 @@ client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 
 {% tab title="Go" %}
 ```go
-	err := godotenv.Load(".env")
-	if err != nil {
-		panic(fmt.Errorf("Unable to load environment variables from demo.env file. Error:\n%v\n", err))
-	}
+    err := godotenv.Load(".env")
+    if err != nil {
+        panic(fmt.Errorf("Unable to load environment variables from demo.env file. Error:\n%v\n", err))
+    }
 
-	//Get the operator ID and operator key
-	OPERATOR_ID := os.Getenv("OPERATOR_ID")
-	OPERATOR_KEY := os.Getenv("OPERATOR_KEY")
+    //Get the operator ID and operator key
+    OPERATOR_ID := os.Getenv("OPERATOR_ID")
+    OPERATOR_KEY := os.Getenv("OPERATOR_KEY")
 
 
-	operatorAccountID, err := hedera.AccountIDFromString(OPERATOR_ID)
-	if err != nil {
-		panic(err)
-	}
+    operatorAccountID, err := hedera.AccountIDFromString(OPERATOR_ID)
+    if err != nil {
+        panic(err)
+    }
 
-	operatorKey, err := hedera.PrivateKeyFromString(OPERATOR_KEY)
-	if err != nil {
-		panic(err)
-	}
+    operatorKey, err := hedera.PrivateKeyFromString(OPERATOR_KEY)
+    if err != nil {
+        panic(err)
+    }
 ```
 {% endtab %}
 {% endtabs %}
@@ -233,7 +233,7 @@ client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 ## 3. Additional client modifications
 
 {% hint style="warning" %}
-The **max transaction fee** and **max query payment** are both set to 100\_000\_000 tinybar \(1 hbar\).  This amount can be modified by using `setMaxTransactionFee()`and `setMaxQueryPayment().`
+The **max transaction fee** and **max query payment** are both set to 100\_000\_000 tinybar \(1 hbar\). This amount can be modified by using `setMaxTransactionFee()`and `setMaxQueryPayment().`
 {% endhint %}
 
 {% tabs %}
@@ -356,11 +356,11 @@ client.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
 {% code title="Java" %}
 ```java
  Client client = Client.forTestnet();
- 
+
  client.setOperator(OPERATOR_ID, OPERATOR_KEY);
- 
+
  client.setMaxTransactionFee(new Hbar(2));
- 
+
  //v1.3.2
 ```
 {% endcode %}
@@ -381,6 +381,4 @@ client.setMaxTransactionFee(new Hbar(2));
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

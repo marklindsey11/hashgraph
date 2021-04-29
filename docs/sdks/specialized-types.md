@@ -21,7 +21,7 @@ Together these values make up your `AccountId`. When an `AccountId` is requested
 | Methods | Type | Description |
 | :--- | :--- | :--- |
 | `fromString(<account>)` | String | Constructs an `AccountId` from a string formatted as &lt;shardNum&gt;.&lt;realmNum&gt;.&lt;accountNum&gt; |
-| `fromSolidityAddress(<address>)` | String | Constructs an `AccountId` from a solidity address in string format  |
+| `fromSolidityAddress(<address>)` | String | Constructs an `AccountId` from a solidity address in string format |
 
 ### Example
 
@@ -34,7 +34,6 @@ System.out.println(accountId);
 // Constructs an accountId from String
 AccountId accountId = AccountId.fromString("0.0.10");
 System.out.println(accountId);
-
 ```
 {% endtab %}
 
@@ -171,7 +170,7 @@ Together these values make up your `ContractId`. When an `ContractId` is request
       </td>
       <td style="text-align:left">String</td>
       <td style="text-align:left">
-        <p>Constructs a <code>ContractId </code>from a string formatted as</p>
+        <p>Constructs a <code>ContractId</code> from a string formatted as</p>
         <p>&lt;shardNum&gt;.&lt;realmNum&gt;.&lt;contractNum&gt;</p>
       </td>
     </tr>
@@ -273,6 +272,4 @@ System.out.println(topicId)
 ```
 {% endtab %}
 {% endtabs %}
-
-
 

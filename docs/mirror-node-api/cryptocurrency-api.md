@@ -9,14 +9,14 @@ description: >-
 {% hint style="info" %}
 **MAINNET**  
 For our whitelisted partners, you may use the following root endpoints:  
-[https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)  
-  
+[https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)
+
 **TESTNET**  
-[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)  
-  
+[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
+
 **PREVIEWNET**  
-[https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)  
-  
+[https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)
+
 For all other users, you may check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh/) as alternatives.‌
 {% endhint %}
 
@@ -72,7 +72,7 @@ Returns the account information for the specified public key
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
     "accounts": [
         {
@@ -84,7 +84,7 @@ Returns the account information for the specified public key
                         "token_id": "0.0.1561",
                         "balance": 100000
                     },
-              
+
                     {
                         "token_id": "0.0.2003",
                         "balance": 999997650
@@ -230,7 +230,7 @@ Returns the balance object for a specific public key
 The balance for account 0.0.2004
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
     "timestamp": "1602804267.903201001",
     "balances": [
@@ -249,7 +249,6 @@ The balance for account 0.0.2004
         "next": "/api/v1/balances?limit=1&account.id=lt:0.0.2004"
     }
 }
-
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -378,7 +377,7 @@ If `type=debit` the query returns all transactions that withdrew from an account
 A request to return information for a transaction that was provided a specific timestamp
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
     "transactions": [
         {
@@ -589,8 +588,7 @@ The consensus timestamp of a message in seconds.nanoseconds
 
 {% endapi-method-response-example-description %}
 
-```
-
+```text
   "responseJson": {
     "consensus_timestamp": "1234567890.000000002",
     "topic_id": "0.0.7",
@@ -598,7 +596,6 @@ The consensus timestamp of a message in seconds.nanoseconds
     "running_hash": "cnVubmluZ19oYXNo",
     "sequence_number": 2
   }
-
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -623,7 +620,7 @@ tokens
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Returns the list of tokens created in a Hedera network. 
+Returns the list of tokens created in a Hedera network.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -655,7 +652,7 @@ The ID of the account to return the tokens for
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
     "tokens": [
         {
@@ -737,7 +734,7 @@ The timestamp to query for
 The request response
 {% endapi-method-response-example-description %}
 
-```
+```text
    {
         "timestamp": "0.000002345",
         "balances": [
@@ -775,41 +772,12 @@ The request response
 
 ### Additional Examples
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Example Request</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">
-        <p></p>
-        <p><code>/api/v1/tokens/&lt;token_id&gt;/balances?order=asc</code>
-        </p>
-      </td>
-      <td style="text-align:left">The balance of the token in ascending order</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>/api/v1/tokens/&lt;token_id&gt;/balances?account.id=0.0.1000</code>
-      </td>
-      <td style="text-align:left">The balance of the token for account ID 0.0.1000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>/api/v1/tokens/&lt;token_id&gt;/balances?account.balance=gt:1000</code>
-      </td>
-      <td style="text-align:left">The balance for the token greater than 1000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>/api/v1/tokens/&lt;token_id&gt;/balances?timestamp=1566562500.040961001</code>
-      </td>
-      <td style="text-align:left">The token balances for the specified timestamp</td>
-    </tr>
-  </tbody>
-</table>
-
-
+| Example Request | Description |
+| :--- | :--- |
+| `/api/v1/tokens/<token_id>/balances?order=asc` | The balance of the token in ascending order |
+| `/api/v1/tokens/<token_id>/balances?account.id=0.0.1000` | The balance of the token for account ID 0.0.1000 |
+| `/api/v1/tokens/<token_id>/balances?account.balance=gt:1000` | The balance for the token greater than 1000 |
+| `/api/v1/tokens/<token_id>/balances?timestamp=1566562500.040961001` | The token balances for the specified timestamp |
 
 {% api-method method="get" host="" path="/api/v1/tokens/:tokenId" %}
 {% api-method-summary %}
@@ -835,7 +803,7 @@ The ID of the token to return the information for in x.y.z format.
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
     "admin_key": {
         "_type": "ED25519",
@@ -887,7 +855,7 @@ The ID of the token to return the information for in x.y.z format.
 | **created\_timestamp** | The timestamp of when the token was created |
 | **decimals** | The number of decimal places a token is divisible by |
 | **expiry\_timestamp** | The epoch second at which the token should expire |
-| **freeze\_default** | Whether or not accounts created  |
+| **freeze\_default** | Whether or not accounts created |
 | **freeze\_key** | The freeze key for the token |
 | **initial\_suppl**y | The initial supply of the token |
 | **kyc\_key** | The KYC key for the token |
@@ -938,7 +906,7 @@ Limits results to the first N schedule transactions
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
   "schedules": [
     {
@@ -998,8 +966,6 @@ Limits results to the first N schedule transactions
 | **transaction\_body** | The transaction body of the transaction that was scheduled |
 | **links.next** | Hyperlink to the next page of results |
 
-###  <a id="optional-filtering-1"></a>
-
 {% api-method method="get" host="" path="/api/v1/schedules/{scheduleId}" %}
 {% api-method-summary %}
 schedule transaction
@@ -1024,7 +990,7 @@ The ID of the schedule to return the information for.
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
   "admin_key": {
     "_type": "ProtobufEncoded",
@@ -1077,7 +1043,7 @@ The ID of the schedule to return the information for.
 
 ## State Proof Alpha
 
-The Hedera Mirror Node state proof alpha api provides the ability to cryptographically prove a transaction is valid on Hedera network. The request returns the content of the address book file, signature files, and record file that can be used to validate the transaction occurred on the Hedera network. The address book file contains the consensus node account IDs and their public key files. The signature files are of the supermajority consensus nodes that signed the record file the transaction is contained in. 
+The Hedera Mirror Node state proof alpha api provides the ability to cryptographically prove a transaction is valid on Hedera network. The request returns the content of the address book file, signature files, and record file that can be used to validate the transaction occurred on the Hedera network. The address book file contains the consensus node account IDs and their public key files. The signature files are of the supermajority consensus nodes that signed the record file the transaction is contained in.
 
 {% api-method method="get" host="" path="/api/v1/transactions/:transaction-id/stateproof" %}
 {% api-method-summary %}
@@ -1092,7 +1058,7 @@ Returns a state proof \(alpha\) for a given transaction.
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="transaction-id" type="string" required=true %}
-The ID of the transaction to return the state proof in shard.realm.num-sss-nnn format where sss is in seconds and nnn is in nanoseconds of the transaction valid start time. 
+The ID of the transaction to return the state proof in shard.realm.num-sss-nnn format where sss is in seconds and nnn is in nanoseconds of the transaction valid start time.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
@@ -1103,7 +1069,7 @@ The ID of the transaction to return the state proof in shard.realm.num-sss-nnn f
 
 {% endapi-method-response-example-description %}
 
-```
+```text
  "record_file": "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",
     "signature_files": {
         "0.0.4": "BOyLjxj4hYhMfvVVYcd4ogJhJlMkWVo3PFeUugIKsGo3imdL/ja9ByL1VQ87cDk76QMAAAGAsc5rXqosU0Pnqsnri3ZOwIT0GcY/sy9ssS9b824ArjM/P5X3JM5AvZ4LVbjOxeACnw1oTAW5Ym1h24Yh54G/BfUMmBqQ7byG0tAj3/6n717tg186G+20j4un8JUHyMClr8NIkP3wHTY78HBQjGEnlhtp1rulR8iEHJGFd04hBqy59abEVdZP2vRmwAVG2qw26RBYMCZZhubeZz4wrhY/TziK+degZDU8J75l8MtyHmBdbGipWDkIdNwcEaT0HWnd/jG0VDIYjQPAehdxcQarWmi5M4x9RJKbGB2w5i+TLH6UPW/YgYU3YicNf1BMRRHLMBxAB9K+AkXM7Shtb6d0neNZmPthXI88l8uSo3lUZ5LsbgOG2jA95VStftgR+qOd3/Udgj9TZDIHjy3nSENScedrNwUeJX5Pd4Z9/sAsvAza87XpXpuuBY+FbWJbYgvmHI932RNuCdYVPoxYuyR2o32g0f6Ytv5dWcU4FqYrzqe/B6IO+4wnL5JcubQuqnJO",
@@ -1125,7 +1091,7 @@ The ID of the transaction to return the state proof in shard.realm.num-sss-nnn f
 | :--- | :--- | :--- |
 | **record\_file** | The record file content for the specified transaction | base64 encoding |
 | **signature\_files** | The signatures file content from the consensus nodes that signed the transaction | base64 encoding |
-| **address\_books** | The address book file contents  | base64 encoding |
+| **address\_books** | The address book file contents | base64 encoding |
 
-Save the response to a json file and use the [check-state-proof](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof) cli commands to confirm the validity of the transaction. You can find the instructions [here](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof). 
+Save the response to a json file and use the [check-state-proof](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof) cli commands to confirm the validity of the transaction. You can find the instructions [here](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof).
 

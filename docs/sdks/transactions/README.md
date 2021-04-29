@@ -26,7 +26,3 @@ With the R4 release, how the HBAR balance changes of accounts involved in the tr
 |  |  | [TokenRevokeKycTransaction](../tokens/disable-kyc-account-flag.md) |  |  |
 |  |  | [TokenWipeTransaction](../tokens/wipe-a-token.md) |  |  |
 
-
-
-
-

@@ -29,7 +29,7 @@ The following features of the Hedera mainnet are still under development and the
 
 ### Have Feedback?
 
-We're actively working on expanding documentation, examples, and constantly improving our SDK. We'd love to hear from you if a particular subject is confusing, or you have suggestions for an improvement, please let us know by suggesting an [edit](https://github.com/hashgraph/hedera-docs) or in the [discord chat](https://discordapp.com/invite/FFb9YFX).
+We're actively working on expanding documentation, examples, and constantly improving our SDK. We'd love to hear from you if a particular subject is confusing, or you have suggestions for an improvement, please let us know by suggesting an [edit](https://github.com/hashgraph/hedera-docs) or in the [discord chat](https://hedera.com/discord).
 
 ## Contributing Guide
 

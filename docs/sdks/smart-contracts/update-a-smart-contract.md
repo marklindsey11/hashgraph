@@ -4,7 +4,7 @@ A transaction that allows you to modify a smart contract's state. Once the trans
 
 **Transaction Signing Requirements**
 
-* If only the contractInstanceExpirationTime is being modified, then no signature is ****needed on this transaction other than for the account paying for the transaction itself.
+* If only the contractInstanceExpirationTime is being modified, then no signature is _\*\*_needed on this transaction other than for the account paying for the transaction itself.
 * If any other field is being modified, the transaction must be signed by the adminKey.
 
 **Smart Contract Properties**
@@ -92,9 +92,9 @@ console.log("The consensus status of the transaction is " +transactionStatus);
 ```java
 //Create the transaction
 transaction := hedera.NewContractUpdateTransaction().
-		SetContractID(contractId).
-		SetBytecodeFileID(byteCodeFileID).
-		SetAdminKey(adminKey)
+        SetContractID(contractId).
+        SetBytecodeFileID(byteCodeFileID).
+        SetAdminKey(adminKey)
 
 //Change the default max transaction fee to 2 hbars
 modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
@@ -102,19 +102,19 @@ modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, h
 //Freeze the transaction
 freezTransaction, err := modifyMaxTransactionFee.FreezeWith(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Sign with the old admin key, sign with the new admin key, sign with the client operator account and submit to a Hedera network
 txResponse, err := freezeTransaction.Sign(newAdminKey).Sign(adminKey).Execute(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Request the receipt of the transaction
 receipt, err = txResponse.GetReceipt(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Get the transaction consensus status
@@ -195,7 +195,7 @@ System.out.println("The transaction consensus status is " +transactionStatus)
 ContractUpdateTransaction transaction = new ContractUpdateTransaction()
     .setContractId(contractId)
     .setAdminKey(adminKey);
-    
+
 //Get admin key
 transaction.getAdminKey()
 
@@ -209,7 +209,7 @@ transaction.getAdminKey()
 const transaction = new ContractUpdateTransaction()
     .setContractId(contractId)
     .setAdminKey(adminKey);
-    
+
 //Get admin key
 transaction.getAdminKey()
 
@@ -221,10 +221,10 @@ transaction.getAdminKey()
 ```java
 //Create the transaction
 transaction := hedera.NewContractUpdateTransaction().
-		SetContractID(contractId).
-		SetBytecodeFileID(byteCodeFileID).
-		SetAdminKey(adminKey)
-		
+        SetContractID(contractId).
+        SetBytecodeFileID(byteCodeFileID).
+        SetAdminKey(adminKey)
+
 //Get admin key
 transaction.GetAdminKey()
 
@@ -233,6 +233,4 @@ transaction.GetAdminKey()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

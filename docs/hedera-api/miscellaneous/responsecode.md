@@ -172,5 +172,3 @@
 | SOME\_SIGNATURES\_WERE\_INVALID | At least one of the signatures in the provided sig map did not represent a valid signature for any required signer |
 | TRANSACTION\_ID\_FIELD\_NOT\_ALLOWED | The scheduled and nonce fields in the TransactionID may not be set in a top-level transaction |
 
-
-

@@ -22,20 +22,18 @@ You can set the following properties when creating a token:
 | **Name** | Set the publicly visible name of the token, specified as a string of UTF-8 characters. Maximum of 100 characters. The token name is not unique. |
 | **Symbol** | The publicly visible token symbol. It is UTF-8 capitalized alphabetical string identifying the token. The token symbol is not unique. Maximum of 100 characters. |
 | **Decimal** | The number of decimal places a token is divisible by. This field can never be changed! |
-| **Initial Supply** | Specifies the initial supply of tokens to be put in circulation.The initial supply is sent to the Treasury Account. The maximum supply of tokens is `9,223,372,036,854,775,807` tokens and  is in the lowest denomination possible.  |
+| **Initial Supply** | Specifies the initial supply of tokens to be put in circulation.The initial supply is sent to the Treasury Account. The maximum supply of tokens is `9,223,372,036,854,775,807` tokens and  is in the lowest denomination possible. |
 | **Treasury Account** | The account which will act as a treasury for the token. This account will receive the specified initial supply. The Token Treasury Account is required to sign the TokenCreateTransaction. |
 | **Admin Key** | The key which can perform update/delete operations on the token.The Admin Key has the authority to change the Freeze Key, Wipe Key, and KYC Key. It can also update the treasury account.  If empty, the token can be perceived as immutable \(not being able to be updated/deleted\). This key is required to sign transaction if present. |
-| **KYC Key** | The key which can grant or revoke KYC of an account for the token's transactions. If empty, KYC is not required, and KYC grant or revoke operations are not possible.  |
-| **Freeze Key** | The key which can sign to freeze or unfreeze an account for token transactions. If empty, freezing is not possible.  |
-| **Wipe Key** | The key which can wipe the token balance of an account. If empty, wipe is not possible.  |
-| **Supply Key** | The key which can change the total supply of a token. This key is used to sign Token Mint/Burn operations. If this is left empty minting/burning tokens is not possible.  |
+| **KYC Key** | The key which can grant or revoke KYC of an account for the token's transactions. If empty, KYC is not required, and KYC grant or revoke operations are not possible. |
+| **Freeze Key** | The key which can sign to freeze or unfreeze an account for token transactions. If empty, freezing is not possible. |
+| **Wipe Key** | The key which can wipe the token balance of an account. If empty, wipe is not possible. |
+| **Supply Key** | The key which can change the total supply of a token. This key is used to sign Token Mint/Burn operations. If this is left empty minting/burning tokens is not possible. |
 | **Freeze Default** | The default Freeze status \(frozen or unfrozen\) of Hedera accounts relative to this token. If true, an account must be unfrozen before it can receive the token |
 | **Expiration Time** | The epoch second at which the token should expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod. The default expiration time is 90 days. |
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign transaction if present. |
 | **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
 | **Memo** | Short publicly visible memo about the token. No guarantee of uniqueness. \(100 characters max\) |
-
-
 
 | Constructor | Description |
 | :--- | :--- |
@@ -45,18 +43,16 @@ You can set the following properties when creating a token:
 new TokenCreateTransaction()
 ```
 
-### Methods
+## Methods
 
 {% tabs %}
 {% tab title="V2" %}
-
-
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setTokenName(<name>)` | String | Required |
 | `setTokenSymbol(<symbol>)` | String | Required |
 | `setDecimals(<decimal>)` | int | Optional |
-| `setInitialSupply(<initialSupply>)`   | int | Optional |
+| `setInitialSupply(<initialSupply>)` | int | Optional |
 | `setTreasuryAccountId(<treasury>)` | [AccountId](../specialized-types.md#accountid) | Required |
 | `setAdminKey(<key>)` | Key | Optional |
 | `setKycKey(<key>)` | Key | Optional |
@@ -112,7 +108,7 @@ const signTx =  await (await transaction.sign(adminKey)).sign(treasuryKey);
 
 //Sign the transaction with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
-    
+
 //Get the receipt of the transaction
 const receipt = await txResponse.getReceipt(client);
 
@@ -129,29 +125,29 @@ console.log("The new token ID is " + tokenId);
 ```go
 //Create the transaction and freeze the unsigned transaction
 tokenCreateTransaction, err := hedera.NewTokenCreateTransaction().
-	  SetTokenName("Your Token Name").
-		SetTokenSymbol("F").
-		SetTreasuryAccountID(treasuryAccountId).
-		SetInitialSupply(1000).
-		SetAdminKey(adminKey).
-		SetMaxTransactionFee(hedera.NewHbar(30)). //Change the default max transaction fee
-		FreezeWith(client)
+      SetTokenName("Your Token Name").
+        SetTokenSymbol("F").
+        SetTreasuryAccountID(treasuryAccountId).
+        SetInitialSupply(1000).
+        SetAdminKey(adminKey).
+        SetMaxTransactionFee(hedera.NewHbar(30)). //Change the default max transaction fee
+        FreezeWith(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Sign with the admin private key of the token, sign with the token treasury private key, sign with the client operator private key and submit the transaction to a Hedera network
 txResponse, err := tokenCreateTransaction.Sign(adminKey).Sign(treasuryKey).Execute(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Request the receipt of the transaction
 receipt, err := txResponse.GetReceipt(client)
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Get the token ID from the receipt
@@ -170,7 +166,7 @@ fmt.Printf("The new token ID is %v\n", tokenId)
 | `setName(<name>)` | String | Required |
 | `setSymbol(<symbol>)` | String | Required |
 | `setDecimals(<decimal>)` | int | Optional |
-| `setInitialSupply(<initialSupply>)`   | int | Optional |
+| `setInitialSupply(<initialSupply>)` | int | Optional |
 | `setTreasury(<treasury>)` | [AccountId](../specialized-types.md#accountid) | Required |
 | `setAdminKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Required |
 | `setKycKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
@@ -233,6 +229,4 @@ console.log("The new token ID is " +tokenId);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

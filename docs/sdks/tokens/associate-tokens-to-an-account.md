@@ -11,7 +11,7 @@ Associates the provided Hedera account with the provided Hedera tokens. Hedera a
 * On success, associations between the provided account and tokens are made and the account is ready to interact with the tokens.
 
 {% hint style="info" %}
-The maximum number of tokens that can be associated to an account is 1,000. 
+The maximum number of tokens that can be associated to an account is 1,000.
 {% endhint %}
 
 | Constructor | Description |
@@ -22,12 +22,10 @@ The maximum number of tokens that can be associated to an account is 1,000.
 new TokenAssociateTransaction()
 ```
 
-### Methods
+## Methods
 
 {% tabs %}
 {% tab title="V2" %}
-
-
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
 | `setAccountId(<accountId>)` | AccountId | The account to be associated with the provided tokens | Required |
@@ -42,10 +40,10 @@ TokenAssociateTransaction transaction = new TokenAssociateTransaction()
 
 //Freeze the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
 TransactionResponse txResponse = transaction.freezeWith(client).sign(accountKey).execute(client);
-    
+
 //Request the receipt of the transaction
 TransactionReceipt receipt = txResponse.getReceipt(client);
-    
+
 //Get the transaction consensus status
 Status transactionStatus = receipt.status;
 
@@ -70,7 +68,7 @@ const txResponse = await signTx.execute(client);
 
 //Request the receipt of the transaction
 const receipt = await txResponse.getReceipt(client);
-    
+
 //Get the transaction consensus status
 const transactionStatus = receipt.status;
 
@@ -84,26 +82,26 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 ```go
 //Associate the token to an account and freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenAssociateTransaction().
-		SetAccountID(accountId).
-		SetTokenIDs(tokenId).
-		FreezeWith(client)
+        SetAccountID(accountId).
+        SetTokenIDs(tokenId).
+        FreezeWith(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
 txResponse, err = transaction.Sign(accountKey).Execute(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Get the transaction consensus status
 receipt, err = txResponse.GetReceipt(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Get the transaction consensus status
@@ -131,10 +129,10 @@ TokenAssociateTransaction transaction = new TokenAssociateTransaction()
 
 //Build the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
 TransactionId transactionId = transaction.build(client).sign(accountKey).execute(client);
-    
+
 //Request the receipt of the transaction
 TransactionReceipt getReceipt = transactionId.getReceipt(client);
-    
+
 //Obtain the transaction consensus status
 Status transactionStatus = getReceipt.status;
 
@@ -152,10 +150,10 @@ const transaction = new TokenAssociateTransaction()
 
 //Build the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
 const transactionId = await transaction.build(client).sign(accountKey).execute(client);
-    
+
 //Request the receipt of the transaction
 const getReceipt = await transactionId.getReceipt(client);
-    
+
 //Obtain the transaction consensus status
 const transactionStatus = getReceipt.status;
 
@@ -165,6 +163,4 @@ console.log("The transaction consensus status " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

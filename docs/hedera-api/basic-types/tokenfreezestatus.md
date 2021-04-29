@@ -8,5 +8,3 @@ Possible Freeze statuses returned on TokenGetInfoQuery or CryptoGetInfoResponse 
 | `Frozen` | Token cannot be transferred to the account |
 | `Unfrozen` | Token can be transferred to the account |
 
-#### 
-

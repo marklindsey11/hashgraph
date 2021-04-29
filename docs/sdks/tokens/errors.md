@@ -41,5 +41,3 @@ Network response messages and their descriptions.
 | `EMPTY_TOKEN_TRANSFER_BODY` | TokenTransfersTransactionBody has no TokenTransferList |
 | `EMPTY_TOKEN_TRANSFER_ACCOUNT_AMOUNTS` | TokenTransfersTransactionBody has a TokenTransferList with no AccountAmounts |
 
-
-

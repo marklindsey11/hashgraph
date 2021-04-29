@@ -14,7 +14,7 @@ The account must be associated to the token prior to transferring tokens to that
 new TransferTransaction()
 ```
 
-### Methods
+## Methods
 
 {% tabs %}
 {% tab title="V2" %}
@@ -55,13 +55,13 @@ const transaction = await new TransferTransaction()
 
 //Sign with the sender account private key
 const signTx = await transaction.sign(accountKey1);
-    
+
 //Sign with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
-    
+
 //Request the receipt of the transaction
 const receipt = await txResponse.getReceipt(client);
-    
+
 //Obtain the transaction consensus status
 const transactionStatus = receipt.status;
 
@@ -75,21 +75,21 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 ```go
 //Create the transfer transaction and freeze the transaction from further modification
 transaction, err := hedera.NewTransferTransaction().
-		AddTokenTransfer(tokenId, accountId1, -10).
-		AddTokenTransfer(tokenId, accountId2, 10).
-		FreezeWith(client)
+        AddTokenTransfer(tokenId, accountId1, -10).
+        AddTokenTransfer(tokenId, accountId2, 10).
+        FreezeWith(client)
 
 //Sign with the accountId1 private key, sign with the client operator key and submit to a Hedera network
 txResponse, err := transaction.Sign(accountKey1).Execute(client)
 
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Request the receipt of the transaction
 receipt, err := txResponse.GetReceipt(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Get the transaction consensus status
@@ -119,7 +119,7 @@ TransferTransaction transaction = new TransferTransaction()
 
 //Sign with the client operator key and submit the transaction to a Hedera network
 TransactionId txId = transaction.build(client).sign(accountKey).execute(client);
-            
+
 //Request the receipt of the transaction
 TransactionReceipt receipt = txId.getReceipt(client);
 
@@ -141,10 +141,10 @@ const transaction = new TransferTransaction()
 
 //Build the unsigned transaction, sign with sender account private key, submit the transaction to a Hedera network
 const transactionId = await transaction.build(client).sign(accountKey).execute(client);
-    
+
 //Request the receipt of the transaction
 const getReceipt = await transactionId.getReceipt(client);
-    
+
 //Obtain the transaction consensus status
 const transactionStatus = getReceipt.status;
 
@@ -153,6 +153,4 @@ console.log("The transaction consensus status " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

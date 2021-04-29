@@ -1,6 +1,6 @@
 # Submit a message
 
-A transaction that submits a topic message to the Hedera network. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash. 
+A transaction that submits a topic message to the Hedera network. To access the messages submitted to a topic ID, subscribe to the topic via a mirror node. The mirror node will publish the ordered messages subscribers. Once the transaction is successfully executed, the receipt of the transaction will include the topic's updated sequence number and topic running hash.
 
 **Transaction Signing Requirements**
 
@@ -67,19 +67,19 @@ await new TopicMessageSubmitTransaction({
 ```java
 //Create the transaction
 transaction := hedera.NewTopicSubmitTransaction().
-		SetTopicID(topicID).
-		SetMessage([]byte(content))
+        SetTopicID(topicID).
+        SetMessage([]byte(content))
 
 //Sign with the client operator private key and submit the transaction to a Hedera network
 txResponse, err := transaction.Execute(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Request the receipt of the transaction
 transactionReceipt, err := txResponse.GetReceipt(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Get the transaction consensus status
@@ -92,8 +92,6 @@ fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
 {% endtab %}
 
 {% tab title="V1" %}
-
-
 | Constructor | Description |
 | :--- | :--- |
 | `new ConsensusMessageSubmitTransaction()` | Initializes a ConsensusMessageSubmitTransaction object |
@@ -101,8 +99,6 @@ fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
 ```java
 new ConsensusMessageSubmitTransaction()
 ```
-
-
 
 ### Methods
 
@@ -152,7 +148,7 @@ new ConsensusMessageSubmitTransaction()
       <td style="text-align:left">Optional</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>setMaxChunkInfo(&lt;initial<br />Transactionid<br />,totalNumber, number&gt;) </code>
+      <td style="text-align:left"><code>setMaxChunkInfo(&lt;initial<br />Transactionid<br />,totalNumber, number&gt;)</code>
       </td>
       <td style="text-align:left">TransactionId, int, int</td>
       <td style="text-align:left">
@@ -166,8 +162,6 @@ new ConsensusMessageSubmitTransaction()
     </tr>
   </tbody>
 </table>
-
-
 
 {% code title="Java" %}
 ```java
@@ -206,7 +200,7 @@ await new ConsensusMessageSubmitTransaction()
 | Method | Type | Description |
 | :--- | :--- | :--- |
 | `getTopicId()` | TopicId | The topic ID to submit the message to |
-| `getMessage()` | ByteString | The message being submitted  |
+| `getMessage()` | ByteString | The message being submitted |
 | `getAllTransactionHash()` | byte \[ \] | The hash for each transaction |
 
 {% code title="Java" %}
@@ -215,7 +209,7 @@ await new ConsensusMessageSubmitTransaction()
 TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
     .setTopicId(newTopicId)
     .setMessage("hello, HCS! ");
-        
+
 //Get the transaction message
 ByteString getMessage = transaction.getMessage();
 //v2.0.0
@@ -228,7 +222,7 @@ ByteString getMessage = transaction.getMessage();
 const transaction = await new TopicMessageSubmitTransaction()
     .setTopicId(newTopicId)
     .setMessage("hello, HCS! ");
-        
+
 //Get the transaction message
 const getMessage = transaction.getMessage();
 
@@ -240,9 +234,9 @@ const getMessage = transaction.getMessage();
 ```java
 //Create the transaction
 transaction := hedera.NewTopicSubmitTransaction().
-		SetTopicID(topicID).
-		SetMessage([]byte(content))
-		
+        SetTopicID(topicID).
+        SetMessage([]byte(content))
+
 //Get the transaction message
 getMessage := transaction.GetMessage()
 //v2.0.0
@@ -250,6 +244,4 @@ getMessage := transaction.GetMessage()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

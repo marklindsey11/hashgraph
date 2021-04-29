@@ -10,7 +10,7 @@ A transaction that updates the properties of an existing account. The network wi
   * If either is a threshold kye, the threshold value is required to sign
 * If you do not have the required signatures, the network will throw an INVALID\_SIGNATURE error
 
-**Account Properties** 
+**Account Properties**
 
 <table>
   <thead>
@@ -53,7 +53,7 @@ A transaction that updates the properties of an existing account. The network wi
           <br />
           <br /><b>NOTE:</b> This is fixed to approximately 3 months (7890000 seconds).
           Any other value will return the following error: AUTORENEW_DURATION_NOT_IN_RANGE.</p>
-        <p><em>default: 2,592,000 seconds</em><b> </b>
+        <p><em>default: 2,592,000 seconds</em>
         </p>
       </td>
     </tr>
@@ -146,12 +146,12 @@ console.log("The transaction consensus status is " +transactionStatus.toString()
 ```go
 //Create the transaction to update the key on the account
 transaction, err := hedera.NewAccountUpdateTransaction().
-		SetAccountID(newAccountId).
-		SetKey(updateKey.PublicKey()).
-		FreezeWith(client)
+        SetAccountID(newAccountId).
+        SetKey(updateKey.PublicKey()).
+        FreezeWith(client)
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Sign the transaction with the old key and new key, submit to a Hedera network   
@@ -160,7 +160,7 @@ txResponse, err := transaction.Sign(newKey).Sign(updateKey).Execute(client)
 //Request the receipt of the transaction
 receipt, err := txResponse.GetReceipt(client)
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //Get the transaction consensus status
@@ -275,8 +275,8 @@ const accountKey = transaction.getKey();
 ```java
 //Create the transaction 
 transaction, err := hedera.NewAccountUpdateTransaction().
-		SetAccountID(newAccountId).
-		SetKey(updateKey.PublicKey())
+        SetAccountID(newAccountId).
+        SetKey(updateKey.PublicKey())
 
 //Get the key of an account
 accountKey := transaction.GetKey()

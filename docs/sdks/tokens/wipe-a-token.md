@@ -3,9 +3,9 @@
 Wipes the provided amount of tokens from the specified Hedera account. This transaction must be signed by the token's Wipe Key and the key of the account is being wiped. Wiping an accounts tokens burns the tokens and decreases the total supply.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
-*  If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED
-*  If the provided token is not found, the transaction will resolve to INVALID\_TOKEN\_ID.
-*  If the provided token has been deleted, the transaction will resolve to TOKEN\_WAS\_DELETED.
+* If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED
+* If the provided token is not found, the transaction will resolve to INVALID\_TOKEN\_ID.
+* If the provided token has been deleted, the transaction will resolve to TOKEN\_WAS\_DELETED.
 * If an Association between the provided token and account is not found, the transaction will resolve to TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT.
 * If Wipe Key is not present in the Token, transaction results in TOKEN\_HAS\_NO\_WIPE\_KEY.
 * If the provided account is the token's Treasury Account, transaction results in CANNOT\_WIPE\_TOKEN\_TREASURY\_ACCOUNT
@@ -21,7 +21,7 @@ Wipes the provided amount of tokens from the specified Hedera account. This tran
 new TokenWipeAccountTransaction()
 ```
 
-### Methods
+## Methods
 
 {% tabs %}
 {% tab title="V2" %}
@@ -41,10 +41,10 @@ TokenWipeTransaction transaction = new TokenWipeTransaction()
 
 //Freeze the unsigned transaction, sign with the private key of the account that is being wiped, sign with the wipe private key of the token, submit the transaction to a Hedera network
 TransactionResponse txResponse = transaction.freezeWith(client).sign(accountKey).sign(wipeKey).execute(client);
-    
+
 //Request the receipt of the transaction
 TransactionReceipt receipt = txResponse.getReceipt(client);
-    
+
 //Obtain the transaction consensus status
 Status transactionStatus = receipt.status;
 
@@ -82,27 +82,27 @@ console.log("The transaction consensus status is " +transactionStatus.toString()
 ```go
 //Wipe 100 tokens and freeze the unsigned transaction for manual signing
 transaction, err = hedera.NewTokenBurnTransaction().
-		SetAccountId(accountId).
-		SetTokenID(tokenId).
-		SetAmount(1000).
-		FreezeWith(client)
+        SetAccountId(accountId).
+        SetTokenID(tokenId).
+        SetAmount(1000).
+        FreezeWith(client)
 
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Sign with the private key of the account that is being wiped, sign with the wipe private key of the token
 txResponse, err := transaction.Sign(accountKey).Sign(wipeKey).Execute(client)
 
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Request the receipt of the transaction
 receipt, err = txResponse.GetReceipt(client)
 
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Get the transaction consensus status
@@ -132,10 +132,10 @@ TokenWipeTransaction transaction = new TokenWipeTransaction()
 
 //Build the unsigned transaction, sign with the private key of the account that is being wiped, sign with the wipe private key of the token, submit the transaction to a Hedera network
 TransactionId transactionId = transaction.build(client).sign(accountKey).sign(wipeKey).execute(client);
-    
+
 //Request the receipt of the transaction
 TransactionReceipt getReceipt = transactionId.getReceipt(client);
-    
+
 //Obtain the transaction consensus status
 Status transactionStatus = getReceipt.status;
 
@@ -151,13 +151,13 @@ const transaction = new TokenWipeTransaction()
     .setAccountId(accountId)
     .setTokenId(tokenId)
     .setAmount(100);
-    
+
 //Build the unsigned transaction, sign with the account private key of the token, sign with the wipe private key, submit the transaction to a Hedera network
 const transactionId = await transaction.build(client).sign(accountKey).sign(wipeKey).execute(client);
-    
+
 //Request the receipt of the transaction
 const getReceipt = await transactionId.getReceipt(client);
-    
+
 //Obtain the transaction consensus status
 const transactionStatus = getReceipt.status;
 
@@ -167,6 +167,4 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

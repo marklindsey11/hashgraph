@@ -1,6 +1,6 @@
 # Generate a mnemonic phrase
 
-Generate a 12 or 24 word mnemonic phrase that can be used to recover the private keys that are associated with it. 
+Generate a 12 or 24 word mnemonic phrase that can be used to recover the private keys that are associated with it.
 
 {% tabs %}
 {% tab title="V2" %}
@@ -45,7 +45,7 @@ if err != nil {
 privateKey, err := mnemonic24.ToPrivateKey( /* passphrase */ "")
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 publicKey := privateKey.PublicKey()
@@ -65,7 +65,7 @@ fmt.Printf("mnemonic = %v\n", mnemonic)
 {% code title="Java" %}
 ```java
  Mnemonic mnemonic = Mnemonic.generate();
- 
+
  //1.3.2
 ```
 {% endcode %}
@@ -78,6 +78,4 @@ const mnemonic = Mnemonic.generate();
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-## 
 

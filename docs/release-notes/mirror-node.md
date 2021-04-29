@@ -171,7 +171,7 @@ The REST API now also supports repeatable `account.id` query parameters when fil
 
 Multiple modules have also seen security and standardization improvements by the addition of more robust automated analysis tools such as `gosec` as-well as the implementation of suggestions from a 3rd party code audit.
 
-This release also saw a step to support the new and improved v2 offerings of the \(Java SDK\)\[https://github.com/hashgraph/hedera-sdk-java\]. Both the monitor module and acceptance tests were updated to use the new SDK and utilize features such as in-built retry and support for scheduled transactions.
+This release also saw a step to support the new and improved v2 offerings of the \(Java SDK\)\[[https://github.com/hashgraph/hedera-sdk-java\](https://github.com/hashgraph/hedera-sdk-java\)\]. Both the monitor module and acceptance tests were updated to use the new SDK and utilize features such as in-built retry and support for scheduled transactions.
 
 ## [v0.28.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.28.2)
 
@@ -223,8 +223,7 @@ Historically, the importer application has always downloaded stream files and sa
 
 With this release, we've removed the need for importer to read and write to the filesystem. Instead, the downloader and parser threads now communicate via an in-memory queue. To accomplish this, we also had to remove the `t_application_status` table in favor of calculating the last successful file directly from the stream file tables. In addition to fixing the aforementioned issues, the removal of the filesystem has resulted in a 5% latency improvement.
 
-Other changes include adding an `index` field to `record_file` table to simulate a blockchain index and updating our [Google Marketplace](https://console.cloud.google.com/marketplace/details/mirror-node-public/hedera-mirror-node) to v0.27. Also, we added support for the v5 stream files to the `check-state-proof` client app.  
-
+Other changes include adding an `index` field to `record_file` table to simulate a blockchain index and updating our [Google Marketplace](https://console.cloud.google.com/marketplace/details/mirror-node-public/hedera-mirror-node) to v0.27. Also, we added support for the v5 stream files to the `check-state-proof` client app.
 
 ## [0.27.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.27.0)
 
@@ -408,7 +407,7 @@ The aforementioned `startDate` property does change how the mirror node operator
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPGRADE COMPLETED: SEPTEMBER 3, 2020** 
+**TESTNET UPGRADE COMPLETED: SEPTEMBER 3, 2020**
 {% endhint %}
 
 This release contains the port of a bug fix to better manage the `VertxException: Thread blocked` issue seen in [\#945](https://github.com/hashgraph/hedera-mirror-node/issues/945)
@@ -571,10 +570,9 @@ We improved the importer ingestion rate from 3400 to 5600 transactions per secon
 
 We added an option to keep signature files after verification. By default, we no longer store signatures on the filesystem. If you'd like to restore the old behavior and keep the signatures, you can set `hedera.mirror.importer.downloader.record.keepSignatures=true` and `hedera.mirror.importer.downloader.balance.keepSignatures=true`.
 
-We changed the bypass hash mismatch behavior in this release. Bypassing hash mismatch could be used in combination with other parameters to fast forward mirror node to newer data or to overcome stream resets. Previously you had to specify this via a database value in `t_application_status`. Since this data is not application state but considered more a user supplied value, we added a new property `hedera.mirror.importer.verifyHashAfter=2020-06-05T17:16:00.384877454Z` for this purpose.  
+We changed the bypass hash mismatch behavior in this release. Bypassing hash mismatch could be used in combination with other parameters to fast forward mirror node to newer data or to overcome stream resets. Previously you had to specify this via a database value in `t_application_status`. Since this data is not application state but considered more a user supplied value, we added a new property `hedera.mirror.importer.verifyHashAfter=2020-06-05T17:16:00.384877454Z` for this purpose.
 
-
-## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0) 
+## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0)
 
 {% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: JUNE 10, 2020**
@@ -596,9 +594,7 @@ We've removed the `hedera.mirror.addressBookPath` property in favor of a `hedera
 
 The REST API to retrieve a topic message by its consensus timestamp now supports both a plural \(`/topics/messages/:consensusTimestamp`\) and singular \(`/topic/message/:consensusTimestamp`\) URI path. The singular format is deprecated and will be going away in the near future, so please update to the plural format soon.
 
-We removed the singular form of a few alpha topic REST APIs. The `/topic/:id/message` API was removed in favor of the plural form `/topics/:id/messages`. Similarly, the `/topic/:id/message/:sequencenumber`API was removed in favor of its plural form `/topics/:id/messages/:sequencenumber`. Please update accordingly.  
-  
-
+We removed the singular form of a few alpha topic REST APIs. The `/topic/:id/message` API was removed in favor of the plural form `/topics/:id/messages`. Similarly, the `/topic/:id/message/:sequencenumber`API was removed in favor of its plural form `/topics/:id/messages/:sequencenumber`. Please update accordingly.
 
 ## [v0.10.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.10.1)
 
@@ -674,8 +670,6 @@ Also, we moved the persist properties to be grouped under a new path. That is we
 
 0.7.0 focuses on refactoring the record file parsing to decouple the parsing from the persisting of data. This refactoring is laying the groundwork for additional performance improvements and allowing additional downstream components to register for notification of the transactions.
 
-
-
 ## [v0.6.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.6.0)
 
 * Release focused on stability and performance improvements. 
@@ -691,7 +685,7 @@ Please note that one potentially breaking change in this release is to reject su
 
 * Now supports all HCS functionality including a streaming gRPC API for message topic subscription. 
 * Changed how the mirror node verifies mainnet consensus. Mirror node now waits for at least third of node signatures rather than greater than two thirds to verify consensus.
-*  Added new mainnet nodes to the mirror node address book.
+* Added new mainnet nodes to the mirror node address book.
 * Access still restricted to a white listed set of IP addresses. Request access [here](https://learn.hedera.com/l/576593/2020-01-13/7z5jb).
 * Please see the Mirror Node releases page for the full list of changes [here](https://github.com/hashgraph/hedera-mirror-node/releases).
 * We occasionally may encounter a situation where an additional 15-20 second delay in message round trip time is experienced and subscriber connections are dropped. No messages are lost, and the consensus time is not affected. Clients are encouraged to reconnect. This issue will be fixed in a subsequent release of the Hedera mirror node. Some third-party mirror nodes should not be affected by this issue. We also don't expect it to impact the exchanges using the REST end point for the mirror node. 

@@ -1,6 +1,6 @@
 # Append to a file
 
-A transaction that appends new file content to the end of an existing file. The contents of the file can be viewed by submitting a FileContentsQuery request. 
+A transaction that appends new file content to the end of an existing file. The contents of the file can be viewed by submitting a FileContentsQuery request.
 
 **Transaction Signing Requirements**
 
@@ -34,7 +34,7 @@ The default max transaction fee \(1 hbar\) is not enough to create a a file. Use
 FileAppendTransaction transaction = new FileAppendTransaction()
     .setFileId(newFileId)
     .setContents("The appended contents");
-    
+
 //Change the default max transaction fee to 2 hbars
 FileCreateTransaction modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2)); 
 
@@ -84,8 +84,8 @@ console.log("The transaction consensus status is " +transactionStatus);
 ```java
 //Create the transaction
 transaction2 := hedera.NewFileAppendTransaction().
-		SetFileID(newFileId).
-		SetContents([]byte("The appended contents"))
+        SetFileID(newFileId).
+        SetContents([]byte("The appended contents"))
 
 //Change the default max transaction fee to 2 hbars
 modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
@@ -93,19 +93,19 @@ modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, h
 //Prepare transaction for signing, 
 freezeTransaction, err := modifyMaxTransactionFee.FreezeWith(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Sign with the key on the file, sign with the client operator key and submit to a Hedera network
 txResponse2 err := freezeTransaction.Sign(fileKey).Execute(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Request the receipt
 receipt, err := txResponse.GetReceipt(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Get the transaction consensus status
@@ -207,7 +207,7 @@ const getContents = transaction.getContents();
 //Create the transaction
 transaction2 := hedera.NewFileAppendTransaction().
     SetFileID(newFileId).
-		SetContents([]byte("The appended contents"))
+        SetContents([]byte("The appended contents"))
 
 //Get the contents
 getContents2 := transaction2.GetContents()
@@ -217,6 +217,4 @@ getContents2 := transaction2.GetContents()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-## 
 

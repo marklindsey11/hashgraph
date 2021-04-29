@@ -41,7 +41,7 @@ require("dotenv").config();
 
 ## Step 2: Create a transfer transaction
 
-You should already have a new account ID from the account you created from the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your account to the new account. The account sending hbars is the signature that is required for this transaction to be processed. 
+You should already have a new account ID from the account you created from the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your account to the new account. The account sending hbars is the signature that is required for this transaction to be processed.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -72,10 +72,10 @@ const transferTransactionId = await new TransferTransaction()
 {% endtabs %}
 
 {% hint style="info" %}
-The net value of the transfer must equal zero \(total number of hbars sent by the sender must equal the total number of hbars received by the recipient\). 
+The net value of the transfer must equal zero \(total number of hbars sent by the sender must equal the total number of hbars received by the recipient\).
 {% endhint %}
 
-## Step 3: Verify the transfer transaction reached consensus 
+## Step 3: Verify the transfer transaction reached consensus
 
 To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transaction. The receipt status will let you know if the transaction was successful \(reached consensus\) or not.
 
@@ -129,9 +129,9 @@ console.log("The cost of query is: " +getBalanceCost);
 {% endtab %}
 {% endtabs %}
 
-### 4.2  Get the account balance 
+### 4.2  Get the account balance
 
-You will verify the account balance was updated for the new account by requesting a get account balance query. The current account balance should be the sum of the initial balance \(1,000 tinybar\) plus the transfer amount \(1,000 tinybar\) and equal to 2,000 tinybars. 
+You will verify the account balance was updated for the new account by requesting a get account balance query. The current account balance should be the sum of the initial balance \(1,000 tinybar\) plus the transfer amount \(1,000 tinybar\) and equal to 2,000 tinybars.
 
 ```javascript
 //Check the new account's balance
@@ -142,17 +142,15 @@ const getNewBalance = await new AccountBalanceQuery()
 console.log("The account balance after the transfer is: " +getNewBalance.hbars.toTinybars() +" tinybar.")
 ```
 
-⭐ Congratulations!  You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
+⭐ Congratulations! You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
 * Set-up your Hedera environment to submit transactions and queries
 * Created an account 
 * Transferred hbars to another account
 
-Do you want to keep learning? Visit our "Resources" and "Documentation" section to take your learning experience to the next level. You can also find additional JavaScript SDK examples [here](https://github.com/hashgraph/hedera-sdk-js/tree/master/examples). 
+Do you want to keep learning? Visit our "Resources" and "Documentation" section to take your learning experience to the next level. You can also find additional JavaScript SDK examples [here](https://github.com/hashgraph/hedera-sdk-js/tree/master/examples).
 
-
-
-## Code Check ✅ 
+## Code Check ✅
 
 Your complete index.js file should look something like this:
 

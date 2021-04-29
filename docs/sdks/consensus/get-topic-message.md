@@ -12,7 +12,7 @@ Subscribe to a topic ID's messages from a mirror node. You will receive all mess
 new TopicMessageQuery()
 ```
 
-### Methods
+## Methods
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
@@ -53,15 +53,15 @@ new TopicMessageQuery()
 ```java
 //Create the query
 _, err = hedera.NewTopicMessageQuery().
-	SetTopicID(topicID).
-	Subscribe(client, func(message hedera.TopicMessage) {
-		if string(message.Contents) == content {
-		wait = false
-	}
+    SetTopicID(topicID).
+    Subscribe(client, func(message hedera.TopicMessage) {
+        if string(message.Contents) == content {
+        wait = false
+    }
 })
 
 if err != nil {
-	panic(err)
+    panic(err)
 }
 
 //v2.0.0
@@ -70,8 +70,6 @@ if err != nil {
 {% endtab %}
 
 {% tab title="V1" %}
-
-
 | Constructor | Description |
 | :--- | :--- |
 | `new MirrorConsensusTopicQuery()` | Initializes the MirrorConsensusTopicQuery object |
@@ -80,7 +78,7 @@ if err != nil {
 new MirrorConsensusTopicQuery()
 ```
 
-### Methods
+## Methods
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
@@ -118,6 +116,4 @@ new MirrorConsensusTopicQuery()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-## 
 

@@ -13,7 +13,7 @@ A transaction that updates the state of an existing file on a Hedera network. On
 | Field | Description |
 | :--- | :--- |
 | **Key\(s\)** | Update the keys which must sign any transactions modifying this file. All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time \(except the one for the operator account paying for the transaction\). The network currently requires a file to have at least one key \(or key list or threshold key\) but this requirement may be lifted in the future. |
-| **Contents** | The content to update the files with.  |
+| **Contents** | The content to update the files with. |
 | **Expiration Time** | If set, update the expiration time of the file. Must be in the future \(may only be used to extend the expiration\). To make a file inaccessible use FileDeleteTransaction. |
 | **Memo** | Short publicly visible memo about the file. No guarantee of uniqueness. \(100 characters max\) |
 
@@ -28,7 +28,7 @@ new FileUpdateTransaction()
 ### Methods
 
 {% hint style="info" %}
-**Note:** The total size for a given transaction is limited to 6KiB. If you exceed this value you will need to submit a FileUpdateTransaction that is less than 6KiB and  then submit a FileAppendTransaction to add the remaining content to the file.
+**Note:** The total size for a given transaction is limited to 6KiB. If you exceed this value you will need to submit a FileUpdateTransaction that is less than 6KiB and then submit a FileAppendTransaction to add the remaining content to the file.
 {% endhint %}
 
 {% tabs %}
@@ -48,7 +48,7 @@ new FileUpdateTransaction()
 FileUpdateTransaction transaction = new FileUpdateTransaction()
     .setFileId(fileId)
     .setKeys(newKey);
-        
+
 //Modify the max transaction fee
 FileUpdateTransaction txFee = transaction.setMaxTransactionFee(new Hbar(3));
 
@@ -98,8 +98,8 @@ console.log("The transaction consensus status " +transactionStatus3.toString());
 ```java
 //Create the transaction
 transaction := hedera.NewFileUpdateTransaction().
-	  SetFileID(fileId).
-		SetKeys(newKey)
+      SetFileID(fileId).
+        SetKeys(newKey)
 
 //Modify the max transaction fee
 modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
@@ -107,19 +107,19 @@ modifyMaxTransactionFee := transaction.SetMaxTransactionFee(hedera.HbarFrom(2, h
 //Prepare the transaction for signing
 freezeTransaction, err := modifyMaxTransactionFee.FreezeWith(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Sign with the key on the file, sign with the client operator key and submit to a Hedera network
 txResponse, err := freezeTransaction.Sign(fileKey).Sign(newKey).Execute(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Request the receipt
 receipt, err := txResponse.GetReceipt(client)
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Get the transaction status
@@ -230,8 +230,8 @@ const getKey = transaction.getKey();
 ```java
 //Create the transaction
 transaction := hedera.NewFileUpdateTransaction().
-	  SetFileID(fileId).
-		SetKeys(newKey)
+      SetFileID(fileId).
+        SetKeys(newKey)
 
 //Get the contents of a file
 getKey := transaction.GetKeys()
@@ -241,6 +241,4 @@ getKey := transaction.GetKeys()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-## 
 

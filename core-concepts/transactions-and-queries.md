@@ -6,7 +6,7 @@ description: An overview of Hedera API transactions and queries
 
 ## Transactions
 
-**Transactions** are requests sent by a client to a node with the expectation that it be submitted to the network for processing into consensus order and subsequent application to state. Each transaction \(e.g. `TokenCreateTransaction()`\) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state. 
+**Transactions** are requests sent by a client to a node with the expectation that it be submitted to the network for processing into consensus order and subsequent application to state. Each transaction \(e.g. `TokenCreateTransaction()`\) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state.
 
 **Transaction ID**
 
@@ -15,7 +15,7 @@ Each transaction has a unique transaction ID. The transaction ID is used for the
 * Obtaining receipts, records, state proofs
 * Internally by the network for detecting when duplicate transactions are submitted
 
-The transaction ID is composed by using the transaction valid start time and the account ID of the account that paid for the transaction. The transaction valid start is the timestamp in seconds.nanoseconds format. A transaction ID looks something like  `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is the timestamp in seconds.nanoseconds.
+The transaction ID is composed by using the transaction valid start time and the account ID of the account that paid for the transaction. The transaction valid start is the timestamp in seconds.nanoseconds format. A transaction ID looks something like `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is the timestamp in seconds.nanoseconds.
 
 A **transaction** generally includes the following:
 
@@ -35,7 +35,7 @@ For more information about Hedera transaction fees, please visit Hedera API fees
 
 ## Queries
 
-**Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally queries are subject to fees. The full list of queries can be found [here](https://app.gitbook.com/@docs-hedera/s/guides/~/drafts/-MHF35QPYQblNVmw4nQk/docs/sdks/queries). 
+**Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally queries are subject to fees. The full list of queries can be found [here](https://app.gitbook.com/@docs-hedera/s/guides/~/drafts/-MHF35QPYQblNVmw4nQk/docs/sdks/queries).
 
 A query includes a header that includes a distinct HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.
 
@@ -46,8 +46,8 @@ For more information about query fees, please visit Hedera API fees [overview](h
 ### Recall:
 
 {% hint style="info" %}
-Recall   
-  
+Recall
+
 Hedera does not have **miners** or a special group of nodes that are responsible for adding transactions to the ledger like alternative distributed ledger solutions. The influence of each node to the determination of the consensus timestamp for an event is proportional to its stake in HBARs.
 {% endhint %}
 
@@ -64,12 +64,10 @@ Once a transaction has been submitted to the network, clients may seek confirmat
 * **State proofs \(coming soon\):** When querying for a record, a client can optionally indicate that it desires the network to return a state proof in addition to the record. A state proof documents network consensus on the contents of that record in the consensus state — this collective assertion includes signatures of most of the network nodes. Because state proofs are cryptographically signed by a super majority of the network, they are secure and potentially admissible in a court of law.
 
 {% hint style="info" %}
-An early version of a state proof, state proof alpha, is now available. Please check out the Mirror Node REST API section to get started. 
+An early version of a state proof, state proof alpha, is now available. Please check out the Mirror Node REST API section to get started.
 {% endhint %}
 
 {% page-ref page="../docs/mirror-node-api/cryptocurrency-api.md" %}
-
-
 
 For a more detailed review of confirmation methods check out this [blog post](https://www.hedera.com/blog/transaction-confirmation-methods-in-hedera).
 

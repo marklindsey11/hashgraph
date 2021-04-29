@@ -1,6 +1,6 @@
 # Create a threshold key
 
-Create a key structure that requires the defined threshold value to sign. You can use either the public key or private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error. 
+Create a key structure that requires the defined threshold value to sign. You can use either the public key or private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error.
 
 {% tabs %}
 {% tab title="V2" %}
@@ -100,7 +100,7 @@ keys[2] = publicKey3
 
 //A key structure that requires one of the 3 keys to sign
 thresholdKey := hedera.KeyListWithThreshold(1).
-		AddAllPublicKeys(keys)
+        AddAllPublicKeys(keys)
 
 fmt.Printf("The 1/3 threshold key structure %v\n", thresholdKey)
 
@@ -110,8 +110,8 @@ fmt.Printf("The 1/3 threshold key structure %v\n", thresholdKey)
 
 **Sample Output:**
 
-`KeyList{threshold=1,  
-      keys=[302e020100300506032b657004220420984bd6b4e0cac783654f30c8797655953c6ab432e78bc09a34fbda594c6395ed, 302e020100300506032b657004220420a4a7bd506f33868416d53eff55b3e8a254e17accf6cb37f44975792ededac120, 302e020100300506032b657004220420f8a6f2ba3174391e619a87506fb0b86c6e481809563a797f4f84715d1a471695]  
+`KeyList{threshold=1,    
+keys=[302e020100300506032b657004220420984bd6b4e0cac783654f30c8797655953c6ab432e78bc09a34fbda594c6395ed, 302e020100300506032b657004220420a4a7bd506f33868416d53eff55b3e8a254e17accf6cb37f44975792ededac120, 302e020100300506032b657004220420f8a6f2ba3174391e619a87506fb0b86c6e481809563a797f4f84715d1a471695]    
 }`
 {% endtab %}
 
@@ -168,6 +168,4 @@ const thresholdKeys = new ThresholdKey(2).add(publicKey1).add(publicKey2).add(pu
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-#### 
 

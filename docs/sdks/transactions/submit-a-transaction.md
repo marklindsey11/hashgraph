@@ -78,14 +78,14 @@ console.log("The node ID is " +nodeId);
 ```java
 //Create the transaction
 transaction := hedera.NewAccountCreateTransaction().
-		SetKey(publicKey).
-		SetInitialBalance(hedera.NewHbar(1000))
-	
+        SetKey(publicKey).
+        SetInitialBalance(hedera.NewHbar(1000))
+
 //Sign with client operator private key and submit the transaction to a Hedera network
 txResponse, err := transaction.Execute(client)
 
 if err != nil {
-		panic(err)
+        panic(err)
 }
 
 //Get the transaction ID
@@ -125,6 +125,4 @@ fmt.Printf("The node id is %v\n", transactionNodeId)
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-## 
 

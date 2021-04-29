@@ -1,6 +1,6 @@
 # Get smart contract bytecode
 
-A query that returns the bytecode for a smart contract instance**.** Anyone can request the byte code of a smart contract instance on the network.  Queries do not change the state of the smart contract or require network consensus. The information is returned from a single node processing the query.
+A query that returns the bytecode for a smart contract instance**.** Anyone can request the byte code of a smart contract instance on the network. Queries do not change the state of the smart contract or require network consensus. The information is returned from a single node processing the query.
 
 **Query Signing Requirements**
 
@@ -54,7 +54,7 @@ query := hedera.NewContractByteCodeQuery().
 bytecode, err := query.Execute(client)
 
 if err != nil {
-		panic(err)
+        panic(err)
 }
 ```
 {% endcode %}
@@ -132,6 +132,4 @@ query.GetContractID()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-## 
 
