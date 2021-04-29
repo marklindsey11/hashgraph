@@ -8,7 +8,7 @@ The Schedule Service allows transactions to be submitted without all the require
 
 Scheduled Transactions are executed once all required signatures are collected and witnessed. Every time new signature is provided, a check is performed on the "readiness" of the execution.
 
-The Scheduled Transaction will be executed immediately after the transaction that triggered it and will be externalised in a separate Transaction Record.
+The Scheduled Transaction will be executed immediately after the transaction that triggered it and will be externalized in a separate Transaction Record.
 
 **Transaction Record:**
 

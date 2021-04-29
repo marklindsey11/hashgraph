@@ -2,7 +2,7 @@
 
 ## Background
 
-Hedera is the public ledger built on the lightning fast hasghraph consensus algorithm. You can use Hedera like you would a blockchain; send cryptocurrency, run smart contracts, even store files!
+Hedera is the public ledger built on the lightning fast hashgraph consensus algorithm. You can use Hedera like you would a blockchain; send cryptocurrency, run smart contracts, even store files!
 
 We’re getting close to availability of Hedera’s JavaScript SDK, which will make it even easier to build applications. In this post I’ll show you how you can get your environment setup and start using Hedera Hashgraph with Node.js, one of the most popular environments in the world.
 
@@ -134,7 +134,7 @@ if (operatorPrivateKey == null ||
 }
 
 // Create our connection to the Hedera network
-// The Hedera JS SDK makes this reallyyy easy!
+// The Hedera JS SDK makes this really easy!
 const client = Client.forTestnet();
 
 // Set your client account ID and private key used to pay for transaction fees and sign transactions
@@ -178,7 +178,7 @@ if (operatorPrivateKey == null ||
 }
 
 // Create our connection to the Hedera network
-// The Hedera JS SDK makes this reallyyy easy!
+// The Hedera JS SDK makes this really easy!
 const client = Client.forTestnet();
 
 // Set your client default account ID and private key used to pay for transaction fees and sign transactions

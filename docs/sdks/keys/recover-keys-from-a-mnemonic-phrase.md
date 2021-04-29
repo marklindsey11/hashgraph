@@ -7,7 +7,7 @@ Recover private keys from a mnemonic phrase.
 | Method | Type | Description |
 | :--- | :--- | :--- |
 | `PrivateKey.fromMnemonic(<mnemonic>)` | Mnemonic | Recover a private key from a mnemonic phrase compatible with the iOS and Android wallets |
-| `PrivateKey.fromMnemonic(<mnemonic, passphrase>)` | Mneimonic. String | Recover a private key from a generated mnemonic phrase and a passphrase |
+| `PrivateKey.fromMnemonic(<mnemonic, passphrase>)` | Mnemonic. String | Recover a private key from a generated mnemonic phrase and a passphrase |
 
 {% code title="Java" %}
 ```java

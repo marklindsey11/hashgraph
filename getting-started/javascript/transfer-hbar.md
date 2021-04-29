@@ -144,7 +144,7 @@ console.log("The account balance after the transfer is: " +getNewBalance.hbars.t
 
 ⭐ Congratulations!  You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
-* Set-up your Hedera envrionment to submit transactions and queries
+* Set-up your Hedera environment to submit transactions and queries
 * Created an account 
 * Transferred hbars to another account
 
@@ -176,7 +176,7 @@ async function main() {
     }
 
     // Create our connection to the Hedera network
-    // The Hedera JS SDK makes this reallyyy easy!
+    // The Hedera JS SDK makes this really easy!
     const client = Client.forTestnet();
 
     client.setOperator(myAccountId, myPrivateKey);
@@ -246,7 +246,7 @@ async function main() {
     }
 
     // Create our connection to the Hedera network
-    // The Hedera JS SDK makes this reallyyy easy!
+    // The Hedera JS SDK makes this really easy!
     const client = Client.forTestnet();
 
     client.setOperator(myAccountId, myPrivateKey);

@@ -1,6 +1,6 @@
 # Get topic messages
 
-Subscribe to a topic ID's messages from a mirror node. You will recieve all messages for the specified topic or within the defined start and end time.
+Subscribe to a topic ID's messages from a mirror node. You will receive all messages for the specified topic or within the defined start and end time.
 
 {% tabs %}
 {% tab title="V2" %}
@@ -16,7 +16,7 @@ new TopicMessageQuery()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTopicId(<topicId>)` | TopicId | The topic ID to subsribe to | Required |
+| `setTopicId(<topicId>)` | TopicId | The topic ID to subscribe to | Required |
 | `setStartTime(<startTime>)` | Instant | The time to start subscribing to a topic's messages | Optional |
 | `setEndTime(<endTime>)` | Instant | The time to stop subscribing to a topic's messages | Optional |
 | `setLimit(<limit>)` | long | The number of messages to return | Optional |
@@ -84,7 +84,7 @@ new MirrorConsensusTopicQuery()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTopicId(<topicId>)` | TopicId | The topic ID to subsribe to | Required |
+| `setTopicId(<topicId>)` | TopicId | The topic ID to subscribe to | Required |
 | `setStartTime(<startTime>)` | Instant | The time to start subscribing to a topic's messages | Optional |
 | `setEndTime(<endTime>)` | Instant | The time to stop subscribing to a topic's messages | Optional |
 | `setLimit(<limit>)` | long | The number of messages to return | Optional |

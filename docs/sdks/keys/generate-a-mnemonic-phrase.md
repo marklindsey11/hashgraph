@@ -6,7 +6,7 @@ Generate a 12 or 24 word mnemonic phrase that can be used to recover the private
 {% tab title="V2" %}
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `Mneumonic.generate24()` | Mnemonic | Generates a 24 word recovery phrase that can be used to recover a private key |
+| `Mnemonic.generate24()` | Mnemonic | Generates a 24 word recovery phrase that can be used to recover a private key |
 | `Mnemonic.generate12()` | Mnemonic | Generates a 12 word recovery phrase that can be used to recover a private key |
 
 {% code title="Java" %}
@@ -35,7 +35,7 @@ console.log(mnemonic)
 
 {% code title="Go" %}
 ```java
-//Generate 24 word mneumonic
+//Generate 24 word mnemonic
 mnemonic24, err := hedera.GenerateMnemonic()
 
 if err != nil {
@@ -60,7 +60,7 @@ fmt.Printf("mnemonic = %v\n", mnemonic)
 {% tab title="V1" %}
 | Method | Description |
 | :--- | :--- |
-| `Mnemonic.generate()` | Generates a 24 word mneumonic phrase |
+| `Mnemonic.generate()` | Generates a 24 word mnemonic phrase |
 
 {% code title="Java" %}
 ```java

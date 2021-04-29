@@ -82,7 +82,7 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 {% code title="Go" %}
 ```go
-//Asscoiate the token to an account and freeze the unsigned transaction for signing
+//Associate the token to an account and freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenAssociateTransaction().
 		SetAccountID(accountId).
 		SetTokenIDs(tokenId).

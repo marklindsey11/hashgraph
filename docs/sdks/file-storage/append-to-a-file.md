@@ -127,13 +127,13 @@ fmt.Println("The transaction consensus status is ", transactionStatus)
 
 {% code title="Java" %}
 ```java
-FileAppendTransaction tranaaction = new FileAppendTransaction()
+FileAppendTransaction transaction = new FileAppendTransaction()
        .setFileId(newFileId)
        .setContents("The appended contents")
        .setMaxTransactionFee(new Hbar(2));
 
 //Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-TransactionId txId = tranaaction.build(client).sign(key).execute(client);
+TransactionId txId = transaction.build(client).sign(key).execute(client);
 
 //Request the receipt
 TransactionReceipt receipt1 = txId.getReceipt(client);
@@ -147,13 +147,13 @@ System.out.println("The transaction consensus status is " +transactionStatus)
 
 {% code title="JavaScript" %}
 ```javascript
-const tranaaction = new FileAppendTransaction()
+const transaction = new FileAppendTransaction()
        .setFileId(newFileId)
        .setContents("The appended contents")
        .setMaxTransactionFee(new Hbar(2));
 
 //Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-const txId = await tranaaction.build(client).sign(key).execute(client);
+const txId = await transaction.build(client).sign(key).execute(client);
 
 //Request the receipt
 const receipt = await txId.getReceipt(client);
@@ -184,7 +184,7 @@ FileAppendTransaction transaction = new FileAppendTransaction()
     .setContents("The appended contents");
 
 //Get the contents
-ByteString getContents = tranaaction.getContents();
+ByteString getContents = transaction.getContents();
 
 //v2.0.0
 ```
@@ -198,7 +198,7 @@ const transaction = new FileAppendTransaction()
     .setContents("The appended contents");
 
 //Get the contents
-const getContents = tranaaction.getContents();
+const getContents = transaction.getContents();
 ```
 {% endcode %}
 

@@ -80,7 +80,7 @@ if err != nil {
 	panic(err)
 }
 
-//Sign with the admin key, sign with the client operator private key and submit the transaction to a Hedera networ
+//Sign with the admin key, sign with the client operator private key and submit the transaction to a Hedera network
 txResponse, err := transaction.Sign(adminKey).Execute(client)
 
 if err != nil {

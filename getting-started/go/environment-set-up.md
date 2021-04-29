@@ -75,10 +75,10 @@ import (
 
 func main() {
 
-	//Loads the .env file and throws an error if it cannot load the variables from that file corectly
+	//Loads the .env file and throws an error if it cannot load the variables from that file correctly
 	err := godotenv.Load(".env")
 	if err != nil {
-		panic(fmt.Errorf("Unable to load enviroment variables from .env file. Error:\n%v\n", err))
+		panic(fmt.Errorf("Unable to load environment variables from .env file. Error:\n%v\n", err))
 	}
 	
   //Grab your testnet account ID and private key from the .env file
@@ -148,10 +148,10 @@ import (
 
 func main() {
 
-	//Loads the .env file and throws an error if it cannot load the variables from that file corectly
+	//Loads the .env file and throws an error if it cannot load the variables from that file correctly
 	err := godotenv.Load(".env")
 	if err != nil {
-		panic(fmt.Errorf("Unable to load enviroment variables from .env file. Error:\n%v\n", err))
+		panic(fmt.Errorf("Unable to load environment variables from .env file. Error:\n%v\n", err))
 	}
 
 	//Grab your testnet account ID and private key from the .env file

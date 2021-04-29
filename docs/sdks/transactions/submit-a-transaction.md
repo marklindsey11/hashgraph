@@ -1,6 +1,6 @@
 # Submit a transaction
 
-The `execute()` method submits a transaction to a Hedera network. This method will create the transaction ID from the client operator account ID, sign with the client opertor private key, and pick a node from the defined netork on the client to submit the transaction to. The transaction is also automatically signed with the client operator account private key. You do not need to manually sign transactions if this key is the required key on any given transaction. Once you submit the transaction, the response will include the following:
+The `execute()` method submits a transaction to a Hedera network. This method will create the transaction ID from the client operator account ID, sign with the client operator private key, and pick a node from the defined network on the client to submit the transaction to. The transaction is also automatically signed with the client operator account private key. You do not need to manually sign transactions if this key is the required key on any given transaction. Once you submit the transaction, the response will include the following:
 
 * The transaction ID of the transaction
 * The node ID of the node the transaction was submitted to

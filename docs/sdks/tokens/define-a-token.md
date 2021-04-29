@@ -54,7 +54,7 @@ new TokenCreateTransaction()
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setTokenName(<name>)` | String | Required |
-| `setTokenSybmol(<symbol>)` | String | Required |
+| `setTokenSymbol(<symbol>)` | String | Required |
 | `setDecimals(<decimal>)` | int | Optional |
 | `setInitialSupply(<initialSupply>)`   | int | Optional |
 | `setTreasuryAccountId(<treasury>)` | [AccountId](../specialized-types.md#accountid) | Required |
@@ -141,7 +141,7 @@ if err != nil {
 	panic(err)
 }
 
-//Sign with the admin private key of the token, sign with the token treasury private key, sign with the client operator private key and submit the transaction to a Hedera networ
+//Sign with the admin private key of the token, sign with the token treasury private key, sign with the client operator private key and submit the transaction to a Hedera network
 txResponse, err := tokenCreateTransaction.Sign(adminKey).Sign(treasuryKey).Execute(client)
 
 if err != nil {
@@ -168,7 +168,7 @@ fmt.Printf("The new token ID is %v\n", tokenId)
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setName(<name>)` | String | Required |
-| `setSybmol(<symbol>)` | String | Required |
+| `setSymbol(<symbol>)` | String | Required |
 | `setDecimals(<decimal>)` | int | Optional |
 | `setInitialSupply(<initialSupply>)`   | int | Optional |
 | `setTreasury(<treasury>)` | [AccountId](../specialized-types.md#accountid) | Required |

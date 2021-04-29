@@ -2,7 +2,7 @@
 
 ## Overview
 
-A Beta Mirror Node is a node that receives pre-constructed files from the Hedera mainnet. These pre-constructed files include **transaction records** and **account balance files**. Transaction records include information about a transaction like the transaction ID, transaction hash, account, etc. The account balance files give you a snashot of the balances for all accounts at a given timestamp.
+A Beta Mirror Node is a node that receives pre-constructed files from the Hedera mainnet. These pre-constructed files include **transaction records** and **account balance files**. Transaction records include information about a transaction like the transaction ID, transaction hash, account, etc. The account balance files give you a snapshot of the balances for all accounts at a given timestamp.
 
 In this tutorial, you will run your own Beta Mirror Node. You will need to create a Google Cloud Platform account if you do not have one already. The Beta Mirror Node object storage bucket, where you will pull the account balance and transaction data from, is stored in Google Cloud bucket and is configured for [requester pays](https://cloud.google.com/storage/docs/requester-pays). This means the Beta Mirror Node operator is responsible for the operational costs of reading and retrieving data from the Google Cloud bucket. A Google Cloud Platform account will provide the necessary information to cover the costs of the requests and download of the data.
 
@@ -24,7 +24,7 @@ In this tutorial, you will run your own Beta Mirror Node. You will need to creat
 
 ## 1. Obtain Google Cloud Platform Requester Pay Information
 
-You will need to grab the **secret key, access key**, and **project ID** from your Googe Cloud Platform account
+You will need to grab the **secret key, access key**, and **project ID** from your Google Cloud Platform account
 
 * From the left navigation bar select **STORAGE &gt; SETTINGS**
 * Click on the **Interoperability** tab and scroll down to the **User account HMAC** section
@@ -115,7 +115,7 @@ hedera:
 docker-compose up
 ```
 
-* Upon sucessfully running your Beta Mirror Node, you will see two folders created in the hedera-mirror-node directory titled **data** and **db**
+* Upon successfully running your Beta Mirror Node, you will see two folders created in the hedera-mirror-node directory titled **data** and **db**
 * The **data** folder contains the information downloaded from the google cloud bucket including account balances and records streams
 
 ## 5. Access Your Beta Mirror Node Data

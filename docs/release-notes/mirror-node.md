@@ -364,7 +364,7 @@ We also added support for the HAPI protobuf [changes](https://hedera.com/blog/ch
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNE UPDATE COMPLETED: SEPTEMBER 29, 2020**
+**TESTNET UPDATE COMPLETED: SEPTEMBER 29, 2020**
 {% endhint %}
 
 This release finishes the State Proof alpha REST API and makes it [generally available](http://www.hedera.com/blog/introducing-state-proof-alpha). As part of this, we made a lot of improvements to the check-state-proof command line tool that queries the API and validates the files locally. We also now store the node account used to verify record file, ensuring greater accuracy as to the provenance of the state proof.
@@ -571,7 +571,7 @@ We improved the importer ingestion rate from 3400 to 5600 transactions per secon
 
 We added an option to keep signature files after verification. By default, we no longer store signatures on the filesystem. If you'd like to restore the old behavior and keep the signatures, you can set `hedera.mirror.importer.downloader.record.keepSignatures=true` and `hedera.mirror.importer.downloader.balance.keepSignatures=true`.
 
-We changed the bypass hash mismatch behavior in this release. Bypassing hash mismatch could be used in combination with other parameters to fast forward mirror node to newer data or to overcome stream resets. Previously you had to specify this via a database value in `t_application_status`. Since this data is not application state but considered more a user supplied value, we added a new property `hedera.mirror.importer.verfiyHashAfter=2020-06-05T17:16:00.384877454Z` for this purpose.  
+We changed the bypass hash mismatch behavior in this release. Bypassing hash mismatch could be used in combination with other parameters to fast forward mirror node to newer data or to overcome stream resets. Previously you had to specify this via a database value in `t_application_status`. Since this data is not application state but considered more a user supplied value, we added a new property `hedera.mirror.importer.verifyHashAfter=2020-06-05T17:16:00.384877454Z` for this purpose.  
 
 
 ## [v0.11.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.11.0) 

@@ -35,7 +35,7 @@ new TokenUpdateTransaction()
 | :--- | :--- | :--- |
 | `setTokenId(<tokenId>)` | TokenId | Required |
 | `setTokenName(<name>)` | String | Optional |
-| `setTokenSybmol(<symbol>)` | String | Optional |
+| `setTokenSymbol(<symbol>)` | String | Optional |
 | `setTreasuryAccountId(<treasury>)` | AccountId | Optional |
 | `setAdminKey(<key>)` | PublicKey | Optional |
 | `setKycKey(<key>)` | PublicKey | Optional |
@@ -136,7 +136,7 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 | :--- | :--- | :--- |
 | `setTokenId(<tokenId>)` | TokenId | Required  |
 | `setName(<name>)` | String | Optional |
-| `setSybmol(<symbol>)` | String | Optional |
+| `setSymbol(<symbol>)` | String | Optional |
 | `setTreasury(<treasury>)` | AccountId | Optional |
 | `setAdminKey(<key>)` | PublicKey | Optional |
 | `setKycKey(<key>)` | PublicKey | Optional |

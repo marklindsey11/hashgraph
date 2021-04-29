@@ -15,7 +15,7 @@ Each transaction has a unique transaction ID. The transaction ID is used for the
 * Obtaining receipts, records, state proofs
 * Internally by the network for detecting when duplicate transactions are submitted
 
-The transaction ID is composed by using the transaction valid start time and the account ID of the account that paid for the transaction. The transaction valid start is the timestamp in seconds.nanseconds format. A transaction ID looks something like  `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is the timestamp in seconds.nanoseconds.
+The transaction ID is composed by using the transaction valid start time and the account ID of the account that paid for the transaction. The transaction valid start is the timestamp in seconds.nanoseconds format. A transaction ID looks something like  `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is the timestamp in seconds.nanoseconds.
 
 A **transaction** generally includes the following:
 
@@ -35,7 +35,7 @@ For more information about Hedera transaction fees, please visit Hedera API fees
 
 ## Queries
 
-**Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balanceof an account. Certain queries are free but generally queries are subject to fees. The full list of queries can be found [here](https://app.gitbook.com/@docs-hedera/s/guides/~/drafts/-MHF35QPYQblNVmw4nQk/docs/sdks/queries). 
+**Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally queries are subject to fees. The full list of queries can be found [here](https://app.gitbook.com/@docs-hedera/s/guides/~/drafts/-MHF35QPYQblNVmw4nQk/docs/sdks/queries). 
 
 A query includes a header that includes a distinct HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.
 

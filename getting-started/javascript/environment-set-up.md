@@ -138,7 +138,7 @@ After you create your Hedera testnet client, you will need to set the operator i
 {% code title="index.js" %}
 ```javascript
 // Create our connection to the Hedera network
-// The Hedera JS SDK makes this reallyyy easy!
+// The Hedera JS SDK makes this really easy!
 const client = Client.forTestnet();
 
 client.setOperator(myAccountId, myPrivateKey);
@@ -175,7 +175,7 @@ async function main() {
     }
     
     // Create our connection to the Hedera network
-    // The Hedera JS SDK makes this reallyyy easy!
+    // The Hedera JS SDK makes this really easy!
     const client = Client.forTestnet();
 
     client.setOperator(myAccountId, myPrivateKey);

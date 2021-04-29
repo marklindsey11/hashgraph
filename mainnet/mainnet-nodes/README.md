@@ -1,6 +1,6 @@
 # Mainnet Nodes
 
-Hedera networks are comprised of two types of nodes: Consensus and Mirror nodes. The Hedera mainnet **consensus nodes** are currently permissioned; operated by the Hedera Governing Council. Consensus nodes receive transactions from clients, charge transaction fees, and contribute to consensus being achieved. **Mirror nodes** are permisionless, and store the history of transactions for optimized queries. Mirror nodes do not submit transactions to the network from clients nor do they participate in consensus**.**
+Hedera networks are comprised of two types of nodes: Consensus and Mirror nodes. The Hedera mainnet **consensus nodes** are currently permissioned; operated by the Hedera Governing Council. Consensus nodes receive transactions from clients, charge transaction fees, and contribute to consensus being achieved. **Mirror nodes** are permissionless, and store the history of transactions for optimized queries. Mirror nodes do not submit transactions to the network from clients nor do they participate in consensus**.**
 
 {% page-ref page="../../mirrornet/" %}
 
@@ -256,7 +256,7 @@ Note: TLS port is currently not supported by Hedera SDKs
 
 ## Mainnet Node Public Keys
 
-Below you will beind the mainnet node public keys found in the mainnet address book file `0.0.102`. You can also access the address book by using the [state proof alpha API](../../docs/mirror-node-api/cryptocurrency-api.md) or [SDKs](../../docs/sdks/address-book.md) as well. The public keys stored in the address book are hex encoded keys \(x509\).
+Below you will find the mainnet node public keys found in the mainnet address book file `0.0.102`. You can also access the address book by using the [state proof alpha API](../../docs/mirror-node-api/cryptocurrency-api.md) or [SDKs](../../docs/sdks/address-book.md) as well. The public keys stored in the address book are hex encoded keys \(x509\).
 
 | Node Account ID | Public Key Modulus |
 | :--- | :--- |

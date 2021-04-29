@@ -115,7 +115,7 @@ Convert hbars to a different unit/format.
 {% tab title="V2" %}
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `to(<unit>)` | HbarUnit | Specifiy the unit of hbar to convert to. Use `As` for Go. |
+| `to(<unit>)` | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go. |
 | `toString(<unit>)` | HbarUnit | String value of the hbar unit to convert to. Use `String()` for Go. |
 | `toTinybars()` | Long | Hbar value converted to tinybars |
 
@@ -165,7 +165,7 @@ hedera.NewHbar(100).AsTinybar()
 {% tab title="V1" %}
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `as(<unit>)` | HbarUnit | Specifiy the unit of hbar to convert to. Use `As` for Go. |
+| `as(<unit>)` | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go. |
 | `toString()` | Long | Hbar value converted to tinybars |
 
 {% code title="Java" %}
@@ -299,11 +299,11 @@ Modify the hbar representation to one of the hbar denominations.
 | :--- | :--- |
 | `HbarUnit.TINYBAR` | The atomic \(smallest\) unit of hbar, used natively by the Hedera network |
 | `HbarUnit.MICROBAR` | Equivalent to 100 tinybar or 1⁄1,000,000 hbar. |
-| `HbarUnit.MILIBAR` | Equivalent to 100,000 tinybar or 1⁄1,000 hbar |
+| `HbarUnit.MILLIBAR` | Equivalent to 100,000 tinybar or 1⁄1,000 hbar |
 | `HbarUnit.HBAR` | The base unit of hbar, equivalent to 100 million tinybar. |
-| `HbarUnit.KILOBAR` | Equivalent to 1 thousand hbar or 100 billion tinybar.HbarUnit.Megbar |
+| `HbarUnit.KILOBAR` | Equivalent to 1 thousand hbar or 100 billion tinybar.HbarUnit.Megabar |
 | `HbarUnit.MEGABAR` | Equivalent to 1 million hbar or 100 trillion tinybar. |
-| `HbarUnit.GIGABAR` | Equivalent to 1 billion hbar or 100 quadillion tinybar. |
+| `HbarUnit.GIGABAR` | Equivalent to 1 billion hbar or 100 quadrillion tinybar. |
 
 {% code title="Java" %}
 ```java
@@ -338,11 +338,11 @@ hedera.HbarFrom(100, hedera.HbarUnits.Tinybar)
 | :--- | :--- |
 | `HbarUnit.Tinybar` | The atomic \(smallest\) unit of hbar, used natively by the Hedera network |
 | `HbarUnit.Microbar` | Equivalent to 100 tinybar or 1⁄1,000,000 hbar. |
-| `HbarUnit.Milibar` | Equivalent to 100,000 tinybar or 1⁄1,000 hbar |
+| `HbarUnit.Millibar` | Equivalent to 100,000 tinybar or 1⁄1,000 hbar |
 | `HbarUnit.Hbar` | The base unit of hbar, equivalent to 100 million tinybar. |
-| `HbarUnit.Kilobar` | Equivalent to 1 thousand hbar or 100 billion tinybar.HbarUnit.Megbar |
+| `HbarUnit.Kilobar` | Equivalent to 1 thousand hbar or 100 billion tinybar.HbarUnit.Megabar |
 | `HbarUnit.Megabar` | Equivalent to 1 million hbar or 100 trillion tinybar. |
-| `HbarUnit.Gigabar` | Equivalent to 1 billion hbar or 100 quadillion tinybar. |
+| `HbarUnit.Gigabar` | Equivalent to 1 billion hbar or 100 quadrillion tinybar. |
 
 {% code title="Java" %}
 ```java

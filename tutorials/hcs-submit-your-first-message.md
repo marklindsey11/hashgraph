@@ -77,7 +77,7 @@ What you will need to be successful with this tutorial:
 
 ```
 
-### 4. Set-up your enviornment variables 
+### 4. Set-up your environment variables 
 
 * Create a .env file in the projects root directory 
 * Add the following:
@@ -147,7 +147,7 @@ System.out.println("Your topic ID is: " +topicId);
 ### 9. Subscribe to a topic
 
 * Now we will shift our attention the mirror node client and subscribe to the topic created
-* We will acheive this by referencing the topics `topicId`
+* We will achieve this by referencing the topics `topicId`
 * We will also print the consensus timestamp and message to the console
 
 ```java

@@ -8,7 +8,7 @@ If the adminKey field is omitted, the resulting schedule is immutable. If the ad
 
 When a scheduled transaction whose schedule has collected enough signing keys is executed, the network only charges its payer the service fee, and not the node and network fees. If the optional payerAccountID is set, the network charges this account. Otherwise it charges the payer of the originating ScheduleCreate.  
 
-Two ScheduleCreate transactions are identical if they are equal in all their fields other than payerAccountID. \(Here "equal" should be understood in the sense of gRPC object equality in the network software runtime. In particular, a gRPC object with [unknown fields](https://developers.google.com/protocol-buffers/docs/proto3#unknowns) is not equal to a gRPC object withoutunknown fields, even if they agree on all known fields.\) 
+Two ScheduleCreate transactions are identical if they are equal in all their fields other than payerAccountID. \(Here "equal" should be understood in the sense of gRPC object equality in the network software runtime. In particular, a gRPC object with [unknown fields](https://developers.google.com/protocol-buffers/docs/proto3#unknowns) is not equal to a gRPC object without unknown fields, even if they agree on all known fields.\) 
 
 A ScheduleCreate transaction that attempts to re-create an identical schedule already in state will receive a receipt with status 
 

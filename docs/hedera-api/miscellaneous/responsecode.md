@@ -126,7 +126,7 @@
 | INVALID\_RECEIVE\_RECORD\_THRESHOLD | **\[Deprecated v0.8.0**\] Attempt to set negative receive record threshold |
 | INVALID\_SEND\_RECORD\_THRESHOLD | **\[Deprecated v0.8.0**\] Attempt to set negative send record threshold |
 | ACCOUNT\_FROZEN\_FOR\_TOKEN | Account is frozen and cannot transact with the token |
-| TOKENS\_PER\_ACCOUNT\_LIMIT\_EXCEEDED | Maximum number of token relations for agiven account is exceeded |
+| TOKENS\_PER\_ACCOUNT\_LIMIT\_EXCEEDED | Maximum number of token relations for a given account is exceeded |
 | INVALID\_TOKEN\_ID | The token is invalid or does not exist |
 | INVALID\_TOKEN\_DECIMALS | Invalid token decimals |
 | INVALID\_TOKEN\_INITIAL\_SUPPLY | Invalid token initial supply |

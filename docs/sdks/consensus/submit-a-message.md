@@ -216,7 +216,7 @@ TopicMessageSubmitTransaction transaction = new TopicMessageSubmitTransaction()
     .setTopicId(newTopicId)
     .setMessage("hello, HCS! ");
         
-//Get the transactio message
+//Get the transaction message
 ByteString getMessage = transaction.getMessage();
 //v2.0.0
 ```
@@ -229,7 +229,7 @@ const transaction = await new TopicMessageSubmitTransaction()
     .setTopicId(newTopicId)
     .setMessage("hello, HCS! ");
         
-//Get the transactio message
+//Get the transaction message
 const getMessage = transaction.getMessage();
 
 //v2.0.0
@@ -243,7 +243,7 @@ transaction := hedera.NewTopicSubmitTransaction().
 		SetTopicID(topicID).
 		SetMessage([]byte(content))
 		
-//Get the transactio message
+//Get the transaction message
 getMessage := transaction.GetMessage()
 //v2.0.0
 ```

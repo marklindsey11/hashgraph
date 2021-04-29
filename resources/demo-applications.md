@@ -37,7 +37,7 @@ description: Examples of different use cases and projects built on Hedera.
 {% tab title="Go" %}
 | Project | Source | Developer |
 | :--- | :--- | :--- |
-| Hyplerledger Fabric Plugin | [GitHub](https://github.com/hashgraph/fabric-samples-hcs/tree/feature/hcs) | Hyperledger |
+| Hyperledger Fabric Plugin | [GitHub](https://github.com/hashgraph/fabric-samples-hcs/tree/feature/hcs) | Hyperledger |
 | Audit Logs | [GitHub](https://github.com/hashgraph/hello-hedera-audit-log-go) | AdsDax |
 | Others | Coming soon! | Community |
 {% endtab %}

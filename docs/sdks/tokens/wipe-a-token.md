@@ -152,7 +152,7 @@ const transaction = new TokenWipeTransaction()
     .setTokenId(tokenId)
     .setAmount(100);
     
-//Build the unsigned transaction, sign with the accounnt private key of the token, sign with the wipe private key, submit the transaction to a Hedera network
+//Build the unsigned transaction, sign with the account private key of the token, sign with the wipe private key, submit the transaction to a Hedera network
 const transactionId = await transaction.build(client).sign(accountKey).sign(wipeKey).execute(client);
     
 //Request the receipt of the transaction

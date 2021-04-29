@@ -8,7 +8,7 @@ A query that returns the bytecode for a smart contract instance**.** Anyone can 
 
 | Constructor | Description |
 | :--- | :--- |
-| `new ContractByteCodeQuery()` | Initalizes a ContractByteCodeQuery object |
+| `new ContractByteCodeQuery()` | Initializes a ContractByteCodeQuery object |
 
 ```java
 new ContractByteCodeQuery()
@@ -123,7 +123,7 @@ query.getContractId()
 ```java
 //Create the query
 query := hedera.NewContractByteCodeQuery().
-    SetContractID(conractId)
+    SetContractID(contractId)
 
 query.GetContractID()
 

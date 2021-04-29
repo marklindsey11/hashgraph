@@ -81,7 +81,7 @@ if err != nil {
 	panic(err)
 }
 
-//Sign with one of the required signatures, sign with the client operator private key and submit the transaction to a Hedera networ
+//Sign with one of the required signatures, sign with the client operator private key and submit the transaction to a Hedera network
 txResponse, err := transaction.Sign(privateKeySigner1).Execute(client)
 
 if err != nil {

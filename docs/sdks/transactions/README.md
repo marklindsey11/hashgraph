@@ -11,7 +11,7 @@ Transactions have a 6,144 kb transaction size limit. This includes the signature
 With the R4 release, how the HBAR balance changes of accounts involved in the transaction \(either directly or node\) are represented within the transaction record has been modified. In the past, each transfer of HBARs , whether a payment from one account to another or a fee paid to a Hedera node or to Hedera – was listed individually. The list of transfers might include one for the payer making the fundamental payment, one for that same account paying a fee to the network, and another for the same account paying a fee to the node. The new model combines all those individual transfers and shows, for each account involved in the transaction, only the net transfer value.
 {% endhint %}
 
-| Cryyptocurrency Accounts | Consensus | Tokens | File Service | Smart Contracts |
+| Cryptocurrency Accounts | Consensus | Tokens | File Service | Smart Contracts |
 | :--- | :--- | :--- | :--- | :--- |
 | [AccountCreateTransaction](../cryptocurrency/create-an-account.md) | [ConsensusTopicCreateTransaction](../consensus/create-a-topic.md) | [TokenCreateTransaction](../tokens/define-a-token.md) | [FileCreateTransaction](../file-storage/create-a-file.md) | [ContractCreateTransaction](../smart-contracts/create-a-smart-contract.md) |
 | [AccountUpdateTransaction](../cryptocurrency/update-an-account.md) | [ConsensusTopicUpdateTransaction](../consensus/update-a-topic.md) | [TokenUpdateTransaction](../tokens/update-a-token.md) | [FileAppendTransaction](../file-storage/append-to-a-file.md) | [ContractUpdateTransaction](../smart-contracts/update-a-smart-contract.md) |
