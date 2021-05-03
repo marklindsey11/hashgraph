@@ -11,7 +11,7 @@ Associates the provided Hedera account with the provided Hedera tokens. Hedera a
 * On success, associations between the provided account and tokens are made and the account is ready to interact with the tokens.
 
 {% hint style="info" %}
-The maximum number of tokens that can be associated to an account is 1,000.
+The maximum number of token classes that can be associated to an account is 1,000.
 {% endhint %}
 
 | Constructor | Description |

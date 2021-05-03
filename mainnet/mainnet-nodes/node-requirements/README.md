@@ -70,7 +70,7 @@ Node Connectivity
   * TCP Port 50111 open to 0.0.0.0/0
   * TCP Port 50211 open to 0.0.0.0/0
   * TCP Port 50212 open to 0.0.0.0/0
-  * TCP Port 80 open egress to 0.0.0.0/0 (for Ubuntu OS package repository connectivity)
+  * TCP Port 80 open egress to 0.0.0.0/0 \(for Ubuntu OS package repository connectivity\)
   * TCP Port 443 open egress to 0.0.0.0/0
   * TCP Port 22 \(SSH\) open to 35.192.32.50/32 & 18.219.214.181/32
 
