@@ -1,4 +1,4 @@
-# Create a schedule transaction
+# Create a scheduled transaction
 
 {% hint style="info" %}
 In the 0.13.0 Hedera services release, you can schedule CryptoTransfer and ConsensusSubmitMessage transactions. Additional schedulable transactions will be added in future releases.

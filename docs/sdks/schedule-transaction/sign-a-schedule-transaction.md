@@ -1,4 +1,4 @@
-# Sign a schedule transaction
+# Sign a scheduled transaction
 
 A transaction that appends signatures to a schedule transaction. You will need to know the schedule ID to reference the schedule transaction to submit signatures to. A record will be generated for each ScheduleSign transaction that is successful and the schedule entity will subsequently update with the public keys that have signed the schedule transaction. To view the keys that have signed the schedule transaction, you can query the network for the schedule info. Once a schedule transaction receives the last required signature, the schedule transaction executes.
 

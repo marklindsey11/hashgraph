@@ -1,4 +1,4 @@
-# Delete a schedule transaction
+# Delete a scheduled transaction
 
 A transaction that deletes a schedule transaction from the network. You can delete a schedule transaction if only the admin key was set during the creation of the schedule transaction. If an admin key was not set, the attempted deletion will result in "`SCHEDULE_IS_IMMUTABLE`" response from the network. Once the schedule transaction is deleted, the schedule transaction will be marked as deleted with the consensus timestamp the schedule transaction was deleted at.
 
