@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.29.1 | 0.31.0 |
+| **Mainnet** | 0.31.0 | 0.32.0 |
 | **Testnet** | 0.31.0 | 0.32.0 |
 | **Previewnet** | 0.32.0 | 0.33.0 |
 
@@ -20,7 +20,13 @@ This release updates more of our system to handle the revised scheduled transact
 
 We now expose the raw transaction bytes encoded in Base64 format in the REST API. Persisting the bytes of the `Transaction` protobuf in the database is an option that's been available for awhile but until now has not been available via the API. Persisting the data is off by default as does increase the size of the database quite a bit. The Hedera managed mirror nodes will not have that functionality turned on to reduce storage.
 
+## Latest Releases
+
 ## [v0.31.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.31.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: APRIL 30, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: APRIL 26, 2021**
@@ -70,8 +76,6 @@ With this release, we've completed the migration from CircleCI to GitHub Actions
 To improve our runtime observability and testing coverage, we've continued to invest in our monitor tool this cycle. Scheduled transaction support was recently added supporting both `ScheduleCreate` and `ScheduleSign` operations. We've added the three new mainnet nodes the monitor's default configuration. A bug with the monitor unable to reach expected TPS with multiple scenarios was fixed.
 
 The REST API also saw some bug fixes including a fix to queries with a credit/debit parameter now able to retrieve token only transfers. The transaction API now populates the token transfers list for all transaction types instead of being limited to just crypto transfers.
-
-## Latest Releases
 
 ## [v0.29.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.29.0)
 
