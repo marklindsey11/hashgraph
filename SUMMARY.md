@@ -274,6 +274,7 @@
 * [Starter Projects](resources/starter-projects.md)
 * [Demo Applications](resources/demo-applications.md)
 * [Tutorials](resources/tutorials/README.md)
+  * [Schedule a transaction](resources/tutorials/schedule-a-transaction.md)
   * [Set up a message queue with the Hedera Consensus Service and JavaScript](resources/tutorials/hcs-javascript-setup.md)
   * [Run the JavaScript Hedera Consensus Service Chat Demo](resources/tutorials/run-the-hedera-consensus-service-chat-demo.md)
   * [Getting Started with the Hedera Consensus Service Fabric Plugin](resources/tutorials/getting-started-with-the-hedera-consensus-service-fabric-plugin/README.md)
