@@ -27,7 +27,8 @@ Note: TLS port is currently not supported by Hedera SDKs
       <td style="text-align:left">0</td>
       <td style="text-align:left"><b>0.0.3</b>
       </td>
-      <td style="text-align:left">13.124.142.126 15.164.44.66 15.165.118.251</td>
+      <td style="text-align:left">13.124.142.126
+        <br />15.164.44.66 15.165.118.251</td>
       <td style="text-align:left">50211, 50212 (TLS)</td>
       <td style="text-align:left">337390d8fea144afc12e81254a28dac6ea82893836ac072effd85e0a7748580ef28096648c5a7f8dbb4ce81476815137</td>
     </tr>
@@ -251,7 +252,7 @@ Note: TLS port is currently not supported by Hedera SDKs
       <td style="text-align:left">18</td>
       <td style="text-align:left"><b>0.0.21</b>
       </td>
-      <td style="text-align:left">34.76.140.109,
+      <td style="text-align:left">34.76.140.109
         <br />13.36.123.209</td>
       <td style="text-align:left">50211, 50212 (TLS)</td>
       <td style="text-align:left">e79ae9c7193d1d2bc9438464c8aa5f6224ae852966a43b9825883f7f742c5395bd3099587a96866b9239d1eff3ae507a</td>
@@ -260,7 +261,7 @@ Note: TLS port is currently not supported by Hedera SDKs
       <td style="text-align:left">19</td>
       <td style="text-align:left"><b>0.0.22</b>
       </td>
-      <td style="text-align:left">34.64.141.166,
+      <td style="text-align:left">34.64.141.166
         <br />52.78.202.34</td>
       <td style="text-align:left">50211, 50212 (TLS)</td>
       <td style="text-align:left">9b40885f13b6ac1c753692ba3f17900a38831e694a0af97494b84388209cb5efbdc98a6dabb2e1c718391fc135bdaac3</td>
