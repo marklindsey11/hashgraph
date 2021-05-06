@@ -6,7 +6,7 @@ In this tutorial, you'll learn how to create and sign a scheduled transaction. S
 
 ## Prerequisites
 
-If you are not familiar with the Hedera SDKs, please make sure to the "Getting Started" section of the docs below.
+If you are not familiar with the Hedera SDKs, visit the "Getting Started" section of the docs below.
 
 ## 1. Create a transaction to schedule
 
