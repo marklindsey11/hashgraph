@@ -6,16 +6,18 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.12.0 | 0.13.2 |
+| **Mainnet** | 0.13.2 | 0.14.0 |
 | **Testnet** | 0.13.2 | 0.14.0 |
 | **Previewnet** | 0.13.2 | 0.14.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.13.2](https://github.com/hashgraph/hedera-services/releases/tag/v0.13.2)
 
-{% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: MAY 6, 2021**
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: MAY 6, 2021**
 {% endhint %}
 
 {% hint style="success" %}
@@ -59,8 +61,6 @@ However, Services will continue to populate the deprecated fields in duplicate e
 In a minor point, Services now rejects any protobuf `string` field whose UTF-8 encoding includes the zero-byte character; that is, Unicode code point 0, `NUL`. Databases \(for example, PostgreSQL\) commonly reserve this character as a delimiter in their internal formats, so allowing it to occur in entity fields can make life harder for Mirror Node operators.
 
 To simplify tasks for network admins, we have also streamlined the signing requirements for updates to system accounts, and introduced a Docker-based utility called "yahcli" for admin actions such as updating system files.
-
-## Latest Releases
 
 ## [v0.12.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.12.0-rc.2)
 
