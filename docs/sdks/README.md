@@ -11,7 +11,7 @@ For friendly, language-specific access to the Hedera API and its network service
 ## Hedera Supported SDKs
 
 {% hint style="info" %}
-**Note:** v1 of the Java and JavaScript SDKs are deprecated and support will be discontinued after October 2021. Please install the latest 2.0.x version or migrate from v1 to the latest 2.0.x version. You can reference the migration documentation titled "MIGRATING\_V1" within each repository.
+**Note:** v1 of the Java and JavaScript SDKs are deprecated and support will be discontinued after October 2021. Please install the latest 2.x version or migrate from v1 to the latest 2.x version. You can reference the migration documentation titled "MIGRATING\_V1" within each repository.
 {% endhint %}
 
 | SDK | Maintainer | License | Download |
