@@ -28,7 +28,6 @@ What you will need to be successful with this tutorial:
 
 💥 [Testnet account ID and associated private key](https://portal.hedera.com/register)  
 💥 [Hedera Java SDK](https://github.com/hashgraph/hedera-sdk-java)  
-💥 [Mirror node](https://learn.hedera.com/l/576593/2020-01-13/7z5jb) `host:port`  
 💥 IDE of your choice
 
 ### 1. Get a testnet account
@@ -37,42 +36,47 @@ What you will need to be successful with this tutorial:
 
 ### 2. Get access to a mirror node
 
-* You will need a mirror node's `host:port` information so that you can subscribe to topics and receive the associated messages. If you do not have access to a mirror node, you can use the mirror node endpoints managed by Hedera [here](https://docs.hedera.com/guides/docs/mirror-node-api/hedera-consensus-service-api-1).
+* You will need to establish a connection to a mirror node to subscribe to a topic. When you build your client in a later step, the connection is automatically established to the Hedera testnet mirror node. The mirror node will return all messages that were sent to the specified topic.
 
 ### 3. Create a new maven project in your favorite IDE
 
 * Add the following dependencies to your pom.xml file
 
 ```java
+<!-- Android, Corda DJVM, Java 7+ -->
+<dependency>
+  <groupId>com.hedera.hashgraph</groupId>
+  <artifactId>sdk-jdk7</artifactId>
+  <version>2.0.5</version>
+</dependency>
+
+<!-- Java 9+, Kotlin -->
 <dependency>
   <groupId>com.hedera.hashgraph</groupId>
   <artifactId>sdk</artifactId>
-  <version>1.1.3</version>
+  <version>2.0.5</version>
 </dependency>
 
-<!-- SELECT ONE: -->
+
 <!-- netty transport (for server or desktop applications) -->
 <dependency>
   <groupId>io.grpc</groupId>
   <artifactId>grpc-netty-shaded</artifactId>
-  <version>1.24.0</version>
+  <version>1.35.0</version>
 </dependency>
+
 <!-- netty transport, unshaded (if you have a matching Netty dependency already) -->
 <dependency>
   <groupId>io.grpc</groupId>
   <artifactId>grpc-netty</artifactId>
-  <version>1.24.0</version>
+  <version>1.35.0</version>
 </dependency>
+
 <!-- okhttp transport (for lighter-weight applications or Android) -->
 <dependency>
   <groupId>io.grpc</groupId>
   <artifactId>grpc-okhttp</artifactId>
-  <version>1.24.0</version>
-</dependency>
-<dependency>
-  <groupId>io.github.cdimascio</groupId>
-  <artifactId>java-dotenv</artifactId>
-  <version>5.1.3</version>
+  <version>1.35.0</version>
 </dependency>
 ```
 
@@ -82,8 +86,6 @@ What you will need to be successful with this tutorial:
 * Add the following:
   * `OPERATOR_ID`: Your testnet account ID goes here 
   * `OPERATOR_KEY`: Your testnet account ID private key goes here
-* Add the following:
-  * `MIRROR_NODE_ADDRESS:` Insert the mirror node `host:port` information here
 * Your environment set-up is now complete 
 
 Sample .env file:
@@ -92,8 +94,6 @@ Sample .env file:
 # Operator ID and Key
 OPERATOR_ID=
 OPERATOR_KEY=
-# Mirror Node Address
-MIRROR_NODE_ADDRESS=
 ```
 
 ### 5. Create a new HCS class
@@ -103,82 +103,73 @@ MIRROR_NODE_ADDRESS=
 ### 6. Connect to the Hedera testnet
 
 * Here we are going to connect to the Hedera testnet and and set the operator information with your testnet account ID and private key. The operator is responsible to pay transaction fees and sign all transactions that will be generated in this tutorial. Luckily, this is testnet so you will have unlimited hbars to use in this development environment!
+* Note the testnet client builds a connection to both the test network and testnet mirror node
 
 ```java
 // Grab the OPERATOR_ID and OPERATOR_KEY from the .env file
-private static final AccountId OPERATOR_ID = AccountId.fromString(Objects.requireNonNull(Dotenv.load().get("OPERATOR_ID")));
-private static final Ed25519PrivateKey OPERATOR_KEY = Ed25519PrivateKey.fromString(Objects.requireNonNull(Dotenv.load().get("OPERATOR_KEY")));
+AccountId OPERATOR_ID = AccountId.fromString(Objects.requireNonNull(Dotenv.load().get("OPERATOR_ID")));
+PrivateKey OPERATOR_KEY = PrivateKey.fromString(Objects.requireNonNull(Dotenv.load().get("OPERATOR_KEY")));
 
-// Build Hedera testnet client
+// Build Hedera testnet and mirror node client
 Client client = Client.forTestnet();
 
 // Set the operator account ID and operator private key
 client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 ```
 
-### 7. Connect to a Hedera mirror node
+### 7. Create your first topic!
 
-```java
-// Grab the mirror node endpoint from the .env file
-private static final String MIRROR_NODE_ADDRESS = Objects.requireNonNull(Dotenv.load().get("MIRROR_NODE_ADDRESS"));
-
-// Build the mirror node client
-final MirrorClient mirrorClient = new MirrorClient(MIRROR_NODE_ADDRESS);
-```
-
-### 8. Create your first topic!
-
-* To create you first topic, we will use the CreateTopicTransaction constructor, set its properties, and submit it to the Hedera network
-* You will want to grab the topic ID so later you can subscribe to that topic via the mirror node client
+* To create you first topic, we will use the TopicCreateTransaction constructor, set its properties, and submit it to the Hedera network
+* You will want to grab the topic ID so later you can subscribe to that topic via the mirror node
 * Topic IDs are in the following format: `0.0.10`
 
 ```java
 //Create a new topic
-final TransactionId transactionId = new ConsensusTopicCreateTransaction()
+TransactionResponse txResponse = new TopicCreateTransaction()
    .execute(client);
 
 //Grab the newly generated topic ID
-final ConsensusTopicId topicId = transactionId.getReceipt(client).getConsensusTopicId();
+TopicId topicId = txResponse.getReceipt(client).topicId;
 
 System.out.println("Your topic ID is: " +topicId);
+Thread.sleep(5000);
 ```
 
-### 9. Subscribe to a topic
+### 8. Subscribe to a topic
 
-* Now we will shift our attention the mirror node client and subscribe to the topic created
-* We will achieve this by referencing the topics `topicId`
-* We will also print the consensus timestamp and message to the console
+* Now we will shift our attention the mirror node and subscribe to the topic created. The client establishes a connection to the Hedera testnet mirror node.
+* We will subscribe to a topic by referencing the `topicId`
+* We will also print the consensus timestamp and message that was submitted to the console
 
 ```java
-new MirrorConsensusTopicQuery()
+new TopicMessageQuery()
     .setTopicId(topicId)
-    .subscribe(mirrorClient, resp -> {
-        String messageAsString = new String(resp.message, StandardCharsets.UTF_8);
+    .subscribe(client, resp -> {
+            String messageAsString = new String(resp.contents, StandardCharsets.UTF_8);
 
-        System.out.println(resp.consensusTimestamp + " received topic message: " + messageAsString);
-    },
-        // On gRPC error, print the stack trace
-        Throwable::printStackTrace);
+            System.out.println(resp.consensusTimestamp + " received topic message: " + messageAsString);
+    });
 ```
 
-### 10. Submit a message to a topic
+### 9. Submit a message to a topic
 
-* Now that we have created a topic and subscribed to that topic, we are ready to submit a message using the ConsensusSubmitTransaction constructor and submit to the Hedera network
+* Now that we have created a topic and subscribed to that topic, we are ready to submit a message using the TopicMessageSubmitTransaction constructor and submit to the Hedera network
 * The below example will submit a message with the message as "hello, HCS!"
 
 ```java
 //Submit a message to a topic
-    new ConsensusMessageSubmitTransaction()
-        .setTopicId(topicId)
-        .setMessage("hello, HCS! ")
-        .execute(client)
-        .get(0)
-        .getReceipt(client);
+new TopicMessageSubmitTransaction()
+     .setTopicId(topicId)
+     .setMessage("hello, HCS!")
+     .execute(client)
+     .getReceipt(client);
+
+Thread.sleep(2500);
 ```
 
 * If you have successfully followed the steps in this tutorial, you should see the following print to your console 🤩 :
 
-`2020-01-17T09:01:03.990648Z received topic message: hello, HCS!`
+`2021-05-12T21:43:45.639584Z received topic message: hello, HCS!`
 
 **NOTE**: It may take 10-15 seconds before the message appears on your console from the mirror node.
 
