@@ -12,6 +12,24 @@ description: Hedera Services release information
 
 ## Upcoming Releases
 
+## [v0.14.0](https://github.com/hashgraph/hedera-services/releases/tag/0.14.0)
+
+{% hint style="info" %}
+**MAINNET UPDATE SCHEDULED: JUNE 3, 2021**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE SCHEDULED: MAY 20, 2021** 
+{% endhint %}
+
+In Hedera Services 0.14.0, we have implemented account auto-renewal according to the specifications of [HIP-16](https://github.com/hashgraph/hedera-improvement-proposal). This feature will not be enabled until a later date, after ensuring universal awareness of its impact in the user community.
+
+We have taken multiple steps to enable use of the Platform reconnect. Reconnect allows a node that has fallen behind in consensus gossip to catch back up dynamically. One visible impact is that the gRPC `GetAccountRecords` query will now return a list of TransactionRecords; these are the records of the transactions for which the account was the payer in the last 3 minutes of consensus time.
+
+Another minor improvement to the Hedera API is that the `GetVersionInfo` query now includes the optional pre-release version and build metadata fields from the Semantic Versioning spec \(if applicable\).
+
+To simplify life for system admins who are updating a system account's key, we now waive the signing requirement for the account's new key.
+
 ## Latest Releases
 
 ## [v0.13.2](https://github.com/hashgraph/hedera-services/releases/tag/v0.13.2)
