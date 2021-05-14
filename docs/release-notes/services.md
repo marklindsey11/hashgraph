@@ -24,9 +24,9 @@ description: Hedera Services release information
 
 In Hedera Services 0.14.0, we have implemented account auto-renewal according to the specifications of [HIP-16](https://github.com/hashgraph/hedera-improvement-proposal). This feature will not be enabled until a later date, after ensuring universal awareness of its impact in the user community.
 
-We have taken multiple steps to enable use of the Platform reconnect. Reconnect allows a node that has fallen behind in consensus gossip to catch back up dynamically. One visible impact is that the gRPC `GetAccountRecords` query will now return a list of TransactionRecords; these are the records of the transactions for which the account was the payer in the last 3 minutes of consensus time.
+This release includes notable infrastructure work to enable use of the Platform reconnect feature. Reconnect allows a node that has fallen behind in consensus gossip to catch back up dynamically. 
 
-Another minor improvement to the Hedera API is that the `GetVersionInfo` query now includes the optional pre-release version and build metadata fields from the Semantic Versioning spec \(if applicable\).
+A minor improvement to the Hedera API is that the GetVersionInfo query now includes the optional pre-release version and build metadata fields from the Semantic Versioning spec \(if applicable\).
 
 To simplify life for system admins who are updating a system account's key, we now waive the signing requirement for the account's new key.
 
