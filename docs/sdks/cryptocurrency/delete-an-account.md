@@ -136,7 +136,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 const transaction = await new AccountDeleteTransaction()
     .setDeleteAccountId(accountId)
     .setTransferAccountId(OPERATOR_ID)
-    .builc(client);
+    .build(client);
 
 //Sign the transaction with the account key
 const signTx = await transaction.sign(accountKey);
