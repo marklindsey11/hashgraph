@@ -15,5 +15,3 @@ The metadata for a Node – including IP Address, and the crypto account associa
 | `description` | string | A description of the node, with UTF-8 encoding up to 100 bytes  \[Added v0.13.0\] |
 | `stake` | int64 | The amount of tinybars staked to the node  \[Added v0.13.0\] |
 
-####   <a id="undefined"></a>
-

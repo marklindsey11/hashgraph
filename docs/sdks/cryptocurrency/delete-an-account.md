@@ -53,7 +53,7 @@ const transaction = await new AccountDeleteTransaction()
 
 //Sign the transaction with the account key
 const signTx = await transaction.sign(accountKey);
-    
+
 //Sign with the client operator private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
 
@@ -73,9 +73,9 @@ console.log("The transaction consensus status is " +transactionStatus);
 ```java
 //Create the transaction to delete an account, freeze the transaction for signing
 transaction, err := hedera.NewAccountDeleteTransaction().
-		SetAccountID(newAccountID).
-		SetTransferAccountID(operatorAccountID).
-		FreezeWith(client)
+        SetAccountID(newAccountID).
+        SetTransferAccountID(operatorAccountID).
+        FreezeWith(client)
 if err != nil {
     panic(err)
 }
@@ -117,10 +117,10 @@ AccountDeleteTransaction transaction = new AccountDeleteTransaction()
 
 //Build the unsigned transaction, sign with account key, sign with the client operator account private key and submit to a Hedera network
 TransactionId txId = transaction.build(client).sign(newKey).execute(client);
-        
+
 //Request the receipt of the transaction
 TransactionReceipt receipt = txId.getReceipt(client);
-        
+
 //Get the transaction consensus status
 Status transactionStatus = receipt.status;
 
@@ -140,13 +140,13 @@ const transaction = await new AccountDeleteTransaction()
 
 //Sign the transaction with the account key
 const signTx = await transaction.sign(accountKey);
-    
+
 //Sign with the client operator private key and submit to a Hedera network
 const txId = await signTx.execute(client);
-       
+
 //Request the receipt of the transaction
 const receipt = await txId.getReceipt(client);
-        
+
 //Get the transaction consensus status
 const transactionStatus = receipt.status;
 
@@ -171,7 +171,7 @@ console.log("The transaction consensus status is " +transactionStatus);
 AccountDeleteTransaction transaction = new AccountDeleteTransaction()
     .setAccountId(newAccountId)
     .setTransferAccountId(OPERATOR_ID);
-        
+
 //Get the account ID from the transaction
 AccountId transactionAccountId = transaction.getAccountId()
 
@@ -187,7 +187,7 @@ System.out.println("The account to be deleted in this transaction is " +transact
 const transaction = new AccountDeleteTransaction()
     .setAccountId(newAccountId)
     .setTransferAccountId(OPERATOR_ID);
-        
+
 //Get the account ID from the transaction
 const transactionAccountId = transaction.getAccountId()
 
@@ -199,9 +199,9 @@ console.log("The account to be deleted in this transaction is " +transactionAcco
 ```java
 //Create the transaction to delete an account
 transaction, err := hedera.NewAccountDeleteTransaction().
-		SetAccountID(newAccountID).
-		SetTransferAccountID(operatorAccountID)
-		
+        SetAccountID(newAccountID).
+        SetTransferAccountID(operatorAccountID)
+
 //Get the account ID from the transaction
 transactionAccountId := transaction.GetAccountID()
 
@@ -210,6 +210,4 @@ transactionAccountId := transaction.GetAccountID()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-## 
 

@@ -7,8 +7,8 @@ description: Hedera Services release information
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.13.2 | 0.14.0 |
-| **Testnet** | 0.13.2 | 0.14.0 |
-| **Previewnet** | 0.13.2 | 0.14.0 |
+| **Testnet** | 0.14.0 | 0.15.0 |
+| **Previewnet** | 0.14.0 | 0.15.0 |
 
 ## Upcoming Releases
 
@@ -18,8 +18,8 @@ description: Hedera Services release information
 **MAINNET UPDATE SCHEDULED: JUNE 3, 2021**
 {% endhint %}
 
-{% hint style="info" %}
-**TESTNET UPDATE SCHEDULED: MAY 20, 2021** 
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: MAY 20, 2021** 
 {% endhint %}
 
 In Hedera Services 0.14.0, we have implemented account auto-renewal according to the specifications of [HIP-16](https://github.com/hashgraph/hedera-improvement-proposal). This feature will not be enabled until a later date, after ensuring universal awareness of its impact in the user community.
