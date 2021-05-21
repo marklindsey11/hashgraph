@@ -6,6 +6,10 @@ In this section you will complete the following:
 * Create a .env file and store your Hedera testnet account ID and private key
 * Set-up your Hedera testnet client
 
+{% hint style="warning" %}
+**Note:** The Hedera JavaScript SDK supports Reactive Native with Expo on Android devices and Android emulators. It does not currently support Reactive Native Bare.
+{% endhint %}
+
 ## Pre-requisites:
 
 {% page-ref page="../introduction.md" %}
