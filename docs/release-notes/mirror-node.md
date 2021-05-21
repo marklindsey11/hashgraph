@@ -7,12 +7,16 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.32.0 | 0.33.0 |
-| **Testnet** | 0.32.0 | 0.33.0 |
-| **Previewnet** | 0.32.0 | 0.33.0 |
+| **Testnet** | 0.33.0 | 0.34.0 |
+| **Previewnet** | 0.33.0 | 0.34.0 |
 
 ## Upcoming Releases
 
 ## [v0.33.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.33.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: MAY 21, 2021**
+{% endhint %}
 
 This release adds support for HAPI 0.13.2. This brings with it a new address book file format that is more compact and doesn't duplicate IP address and port information. We took the time to adjust our database to reflect the newer format while maintaining compatibility with the older format.
 
