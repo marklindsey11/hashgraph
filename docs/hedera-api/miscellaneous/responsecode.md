@@ -167,8 +167,21 @@
 | INVALID\_SCHEDULE\_ACCOUNT\_ID | The Schedule Create Transaction TransactionID account does not exist |
 | NO\_NEW\_VALID\_SIGNATURES | The provided sig map did not contain any new valid signatures from required signers of the scheduled transaction |
 | UNRESOLVABLE\_REQUIRED\_SIGNERS | The required signers for a scheduled transaction cannot be resolved, for example because they do not exist or have been deleted |
-| UNPARSEABLE\_SCHEDULED\_TRANSACTION | The bytes allegedly representing a transaction to be scheduled could not be parsed |
-| UNSCHEDULABLE\_TRANSACTION | ScheduleCreate and ScheduleSign transactions cannot be scheduled |
+| SCHEDULED\_TRANSACTION\_NOT\_IN\_WHITELIST | Only whitelisted transaction types may be scheduled |
 | SOME\_SIGNATURES\_WERE\_INVALID | At least one of the signatures in the provided sig map did not represent a valid signature for any required signer |
 | TRANSACTION\_ID\_FIELD\_NOT\_ALLOWED | The scheduled and nonce fields in the TransactionID may not be set in a top-level transaction |
+| IDENTICAL\_SCHEDULE\_ALREADY\_CREATED | A schedule already exists with the same identifying fields of an attempted ScheduleCreate \(that is, all fields other than scheduledPayerAccountID\) |
+| INVALID\_ZERO\_BYTE\_IN\_STRING | A string field in the transaction has a UTF-8 encoding with the prohibited zero byte |
+| SCHEDULE\_ALREADY\_DELETED | A schedule being signed or deleted has already been deleted |
+| SCHEDULE\_ALREADY\_EXECUTED | A schedule being signed or deleted has already been executed |
+| MESSAGE\_SIZE\_TOO\_LARGE | ConsensusSubmitMessage request's message size is larger than allowed. |
+| OPERATION\_REPEATED\_IN\_BUCKET\_GROUPS | An operation was assigned to more than one throttle group in a given bucket |
+| BUCKET\_CAPACITY\_OVERFLOW | The capacity needed to satisfy all opsPerSec groups in a bucket overflowed a signed 8-byte integral type |
+| NODE\_CAPACITY\_NOT\_SUFFICIENT\_FOR\_OPERATION | Given the network size in the address book, the node-level capacity for an operation would never be enough to accept a single request; usually means a bucket burstPeriod should be increased |
+| BUCKET\_HAS\_NO\_THROTTLE\_GROUPS | A bucket was defined without any throttle groups |
+| THROTTLE\_GROUP\_HAS\_ZERO\_OPS\_PER\_SEC | A throttle group was granted zero opsPerSec |
+| SUCCESS\_BUT\_MISSING\_EXPECTED\_OPERATION | The throttle definitions file was updated, but some supported operations were not assigned a bucket |
+| UNPARSEABLE\_THROTTLE\_DEFINITIONS  | The new contents for the throttle definitions system file were not valid protobuf |
+| INVALID\_THROTTLE\_DEFINITIONS | The new throttle definitions system file were invalid, and no more specific error could be divined |
+| ACCOUNT\_EXPIRED\_AND\_PENDING\_REMOVAL | The transaction references an account which has passed its expiration without renewal funds available, and currently remains in the ledger only because of the grace period given to expired entities |
 
