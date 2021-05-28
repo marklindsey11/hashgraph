@@ -69,7 +69,7 @@
   * [Transactions](docs/sdks/transactions/README.md)
     * [Transaction ID](docs/sdks/transactions/transaction-id.md)
     * [Modify transaction fields](docs/sdks/transactions/modify-transaction-fields.md)
-    * [Create an unsigned transaction](docs/sdks/transactions/untitled-2.md)
+    * [Create an unsigned transaction](docs/sdks/transactions/create-an-unsigned-transaction.md)
     * [Manually sign a transaction](docs/sdks/transactions/manually-sign-a-transaction.md)
     * [Submit a transaction](docs/sdks/transactions/submit-a-transaction.md)
     * [Sign a multisignature transaction](docs/sdks/transactions/sign-a-multisignature-transaction.md)
