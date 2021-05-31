@@ -11,7 +11,7 @@ To successfully follow each of the coding samples, you will need a Hedera testne
 Click on the programming language of your choice to get started. Be sure to have your favorite text editor or IDE ready to go. You can always check the "Code Check ✅ " section at the bottom of each page to view the entire code if you run into issues. You can also post your issue to the respective SDK channel in our Discord community [here](https://discordapp.com/invite/FFb9YFX) or on the GitHub repository.
 
 {% hint style="warning" %}
-**Note:** The Hedera JavaScript SDK supports Reactive Native with Expo on Android devices and Android emulators. It does not currently support Reactive Native Bare.
+**Note:** The Hedera JavaScript SDK supports React Native with Expo on Android devices and Android emulators. It does not currently support React Native Bare.
 {% endhint %}
 
 {% page-ref page="java/" %}

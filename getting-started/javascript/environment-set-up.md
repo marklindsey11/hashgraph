@@ -7,7 +7,7 @@ In this section you will complete the following:
 * Set-up your Hedera testnet client
 
 {% hint style="warning" %}
-**Note:** The Hedera JavaScript SDK supports Reactive Native with Expo on Android devices and Android emulators. It does not currently support Reactive Native Bare.
+**Note:** The Hedera JavaScript SDK supports React Native with Expo on Android devices and Android emulators. It does not currently support React Native Bare.
 {% endhint %}
 
 ## Pre-requisites:
