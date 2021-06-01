@@ -15,7 +15,7 @@ For friendly, language-specific access to the Hedera API and its network service
 {% endhint %}
 
 {% hint style="warning" %}
-**Note:** The Hedera JavaScript SDK supports Reactive Native with Expo on Android devices and Android emulators. It does not currently support Reactive Native Bare.
+**Note:** The Hedera JavaScript SDK supports React Native with Expo on Android devices and Android emulators. It does not currently support React Native Bare.
 {% endhint %}
 
 | SDK | Maintainer | License | Download |
