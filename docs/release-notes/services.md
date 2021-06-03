@@ -6,16 +6,18 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.13.2 | 0.14.0 |
+| **Mainnet** | 0.14.0 | 0.15.0 |
 | **Testnet** | 0.14.0 | 0.15.0 |
 | **Previewnet** | 0.14.0 | 0.15.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.14.0](https://github.com/hashgraph/hedera-services/releases/tag/0.14.0)
 
-{% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: JUNE 3, 2021**
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JUNE 3, 2021**
 {% endhint %}
 
 {% hint style="success" %}
@@ -29,8 +31,6 @@ This release includes notable infrastructure work to enable use of the Platform 
 A minor improvement to the Hedera API is that the GetVersionInfo query now includes the optional pre-release version and build metadata fields from the Semantic Versioning spec \(if applicable\).
 
 To simplify life for system admins who are updating a system account's key, we now waive the signing requirement for the account's new key.
-
-## Latest Releases
 
 ## [v0.13.2](https://github.com/hashgraph/hedera-services/releases/tag/v0.13.2)
 
