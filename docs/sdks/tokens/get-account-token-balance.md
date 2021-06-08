@@ -14,7 +14,7 @@ new AccountBalanceQuery()
 
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
-| `setAccountId(<tokenId>)` | TokenId | Required |
+| `setAccountId(<accountId>)` | AccountId | Required |
 
 {% code title="Java" %}
 ```java
@@ -77,7 +77,7 @@ new TokenBalanceQuery()
 
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
-| `setAccountId(<tokenId>)` | TokenId | Required |
+| `setAccountId(<accountId>)` | AccountId | Required |
 
 {% code title="Java" %}
 ```java
