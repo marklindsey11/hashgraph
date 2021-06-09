@@ -267,6 +267,7 @@
   * [Hedera Consensus Service gRPC API](docs/mirror-node-api/hedera-consensus-service-api-1.md)
 * [Integrating a Hedera Token Service Token](docs/integrating-a-hedera-token-service-token.md)
 * [Record and Event Stream File Formats](docs/record-and-event-stream-file-formats.md)
+* [Changelog](docs/changelog.md)
 * [GitHub](https://github.com/hashgraph)
 
 ## Resources
