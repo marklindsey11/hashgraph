@@ -23,7 +23,7 @@ Account Balance Proto File Name Example:
 * 2021-03-02T23\_59\_54.477514Z\_Balances.pb.gz 
 * 2021-03-02T23\_59\_54.477514Z\_Balances.pb\_sig.gz 
 
-The CSV account balance format is deprecated and will be removed in the Hedera services July 2021 release. 
+The CSV account balance format is deprecated and will be removed in the Hedera Services 0.15.0 release. Please update to the new account balance file formats and use the AccountBalanceFile protobuf to parse the files.
 
 Please reference the following issues: 
 
