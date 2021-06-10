@@ -26,7 +26,7 @@ In Hedera Services 0.15.0, we improved performance and integrated with the lates
 
 These performance improvements let us augment the Hedera world state with records of all transactions handled in the three minutes of consensus time, even when handling 10,000 transactions per second. The HAPI `GetAccountRecords` query now returns, from state, all such records for which the queried account was the payer account.
 
-We have also finalized the design for the non-fungible token \(NFT\) support to be added to the Hedera Token Service \(HTS\) in release 0.16.0. The protobufs for new HAPI operations are available in the 0.15.0 tag of the hedera-protobufs GitHub repository.  
+We have also finalized the design for the non-fungible token \(NFT\) support to be added to the Hedera Token Service \(HTS\) in release 0.16.0. The protobufs for new HAPI operations are available in the 0.15.0 tag of the[ hedera-protobufs](https://github.com/hashgraph/hedera-protobufs) GitHub repository.  
   
 To simplify fee calculations, there is now a maximum entity lifetime of a century for any entity whose lifetime is not \_already\_ constrained by the maximum auto-renew period. A HAPI transaction that tries to set an expiration further than a century from the current consensus time will resolve to `INVALID_EXPIRATION_TIME`.
 
