@@ -6,13 +6,19 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.32.0 | 0.33.0 |
+| **Mainnet** | 0.33.0 | 0.34.0 |
 | **Testnet** | 0.33.0 | 0.34.0 |
 | **Previewnet** | 0.33.0 | 0.34.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.33.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.33.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JUNE 10, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: MAY 21, 2021**
@@ -24,8 +30,6 @@ A big focus of this release was on improving the Helm charts for use in producti
 
 Some internal improvements saw us automating our release process so that version bumps and release note generation can be kicked off via GitHub. This now also includes generating a CHANGELOG and keeping it up to date with the release notes. And finally we updated our acceptance tests to automatically pull and use the latest address book along with validating all nodes to ensure only the latest, valid nodes are used for validation.
 
-## Latest Releases
-
 ## [v0.32.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.32.0)
 
 {% hint style="success" %}
@@ -36,11 +40,11 @@ Some internal improvements saw us automating our release process so that version
 **TESTNET UPDATE COMPLETED: MAY 11, 2021**
 {% endhint %}
 
-This release we took the time to do some performance optimizations of both the importer and the monitor. If you're using a containerized mirror node, the Java applications now uses more of the available memory that's already been allocated to it. We optimized the size of some internal queues to reduce the likelihood of out of memory errors. And we now use a more efficient streaming method to write entities to the database and avoid large memory allocations. All these combine to greatly reducing overall memory usage and improve overall performance for the importer. The monitor also saw performance improvements to allow it to publish transactions at a rate of 10,000 TPS.
+In this release we took the time to do some performance optimizations of both the importer and the monitor. If you're using a containerized mirror node, the Java applications now uses more of the available memory that's already been allocated to it. We optimized the size of some internal queues to reduce the likelihood of out of memory errors. And we now use a more efficient streaming method to write entities to the database and avoid large memory allocations. All these combine to greatly reducing overall memory usage and improve overall performance for the importer. The monitor also saw performance improvements to allow it to publish transactions at a rate of 10,000 TPS.
 
 This release updates more of our system to handle the revised scheduled transaction design that will be available soon on mainnet. Both the acceptance tests and monitor were updated to be able to publish the new transactions.
 
-We now expose the raw transaction bytes encoded in Base64 format in the REST API. Persisting the bytes of the `Transaction` protobuf in the database is an option that's been available for awhile but until now has not been available via the API. Persisting the data is off by default as does increase the size of the database quite a bit. The Hedera managed mirror nodes will not have that functionality turned on to reduce storage.
+We now expose the raw transaction bytes encoded in Base64 format in the REST API. Persisting the bytes of the `Transaction` protobuf in the database is an option that's been available for a while but until now has not been available via the API. Persisting the data is off by default as does increase the size of the database quite a bit. The Hedera managed mirror nodes will not have that functionality turned on to reduce storage.
 
 ## [v0.31.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.31.0)
 
@@ -52,11 +56,11 @@ We now expose the raw transaction bytes encoded in Base64 format in the REST API
 **TESTNET UPDATE COMPLETED: APRIL 26, 2021**
 {% endhint %}
 
-After scheduled transactions was made available in previewnet, we listened to user feedback and further iterated on the design to make it easier to use. This release adds support for this [revised scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/revised-spec.md) design planned to be released in HAPI v0.13. There was no impact to our REST API format, only the importer needed to be updated to parse and ingest the new proto format. Our monitor API and acceptance tests will be adjusted in the next release once the SDKs add support for the new design.
+After scheduled transactions were made available in previewnet, we listened to user feedback and further iterated on the design to make it easier to use. This release adds support for this [revised scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/revised-spec.md) design planned to be released in HAPI v0.13. There was no impact to our REST API format, only the importer needed to be updated to parse and ingest the new proto format. Our monitor API and acceptance tests will be adjusted in the next release once the SDKs add support for the new design.
 
 This release also adds support for the newly announced account balance file format that was released in HAPI v0.12. The new [protobuf](https://github.com/hashgraph/hedera-protobufs/blob/main/streams/AccountBalanceFile.proto)based format will eventually replace the CSV format in July 2021. Until then, both formats will exist simultaneously in the bucket so users can transition at their leisure. Besides being more efficient to parse, the new files are also compressed using Gzip for reduced storage and download costs. We also took the time to improve the balance file parsing performance regardless of format. Average parse times should decrease by about 27%.
 
-For our REST API, we now expose an `entity_id` field on our transactions related APIs. This field represents that main entity associated with that transaction type. For example, if it was a HCS transaction it would be the topic ID created, updated, or deleted.
+For our REST API, we now expose an `entity_id` field on our transactions related APIs. This field represents the main entity associated with that transaction type. For example, if it was a HCS transaction it would be the topic ID created, updated, or deleted.
 
 `GET /api/v1/transactions/0.0.1009-1234567890-999999998`
 
@@ -81,7 +85,7 @@ For our REST API, we now expose an `entity_id` field on our transactions related
 }
 ```
 
-We continue to make progress towards our goal of switching to TimescaleDB. We fixed the user and database initialization issues and tested a migration from PostgreSQL. We switched out the TimescaleDB Helm chart to a more stable one and explored our hosting options for production. Finally we switched to SCRAM-SHA-256 to improve the security of our database user authentication.
+We continue to make progress towards our goal of switching to TimescaleDB. We fixed the user and database initialization issues and tested a migration from PostgreSQL. We switched out the TimescaleDB Helm chart to a more stable one and explored our hosting options for production. Finally, we switched to SCRAM-SHA-256 to improve the security of our database user authentication.
 
 ### Breaking changes:
 
