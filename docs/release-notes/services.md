@@ -12,7 +12,7 @@ description: Hedera Services release information
 
 ## Upcoming Releases
 
-## v0.15.0
+## [v0.15.0](https://github.com/hashgraph/hedera-protobufs/releases/tag/v0.15.0)
 
 {% hint style="info" %}
 **MAINNET UPDATE SCHEDULED: JULY 1, 2021**
