@@ -6,12 +6,12 @@ description: >-
 
 # Changelog
 
-## ⚪  Account Balance CSV Deprecation \[July 2021\] 
+## ⚪  Account Balance CSV Removal \[July 2021\] 
 
 **IMPACT**: Account balance CSV file
 
 {% hint style="info" %}
-**DEPRECATION DATE:** July 1, 2021 \(Hedera Services v0.15.0\)
+**REMOVAL DATE:** July 1, 2021 \(Hedera Services v0.15.0\)
 {% endhint %}
 
 A new account balance file format was introduced in the Hedera Services v0.12.0 release. An [AccountBalanceFile.proto](https://github.com/hashgraph/hedera-protobufs/blob/main/streams/AccountBalanceFile.proto) has been added to the hedera-protobufs repository. The new file along with its signature file is compressed using gzip compression. Both the CSV file format and proto file format will exist in the same path and with the same name apart from the file extension being pb.gz and pb\_sig.gz. 
@@ -35,7 +35,8 @@ Please reference the following issues:
 **IMPACT:** Hedera v1 SDKs
 
 {% hint style="info" %}
-**DEPRECATION DATE:** October 31, 2021
+**DEPRECATION DATE:** May 11, 2021  
+**REMOVAL**: October 31, 2021
 {% endhint %}
 
 | SDK | Version |
@@ -50,7 +51,7 @@ Hedera v1 SDKs for Java and JavaScript will no longer be supported after October
 **IMPACT**: Parsing address book files 0.0.101 and 0.0.102 
 
 {% hint style="info" %}
-Deprecated fields will no longer be populated in the v0.19.0 Hedera Services release. 
+Deprecated fields will no longer be populated in the 0.19.0 Hedera Services release. 
 {% endhint %}
 
 A new ServiceEndpoint protobuf message was ****introduced in the Hedera Services codebase v0.13.0 release.
