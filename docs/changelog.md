@@ -11,10 +11,9 @@ description: >-
 **IMPACT**: Account balance CSV file
 
 {% hint style="info" %}
-**REMOVAL DATE:**   
-Version: Hedera Services v0.15.0  
-Mainnet: July 1, 2021   
-Testnet: June 17, 2021
+**Version:** Hedera Services v0.15.0  
+**Mainnet:** July 1, 2021   
+**Testnet:** June 17, 2021
 {% endhint %}
 
 A new account balance file format was introduced in the Hedera Services v0.12.0 release. An [AccountBalanceFile.proto](https://github.com/hashgraph/hedera-protobufs/blob/main/streams/AccountBalanceFile.proto) has been added to the hedera-protobufs repository. The new file along with its signature file is compressed using gzip compression. Both the CSV file format and proto file format will exist in the same path and with the same name apart from the file extension being pb.gz and pb\_sig.gz. 
