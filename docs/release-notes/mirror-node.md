@@ -7,10 +7,41 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.33.0 | 0.34.0 |
-| **Testnet** | 0.33.0 | 0.34.0 |
-| **Previewnet** | 0.33.0 | 0.34.0 |
+| **Testnet** | 0.34.0 | 0.35.0 |
+| **Previewnet** | 0.34.0 | 0.35.0 |
 
 ## Upcoming Releases
+
+## [v0.35.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.35.0)
+
+Most of the changes in this release were operational improvements around our Kubernetes deployment. These changes were necessary as we begin to convert more environments from virtual machines to Kubernetes-based. We added our acceptance tests to the Helm chart so that it can trigger automatically during upgrades and verify the deployment was successful. On the importer, we added a new health check to the probes that verifies that stream files are successfully being parsed. And we fixed the importer so that the probes are started before long-running database migrations, allowing us to finally enable its liveness probe. There were a lot of smaller fixes to the charts, so please see the linked PRs for further details.
+
+The monitor saw a brand new REST API that lists active subscriptions. This is used in our cluster to determine overall cluster health and route traffic via our load balancers. We added an OpenAPI spec and Swagger UI for this API as well.
+
+Special thanks to [@si618](https://github.com/si618) for fixing the build on Windows and adding a GitHub workflow to make sure it stays fixed.
+
+And also thanks to [@safinbot](https://github.com/safinbot) for addressing some errors in our REST API OpenAPI specification.
+
+### Breaking changes
+
+The REST API maximum and default limit was lowered from 1000 to 500. If you explicitly send a number of more than 500, your request will fail. Please update your client code appropriately.
+
+## [v0.34.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.34.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: JUNE 11, 2021**
+{% endhint %}
+
+In Hedera Mirror Node v0.34.0, we started work on [designing](https://github.com/hashgraph/hedera-mirror-node/blob/master/docs/design/nft.md) support for [NFTs](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md) that will come in a future Hedera Services release.
+
+By default, the mirror node will validate that at least one-third of all nodes in the address book have signed a stream file before importing it into its database. This ensures that the main nodes have reached two-thirds consensus on the transactions in the file. For performance or verification reasons, you may want to decrease or increase this default percentage. To support this use case, we added a `hedera.mirror.importer.downloader.consensusRatio` property that controls the ratio of verified nodes \(nodes used to come to consensus on the signature file hash\) to the total number of nodes available.
+
+We took the time to undertake some major dependency upgrades for the Rosetta API. This included major updates to the Hedera and Rosetta SDKs that both required a large amount of refactoring. A number of bugs in Rosetta were addressed as well as improvements to Rosetta's CI workflow. These changes lay the groundwork for additional Rosetta improvements in a future release.
+
+To avoid duplication, we wanted to unify our JMeter and Monitor performance tests. To do so, we needed the newer monitor tool to have feature parity with our JMeter tests. To accomplish this, we've split the publish to HAPI and subscribe to mirror node flows in the monitor to allow for subscribe only. In this iteration, only the gRPC API supports subscribe only. With this change, we were able to remove our JMeter code and optimize the `hedera-mirror-test` image from 1.5G to 0.5G.
+
+We made some operational improvements to our helm chart including alert dependencies. Alert dependencies help avoid a flood of alerts that are all related to the same root cause. We also made some bug fixes to the chart that could occur when enabling or disabling some components in favor of external databases or message buses.  
+
 
 ## Latest Releases
 
