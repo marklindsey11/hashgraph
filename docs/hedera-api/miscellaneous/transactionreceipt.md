@@ -108,6 +108,13 @@ The summary of a transaction’s result so far. If the transaction has not reach
         the TransactionID that should be used to query for the receipt or record
         of the relevant scheduled transaction</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>serialNumbers</code>
+      </td>
+      <td style="text-align:left">repeated int64</td>
+      <td style="text-align:left">In the receipt of a TokenMint for tokens of type <code>NON_FUNGIBLE_UNIQUE</code>,
+        the serial numbers of the newly created NFTs</td>
+    </tr>
   </tbody>
 </table>
 

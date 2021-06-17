@@ -38,6 +38,7 @@ Response when the client sends the node CryptoGetInfoQuery
 | `liveHashes` | [Claim](cryptoaddclaim.md#claim) | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it \) |
 | `tokenRelationships` | [TokenRelationship](../basic-types/tokenrelationship.md) | All tokens related to this account |
 | `memo` | string | The memo associated with the account |
+| `ownedNfts` | int64 | The number of NFTs owned by this account |
 
 #### 
 

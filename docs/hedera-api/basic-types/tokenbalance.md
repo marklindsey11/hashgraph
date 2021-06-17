@@ -5,7 +5,7 @@ A number of transferable units of a certain token. The transferable unit of a to
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | `tokenId` | [TokenID](tokenid.md) | A unique token id |
-| `balance` | uint64 | A number of transferable units of the identified token |
+| `balance` | uint64 | A number of transferable units of the identified token. For token of type `FUNGIBLE_COMMON` - balance in the smallest denomination. For token of type `NON_FUNGIBLE_UNIQUE` - the number of NFTs held by the account |
 | `decimals` | uint32 | Tokens divide into 10 decimals pieces |
 
 

@@ -27,6 +27,9 @@ A single query, which is sent from the client to the node. This includes all pos
 |  | networkGetVersionInfo | [NetworkGetVersionInfoQuery](networkgetversioninfo.md#networkgetversioninfoquery) | Get the version of the network |
 |  | tokenGetInfo | [TokenGetInfoQuery](../token-service/tokengetinfo.md#tokengetinfoquery) | Get all information about a token |
 |  | scheduleGetInfo | [ScheduleGetInfoQuery](../schedule-service/schedulegetinfo.md#schedulegetinfoquery) | Get all information about a schedule entity |
+|  | tokenGetAccountNftInfo | [TokenGetAccountNftInfoQuery](../token-service/tokengetaccountnftinfo.md#tokengetaccountnftinfoquery) | Get a list of NFTs associated with the account |
+|  | tokenGetNftInfo | [TokenGetNftInfoQuery](../token-service/tokengetnftinfo.md#tokengetnftinfoquery) | Get all information about a NFT |
+|  | tokenGetNftInfos | [TokenGetNftInfosQuery](../token-service/tokengetnftinfos.md#tokengetnftinfosquery) | Get a list of NFTs for the token |
 
 
 

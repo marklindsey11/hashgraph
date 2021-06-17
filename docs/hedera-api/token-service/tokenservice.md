@@ -20,6 +20,9 @@ Transactions and queries for the Token Service.
 | `associateTokens` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Associates tokens to an account |
 | `dissociateTokens` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Dissociates tokens from an account |
 | `getTokenInfo` | [Query](../miscellaneous/query.md) | [Response](../miscellaneous/response.md) | Retrieves the metadata of a token |
+| `getAccountNftInfo` | [Query](../miscellaneous/query.md) | [Response](../miscellaneous/response.md) | Gets info on NFTs N through M on the list of NFTs associated with a given account |
+| `getTokenNftInfo` | [Query](../miscellaneous/query.md) | [Response](../miscellaneous/response.md) | Retrieves the metadata of an NFT by TokenID and serial number |
+| `getTokenNftInfo` | [Query](../miscellaneous/query.md) | [Response](../miscellaneous/response.md) | Gets info on NFTs N through M on the list of NFTs associated with a given Token of type `NON_FUNGIBLE` |
 
 
 

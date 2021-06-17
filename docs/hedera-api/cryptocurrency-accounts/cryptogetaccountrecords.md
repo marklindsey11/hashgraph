@@ -11,11 +11,11 @@ Get all the records for an account for any transfers into it and out of it, that
 
 ## CryptoGetAccountRecordsResponse
 
-Response when the client sends the node CryptoGetAccountRecordsQuery
+Returns records of all transactions for which the given account was the effective payer in the last 3 minutes of consensus time and `ledger.keepRecordsInState=true` was true during `handleTransaction.`
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | `header` | [ResponseHeader](../miscellaneous/responseheader.md) | Standard response from node to client, including the requested fields: cost, or state proof, or both, or neither |
 | `accountID` | [AccountID](../basic-types/accountid.md) | The account that this record is for |
-| `records` | [TransactionRecord](../miscellaneous/transactionrecord.md#transactionrecord) | List of records, each with CryptoRecordBody as their body |
+| `records` | repreated [TransactionRecord](../miscellaneous/transactionrecord.md#transactionrecord) | List of records |
 

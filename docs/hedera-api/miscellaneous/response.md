@@ -24,5 +24,8 @@ A single response, which is returned from the node to the client, after the clie
 |  | consensusGetTopicInfo | [ConsensusGetTopicInfoResponse](../consensus-service/consensusgettopicinfo.md#consensusgettopicinforesponse) | Parameters of and state of a consensus topic. |
 |  | networkGetVersionInfo | [NetworkGetVersionInfoResponse](networkgetversioninfo.md#networkgetversioninforesponse) | Semantic versions of Hedera Services and HAPI proto |
 |  | tokenGetInfo | [TokenGetInfoResponse](../token-service/tokengetinfo.md#tokengetinforesponse) | Get all information about a token |
-|  | scheduleGetInfo | [ScheduleGetInfoResponse](../schedule-service/schedulegetinfo.md#consensusgettopicinforesponse) |  |
+|  | scheduleGetInfo | [ScheduleGetInfoResponse](../schedule-service/schedulegetinfo.md#consensusgettopicinforesponse) | Get all information about a schedule entity |
+|  | tokenGetAccountNftInfo | [TokenGetAccountNftInfoResponse](../token-service/tokengetaccountnftinfo.md) | A list of the NFTs associated with the account |
+|  | tokenGetNftInfo | [TokenGetNftInfoResponse](../token-service/tokengetnftinfo.md) | All information about an NFT |
+|  | tokenGetNftInfos | [TokenGetNftInfosResponse](../token-service/tokengetnftinfos.md) | A list of the NFTs for the token |
 

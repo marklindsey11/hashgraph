@@ -184,4 +184,10 @@
 | UNPARSEABLE\_THROTTLE\_DEFINITIONS  | The new contents for the throttle definitions system file were not valid protobuf |
 | INVALID\_THROTTLE\_DEFINITIONS | The new throttle definitions system file were invalid, and no more specific error could be divined |
 | ACCOUNT\_EXPIRED\_AND\_PENDING\_REMOVAL | The transaction references an account which has passed its expiration without renewal funds available, and currently remains in the ledger only because of the grace period given to expired entities |
+| INVALID\_TOKEN\_MAX\_SUPPLY | Invalid token max supply |
+| INVALID\_TOKEN\_NFT\_SERIAL\_NUMBER | Invalid token nft serial number |
+| INVALID\_NFT\_ID | Invalid nft id |
+| METADATA\_TOO\_LONG | Nft metadata is too long |
+| BATCH\_SIZE\_LIMIT\_EXCEEDED | Repeated operations count exceeds the limit |
+| QUERY\_RANGE\_LIMIT\_EXCEEDED | The range of data to be gathered exceeds the limit |
 

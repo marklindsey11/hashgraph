@@ -68,6 +68,9 @@ The functionality provided by hedera hashgraph
 | `ScheduleDelete` | Delete Scheduled Transaction |
 | `ScheduleSign` | Sign Scheduled Transaction |
 | `ScheduleGetInfo` | Get Scheduled Transaction Information |
+| `TokenGetAccountNftInfo` | Get Token Account Nft Information |
+| `TokenGetNftInfo` | Get Token Nft Information |
+| `TokenGetNftInfos` | Get Token Nft List Information |
 
 
 

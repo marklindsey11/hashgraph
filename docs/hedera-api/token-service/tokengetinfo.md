@@ -42,6 +42,9 @@ The metadata about a Token instance
 | `autoRenewPeriod` | uint64 | The interval at which the auto-renew account will be charged to extend the token's expiry |
 | `expiry` | uint64 | The epoch second at which the token will expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod |
 | `memo` | string | The memo associated with the token |
+| `tokenType` | [TokenType](../basic-types/tokentype.md) | The token type |
+| `supplyType` | [TokenSupplyType](../basic-types/tokensupplytype.md) | The token supply type |
+| `maxSupply` | int64 | For tokens of type `FUNGIBLE_COMMON` - The Maximum number of fungible tokens that can be in circulation. For tokens of type `NON_FUNGIBLE_UNIQUE` - the maximum number of NFTs \(serial numbers\) that can be in circulation |
 
 
 
