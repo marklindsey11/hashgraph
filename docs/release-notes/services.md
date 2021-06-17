@@ -6,13 +6,13 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.14.0 | 0.15.0 |
-| **Testnet** | 0.14.0 | 0.15.0 |
-| **Previewnet** | 0.14.0 | 0.15.0 |
+| **Mainnet** | 0.14.0 | 0.15.1 |
+| **Testnet** | 0.14.0 | 0.15.1 |
+| **Previewnet** | 0.14.0 | 0.15.1 |
 
 ## Upcoming Releases
 
-## [v0.15.0](https://github.com/hashgraph/hedera-protobufs/releases/tag/v0.15.0)
+## [v0.15.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.15.1)
 
 {% hint style="info" %}
 **MAINNET UPDATE SCHEDULED: JULY 1, 2021**
@@ -22,7 +22,7 @@ description: Hedera Services release information
 **TESTNET UPDATE SCHEDULED: JUNE 17, 2021** 
 {% endhint %}
 
-In Hedera Services 0.15.0, we improved performance and integrated with the latest Platform SDK to enable full support of network reconnect.
+In Hedera Services 0.15.1, we improved performance and integrated with the latest Platform SDK to enable full support of network reconnect.
 
 These performance improvements let us augment the Hedera world state with records of all transactions handled in the three minutes of consensus time, even when handling 10,000 transactions per second. The HAPI `GetAccountRecords` query now returns, from state, all such records for which the queried account was the payer account.
 
