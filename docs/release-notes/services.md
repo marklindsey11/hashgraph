@@ -7,8 +7,8 @@ description: Hedera Services release information
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.14.0 | 0.15.1 |
-| **Testnet** | 0.14.0 | 0.15.1 |
-| **Previewnet** | 0.14.0 | 0.15.1 |
+| **Testnet** | 0.15.1 | 0.16.0 |
+| **Previewnet** | 0.15.1 | 0.16.0 |
 
 ## Upcoming Releases
 
@@ -18,7 +18,7 @@ description: Hedera Services release information
 **MAINNET UPDATE SCHEDULED: JULY 1, 2021**
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 **TESTNET UPDATE SCHEDULED: JUNE 17, 2021** 
 {% endhint %}
 
