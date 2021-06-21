@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.33.0 | 0.34.0 |
+| **Mainnet** | 0.34.0 | 0.35.0 |
 | **Testnet** | 0.35.0 | 0.36.0 |
 | **Previewnet** | 0.35.0 | 0.36.0 |
 
@@ -30,7 +30,13 @@ And also thanks to [@safinbot](https://github.com/safinbot) for addressing some 
 
 The REST API maximum and default limit was lowered from 1000 to 500. If you explicitly send a number of more than 500, your request will fail. Please update your client code appropriately.
 
+## Latest Releases
+
 ## [v0.34.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.34.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JUNE 16, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: JUNE 11, 2021**
@@ -44,10 +50,7 @@ We took the time to undertake some major dependency upgrades for the Rosetta API
 
 To avoid duplication, we wanted to unify our JMeter and Monitor performance tests. To do so, we needed the newer monitor tool to have feature parity with our JMeter tests. To accomplish this, we've split the publish to HAPI and subscribe to mirror node flows in the monitor to allow for subscribe only. In this iteration, only the gRPC API supports subscribe only. With this change, we were able to remove our JMeter code and optimize the `hedera-mirror-test` image from 1.5G to 0.5G.
 
-We made some operational improvements to our helm chart including alert dependencies. Alert dependencies help avoid a flood of alerts that are all related to the same root cause. We also made some bug fixes to the chart that could occur when enabling or disabling some components in favor of external databases or message buses.  
-
-
-## Latest Releases
+We made some operational improvements to our helm chart including alert dependencies. Alert dependencies help avoid a flood of alerts that are all related to the same root cause. We also made some bug fixes to the chart that could occur when enabling or disabling some components in favor of external databases or message buses.
 
 ## [v0.33.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.33.0)
 
