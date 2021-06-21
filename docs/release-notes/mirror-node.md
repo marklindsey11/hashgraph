@@ -7,12 +7,16 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.33.0 | 0.34.0 |
-| **Testnet** | 0.34.0 | 0.35.0 |
-| **Previewnet** | 0.34.0 | 0.35.0 |
+| **Testnet** | 0.35.0 | 0.36.0 |
+| **Previewnet** | 0.35.0 | 0.36.0 |
 
 ## Upcoming Releases
 
 ## [v0.35.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.35.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: JUNE 21, 2021**
+{% endhint %}
 
 Most of the changes in this release were operational improvements around our Kubernetes deployment. These changes were necessary as we begin to convert more environments from virtual machines to Kubernetes-based. We added our acceptance tests to the Helm chart so that it can trigger automatically during upgrades and verify the deployment was successful. On the importer, we added a new health check to the probes that verifies that stream files are successfully being parsed. And we fixed the importer so that the probes are started before long-running database migrations, allowing us to finally enable its liveness probe. There were a lot of smaller fixes to the charts, so please see the linked PRs for further details.
 
