@@ -37,8 +37,8 @@ Please reference the following issues:
 **IMPACT:** Hedera v1 SDKs
 
 {% hint style="info" %}
-**DEPRECATION DATE:** May 11, 2021  
-**REMOVAL**: October 31, 2021
+**DEPRECATION DATE:** May 2021  
+**REMOVAL**: October 2021
 {% endhint %}
 
 | SDK | Version |
