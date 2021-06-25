@@ -1,4 +1,4 @@
-# Run your mirror node using AWS
+# Run your mirror node using S3
 
 ## Requirements
 

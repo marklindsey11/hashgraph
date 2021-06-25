@@ -1,4 +1,4 @@
-# Run your mirror node using GCP
+# Run your mirror node using GCS
 
 ## Requirements
 
