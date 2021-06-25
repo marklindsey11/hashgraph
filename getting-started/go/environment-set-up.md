@@ -126,7 +126,7 @@ client.SetOperator(myAccountId, myPrivateKey)
 The client has a default **max transaction fee** of 100,000,000 tinybars \(1 hbar\) and default **max query payment** of 100,000,000 tinybars \(1 hbar\). If you need to change these values, you can use`.setMaxTransactionFee()` for transactions and `.setMaxQueryPayment()` for queries. You are only charged the actual cost of the transaction or query.
 {% endhint %}
 
-Your project environment is now set-up to successfully submit transactions/queries to the Hedera test network!
+Your project environment is now set up to successfully submit transactions/queries to the Hedera test network!
 
 Next, you will learn how to create a Hedera testnet account.
 

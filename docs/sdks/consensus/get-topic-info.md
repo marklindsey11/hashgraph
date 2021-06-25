@@ -1,6 +1,6 @@
 # Get topic info
 
-Topic info returns the the following values for a topic.  Queries do not change the state of the topic or require network consensus. The information is returned from a single node processing the query.
+Topic info returns the following values for a topic.  Queries do not change the state of the topic or require network consensus. The information is returned from a single node processing the query.
 
 **Topic Info Response:**
 

@@ -89,9 +89,9 @@ You can also verify the account balance by visiting a Hedera explorer like [Kabu
 
 * Created new a Hedera account with an initial balance of 1,000 tinybars
 * Obtained the new account ID by requesting the receipt of the transaction
-* Verified the starting balance of the new account by submitting an query to the network
+* Verified the starting balance of the new account by submitting a query to the network
 
-You are now ready to transfer some hbar to the new account 🤑!
+You are now ready to transfer some hbars to the new account 🤑!
 
 ## Code Check ✅
 

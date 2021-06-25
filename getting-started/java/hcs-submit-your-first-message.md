@@ -13,9 +13,9 @@ With the Hedera Consensus Service you can develop applications like stock market
 * **Topic** - a topic is the subject of information you would like to send messages to and what clients would subscribe to
 * **Message** - a message is the content published to the Hedera network
 
-  to a topic which gets placed in consensus order
+  to a topic that gets placed in consensus order
 
-* **Subscriber** - a client that subscribes to a desired topic in order to receive the appropriate messages
+* **Subscriber** - a client that subscribes to the desired topic in order to receive the appropriate messages
 * **Publisher -** publishes messages to a topic 
 
 ## HCS Flow
@@ -80,7 +80,7 @@ What you will need to be successful with this tutorial:
 </dependency>
 ```
 
-### 4. Set-up your environment variables
+### 4. Set up your environment variables
 
 * Create a .env file in the projects root directory 
 * Add the following:
@@ -102,7 +102,7 @@ OPERATOR_KEY=
 
 ### 6. Connect to the Hedera testnet
 
-* Here we are going to connect to the Hedera testnet and and set the operator information with your testnet account ID and private key. The operator is responsible to pay transaction fees and sign all transactions that will be generated in this tutorial. Luckily, this is testnet so you will have unlimited hbars to use in this development environment!
+* Here we are going to connect to the Hedera testnet and set the operator information with your testnet account ID and private key. The operator is responsible to pay transaction fees and sign all transactions that will be generated in this tutorial. Luckily, this is testnet so you will have unlimited hbars to use in this development environment!
 * Note the testnet client builds a connection to both the test network and testnet mirror node
 
 ```java
@@ -119,7 +119,7 @@ client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 
 ### 7. Create your first topic!
 
-* To create you first topic, we will use the TopicCreateTransaction constructor, set its properties, and submit it to the Hedera network
+* To create your first topic, we will use the TopicCreateTransaction constructor, set its properties, and submit it to the Hedera network
 * You will want to grab the topic ID so later you can subscribe to that topic via the mirror node
 * Topic IDs are in the following format: `0.0.10`
 
@@ -137,7 +137,7 @@ Thread.sleep(5000);
 
 ### 8. Subscribe to a topic
 
-* Now we will shift our attention the mirror node and subscribe to the topic created. The client establishes a connection to the Hedera testnet mirror node.
+* Now we will shift our attention to the mirror node and subscribe to the topic created. The client establishes a connection to the Hedera testnet mirror node.
 * We will subscribe to a topic by referencing the `topicId`
 * We will also print the consensus timestamp and message that was submitted to the console
 
@@ -153,7 +153,7 @@ new TopicMessageQuery()
 
 ### 9. Submit a message to a topic
 
-* Now that we have created a topic and subscribed to that topic, we are ready to submit a message using the TopicMessageSubmitTransaction constructor and submit to the Hedera network
+* Now that we have created a topic and subscribed to that topic, we are ready to submit a message using the TopicMessageSubmitTransaction constructor and submit it to the Hedera network
 * The below example will submit a message with the message as "hello, HCS!"
 
 ```java

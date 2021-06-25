@@ -35,7 +35,7 @@ The account ID is stored in the receipt of a transaction. In order to view the a
 
 ## Keys
 
-Each account has a public and private key pair. The private key of the account is used authorize and sign transactions for that account. This authorization allows for the modification of the account including deducting from the balance to pay for transaction and query fees. The private key is not to be shared with other members on the network as they can authorize transactions from your account on your behalf. The public key is what is visible to others on the network when account information is requested.
+Each account has a public and private key pair. The private key of the account is used to authorize and sign transactions for that account. This authorization allows for the modification of the account including deducting from the balance to pay for transaction and query fees. The private key is not to be shared with other members on the network as they can authorize transactions from your account on your behalf. The public key is what is visible to others on the network when account information is requested.
 
 The private key should be kept secret to the owner. Private keys without an associated recovery phrase _cannot_ be recovered once they are lost. Private keys generated with a recovery phrase can be recovered.
 
@@ -53,7 +53,7 @@ publicKey = 302...
 
 ## Balance
 
-The amount of HBAR \(ℏ\) held by the account. An account can be created with a zero balance, however it will eventually need hbars transferred to it from another account to interact with the Hedera APIs. You can purchase hbars [here.](https://www.hedera.com/buying-guide)
+The amount of HBAR \(ℏ\) held by the account. An account can be created with a zero balance, however, it will eventually need hbars transferred to it from another account to interact with the Hedera APIs. You can purchase hbars [here.](https://www.hedera.com/buying-guide)
 
 ## Expiration
 

@@ -14,7 +14,7 @@ A query that returns the current state of the account. This query **does not** i
 | **Auto Renew Period** | The duration at which the account is charged to renew. |
 | **Deleted** | Whether or not the account is marked as deleted. |
 | **Receiver Signature** | Whether or not the signature of this account is required for other accounts to transfer to it |
-| **Proxy Account** | The Account ID of the account to which this is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null.  |
+| **Proxy Account** | The Account ID of the account to which this is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking, or if it is not currently running a node, then it will behave as if proxyAccountID was null.  |
 | **Proxy Received**  | The total number of tinybars proxy staked to this account.  |
 | **LiveHash** | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it\).  |
 | **Tokens** | All tokens related to this account |

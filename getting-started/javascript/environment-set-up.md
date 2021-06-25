@@ -14,7 +14,7 @@ In this section you will complete the following:
 
 {% page-ref page="../introduction.md" %}
 
-## Step 1: Set-up your node.js environment
+## Step 1: Set up your node.js environment
 
 ### 1.1 Create a new directory for our sample & move into it
 
@@ -49,7 +49,7 @@ Note: you can just say “yes” to all of the defaults and/or plugin what makes
 ## Step 2: Install the Hedera Hashgraph JavaScript SDK
 
 {% hint style="warning" %}
-Note: Please follow the example in the version of the SDK you are using. Code specific to v2.0 of the SDK will be marked in code block tab title, otherwise it works for both v2.0 and v1.0. The examples may may be not be compatible if you are using a different version than what is listed.
+Note: Please follow the example in the version of the SDK you are using. Code specific to v2.0 of the SDK will be marked in the code block tab title, otherwise, it works for both v2.0 and v1.0. The examples may not be compatible if you are using a different version than what is listed.
 {% endhint %}
 
 Now that you have your node environment setup, we can get started with Hedera’s JS SDK! You can open this project in your favorite text editor like [Visual Studio Code](https://code.visualstudio.com/Download).
@@ -80,7 +80,7 @@ yarn add @hashgraph/sdk@1.4.4
 {% endtab %}
 {% endtabs %}
 
-* Install `dotenv` with your favorite package manager. This will allow our node environment to use your testnet account ID and private key that we will store in a .env file next.
+* Install `dotenv` with your favorite package manager. This will allow our node environment to use your testnet account ID and the private key that we will store in a .env file next.
 
 ```text
 // install with NPM
@@ -107,7 +107,7 @@ MY_PRIVATE_KEY= TESTNET PRIVATE KEY (302e...)
 
 ## Step 4: Create an index.js file in the 'root' directory
 
-This file will contain the code we will right in the following samples. Your project structure should look something like this after:
+This file will contain the code we will write in the following samples. Your project structure should look something like this after:
 
 ![](../../.gitbook/assets/project_directory.png)
 
@@ -152,7 +152,7 @@ client.setOperator(myAccountId, myPrivateKey);
 The client has a default **max transaction fee** of 100,000,000 tinybars \(1 hbar\) and default **max query payment** of 100,000,000 tinybars \(1 hbar\). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries.
 {% endhint %}
 
-Your project environment is now set-up to successfully submit transactions/queries to the Hedera test network!
+Your project environment is now set up to successfully submit transactions/queries to the Hedera test network!
 
 Next, you will learn how to create a Hedera testnet account.
 

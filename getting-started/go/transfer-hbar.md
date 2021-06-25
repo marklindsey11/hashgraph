@@ -1,6 +1,6 @@
 # Transfer hbar
 
-In this section, you will learn how to transfer hbar from your account to another account on the Hedera test network.
+In this section, you will learn how to transfer hbars from your account to another account on the Hedera test network.
 
 ## Pre-requisites:
 
@@ -100,11 +100,11 @@ fmt.Println("The hbar account balance for this account is", newAccountBalance.Hb
 
 ⭐ Congratulations! You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
-* Set-up your Hedera environment to submit transactions and queries
+* Set up your Hedera environment to submit transactions and queries
 * Created an account 
 * Transferred hbars to another account
 
-Do you want to keep learning? Visit our "[Resources](../../resources/starter-projects.md)" and "[Documentation](../../docs/sdks/)" section to take your learning experience to the next level. You can also find additional Hedera Go SDK examples [here](https://github.com/hashgraph/hedera-sdk-go/tree/master/examples).
+Do you want to keep learning? Visit our "[Resources](../../resources/starter-projects.md)" and "[Documentation](../../docs/sdks/)" sections to take your learning experience to the next level. You can also find additional Hedera Go SDK examples [here](https://github.com/hashgraph/hedera-sdk-go/tree/master/examples).
 
 ## Code Check ✅
 

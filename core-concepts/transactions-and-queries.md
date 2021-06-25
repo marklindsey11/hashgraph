@@ -6,7 +6,7 @@ description: An overview of Hedera API transactions and queries
 
 ## Transactions
 
-**Transactions** are requests sent by a client to a node with the expectation that it be submitted to the network for processing into consensus order and subsequent application to state. Each transaction \(e.g. `TokenCreateTransaction()`\) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state.
+**Transactions** are requests sent by a client to a node with the expectation that they are submitted to the network for processing into consensus order and subsequent application to state. Each transaction \(e.g. `TokenCreateTransaction()`\) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state.
 
 **Transaction ID**
 

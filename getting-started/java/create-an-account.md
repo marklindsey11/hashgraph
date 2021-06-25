@@ -1,6 +1,6 @@
 # Create an account
 
-In this section, you will learn how to make a simple Hedera account. Hedera accounts are the entry  point by which you can interact with the Hedera APIs. Accounts hold a balance of hbars used to pay for API calls for the various transaction and query types.
+In this section, you will learn how to make a simple Hedera account. Hedera accounts are the entry point by which you can interact with the Hedera APIs. Accounts hold a balance of hbars used to pay for API calls for the various transaction and query types.
 
 ## Pre-requisites:
 
@@ -11,12 +11,12 @@ In this section, you will learn how to make a simple Hedera account. Hedera acco
 {% page-ref page="../../core-concepts/accounts.md" %}
 
 {% hint style="warning" %}
-Note: Please follow the example in the version of the SDK you are using. The examples may may be not be compatible if you are using a different version than what is listed.
+Note: Please follow the example in the version of the SDK you are using. The examples may not be compatible if you are using a different version than what is listed.
 {% endhint %}
 
 ## Step 1. Generate keys for the new account
 
-Create keys for the new account you are going create. The public key will be associated with the new account and the corresponding private key is used to sign transactions. 
+Create keys for the new account you are going to create. The public key will be associated with the new account and the corresponding private key is used to sign transactions. 
 
 Continue building on the HederaExamples class from the previous section.
 
@@ -132,7 +132,7 @@ System.out.println("The new account balance is: " +accountBalance);
 
 * Created new a Hedera account with an initial balance of 1,000 tinybar
 * Obtained the new account ID by requesting the receipt of the transaction
-* Verified the starting balance of the new account by submitting an query to the network
+* Verified the starting balance of the new account by submitting a query to the network
 
 You are now ready to transfer some hbar to the new account 🤑!
 

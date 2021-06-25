@@ -2,7 +2,7 @@
 
 Here you will learn the basics of submitting transactions and queries to the Hedera network. You will see how easy it is to get started with one of our Hedera SDKs in the programming language of your choice.
 
-To successfully follow each of the coding samples, you will need a Hedera testnet **account ID** and **private key**. To set-up a Hedera testnet account, please visit the [Hedera portal](https://portal.hedera.com/register) and follow the instructions. Once you have completed the instructions, you will see a Hedera testnet account ID \(0.0.x\) and your private/public key pair on your home page. You will need to copy the **account ID** and **private key** when you set-up your coding environment. Your Hedera testnet account will also be credited with test hbar upon creation.
+To successfully follow each of the coding samples, you will need a Hedera testnet **account ID** and **private key**. To set up a Hedera testnet account, please visit the [Hedera portal](https://portal.hedera.com/register) and follow the instructions. Once you have completed the instructions, you will see a Hedera testnet account ID \(0.0.x\) and your private/public key pair on your home page. You will need to copy the **account ID** and **private key** when you set up your coding environment. Your Hedera testnet account will also be credited with test hbar upon creation.
 
 {% page-ref page="../testnet/testnet-access.md" %}
 

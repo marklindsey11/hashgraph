@@ -18,7 +18,7 @@ A Hedera mirror node stores the history of transactions that occur on the networ
 
 You can find instructions on how to operate your own Hedera mirror node below.
 
-{% page-ref page="../mirrornet/run-your-own-beta-mirror-node.md" %}
+{% page-ref page="../mirrornet/run-your-own-beta-mirror-node/" %}
 
 **Third-party mirror nodes:**
 

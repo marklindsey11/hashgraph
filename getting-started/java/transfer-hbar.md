@@ -130,11 +130,11 @@ System.out.println("The new account balance is: " +accountBalanceNew);
 
 ⭐ Congratulations! You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
-* Set-up your Hedera environment to submit transactions and queries
+* Set up your Hedera environment to submit transactions and queries
 * Created an account 
 * Transferred hbars to another account
 
-Do you want to keep learning? Visit our "Resources" and "Documentation" section to take your learning experience to the next level. You can also find additional Java SDK examples [here](https://github.com/hashgraph/hedera-sdk-java/tree/master/examples/src/main/java/com/hedera/hashgraph/sdk/examples). 
+Do you want to keep learning? Visit our "Resources" and "Documentation" sections to take your learning experience to the next level. You can also find additional Java SDK examples [here](https://github.com/hashgraph/hedera-sdk-java/tree/master/examples/src/main/java/com/hedera/hashgraph/sdk/examples). 
 
 ## Code Check ✅ 
 

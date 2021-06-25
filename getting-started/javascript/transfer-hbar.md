@@ -13,7 +13,7 @@ In this section, you will learn how to transfer hbar from your account to anothe
 {% page-ref page="create-an-account.md" %}
 
 {% hint style="warning" %}
-Note: Please follow the example in the version of the SDK you are using. The examples may may be not be compatible if you are using a different version than what is listed.
+Note: Please follow the example in the version of the SDK you are using. The examples may not be compatible if you are using a different version than what is listed.
 {% endhint %}
 
 ## Step 1: Import the following modules
@@ -131,7 +131,7 @@ console.log("The cost of query is: " +getBalanceCost);
 
 ### 4.2  Get the account balance
 
-You will verify the account balance was updated for the new account by requesting a get account balance query. The current account balance should be the sum of the initial balance \(1,000 tinybar\) plus the transfer amount \(1,000 tinybar\) and equal to 2,000 tinybars.
+You will verify the account balance was updated for the new account by requesting a get account balance query. The current account balance should be the sum of the initial balance \(1,000 tinybars\) plus the transfer amount \(1,000 tinybasr\) and equal to 2,000 tinybars.
 
 ```javascript
 //Check the new account's balance
@@ -144,11 +144,11 @@ console.log("The account balance after the transfer is: " +getNewBalance.hbars.t
 
 ⭐ Congratulations! You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
-* Set-up your Hedera environment to submit transactions and queries
+* Set up your Hedera environment to submit transactions and queries
 * Created an account 
 * Transferred hbars to another account
 
-Do you want to keep learning? Visit our "Resources" and "Documentation" section to take your learning experience to the next level. You can also find additional JavaScript SDK examples [here](https://github.com/hashgraph/hedera-sdk-js/tree/master/examples).
+Do you want to keep learning? Visit our "Resources" and "Documentation" sections to take your learning experience to the next level. You can also find additional JavaScript SDK examples [here](https://github.com/hashgraph/hedera-sdk-js/tree/master/examples).
 
 ## Code Check ✅
 

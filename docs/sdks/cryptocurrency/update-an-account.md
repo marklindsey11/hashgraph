@@ -48,7 +48,7 @@ A transaction that updates the properties of an existing account. The network wi
       <td style="text-align:left">
         <p>The new period of time in which the account will auto-renew in seconds.
           The account is charged tinybars for every auto-renew period. Duration type
-          is in seconds. For example, one hour would result in the input value of
+          is in seconds. For example, one hour would result in an input value of
           3,600 seconds.
           <br />
           <br /><b>NOTE:</b> This is fixed to approximately 3 months (7890000 seconds).
@@ -60,7 +60,7 @@ A transaction that updates the properties of an existing account. The network wi
     <tr>
       <td style="text-align:left"><b>Proxy account</b>
       </td>
-      <td style="text-align:left">The new account ID to which this account is proxy staked .</td>
+      <td style="text-align:left">The new account ID to which this account is proxy staked.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Memo</b>

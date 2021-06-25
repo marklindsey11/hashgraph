@@ -7,7 +7,7 @@ In this section you will complete the following:
 * Set-up your Hedera testnet client
 
 {% hint style="warning" %}
-Note: Please follow the example in the version of the SDK you are using. The examples may may be not be compatible if you are using a different version than what is listed.
+Note: Please follow the example in the version of the SDK you are using. The examples may not be compatible if you are using a different version than what is listed.
 {% endhint %}
 
 ## Pre-requisites:

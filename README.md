@@ -4,7 +4,7 @@
 
 Hedera is a public distributed ledger for building and deploying decentralized applications and microservices. You can use Hedera’s network services– Consensus, Tokens, Smart Contracts, and File Service–atop the [hashgraph consensus algorithm](core-concepts/hashgraph-consensus-algorithms/), to build applications with high throughput, fair ordering, and low-latency consensus finality in seconds without relying on centralized infrastructure.
 
-The network is made up of permissioned nodes run by the the [Hedera Governing Council](https://hedera.com/council), a group of term-limited enterprises that lead the network's direction. Over time the network will [move to a permissionless model](https://www.youtube.com/watch?v=QTNNYeSks-s).
+The network is made up of permissioned nodes run by the [Hedera Governing Council](https://hedera.com/council), a group of term-limited enterprises that lead the network's direction. Over time the network will [move to a permissionless model](https://www.youtube.com/watch?v=QTNNYeSks-s).
 
 {% hint style="info" %}
 Hedera Token Service is now live on our networks. Learn more in the blog series, [Get started with the Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1). Hedera Token Service API information can be found in the SDK section [here](docs/sdks/tokens/). 
@@ -60,7 +60,7 @@ All of the markdown files and images are stored in the hashgraph/hedera-docs rep
     * Community mirror nodes
     * Hedera ETL
     * Hedera Mirror Node
-    * One Click Mirror Node Deployment
+    * One-Click Mirror Node Deployment
     * Run Your Own Beta Mirror Node
 * **/support-and-community**
   * Resources our developer community might be looking for
@@ -78,9 +78,9 @@ All of the markdown files and images are stored in the hashgraph/hedera-docs rep
 If you find something that needs to be fixed, updated, or would like to publish additional content to the docs site you may do so by the following methods:
 
 * Log an issue
-  * You may submit an issue directly on hedera-docs repository 
+  * You may submit an issue directly on `hedera-docs` repository 
 * Create a pull request 
-  * Fork the repository and submit a pull request that include the suggested updates 
+  * Fork the repository and submit a pull request that includes the suggested updates 
 
 Issues and pull requests will be reviewed by the Hedera team. 
 

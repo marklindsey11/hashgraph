@@ -77,7 +77,7 @@ Testnet nodes belong to the test network and run the same code as the Hedera mai
   </tbody>
 </table>
 
-You will need to create complete your Hedera portal profile to receive a testnet account ID.
+You will need to create your Hedera portal profile to receive a testnet account ID.
 
 {% page-ref page="testnet-access.md" %}
 
@@ -94,7 +94,7 @@ Below you will find the testnet node public keys. The public keys stored in the 
 
 ## Preview Testnet Nodes
 
-Preview testnet nodes belong to the the preview test network. The preview testnet nodes run code that is currently under development as an early preview for users. This network is unstable and is not recommended as a suitable pre-production environment.
+Preview testnet nodes belong to the preview test network. The preview testnet nodes run code that is currently under development as an early preview for users. This network is unstable and is not recommended as a suitable pre-production environment.
 
 <table>
   <thead>

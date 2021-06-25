@@ -5,7 +5,7 @@ Burns tokens from the Treasury Account. If no Supply Key is defined, the transac
 * The operation decreases the Total Supply of the Token. 
 * Total supply cannot go below zero. 
 * The amount provided must be in the lowest denomination possible. 
-* Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide amount of 10000. In order to burn 100.55 tokens, one must provide amount of 10055.
+* Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide an amount of 10000. In order to burn 100.55 tokens, one must provide an amount of 10055.
 
 | Constructor | Description |
 | :--- | :--- |

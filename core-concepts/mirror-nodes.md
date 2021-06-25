@@ -31,11 +31,11 @@ Hedera mirror nodes receive information from Hedera network consensus nodes, eit
 * Audit support
 * Monitoring
 
-While mirror nodes receive information from the consensus nodes, they do not contribute to consensus themselves. The trust of Hedera is derived based on the the consensus reached by the consensus nodes. That trust is transferred to the mirror nodes using signatures, chain of hashes and state proofs.
+While mirror nodes receive information from the consensus nodes, they do not contribute to consensus themselves. The trust of Hedera is derived based on. the consensus reached by the consensus nodes. That trust is transferred to the mirror nodes using signatures, chain of hashes and state proofs.
 
 At version 1.0, mirror nodes will run the same code as consensus nodes.
 
-To make the initial deployments easier, the beta version of mirror nodes strive to take away the burden of running a full Hedera node through creation of periodic files that contain processed information \(such as account balances or transaction records\), and have the full trust of the Hedera consensus nodes. The beta mirror node software reduces the processing burden by receiving pre-constructed files from the network, validating those, populating a database and providing REST APIs
+To make the initial deployments easier, the beta version of mirror nodes strive to take away the burden of running a full Hedera node through the creation of periodic files that contain processed information \(such as account balances or transaction records\), and have the full trust of the Hedera consensus nodes. The beta mirror node software reduces the processing burden by receiving pre-constructed files from the network, validating those, populating a database, and providing REST APIs
 
 ![](../.gitbook/assets/betamirrornode-overview.jpg)
 
@@ -51,13 +51,9 @@ Hedera consensus nodes push new record files and signature files to the cloud st
 
 ## Using Mirror Nodes
 
-To get access to a Hedera beta mirror node, please select the network and click the link below.
+To get access to a Hedera beta mirror node, please follow the link below.
 
-**Testnet**:
-
-#### Mainnet:
-
-
+{% page-ref page="../mirrornet/hedera-mirror-node.md" %}
 
 ### REST API from Hedera 
 
@@ -66,14 +62,14 @@ Hedera will provide a REST API to easily query a mirror node that is hosted by H
 {% page-ref page="../docs/mirror-node-api/" %}
 
 {% hint style="info" %}
-Hedera will provide this as a service to bootstrap early use, but anticipates a full ecosystem and marketplace to be established by third-parties.
+Hedera will provide this as a service to bootstrap early use, but anticipates a full ecosystem and marketplace to be established by third parties.
 {% endhint %}
 
 ### Run a Mirror Node 
 
 Anyone can run a Hedera beta mirror node by downloading and configuring the software on their computer. By running a beta mirror node, you are able to connect to the appropriate cloud storage and store account balance files, record files, and event files as described above. Please check out the below links on how to get started.
 
-{% page-ref page="../mirrornet/run-your-own-beta-mirror-node.md" %}
+{% page-ref page="../mirrornet/run-your-own-beta-mirror-node/" %}
 
 {% page-ref page="../mirrornet/one-click-mirror-node-deployment.md" %}
 

@@ -1,10 +1,4 @@
-# Run Your Own Beta Mirror Node
-
-## Overview
-
-A Beta Mirror Node is a node that receives pre-constructed files from the Hedera mainnet. These pre-constructed files include **transaction records** and **account balance files**. Transaction records include information about a transaction like the transaction ID, transaction hash, account, etc. The account balance files give you a snapshot of the balances for all accounts at a given timestamp.
-
-In this tutorial, you will run your own Beta Mirror Node. You will need to create a Google Cloud Platform account if you do not have one already. The Beta Mirror Node object storage bucket, where you will pull the account balance and transaction data from, is stored in Google Cloud bucket and is configured for [requester pays](https://cloud.google.com/storage/docs/requester-pays). This means the Beta Mirror Node operator is responsible for the operational costs of reading and retrieving data from the Google Cloud bucket. A Google Cloud Platform account will provide the necessary information to cover the costs of the requests and download of the data.
+# Run your mirror node using GCP
 
 ## Requirements
 
@@ -18,6 +12,7 @@ In this tutorial, you will run your own Beta Mirror Node. You will need to creat
 
 * [Docker](https://www.docker.com/get-docker)
   * Check to see if you have it installed from your terminal: `docker --version && docker-compose --version`
+  * For mirror node versions 0.35.0 and higher you will need docker v3.3.3+
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Hedera Mirror Node Repository](https://github.com/hashgraph/hedera-mirror-node) 
   * You will be prompted to download the repo in the following steps 
@@ -31,7 +26,7 @@ You will need to grab the **secret key, access key**, and **project ID** from yo
 * Set your default project
 * Click **create keys** to generate access keys for your account
 
-![](../.gitbook/assets/hmac_keygen.gif)
+![](../../.gitbook/assets/hmac_keygen.gif)
 
 * You should see the **access key** and **secret** columns populate on the table
 * You will use these keys to populate the **application.yml** configuration file in a later step
@@ -39,13 +34,13 @@ You will need to grab the **secret key, access key**, and **project ID** from yo
 ## 2. Clone Hedera Mirror Node Repository
 
 * Open your terminal
-* Download the hedera-mirror-node repository 
+* Clone the `hedera-mirror-node` repository 
 
 ```text
 git clone https://github.com/hashgraph/hedera-mirror-node
 ```
 
-* CD to the hedera-mirror-node folder
+* CD to the `hedera-mirror-node` folder
 
 ```text
 cd hedera-mirror-node
@@ -55,72 +50,43 @@ cd hedera-mirror-node
 
 * Open the **application.yml** file found in the root directory with a text editor of your choice 
 * Input the following information and uncomment each line
+* Buckets are preconfigured for each network
 
 | Item | Description |
 | :--- | :--- |
 | **accessKey** | Your accessKey from your Google Cloud Platform account |
-| **bucketName** | The name of the bucket you would like to grab the data from |
 | **cloudProvider** | GCP |
 | **secretKey** | Your secretKey from your Google Cloud Platform account |
 | **gcpProjectId** | Your Google Cloud Platform project ID |
-
-**Bucket Names**
-
-| Provider | **Network** | Name |
-| :--- | :--- | :--- |
-| GCP | Previewnet | hedera-preview-testnet-streams |
-|  | Testnet | hedera-stable-testnet-streams-2020-08-27 |
-|  | Mainnet | hedera-mainnet-streams |
-| S3 | Previewnet | hedera-preview-testnet-streams |
-|  | Testnet | hedera-stable-testnet-streams-2020-08-27 |
-|  | Mainnet | hedera-mainnet-streams |
+| **network** | Enter the network you would to run your mirror node for |
 
 {% tabs %}
-{% tab title="Sample application.yml file MAINNET" %}
+{% tab title="Sample application.yml file" %}
 ```text
 hedera:
   mirror:
     importer: 
       downloader:
         accessKey: GOOG....
-        bucketName: hedera-mainnet-streams
         cloudProvider: "GCP"
         secretKey: h+....
         gcpProjectId: 
-      network: MAINNET
-```
-{% endtab %}
-
-{% tab title="Sample application.yml file TESTNET" %}
-```text
-hedera:
-  mirror:
-    importer: 
-      downloader:
-        accessKey: GOOG....
-        bucketName: hedera-stable-testnet-streams-2020-08-27
-        cloudProvider: "GCP"
-        secretKey: h+....
-        gcpProjectId: 
-      network: TESTNET
+      network: PREVIEWNET/TESTNET/MAINNET #Pick one network
 ```
 {% endtab %}
 {% endtabs %}
 
 ## 4. Start Your Beta Mirror Node
 
-* From the hedera-mirror-node directory, run the following command:
+* From the `hedera-mirror-node` directory, run the following command in your terminal:
 
 ```text
 docker-compose up
 ```
 
-* Upon successfully running your Beta Mirror Node, you will see two folders created in the hedera-mirror-node directory titled **data** and **db**
-* The **data** folder contains the information downloaded from the google cloud bucket including account balances and records streams
-
 ## 5. Access Your Beta Mirror Node Data
 
-To access the mirror node data now available to you, enter the `hedera-mirror-node_db_1` container.
+To access the mirror node data now available to you, access the `hedera-mirror-node_db_1` container.
 
 * Open a new terminal
 * To view the `hedera-mirror-node_db_1` container ID, enter the following command:
@@ -129,7 +95,7 @@ To access the mirror node data now available to you, enter the `hedera-mirror-no
 docker ps
 ```
 
-* Enter the following command to enter the docker container
+* Enter the following command to access the docker container
 
 ```text
 docker exec -it <containerId> bash
@@ -147,9 +113,7 @@ psql "dbname=mirror_node host=localhost user=mirror_node password=mirror_node_pa
 \dt
 ```
 
-![](../.gitbook/assets/beta_mirror_node_1.png)
+![](../../.gitbook/assets/image%20%281%29.png)
 
-## Contributing
-
-Contributions are welcome. Please see the [contributing](https://github.com/hashgraph/hedera-mirror-node/blob/master/CONTRIBUTING.md) guide to see how you can get involved.
+You have successfully deployed a Hedera mirror node ​ 🥳 !
 

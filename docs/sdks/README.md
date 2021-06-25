@@ -34,7 +34,7 @@ Community members contribute to SDKs in other languages.
 
 ## Community Supported Development Tools
 
-Community members contribute to development tools other then SDKs that can be used to bootstrap your own projects.
+Community members contribute to development tools other than SDKs that can be used to bootstrap your own projects.
 
 | Project | Maintainer | License | Documentation | Download |
 | :--- | :--- | :--- | :--- | :--- |

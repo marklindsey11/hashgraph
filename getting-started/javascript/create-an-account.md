@@ -15,7 +15,7 @@ The following sample will show you how to make a simple Hedera account. Hedera a
 {% page-ref page="../../core-concepts/accounts.md" %}
 
 {% hint style="warning" %}
-Note: Please follow the example in the version of the SDK you are using. The examples may may be not be compatible if you are using a different version than what is listed.
+Note: Please follow the example in the version of the SDK you are using. The examples may not be compatible if you are using a different version than what is listed.
 {% endhint %}
 
 ## Step 1: Import the following modules to your project
@@ -40,7 +40,7 @@ require("dotenv").config();
 
 ## Step 2: Generate keys for the new account
 
-You will need to generate public and private key pair to assign to the new account in the next step. Within the async function, generate they private and public key pair for the new account.
+You will need to generate public and private key pair to assign to the new account in the next step. Within the async function, generate the private and public key pair for the new account.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -71,7 +71,7 @@ const newAccountPublicKey = newAccountPrivateKey.publicKey;
 
 ## Step 3: Create the new account
 
-To create a new account you will submit an account create transaction to the Hedera test network. The account minimally requires you to set the key of the account at creation. This means that the corresponding private key will be required to sign transactions for the new account. The account will additionally have a starting balance of 1,000 tinybars. This initial balance is funded from your account to the new account. You can optionally choose to create an account with a zero balance.
+To create a new account you will submit an account create a transaction to the Hedera test network. The account minimally requires you to set the key of the account at creation. This means that the corresponding private key will be required to sign transactions for the new account. The account will additionally have a starting balance of 1,000 tinybars. This initial balance is funded from your account to the new account. You can optionally choose to create an account with a zero balance.
 
 ```javascript
 //Create a new account with 1,000 tinybar starting balance
@@ -139,9 +139,9 @@ console.log("The new account balance is: " +accountBalance.asTinybar() +" tinyba
 
 ⭐ Congratulations! You have successfully completed the following:
 
-* Created new a Hedera account with an initial balance of 1,000 tinybar
+* Created new a Hedera account with an initial balance of 1,000 tinybars
 * Obtained the new account ID by requesting the receipt of the transaction
-* Verified the starting balance of the new account by submitting an query to the network
+* Verified the starting balance of the new account by submitting a query to the network
 
 You are now ready to transfer some hbar to the new account 🤑!
 

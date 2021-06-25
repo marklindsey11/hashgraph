@@ -7,17 +7,21 @@ description: >-
 # REST API
 
 {% hint style="info" %}
-**MAINNET**  
-For our whitelisted partners, you may use the following root endpoints:  
-[https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)
-
+**MAINNET  
+Public:** [https://mainnet-public.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)  
+**Whitelisted Partners:**[ ****https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)  
+  
 **TESTNET**  
-[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
-
+[https://testnet.mirrornode.hedera.co](https://testnet.mirrornode.hedera.com/)m  
+  
 **PREVIEWNET**  
-[https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)
+[https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)  
+  
+You may also check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh/) as alternatives.‌
+{% endhint %}
 
-For all other users, you may check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh/) as alternatives.‌
+{% hint style="warning" %}
+Public mainnet mirror node requests are throttled at 100 requests per second \(rps\). This may change in the future depending upon performance or security considerations. At this time,  no authentication is required.
 {% endhint %}
 
 ## Accounts <a id="accounts"></a>

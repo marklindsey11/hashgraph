@@ -10,7 +10,7 @@ The following is provided to help Hedera Governing Council members deploy their 
 
 ## Minimum Node Requirements
 
-Currently, the Hedera mainnet will perform at a rate determined by the lowest performing node. To ensure a common level of performance minimum hardware, connectivity and hosting requirements have been defined for the initial permissioned, Governing Council nodes.
+Currently, the Hedera mainnet will perform at a rate determined by the lowest-performing node. To ensure a common level of performance minimum hardware, connectivity and hosting requirements have been defined for the initial permissioned, Governing Council nodes.
 
 {% hint style="warning" %}
 To ensure accurate conformity with the minimum requirements, please provide node hardware, connectivity, and hosting details to Hedera prior to purchase \(devops@hedera.com\).
@@ -130,7 +130,7 @@ The following steps outline the process for Council Members to add their consens
    1. Hardware or virtual instance
    2. Network connectivity
    3. Hosting facility
-4. Configuration of operating system on platform
+4. Configuration of the operating system on platform
    1. Provisioning of accounts as specified
    2. Provisioning of network access \(firewall rules/access control lists\)
 5. Conveyance of credentials to Hedera

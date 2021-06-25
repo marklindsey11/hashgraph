@@ -15,7 +15,7 @@ new FileAppendTransaction()
 ```
 
 {% hint style="info" %}
-The default max transaction fee \(1 hbar\) is not enough to create a a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars
+The default max transaction fee \(1 hbar\) is not enough to create a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars
 {% endhint %}
 
 ### Methods

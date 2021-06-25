@@ -47,7 +47,7 @@ When creating a **new account** an existing account will need to pay for the tra
       <td style="text-align:left">
         <p>The period of time in which the account will auto-renew in seconds. The
           account is charged tinybars for every auto-renew period. Duration type
-          is in seconds. For example, one hour would result in the input value of
+          is in seconds. For example, one hour would result in an input value of
           3,600 seconds.
           <br />
           <br /><b>NOTE:</b> This is fixed to approximately 3 months (7890000 seconds).

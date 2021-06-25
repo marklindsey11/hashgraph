@@ -1,10 +1,10 @@
 # Create a smart contract
 
 {% hint style="info" %}
-Before you get started with smart contracts consider if the Hedera Token Service is better for your use case. For most, it provides greater performance and lower costs. Learn more in the blog series, [Getting Started with Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1).
+Before you get started with smart contracts consider if the Hedera Token Service is better for your use case. For most, it provides greater performance and lowers costs. Learn more in the blog series, [Getting Started with Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1).
 {% endhint %}
 
-A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. You will first need to create a file that stores the bytecode of the contract. Then you will create the smart contract instance  that will run the bytecode stored in the given file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. Similar to accounts the instance will exist for autoRenewPeriod seconds. When that is reached, it will renew itself for another autoRenewPeriod seconds by charging its associated cryptocurrency account \(which it creates here\). If it has insufficient cryptocurrency to extend that long, it will extend as long as it can. If its balance is zero, the instance will be deleted.
+A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. You will first need to create a file that stores the bytecode of the contract. Then you will create the smart contract instance that will run the bytecode stored in the given file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. Similar to accounts the instance will exist for autoRenewPeriod seconds. When that is reached, it will renew itself for another autoRenewPeriod seconds by charging its associated cryptocurrency account \(which it creates here\). If it has insufficient cryptocurrency to extend that long, it will extend as long as it can. If its balance is zero, the instance will be deleted.
 
 {% hint style="warning" %}
 **Solidity Support**  
@@ -28,7 +28,7 @@ Each smart contract has a maximum state size of 1MB which can store up to approx
 | **Gas** | The gas to run the constructor. |
 | **Initial Balance**  | The initial number of hbars to put into the cryptocurrency account associated with and owned by the smart contract. |
 | **Byte Code File** | The file containing the smart contract byte code. |
-| **Proxy Account** | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if proxyAccountID was null. |
+| **Proxy Account** | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking, or if it is not currently running a node, then it will behave as if proxyAccountID was null. |
 | **Auto Renew Period** | The period that the instance will charge its account every this many seconds to renew. |
 | **Constructor Parameters** | The constructor parameters to pass. |
 | **Memo** | The memo to be associated with this contract. |

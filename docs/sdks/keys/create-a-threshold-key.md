@@ -1,6 +1,6 @@
 # Create a threshold key
 
-Create a key structure that requires the defined threshold value to sign. You can use either the public key or private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error.
+Create a key structure that requires the defined threshold value to sign. You can use either the public key or the private key to create the key structure. If the threshold requirement is not met when signing transactions, the network will return an "INVALID\_SIGNATURE" error.
 
 {% tabs %}
 {% tab title="V2" %}

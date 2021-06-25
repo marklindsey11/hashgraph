@@ -4,7 +4,7 @@ General network response messages and their descriptions.
 
 | Error  | Description |
 | :--- | :--- |
-| `AUTORENEW_DURATION_NOT_IN_RANGE` | The duration is not a subset of \[MINIMUM\_AUTORENEW\_DURATION,MAXIMUM\_AUTORENEW\_DURATION\] |
+| `AUTORENEW_DURATION_NOT_IN_RANGE` | The duration is not a subset of \[MINIMUM\_AUTORENEW\_DURATION, MAXIMUM\_AUTORENEW\_DURATION\] |
 | `ACCOUNT_IS_NOT_GENESIS_ACCOUNT` | Special Account Operations should be performed by only Genesis account, return this code if it is not Genesis Account |
 | `DUPLICATE_TRANSACTION` | This transaction ID is a duplicate of one that was submitted to this node or reached consensus in the last 180 seconds \(receipt period\) |
 | `ENTITY_NOT_ALLOWED_TO_DELETE` | Entities with Entity ID below 1000 are not allowed to be deleted |
@@ -18,13 +18,13 @@ General network response messages and their descriptions.
 | `INVALID_FREEZE_TRANSACTION_BODY` | FreezeTransactionBody is invalid |
 | `INVALID_NODE_ACCOUNT` | Node Account provided does not match the node account of the node the transaction was submitted to. |
 | `INVALID_PAYER_SIGNATURE` | Payer signature is invalid |
-| `INVALID_RECEIVING_NODE_ACCOUNT` | In Query validation, account with +ve\(amount\) value should be Receiving node account, the receiver account should be only one account in the list |
-| `INVALID_RENEWAL_PERIOD` | Auto renewal period is not a positive number of seconds |
+| `INVALID_RECEIVING_NODE_ACCOUNT` | In Query validation, an account with +ve\(amount\) value should be Receiving node account, the receiver account should be only one account in the list |
+| `INVALID_RENEWAL_PERIOD` | Auto-renewal period is not a positive number of seconds |
 | `INVALID_TRANSACTION` | For any error not handled by specific error codes listed below. |
 | `INVALID_TRANSACTION_BODY` | Invalid transaction body provided |
-| `INVALID_TRANSACTION_ID` | Transaction id is not valid |
+| `INVALID_TRANSACTION_ID` | The transaction id is not valid |
 | `INVALID_TRANSACTION_DURATION` | Valid transaction duration is a positive non zero number that does not exceed 120 seconds |
-| `INVALID_TRANSACTION_START` | Transaction start time is greater than current consensus time |
+| `INVALID_TRANSACTION_START` | Transaction start time is greater than the current consensus time |
 | `INVALID_SIGNATURE` | The transaction signature is not valid |
 | `OK` | The transaction passed the precheck validations. |
 | `MEMO_TOO_LONG` | Transaction memo size exceeded 100 bytes |

@@ -10,8 +10,8 @@ A transaction that updates the properties of an existing topic. This includes th
 | **Admin Key** | Set a new admin key that authorizes update topic and delete topic transactions.  |
 | **Submit Key** | Set a new submit key for a topic that authorizes sending messages to this topic.  |
 | **Topic Memo** | Set a new short publicly visible memo on the new topic and is stored with the topic. \(100 bytes\) |
-| **Auto Renew Account** | Set a new auto renew account ID for this topic \(once autoRenew functionality is supported by HAPI\). |
-| **Auto Renew Period** | Set a new auto renew period for this topic \(once autoRenew functionality is supported by HAPI\). |
+| **Auto Renew Account** | Set a new auto-renew account ID for this topic \(once autoRenew functionality is supported by HAPI\). |
+| **Auto Renew Period** | Set a new auto -enew period for this topic \(once autoRenew functionality is supported by HAPI\). |
 
 **Transaction Signing Requirements**
 

@@ -11,7 +11,7 @@ Create a new token on the Hedera network. After you submit the transaction to th
 * The supply that is going to be put in circulation is the initial supply provided
 * The maximum supply a token can have is 9,223,372,036,854,775,807 \(`2^63-1`\) tokens
 * The supply is in the lowest denomination possible
-* Example: Token A has initial supply set to 10\_000 and decimals set to 2. The tokens that will be put into circulation are going be 100. Token B has initial supply set to 10\_012\_345\_678 and decimals set to 8. The number of tokens that will be put into circulation are going to be 100.12345678
+* Example: Token A has an initial supply set to 10\_000 and decimals set to 2. The tokens that will be put into circulation are going to be 100. Token B has an initial supply set to 10\_012\_345\_678 and decimals set to 8. The number of tokens that will be put into circulation are to going to be 100.12345678
 * The transaction has to be signed by the Admin Key of the new token
 * A token can be created as immutable if the Admin Key is omitted. In this case, the name, symbol, treasury, management keys, expiry and renew properties cannot be modified.
 
@@ -22,9 +22,9 @@ You can set the following properties when creating a token:
 | **Name** | Set the publicly visible name of the token. The token name is specified as a string of UTF-8 characters. The token name is not unique. Maximum of 100 characters. |
 | **Symbol** | The publicly visible token symbol. It is UTF-8 capitalized alphabetical string identifying the token. The token symbol is not unique. Maximum of 100 characters. |
 | **Decimal** | The number of decimal places a token is divisible by. This field can never be changed. |
-| **Initial Supply** | Specifies the initial supply of tokens to be put in circulation.The initial supply is sent to the Treasury Account. The maximum supply of tokens is `9,223,372,036,854,775,807` tokens and is in the lowest denomination possible. |
+| **Initial Supply** | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The maximum supply of tokens is `9,223,372,036,854,775,807` tokens and is in the lowest denomination possible. |
 | **Treasury Account** | The account which will act as a treasury for the token. This account will receive the specified initial supply. The token Treasury Account is required to sign the TokenCreateTransaction. |
-| **Admin Key** | The key which can perform update/delete operations on the token.The Admin Key has the authority to change the Freeze Key, Wipe Key, and KYC Key. It can also update the treasury account.  If empty, the token can be perceived as immutable \(not being able to be updated/deleted\). This key is required to sign transaction if present. |
+| **Admin Key** | The key which can perform update/delete operations on the token.The Admin Key has the authority to change the Freeze Key, Wipe Key, and KYC Key. It can also update the treasury account.  If empty, the token can be perceived as immutable \(not being able to be updated/deleted\). This key is required to sign transactions if present. |
 | **KYC Key** | The key which can grant or revoke KYC of an account for the token's transactions. If empty, KYC is not required, and KYC grant or revoke operations are not possible. |
 | **Freeze Key** | The key which can sign to freeze or unfreeze an account for token transactions. If empty, freezing is not possible. |
 | **Wipe Key** | The key which can wipe the token balance of an account. If empty, wipe is not possible. |
@@ -32,7 +32,7 @@ You can set the following properties when creating a token:
 | **Freeze Default** | The default Freeze status \(frozen or unfrozen\) of Hedera accounts relative to this token. If true, an account must be unfrozen before it can receive the token. |
 | **Expiration Time** | The epoch second at which the token should expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod. The default expiration time is 90 days. |
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign the transaction if present. |
-| **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto renew period is 131,500 minutes. |
+| **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto-renew period is 131,500 minutes. |
 | **Memo** | A short publicly visible memo about the token. No guarantee of uniqueness. \(100 characters max\) |
 
 | Constructor | Description |

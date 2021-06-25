@@ -21,7 +21,7 @@ new TransferTransaction()
 | Method | Type | Description |
 | :--- | :--- | :--- |
 | `addHbarTransfer(<accountId, value>)` | AccountID, Hbar | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
-| `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer. The sender and recipient values must net zero. |
+| `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, and the value of the token to transfer. The sender and recipient values must net zero. |
 
 {% code title="Java" %}
 ```java

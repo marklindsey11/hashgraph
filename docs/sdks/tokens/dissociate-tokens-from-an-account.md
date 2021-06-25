@@ -11,7 +11,7 @@ Disassociates the provided Hedera account from the provided Hedera tokens. This 
 * On success, associations between the provided account and tokens are removed.
 
 {% hint style="info" %}
-The account is required to have a zero balance of the token you wish disassociates. If a token balance is present, you will receive a TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES error.
+The account is required to have a zero balance of the token you wish to disassociate. If a token balance is present, you will receive a TRANSACTION\_REQUIRES\_ZERO\_TOKEN\_BALANCES error.
 {% endhint %}
 
 | Constructor | Description |
