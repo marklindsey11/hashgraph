@@ -74,7 +74,7 @@ cd hedera-mirror-node/
 ## 3. Update the application.yml in the hedera-mirror-node directory
 
 * `cd` into the `hedera-mirror-node` directory from your terminal or IDE
-* Uncomment each field and update the `application.yml` file in the root folder with the following:
+* Uncomment each field as shown below \(except `gcpProjectId`\) and update the `application.yml` file in the root folder with the following:
 
 | Item | Description |
 | :--- | :--- |
@@ -93,7 +93,7 @@ hedera:
         accessKey: ENTER ACCESS KEY HERE
         cloudProvider: "s3"
         secretKey: ENTER SECRET KEY HERE
-        gcpProjectId: 
+#        gcpProjectId: For GCP only
       network: PREVIEWNET/TESTNET/MAINNET #Pick one network
 ```
 {% endtab %}
