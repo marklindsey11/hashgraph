@@ -70,7 +70,7 @@ hedera:
         accessKey: GOOG....
         cloudProvider: "GCP"
         secretKey: h+....
-        gcpProjectId: 
+        gcpProjectId: ENTER GCP PROJECT ID HERE
       network: PREVIEWNET/TESTNET/MAINNET #Pick one network
 ```
 {% endtab %}
