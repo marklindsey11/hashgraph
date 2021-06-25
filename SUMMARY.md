@@ -16,8 +16,8 @@
   * [Hedera Mirror Node](mirrornet/hedera-mirror-node.md)
   * [One Click Beta Mirror Node Deployment](mirrornet/one-click-mirror-node-deployment.md)
   * [Run Your Own Beta Mirror Node](mirrornet/run-your-own-beta-mirror-node/README.md)
-    * [Run your mirror node using GCS](mirrornet/run-your-own-beta-mirror-node/run-your-own-mirror-node-gcp.md)
-    * [Run your mirror node using S3](mirrornet/run-your-own-beta-mirror-node/run-your-own-mirror-node-aws.md)
+    * [Run your mirror node using GCS](mirrornet/run-your-own-beta-mirror-node/run-your-own-mirror-node-gcs.md)
+    * [Run your mirror node using S3](mirrornet/run-your-own-beta-mirror-node/run-your-own-mirror-node-s3.md)
   * [Hedera ETL](mirrornet/hedera-etl.md)
   * [Community Mirror Nodes](mirrornet/community-mirror-nodes.md)
 
