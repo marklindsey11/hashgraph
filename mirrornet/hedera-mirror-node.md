@@ -12,6 +12,7 @@ The non-production public mainnet mirror node serves to help developers build th
 
 * **Java:** v2.0.6+
 * **JavaScript:** v2.0.23+
+* **Go:** v2.1.9+
 
 {% hint style="warning" %}
 Requests are throttled at 100 requests per second \(rps\). This may change in the future depending upon performance or security considerations. At this time,  no authentication is required.
@@ -35,8 +36,9 @@ client.setMirrorNetwork("mainnet-public.mirrornode.hedera.com:443")
 {% endtab %}
 
 {% tab title="Go" %}
-```
-Coming soon...
+```go
+client := hedera.ClientForMainnet()
+client.SetMirrorNetwork([]string{"mainnet-public.mirrornode.hedera.com:443"})
 ```
 {% endtab %}
 {% endtabs %}

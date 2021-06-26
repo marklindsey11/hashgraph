@@ -36,6 +36,7 @@ The default mainnet mirror node points to the whitelisted node when using `Clien
 
 * **Java:** v2.0.6+
 * **JavaScript:** v2.0.23+
+* **Go:** v2.1.9+
 
 {% code title="Java" %}
 ```java
@@ -54,8 +55,9 @@ client.setMirrorNetwork("mainnet-public.mirrornode.hedera.com:443")
 {% endcode %}
 
 {% code title="Go" %}
-```text
-Coming soon...
+```go
+hedera.ClientForMainnet()
+client.SetMirrorNetwork([]string{"mainnet-public.mirrornode.hedera.com:443"})
 ```
 {% endcode %}
 {% endtab %}
