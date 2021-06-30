@@ -11,7 +11,7 @@ description: >-
 **IMPACT**: Account balance CSV file
 
 {% hint style="info" %}
-**Version:** Hedera Services v0.15.0  
+**Version:** Hedera Services v0.15.1  
 **Mainnet:** July 1, 2021   
 **Testnet:** June 17, 2021
 {% endhint %}
