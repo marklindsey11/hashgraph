@@ -6,20 +6,22 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.14.0 | 0.15.1 |
+| **Mainnet** | 0.15.1 | 0.16.0 |
 | **Testnet** | 0.15.1 | 0.16.0 |
 | **Previewnet** | 0.15.1 | 0.16.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.15.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.15.1)
 
-{% hint style="info" %}
-**MAINNET UPDATE SCHEDULED: JULY 1, 2021**
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JULY 1, 2021**
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE SCHEDULED: JUNE 17, 2021** 
+**TESTNET UPDATE COMPLETED: JUNE 17, 2021** 
 {% endhint %}
 
 In Hedera Services 0.15.1, we improved performance and integrated with the latest Platform SDK to enable full support of network reconnect.
@@ -29,8 +31,6 @@ These performance improvements let us augment the Hedera world state with record
 We have also finalized the design for the non-fungible token \(NFT\) support to be added to the Hedera Token Service \(HTS\) in release 0.16.0. The protobufs for new HAPI operations are available in the 0.15.0 tag of the[ hedera-protobufs](https://github.com/hashgraph/hedera-protobufs) GitHub repository.  
   
 To simplify fee calculations, there is now a maximum entity lifetime of a century for any entity whose lifetime is not \_already\_ constrained by the maximum auto-renew period. A HAPI transaction that tries to set an expiration further than a century from the current consensus time will resolve to `INVALID_EXPIRATION_TIME`.
-
-## Latest Releases
 
 ## [v0.14.0](https://github.com/hashgraph/hedera-services/releases/tag/0.14.0)
 
