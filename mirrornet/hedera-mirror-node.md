@@ -56,7 +56,7 @@ The whitelisted mainnet mirror node is available for our partners, including exc
 {% hint style="info" %}
 **HCS Mainnet Mirror Node Endpoint:** hcs.mainnet.mirrornode.hedera.com:5600  
   
-**REST API Mainnet Root Endpoint:**[ ****https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)
+**REST API Mainnet Root Endpoint:** [https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com)
 {% endhint %}
 
 ### Testnet:
