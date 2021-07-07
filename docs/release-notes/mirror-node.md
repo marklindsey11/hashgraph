@@ -12,6 +12,60 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
+## [v0.36.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.36.0)
+
+We are happy to [announce](https://hedera.com/blog/now-available-public-mainnet-mirror-node-managed-by-hedera) the availability of a publicly accessible, free-to-use, mainnet Mirror Node operated by the Hedera team. As part of this, we put a large amount of effort into fine-tuning our Kubernetes deployment. We migrated to [Flux 2](https://fluxcd.io/), a GitOps-based deployment tool that allows us to declaratively specify the expected state of the Mirror Node in git and manage our rollouts. You can browse our [deploy branch](https://github.com/hashgraph/hedera-mirror-node/tree/deploy) and see the exact config and versions rolled out to various clusters and environments. The Helm chart was updated to add `PodDisruptionBudgets`, adjust alert rules and other improvements to make it easier to automate the deployment.
+
+This release is the first version of the Mirror Node with preliminary support for non-fungible tokens \(NFTs\). NFT support is being added to the Hedera nodes as outlined in [HIP 17](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md). We spent time [designing](https://github.com/hashgraph/hedera-mirror-node/blob/v0.36.0/docs/design/nft.md) how that NFT support will look like for the Mirror Node. Modifications to the schema were made to add new tables and fields and the Importer was updated to ingest NFT transactions. The existing REST APIs were updated to add NFT related fields to the response. This includes adding a `type` field to the token related APIs to indicate fungibility and a`nft_transfers` to `/api/v1/transactions/{id}`:
+
+```text
+{
+  "transactions": [{
+      "consensus_timestamp": "1234567890.000000001",
+      "name": "CRYPTOTRANSFER",
+      "nft_transfers": [
+        {
+          "receiver_account_id": "0.0.121",
+          "sender_account_id": "0.0.122",
+          "serial_number": 104,
+          "token_id": "0.0.14873"
+        }
+      ]
+  }]
+}
+```
+
+One thing to note is that we did not add NFT transfers to the list transactions endpoint in an effort to reduce the size and improve the performance of that endpoint. In the next release, we will add new NFT specific REST APIs.
+
+Continuing upon the theme of the last release, we made additional changes to the Rosetta API to bring it up to par with the rest of the components. Rosetta now includes support for HTS via both is data and construction APIs.
+
+The Importer saw a large focus on improving performance and resiliency. It is now highly available \(HA\) when run inside Kubernetes. This allows more than one instance to run at a time and to failover to the secondary instance when the primary becomes unhealthy. A special Kubernetes ConfigMap named `leaders` is used to atomically elect the leader.
+
+We’re improving our ingestion time dramatically for entity creation. Previously those were database finds followed by updates. Since inserts are always faster than find and updates, we’ve optimized this to insert the updates into a temporary table and at the end upsert those to the final table. A record file with 6,000 new entities went from 21 seconds to 600 ms, making it 35x improvement. Balance file processing was optimized to greatly reduce memory by only keeping one file in memory at a time.
+
+### Breaking Changes
+
+In honor of [Juneteenth](https://en.wikipedia.org/wiki/Juneteenth) and as part of the general industry-wide movement, we renamed our `master` branch to `main`. If you have a clone or fork of the Mirror Node Git repository, you will need to take the below steps to update it to use `main`:
+
+```text
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
+
+As part of our optimization to reduce memory usage, we now process some things earlier in the lifecycle. Due to this we had to rename some properties to reflect this change. We also changed the disk structure if you are using the `keepFiles` \(now renamed to `writeFiles`\) properties to write the stream files to disk after download. It is no longer archived into folders by day. Instead, the folder structure will exactly match the structure in the bucket. This opens the possibility for a mirror node to download and mirror the bucket itself using a S3 compatible API like [MinIO](https://min.io/). Below is a summary of the renamed properties:
+
+* Renamed `hedera.mirror.importer.downloader.balance.keepSignatures` to `hedera.mirror.importer.downloader.balance.writeSignatures`
+* Renamed `hedera.mirror.importer.parser.balance.keepFiles` to `hedera.mirror.importer.downloader.balance.writeFiles`
+* Renamed `hedera.mirror.importer.parser.balance.persistBytes` to `hedera.mirror.importer.downloader.balance.persistBytes`
+* Renamed `hedera.mirror.importer.downloader.event.keepSignatures` to `hedera.mirror.importer.downloader.event.writeSignatures`
+* Renamed `hedera.mirror.importer.parser.event.keepFiles` to `hedera.mirror.importer.downloader.event.writeFiles`
+* Renamed `hedera.mirror.importer.parser.event.persistBytes` to `hedera.mirror.importer.downloader.event.persistBytes`
+* Renamed `hedera.mirror.importer.downloader.record.keepSignatures` to `hedera.mirror.importer.downloader.record.writeSignatures`
+* Renamed `hedera.mirror.importer.parser.record.keepFiles` to `hedera.mirror.importer.downloader.record.writeFiles`
+* Renamed `hedera.mirror.importer.parser.record.persistBytes` to `hedera.mirror.importer.downloader.record.persistBytes`
+
 ## [v0.35.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.35.0)
 
 {% hint style="success" %}
