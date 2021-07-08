@@ -16,6 +16,7 @@ description: Examples of different use cases and projects built on Hedera.
 | Proof-of-action microservice | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-microservice) | Hedera |
 | Decentralized Identity SDK | [GitHub](https://github.com/hashgraph/did-sdk-java) | Hedera |
 | Trusted Business Networks | [GitHub](https://github.com/hashgraph/hedera-hcs-sxc-java/tree/master/hcs-sxc-java-examples/hcs-sxc-java-queue-consumer) | Hedera |
+| [Hedera Transaction Tool](https://docs.hedera.com/hedera-transaction-tool-demo/) | [GitHub](https://github.com/hashgraph/hedera-transaction-tool-demo) | Hedera |
 | Others | Coming soon! | Community |
 {% endtab %}
 
