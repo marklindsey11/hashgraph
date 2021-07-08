@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.34.0 | 0.35.0 |
+| **Mainnet** | 0.35.0 | 0.36.0 |
 | **Testnet** | 0.35.0 | 0.36.0 |
 | **Previewnet** | 0.35.0 | 0.36.0 |
 
@@ -66,7 +66,13 @@ As part of our optimization to reduce memory usage, we now process some things e
 * Renamed `hedera.mirror.importer.parser.record.keepFiles` to `hedera.mirror.importer.downloader.record.writeFiles`
 * Renamed `hedera.mirror.importer.parser.record.persistBytes` to `hedera.mirror.importer.downloader.record.persistBytes`
 
+## Latest Releases
+
 ## [v0.35.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.35.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JULY 8, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: JUNE 21, 2021**
@@ -83,8 +89,6 @@ And also thanks to [@safinbot](https://github.com/safinbot) for addressing some 
 ### Breaking changes
 
 The REST API maximum and default limit was lowered from 1000 to 500. If you explicitly send a number of more than 500, your request will fail. Please update your client code appropriately.
-
-## Latest Releases
 
 ## [v0.34.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.34.0)
 
