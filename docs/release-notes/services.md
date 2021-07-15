@@ -12,6 +12,10 @@ description: Hedera Services release information
 
 ## Upcoming Releases
 
+## [v0.16.0](https://github.com/hashgraph/hedera-services/releases)
+
+In this release, we are excited to deploy support for HTS NFT support \([HIP-17](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md)\) and custom token fees \([HIP-18](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-18.md)\).
+
 ## Latest Releases
 
 ## [v0.15.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.15.1)
