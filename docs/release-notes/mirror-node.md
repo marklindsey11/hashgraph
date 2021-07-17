@@ -6,11 +6,83 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.35.0 | 0.36.0 |
-| **Testnet** | 0.35.0 | 0.36.0 |
-| **Previewnet** | 0.35.0 | 0.36.0 |
+| **Mainnet** | 0.35.0 | 0.37.0 |
+| **Testnet** | 0.35.0 | 0.37.0 |
+| **Previewnet** | 0.35.0 | 0.37.0 |
 
 ## Upcoming Releases
+
+## [v0.37.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.37.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: JULY 15, 2021**
+{% endhint %}
+
+This release broadens our support for [non-fungible tokens](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md) \(NFTs\) with new NFT-specific REST APIs. A new API was added to return a list of NFTs for a particular token ID. We also added a new API to return a single NFT by its token ID and serial number. Finally, we added an API to see the transaction history for a particular NFT. In an effort to have more manageable REST API code, we now adopt a more object-oriented approach by utilizing models, view-models and services. Below is an example of the three new APIs:
+
+`GET /api/v1/tokens/0.0.1500/nfts`
+
+```text
+{
+  "nfts": [{
+    "account_id": "0.0.1002",
+    "created_timestamp": "1234567890.000000010",
+    "deleted": false,
+    "metadata": "ahf=",
+    "modified_timestamp": "1234567890.000000010",
+    "serial_number": 2,
+    "token_id": "0.0.1500"
+  },{
+    "account_id": "0.0.1001",
+    "created_timestamp": "1234567890.000000009",
+    "deleted": false,
+    "metadata": "bTM=",
+    "modified_timestamp": "1234567890.000000008",
+    "serial_number": 1,
+    "token_id": "0.0.1500"
+  }],
+  "links": {
+    "next": null
+  }
+}
+```
+
+`GET /api/v1/tokens/0.0.1500/nfts/1`
+
+```text
+{
+  "account_id": "0.0.1001",
+  "created_timestamp": "1234567890.000000008",
+  "deleted": false,
+  "metadata": "bTM=",
+  "modified_timestamp": "1234567890.000000009",
+  "serial_number": 1,
+  "token_id": "0.0.1500"
+}
+```
+
+`GET /api/v1/tokens/0.0.1500/nfts/1/transactions`
+
+```text
+{
+  "transactions": [{
+    "consensus_timestamp": "1234567890.000000009",
+    "transaction_id": "0.0.8-1234567890-000000009",
+    "receiver_account_id": "0.0.1001",
+    "sender_account_id": "0.0.2001",
+    "type": "CRYPTOTRANSFER"
+  }, {
+    "consensus_timestamp": "1234567890.000000008",
+    "transaction_id": "0.0.8-1234567890-000000008",
+    "receiver_account_id": "0.0.2001",
+    "sender_account_id": null,
+    "type": "TOKENMINT"
+  }],
+  "links": {
+    "next": null
+  }
+}
+```
 
 ## [v0.36.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.36.0)
 
