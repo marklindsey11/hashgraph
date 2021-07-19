@@ -6,9 +6,9 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.35.0 | 0.37.0 |
-| **Testnet** | 0.35.0 | 0.37.0 |
-| **Previewnet** | 0.35.0 | 0.37.0 |
+| **Mainnet** | 0.36.0 | 0.37.0 |
+| **Testnet** | 0.37.0 | 0.38.0 |
+| **Previewnet** | 0.37.0 | 0.38.0 |
 
 ## Upcoming Releases
 
@@ -84,7 +84,13 @@ This release broadens our support for [non-fungible tokens](https://github.com/h
 }
 ```
 
+## Latest Releases
+
 ## [v0.36.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.36.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JULY 19, 2021**
+{% endhint %}
 
 We are happy to [announce](https://hedera.com/blog/now-available-public-mainnet-mirror-node-managed-by-hedera) the availability of a publicly accessible, free-to-use, mainnet Mirror Node operated by the Hedera team. As part of this, we put a large amount of effort into fine-tuning our Kubernetes deployment. We migrated to [Flux 2](https://fluxcd.io/), a GitOps-based deployment tool that allows us to declaratively specify the expected state of the Mirror Node in git and manage our rollouts. You can browse our [deploy branch](https://github.com/hashgraph/hedera-mirror-node/tree/deploy) and see the exact config and versions rolled out to various clusters and environments. The Helm chart was updated to add `PodDisruptionBudgets`, adjust alert rules and other improvements to make it easier to automate the deployment.
 
@@ -137,8 +143,6 @@ As part of our optimization to reduce memory usage, we now process some things e
 * Renamed `hedera.mirror.importer.downloader.record.keepSignatures` to `hedera.mirror.importer.downloader.record.writeSignatures`
 * Renamed `hedera.mirror.importer.parser.record.keepFiles` to `hedera.mirror.importer.downloader.record.writeFiles`
 * Renamed `hedera.mirror.importer.parser.record.persistBytes` to `hedera.mirror.importer.downloader.record.persistBytes`
-
-## Latest Releases
 
 ## [v0.35.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.35.0)
 

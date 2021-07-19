@@ -9,19 +9,19 @@ description: >-
 {% hint style="info" %}
 **MAINNET  
 Public:** [https://mainnet-public.mirrornode.hedera.com](https://mainnet-public.mirrornode.hedera.com/)  
-**Whitelisted Partners:**[ ****https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)  
-  
+**Whitelisted Partners:**[ _\*\*_https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)
+
 **TESTNET**  
 [https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
-  
+
 **PREVIEWNET**  
-[https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)  
-  
+[https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)
+
 You may also check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh/) as alternatives.‌
 {% endhint %}
 
 {% hint style="warning" %}
-Public mainnet mirror node requests are throttled at 100 requests per second \(rps\). This may change in the future depending upon performance or security considerations. At this time,  no authentication is required.
+Public mainnet mirror node requests are throttled at 100 requests per second \(rps\). This may change in the future depending upon performance or security considerations. At this time, no authentication is required.
 {% endhint %}
 
 ## Accounts <a id="accounts"></a>
