@@ -22,11 +22,9 @@ description: Hedera Services release information
 **TESTNET UPDATE:  JULY 22, 2021**
 {% endhint %}
 
-In Hedera Services 0.16.0, we are excited to announce support for [HIP-17 \(Non-fungible Tokens\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md) and [HIP-18 \(Custom Hedera Token Service Fees\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-18.md). We are deeply grateful to the Hedera user community for contributing these interesting and powerful new feature sets.
+In Hedera Services 0.16.0, we are excited to announce support for [HIP-18 \(Custom Hedera Token Service Fees\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-18.md). We are deeply grateful to the Hedera user community for contributing these interesting and powerful new feature sets.
 
-Unique token types and minted NFTs are more natural for many use cases than fungible token types. The Hedera Token Service now supports both natively, and a single `CryptoTransfer` can perform atomic swaps with any arbitrary combination of fungible, non-fungible, and ℏ transfers.
-
-All types of Hedera tokens can now be created with a custom fee schedule. The ledger automatically assesses and charges these fees to accounts as they send units of a fungible token or ownership of a NFT. The five case studies in [this document](https://github.com/hashgraph/hedera-services/blob/master/docs/fees/custom-fees-characterization.md) show the basics of how custom fees are charged, and how they appear in records.
+Hedera tokens can now be created with a custom fee schedule. The ledger automatically assesses and charges these fees to accounts as they send units of a fungible token. The five case studies in [this document](https://github.com/hashgraph/hedera-services/blob/master/docs/fees/custom-fees-characterization.md) show the basics of how custom fees are charged, and how they appear in records.
 
 ## Latest Releases
 
