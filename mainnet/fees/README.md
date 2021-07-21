@@ -63,7 +63,6 @@ All fees are subject to change.
 | :--- | :--- |
 | TokenCreate | $1.00 |
 | TokenUpdate | $0.001 |
-| TokenTransfer | $0.001 |
 | TokenDelete | $0.001 |
 | TokenAssociate | $0.05 |
 | TokenDissociate | $0.05 |
