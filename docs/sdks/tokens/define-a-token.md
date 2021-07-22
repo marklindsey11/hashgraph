@@ -30,7 +30,7 @@ You can set the following properties when creating a token:
 | **Wipe Key** | The key which can wipe the token balance of an account. If empty, wipe is not possible. |
 | **Supply Key** | The key which can change the total supply of a token. This key is used to sign token Mint/Burn operations. If this is left empty minting/burning tokens is not possible. |
 | **Fee Schedule Key** | The key that can change the token's [custom fee](custom-token-fees.md) schedule. A custom fee schedule token without a fee schedule key is immutable. |
-| **Custom Fees** | [Custom fees](custom-token-fees.md) to charge during a token transfer transaction that transfers units of this token. Custom fees can either be [fixed](../../hedera-api/token-service/customfees/fixedfee.md) or [fractional](../../hedera-api/token-service/customfees/fractionalfee.md). |
+| **Custom Fees** | [Custom fees](custom-token-fees.md) to charge during a token transfer transaction that transfers units of this token. Custom fees can either be [fixed](custom-token-fees.md#fixed-fee) or [fractional](custom-token-fees.md#fractional-fee). |
 | **Freeze Default** | The default Freeze status \(frozen or unfrozen\) of Hedera accounts relative to this token. If true, an account must be unfrozen before it can receive the token. |
 | **Expiration Time** | The epoch second at which the token should expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod. The default expiration time is 90 days. |
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign the transaction if present. |

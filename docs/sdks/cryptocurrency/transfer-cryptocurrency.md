@@ -5,7 +5,7 @@ A transaction that transfers hbars and tokens between Hedera accounts. You can e
 {% hint style="warning" %}
 * The maximum allowable balance adjustment in a single transfer transaction is 20. A debit from one account and credit to another account equals two balance adjustments. 
 * If you are transferring a token with custom fees, only two levels of nesting of fees are allowed
-* The sending account is responsible to pay for the custom token fees.
+* The sending account is responsible to pay for the custom token fees
 {% endhint %}
 
 **Transaction Signing Requirements**
