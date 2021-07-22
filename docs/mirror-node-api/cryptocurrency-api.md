@@ -9,7 +9,7 @@ description: >-
 {% hint style="info" %}
 **MAINNET  
 Public:** [https://mainnet-public.mirrornode.hedera.com](https://mainnet-public.mirrornode.hedera.com/)  
-**Whitelisted Partners:**[ _\*\*_https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)
+**Whitelisted Partners:**[ https://mainnet.mirrornode.hedera.com](https://mainnet.mirrornode.hedera.com/)
 
 **TESTNET**  
 [https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
