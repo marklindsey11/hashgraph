@@ -7,4 +7,5 @@ Transfer cryptocurrency from some accounts to other accounts. The accounts list 
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | transfers | [TransferList](../basic-types/transferlist.md) | Accounts and amounts to transfer |
+| tokenTransfers | repeated TokenTransferList | The desired token unit balance adjustments; if any custom fees are assessed, the ledger will try to deduct them from the payer of this CryptoTransfer, resolving the transaction to `INSUFFICIENT_PAYER_BALANCE_FOR_CUSTOM_FEE` if this is not possible |
 

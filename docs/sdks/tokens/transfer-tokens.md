@@ -1,9 +1,19 @@
 # Transfer tokens
 
-Transfer tokens from some accounts to other accounts. The transaction must be signed by the sending account. Each negative amount is withdrawn from the corresponding account \(a **sender**\), and each positive one is added to the corresponding account \(a **receiver**\). All amounts must have a sum of zero. Each amount is a number with the lowest denomination possible for a token. Example: Token X has 2 decimals. Account A transfers an amount of 100 tokens by providing 10000 as the amount in the TransferList. If Account A wants to send 100.55 tokens, he must provide 10055 as the amount. If any sender account fails to have a sufficient token balance, then the entire transaction fails and none of the transfers occur, though the transaction fee is still charged.
+Transfer tokens between two or many accounts. The transaction must be signed by the sending account. Each negative amount is withdrawn from the corresponding account \(a **sender**\), and each positive one is added to the corresponding account \(a **receiver**\). All amounts must have a sum of zero. Each amount is a number with the lowest denomination possible for a token.
 
-{% hint style="info" %}
-The account must be associated with the token prior to transferring tokens to that account. See TokenAssociateTransaction.
+Example: Token X has 2 decimals. Account A transfers an amount of 100 tokens by providing 10000 as the amount in the TransferList. If Account A wants to send 100.55 tokens, he must provide 10055 as the amount. If any sender account fails to have a sufficient token balance, then the entire transaction fails and none of the transfers occur, though the transaction fee is still charged.
+
+**Custom Fee Tokens**
+
+Custom fee tokens are tokens that have a unique custom fee schedule associated to them. The sender account is required to pay for the custom fee\(s\) associated with the token that is being transferred. The sender account must have the amount of the custom fee token being transferred and the custom fee amounts to successfully process the transaction. You can check to see if the token has a custom fee schedule by requesting the [token info query](get-token-info.md). Token with custom fees allow up two levels of nesting in a transfer transaction. 
+
+{% hint style="danger" %}
+Note: Accounts must be associated with the HTS token before tokens can be transferred to it. See '[Associate tokens to an account](associate-tokens-to-an-account.md)'. 
+{% endhint %}
+
+{% hint style="warning" %}
+* The maximum allowable balance adjustment in a single transfer transaction is 20. A debit from one account and credit to another account equals two balance adjustments. 
 {% endhint %}
 
 | Constructor | Description |
@@ -102,8 +112,6 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
-\*\*\*\*
-
 | Method | Type | Description |
 | :--- | :--- | :--- |
 | `addHbarTransfer(<accountId, value>)` | AccountID, Hbar/long | Add the from and to account to transfer hbars \(you will need to call this method twice\). The sending account must sign the transaction. The sender and recipient values must net zero. |

@@ -16,6 +16,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | **Transfers** | A list of transfers made in the transaction. The list of transfers includes a payment made to the node, the service fee, and transaction fee |
 | **Token Transfers** | A list of the token transfers  |
 | **ScheduleRef** | The schedule ID of the schedule transaction the record represents |
+| **Assessed Custom Fees** | This field applies to tokens that have custom fees and returns the custom fee\(s\) assessed in a token transfer transaction |
 
 **Transaction Signing Requirements**
 
@@ -38,6 +39,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | `<TransactionRecord>.transfers` | List&lt;Transfer&gt; | Optional |
 | `<TransactionRecord>.tokentransfers` | Map&lt;TokenId, Map&lt;AccountId, List&lt;Long&gt;&gt;&gt; | Optional |
 | `<TransactionRecord>.scheduleRef` | ScheduleId | Optional |
+| `<TransactionRecord>.assessedCustomFees` | List&lt;AssessedCustomFees&gt; | Optional |
 
 {% code title="Java" %}
 ```java

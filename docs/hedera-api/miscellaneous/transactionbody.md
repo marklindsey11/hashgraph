@@ -45,6 +45,7 @@ A single transaction. All transaction types are possible here.
 | `tokenWipe` | TokenWipeAccountTransactionBody | Wipes amount of tokens from an account  |
 | `tokenAssociate` | TokenAssociateTransactionBody | Associate tokens to an account  |
 | `tokenDissociate` | TokenDissociateTransactionBody | Dissociate tokens from an account  |
+| `token_fee_schedule_update` | TokenFeeScheduleUpdateTransactionBody | Updates a token's custom fee schedule |
 | `scheduleCreate` | ScheduleCreateTransactionBody | Creates a scheduled transaction instance |
 | `scheduleDelete` | ScheduleDeleteTransactionBody | Deletes a scheduled transaction instance |
 | `scheduleSign` | ScheduleSignTransactionBody | Signs a scheduled transaction instance |

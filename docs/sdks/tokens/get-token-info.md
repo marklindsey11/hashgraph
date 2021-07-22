@@ -41,6 +41,11 @@ Gets information about a token instance. The token info query returns the follow
       <td style="text-align:left">The ID of the account which is set as Treasury</td>
     </tr>
     <tr>
+      <td style="text-align:left"><b>Custom Fees</b>
+      </td>
+      <td style="text-align:left">The custom fee schedule of the token, if any</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><b>Admin Key</b>
       </td>
       <td style="text-align:left">The key which can perform update/delete operations on the token. If empty,
@@ -145,11 +150,12 @@ new TokenInfoQuery()
 | `<TokenInfoQuery>.decimals` | int | Optional |
 | `<TokenInfoQuery>.totalSupply` | long | Optional |
 | `<TokenInfoQuery>.treasury` | AccountId | Optional |
-| `<TokenInfoQuery>.adminKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.kycKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.freezeKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.wipeKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.supplyKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.customFees` | List&lt;CustomFee&gt; | Optional |
+| `<TokenInfoQuery>.adminKey` | Key | Optional |
+| `<TokenInfoQuery>.kycKey` | Key | Optional |
+| `<TokenInfoQuery>.freezeKey` | Key | Optional |
+| `<TokenInfoQuery>.wipeKey` | Key | Optional |
+| `<TokenInfoQuery>.supplyKey` | Key | Optional |
 | `<TokenInfoQuery>.defaultFreezeStatus` | Boolean | Optional |
 | `<TokenInfoQuery>.defaultKycStatus` | Boolean | Optional |
 | `<TokenInfoQuery>.isDeleted` | Boolean | Optional |

@@ -40,4 +40,6 @@ Creating immutable token: Token can be created as immutable if the adminKey is o
 | `tokenType` | [TokenType](../basic-types/tokentype.md) | IWA compatibility. Specifies the token type. Defaults to `FUNGIBLE_COMMON` | N/A |
 | `supplyType` | [TokenSupplyType](../basic-types/tokensupplytype.md) | IWA compatibility. Specified the token supply type. Defaults to `INFINITE` | N/A |
 | `maxSupply` | int64 | IWA Compatibility. Depends on TokenSupplyType. For tokens of type `FUNGIBLE_COMMON` - the maximum number of tokens that can be in circulation. For tokens of type `NON_FUNGIBLE_UNIQUE` - the maximum number of NFTs \(serial numbers\) that can be minted. This field can never be changed | N/A |
+| `feeScheduleKey` | Key | The key which can change the token's custom fee schedule; must sign a TokenFeeScheduleUpdate transaction | If set, required |
+| `customFees` | repeated CustomFee | The custom fees to be assessed during a CryptoTransfer that transfers units of this token | N/A |
 

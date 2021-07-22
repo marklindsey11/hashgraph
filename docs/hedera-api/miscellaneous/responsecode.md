@@ -189,5 +189,29 @@
 | INVALID\_NFT\_ID | Invalid nft id |
 | METADATA\_TOO\_LONG | Nft metadata is too long |
 | BATCH\_SIZE\_LIMIT\_EXCEEDED | Repeated operations count exceeds the limit |
-| QUERY\_RANGE\_LIMIT\_EXCEEDED | The range of data to be gathered exceeds the limit |
+| INVALID\_QUERY\_RANGE | The range of data to be gathered is out of the set boundaries |
+| FRACTION\_DIVIDES\_BY\_ZERO | A custom fractional fee set a denominator of zero |
+| INSUFFICIENT\_PAYER\_BALANCE\_FOR\_CUSTOM\_FEE | The transaction payer could not afford a custom fee |
+| CUSTOM\_FEES\_LIST\_TOO\_LONG | The customFees list is longer than allowed limit 10 |
+| INVALID\_CUSTOM\_FEE\_COLLECTOR | Any of the feeCollector accounts for customFees is invalid |
+| INVALID\_TOKEN\_ID\_IN\_CUSTOM\_FEES | Any of the token Ids in customFees is invalid |
+| TOKEN\_NOT\_ASSOCIATED\_TO\_FEE\_COLLECTOR | Any of the token Ids in customFees are not associated to feeCollector |
+| TOKEN\_MAX\_SUPPLY\_REACHED | A token cannot have more units minted due to its configured supply ceiling |
+| SENDER\_DOES\_NOT\_OWN\_NFT\_SERIAL\_NO | The transaction attempted to move an NFT serial number from an account other than its owner |
+| CUSTOM\_FEE\_NOT\_FULLY\_SPECIFIED | A custom fee schedule entry did not specify either a fixed or fractional fee |
+| CUSTOM\_FEE\_MUST\_BE\_POSITIVE | Only positive fees may be assessed at this time |
+| TOKEN\_HAS\_NO\_FEE\_SCHEDULE\_KEY | Fee schedule key is not set on token |
+| CUSTOM\_FEE\_OUTSIDE\_NUMERIC\_RANGE | A fractional custom fee exceeded the range of a 64-bit signed integer |
+| INVALID\_CUSTOM\_FRACTIONAL\_FEES\_SUM | The sum of all custom fractional fees must be strictly less than 1 |
+| FRACTIONAL\_FEE\_MAX\_AMOUNT\_LESS\_THAN\_MIN\_AMOUNT | Each fractional custom fee must have its maximum\_amount, if specified, at least its minimum\_amount |
+| CUSTOM\_SCHEDULE\_ALREADY\_HAS\_NO\_FEES | A fee schedule update tried to clear the custom fees from a token whose fee schedule was already empty |
+| CUSTOM\_FEE\_DENOMINATION\_MUST\_BE\_FUNGIBLE\_COMMON | Only tokens of type FUNGIBLE\_COMMON can be used to as fee schedule denominations |
+| CUSTOM\_FRACTIONAL\_FEE\_ONLY\_ALLOWED\_FOR\_FUNGIBLE\_COMMON | Only tokens of type FUNGIBLE\_COMMON can have fractional fees |
+| INVALID\_CUSTOM\_FEE\_SCHEDULE\_KEY | The provided custom fee schedule key was invalid |
+| INVALID\_TOKEN\_MINT\_METADATA | The requested token mint metadata was invalid |
+| INVALID\_TOKEN\_BURN\_METADATA | The requested token burn metadata was invalid |
+| CURRENT\_TREASURY\_STILL\_OWNS\_NFTS | The treasury for a unique token cannot be changed until it owns no NFTs |
+| PAYER\_ACCOUNT\_DELETED | The payer account has been marked as deleted |
+| CUSTOM\_FEE\_CHARGING\_EXCEEDED\_MAX\_RECURSION\_DEPTH | The reference chain of custom fees for a transferred token exceeded the maximum length of 2 |
+| CUSTOM\_FEE\_CHARGING\_EXCEEDED\_MAX\_ACCOUNT\_AMOUNTS | More than 20 balance adjustments were to satisfy a CryptoTransfer and its implied custom fee payments |
 

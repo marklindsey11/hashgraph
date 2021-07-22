@@ -25,9 +25,9 @@ AccountBalanceQuery query = new AccountBalanceQuery()
 //Sign with the operator private key and submit to a Hedera network
 AccountBalance tokenBalance = query.execute(client);
 
-System.out.println("The token balance(s) for this account: " +tokenBalance.token);
+System.out.println("The token balance(s) for this account: " +tokenBalance.tokens);
 
-//v2.0.1
+//v2.0.9
 ```
 {% endcode %}
 

@@ -45,6 +45,8 @@ The metadata about a Token instance
 | `tokenType` | [TokenType](../basic-types/tokentype.md) | The token type |
 | `supplyType` | [TokenSupplyType](../basic-types/tokensupplytype.md) | The token supply type |
 | `maxSupply` | int64 | For tokens of type `FUNGIBLE_COMMON` - The Maximum number of fungible tokens that can be in circulation. For tokens of type `NON_FUNGIBLE_UNIQUE` - the maximum number of NFTs \(serial numbers\) that can be in circulation |
+| `fee_schedule_key` | Key | The key which can change the custom fee schedule of the token; if not set, the fee schedule is immutable |
+| `custom_fees` | repeated [CustomFee](customfees/) | The custom fees to be assessed during a CryptoTransfer that transfers units of this token |
 
 
 

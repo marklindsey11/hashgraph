@@ -20,5 +20,6 @@ If no value is given for a field, that field is left unchanged. For an immutable
 | `autoRenewAccount` | [AccountID](../basic-types/accountid.md) | The new account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval.  | N/A |
 | `autoRenewPeriod` | uint64 | The new interval at which the auto-renew account will be charged to extend the token's expiry.  | N/A |
 | `expiry` | uint64 | The new expiry time of the token. Expiry can be updated even if admin key is not set. If the provided expiry is earlier than the current token expiry, transaction wil resolve to INVALID\_EXPIRATION\_TIME  | N/A |
-| memo | string | The memo associated with the token \(UTF-8 encoding max 100 bytes\) | N/A |
+| `memo` | string | The memo associated with the token \(UTF-8 encoding max 100 bytes\) | N/A |
+| `feeScheduleKey` | [Key](../basic-types/key.md) | If set, the new key to use to update the token's custom fee schedule; if the token does not currently have this key, transaction will resolve to TOKEN\_HAS\_NO\_FEE\_SCHEDULE\_KEY | If updated, required |
 

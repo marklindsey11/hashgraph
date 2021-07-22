@@ -382,52 +382,76 @@ A request to return information for a transaction that was provided a specific t
 {% endapi-method-response-example-description %}
 
 ```text
-{
+  {
     "transactions": [
-        {
-            "consensus_timestamp": "1602718525.642096000",
-            "transaction_hash": "rcJfUqXgznzsV5p9SYW0BsmzmQ4jEmIjDJ4Xgl8R+j5d1uk95XWYhSyG00KAbAXl",
-            "valid_start_timestamp": "1602718515.568165000",
-            "charged_tx_fee": 85551,
-            "memo_base64": "VHJhbnNmZXIgdG9rZW5fMjAyMC0xMC0xNFQyMzozNToyNS41NjEwODVa",
-            "result": "SUCCESS",
-            "name": "TOKENTRANSFERS",
-            "max_fee": "1000000",
-            "valid_duration_seconds": "120",
-            "node": "0.0.3",
-            "transaction_id": "0.0.1562-1602718515-568165000",
-            "transfers": [
-                {
-                    "account": "0.0.3",
-                    "amount": 5232
-                },
-                {
-                    "account": "0.0.98",
-                    "amount": 80319
-                },
-                {
-                    "account": "0.0.1562",
-                    "amount": -85551
-                }
-            ],
-            "token_transfers": [
-                {
-                    "token_id": "0.0.1588",
-                    "account": "0.0.1589",
-                    "amount": 2350
-                },
-                {
-                    "token_id": "0.0.1588",
-                    "account": "0.0.1562",
-                    "amount": -2350
-                }
-            ]
-        }
-    ],
-    "links": {
-        "next": null
-    }
-}
+      {
+        "consensus_timestamp": "1234567890.000000001",
+        "valid_start_timestamp": "1234567890.000000000",
+        "charged_tx_fee": 7,
+        "memo_base64": null,
+        "result": "SUCCESS",
+        "transaction_hash": "aGFzaA==",
+        "name": "CRYPTOTRANSFER",
+        "node": "0.0.3",
+        "transaction_id": "0.0.10-1234567890-000000000",
+        "valid_duration_seconds": "11",
+        "max_fee": "33",
+        "transfers": [
+          {
+            "account": "0.0.9",
+            "amount": 10
+          },
+          {
+            "account": "0.0.10",
+            "amount": -161
+          },
+          {
+            "account": "0.0.98",
+            "amount": 1
+          },
+          {
+            "account": "0.0.87501",
+            "amount": 150
+          }
+        ],
+        "token_transfers": [
+          {
+            "account": "0.0.200",
+            "amount": 200,
+            "token_id": "0.0.90000"
+          },
+          {
+            "account": "0.0.10",
+            "amount": -1210,
+            "token_id": "0.0.90000"
+          },
+          {
+            "account": "0.0.400",
+            "amount": 1000,
+            "token_id": "0.0.90000"
+          },
+          {
+            "account": "0.0.87502",
+            "amount": 10,
+            "token_id": "0.0.90000"
+          }
+        ],
+        "assessed_custom_fees": [
+          {
+            "amount": 150,
+            "collector_account_id": "0.0.87501",
+            "token_id": null
+          },
+          {
+            "amount": 10,
+            "collector_account_id": "0.0.87502",
+            "token_id": "0.0.90000"
+          }
+        ]
+      }
+    ]
+  }
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -453,6 +477,7 @@ A request to return information for a transaction that was provided a specific t
 | **node** | The ID of the node that submitted the transaction to the network |
 | **transfers** | A list of the account IDs the crypto transfer occurred between and the amount that was transferred. A negative \(-\) sign indicates a debit to that account. The transfer list includes the transfers between the from account and to account, the transfer of the [node fee](https://www.hedera.com/fees), the transfer of the [network fee](https://www.hedera.com/fees), and the transfer of the [service fee](https://www.hedera.com/fees) for that transaction. If the transaction was not processed, a [network fee](https://www.hedera.com/fees) is still assessed. |
 | **token transfers** | The token ID, account, and amount that was transferred to by this account in this transaction. This will not be listed if it did not occur in the transaction |
+| **assessed custom fees** | The fees that were charged for a custom fee token transfer |
 | **links.next** | A hyperlink to the next page of responses |
 
 ### Optional Filtering <a id="optional-filtering-2"></a>
@@ -808,41 +833,70 @@ The ID of the token to return the information for in x.y.z format.
 {% endapi-method-response-example-description %}
 
 ```text
-{
-    "admin_key": {
-        "_type": "ED25519",
-        "key": "ae73aced5f817a772d9db4389d198cfccd73496912a3d2581efba9638c6558a2"
-    },
-    "auto_renew_account": "0.0.2848",
-    "auto_renew_period": null,
-    "created_timestamp": "1605365995.140259000",
-    "decimals": "3",
-    "expiry_timestamp": null,
-    "freeze_default": false,
-    "freeze_key": {
-        "_type": "ED25519",
-        "key": "5446f4d87f8091dadcf2c290c52dcfe433276abbdc9153b797c50845b4917d1c"
-    },
-    "initial_supply": "1300000000",
-    "kyc_key": {
-        "_type": "ED25519",
-        "key": "4882f24d220b9e595e99a5ab6cd50c55b95cde3ccaaf9146d503e901bb513133"
-    },
-    "modified_timestamp": "1605365995.140259000",
-    "name": "CwOE78V-ainb0MNHPeIc4Sd9nYS9*PCJAWjTW1SkB75!tGFdyR",
-    "supply_key": {
-        "_type": "ED25519",
-        "key": "84dfe9ec8519a4f1a8aa3e2e771e3025fd1c3b4b3b5ad41622e202602e63832d"
-    },
-    "symbol": "WWHNTTGINMPLZELLJLRX",
-    "token_id": "0.0.2849",
-    "total_supply": "1300000000",
-    "treasury_account_id": "0.0.2847",
-    "wipe_key": {
-        "_type": "ED25519",
-        "key": "074f7d073c6e910ee29f55dca78494da54216ec528eae10c448888c5d8e22e8f"
-    }
+  {
+  "token_id": "0.0.1135",
+  "symbol": "ORIGINALRDKSE",
+  "admin_key": null,
+  "auto_renew_account": null,
+  "auto_renew_period": null,
+  "created_timestamp": "1234567890.000000002",
+  "decimals": "1000",
+  "expiry_timestamp": null,
+  "freeze_default": false,
+  "freeze_key": null,
+  "initial_supply": "1000000",
+  "kyc_key": null,
+  "max_supply": "9223372036854775807",
+  "modified_timestamp": "1234567899.000000002",
+  "name": "Token name",
+  "supply_key": null,
+  "supply_type": "INFINITE",
+  "total_supply": "1000000",
+  "treasury_account_id": "0.0.98",
+  "type": "FUNGIBLE_COMMON",
+  "wipe_key": null,
+  "fee_schedule_key": {
+    "_type": "ProtobufEncoded",
+    "key": "7b2231222c2231222c2231227d"
+  },
+  "custom_fees": {
+    "created_timestamp": "1234567896.000000001",
+    "fixed_fees": [
+      {
+        "amount": 10,
+        "collector_account_id": "0.0.99812",
+        "denominating_token_id": null
+      },
+      {
+        "amount": 10,
+        "collector_account_id": "0.0.99813",
+        "denominating_token_id": "0.0.10020"
+      }
+    ],
+    "fractional_fees": [
+      {
+        "amount": {
+          "numerator": 1,
+          "denominator": 10
+        },
+        "collector_account_id": "0.0.99820",
+        "denominating_token_id": "0.0.1135",
+        "maximum": 200,
+        "minimum": 0
+      },
+      {
+        "amount": {
+          "numerator": 3,
+          "denominator": 20
+        },
+        "collector_account_id": "0.0.99821",
+        "denominating_token_id": "0.0.1135",
+        "minimum": 10
+      }
+    ]
+  }
 }
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -860,6 +914,7 @@ The ID of the token to return the information for in x.y.z format.
 | **decimals** | The number of decimal places a token is divisible by |
 | **expiry\_timestamp** | The epoch second at which the token should expire |
 | **freeze\_default** | Whether or not accounts created |
+| **fee\_schedule\_key** | The fee schedule key, if any |
 | **freeze\_key** | The freeze key for the token |
 | **initial\_suppl**y | The initial supply of the token |
 | **kyc\_key** | The KYC key for the token |
@@ -870,7 +925,9 @@ The ID of the token to return the information for in x.y.z format.
 | **token\_id** | The token ID |
 | **total\_supply** | The total supply of the token |
 | **treasury\_account\_id** | The treasury account of the token |
+| **type** | whether a token is a fungible or non-fungible token |
 | **wipe\_key** | The wipe key for the token |
+| **custom\_fees** | The custom fee schedule for the token, if any |
 
 ## Schedule Transactions
 

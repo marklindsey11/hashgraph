@@ -1,18 +1,19 @@
 # Update a token
 
-Updates the properties of an existing token. The Admin Key must sign this transaction to update any of the token properties. If no value is given for a field, that field is left unchanged. For an immutable token \(that is, a token created without an Admin Key\), only the expiry may be updated. Setting any other field, in that case, will cause the transaction status to resolve to TOKEN\_IS\_IMMUTABlE.
+Updates the properties of an existing token. The Admin Key must sign this transaction to update any of the token properties. If no value is given for a field, that field is left unchanged. For an immutable token \(that is, a token created without an Admin Key\), only the expiry may be updated. Setting any other field, in that case, will cause the transaction status to resolve to `TOKEN_IS_IMMUTABlE`.
 
 | Property | Description |
 | :--- | :--- |
 | **Name** | The new name of the token. Must be a string of ASCII characters. Is not required to be unique. |
 | **Symbol** | The new symbol of the token. Must be UTF-8 capitalized alphabetical string identifying the token. Is not required to be unique. |
-| **Treasury Account** | The new treasury account of the token. If the provided treasury account is not existing or deleted, the response will be INVALID\_TREASURY\_ACCOUNT\_FOR\_TOKEN. If successful, the Token balance held in the previous Treasury Account is transferred to the new one. |
-| **Admin Key** | The new admin key of the token. If the token is immutable \(no Admin Key was assigned during token creation\), the transaction will resolve to TOKEN\_IS\_IMMUTABlE. |
-| **KYC Key** | The new KYC key of the token. If the token does not have currently a KYC key, the transaction will resolve to TOKEN\_HAS\_NO\_KYC\_KEY. |
-| **Freeze Key** | The new freeze key of the token. If the token does not have currently a freeze key, the transaction will resolve to TOKEN\_HAS\_NO\_FREEZE\_KEY. |
-| **Wipe Key** | The new wipe key of the token. If the token does not have currently a wipe key, the transaction will resolve to TOKEN\_HAS\_NO\_WIPE\_KEY. |
-| **Supply Key** | The new supply key of the token. If the token does not have currently a supply key, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. |
-| **Expiration Time** | The new expiry time of the token. Expiry can be updated even if the admin key is not set. If the provided expiry is earlier than the current token expiry, the transaction will resolve to INVALID\_EXPIRATION\_TIME. |
+| **Treasury Account** | The new treasury account of the token. If the provided treasury account is not existing or deleted, the response will be `INVALID_TREASURY_ACCOUNT_FOR_TOKEN`. If successful, the Token balance held in the previous Treasury Account is transferred to the new one. |
+| **Admin Key** | The new admin key of the token. If the token is immutable \(no Admin Key was assigned during token creation\), the transaction will resolve to `TOKEN_IS_IMMUTABlE`. |
+| **KYC Key** | The new KYC key of the token. If the token does not have currently a KYC key, the transaction will resolve to `TOKEN_HAS_NO_KYC_KEY`. |
+| **Freeze Key** | The new freeze key of the token. If the token does not have currently a freeze key, the transaction will resolve to `TOKEN_HAS_NO_FREEZE_KEY`. |
+| **Fee Schedule Key** | If set, the new key to use to update the token's custom fee schedule; if the token does not currently have this key, transaction will resolve to `TOKEN_HAS_NO_FEE_SCHEDULE_KEY` |
+| **Wipe Key** | The new wipe key of the token. If the token does not have currently a wipe key, the transaction will resolve to `TOKEN_HAS_NO_WIPE_KEY`. |
+| **Supply Key** | The new supply key of the token. If the token does not have currently a supply key, the transaction will resolve to `TOKEN_HAS_NO_SUPPLY_KEY`. |
+| **Expiration Time** | The new expiry time of the token. Expiry can be updated even if the admin key is not set. If the provided expiry is earlier than the current token expiry, the transaction will resolve to `INVALID_EXPIRATION_TIME`. |
 | **Auto Renew Account** | The new account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. |
 | **Auto Renew Period** | The new interval at which the auto-renew account will be charged to extend the token's expiry. The default auto-renew period is 131,500 minutes. |
 | **Memo** | Short publicly visible memo about the token. No guarantee of uniqueness. \(100 characters max\) |
@@ -35,11 +36,12 @@ new TokenUpdateTransaction()
 | `setTokenName(<name>)` | String | Optional |
 | `setTokenSymbol(<symbol>)` | String | Optional |
 | `setTreasuryAccountId(<treasury>)` | AccountId | Optional |
-| `setAdminKey(<key>)` | PublicKey | Optional |
-| `setKycKey(<key>)` | PublicKey | Optional |
-| `setFreezeKey(<key>)` | PublicKey | Optional |
-| `setWipeKey(<key>)` | PublicKey | Optional |
-| `setSupplyKey(<key>)` | PublicKey | Optional |
+| `setAdminKey(<key>)` | Key | Optional |
+| `setKycKey(<key>)` | Key | Optional |
+| `setFreezeKey(<key>)` | Key | Optional |
+| `setFeeScheduleKey(<key>)` | Key | Optional |
+| `setWipeKey(<key>)` | Key | Optional |
+| `setSupplyKey(<key>)` | Key | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
 | `setTokenMemo(<memo>)` | String | Optional |
@@ -139,6 +141,7 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 | `setAdminKey(<key>)` | PublicKey | Optional |
 | `setKycKey(<key>)` | PublicKey | Optional |
 | `setFreezeKey(<key>)` | PublicKey | Optional |
+| `setFeeScheduleKey(<key>)` | PublicKey | Optional |
 | `setWipeKey(<key>)` | PublicKey | Optional |
 | `setSupplyKey(<key>)` | PublicKey | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
@@ -189,4 +192,6 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+
 

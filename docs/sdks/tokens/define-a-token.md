@@ -7,7 +7,7 @@ Check out "Getting Started with the Hedera Token Service" video tutorial in Java
 Create a new token on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
 
 * The specified Treasury Account receives the initial supply of tokens when a token is created. The Treasury Account also receives any additional tokens that are minted.
-* The balance of the treasury account is decreased when the TokenBurn operation is executed. You must set the Supply Key if you wish to burn tokens in the future. If you do not set the Supply Key upon creation of the token, you may update the token properties using the TokenUpdate transaction.
+* The balance of the treasury account is decreased when the TokenBurn operation is executed. You must set the Supply Key if you wish to burn tokens in the future. If you do not set the Supply Key upon the creation of the token, you may update the token properties using the TokenUpdate transaction.
 * The supply that is going to be put in circulation is the initial supply provided
 * The maximum supply a token can have is 9,223,372,036,854,775,807 \(`2^63-1`\) tokens
 * The supply is in the lowest denomination possible
@@ -29,11 +29,13 @@ You can set the following properties when creating a token:
 | **Freeze Key** | The key which can sign to freeze or unfreeze an account for token transactions. If empty, freezing is not possible. |
 | **Wipe Key** | The key which can wipe the token balance of an account. If empty, wipe is not possible. |
 | **Supply Key** | The key which can change the total supply of a token. This key is used to sign token Mint/Burn operations. If this is left empty minting/burning tokens is not possible. |
+| **Fee Schedule Key** | The key that can change the token's [custom fee](custom-token-fees.md) schedule. A custom fee schedule token without a fee schedule key is immutable. |
+| **Custom Fees** | [Custom fees](custom-token-fees.md) to charge during a token transfer transaction that transfers units of this token. Custom fees can either be [fixed](../../hedera-api/token-service/customfees/fixedfee.md) or [fractional](../../hedera-api/token-service/customfees/fractionalfee.md). |
 | **Freeze Default** | The default Freeze status \(frozen or unfrozen\) of Hedera accounts relative to this token. If true, an account must be unfrozen before it can receive the token. |
 | **Expiration Time** | The epoch second at which the token should expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod. The default expiration time is 90 days. |
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign the transaction if present. |
 | **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto-renew period is 131,500 minutes. |
-| **Memo** | A short publicly visible memo about the token. No guarantee of uniqueness. \(100 characters max\) |
+| **Memo** | A short publicly visible memo about the token. You can use the memo field to add a URI that contains additional metadata about the token. You can view the metadata schema [here](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-10.md). Memos are not unique and have a 100 character limit.  |
 
 | Constructor | Description |
 | :--- | :--- |
@@ -61,6 +63,8 @@ new TokenCreateTransaction()
 | `setSupplyKey(<key>)` | Key | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setFeeScheduleKey(<key>)` | Key | Optional |
+| `setCustomFees(<customFees>)` | List&lt;[CustomFee](custom-token-fees.md#custom-fee)&gt; | Optional |
 | `setTokenMemo(<memo>)` | String | Optional |
 | `setAutoRenewAccountId(<account>)` | [AccountId](../specialized-types.md#accountid) | Disabled |
 | `setAutoRenewPeriod(<period>)` | Duration | Disabled |
@@ -173,6 +177,7 @@ fmt.Printf("The new token ID is %v\n", tokenId)
 | `setFreezeKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
 | `setWipeKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
 | `setSupplyKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
+| `setCustomFees(<customFee>)` | List&lt;[CustomFee](../../hedera-api/token-service/customfees/customfee.md)&gt; | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Required |
 | `setAutoRenewAccount(<account>)` | [AccountId](../specialized-types.md#accountid) | Optional |
@@ -229,4 +234,6 @@ console.log("The new token ID is " +tokenId);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+
 
