@@ -143,6 +143,7 @@ fmt.Printf("The transaction record is %v\n", record)
 | `<TransactionRecord>.transactionMemo` | String | Optional |
 | `<TransactionRecord>.transfers` | List&lt;Transfer&gt; | Optional |
 | `<TransactionRecord>.tokentransfers` | Map&lt;TokenId, Map&lt;AccountId, List&lt;Long&gt;&gt;&gt; | Optional |
+| `<TransactionRecord>.scheduleRef` | ScheduleId | Optional |
 | `<TransactionRecord>.assessedCustomFees` | List&lt;AssessedCustomFees&gt; | Optional |
 
 {% code title="Java" %}
