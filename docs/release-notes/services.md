@@ -6,20 +6,20 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.15.1 | 0.16.0 |
-| **Testnet** | 0.15.1 | 0.16.0 |
-| **Previewnet** | 0.15.1 | 0.16.0 |
+| **Mainnet** | 0.15.1 | 0.16.1 |
+| **Testnet** | 0.16.1 | 0.17.0 |
+| **Previewnet** | 0.16.1 | 0.17.0 |
 
 ## Upcoming Releases
 
-## [v0.16.0](https://github.com/hashgraph/hedera-services/releases)
+## [v0.16.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.16.1)
 
 {% hint style="info" %}
 **MAINNET UPDATE: AUGUST 5, 2021**
 {% endhint %}
 
-{% hint style="info" %}
-**TESTNET UPDATE:  JULY 22, 2021**
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED:  JULY 22, 2021**
 {% endhint %}
 
 In Hedera Services 0.16.0, we are excited to announce support for [HIP-18 \(Custom Hedera Token Service Fees\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-18.md).
