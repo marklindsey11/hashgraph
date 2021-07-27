@@ -35,7 +35,7 @@ For more information about Hedera transaction fees, please visit Hedera API fees
 
 ## Queries
 
-**Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally queries are subject to fees. The full list of queries can be found [here](https://app.gitbook.com/@docs-hedera/s/guides/~/drafts/-MHF35QPYQblNVmw4nQk/docs/sdks/queries).
+**Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally queries are subject to fees. The full list of queries can be found [here](../docs/sdks/queries.md).
 
 A query includes a header that includes a distinct HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.
 

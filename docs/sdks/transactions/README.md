@@ -21,6 +21,7 @@ With the R4 release, how the HBAR balance changes of accounts involved in the tr
 |  |  | [TokenMintTransaction](../tokens/mint-a-token.md) |  |  |
 |  |  | [TokenBurnTransaction](../tokens/burn-a-token.md) |  |  |
 |  |  | [TokenFreezeTransaction](../tokens/freeze-an-account.md) |  |  |
+|  |  | [TokenFeeScheduleUpdateTransaction](../tokens/update-a-fee-schedule.md) |  |  |
 |  |  | [TokenUnfreezeTransaction](../tokens/unfreeze-an-account.md) |  |  |
 |  |  | [TokenGrantKycTransaction](../tokens/enable-kyc-account-flag-1.md) |  |  |
 |  |  | [TokenRevokeKycTransaction](../tokens/disable-kyc-account-flag.md) |  |  |
