@@ -6,13 +6,19 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.36.0 | 0.37.0 |
-| **Testnet** | 0.37.0 | 0.38.0 |
-| **Previewnet** | 0.37.0 | 0.38.0 |
+| **Mainnet** | 0.37.1 | 0.38.0 |
+| **Testnet** | 0.37.1 | 0.38.0 |
+| **Previewnet** | 0.37.1 | 0.38.0 |
 
 ## Upcoming Releases
 
-## [v0.37.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.37.0)
+## Latest Releases
+
+## [v0.37.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.37.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JULY 29, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: JULY 15, 2021**
@@ -83,8 +89,6 @@ This release broadens our support for [non-fungible tokens](https://github.com/h
   }
 }
 ```
-
-## Latest Releases
 
 ## [v0.36.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.36.0)
 
