@@ -13,6 +13,11 @@ Wipes the provided amount of tokens from the specified Hedera account. This tran
 * The amount provided is in the lowest denomination possible. 
 * Example: Token A has 2 decimals. In order to wipe 100 tokens from an account, one must provide an amount of 10000. In order to wipe 100.55 tokens, one must provide an amount of 10055.
 
+**Transaction Signing Requirements:**
+
+* Wipe key
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenWipeTransaction()` | Initializes a TokenWipeAccountTransaction object |

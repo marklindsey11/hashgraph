@@ -5,7 +5,7 @@ Update the custom fees for a given token. If the token does not have a fee sched
 **Transaction Signing Requirements**
 
 * Fee schedule key
-* Transaction fee-paying account key
+* Transaction fee payer account key
 
 | Property | Description |
 | :--- | :--- |

@@ -7,6 +7,11 @@ Burns tokens from the Treasury Account. If no Supply Key is defined, the transac
 * The amount provided must be in the lowest denomination possible. 
 * Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide an amount of 10000. In order to burn 100.55 tokens, one must provide an amount of 10055.
 
+**Transaction Signing Requirements:**
+
+* Supply key
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenBurnTransaction()` |     Initializes the TokenBurnTransaction object |

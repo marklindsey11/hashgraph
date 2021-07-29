@@ -10,6 +10,11 @@ Freezes transfers of the specified token for the account. The transaction must b
 * Once executed the Account is marked as Frozen and will not be able to receive or send tokens unless unfrozen.
 * The operation is idempotent
 
+**Transaction Signing Requirements:**
+
+* Freeze key
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenFreezeTransaction()` | Initializes the TokenFreezeTransaction object |

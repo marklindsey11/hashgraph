@@ -10,6 +10,11 @@ Revokes the KYC flag to the Hedera account for the given Hedera token. This tran
 * If no KYC Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_KYC\_KEY.
 * Once executed the Account is marked as KYC Revoked
 
+**Transaction Signing Requirements:**
+
+* KYC key
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenRevokeKycTransaction()` | Initializes the TokenRevokeKycTransaction object |

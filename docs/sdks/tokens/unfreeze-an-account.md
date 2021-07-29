@@ -10,6 +10,11 @@ Unfreezes transfers of the specified token for the account. The transaction must
 * If no Freeze Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_FREEZE\_KEY.
 * Once executed the Account is marked as Unfrozen and will be able to receive or send tokens. The operation is idempotent.
 
+**Transaction Signing Requirements:**
+
+* Freeze key
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenUnfreezeTransaction()` | Initializes the TokenUnfreezeTransaction object |

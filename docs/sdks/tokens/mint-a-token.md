@@ -2,6 +2,11 @@
 
 Minting tokens allow you to increase the total supply of the token. The Supply Key must sign the transaction. If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. The maximum total supply a token can have is 2^63-1. The amount provided must be in the lowest denomination possible. Example: Token A has 2 decimals. In order to mint 100 tokens, one must provide an amount of 10000. In order to mint 100.55 tokens, one must provide an amount of 10055.
 
+**Transaction Signing Requirements:**
+
+* Supply key
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenMintTransaction()` | Initializes a TokenMintTransaction object |

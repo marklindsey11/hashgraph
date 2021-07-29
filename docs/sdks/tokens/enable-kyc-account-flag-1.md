@@ -11,6 +11,11 @@ Grants KYC to the Hedera accounts for the given Hedera token. This transaction m
 * If no KYC Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_KYC\_KEY.
 * Once executed the Account is marked as KYC Granted.
 
+**Transaction Signing Requirements:**
+
+* KYC key
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenGrantKycTransaction()` | Initializes the TokenGrantKycTransaction object |

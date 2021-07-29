@@ -37,6 +37,16 @@ You can set the following properties when creating a token:
 | **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto-renew period is 131,500 minutes. |
 | **Memo** | A short publicly visible memo about the token. You can use the memo field to add a URI that contains additional metadata about the token. You can view the metadata schema [here](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-10.md). Memos are not unique and have a 100 character limit.  |
 
+**Transaction Signing Requirements:**
+
+* Treasury key is required to sign
+* Admin key, if specified 
+* Freeze key, if specified 
+* Wipe key, if specified
+* Supply key, if specified 
+* Fee schedule key, if specified
+* Transaction fee payer key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenCreateTransaction()` | Initializes the TokenCreateTransaction object |

@@ -16,6 +16,11 @@ Note: Accounts must be associated with the HTS token before tokens can be transf
 * The maximum allowable balance adjustment in a single transfer transaction is 20. A debit from one account and credit to another account equals two balance adjustments. 
 {% endhint %}
 
+#### Transaction Signing Requirements:
+
+* The key of the account sending the tokens
+* The transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TransferTransaction()` | Initializes a TransferTransaction object |

@@ -1,6 +1,6 @@
 # Get account token balance
 
-Get the token balances for a given account. 
+To get the balance of tokens for an account,  you can submit an account balance query. The account balance query will return the tokens the account holds in a list format. 
 
 {% tabs %}
 {% tab title="V2" %}

@@ -14,6 +14,11 @@ Associates the provided Hedera account with the provided Hedera tokens. Hedera a
 The maximum number of Token IDs that can be associated to an account is 1,000.
 {% endhint %}
 
+**Transaction Signing Requirements:**
+
+* The key of the account the token is being associated to
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenAssociateTransaction()` | Initializes a TokenAssociateTransaction object |

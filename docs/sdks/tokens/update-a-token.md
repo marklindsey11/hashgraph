@@ -18,6 +18,13 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 | **Auto Renew Period** | The new interval at which the auto-renew account will be charged to extend the token's expiry. The default auto-renew period is 131,500 minutes. |
 | **Memo** | Short publicly visible memo about the token. No guarantee of uniqueness. \(100 characters max\) |
 
+#### Transaction Signing Requirements:
+
+* Admin key is required to sign to update any token properties
+* Updating the admin key requires the new admin key to sign
+* If a new treasury account is set, the treasury key is required to sign
+* Transaction fee payer account key
+
 | Constructor | Description |
 | :--- | :--- |
 | `new TokenUpdateTransaction()` | Initializes a TokenUpdateTransaction object |
