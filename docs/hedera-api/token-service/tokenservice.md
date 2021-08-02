@@ -16,7 +16,6 @@ Transactions and queries for the Token Service.
 | `unfreezeTokenAccount` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Unfreezes the transfer of tokens to or from the specified Account ID |
 | `grantKycToTokenAccount` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Flags the provided Account ID as having gone through KYC |
 | `revokeKycFromTokenAccount` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Removes the KYC flag of the provided Account ID |
-| `transferTokens` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Initiates a Token transfer by submitting the transaction |
 | `associateTokens` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Associates tokens to an account |
 | `dissociateTokens` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Dissociates tokens from an account |
 | `updateTokenFeeSchedule` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Updates the custom fee schedule on a token |
