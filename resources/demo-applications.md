@@ -23,8 +23,8 @@ description: Examples of different use cases and projects built on Hedera.
 {% tab title="JavaScript" %}
 | Project | Source | Developer |
 | :--- | :--- | :--- |
-| Fungible Tokens | [Github](https://github.com/hashgraph/hedera-hts-demo) | Hedera |
-| Non-Fungible Tokens \(NFTs\) | [Github](https://github.com/hashgraph/hedera-hts-demo#nfts) | Hedera |
+| [Fungible Tokens](https://gitpod.io/#https://github.com/hashgraph/hedera-hts-demo) | [Github](https://github.com/hashgraph/hedera-hts-demo) | Hedera |
+| [Non-Fungible Tokens \(NFTs\)](https://gitpod.io/#https://github.com/hashgraph/hedera-hts-demo) | [Github](https://github.com/hashgraph/hedera-hts-demo#nfts) | Hedera |
 | HCS based stable coin | [GitHub](https://github.com/hashgraph/hedera-stable-coin-demo) | Hedera |
 | MyHbarWallet | [GitHub](https://github.com/hashgraph/MyHbarWallet) | Hedera |
 | Proof-of-action pasteboard | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-demo-pasteboard) | Hedera |

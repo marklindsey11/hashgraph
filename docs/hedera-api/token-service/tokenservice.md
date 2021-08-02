@@ -2,6 +2,10 @@
 
 Transactions and queries for the Token Service.
 
+{% hint style="info" %}
+To transfer tokens created by HTS, please reference the [`cryptoTransfer`](../cryptocurrency-accounts/cryptotransfer.md) API.
+{% endhint %}
+
 ## TokenService
 
 | Method Name | Request Type | Response Type | Description |
