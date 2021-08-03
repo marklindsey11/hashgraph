@@ -14,7 +14,6 @@ description: Examples of different use cases and projects built on Hedera.
 | Log4J Integration | [GitHub](https://github.com/hashgraph/log4j2-hedera) | Hedera |
 | Logstash Integration | [GitHub](https://github.com/hashgraph/logstash-output-hedera) | Hedera |
 | Proof-of-action microservice | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-microservice) | Hedera |
-| Decentralized Identity SDK | [GitHub](https://github.com/hashgraph/did-sdk-java) | Hedera |
 | Trusted Business Networks | [GitHub](https://github.com/hashgraph/hedera-hcs-sxc-java/tree/master/hcs-sxc-java-examples/hcs-sxc-java-queue-consumer) | Hedera |
 | [Hedera Transaction Tool](https://docs.hedera.com/hedera-transaction-tool-demo/) | [GitHub](https://github.com/hashgraph/hedera-transaction-tool-demo) | Hedera |
 | Others | Coming soon! | Community |
@@ -26,7 +25,6 @@ description: Examples of different use cases and projects built on Hedera.
 | [Fungible Tokens](https://gitpod.io/#https://github.com/hashgraph/hedera-hts-demo) | [Github](https://github.com/hashgraph/hedera-hts-demo) | Hedera |
 | [Non-Fungible Tokens \(NFTs\)](https://gitpod.io/#https://github.com/hashgraph/hedera-hts-demo) | [Github](https://github.com/hashgraph/hedera-hts-demo#nfts) | Hedera |
 | HCS based stable coin | [GitHub](https://github.com/hashgraph/hedera-stable-coin-demo) | Hedera |
-| Decentralized Identity SDK | [GitHub](https://github.com/hashgraph/did-sdk-js) | Envision |
 | MyHbarWallet | [GitHub](https://github.com/hashgraph/MyHbarWallet) | Hedera |
 | Proof-of-action pasteboard | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-demo-pasteboard) | Hedera |
 | HCS based chat | [GitHub](https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |

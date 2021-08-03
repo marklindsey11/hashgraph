@@ -34,6 +34,7 @@ Hedera and the developer community contribute to and maintain developer tools an
 | :--- | :--- | :--- | :--- | :--- |
 | Hedera SDK for .NET | Community | Apache 2.0 |  | [github.com/bugbytesinc](https://github.com/bugbytesinc/Hashgraph) |
 | Hedera Java DID SDK | Hedera | Apache 2.0 | [https://github.com/hashgraph/did-sdk-java\#documentation](https://github.com/hashgraph/did-sdk-java#documentation) | [github.com/hashgraph/did-sdk-java](https://github.com/hashgraph/did-sdk-java) |
+| Hedera Java DID SDK | Envision | Apache 2.0 |  | [github.com/hashgraph/did-sdk-js](https://github.com/hashgraph/did-sdk-js) |
 | Serverless Hedera REST API | Community | Apache 2.0 | [docs.trust.enterprises](https://docs.trust.enterprises/) | [mattsmithies/hedera-serverless-consensus](https://github.com/mattsmithies/hedera-serverless-consensus) |
 | Serverless Hedera Laravel Package | Community | Apache 2.0 | [docs.trust.enterprises/laravel](https://docs.trust.enterprises/laravel/working-with-laravel) | [mattsmithies/laravel-hashgraph](https://github.com/mattsmithies/laravel-hashgraph) |
 
