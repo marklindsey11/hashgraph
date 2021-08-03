@@ -26,6 +26,7 @@ description: Examples of different use cases and projects built on Hedera.
 | [Fungible Tokens](https://gitpod.io/#https://github.com/hashgraph/hedera-hts-demo) | [Github](https://github.com/hashgraph/hedera-hts-demo) | Hedera |
 | [Non-Fungible Tokens \(NFTs\)](https://gitpod.io/#https://github.com/hashgraph/hedera-hts-demo) | [Github](https://github.com/hashgraph/hedera-hts-demo#nfts) | Hedera |
 | HCS based stable coin | [GitHub](https://github.com/hashgraph/hedera-stable-coin-demo) | Hedera |
+| Decentralized Identity SDK | [GitHub](https://github.com/hashgraph/did-sdk-js) | Envision |
 | MyHbarWallet | [GitHub](https://github.com/hashgraph/MyHbarWallet) | Hedera |
 | Proof-of-action pasteboard | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-demo-pasteboard) | Hedera |
 | HCS based chat | [GitHub](https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |
