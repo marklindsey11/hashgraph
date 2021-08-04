@@ -25,6 +25,7 @@ The account sending the token that has a custom fee schedule associated with it 
 * The amount is the amount of the token the fee collecting account will collect each time the token with the custom fee schedule is transferred
 * The denominating token is the token to charge the custom fee in
   * To use the ID of the token generated in the transaction, enter "0.0.0" for the token ID
+    * There is a known issue for this case and will be fixed in the 0.17.0 release
   * If this field is left blank, the default token is hbar
 
 | Constructor | Description |
