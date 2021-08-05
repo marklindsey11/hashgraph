@@ -6,13 +6,25 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.37.1 | 0.38.0 |
-| **Testnet** | 0.37.1 | 0.38.0 |
-| **Previewnet** | 0.37.1 | 0.38.0 |
+| **Mainnet** | 0.37.2 | 0.38.0 |
+| **Testnet** | 0.37.2 | 0.38.0 |
+| **Previewnet** | 0.37.2 | 0.38.0 |
 
 ## Upcoming Releases
 
 ## Latest Releases
+
+## [v0.37.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.37.2)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: AUGUST 4, 2021**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: AUGUST, 5 2021**
+{% endhint %}
+
+A small bug fix release that addresses some issues with our [HIP-18](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-18.md) support.
 
 ## [v0.37.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.37.0)
 

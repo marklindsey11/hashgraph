@@ -6,16 +6,28 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.15.1 | 0.16.1 |
+| **Mainnet** | 0.16.1 | 0.17.0 |
 | **Testnet** | 0.16.1 | 0.17.0 |
 | **Previewnet** | 0.16.1 | 0.17.0 |
 
 ## Upcoming Releases
 
-## [v0.16.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.16.1)
+## v0.17.0
 
 {% hint style="info" %}
-**MAINNET UPDATE: AUGUST 5, 2021**
+**MAINNET UPDATE: SEPTEMBER 2, 2021**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE:  AUGUST 19, 2021**
+{% endhint %}
+
+## Latest Releases
+
+## [v0.16.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.16.1)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: AUGUST 5, 2021**
 {% endhint %}
 
 {% hint style="success" %}
@@ -34,10 +46,7 @@ The five case studies in [this document](https://github.com/hashgraph/hedera-ser
 
 In this release, we have also enabled previewnet support for [HIP-17 \(Non-fungible Tokens\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md). Unique token types and minted NFTs are more natural for many use cases than fungible token types. The Hedera Token Service will soon support both natively, so that a single `CryptoTransfer` can perform atomic swaps with any arbitrary combination of fungible, non-fungible, and ℏ transfers.
 
-We are very grateful to the Hedera user community for these interesting and powerful new feature sets.  
-
-
-## Latest Releases
+We are very grateful to the Hedera user community for these interesting and powerful new feature sets.
 
 ## [v0.15.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.15.1)
 
