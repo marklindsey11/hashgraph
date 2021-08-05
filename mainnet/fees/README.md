@@ -8,7 +8,7 @@ description: Hedera network fees
 
 The Hedera testnet fees tables found below offers a low-end estimate of transaction and query fees for all network services. The tables below contain USD, HBAR, and Tinybar \(tℏ\) values per each API call. All operation fees on the Hedera testnet are paid in test HBAR, which is freely available and only useful for development purposes.
 
-Fee estimates are based on assumptions about the details of a specific API call. For instance, the fee for an HBAR cryptocurrency transfer \(CryptoTransfer\) assumes a single signature on the transaction and the fee for storing a file assumes a 48 byte sized file stored for 30 days. Transactions which exceed these base assumptions will be more expensive; we recommend increasing your maximum allowable fee to accommodate for additional complexity. Hedera is in the process of creating tools which will make it simple to calculate the cost of running your application on the mainnet.
+Fee estimates are based on assumptions about the details of a specific API call. For instance, the fee for an HBAR cryptocurrency transfer \(CryptoTransfer\) assumes a single signature on the transaction and the fee for storing a file assumes a 48 byte sized file stored for 30 days. Transactions which exceed these base assumptions will be more expensive; we recommend increasing your maximum allowable fee to accommodate for additional complexity. 
 
 ### Mainnet Fees
 
@@ -38,6 +38,7 @@ All fees are subject to change.
 | CryptoAccountAutoRenew | $0.00022 |
 | CryptoUpdate | $0.00022 |
 | CryptoTransfer | $0.0001 |
+| CryptoTransfer \(custom fees\) | $0.002 |
 | CryptoDelete | $0.005 |
 | CryptoAddClaim | $0.1 |
 | CryptoDeleteClaim | $0.005 |
@@ -62,7 +63,9 @@ All fees are subject to change.
 | Operations | USD \($\) |
 | :--- | :--- |
 | TokenCreate | $1.00 |
+| TokenCreate \(custom fees\) | $2.00 |
 | TokenUpdate | $0.001 |
+| TokenFeeScheduleUpdate | $0.001 |
 | TokenDelete | $0.001 |
 | TokenAssociate | $0.05 |
 | TokenDissociate | $0.05 |
