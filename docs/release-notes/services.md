@@ -48,6 +48,10 @@ In this release, we have also enabled previewnet support for [HIP-17 \(Non-fungi
 
 We are very grateful to the Hedera user community for these interesting and powerful new feature sets.
 
+#### Performance Measurement Results:
+
+![](../../.gitbook/assets/0.16.1.png)
+
 ## [v0.15.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.15.1)
 
 {% hint style="success" %}
