@@ -12,8 +12,7 @@ description: >-
   
 PREVIEWNET:** hcs.previewnet.mirrornode.hedera.com:5600  
 **TESTNET**: hcs.testnet.mirrornode.hedera.com:5600   
-**MAINNET**\[whitelisted\]: hcs.mainnet.mirrornode.hedera.com:5600  
-**MAINNET**\[public\]: mainnet-public.mirrornode.hedera.com:443 
+**MAINNET**: mainnet-public.mirrornode.hedera.com:443 
 {% endhint %}
 
 {% hint style="warning" %}
