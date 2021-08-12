@@ -6,13 +6,13 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.16.1 | 0.17.0 |
-| **Testnet** | 0.16.1 | 0.17.0 |
-| **Previewnet** | 0.16.1 | 0.17.0 |
+| **Mainnet** | 0.16.1 | 0.17.1 |
+| **Testnet** | 0.16.1 | 0.17.1 |
+| **Previewnet** | 0.16.1 | 0.17.1 |
 
 ## Upcoming Releases
 
-## v0.17.0
+## v0.17.1
 
 {% hint style="info" %}
 **MAINNET UPDATE: SEPTEMBER 2, 2021**
@@ -21,6 +21,11 @@ description: Hedera Services release information
 {% hint style="info" %}
 **TESTNET UPDATE:  AUGUST 19, 2021**
 {% endhint %}
+
+  
+In Hedera Services 0.17.1, we have extended HIP-18 \(Custom Hedera Token Service Fees\) with royalty fees, which set the fraction of fungible value exchanged for an NFT that should be collected as royalty for the NFT creator. This supports, for example, an NFT marketplace that guarantees creators part of the enduring value of their creations. 
+
+Custom fractional fees may now also be set as "net-of-transfer". In this case the recipient\(s\) in the transfer list receive the stated amounts, and the assessed fee is charged to the sender. This can facilitate auction-related use cases.
 
 ## Latest Releases
 
