@@ -23,7 +23,7 @@ There were also a number of other fixes to clean up code and fix tests. We've ma
 ## [v0.38.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.38.0)
 
 {% hint style="success" %}
-**TESTNET UPDATE COMPLETED: AUGUST 15, 2021**
+**TESTNET UPDATE COMPLETED: AUGUST 13, 2021**
 {% endhint %}
 
 This release wraps up NFT and custom fee support by adding additional test coverage and fixing any remaining bugs. Specifically, NFT support was added to our monitor tool and our acceptance tests. Custom fees was also added to the acceptance tests and had some bug fixes.
