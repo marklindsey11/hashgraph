@@ -19,6 +19,7 @@ description: Integrations with popular development environments to get you set u
 | React.js | [GitHub](https://github.com/publu/hedera-reactjs-boilerplate) | Community |
 | Express.js | [GitHub](https://github.com/publu/hedera-express-boilerplate) | Community |
 | Express.js \(chat\) | [GitHub](https://github.com/hashgraph/hedera-hcs-chat-js) | Hedera |
+| Express.js \(Nuxt\) | [GitHub](https://github.com/scalemaildev/hashgraph_nuxt_chat) | Community |
 | React Native | Coming soon | Community |
 | Others | Coming soon! | Community |
 {% endtab %}
