@@ -6,7 +6,7 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.37.2 | 0.38.0 |
+| **Mainnet** | 0.38.0 | 0.38.1 |
 | **Testnet** | 0.38.0 | 0.38.1 |
 | **Previewnet** | 0.38.0 | 0.38.1 |
 
@@ -20,7 +20,13 @@ Besides the new health check, the monitor had fixes to its rate calculation at l
 
 There were also a number of other fixes to clean up code and fix tests. We've made an effort to reduce our code smells as seen in [SonarCloud](https://sonarcloud.io/dashboard?id=hedera-mirror-node).
 
+## Latest Releases
+
 ## [v0.38.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.38.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: AUGUST 16, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: AUGUST 13, 2021**
@@ -35,8 +41,6 @@ There were a number of bug fixes in this release. The stream file health check t
 #### Breaking Changes
 
 The payer account ID in transaction assessed custom fee REST API response was removed. This is a change in services 0.16 whereby custom fees are now charged from the account who send the triggering tokens, not necessarily the payer of the transaction.
-
-## Latest Releases
 
 ## [v0.37.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.37.2)
 
