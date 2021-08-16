@@ -7,6 +7,7 @@ A transfer fee to assess during a CryptoTransfer that transfers units of the tok
 | one of fee { |  |  |
 | `fixed_fee` | [FixedFee](fixedfee.md) | Fixed fee to be charged |
 | `fractional_fee` | [FractionalFee](fractionalfee.md) | Fractional fee to be charged |
+| `royalty_fee` | [RoyaltyFee](royaltyfee.md) | Royalty fee to be charged |
 | } |  |  |
 | `fee_collector_account_id` | [AccountID](../../basic-types/accountid.md) | The account to receive the custom fee |
 

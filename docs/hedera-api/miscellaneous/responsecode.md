@@ -191,7 +191,7 @@
 | BATCH\_SIZE\_LIMIT\_EXCEEDED | Repeated operations count exceeds the limit |
 | INVALID\_QUERY\_RANGE | The range of data to be gathered is out of the set boundaries |
 | FRACTION\_DIVIDES\_BY\_ZERO | A custom fractional fee set a denominator of zero |
-| INSUFFICIENT\_PAYER\_BALANCE\_FOR\_CUSTOM\_FEE | The transaction payer could not afford a custom fee |
+| INSUFFICIENT\_PAYER\_BALANCE\_FOR\_CUSTOM\_FEE \[deprecated\] | The transaction payer could not afford a custom fee |
 | CUSTOM\_FEES\_LIST\_TOO\_LONG | The customFees list is longer than allowed limit 10 |
 | INVALID\_CUSTOM\_FEE\_COLLECTOR | Any of the feeCollector accounts for customFees is invalid |
 | INVALID\_TOKEN\_ID\_IN\_CUSTOM\_FEES | Any of the token Ids in customFees is invalid |
@@ -202,11 +202,11 @@
 | CUSTOM\_FEE\_MUST\_BE\_POSITIVE | Only positive fees may be assessed at this time |
 | TOKEN\_HAS\_NO\_FEE\_SCHEDULE\_KEY | Fee schedule key is not set on token |
 | CUSTOM\_FEE\_OUTSIDE\_NUMERIC\_RANGE | A fractional custom fee exceeded the range of a 64-bit signed integer |
-| INVALID\_CUSTOM\_FRACTIONAL\_FEES\_SUM | The sum of all custom fractional fees must be strictly less than 1 |
-| FRACTIONAL\_FEE\_MAX\_AMOUNT\_LESS\_THAN\_MIN\_AMOUNT | Each fractional custom fee must have its maximum\_amount, if specified, at least its minimum\_amount |
+| ROYALTY\_FRACTION\_CANNOT\_EXCEED\_ONE | A royalty cannot exceed the total fungible value exchanged for an NFT |
+| FRACTIONAL\_FEE\_MAX\_AMOUNT\_LESS\_THAN\_MIN\_AMOUNT | Each fractional custom fee must have its `maximum_amount`, if specified, at least its `minimum_amount` |
 | CUSTOM\_SCHEDULE\_ALREADY\_HAS\_NO\_FEES | A fee schedule update tried to clear the custom fees from a token whose fee schedule was already empty |
-| CUSTOM\_FEE\_DENOMINATION\_MUST\_BE\_FUNGIBLE\_COMMON | Only tokens of type FUNGIBLE\_COMMON can be used to as fee schedule denominations |
-| CUSTOM\_FRACTIONAL\_FEE\_ONLY\_ALLOWED\_FOR\_FUNGIBLE\_COMMON | Only tokens of type FUNGIBLE\_COMMON can have fractional fees |
+| CUSTOM\_FEE\_DENOMINATION\_MUST\_BE\_FUNGIBLE\_COMMON | Only tokens of type `FUNGIBLE_COMMON` can be used to as fee schedule denominations |
+| CUSTOM\_FRACTIONAL\_FEE\_ONLY\_ALLOWED\_FOR\_FUNGIBLE\_COMMON | Only tokens of type `FUNGIBLE_COMMON` can have fractional fees |
 | INVALID\_CUSTOM\_FEE\_SCHEDULE\_KEY | The provided custom fee schedule key was invalid |
 | INVALID\_TOKEN\_MINT\_METADATA | The requested token mint metadata was invalid |
 | INVALID\_TOKEN\_BURN\_METADATA | The requested token burn metadata was invalid |
@@ -214,4 +214,7 @@
 | PAYER\_ACCOUNT\_DELETED | The payer account has been marked as deleted |
 | CUSTOM\_FEE\_CHARGING\_EXCEEDED\_MAX\_RECURSION\_DEPTH | The reference chain of custom fees for a transferred token exceeded the maximum length of 2 |
 | CUSTOM\_FEE\_CHARGING\_EXCEEDED\_MAX\_ACCOUNT\_AMOUNTS | More than 20 balance adjustments were to satisfy a CryptoTransfer and its implied custom fee payments |
+| INSUFFICIENT\_SENDER\_ACCOUNT\_BALANCE\_FOR\_CUSTOM\_FEE | The sender account in the token transfer transaction could not afford a custom fee |
+| SERIAL\_NUMBER\_LIMIT\_REACHED | Currently, no more than 4,294,967,295 NFTs may be minted for a given unique token type |
+| CUSTOM\_ROYALTY\_FEE\_ONLY\_ALLOWED\_FOR\_NON\_FUNGIBLE\_UNIQUE | Only tokens of type NON\_FUNGIBLE\_UNIQUE can have royalty fees |
 
