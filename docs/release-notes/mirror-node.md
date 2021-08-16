@@ -7,10 +7,34 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.37.2 | 0.38.0 |
-| **Testnet** | 0.37.2 | 0.38.0 |
-| **Previewnet** | 0.37.2 | 0.38.0 |
+| **Testnet** | 0.38.0 | 0.38.1 |
+| **Previewnet** | 0.38.0 | 0.38.1 |
 
 ## Upcoming Releases
+
+## [v0.38.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.38.1)
+
+This release is a small bug fix release that contains some important fixes for our mirror node monitoring component. We added a new cluster health check to the monitor that takes into account publishing status. The load balancer uses this health check to determine which cluster to route traffic to. The old health check endpoint didn't take into account whether transaction publishing was active or successful and so would not route traffic to the public mirror node during main node upgrades.
+
+Besides the new health check, the monitor had fixes to its rate calculation at low TPS, not sampling when idle, node validation, and the alerts it generates. The mainnet network configuration of the monitor now points to the public mirror node and we've added the new previewnet node to the previewnet network configuration.
+
+There were also a number of other fixes to clean up code and fix tests. We've made an effort to reduce our code smells as seen in [SonarCloud](https://sonarcloud.io/dashboard?id=hedera-mirror-node).
+
+## [v0.38.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.38.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: AUGUST 15, 2021**
+{% endhint %}
+
+This release wraps up NFT and custom fee support by adding additional test coverage and fixing any remaining bugs. Specifically, NFT support was added to our monitor tool and our acceptance tests. Custom fees was also added to the acceptance tests and had some bug fixes.
+
+Mainnet public saw some monitoring improvements including adding HTTPS support to our external monitor dashboard and the addition of a platform not active alert that inhibits all other alerts.
+
+There were a number of bug fixes in this release. The stream file health check that was disabled in the last release due to a bug was fixed and re-enabled. The address book update flow saw a couple of important fixes as well.
+
+#### Breaking Changes
+
+The payer account ID in transaction assessed custom fee REST API response was removed. This is a change in services 0.16 whereby custom fees are now charged from the account who send the triggering tokens, not necessarily the payer of the transaction.
 
 ## Latest Releases
 
@@ -21,7 +45,7 @@ description: Hedera mirror node release notes
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE COMPLETED: AUGUST, 5 2021**
+**TESTNET UPDATE COMPLETED: AUGUST 5, 2021**
 {% endhint %}
 
 A small bug fix release that addresses some issues with our [HIP-18](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-18.md) support.
