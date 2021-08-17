@@ -6,21 +6,29 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.38.0 | 0.38.1 |
-| **Testnet** | 0.38.0 | 0.38.1 |
-| **Previewnet** | 0.38.0 | 0.38.1 |
+| **Mainnet** | 0.38.1 | 0.39.0 |
+| **Testnet** | 0.38.1 | 0.39.0 |
+| **Previewnet** | 0.38.1 | 0.39.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.38.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.38.1)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: AUGUST 17, 2021**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: AUGUST 17, 2021**
+{% endhint %}
 
 This release is a small bug fix release that contains some important fixes for our mirror node monitoring component. We added a new cluster health check to the monitor that takes into account publishing status. The load balancer uses this health check to determine which cluster to route traffic to. The old health check endpoint didn't take into account whether transaction publishing was active or successful and so would not route traffic to the public mirror node during main node upgrades.
 
 Besides the new health check, the monitor had fixes to its rate calculation at low TPS, not sampling when idle, node validation, and the alerts it generates. The mainnet network configuration of the monitor now points to the public mirror node and we've added the new previewnet node to the previewnet network configuration.
 
 There were also a number of other fixes to clean up code and fix tests. We've made an effort to reduce our code smells as seen in [SonarCloud](https://sonarcloud.io/dashboard?id=hedera-mirror-node).
-
-## Latest Releases
 
 ## [v0.38.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.38.0)
 
