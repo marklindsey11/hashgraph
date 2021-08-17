@@ -11,7 +11,7 @@ A custom fee schedule can include both types of fees. You can optionally set a t
 
 The account sending the token that has a custom fee schedule associated with it is responsible to pay for the custom fees. If the sending account does not have enough tokens to pay for the custom token fees plus transfer amount, the transaction will fail. A token's treasury account and any fee collecting accounts defined in the custom fee schedule for that token are exempt from paying any custom transaction fees when the token is transferred. 
 
-In addition to the custom token fee payment, the sender account is required to pay for the Hedera token transfer transaction fee in hbar.
+In addition to the custom token fee payment, the sender account is required to pay for the token transfer transaction fee in hbar.
 
 **Limits**
 
