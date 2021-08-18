@@ -247,7 +247,7 @@ System.out.println("The total supply of this token is " +totalSupply)
 ```
 {% endcode %}
 
-{% code title="JavaScript \(Not working\)" %}
+{% code title="JavaScript" %}
 ```javascript
 //Create the query
 const tokenInfo = new TokenInfoQuery()
