@@ -6,13 +6,13 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.16.1 | 0.17.1 |
-| **Testnet** | 0.16.1 | 0.17.1 |
-| **Previewnet** | 0.16.1 | 0.17.1 |
+| **Mainnet** | 0.16.1 | 0.17.2 |
+| **Testnet** | 0.16.1 | 0.17.2 |
+| **Previewnet** | 0.17.2 | 0.18.0 |
 
 ## Upcoming Releases
 
-## v0.17.1
+## [v0.17.2](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.2)
 
 {% hint style="info" %}
 **MAINNET UPDATE: SEPTEMBER 2, 2021**
@@ -23,9 +23,13 @@ description: Hedera Services release information
 {% endhint %}
 
   
-In Hedera Services 0.17.1, we have extended HIP-18 \(Custom Hedera Token Service Fees\) with royalty fees, which set the fraction of fungible value exchanged for an NFT that should be collected as royalty for the NFT creator. This supports, for example, an NFT marketplace that guarantees creators part of the enduring value of their creations. 
+In Hedera Services 0.17.2, we are excited to announce support for  [HIP-17 \(Non-fungible Tokens\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md), with a complementary extension to [HIP-18 \(Custom Hedera Token Service Fees\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-18.md) that lets an NFT creator set a royalty fee to be charged when fungible value is exchanged for one of their creations.
 
-Custom fractional fees may now also be set as "net-of-transfer". In this case the recipient\(s\) in the transfer list receive the stated amounts, and the assessed fee is charged to the sender. This can facilitate auction-related use cases.
+Unique token types and minted NFTs are more natural for many use cases than fungible token types. The Hedera Token Service now supports both natively, so that a single `CryptoTransfer` can perform atomic swaps with any arbitrary combination of fungible, non-fungible, and ℏ transfers. \(Please do note that the "paged" `getAccountNftInfos` and `getTokenNftInfos` queries will remain disabled until release 0.18.0, as several large performance improvements are pending.\)
+
+In this release we have made it possible to denominate a fixed fee in the units of the token to which it is attached \(assuming the type of this token is `FUNGIBLE_COMMON`\). Custom fractional fees may now also be set as "net-of-transfer". In this case the recipient\(s\) in the transfer list receive the stated amounts, and the assessed fee is charged to the sender.
+
+There are two final points of more specialized interest. First, users of the scheduled transaction facility may now also schedule `TokenBurn` and `TokenMint` transactions. Second, network administrators issuing a `CryptoUpdate` to change the treasury account's key must now sign with the new treasury key.
 
 ## Latest Releases
 
