@@ -1,8 +1,6 @@
 # Transfer tokens
 
-Transfer tokens between two or many accounts. The transaction must be signed by the sending account. Each negative amount is withdrawn from the corresponding account \(a **sender**\), and each positive one is added to the corresponding account \(a **receiver**\). All amounts must have a sum of zero. Each amount is a number with the lowest denomination possible for a token.
-
-Example: Token X has 2 decimals. Account A transfers an amount of 100 tokens by providing 10000 as the amount in the TransferList. If Account A wants to send 100.55 tokens, he must provide 10055 as the amount. If any sender account fails to have a sufficient token balance, then the entire transaction fails and none of the transfers occur, though the transaction fee is still charged.
+Transfer tokens from some accounts to other accounts. The transaction must be signed by the sending account. Each negative amount is withdrawn from the corresponding account \(a **sender**\), and each positive one is added to the corresponding account \(a **receiver**\). All amounts must have a sum of zero. This does not apply to NFT token transfers. Each amount is a number with the lowest denomination possible for a token. Example: Token X has 2 decimals. Account A transfers an amount of 100 tokens by providing 10000 as the amount in the TransferList. If Account A wants to send 100.55 tokens, he must provide 10055 as the amount. If any sender account fails to have a sufficient token balance, then the entire transaction fails and none of the transfers occur, though the transaction fee is still charged.
 
 **Custom Fee Tokens**
 
@@ -37,6 +35,7 @@ new TransferTransaction()
 | :--- | :--- | :--- |
 | `addHbarTransfer(<accountId, value>)` | AccountID, Hbar/long | Add the from and to account to transfer hbars \(you will need to call this method twice\). The sending account must sign the transaction. The sender and recipient values must net zero. |
 | `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | Add the from and to account to transfer tokens \(you will need to call this method twice\). The ID of the token, the account ID to transfer the tokens from or to, and the value of the token to transfer. The sender and recipient values must net zero. |
+| `addNftTransfer(<nftId, sender, receiver)` | NftId, AccountId, AccountId | The NFT ID being transferred, the account ID the NFT owner, the account ID of the receiver of the NFT. |
 
 {% code title="Java" %}
 ```java
@@ -117,10 +116,13 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
+\*\*\*\*
+
 | Method | Type | Description |
 | :--- | :--- | :--- |
 | `addHbarTransfer(<accountId, value>)` | AccountID, Hbar/long | Add the from and to account to transfer hbars \(you will need to call this method twice\). The sending account must sign the transaction. The sender and recipient values must net zero. |
 | `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | Add the from and to account to transfer tokens \(you will need to call this method twice\).The ID of the token, the account ID to transfer the tokens from or to, and the value of the token to transfer. The sender and recipient values must net zero. |
+| `addNftTransfer(<nftId, sender, receiver)` | NftId, AccountId, AccountId | The NFT ID being transferred, the account ID the NFT owner, the account ID of the receiver of the NFT. |
 
 {% code title="Java" %}
 ```java

@@ -4,7 +4,7 @@
 Check out "Getting Started with the Hedera Token Service" video tutorial in JavaScript [here](https://youtu.be/JZDAMScxbpU).
 {% endhint %}
 
-Create a new token on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
+Create a new fungible or non-fungible token on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
 
 * The specified Treasury Account receives the initial supply of tokens when a token is created. The Treasury Account also receives any additional tokens that are minted.
 * The balance of the treasury account is decreased when the TokenBurn operation is executed. You must set the Supply Key if you wish to burn tokens in the future. If you do not set the Supply Key upon the creation of the token, you may update the token properties using the TokenUpdate transaction.
@@ -20,6 +20,7 @@ You can set the following properties when creating a token:
 | Property | Description |
 | :--- | :--- |
 | **Name** | Set the publicly visible name of the token. The token name is specified as a string of UTF-8 characters. The token name is not unique. Maximum of 100 characters. |
+| **Token Type** | Fungible or non-fungible token. |
 | **Symbol** | The publicly visible token symbol. It is UTF-8 capitalized alphabetical string identifying the token. The token symbol is not unique. Maximum of 100 characters. |
 | **Decimal** | The number of decimal places a token is divisible by. This field can never be changed. |
 | **Initial Supply** | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The maximum supply of tokens is `9,223,372,036,854,775,807` tokens and is in the lowest denomination possible. |
@@ -30,7 +31,10 @@ You can set the following properties when creating a token:
 | **Wipe Key** | The key which can wipe the token balance of an account. If empty, wipe is not possible. |
 | **Supply Key** | The key which can change the total supply of a token. This key is used to sign token Mint/Burn operations. If this is left empty minting/burning tokens is not possible. |
 | **Fee Schedule Key** | The key that can change the token's [custom fee](custom-token-fees.md) schedule. A custom fee schedule token without a fee schedule key is immutable. |
+| **Fee Schedule Key** | The key which can change the token's custom fee schedule; must sign a TokenFeeScheduleUpdate transaction. |
 | **Custom Fees** | [Custom fees](custom-token-fees.md) to charge during a token transfer transaction that transfers units of this token. Custom fees can either be [fixed](custom-token-fees.md#fixed-fee) or [fractional](custom-token-fees.md#fractional-fee). |
+| **Max Supply** | For tokens of type FUNGIBLE\_COMMON - the maximum number of tokens that can be in circulation. For tokens of type NON\_FUNGIBLE\_UNIQUE - the maximum number of NFTs \(serial numbers\) that can be minted. This field can never be changed. |
+| **Supply Type** | Specifies the token supply type. Defaults to INFINITE. |
 | **Freeze Default** | The default Freeze status \(frozen or unfrozen\) of Hedera accounts relative to this token. If true, an account must be unfrozen before it can receive the token. |
 | **Expiration Time** | The epoch second at which the token should expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod. The default expiration time is 90 days. |
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign the transaction if present. |
@@ -62,6 +66,7 @@ new TokenCreateTransaction()
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setTokenName(<name>)` | String | Required |
+| `setTokenType(<tokenType>)` | [TokenType](token-types.md) | Optional |
 | `setTokenSymbol(<symbol>)` | String | Required |
 | `setDecimals(<decimal>)` | int | Optional |
 | `setInitialSupply(<initialSupply>)` | int | Optional |
@@ -75,6 +80,8 @@ new TokenCreateTransaction()
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
 | `setFeeScheduleKey(<key>)` | Key | Optional |
 | `setCustomFees(<customFees>)` | List&lt;[CustomFee](custom-token-fees.md#custom-fee)&gt; | Optional |
+| `setSupplyType(<supplyType>)` | TokenSupplyType | Optional |
+| `setMaxSupply(<maxSupply>)` | long | Optional |
 | `setTokenMemo(<memo>)` | String | Optional |
 | `setAutoRenewAccountId(<account>)` | [AccountId](../specialized-types.md#accountid) | Disabled |
 | `setAutoRenewPeriod(<period>)` | Duration | Disabled |
@@ -178,6 +185,7 @@ fmt.Printf("The new token ID is %v\n", tokenId)
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setName(<name>)` | String | Required |
+| `setTokenType(<tokenType>)` | [TokenType](token-types.md) | Optional |
 | `setSymbol(<symbol>)` | String | Required |
 | `setDecimals(<decimal>)` | int | Optional |
 | `setInitialSupply(<initialSupply>)` | int | Optional |
@@ -188,6 +196,8 @@ fmt.Printf("The new token ID is %v\n", tokenId)
 | `setWipeKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
 | `setSupplyKey(<key>)` | [PublicKey](../keys/generate-a-new-key-pair.md) | Optional |
 | `setCustomFees(<customFee>)` | List&lt;[CustomFee](../../hedera-api/token-service/customfees/customfee.md)&gt; | Optional |
+| `setFeeScheduleKey(<key>)` | PublicKey | Optional |
+| `setMaxSupply(<maxSupply>)` | long | Optional |
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Required |
 | `setAutoRenewAccount(<account>)` | [AccountId](../specialized-types.md#accountid) | Optional |

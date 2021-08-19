@@ -1,6 +1,6 @@
 # Associate tokens to an account
 
-Associates the provided Hedera account with the provided Hedera tokens. Hedera accounts must be associated with a token first before you can transfer tokens to that account. The Hedera account that is being associated with a token is required to sign the transaction.
+Associates the provided Hedera account with the provided Hedera token\(s\). Hedera accounts must be associated with a fungible or non-fungible token first before you can transfer tokens to that account. In the case of NON\_FUNGIBLE Type, once an account is associated, it can hold any number of NFTs \(serial numbers\) of that token type. The Hedera account that is being associated with a token is required to sign the transaction.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
@@ -34,7 +34,7 @@ new TokenAssociateTransaction()
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
 | `setAccountId(<accountId>)` | AccountId | The account to be associated with the provided tokens | Required |
-| `setTokenIds(<tokenId>)` | TokenId | The tokens to be associated with the provided account | Required |
+| `setTokenIds(<tokens>)` | List &lt;TokenId&gt; | The tokens to be associated with the provided account | Required |
 
 {% code title="Java" %}
 ```java

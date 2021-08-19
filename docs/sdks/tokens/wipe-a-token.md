@@ -1,6 +1,6 @@
 # Wipe a token
 
-Wipes the provided amount of tokens from the specified Hedera account. This transaction must be signed by the token's Wipe Key and the key of the account is being wiped. Wiping an account's tokens burns the tokens and decreases the total supply.
+Wipes the provided amount of fungible or non-fungible tokens from the specified Hedera account. This transaction must be signed by the token's Wipe Key and the key of the account is being wiped. Wiping an account's tokens burns the tokens and decreases the total supply.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED
@@ -33,8 +33,10 @@ new TokenWipeAccountTransaction()
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
 | `setTokenId(<tokenId>)` | TokenId | The ID of the token to wipe from the account | Required |
-| `setAmount(<amount>)` | long | The amount of token to wipe from the specified account. The amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account \(0; balance\] | Required |
-| `setAccount(<accountId>)` | AccountId | The account ID to wipe the tokens from | Required |
+| `setAmount(<amount>)` | long | The amount of token to wipe from the specified account. The amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account \(0; balance\] \(fungible tokens\) | Optional |
+| `setAccount(<accountId>)` | AccountId | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The account ID to wipe the NFT from.  | Required |
+| `setSerials(<serials>)` | List&lt;long&gt; | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The list of NFTs to wipe. | Optional |
+| `addSerial(<serial>)` | long | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE.`The NFT to wipe. | Optional |
 
 {% code title="Java" %}
 ```java
@@ -126,6 +128,8 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 | `setTokenId(<tokenId>)` | TokenId | The ID of the token to wipe from the account | Required |
 | `setAmount(<amount>)` | long | The amount of token to wipe from the specified account. Amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account \(0; balance\] | Required |
 | `setAccount(<accountId>)` | AccountId | The account ID to wipe the tokens from | Required |
+| `setSerials(<serials>)` | List&lt;long&gt; | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The list of NFTs to wipe. | Optional |
+| `addSerial(<serial>)` | long | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE.`The NFT to wipe. | Optional |
 
 {% code title="Java" %}
 ```java

@@ -19,6 +19,7 @@ A query that returns the current state of the account. This query **does not** i
 | **LiveHash** | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it\).  |
 | **Tokens** | All tokens related to this account |
 | **Memo** |  A note or description that is recorded with the account entity |
+| **Owned NFTs** | The number of NFTs owned by the specified account |
 
 **Query Signing Requirements**
 
@@ -47,8 +48,7 @@ new AccountInfoQuery()
 | `<AccountInfo>.isReceiverSignatureRequired` | boolean | Optional |
 | `<AccountInfo>.liveHashes` | List&lt;LiveHash&gt; | Optional |
 | `<AccountInfo>.tokenRelationships` | Map&lt;TokenId, TokenRelationships&gt; | Optional |
-| `<AccountInfo>.sendRecordThreshold` | Hbar | Optional |
-| `<AccountInfo>.receiveRecordThreshold` | Hbar | Optional |
+| `<AccountInfo>.ownedNfts` | long | Optional |
 | `<AccountInfo>.expirationTime` | Instant | Optional |
 | `<AccountInfo>.proxyReceived` | Hbar | Optional |
 | `<AccountInfo>.proxyAccountId` | AccountId | Optional |
@@ -138,8 +138,6 @@ fmt.Println(accountInfo)
 | `<AccountInfo>.isReceiverSignatureRequired` | boolean | Optional |
 | `<AccountInfo>.liveHashes` | List&lt;LiveHash&gt; | Optional |
 | `<AccountInfo>.tokenRelationships` | Map&lt;TokenId, TokenRelationships&gt; | Optional |
-| `<AccountInfo>.sendRecordThreshold` | long | Optional |
-| `<AccountInfo>.receiveRecordThreshold` | long | Optional |
 | `<AccountInfo>.expirationTime` | Instant | Optional |
 | `<AccountInfo>.proxyReceived` | long | Optional |
 | `<AccountInfo>.proxyAccountId` | AccountId | Optional |

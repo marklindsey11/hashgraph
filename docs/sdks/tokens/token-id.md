@@ -43,6 +43,18 @@ console.log(tokenIdFromString.toString());
 //Version 2.0.7
 ```
 {% endcode %}
+
+{% code title="Go" %}
+```go
+tokenId := hedera.TokenID {
+		Shard: 0,
+		Realm: 0,
+		Token: 5,
+}
+
+//v2.1.0
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="V1" %}
@@ -67,4 +79,6 @@ console.log(tokenIdFromString);
 ```
 {% endtab %}
 {% endtabs %}
+
+
 

@@ -1,6 +1,6 @@
 # Get token info
 
-Gets information about a token instance. The token info query returns the following information:
+Gets information about a fungible or non-fungible token instance. The token info query returns the following information:
 
 <table>
   <thead>
@@ -14,6 +14,11 @@ Gets information about a token instance. The token info query returns the follow
       <td style="text-align:left"><b>TokenId</b>
       </td>
       <td style="text-align:left">ID of the token instance</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Token Type</b>
+      </td>
+      <td style="text-align:left">The type of token (fungible or non-fungible)</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Name</b>
@@ -46,6 +51,11 @@ Gets information about a token instance. The token info query returns the follow
       <td style="text-align:left">The custom fee schedule of the token, if any</td>
     </tr>
     <tr>
+      <td style="text-align:left"><b>Fee Schedule Key</b>
+      </td>
+      <td style="text-align:left">Fee schedule key, if any</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><b>Admin Key</b>
       </td>
       <td style="text-align:left">The key which can perform update/delete operations on the token. If empty,
@@ -75,6 +85,16 @@ Gets information about a token instance. The token info query returns the follow
       </td>
       <td style="text-align:left">The key which can change the supply of a token. The key is used to sign
         Token Mint/Burn operations</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Max Supply</b>
+      </td>
+      <td style="text-align:left">The max supply of the token</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Supply Type</b>
+      </td>
+      <td style="text-align:left">The supply type of the token</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Default Freeze Status</b>
@@ -148,17 +168,21 @@ new TokenInfoQuery()
 | `<TokenInfoQuery>.name` | String | Optional |
 | `<TokenInfoQuery>.symbol` | String | Optional |
 | `<TokenInfoQuery>.decimals` | int | Optional |
+| `<TokenInfoQuery>.customFees` | List&lt;CustomFee&gt; | Optional |
 | `<TokenInfoQuery>.totalSupply` | long | Optional |
 | `<TokenInfoQuery>.treasury` | AccountId | Optional |
-| `<TokenInfoQuery>.customFees` | List&lt;CustomFee&gt; | Optional |
 | `<TokenInfoQuery>.adminKey` | Key | Optional |
 | `<TokenInfoQuery>.kycKey` | Key | Optional |
 | `<TokenInfoQuery>.freezeKey` | Key | Optional |
+| `<TokenInfoQuery>.feeScheduleKey` | Key | Optional |
 | `<TokenInfoQuery>.wipeKey` | Key | Optional |
 | `<TokenInfoQuery>.supplyKey` | Key | Optional |
-| `<TokenInfoQuery>.defaultFreezeStatus` | Boolean | Optional |
-| `<TokenInfoQuery>.defaultKycStatus` | Boolean | Optional |
-| `<TokenInfoQuery>.isDeleted` | Boolean | Optional |
+| `<TokenInfoQuery>.defaultFreezeStatus` | boolean | Optional |
+| `<TokenInfoQuery>.defaultKycStatus` | boolean | Optional |
+| `<TokenInfoQuery>.isDeleted` | boolean | Optional |
+| `<TokenInfoQuery>.tokenType` | TokenType | Optional |
+| `<TokenInfoQuery>.supplyType` | TokenSupplyType | Optional |
+| `<TokenInfoQuery>.maxSupply` | long | Optional |
 | `<TokenInfoQuery>.autoRenewAccount` | AccountId | Optional |
 | `<TokenInfoQuery>.autoRenewPeriod` | Duration | Optional |
 | `<TokenInfoQuery>.expiry` | Instant | Optional |
@@ -219,17 +243,22 @@ fmt.Printf("The token info is %v\n", tokenInfo)
 | `<TokenInfoQuery>.tokenId` | TokenId | Optional |
 | `<TokenInfoQuery>.name` | String | Optional |
 | `<TokenInfoQuery>.symbol` | String | Optional |
+| `<TokenInfoQuery>.customFees` | List&lt;CustomFee&gt; | Optional |
 | `<TokenInfoQuery>.decimals` | int | Optional |
 | `<TokenInfoQuery>.totalSupply` | long | Optional |
 | `<TokenInfoQuery>.treasury` | AccountId | Optional |
 | `<TokenInfoQuery>.adminKey` | PublicKey | Optional |
 | `<TokenInfoQuery>.kycKey` | PublicKey | Optional |
 | `<TokenInfoQuery>.freezeKey` | PublicKey | Optional |
+| `<TokenInfoQuery>.freezeKey` | PublicKey | Optional |
 | `<TokenInfoQuery>.wipeKey` | PublicKey | Optional |
 | `<TokenInfoQuery>.supplyKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.defaultFreezeStatus` | Boolean | Optional |
-| `<TokenInfoQuery>.defaultKycStatus` | Boolean | Optional |
-| `<TokenInfoQuery>.isDeleted` | Boolean | Optional |
+| `<TokenInfoQuery>.tokenType` | TokenType | Optional |
+| `<TokenInfoQuery>.supplyType` | TokenSupplyType | Optional |
+| `<TokenInfoQuery>.maxSupply` | long | Optional |
+| `<TokenInfoQuery>.defaultFreezeStatus` | boolean | Optional |
+| `<TokenInfoQuery>.defaultKycStatus` | boolean | Optional |
+| `<TokenInfoQuery>.isDeleted` | boolean | Optional |
 | `<TokenInfoQuery>.autoRenewAccount` | AccountId | Optional |
 | `<TokenInfoQuery>.autoRenewPeriod` | Duration | Optional |
 | `<TokenInfoQuery>.expiry` | Instant | Optional |
@@ -263,4 +292,6 @@ console.log("The total supply of this token is " +totalSupply)
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+
 
