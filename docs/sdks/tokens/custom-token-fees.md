@@ -202,6 +202,7 @@ fractionalFee := []hedera.Fee{
 | `setDenominator(<amount>)` | long | Required |
 | `setMax(<max>)` | long | Optional |
 | `setMin(<min>)` | long | Optional |
+| `setAssessmentMethod(<assessmentMethod>)` | FeeAssessmentMethod | Optional |
 
 {% code title="Java" %}
 ```java

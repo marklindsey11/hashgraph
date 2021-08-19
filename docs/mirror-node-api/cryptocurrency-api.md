@@ -928,6 +928,178 @@ The ID of the token to return the information for in x.y.z format.
 | **wipe\_key** | The wipe key for the token |
 | **custom\_fees** | The custom fee schedule for the token, if any |
 
+{% api-method method="get" host="" path="/api/v1/tokens/{tokenId}/nfts" %}
+{% api-method-summary %}
+NFTs
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Returns the list of non-fungible tokens.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="tokenId" type="string" required=true %}
+The ID of token
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="account.id" type="string" required=false %}
+The ID of the account to return the tokens for
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```text
+[
+  {
+    "account_id": "0.1.2",
+    "created_timestamp": "1234567890.000000001",
+    "deleted": false,
+    "metadata": "VGhpcyBpcyBhIHRlc3QgTkZU",
+    "modified_timestamp": "1610682445.003266001",
+    "serial_number": 124,
+    "token_id": "0.0.222"
+  }
+]
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response Details
+
+| Response Item | Description |
+| :--- | :--- |
+| **account\_id** | The  account ID of the account associated with the NFT |
+| **created\_timestamp** | The timestamp of when the NFT was created |
+| **deleted** | Whether the token was deleted or not  |
+| **metadata** | The meta data of the NFT |
+| **modified\_timestamp** | The last time the token properties were modified |
+| **serial\_number** | The serial number of the NFT |
+| **token\_id** | The token ID of the NFT |
+
+{% api-method method="get" host="" path="/api/v1/tokens/{tokenId}/nfts/{serialNumber}" %}
+{% api-method-summary %}
+NFT info
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Returns the information associated to a specific NFT
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="tokenId" type="string" required=true %}
+The token ID of the NFT
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="serialNumber" type="integer" required=true %}
+The serial number of the NFT
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+  "account_id": "0.1.2",
+  "created_timestamp": "1234567890.000000001",
+  "deleted": false,
+  "metadata": "VGhpcyBpcyBhIHRlc3QgTkZU",
+  "modified_timestamp": "1610682445.003266001",
+  "serial_number": 124,
+  "token_id": "0.0.222"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response Details
+
+| Response Item | Description |
+| :--- | :--- |
+| **account\_id** | The  account ID of the account associated with the NFT |
+| **created\_timestamp** | The timestamp of when the NFT was created |
+| **deleted** | Whether the token was deleted or not  |
+| **metadata** | The meta data of the NFT |
+| **modified\_timestamp** | The last time the token properties were modified |
+| **serial\_number** | The serial number of the NFT |
+| **token\_id** | The token ID of the NFT |
+
+{% api-method method="get" host="" path="​/api​/v1​/tokens​/{tokenId}​/nfts​/{serialNumber}​/transactions" %}
+{% api-method-summary %}
+NFT transaction history
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="tokenId" type="string" required=true %}
+The token ID
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="serialNumber" type="integer" required=true %}
+The NFT serial number
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+[
+  {
+    "consensus_timestamp": "1618591023.997420021",
+    "id": "0.0.19789-1618591023-997420021",
+    "receiver_account_id": "0.0.11",
+    "sender_account_id": "0.0.10",
+    "type": "CRYPTOTRANSFER",
+    "token_id": "0.0.1000"
+  }
+]
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+### Response Details
+
+| Response Item | Description |
+| :--- | :--- |
+| **created\_timestamp** | The timestamp of the transaction |
+| **id** | The timestamp of the transaction |
+| **receiver\_account\_id** | The account that received the NFT |
+| **sender\_account\_id** | The account that sent the NFT |
+| **type** | The type of transaction |
+| **token\_id** | The token ID of the NFT |
+
 ## Schedule Transactions
 
 {% api-method method="get" host="" path="/api/v1/schedules" %}

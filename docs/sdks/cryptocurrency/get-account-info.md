@@ -138,6 +138,7 @@ fmt.Println(accountInfo)
 | `<AccountInfo>.isReceiverSignatureRequired` | boolean | Optional |
 | `<AccountInfo>.liveHashes` | List&lt;LiveHash&gt; | Optional |
 | `<AccountInfo>.tokenRelationships` | Map&lt;TokenId, TokenRelationships&gt; | Optional |
+| `<AccountInfo>.ownedNfts` | long | Optional |
 | `<AccountInfo>.expirationTime` | Instant | Optional |
 | `<AccountInfo>.proxyReceived` | long | Optional |
 | `<AccountInfo>.proxyAccountId` | AccountId | Optional |
