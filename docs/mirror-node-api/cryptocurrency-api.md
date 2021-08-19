@@ -994,7 +994,7 @@ NFT info
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Returns the information associated to a specific NFT
+Returns the information associated for specific NFT.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -1050,7 +1050,7 @@ NFT transaction history
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Returns the history of transactions for a NFT.
 {% endapi-method-description %}
 
 {% api-method-spec %}
