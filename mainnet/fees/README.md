@@ -69,7 +69,8 @@ All fees are subject to change.
 | TokenDelete | $0.001 |
 | TokenAssociate | $0.05 |
 | TokenDissociate | $0.05 |
-| TokenMint | $0.001 |
+| TokenMint \(fungible\) | $0.001 |
+| TokenMint \(non-fungible\) | $0.05 |
 | TokenBurn | $0.001 |
 | TokenGrantKyc | $0.001 |
 | TokenRevokeKyc | $0.001 |
@@ -77,6 +78,9 @@ All fees are subject to change.
 | TokenUnfreeze | $0.001 |
 | TokenWipe | $0.001 |
 | TokenGetInfo | $0.0001 |
+| TokenGetNftInfo | $0.0001 |
+| TokenGetNftInfos | $0.0001 |
+| TokenGetAccountNftInfos | $0.0001 |
 
 ### Schedule Transaction
 

@@ -1,22 +1,27 @@
 # Custom token fees
 
-When you create a token, you have the ability to set one or many custom fees \(up to 10\). Custom fees are fees that are distributed to the specified accounts each time the token is transferred programmatically. These custom fees can be either a fixed fee or a fractional fee. 
+When you create a token, you have the ability to set one or many custom fees \(up to 10\). Custom fees are fees that are distributed to the specified accounts each time the token is transferred programmatically. These custom fees can be either a fixed fee, fractional fee, or royalty fee. 
 
-* A **fixed fee** transfers a specified amount of the token each time a token transfer is initiated to the account that was specified to collect the custom fee \(fee collector account\). The custom token fee does not depend on the amount of the token that is being transferred. 
-* A **fractional fee** transfers the specified fraction of the total value of the tokens that are being transferred to the specified fee collecting account. Along with setting a custom fractional fee, you can impose minimum and maximum fee limits per transfer transaction. 
+* A **fixed fee** transfers a specified amount of the token each time a token transfer is initiated to the account that was specified to collect the custom fee \(fee collector account\). The custom token fee does not depend on the amount of the token that is being transferred. Applicable to both fungible and non-fungible tokens. 
+* A **fractional fee** transfers the specified fraction of the total value of the tokens that are being transferred to the specified fee collecting account. Along with setting a custom fractional fee, you can impose minimum and maximum fee limits per transfer transaction. Applicable to fungible tokens only.
+* A **royalty fee** is a fee in hbar or another fungible token that is assessed when ownership of an NFT is transferred from person A to person B. The NFT sender receives the royalty fees. If there is no value transferred, a fallback fee can be used that is charged to the NFT receiver. Applicable to non-fungible tokens only.
 
 A custom fee schedule can include both types of fees. You can optionally set a token's fee schedule during the [creation of a token](define-a-token.md).
 
 **Token Custom Fee Payment**
 
-The account sending the token that has a custom fee schedule associated with it is responsible to pay for the custom fees. If the sending account does not have enough tokens to pay for the custom token fees plus transfer amount, the transaction will fail. A token's treasury account and any fee collecting accounts defined in the custom fee schedule for that token are exempt from paying any custom transaction fees when the token is transferred. 
+* Fractional fees are by default charged to the token transfer receiver. This means the receiving account of the fungible token will receive less than the transfer amount \(transfer amount - custom fees\). If the `net_of_transfers` field is set to true, the fractional fees are then charged to the sending account. In this case, the receiving account will receive the full amount of the token transfer value.
+* Fixed fees are paid by the sending account in the fungible or non-fungible token transfer transaction.
+* Royalty fees are paid by the sending account in a non-fungible token transfer transaction. When the NFT sender does not receive any fungible value, the fallback fee is charged to the NFT receiver
+* The accounts transferring the token to the receiving accounts are responsible for paying the transfer transaction fee in hbar.
 
 In addition to the custom token fee payment, the sender account is required to pay for the token transfer transaction fee in hbar.
 
 **Limits**
 
 * You can add up to 10 custom fees for a given token
-* At most, two "levels" of custom token fees are allowed. In other words, a token being transferred may have a custom fee schedule \(first layer\) which requires you to pay fees in another token that has its own fee schedule \(second layer\). If that’s the case, a token paid as a fee within the second layer cannot have its own fee schedule, otherwise that would create a third layer.
+* A token's treasury account and any fee collecting accounts defined in the custom fee schedule for a token are exempt from paying any custom transaction fees when the token is transferred. 
+* At most, two "levels" of custom token fees are allowed. In other words, a token being transferred may have a custom fee schedule \(first layer\) which requires you to pay fees in another token that has its own fee schedule \(second layer\). If that’s the case, a token paid as a fee within the second layer cannot have its own fee schedule, otherwise, that would create a third layer.
 * Fees cannot be a negative value
 
 ## Custom Fee 
@@ -27,7 +32,6 @@ In addition to the custom token fee payment, the sender account is required to p
 * The amount is the amount of the token the fee collecting account will collect each time the token with the custom fee schedule is transferred
 * The denominating token is the token to charge the custom fee in
   * To use the ID of the token generated in the transaction, enter "0.0.0" for the token ID
-    * There is a known issue for this case and will be fixed in the 0.17.0 release
   * If this field is left blank, the default token is hbar
 
 | Constructor | Description |
@@ -50,10 +54,10 @@ new CustomFixedFee()
 
 {% code title="Java" %}
 ```java
-//Create a custom token fixed fee schedule
+//Create a custom token fixed
 new CustomFixedFee()
-    .setAmount(1) //1 token is transferred to the fee collecting account each time this token is transferred
-    .setFeeCollectorAccountId(AccountId.fromString("0.0.10")); // 1 token is sent to this account everytime it is transferred
+    .setAmount(1) // 1 token is transferred to the fee collecting account each time this token is transferred
+    .setFeeCollectorAccountId(feeCollectorAccountId); // 1 token is sent to this account everytime it is transferred
 
 //Version: 2.0.9
 ```
@@ -61,10 +65,10 @@ new CustomFixedFee()
 
 {% code title="JavaScript" %}
 ```javascript
-//Create a custom token fixed fee schedule
+//Create a custom token fixed
 new CustomFixedFee()
-    .setAmount(1) //1 token is transferred to the fee collecting account each time this token is transferred
-    .setFeeCollectorAccountId(AccountId.fromString("0.0.10")); // 1 token is sent to this account everytime it is transferred
+    .setAmount(1) // 1 token is transferred to the fee collecting account each time this token is transferred
+    .setFeeCollectorAccountId(feeCollectorAccountId); // 1 token is sent to this account everytime it is transferred
 
 //Version: 2.0.26
 ```
@@ -72,14 +76,17 @@ new CustomFixedFee()
 
 {% code title="Go" %}
 ```go
-//Create a custom token fixed fee schedule
-hedera.CustomFee{
-			Fee: hedera.CustomFixedFee{
-				Amount: 1}, // 1 token is transferred to the fee collecting account each time this token is transferred
-			FeeCollectorAccountID: &feeCollectorAccountId,
-		}
+//Create a custom token fixed
+fractionalFee := []hedera.Fee{
+		hedera.CustomFixedFee{
+			CustomFee: hedera.CustomFee{
+				FeeCollectorAccountID: &feeCollectorAccountId, // 1 token is sent to this account everytime it is transferred
+			},
+			Amount: 1, // 1 token is transferred to the fee collecting account each time this token is transferred
+	},
+}
 
-//Version: 2.1.11
+//Version: 2.1.15
 ```
 {% endcode %}
 {% endtab %}
@@ -122,6 +129,7 @@ new CustomFixedFee()
 * The fractional fee has to be less than or equal to 1
 * You can apply a minimum or maximum fee to charge in cases the percentage of the transfer amount is too low or too high
 * Cannot exceed the fractional range of a 64 bit signed integer
+* If the assessment method field is set, the token's custom fee is charged to the sending account and the receiving account receives the full token transfer amount. If this field is set to false, the receiver pays for the token custom fees and gets the remaining token balance.
 
 | Constructor | Description |
 | :--- | :--- |
@@ -142,14 +150,15 @@ new CustomFractionalFee()
 | `setDenominator(<amount>)` | long | Required |
 | `setMax(<max>)` | long | Optional |
 | `setMin(<min>)` | long | Optional |
+| `setAssessmentMethod(<assessmentMethod>)` | FeeAssessmentMethod | Optional |
 
 {% code title="Java" %}
 ```java
-//Create a custom token fractional fee schedule
+//Create a custom token fractional
 new CustomFractionalFee()
     .setNumerator(1) // The numerator of the fraction
     .setDenominator(10) // The denominator of the fraction
-    .setFeeCollectorAccountId(AccountId.fromString("0.0.10")); // The account collecting the 10% custom fee each time the token is transferred
+    .setFeeCollectorAccountId(feeCollectorAccountId); // The account collecting the 10% custom fee each time the token is transferred
 
 //Version: 2.0.9
 ```
@@ -157,11 +166,11 @@ new CustomFractionalFee()
 
 {% code title="JavaScript" %}
 ```javascript
-//Create a custom token fractional fee schedule
+//Create a custom token fractional
 new CustomFractionalFee()
     .setNumerator(1) // The numerator of the fraction
     .setDenominator(10) // The denominator of the fraction
-    .setFeeCollectorAccountId(AccountId.fromString("0.0.10")); // The account collecting the 10% custom fee each time the token is transferred
+    .setFeeCollectorAccountId(feeCollectorAccountId); // The account collecting the 10% custom fee each time the token is transferred
 
 //Version: 2.0.26    
 ```
@@ -169,15 +178,18 @@ new CustomFractionalFee()
 
 {% code title="Go" %}
 ```go
-//Create a custom token fractional fee schedule (10% custom token fee)
-hedera.CustomFee{
-			Fee: hedera.CustomFractionalFee{
-				Numerator: 1,
-				Denominator: 10,},
-			FeeCollectorAccountID: &accountId,
-		}
+//Create a custom token fractional
+fractionalFee := []hedera.Fee{
+		hedera.CustomFractionalFee{
+			CustomFee: hedera.CustomFee{
+				FeeCollectorAccountID: &feeCollectorAccountId, // The account collecting the 10% custom fee each time the token is transferred
+			},
+			Numerator:   1, // The numerator of the fraction
+			Denominator: 10, // The denominator of the fraction
+		},
+}
 
-//Version: 2.1.11
+//Version: 2.1.15
 ```
 {% endcode %}
 {% endtab %}
@@ -216,4 +228,91 @@ new CustomFractionalFee()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+## Royalty Fee
+
+* Royalty fee charges a fraction of the value exchanged in a NFT transfer transaction. The fractional value is set by designating the numerator and denominator of the fraction.
+* The fallback fee is a [fixed fee](custom-token-fees.md#fixed-fee) that is charged to the NFT receiver when there is no fungible value exchanged with the sender of the NFT
+
+{% hint style="info" %}
+Royalty fees are only applicable to non-fungible tokens \(NFTs\).
+{% endhint %}
+
+| Constructor | Description |
+| :--- | :--- |
+| `new CustomRoyaltyFee()` | Initializes the CustomRoyaltyFee object |
+
+```java
+new CustomRoyaltyFee()
+```
+
+#### Methods
+
+{% tabs %}
+{% tab title="V2" %}
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setNumerator(<numerator>)` | long | Required |
+| `setDenominator(<denominator>)` | long | Required |
+| `setFallbackFee(<fallbackFee>)` | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional |
+| `setFeeCollectorAccountId(<>)` | AccountId | Required |
+
+{% code title="Java" %}
+```java
+//Create a royalty fee
+new CustomRoyaltyFee()
+     .setNumerator(1) // The numerator of the fraction
+     .setDenominator(10) // The denominator of the fraction
+     .setFallbackFee(new CustomFixedFee().setHbarAmount(new Hbar(1)) // The fallback fee
+     .setFeeCollectorAccountId(feeCollectorAccountId))) // The account that will receive the royalty fee
+
+// v2.0.12 
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create a royalty fee
+new CustomRoyaltyFee()
+     .setNumerator(1) // The numerator of the fraction
+     .setDenominator(10) // The denominator of the fraction
+     .setFallbackFee(new CustomFixedFee().setHbarAmount(new Hbar(1)) // The fallback fee
+     .setFeeCollectorAccountId(feeCollectorAccountId))) // The account that will receive the royalty fee
+     
+ // v2.0.29 
+```
+{% endcode %}
+
+{% code title="Go" %}
+```go
+//Create a royalty fee 
+royaltyFee := []hedera.Fee{
+		hedera.CustomRoyaltyFee{
+			CustomFee: hedera.CustomFee{
+				FeeCollectorAccountID: &feeCollectorAccountId, // The account that will receive the royalty fee
+			},
+			Numerator:   1, 
+     .setNumerator(1) // The numerator of the fraction
+			Denominator: 10, // The denominator of the fraction
+			FallbackFee: &hedera.CustomFixedFee{
+				CustomFee: hedera.CustomFee{
+					FeeCollectorAccountID: &feeCollectorAccountId,
+				},
+				Amount: 1, // The fallback fee
+			},
+		}
+	
+// v2.1.15
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="V1" %}
+Coming soon...
+{% endtab %}
+{% endtabs %}
+
+## 
+
+
 

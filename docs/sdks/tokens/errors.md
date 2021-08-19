@@ -62,4 +62,7 @@ Network response messages and their descriptions.
 | `PAYER_ACCOUNT_DELETED` | The payer account has been marked as deleted |
 | `CUSTOM_FEE_CHARGING_EXCEEDED_MAX_RECURSION_DEPTH` | The reference chain of custom fees for a transferred token exceeded the maximum length of 2 |
 | `CUSTOM_FEE_CHARGING_EXCEEDED_MAX_ACCOUNT_AMOUNTS` | More than 20 balance adjustments were to satisfy a CryptoTransfer and its implied custom fee payments |
+| `INSUFFICIENT_SENDER_ACCOUNT_BALANCE_FOR_CUSTOM_FEE` | The sender account in the token transfer transaction could not afford a custom fee |
+| `SERIAL_NUMBER_LIMIT_REACHED` | Currently no more than 4,294,967,295 NFTs may be minted for a given unique token type |
+| `CUSTOM_ROYALTY_FEE_ONLY_ALLOWED_FOR_NON_FUNGIBLE_UNIQUE` | Only tokens of type NON\_FUNGIBLE\_UNIQUE can have royalty fees |
 

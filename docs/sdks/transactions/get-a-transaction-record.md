@@ -16,7 +16,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | **Transfers** | A list of transfers made in the transaction. The list of transfers includes a payment made to the node, the service fee, and transaction fee |
 | **Token Transfers** | A list of the token transfers  |
 | **ScheduleRef** | The schedule ID of the schedule transaction the record represents |
-| **Assessed Custom Fees** | This field applies to tokens that have custom fees and returns the custom fee\(s\) assessed in a token transfer transaction |
+| **Assessed Custom Fees** | This field applies to tokens that have custom fees and returns the custom fee\(s\) assessed in a token transfer transaction. This includes the amount, token ID, fee collector account ID \(if applicable\), and effective payer account ID. The effective payer accounts are accounts that were charged the custom fees. |
 
 **Transaction Signing Requirements**
 
