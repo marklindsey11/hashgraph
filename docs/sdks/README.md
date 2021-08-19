@@ -38,5 +38,5 @@ Hedera and the developer community contribute to and maintain developer tools an
 | Serverless Hedera REST API | Community | Apache 2.0 | [docs.trust.enterprises](https://docs.trust.enterprises/) | [mattsmithies/hedera-serverless-consensus](https://github.com/mattsmithies/hedera-serverless-consensus) |
 | Serverless Hedera Laravel Package | Community | Apache 2.0 | [docs.trust.enterprises/laravel](https://docs.trust.enterprises/laravel/working-with-laravel) | [mattsmithies/laravel-hashgraph](https://github.com/mattsmithies/laravel-hashgraph) |
 
-Want to help contribute or have a project you'd like to see, here? Get in touch in [discord](https://discordapp.com/invite/FFb9YFX) or add a pull request.
+Want to help contribute or have a project you'd like to see, here? Get in touch in [discord](http://hedera.com/discord) or add a pull request.
 

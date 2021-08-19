@@ -174,5 +174,5 @@ Thread.sleep(2500);
 **NOTE**: It may take 10-15 seconds before the message appears on your console from the mirror node.
 
 Having trouble or have any comments, suggestions, or feedback?  
-Connect with us on [Discord](https://discordapp.com/invite/FFb9YFX)🤓!
+Connect with us on [Discord](http://hedera.com/discord)🤓!
 

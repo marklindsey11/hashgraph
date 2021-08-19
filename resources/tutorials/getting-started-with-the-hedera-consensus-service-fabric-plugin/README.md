@@ -322,5 +322,5 @@ You have successfully done the following:
 * Created a Hyperledger Fabric network using the HCS Fabric plugin as the ordering service
 * Verified the topics and messages created in this example network
 
-Running into issues or have suggestions? Visit the developer advocates in [Discord](https://discordapp.com/invite/FFb9YFX) and post your comments to the hedera-consensus-service channel 🤓 .
+Running into issues or have suggestions? Visit the developer advocates in [Discord](http://hedera.com/discord) and post your comments to the hedera-consensus-service channel 🤓 .
 
