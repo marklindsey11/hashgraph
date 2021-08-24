@@ -37,7 +37,11 @@ Unique token types and minted NFTs are more natural for many use cases than fung
 
 In this release we have made it possible to denominate a fixed fee in the units of the token to which it is attached \(assuming the type of this token is `FUNGIBLE_COMMON`\). Custom fractional fees may now also be set as "net-of-transfer". In this case the recipient\(s\) in the transfer list receive the stated amounts, and the assessed fee is charged to the sender.
 
-There are a few final points of more specialized interest. First, users of the scheduled transaction facility may now also schedule `TokenBurn` and `TokenMint` transactions. Second, network administrators issuing a `CryptoUpdate` to change the treasury account's key must now sign with the new treasury key. Third, the supported TLS cipher suites have been updated to `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384` and `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`.
+There are a few final points of more specialized interest. First, users of the scheduled transaction facility may now also schedule `TokenBurn` and `TokenMint` transactions. Second, network administrators issuing a `CryptoUpdate` to change the treasury account's key must now sign with the new treasury key. Third, the supported TLS cipher suites have been updated to the following list:
+
+1. `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384` \(TLS v1.2\)
+2. `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` \(TLS v1.2\)
+3. `TLS_AES_256_GCM_SHA384` \(TLS v1.3\)
 
 ## Latest Releases
 
