@@ -4,7 +4,7 @@
 Check out "Getting Started with the Hedera Token Service" video tutorial in JavaScript [here](https://youtu.be/JZDAMScxbpU).
 {% endhint %}
 
-Create a new fungible or non-fungible token on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
+Create a new fungible or non-fungible token \(NFT\) on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
 
 * The specified Treasury Account receives the initial supply of tokens when a token is created. The Treasury Account also receives any additional tokens that are minted.
 * The balance of the treasury account is decreased when the TokenBurn operation is executed. You must set the Supply Key if you wish to burn tokens in the future. If you do not set the Supply Key upon the creation of the token, you may update the token properties using the TokenUpdate transaction.
@@ -14,6 +14,7 @@ Create a new fungible or non-fungible token on the Hedera network. After you sub
 * Example: Token A has an initial supply set to 10\_000 and decimals set to 2. The tokens that will be put into circulation are going to be 100. Token B has an initial supply set to 10\_012\_345\_678 and decimals set to 8. The number of tokens that will be put into circulation are to going to be 100.12345678
 * The transaction has to be signed by the Admin Key of the new token
 * A token can be created as immutable if the Admin Key is omitted. In this case, the name, symbol, treasury, management keys, expiry and renew properties cannot be modified.
+* For non-fungible tokens \(NFTs\) this creates a token ID that represents a NFT class. Once the token is created, you will have to mint each NFT using the token mint transaction. 
 
 You can set the following properties when creating a token:
 

@@ -2,6 +2,10 @@
 
 Updates the properties of an existing token. The Admin Key must sign this transaction to update any of the token properties. If no value is given for a field, that field is left unchanged. For an immutable token \(that is, a token created without an Admin Key\), only the expiry may be updated. Setting any other field, in that case, will cause the transaction status to resolve to `TOKEN_IS_IMMUTABlE`.
 
+{% hint style="warning" %}
+Note: You cannot update the properties of a NFT once it is minted. You can update the properties of the token class for the NFT. 
+{% endhint %}
+
 | Property | Description |
 | :--- | :--- |
 | **Name** | The new name of the token. Must be a string of ASCII characters. Is not required to be unique. |

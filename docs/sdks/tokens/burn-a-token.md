@@ -1,11 +1,11 @@
 # Burn a token
 
-Burns fungible and non-fungible tokens from the Treasury Account. If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. 
+Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. 
 
 * The operation decreases the Total Supply of the Token. 
 * Total supply cannot go below zero. 
 * The amount provided must be in the lowest denomination possible. 
-* Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide an amount of 10000. In order to burn 100.55 tokens, one must provide an amount of 10055.
+  * Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide an amount of 10000. In order to burn 100.55 tokens, one must provide an amount of 10055.
 
 **Transaction Signing Requirements:**
 
