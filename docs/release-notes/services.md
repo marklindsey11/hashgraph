@@ -7,12 +7,24 @@ description: Hedera Services release information
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.16.1 | 0.17.3 |
-| **Testnet** | 0.17.3 | 0.18.0 |
-| **Previewnet** | 0.17.3 | 0.18.0 |
+| **Testnet** | 0.17.3 | 0.17.4 |
+| **Previewnet** | 0.17.3 | 0.17.4 |
 
 ## Upcoming Releases
 
+## [v0.17.4](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3)
+
+{% hint style="success" %}
+**TESTNET UPDATE:  AUGUST 30, 2021**
+{% endhint %}
+
+Please see 0.17.2 release notes.
+
 ## [v0.17.3](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3-rc.1)
+
+{% hint style="info" %}
+**MAINNET UPDATE: SEPTEMBER 2, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE:  AUGUST 24, 2021**
@@ -21,10 +33,6 @@ description: Hedera Services release information
 Please see 0.17.2 release notes.
 
 ## [v0.17.2](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.2)
-
-{% hint style="info" %}
-**MAINNET UPDATE: SEPTEMBER 2, 2021**
-{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE:  AUGUST 19, 2021**
