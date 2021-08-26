@@ -4,7 +4,7 @@ When you create a token, you have the ability to set one or many custom fees \(u
 
 * A **fixed fee** transfers a specified amount of the token each time a token transfer is initiated to the account that was specified to collect the custom fee \(fee collector account\). The custom token fee does not depend on the amount of the token that is being transferred. Applicable to both fungible and non-fungible tokens. 
 * A **fractional fee** transfers the specified fraction of the total value of the tokens that are being transferred to the specified fee collecting account. Along with setting a custom fractional fee, you can impose minimum and maximum fee limits per transfer transaction. Applicable to fungible tokens only.
-* A **royalty fee** is a fee in hbar or another fungible token that is assessed when ownership of an NFT is transferred from person A to person B. The NFT sender receives the royalty fees. If there is no value transferred, a fallback fee can be used that is charged to the NFT receiver. Applicable to non-fungible tokens only.
+* A **royalty fee** is a fractional fee that is assessed each time the ownership of an NFT is transferred from person A to person B. The fee collector account ID defined in the royalty fee schedule will receive the royalty fee each time. The royalty fee charged is a fraction of the value exchanged for the NFT. If there is no value exchanged for the NFT, a fallback fee can be used to charge the receiving account. Applicable to non-fungible tokens only.
 
 A custom fee schedule can include both types of fees. You can optionally set a token's fee schedule during the [creation of a token](define-a-token.md).
 
