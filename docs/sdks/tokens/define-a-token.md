@@ -40,7 +40,7 @@ You can set the following properties when creating a token:
 | **Expiration Time** | The epoch second at which the token should expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod. The default expiration time is 90 days. |
 | **Auto Renew Account** | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval. This key is required to sign the transaction if present. |
 | **Auto Renew Period** | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto-renew period is 131,500 minutes. |
-| **Memo** | A short publicly visible memo about the token. You can use the memo field to add a URI that contains additional metadata about the token. You can view the metadata schema [here](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-10.md). Memos are not unique and have a 100 character limit.  |
+| **Memo** | A short publicly visible memo about the token.  |
 
 **Transaction Signing Requirements:**
 
