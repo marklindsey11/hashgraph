@@ -54,7 +54,7 @@ List<TokenNftInfo> nftInfos = new TokenNftInfoQuery()
 ```javascript
 //Returns the info for the specified NFT ID
 const nftInfos = await new TokenNftInfoQuery()
-     .byNftId(nftId)
+     .setNftId(nftId)
      .execute(client);
 
 //v2.0.28
