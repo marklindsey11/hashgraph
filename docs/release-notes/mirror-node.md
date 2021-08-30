@@ -7,12 +7,16 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.38.1 | 0.39.0 |
-| **Testnet** | v0.39.0-alpha1 | 0.39.0 |
-| **Previewnet** | v0.39.0 | 0.39.0 |
+| **Testnet** | v0.39.0 | 0.40.0 |
+| **Previewnet** | v0.39.0 | 0.40.0 |
 
 ## Upcoming Releases
 
 ## [v0.39.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.39.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: AUGUST 30, 2021**
+{% endhint %}
 
 This release provides compatibility with Hedera Services 0.17 including support for Non-Fungible Tokens \(NFTs\) and its enhancement to custom fees. For the latter, an NFT creator can set a royalty fee to be charged when fungible value is exchanged for one of their creations and the mirror node has been updated to track this new type of custom fees. Support was also added for effective payer accounts in assessed custom fees and for storing net-of-transfers in fractional fees.
 
