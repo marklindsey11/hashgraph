@@ -6,13 +6,19 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.38.1 | 0.39.0 |
-| **Testnet** | v0.39.0 | 0.40.0 |
-| **Previewnet** | v0.39.0 | 0.40.0 |
+| **Mainnet** | v0.39.0 | v0.40.0 |
+| **Testnet** | v0.39.0 | v0.40.0 |
+| **Previewnet** | v0.39.0 | v0.40.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.39.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.39.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: AUGUST 31, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: AUGUST 30, 2021**
@@ -23,8 +29,6 @@ This release provides compatibility with Hedera Services 0.17 including support 
 The mostly unused data generator module was removed, resulting in a large increase in code coverage. Coverage has increased from 84% to 92%.
 
 A good amount of bugs were fixed including a crash on REST API startup if the database was down, monitor taking too long to startup, OpenAPI fixes, and more.
-
-## Latest Releases
 
 ## [v0.38.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.38.1)
 
