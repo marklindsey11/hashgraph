@@ -8,11 +8,15 @@ When you create a token, you have the ability to set one or many custom fees \(u
 
 A custom fee schedule can include both types of fees. You can optionally set a token's fee schedule during the [creation of a token](define-a-token.md).
 
+{% hint style="danger" %}
+The 0.17 Hedera Services release allows for 1 royalty fee to be charged for a non-funigble token. This limitation will be removed in the 0.18 release. 
+{% endhint %}
+
 **Token Custom Fee Payment**
 
 * Fractional fees are by default charged to the token transfer receiver. This means the receiving account of the fungible token will receive less than the transfer amount \(transfer amount - custom fees\). If the `net_of_transfers` field is set to true, the fractional fees are then charged to the sending account. In this case, the receiving account will receive the full amount of the token transfer value.
 * Fixed fees are paid by the sending account in the fungible or non-fungible token transfer transaction.
-* Royalty fees are paid by the sending account in a non-fungible token transfer transaction. When the NFT sender does not receive any fungible value, the fallback fee is charged to the NFT receiver
+* Royalty fees are paid by the account exchanging the fungible value. When the NFT sender does not receive any fungible value, the fallback fee is charged to the NFT receiver
 * The accounts transferring the token to the receiving accounts are responsible for paying the transfer transaction fee in hbar.
 
 In addition to the custom token fee payment, the sender account is required to pay for the token transfer transaction fee in hbar.
