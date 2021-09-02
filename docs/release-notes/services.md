@@ -51,6 +51,8 @@ There are a few final points of more specialized interest. First, users of the s
 2. `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` \(TLS v1.2\)
 3. `TLS_AES_256_GCM_SHA384` \(TLS v1.3\)
 
+⚠️ There are two temporary limitations to HIP-18 in this release. First, the `tokenFeeScheduleUpdate` transaction is not currently available. Second, only one royalty fee will be charged for a non-fungible token type. Both limitations will be removed in release 0.18.0.
+
 ## Latest Releases
 
 ## [v0.16.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.16.1)
