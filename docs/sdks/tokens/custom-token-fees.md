@@ -257,7 +257,7 @@ new CustomRoyaltyFee()
 | `setNumerator(<numerator>)` | long | Required |
 | `setDenominator(<denominator>)` | long | Required |
 | `setFallbackFee(<fallbackFee>)` | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional |
-| `setFeeCollectorAccountId(<>)` | AccountId | Required |
+| `setFeeCollectorAccountId(<feeCollectorAccountId>)` | [AccountId](../specialized-types.md#accountid) | Required |
 
 {% code title="Java" %}
 ```java
