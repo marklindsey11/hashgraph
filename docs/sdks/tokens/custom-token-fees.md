@@ -9,7 +9,7 @@ When you create a token, you have the ability to set one or many custom fees \(u
 A custom fee schedule can include both types of fees. You can optionally set a token's fee schedule during the [creation of a token](define-a-token.md).
 
 {% hint style="danger" %}
-The 0.17 Hedera Services release allows for 1 royalty fee to be charged for a non-funigble token. This limitation will be removed in the 0.18 release. 
+The 0.17 Hedera Services release allows for 1 royalty fee to be charged for a non-fungible token. This limitation will be removed in the 0.18 release. 
 {% endhint %}
 
 **Token Custom Fee Payment**
@@ -53,44 +53,44 @@ new CustomFixedFee()
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setFeeCollectorAccountId(<accountId>)` | [AccountId](../../hedera-api/basic-types/accountid.md) | Required |
-| `setAmount(<amount>)` | long | Required |
-| `setDenominatingTokenId(<tokenId>)` | [TokenId](../../hedera-api/basic-types/tokenid.md) | Required |
+| `setHbarAmount(<amount>)` | Hbar | Optional |
+| `setAmount(<amount>)` | long | Optional |
+| `setDenominatingTokenId(<tokenId>)` | [TokenId](../../hedera-api/basic-types/tokenid.md) | Optional |
 
 {% code title="Java" %}
 ```java
-//Create a custom token fixed
+//Create a custom token fixed fee
 new CustomFixedFee()
     .setAmount(1) // 1 token is transferred to the fee collecting account each time this token is transferred
+    .setDenominatingTokenId(tokenId) // The token to charge the fee in 
     .setFeeCollectorAccountId(feeCollectorAccountId); // 1 token is sent to this account everytime it is transferred
 
-//Version: 2.0.9
+//Version: 2.0.14
 ```
 {% endcode %}
 
 {% code title="JavaScript" %}
 ```javascript
-//Create a custom token fixed
+//Create a custom token fixed fee
 new CustomFixedFee()
     .setAmount(1) // 1 token is transferred to the fee collecting account each time this token is transferred
+    .setDenominatingTokenId(tokenId) // The token to charge the fee in
     .setFeeCollectorAccountId(feeCollectorAccountId); // 1 token is sent to this account everytime it is transferred
 
-//Version: 2.0.26
+//Version: 2.0.30
 ```
 {% endcode %}
 
 {% code title="Go" %}
 ```go
-//Create a custom token fixed
-fractionalFee := []hedera.Fee{
-		hedera.CustomFixedFee{
-			CustomFee: hedera.CustomFee{
-				FeeCollectorAccountID: &feeCollectorAccountId, // 1 token is sent to this account everytime it is transferred
-			},
-			Amount: 1, // 1 token is transferred to the fee collecting account each time this token is transferred
-	},
+[]hedera.Fee{
+		hedera.NewCustomFixedFee().
+		SetAmount(1). // 1 token is transferred to the fee collecting account each time this token is transferred
+		SetDenominatingTokenID(tokenId). // The token to charge the fee in 
+		SetFeeCollectorAccountID(feeCollectorAccountId) // 1 token is sent to this account everytime it is transferred
+   },
 }
-
-//Version: 2.1.15
+//Version: 2.1.16
 ```
 {% endcode %}
 {% endtab %}
@@ -158,42 +158,39 @@ new CustomFractionalFee()
 
 {% code title="Java" %}
 ```java
-//Create a custom token fractional
+//Create a custom token fractional fee
 new CustomFractionalFee()
     .setNumerator(1) // The numerator of the fraction
     .setDenominator(10) // The denominator of the fraction
     .setFeeCollectorAccountId(feeCollectorAccountId); // The account collecting the 10% custom fee each time the token is transferred
 
-//Version: 2.0.9
+//Version: 2.0.14
 ```
 {% endcode %}
 
 {% code title="JavaScript" %}
 ```javascript
-//Create a custom token fractional
+//Create a custom token fractional fee
 new CustomFractionalFee()
     .setNumerator(1) // The numerator of the fraction
     .setDenominator(10) // The denominator of the fraction
     .setFeeCollectorAccountId(feeCollectorAccountId); // The account collecting the 10% custom fee each time the token is transferred
 
-//Version: 2.0.26    
+//Version: 2.0.30    
 ```
 {% endcode %}
 
 {% code title="Go" %}
 ```go
-//Create a custom token fractional
-fractionalFee := []hedera.Fee{
-		hedera.CustomFractionalFee{
-			CustomFee: hedera.CustomFee{
-				FeeCollectorAccountID: &feeCollectorAccountId, // The account collecting the 10% custom fee each time the token is transferred
-			},
-			Numerator:   1, // The numerator of the fraction
-			Denominator: 10, // The denominator of the fraction
-		},
-}
+//Create a custom token fractional fee
+[]hedera.Fee{
+		hedera.NewCustomFractionalFee().
+		SetNumerator(1). // The numerator of the fraction
+		SetDenominator(10). // The denominator of the fraction
+		SetFeeCollectorAccountID(feeCollectorAccountId), // The account collecting the 10% custom fee each time the token is transferred
+	}
 
-//Version: 2.1.15
+//Version: 2.1.16
 ```
 {% endcode %}
 {% endtab %}
@@ -271,7 +268,7 @@ new CustomRoyaltyFee()
      .setFallbackFee(new CustomFixedFee().setHbarAmount(new Hbar(1)) // The fallback fee
      .setFeeCollectorAccountId(feeCollectorAccountId))) // The account that will receive the royalty fee
 
-// v2.0.12 
+// v2.0.14 
 ```
 {% endcode %}
 
@@ -284,30 +281,26 @@ new CustomRoyaltyFee()
      .setFallbackFee(new CustomFixedFee().setHbarAmount(new Hbar(1)) // The fallback fee
      .setFeeCollectorAccountId(feeCollectorAccountId))) // The account that will receive the royalty fee
      
- // v2.0.29 
+ // v2.0.30 
 ```
 {% endcode %}
 
 {% code title="Go" %}
 ```go
 //Create a royalty fee 
-royaltyFee := []hedera.Fee{
-		hedera.CustomRoyaltyFee{
-			CustomFee: hedera.CustomFee{
-				FeeCollectorAccountID: &feeCollectorAccountId, // The account that will receive the royalty fee
-			},
-			Numerator:   1, 
-     .setNumerator(1) // The numerator of the fraction
-			Denominator: 10, // The denominator of the fraction
-			FallbackFee: &hedera.CustomFixedFee{
-				CustomFee: hedera.CustomFee{
-					FeeCollectorAccountID: &feeCollectorAccountId,
-				},
-				Amount: 1, // The fallback fee
-			},
-		}
+[]hedera.Fee{
+		hedera.NewCustomRoyaltyFee().
+		SetFeeCollectorAccountID(feeCollectorAccountId). // The account that will receive the royalty fee
+		SetNumerator(1). // The numerator of the fraction
+		SetDenominator(10). // The denominator of the fraction
+		SetFallbackFee( // The fallback fee
+			hedera.NewCustomFixedFee().
+			SetFeeCollectorAccountID(feeCollectorAccountId).
+			SetAmount(1),
+		),
+	}
 	
-// v2.1.15
+// v2.1.16
 ```
 {% endcode %}
 {% endtab %}
