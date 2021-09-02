@@ -53,7 +53,7 @@ new CustomFixedFee()
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
 | `setFeeCollectorAccountId(<accountId>)` | [AccountId](../../hedera-api/basic-types/accountid.md) | Required |
-| `setHbarAmount(<amount>)` | Hbar | Optional |
+| `setHbarAmount(<amount>)` | [Hbar](../hbars.md) | Optional |
 | `setAmount(<amount>)` | long | Optional |
 | `setDenominatingTokenId(<tokenId>)` | [TokenId](../../hedera-api/basic-types/tokenid.md) | Optional |
 
@@ -83,6 +83,7 @@ new CustomFixedFee()
 
 {% code title="Go" %}
 ```go
+//Create a custom token fixed fee
 []hedera.Fee{
 		hedera.NewCustomFixedFee().
 		SetAmount(1). // 1 token is transferred to the fee collecting account each time this token is transferred
@@ -306,7 +307,38 @@ new CustomRoyaltyFee()
 {% endtab %}
 
 {% tab title="V1" %}
-Coming soon...
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setNumerator(<numerator>)` | long | Required |
+| `setDenominator(<denominator>)` | long | Required |
+| `setFallbackFee(<fallbackFee>)` | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional |
+| `setFeeCollectorAccountId(<feeCollectorAccountId>)` | [AccountId](../specialized-types.md#accountid) | Required |
+
+{% code title="Java" %}
+```java
+//Create a royalty fee
+new CustomRoyaltyFee()
+     .setNumerator(1) // The numerator of the fraction
+     .setDenominator(10) // The denominator of the fraction
+     .setFallbackFee(new CustomFixedFee().setHbarAmount(new Hbar(1)) // The fallback fee
+     .setFeeCollectorAccountId(feeCollectorAccountId))) // The account that will receive the royalty fee
+
+// v1.5.1
+```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create a royalty fee
+new CustomRoyaltyFee()
+     .setNumerator(1) // The numerator of the fraction
+     .setDenominator(10) // The denominator of the fraction
+     .setFallbackFee(new CustomFixedFee().setHbarAmount(new Hbar(1)) // The fallback fee
+     .setFeeCollectorAccountId(feeCollectorAccountId))) // The account that will receive the royalty fee
+     
+ // v1.4.11 
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
