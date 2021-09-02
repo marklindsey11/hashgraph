@@ -6,7 +6,7 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.16.1 | 0.17.3 |
+| **Mainnet** | 0.16.1 | 0.17.4 |
 | **Testnet** | 0.17.4 | 0.18.0 |
 | **Previewnet** | 0.17.4 | 0.18.0 |
 
@@ -14,31 +14,14 @@ description: Hedera Services release information
 
 ## [v0.17.4](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3)
 
-{% hint style="success" %}
-**TESTNET UPDATE:  AUGUST 30, 2021**
-{% endhint %}
-
-Please see 0.17.2 release notes.
-
-## [v0.17.3](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3-rc.1)
-
 {% hint style="info" %}
 **MAINNET UPDATE: SEPTEMBER 2, 2021**
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE:  AUGUST 24, 2021**
+**TESTNET UPDATE:  AUGUST 30, 2021**
 {% endhint %}
 
-Please see 0.17.2 release notes.
-
-## [v0.17.2](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.2)
-
-{% hint style="success" %}
-**TESTNET UPDATE:  AUGUST 19, 2021**
-{% endhint %}
-
-  
 In Hedera Services 0.17.2, we are excited to announce support for  [HIP-17 \(Non-fungible Tokens\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md), with a complementary extension to [HIP-18 \(Custom Hedera Token Service Fees\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-18.md) that lets an NFT creator set a royalty fee to be charged when fungible value is exchanged for one of their creations.
 
 Unique token types and minted NFTs are more natural for many use cases than fungible token types. The Hedera Token Service now supports both natively, so that a single `CryptoTransfer` can perform atomic swaps with any arbitrary combination of fungible, non-fungible, and ℏ transfers. \(Please do note that the "paged" `getAccountNftInfos` and `getTokenNftInfos` queries will remain disabled until release 0.18.0, as several large performance improvements are pending.\)
@@ -52,6 +35,24 @@ There are a few final points of more specialized interest. First, users of the s
 3. `TLS_AES_256_GCM_SHA384` \(TLS v1.3\)
 
 ⚠️ There are two temporary limitations to HIP-18 in this release. First, the `tokenFeeScheduleUpdate` transaction is not currently available. Second, only one royalty fee will be charged for a non-fungible token type. Both limitations will be removed in release 0.18.0.
+
+
+
+## [v0.17.3](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3-rc.1)
+
+{% hint style="success" %}
+**TESTNET UPDATE:  AUGUST 24, 2021**
+{% endhint %}
+
+Please see 0.17.4 release notes.
+
+## [v0.17.2](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.2)
+
+{% hint style="success" %}
+**TESTNET UPDATE:  AUGUST 19, 2021**
+{% endhint %}
+
+Please see 0.17.4 release notes.
 
 ## Latest Releases
 
