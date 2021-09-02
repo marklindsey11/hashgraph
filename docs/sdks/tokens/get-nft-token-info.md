@@ -1,13 +1,9 @@
 # Get NFT info
 
-A query that returns information about a non-fungible token \(NFT\). There are three different ways you can get NFT information:
-
-* NFT ID
-* Token ID
-* Account ID
+A query that returns information about a non-fungible token \(NFT\). You request the info for an NFT by specifying the NFT ID.
 
 {% hint style="warning" %}
-Requesting NFT info by Token ID or Account ID is currently disabled in the[ 0.17.2 release](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.2).
+Requesting NFT info by Token ID or Account ID is currently disabled in the[ 0.17 release](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.2).
 {% endhint %}
 
 The request returns the following information:
@@ -33,20 +29,16 @@ new TokenNftInfoQuery()
 {% tab title="V2" %}
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `byAccountId(<accountId>)` | AccountId | Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on NFTs N through M owned by the specified accountId. Use `setStart()` and `setEnd()`. | Optional |
-| `byNftId(<nftId>)` | [NftId](nft-id.md) | Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on a NFT for a given TokenID \(of type `NON_FUNGIBLE_UNIQUE`\) and serial number. | Optional |
-| `byTokenId(<tokenId>)` | TokenId | Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on NFTs N through M on the list of NFTs associated with a given `NON_FUNGIBLE_UNIQUE` Token. Use `setStart()` and `setEnd()`. | Optional |
-| `setStart(<start>)` | long | Specifies the start index \(inclusive\) of the range of NFTs to query for. Value must be in the range \[0; ownedNFTs-1\] | Optional  |
-| `setEnd(<end>)` | long | Specifies the end index \(exclusive\) of the range of NFTs to query for. Value must be in the range \(start; ownedNFTs\] | Optional |
+| `setNftId(<nftId>)` | [NftId](nft-id.md) | Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on a NFT for a given TokenID \(of type `NON_FUNGIBLE_UNIQUE`\) and serial number. | Optional |
 
 {% code title="Java" %}
 ```java
 //Returns the info for the specified NFT ID
 List<TokenNftInfo> nftInfos = new TokenNftInfoQuery()
-     .byNftId(nftId)
+     .setNftId(nftId)
      .execute(client);
 
-//v2.0.11
+//v2.0.14
 ```
 {% endcode %}
 
@@ -65,10 +57,10 @@ const nftInfos = await new TokenNftInfoQuery()
 ```go
 //Returns the info for the specified NFT ID
 nftInfo, err := NewTokenNftInfoQuery().
-   ByNftID(nftID).
+   SetNftID(nftID).
 	 Execute(client)
 
-//v2.1.14
+//v2.1.16
 ```
 {% endcode %}
 {% endtab %}
