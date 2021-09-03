@@ -6,17 +6,11 @@ Check out "Getting Started with the Hedera Token Service" video tutorial in Java
 
 Create a new fungible or non-fungible token \(NFT\) on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
 
-* The specified Treasury Account receives the initial supply of tokens when a token is created. The Treasury Account also receives any additional tokens that are minted.
-* The balance of the treasury account is decreased when the TokenBurn operation is executed. You must set the Supply Key if you wish to burn tokens in the future. If you do not set the Supply Key upon the creation of the token, you may update the token properties using the TokenUpdate transaction.
-* The supply that is going to be put in circulation is the initial supply provided
-* The maximum supply a token can have is 9,223,372,036,854,775,807 \(`2^63-1`\) tokens
-* The supply is in the lowest denomination possible
-* Example: Token A has an initial supply set to 10\_000 and decimals set to 2. The tokens that will be put into circulation are going to be 100. Token B has an initial supply set to 10\_012\_345\_678 and decimals set to 8. The number of tokens that will be put into circulation are to going to be 100.12345678
-* The transaction has to be signed by the Admin Key of the new token
-* A token can be created as immutable if the Admin Key is omitted. In this case, the name, symbol, treasury, management keys, expiry and renew properties cannot be modified.
-* For non-fungible tokens \(NFTs\) this creates a token ID that represents a NFT class. Once the token is created, you will have to mint each NFT using the token mint transaction. 
+**NFTs**
 
-You can set the following properties when creating a token:
+For non-fungible tokens, the token ID represents a NFT class. Once the token is created, you will have to mint each NFT using the [token mint](mint-a-token.md) operation.
+
+**Token Properties**
 
 <table>
   <thead>
@@ -36,7 +30,7 @@ You can set the following properties when creating a token:
     <tr>
       <td style="text-align:left"><b>Token Type</b>
       </td>
-      <td style="text-align:left">Fungible or non-fungible token.</td>
+      <td style="text-align:left">The type of token to create. Either fungible or non-fungible.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Symbol</b>
@@ -54,25 +48,28 @@ You can set the following properties when creating a token:
     <tr>
       <td style="text-align:left"><b>Initial Supply</b>
       </td>
-      <td style="text-align:left">Specifies the initial supply of tokens to be put in circulation. The initial
-        supply is sent to the Treasury Account. The maximum supply of tokens is <code>9,223,372,036,854,775,807</code> tokens
-        and is in the lowest denomination possible.</td>
+      <td style="text-align:left">Specifies the initial supply of fungible tokens to be put in circulation.
+        The initial supply is sent to the Treasury Account. The maximum supply
+        of tokens is <code>9,223,372,036,854,775,807</code>(<code>2^63-1</code>)
+        tokens and is in the lowest denomination possible. For creating an NFT,
+        you must set the initial supply to 0.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Treasury Account</b>
       </td>
       <td style="text-align:left">The account which will act as a treasury for the token. This account will
-        receive the specified initial supply. The token Treasury Account is required
-        to sign the TokenCreateTransaction.</td>
+        receive the specified initial supply and any additional tokens that are
+        minted. If tokens are burned, the supply will decreased from the treasury
+        account.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Admin Key</b>
       </td>
-      <td style="text-align:left">The key which can perform update/delete operations on the token.The Admin
-        Key has the authority to change the Freeze Key, Wipe Key, and KYC Key.
-        It can also update the treasury account. If empty, the token can be perceived
-        as immutable (not being able to be updated/deleted). This key is required
-        to sign transactions if present.</td>
+      <td style="text-align:left">The key which can perform token update and token delete operations on
+        the token.The admin key has the authority to change the freeze key, wipe
+        key, and KYC key. It can also update the treasury account of the token.
+        If empty, the token can be perceived as immutable (not being able to be
+        updated/deleted).</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>KYC Key</b>
@@ -97,7 +94,7 @@ You can set the following properties when creating a token:
       <td style="text-align:left"><b>Supply Key</b>
       </td>
       <td style="text-align:left">The key which can change the total supply of a token. This key is used
-        to sign token Mint/Burn operations. If this is left empty minting/burning
+        to authorize token mint and burn transactions. If this is left empty, minting/burning
         tokens is not possible.</td>
     </tr>
     <tr>
@@ -131,10 +128,10 @@ You can set the following properties when creating a token:
     <tr>
       <td style="text-align:left"><b>Max Supply</b>
       </td>
-      <td style="text-align:left">For tokens of type FUNGIBLE_COMMON - the maximum number of tokens that
-        can be in circulation. For tokens of type NON_FUNGIBLE_UNIQUE - the maximum
-        number of NFTs (serial numbers) that can be minted. This field can never
-        be changed.</td>
+      <td style="text-align:left">For tokens of type <code>FUNGIBLE_COMMON</code> - the maximum number of
+        tokens that can be in circulation.
+        <br />For tokens of type <code>NON_FUNGIBLE_UNIQUE</code> - the maximum number
+        of NFTs (serial numbers) that can be minted. This field can never be changed.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Supply Type</b>
@@ -160,13 +157,14 @@ You can set the following properties when creating a token:
       </td>
       <td style="text-align:left">An account which will be automatically charged to renew the token&apos;s
         expiration, at autoRenewPeriod interval. This key is required to sign the
-        transaction if present.</td>
+        transaction if present. This is not currently enabled.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Auto Renew Period</b>
       </td>
       <td style="text-align:left">The interval at which the auto-renew account will be charged to extend
-        the token&apos;s expiry. The default auto-renew period is 131,500 minutes.</td>
+        the token&apos;s expiry. The default auto-renew period is 131,500 minutes.
+        This is not currently enabled.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>Memo</b>
