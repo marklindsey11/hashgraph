@@ -126,7 +126,8 @@ fmt.Printf("The transaction record is %v\n", record)
           Transfer{accountId=0.0.97001, amount=1 ℏ} (Initial balance of the new account)  
      ]  
      tokenTransfers={},  
-     scheduleRef=null  
+     scheduleRef=null,  
+     assessedCustomFees=[]  
 }`
 {% endtab %}
 
