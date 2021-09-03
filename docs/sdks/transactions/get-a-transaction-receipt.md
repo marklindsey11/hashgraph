@@ -96,7 +96,11 @@ fmt.Printf("The transaction receipt %v\n", receipt)
      topicRunningHash=null,   
      totalSupply=0,   
      scheduleId=0.0.2531  
-}`
+     schdeduledTransactionId=null,  
+     serials=[]  
+    }`  
+scheduledTransactionId=null, serials=\[\]  
+`}`
 {% endtab %}
 {% endtabs %}
 
