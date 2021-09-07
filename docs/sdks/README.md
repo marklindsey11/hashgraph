@@ -32,7 +32,7 @@ Hedera and the developer community contribute to and maintain developer tools an
 
 | Project | Maintainer | License | Documentation | Download |
 | :--- | :--- | :--- | :--- | :--- |
-| Hedera SDK for .NET | Community | Apache 2.0 |  | [github.com/bugbytesinc](https://github.com/bugbytesinc/Hashgraph) |
+| Hedera SDK for .NET | Community | Apache 2.0 | [https://bugbytesinc.github.io/Hashgraph/](https://bugbytesinc.github.io/Hashgraph/) | [github.com/bugbytesinc](https://github.com/bugbytesinc/Hashgraph) |
 | Hedera Java DID SDK | Hedera | Apache 2.0 | [https://github.com/hashgraph/did-sdk-java\#documentation](https://github.com/hashgraph/did-sdk-java#documentation) | [github.com/hashgraph/did-sdk-java](https://github.com/hashgraph/did-sdk-java) |
 | Hedera JavaScript DID SDK | Envision | Apache 2.0 |  | [github.com/hashgraph/did-sdk-js](https://github.com/hashgraph/did-sdk-js) |
 | Serverless Hedera REST API | Community | Apache 2.0 | [docs.trust.enterprises](https://docs.trust.enterprises/) | [mattsmithies/hedera-serverless-consensus](https://github.com/mattsmithies/hedera-serverless-consensus) |
