@@ -38,6 +38,8 @@ There are a few final points of more specialized interest. First, users of the s
 
 ⚠️ There are two temporary limitations to HIP-18 in this release. First, the `tokenFeeScheduleUpdate` transaction is not currently available. Second, only one royalty fee will be charged for a non-fungible token type. Both limitations will be removed in release 0.18.0.
 
+#### Performance Measurement Results:
+
 ![](../../.gitbook/assets/0.17.png)
 
 
