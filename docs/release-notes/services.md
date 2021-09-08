@@ -38,6 +38,8 @@ There are a few final points of more specialized interest. First, users of the s
 
 ⚠️ There are two temporary limitations to HIP-18 in this release. First, the `tokenFeeScheduleUpdate` transaction is not currently available. Second, only one royalty fee will be charged for a non-fungible token type. Both limitations will be removed in release 0.18.0.
 
+![](../../.gitbook/assets/0.17.png)
+
 
 
 ## [v0.17.3](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3-rc.1)

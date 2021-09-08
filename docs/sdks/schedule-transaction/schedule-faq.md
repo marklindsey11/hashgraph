@@ -2,9 +2,9 @@
 
 ## 1. What is the difference between a schedule transaction and scheduled transaction?
 
-A _**schedule transaction**_ is a transaction that can schedule any Hedera transaction with the ability to collect the required signatures on the Hedera network in preparation for its execution. 
+A _**schedule transaction**_ is a transaction that can schedule any Hedera transaction with the ability to collect the required signatures on the Hedera network in preparation for its execution.
 
-A _**scheduled transaction**_ is a transaction that has already been scheduled. 
+A _**scheduled transaction**_ is a transaction that has already been scheduled.
 
 ## 2. Is there an entity ID assigned to a schedule transaction?
 
