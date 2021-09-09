@@ -1,5 +1,9 @@
 # TokenGetNftInfos
 
+{% hint style="warning" %}
+This query is currently disabled.
+{% endhint %}
+
 ## TokenGetNftInfosQuery
 
 Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on NFTs N through M on the list of NFTs associated with a given `NON_FUNGIBLE_UNIQUE` Token. Example: If there are 10 NFTs issued, having start=0 and end=5 will query for the first 5 NFTs. Querying +all 10 NFTs will require start=0 and end=10.

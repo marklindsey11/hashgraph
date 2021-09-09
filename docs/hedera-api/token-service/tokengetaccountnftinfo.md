@@ -1,8 +1,12 @@
 # TokenGetAccountNftInfo
 
+{% hint style="warning" %}
+This query is currently disabled.
+{% endhint %}
+
 ## TokenGetAccountNftInfoQuery
 
-Applicable only to tokens of type NON\_FUNGIBLE\_UNIQUE. Gets info on NFTs N through M owned by the specified accountId. Example: If Account A owns 5 NFTs \(might be of different Token Entity\), having start=0 and end=5 will return all of the NFTs
+Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on NFTs N through M owned by the specified accountId. Example: If Account A owns 5 NFTs \(might be of different Token Entity\), having start=0 and end=5 will return all of the NFTs
 
 | Field | Type | Description |
 | :--- | :--- | :--- |
