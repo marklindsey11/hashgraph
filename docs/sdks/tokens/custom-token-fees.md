@@ -2,11 +2,11 @@
 
 When you create a token, you have the ability to set one or many custom fees \(up to 10\). Custom fees are fees that are distributed to the specified accounts each time the token is transferred programmatically. These custom fees can be either a fixed fee, fractional fee, or royalty fee. 
 
-* A **fixed fee** transfers a specified amount of the token each time a token transfer is initiated to the account that was specified to collect the custom fee \(fee collector account\). The custom token fee does not depend on the amount of the token that is being transferred. Applicable to both fungible and non-fungible tokens. 
+* A **fixed fee** transfers a specified amount of the token each time a token transfer is initiated to the account that was specified to collect the custom fee \(fee collector account\). The custom token fee does not depend on the amount of the token that is being transferred. You have the option to collect the fee in hbar or another fungible Hedera token. A NFT cannot be used as a token type to collect the fee in. You can set a custom fixed fee for both fungible and non-fungible token types. 
 * A **fractional fee** transfers the specified fraction of the total value of the tokens that are being transferred to the specified fee collecting account. Along with setting a custom fractional fee, you can impose minimum and maximum fee limits per transfer transaction. Applicable to fungible tokens only.
 * A **royalty fee** is a fractional fee that is assessed each time the ownership of an NFT is transferred from person A to person B. The fee collector account ID defined in the royalty fee schedule will receive the royalty fee each time. The royalty fee charged is a fraction of the value exchanged for the NFT. If there is no value exchanged for the NFT, a fallback fee can be used to charge the receiving account. Applicable to non-fungible tokens only.
 
-A custom fee schedule can include both types of fees. You can optionally set a token's fee schedule during the [creation of a token](define-a-token.md).
+A custom fee schedule can include a mix of fee types. You can optionally set a token's fee schedule during the [creation of a token](define-a-token.md).
 
 {% hint style="danger" %}
 The 0.17 Hedera Services release allows for 1 royalty fee to be charged for a non-fungible token. This limitation will be removed in the 0.18 release. 
@@ -32,10 +32,11 @@ In addition to the custom token fee payment, the sender account is required to p
 
 ### Fixed Fee
 
-* The fee collector account collects the defined fee amount
+* The fee collector account collects the defined custom fee amount
 * The amount is the amount of the token the fee collecting account will collect each time the token with the custom fee schedule is transferred
 * The denominating token is the token to charge the custom fee in
-  * To use the ID of the token generated in the transaction, enter "0.0.0" for the token ID
+  * To use the ID of the fungible token generated in the transaction, enter "0.0.0" for the token ID
+    * If the token being generated is an NFT, you cannot use it in the fee schedule
   * If this field is left blank, the default token is hbar
 
 | Constructor | Description |
