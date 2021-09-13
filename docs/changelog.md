@@ -56,7 +56,7 @@ Hedera v1 SDKs for Java and JavaScript will no longer be supported after October
 Deprecated fields will no longer be populated in the 0.19.0 Hedera Services release.
 {% endhint %}
 
-A new ServiceEndpoint protobuf message was _\*\*_introduced in the Hedera Services codebase v0.13.0 release.
+A new `ServiceEndpoint` protobuf message was introduced in the Hedera Services codebase v0.13.0 release.
 
 <table>
   <thead>
