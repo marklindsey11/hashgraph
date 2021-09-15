@@ -12,6 +12,14 @@ description: Hedera mirror node release notes
 
 ## Upcoming Releases
 
+## [v0.40.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.40.0)
+
+This release adds support for [HIP-23](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md) Automatic Token Association. This feature allows users to opt-in to receiving fungible or non-fungible tokens automatically as part of a transfer without having to be previously associated with the token. The mirror node now stores these implicitly created associations and returns them via its REST API. Additionally, we show the `max_automatic_token_associations` in the accounts REST API.
+
+Besides updating it for HIP-23, the REST API saw quite a few other fixes and improvements. The accounts API now displays its memo and the `receiverSigRequired` field. The REST API packages were renamed to use the `@hashgraph` NPM package scope. This shouldn't be a breaking change as we don't currently publish those packages to NPM. A number of APIs were fixed to ensure lists were returned in a deterministic sort order. Also, the OpenAPI specification was fixed up so that it accurately reflects the current API and can be used to generate client code. Finally, the schedules API had some performance improvements.
+
+On the monitoring side, we enhanced our Grafana dashboards to make them compatible with Grafana Cloud by adding datasource and cluster drop-downs.
+
 ## Latest Releases
 
 ## [v0.39.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.39.0)
