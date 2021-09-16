@@ -12,6 +12,24 @@ description: Hedera Services release information
 
 ## Upcoming Releases
 
+## v0.18.0
+
+{% hint style="info" %}
+**MAINNET UPDATE: OCTOBER 7, 2021**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE:  SEPTEMBER 23, 2021**
+{% endhint %}
+
+In Hedera Services 0.18.0, we are happy to announce support for [HIP-23 \(Opt-in Token Associations\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md). This feature lets an Hedera account owner "pre-pay" for token associations via a [`CryptoCreate`](https://hashgraph.github.io/hedera-protobufs/#proto.CryptoCreateTransactionBody) or [`CryptoUpdate`](https://hashgraph.github.io/hedera-protobufs/#proto.CryptoUpdateTransactionBody) transaction, _without_ knowing in advance which specific token types they will use.
+
+Then, when their account receives units or NFT's of a new token type via a `CryptoTransfer`, the network automatically creates the needed association---no explicit `TokenAssociate` transaction needed. This supports several interesting use cases; please see the linked HIP-23 for more details.
+
+In release 0.18.0, we have removed the HIP-18 limitations noted in the previous release. The `tokenFeeScheduleUpdate` transaction has been re-enabled, and multiple royalty fees can now be charged for a non-fungible token type.
+
+Our developer community will likely appreciate two other changes in this release. First, we have migrated to [Dagger2](https://dagger.dev/) for dependency injection. Second, there is a new `getExecutionTime` query in the [`NetworkService`](https://hashgraph.github.io/hedera-protobufs/#proto.NetworkService) that supports granular performance testing in development environments.
+
 ## Latest Releases
 
 ## [v0.17.4](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3)
