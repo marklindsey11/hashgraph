@@ -30,7 +30,7 @@ There are three other points of interest in this release.
 
 First, we have removed the HIP-18 limitations noted in the previous release. The `tokenFeeScheduleUpdate` transaction has been re-enabled, and multiple royalty fees can now be charged for a non-fungible token type.
 
-Second, the address books in system files `0.0.101` and `0.0.102` will now populate their `ServiceEndpoint` fields. \(However, the deprecated `ipAddress`, `portno`, and `memo` fields will not be removed until the next release.\)
+Second, the address books in system files `0.0.101` and `0.0.102` will now populate their `ServiceEndpoint` fields. \(However, the deprecated `ipAddress`, `portno`, and `memo` fields will not be no longer be populated after the next release.\)
 
 Third, please note that the `TokenService` `getTokenNftInfos` and `getAccountNftInfos` queries are now **deprecated** and will be removed in a future release. The best answers to such queries demand historical context that only Mirror Nodes have; so these and related queries will move to mirror REST APIs.
 
