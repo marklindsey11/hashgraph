@@ -99,10 +99,6 @@ Proxy Connectivity
 * Linux user with sudo privileges, named: `hgcadmin` 
 * Public key added to SSH authorized\_keys for user hgcadmin for both node host and proxy\(ies\)
 
-```text
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDt50KHgircRbqfukIFUElFd6BBSNHdcA7k Qabb4o/6ZbiOSzwVL5yNHVZ6lxrWEy5oDSKT4JJX85Gv8y5EbIh7oFqr5njfDvTylX6QV XnkexW4yOnfuryQOYcnejlnKyMNMUJuCXvj1CVOjB+MR9Zppiuj6eLGKDVydWcXMKSt Fd5w0ZmriOEJvd5O/5J7eYau1gpYZeNaarDOSI27oM8CIDTgg/oQX/SDNN0jX5Y55mh NJw0AmWTgc1K/wQFXnxlhvBpBPaQZAMEF/ZvQttAqH0BCpoUzC0EQ4+Z7NNkBcVr QN667L5zH+ggvzsIeBGAsUjJ4L56191sV1Rc3Qz3 hgcadmin
-```
-
 {% hint style="warning" %}
 External access from hgcadmin will not be required for ongoing production\(mainnet\). This is temporary to be able to update the configuration of the nodes to support new members and features during the testing and initial production deployment phase.
 {% endhint %}
