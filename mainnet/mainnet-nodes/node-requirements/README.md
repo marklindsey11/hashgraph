@@ -128,3 +128,4 @@ The following steps outline the process for Council Members to add their consens
    2. Update private keys using provided tools
 10. Schedule mainnet connection
 11. Mainnet live
+

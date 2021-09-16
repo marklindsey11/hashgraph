@@ -7,12 +7,16 @@ description: Hedera mirror node release notes
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
 | **Mainnet** | v0.39.0 | v0.40.0 |
-| **Testnet** | v0.39.0 | v0.40.0 |
+| **Testnet** | v0.40.0 | v0.41.0 |
 | **Previewnet** | v0.40.0 | v0.41.0 |
 
 ## Upcoming Releases
 
 ## [v0.40.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.40.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: SEPTEMBER 16, 2021**
+{% endhint %}
 
 This release adds support for [HIP-23](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md) Automatic Token Association. This feature allows users to opt-in to receiving fungible or non-fungible tokens automatically as part of a transfer without having to be previously associated with the token. The mirror node now stores these implicitly created associations and returns them via its REST API. Additionally, we show the `max_automatic_token_associations` in the accounts REST API.
 
