@@ -25,6 +25,9 @@ To access the _**public mainnet mirror node**_, use `setMirrorNetwork()` and ent
 | `Client.fromJsonFile(<file>)` | File | Configure a client based on a JSON file. |
 | `Client.fromJsonFile(<fileName>)` | String | Configure a client based on a JSON file at the given path. |
 | `Client.<network>.setMirrorNetwork(network)` | List&lt;String&gt;\) | Define a specific mirror network node\(s\) ip:port in string format |
+| `Client.<network>.setMirrorNetwork(network)` |  |  |
+|  |  |  |
+|  |  |  |
 
 {% code title="Java" %}
 ```java
@@ -115,8 +118,8 @@ The operator is the account that will, by default, pay the transaction fee for t
 
 | Method | Type |
 | :--- | :--- |
-| `setOperator(<accountId, privateKey>)` | AccountId, PrivateKey |
-| `setOperatorWith(<accountId, privateKey, transactionSigner>)` | AccountId, PrivateKey, Function&lt;byte\[ \], byte \[ \]&gt; |
+| `Client.<network>.setOperator(<accountId, privateKey>)` | AccountId, PrivateKey |
+| `Client.<network>.setOperatorWith(<accountId, privateKey, transactionSigner>)` | AccountId, PrivateKey, Function&lt;byte\[ \], byte \[ \]&gt; |
 
 ### From an account ID and private key
 
@@ -125,7 +128,7 @@ The operator is the account that will, by default, pay the transaction fee for t
 ```java
 // Operator account ID and private key from string value
 AccountId OPERATOR_ID = AccountId.fromString("0.0.96928");
-Ed25519PrivateKey OPERATOR_KEY = Ed25519PrivateKey.fromString("302e020100300506032b657004220420b9c3ebac81a72aafa5490cc78111643d016d311e60869436fbb91c7330796928");
+Ed25519PrivateKey OPERATOR_KEY = PrivateKey.fromString("302e020100300506032b657004220420b9c3ebac81a72aafa5490cc78111643d016d311e60869436fbb91c7330796928");
 
 // Pre-configured client for test network (testnet)
 Client client = Client.forTestnet()
@@ -139,7 +142,7 @@ client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 ```javascript
 // Operator account ID and private key from string value
 const OPERATOR_ID = AccountId.fromString("0.0.96928");
-const OPERATOR_KEY = Ed25519PrivateKey.fromString("302e020100300506032b657004220420b9c3ebac81a72aafa5490cc78111643d016d311e60869436fbb91c7330796928");
+const OPERATOR_KEY = PrivateKey.fromString("302e020100300506032b657004220420b9c3ebac81a72aafa5490cc78111643d016d311e60869436fbb91c7330796928");
 
 // Pre-configured client for test network (testnet)
 const client = Client.forTestnet()
@@ -254,13 +257,13 @@ The **max transaction fee** and **max query payment** are both set to 100\_000\_
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><code>setMaxTransactionFee(&lt;fee&gt;)</code>
+      <td style="text-align:left"><code>Client.&lt;network&gt;.setMaxTransactionFee(&lt;fee&gt;)</code>
       </td>
       <td style="text-align:left">Hbar</td>
       <td style="text-align:left">The maximum transaction fee the client is willing to pay. Default: 1 hbar</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>setMaxQueryPayment(&lt;maxQueryPayment&gt;)</code>
+      <td style="text-align:left"><code>Client&lt;network&gt;.setMaxQueryPayment(&lt;maxQueryPayment&gt;)</code>
       </td>
       <td style="text-align:left">Hbar</td>
       <td style="text-align:left">
@@ -269,18 +272,33 @@ The **max transaction fee** and **max query payment** are both set to 100\_000\_
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>setNetwork(&lt;nodes&gt;)</code>
+      <td style="text-align:left"><code>Client.&lt;network&gt;.setNetwork(&lt;nodes&gt;)</code>
       </td>
       <td style="text-align:left">Map&lt;String, AccountId&gt;</td>
       <td style="text-align:left">Replace all nodes in this Client with a new set of nodes (e.g. for an
         Address Book update)</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>setRequestTimeout(&lt;requestTimeout&gt;)</code>
+      <td style="text-align:left"><code>Client.&lt;network&gt;.setRequestTimeout(&lt;requestTimeout&gt;)</code>
       </td>
       <td style="text-align:left">Duration</td>
       <td style="text-align:left">The period of time a transaction or query request will retry from a &quot;busy&quot;
         network response</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>Client.&lt;network&gt;.setMinBackoff(&lt;minBackoff&gt;)</code>
+      </td>
+      <td style="text-align:left">Duration</td>
+      <td style="text-align:left">The minimum amount of time to wait between retries. When retrying, the
+        delay will start at this time and increase exponentially until it reaches
+        the maxBackoff</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>Client.&lt;network&gt;.setMaxBackoff(&lt;maxBackoff&gt;)</code>
+      </td>
+      <td style="text-align:left">Duration</td>
+      <td style="text-align:left">The maximum amount of time to wait between retries. Every retry attempt
+        will increase the wait time exponentially until it reaches this time</td>
     </tr>
   </tbody>
 </table>

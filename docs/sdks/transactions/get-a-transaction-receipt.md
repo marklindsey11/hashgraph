@@ -98,9 +98,7 @@ fmt.Printf("The transaction receipt %v\n", receipt)
      scheduleId=0.0.2531  
      schdeduledTransactionId=null,  
      serials=[]  
-    }`  
-scheduledTransactionId=null, serials=\[\]  
-`}`
+    }`
 {% endtab %}
 {% endtabs %}
 
