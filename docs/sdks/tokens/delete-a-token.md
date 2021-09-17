@@ -23,7 +23,7 @@ new TokenDeleteTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The ID of the token to delete | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The ID of the token to delete | Required |
 
 {% code title="Java" %}
 ```java

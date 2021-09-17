@@ -18,7 +18,7 @@ new TokenId()
 | :--- | :--- | :--- |
 | `TokenId.fromtString(<tokenId>)` | String | Constructs a token ID from a String value |
 | `TokenId.fromSolidityAddress(<address>)` | String | Constructs a token ID from a solidity address |
-| `TokenId.fromBytes(<bytes>)` | byte\[ | Constructs a token ID from bytes |
+| `TokenId.fromBytes(<bytes>)` | byte\[\] | Constructs a token ID from bytes |
 
 {% code title="Java" %}
 ```java

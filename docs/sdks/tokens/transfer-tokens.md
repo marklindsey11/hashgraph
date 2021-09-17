@@ -33,9 +33,9 @@ new TransferTransaction()
 {% tab title="V2" %}
 | Method | Type | Description |
 | :--- | :--- | :--- |
-| `addHbarTransfer(<accountId, value>)` | AccountID, Hbar/long | Add the from and to account to transfer hbars \(you will need to call this method twice\). The sending account must sign the transaction. The sender and recipient values must net zero. |
-| `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | Add the from and to account to transfer tokens \(you will need to call this method twice\). The ID of the token, the account ID to transfer the tokens from or to, and the value of the token to transfer. The sender and recipient values must net zero. |
-| `addNftTransfer(<nftId, sender, receiver)` | NftId, AccountId, AccountId | The NFT ID being transferred, the account ID the NFT owner, the account ID of the receiver of the NFT. |
+| `addHbarTransfer(<accountId, value>)` | [AccountID](../specialized-types.md#accountid), Hbar/long | Add the from and to account to transfer hbars \(you will need to call this method twice\). The sending account must sign the transaction. The sender and recipient values must net zero. |
+| `addTokenTransfer(<tokenId, accountId,value>)` | [TokenId](token-id.md), AccountId, long | Add the from and to account to transfer tokens \(you will need to call this method twice\). The ID of the token, the account ID to transfer the tokens from or to, and the value of the token to transfer. The sender and recipient values must net zero. |
+| `addNftTransfer(<nftId, sender, receiver)` | NftId, [AccountId](../specialized-types.md#accountid), [AccountId](../specialized-types.md#accountid) | The NFT ID being transferred, the account ID the NFT owner, the account ID of the receiver of the NFT. |
 
 {% code title="Java" %}
 ```java

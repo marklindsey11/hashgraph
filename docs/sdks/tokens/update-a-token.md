@@ -43,10 +43,10 @@ new TokenUpdateTransaction()
 {% tab title="V2" %}
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | Required |
 | `setTokenName(<name>)` | String | Optional |
 | `setTokenSymbol(<symbol>)` | String | Optional |
-| `setTreasuryAccountId(<treasury>)` | AccountId | Optional |
+| `setTreasuryAccountId(<treasury>)` | [AccountId](../specialized-types.md#accountid) | Optional |
 | `setAdminKey(<key>)` | Key | Optional |
 | `setKycKey(<key>)` | Key | Optional |
 | `setFreezeKey(<key>)` | Key | Optional |
@@ -56,7 +56,7 @@ new TokenUpdateTransaction()
 | `setFreezeDefault(<freeze>`\) | boolean | Optional |
 | `setExpirationTime(<expirationTime>)` | Instant | Optional |
 | `setTokenMemo(<memo>)` | String | Optional |
-| `setAutoRenewAccountId(<account>)` | AccountId | Disabled |
+| `setAutoRenewAccountId(<account>)` | [AccountId](../specialized-types.md#accountid) | Disabled |
 | `setAutoRenewPeriod(<period>)` | Duration | Disabled |
 
 {% code title="Java" %}

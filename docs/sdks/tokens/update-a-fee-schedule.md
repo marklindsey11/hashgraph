@@ -29,7 +29,7 @@ new TokenFeeScheduleUpdateTransaction()
 {% tab title="V2" %}
 | Method | Type | Requirement |
 | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | Required |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | Required |
 | `setCustomFees(<customFees>)` | List&lt;[CustomFee](custom-token-fees.md#custom-fee)&gt; | Optional |
 
 {% code title="Java" %}
