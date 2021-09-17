@@ -18,7 +18,7 @@ A query that returns the current state of the account. This query **does not** i
 | **Proxy Received**  | The total number of tinybars proxy staked to this account.  |
 | **LiveHash** | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it\).  |
 | **Tokens** | All tokens related to this account |
-| **Memo** |  A note or description that is recorded with the account entity |
+| **Account Memo** |  A note or description that is recorded with the account entity |
 | **Owned NFTs** | The number of NFTs owned by the specified account |
 
 **Query Signing Requirements**
@@ -49,6 +49,7 @@ new AccountInfoQuery()
 | `<AccountInfo>.liveHashes` | List&lt;LiveHash&gt; | Optional |
 | `<AccountInfo>.tokenRelationships` | Map&lt;TokenId, TokenRelationships&gt; | Optional |
 | `<AccountInfo>.ownedNfts` | long | Optional |
+| `<AccountInfo>.accountMemo` | String | Optional |
 | `<AccountInfo>.expirationTime` | Instant | Optional |
 | `<AccountInfo>.proxyReceived` | Hbar | Optional |
 | `<AccountInfo>.proxyAccountId` | AccountId | Optional |
@@ -120,7 +121,10 @@ fmt.Println(accountInfo)
      "receiverSignatureRequired=false",  
      expirationTime=2021-02-02T19:29:36Z,   
      autoRenewPeriod=PT2160H,   
-     "liveHashes="[]   
+     "liveHashes="[],  
+     tokenRelationships={},   
+     accountMemo=,  
+     ownedNfts=0  
 }`
 {% endtab %}
 
