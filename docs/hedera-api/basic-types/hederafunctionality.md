@@ -71,6 +71,7 @@ The functionality provided by hedera hashgraph
 | `TokenGetAccountNftInfo` | Get Token Account Nft Information |
 | `TokenGetNftInfo` | Get Token Nft Information |
 | `TokenGetNftInfos` | Get Token Nft List Information |
+| `NetworkGetExecutionTime` | Get execution time\(s\) by TransactionID, if available |
 
 
 

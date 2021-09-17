@@ -17,4 +17,5 @@ Create a new account. After the account is created, the AccountID for it is in t
 | `realmID` | [RealmID](../basic-types/realmid.md) | The realm in which this account is created \(leave this null to create a new realm\) |
 | `newRealmAdminKey` | [Key](../basic-types/key.md) | If realmID is null, then this the admin key for the new realm that will be created |
 | `memo` | string | The memo associated with the account \(UTF-8 encoding max 100 bytes\) |
+| `max_automatic_token_associations` | int32 | The maximum number of tokens that an Account can be implicitly associated with. Defaults to 0 and up to a maximum value of 1000. |
 

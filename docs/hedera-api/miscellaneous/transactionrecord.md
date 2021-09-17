@@ -18,4 +18,5 @@ Response when the client sends the node TransactionGetRecordResponse
 | `tokenTransferList` | [TokenTransferList](../basic-types/tokentransferlist.md) | repeated | All Token transfers as a result of this transaction  |
 | `scheduleRef` | [ScheduleID](../basic-types/scheduleid.md) |  | Reference to the scheduled transaction ID that this transaction record represent |
 | `assessedCustomFees` | [AssessedCustomFee](../token-service/customfees/assessedcustomfee.md) | repeated  | All custom fees that were assessed during a CryptoTransfer, and must be paid if the transaction status resolved to SUCCESS |
+| `automatic_token_associations` | [TokenAssociation](../token-service/tokenassociate.md) | repeated  | All token associations implicitly created while handling this transaction |
 

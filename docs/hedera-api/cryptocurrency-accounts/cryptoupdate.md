@@ -22,4 +22,5 @@ Change properties for the given account. Any null field is ignored \(left unchan
 |  | receiverSigRequired | \[Deprecated\] Do NOT use this field to set a false value because the server cannot distinguish from the default value. Use receiverSigRequiredWrapper field for this purpose. |
 |  | receiverSigRequiredWrapper | google.protobuf.BoolValue |
 | `memo` | string | The memo associated with the account \(UTF-8 encoding max 100 bytes\) |
+| `max_automatic_token_associations` | google.protobuf.Int32Value | The maximum number of tokens that an Account can be implicitly associated with. Up to a 1000 including implicit and explicit associations. |
 

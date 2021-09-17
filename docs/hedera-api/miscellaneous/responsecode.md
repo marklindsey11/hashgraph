@@ -217,4 +217,7 @@
 | INSUFFICIENT\_SENDER\_ACCOUNT\_BALANCE\_FOR\_CUSTOM\_FEE | The sender account in the token transfer transaction could not afford a custom fee |
 | SERIAL\_NUMBER\_LIMIT\_REACHED | Currently, no more than 4,294,967,295 NFTs may be minted for a given unique token type |
 | CUSTOM\_ROYALTY\_FEE\_ONLY\_ALLOWED\_FOR\_NON\_FUNGIBLE\_UNIQUE | Only tokens of type NON\_FUNGIBLE\_UNIQUE can have royalty fees |
+| NO\_REMAINING\_AUTOMATIC\_ASSOCIATIONS | The account has reached the limit on the automatic associations count. |
+| EXISTING\_AUTOMATIC\_ASSOCIATIONS\_EXCEED\_GIVEN\_LIMIT | Already existing automatic associations are more than the new maximum automatic associations. |
+| REQUESTED\_NUM\_AUTOMATIC\_ASSOCIATIONS\_EXCEEDS\_ASSOCIATION\_LIMIT | Cannot set the number of automatic associations for an account more than the maximum allowed token associations tokens.maxPerAccount |
 

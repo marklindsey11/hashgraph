@@ -39,6 +39,7 @@ Response when the client sends the node CryptoGetInfoQuery
 | `tokenRelationships` | [TokenRelationship](../basic-types/tokenrelationship.md) | All tokens related to this account |
 | `memo` | string | The memo associated with the account |
 | `ownedNfts` | int64 | The number of NFTs owned by this account |
+| `max_automatic_token_associations` | int32 | The maximum number of tokens that an Account can be implicitly associated with. |
 
 #### 
 
