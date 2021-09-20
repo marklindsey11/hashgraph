@@ -203,7 +203,7 @@ balances
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Balances for an account are updated every 15 minutes. You can refer to the timestamp for when the balance was last updated for the account. If you need to return the balance of an account more frequently you can do so by using the free account balance query via the SDK.
 {% endapi-method-description %}
 
 {% api-method-spec %}
