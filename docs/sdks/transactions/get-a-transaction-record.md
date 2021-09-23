@@ -17,6 +17,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | **Token Transfers** | A list of the token transfers  |
 | **ScheduleRef** | The schedule ID of the schedule transaction the record represents |
 | **Assessed Custom Fees** | This field applies to tokens that have custom fees and returns the custom fee\(s\) assessed in a token transfer transaction. This includes the amount, token ID, fee collector account ID \(if applicable\), and effective payer account ID. The effective payer accounts are accounts that were charged the custom fees. |
+| **Automatic Associations** | The token\(s\) that were auto associated to the account in this transaction, if any |
 
 **Transaction Signing Requirements**
 
@@ -40,6 +41,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | `<TransactionRecord>.tokentransfers` | Map&lt;TokenId, Map&lt;AccountId, List&lt;Long&gt;&gt;&gt; | Optional |
 | `<TransactionRecord>.scheduleRef` | ScheduleId | Optional |
 | `<TransactionRecord>.assessedCustomFees` | List&lt;AssessedCustomFees&gt; | Optional |
+| `<TransactionRecord>.automaticTokenAssociations` | List&lt;TokenAssociation&gt; | Optional |
 
 {% code title="Java" %}
 ```java
@@ -127,7 +129,9 @@ fmt.Printf("The transaction record is %v\n", record)
      ]  
      tokenTransfers={},  
      scheduleRef=null,  
-     assessedCustomFees=[]  
+     assessedCustomFees=[],  
+     automaticTokenAssociations=[TokenAssociation{  
+          tokenId=0.0.27335, accountId=0.0.27333}]  
 }`
 {% endtab %}
 

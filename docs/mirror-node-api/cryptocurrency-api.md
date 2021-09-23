@@ -77,37 +77,23 @@ Returns the account information for the specified public key
 
 ```text
 {
-    "accounts": [
-        {
-            "balance": {
-                "timestamp": "1602804267.903201001",
-                "balance": 1809568709,
-                "tokens": [
-                    {
-                        "token_id": "0.0.1561",
-                        "balance": 100000
-                    },
-
-                    {
-                        "token_id": "0.0.2003",
-                        "balance": 999997650
-                    }
-                ]
-            },
-            "account": "0.0.1562",
-            "expiry_timestamp": null,
-            "auto_renew_period": 7890000,
-            "key": {
-                "_type": "ED25519",
-                "key": "ecda99c4c366e8069743d6fbb70c99dd3785c257e4e6f7567e795f3f5c77cb3b"
-            },
-            "deleted": false
-        }
-    ],
-    "links": {
-        "next": null
-    }
+   "account":"0.0.1",
+   "auto_renew_period":null,
+   "balance":{
+      "balance":0,
+      "timestamp":"1631864700.327170000",
+      "tokens":[
+         
+      ]
+   },
+   "deleted":null,
+   "expiry_timestamp":null,
+   "key":null,
+   "max_automatic_token_associations":null,
+   "memo":null,
+   "receiver_sig_required":null
 }
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -120,15 +106,16 @@ Returns the account information for the specified public key
 
 | Response Item | Description |
 | :--- | :--- |
-| **accounts** | The list of information returned for all accounts |
+| **account** | The ID of the account |
+| **auto renew period** | The period in which the account will auto renew |
 | **balance** | The timestamp and account balance of the account |
 | **tokens** | The tokens and their balances associated to the specified account |
-| **account** | The ID of the account |
-| **expiry timestamp** | The expiry date for the entity as set by a create or update transaction |
-| **auto renew period** | The period in which the account will autorenew |
-| **key** | The key associated with the account |
 | **deleted** | Whether the account was deleted or not \(Boolean\) |
-| **entity type** | The type of Hedera service: account, file, or contract |
+| **expiry timestamp** | The expiry date for the entity as set by a create or update transaction |
+| **key** | The public key associated with the account |
+| **max\_automatic\_token\_associations** | The number of automatic token associations, if any |
+| **memo** | The account memo, if any |
+| **receiver\_sig\_required** | Whether or not the account requires a signature to receive a transfer into the account |
 | **links.next** | Hyperlink to the next page of results |
 
 ### Optional Filtering <a id="optional-filtering"></a>

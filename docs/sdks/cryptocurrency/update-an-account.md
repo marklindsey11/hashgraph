@@ -33,7 +33,7 @@ A transaction that updates the properties of an existing account. The network wi
       <td style="text-align:left">The new expiration for the account</td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>Receiver signature required</b>
+      <td style="text-align:left"><b>Receiver Signature Required</b>
       </td>
       <td style="text-align:left">
         <p>If true, all the account keys must sign any transaction depositing into
@@ -43,7 +43,23 @@ A transaction that updates the properties of an existing account. The network wi
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>Auto renew period</b>
+      <td style="text-align:left"><b>Max Automatic Token Associations</b>
+      </td>
+      <td style="text-align:left">Setting this account property will modify the existing automatic token
+        association value. The maximum number of token auto associations is 1,000.
+        If you are trying to reduce the number of auto token association slots,
+        please make sure those slots are empty. If those slots are not empty, please
+        dissociate tokens that were auto associated.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Memo</b>
+      </td>
+      <td style="text-align:left">Add or update a short description that should be recorded with the state
+        of the account entity (maximum length of 100 characters). Anyone can view
+        this memo on the network.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Auto Renew Period</b>
       </td>
       <td style="text-align:left">
         <p>The new period of time in which the account will auto-renew in seconds.
@@ -58,16 +74,9 @@ A transaction that updates the properties of an existing account. The network wi
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>Proxy account</b>
+      <td style="text-align:left"><b>Proxy Account</b>
       </td>
       <td style="text-align:left">The new account ID to which this account is proxy staked.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Memo</b>
-      </td>
-      <td style="text-align:left">Add or update a short description that should be recorded with the state
-        of the account entity (maximum length of 100 characters). Anyone can view
-        this memo on the network.</td>
     </tr>
   </tbody>
 </table>
@@ -89,6 +98,7 @@ new AccountUpdateTransaction()
 | `setAccountId(<accountId>)` | AccountId | Required |
 | `setKey(<key>)` | Key | Optional |
 | `setReceiverSignatureRequired(<boolean>)` | Boolean | Optional |
+| `setMaxAutomaticTokenAssociations(<amount>)` | int | Optional |
 | `setAccountMemo(<memo>)` | String | Optional |
 | `setAutoRenewPeriod(<duration>)` | Duration | Disabled |
 | `setExpirationTime(<expirationTime>)` | Instant | Disabled |
