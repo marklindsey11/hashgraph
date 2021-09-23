@@ -7,8 +7,8 @@ description: Hedera Services release information
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
 | **Mainnet** | 0.17.4 | 0.18.0 |
-| **Testnet** | 0.17.4 | 0.18.0 |
-| **Previewnet** | 0.17.4 | 0.18.0 |
+| **Testnet** | 0.18.0 | 0.19.0 |
+| **Previewnet** | 0.18.0 | 0.19.0 |
 
 ## Upcoming Releases
 
@@ -18,7 +18,7 @@ description: Hedera Services release information
 **MAINNET UPDATE: OCTOBER 7, 2021**
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 **TESTNET UPDATE:  SEPTEMBER 23, 2021**
 {% endhint %}
 
