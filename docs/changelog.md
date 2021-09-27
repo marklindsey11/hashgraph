@@ -48,7 +48,7 @@ Please reference the following issues:
 
 Hedera v1 SDKs for Java and JavaScript will no longer be supported after October 2021. Users are advised to update to the latest 2.x version of the SDKs as soon as possible. Please reference this [blog](https://hedera.com/blog/deprecation-timeline-for-v1-of-the-open-source-hedera-sdk-for-java-javascript) for additional information.
 
-## ⚪ Address Book Protobuf Deprecations \[November 2021\]
+## ⚪ Address Book Protobuf Deprecations \[December 2021\]
 
 **IMPACT**: Parsing address book files 0.0.101 and 0.0.102
 
