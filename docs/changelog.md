@@ -96,7 +96,7 @@ A new `ServiceEndpoint` protobuf message was introduced in the Hedera Services c
 
 The deprecated fields will remain in the 0.13.0 release and are not expected to be removed in a future release at this time to ensure historical address book files can be parsed.
 
-After the six-month depreciation period \(v0.19.0\) the deprecated fields will no longer be populated and the new protobuf will need to be used to parse new address book files.
+After the six-month depreciation period \(v0.20.0\) the deprecated fields will no longer be populated and the new protobuf will need to be used to parse new address book files.
 
 Please reference the following issues:
 
