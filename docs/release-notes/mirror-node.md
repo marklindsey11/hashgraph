@@ -6,13 +6,27 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | v0.39.0 | v0.40.0 |
+| **Mainnet** | v0.40.0 | v0.41.0 |
 | **Testnet** | v0.40.0 | v0.41.0 |
 | **Previewnet** | v0.40.0 | v0.41.0 |
 
 ## Upcoming Releases
 
+## [v0.41.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.41.0)
+
+This release focuses our efforts on improving our [Rosetta API](https://www.rosetta-api.org/) and making it ready for production use. A new Rosetta Helm chart was added for production deployments to Kubernetes. Observability improvements include health probes, metrics, request logs, alerts, and a Grafana dashboard. Postman integration tests were added to verify post-deployment functionality. Finally, a few important bugs were fixed including missing peer IP addresses and a token balance reconciliation failure.
+
+The importer component was optimized to ingest transactions at 15,000 TPS or higher. This change included improvements to reduce CPU and memory usage while simultaneously increasing the allocated memory available to the process.
+
+Other enhancements include revalidating main nodes periodically in the monitor and adding TLS support for the REST API's database connection.
+
+## Latest Releases
+
 ## [v0.40.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.40.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: SEPTEMBER 27, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: SEPTEMBER 16, 2021**
@@ -23,8 +37,6 @@ This release adds support for [HIP-23](https://github.com/hashgraph/hedera-impro
 Besides updating it for HIP-23, the REST API saw quite a few other fixes and improvements. The accounts API now displays its memo and the `receiverSigRequired` field. The REST API packages were renamed to use the `@hashgraph` NPM package scope. This shouldn't be a breaking change as we don't currently publish those packages to NPM. A number of APIs were fixed to ensure lists were returned in a deterministic sort order. Also, the OpenAPI specification was fixed up so that it accurately reflects the current API and can be used to generate client code. Finally, the schedules API had some performance improvements.
 
 On the monitoring side, we enhanced our Grafana dashboards to make them compatible with Grafana Cloud by adding datasource and cluster drop-downs.
-
-## Latest Releases
 
 ## [v0.39.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.39.0)
 
