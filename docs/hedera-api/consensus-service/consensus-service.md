@@ -1,6 +1,6 @@
 # Consensus Service
 
-The Consensus Service provides the ability for Hedera Hashgraph to provide aBFT consensus as to the order and validity of messages submitted to a topic, as well as a consensus timestamp for those messages.   
+The Consensus Service provides the ability for Hedera to provide aBFT consensus as to the order and validity of messages submitted to a topic, as well as a consensus timestamp for those messages.   
   
 Automatic renewal can be configured via an autoRenewAccount \(not currently implemented\).   
 Any time an autoRenewAccount is added to a topic, that createTopic/updateTopic transaction must be signed by the autoRenewAccount.   

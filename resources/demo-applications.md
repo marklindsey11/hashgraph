@@ -8,7 +8,6 @@ description: Examples of different use cases and projects built on Hedera.
 {% tab title="Java" %}
 | Project | Source | Developer |
 | :--- | :--- | :--- |
-| Android Wallet | [GitHub](https://github.com/hashgraph/hedera-wallet-android) | Hedera |
 | Corda Notary | [GitHub](https://github.com/hashgraph/corda-notary-hedera) | Hedera |
 | HCS Secure Extension Components | [GitHub](https://github.com/hashgraph/hedera-hcs-sxc-java) | Hedera |
 | Log4J Integration | [GitHub](https://github.com/hashgraph/log4j2-hedera) | Hedera |
@@ -45,7 +44,6 @@ description: Examples of different use cases and projects built on Hedera.
 {% tab title="Swift" %}
 | Project | Source | Developer |
 | :--- | :--- | :--- |
-| iOS wallet | [GitHub](https://github.com/hashgraph/hedera-wallet-ios) | Hedera |
 | Others | Coming soon! | Community |
 {% endtab %}
 {% endtabs %}

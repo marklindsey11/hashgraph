@@ -1,6 +1,6 @@
 # HederaFunctionality
 
-The functionality provided by hedera hashgraph
+The functionality provided by Hedera.
 
 | Enum Name | Description |
 | :--- | :--- |

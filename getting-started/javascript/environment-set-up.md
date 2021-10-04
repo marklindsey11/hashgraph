@@ -46,7 +46,7 @@ Note: you can just say “yes” to all of the defaults and/or plugin what makes
 }
 ```
 
-## Step 2: Install the Hedera Hashgraph JavaScript SDK
+## Step 2: Install the Hedera JavaScript SDK
 
 {% hint style="warning" %}
 Note: Please follow the example in the version of the SDK you are using. Code specific to v2.0 of the SDK will be marked in the code block tab title, otherwise, it works for both v2.0 and v1.0. The examples may not be compatible if you are using a different version than what is listed.
