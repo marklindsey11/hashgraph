@@ -6,21 +6,29 @@ description: Hedera mirror node release notes
 
 | Network | Current Version | Upcoming Version |
 | :--- | :--- | :--- |
-| **Mainnet** | v0.40.0 | v0.41.0 |
-| **Testnet** | v0.40.0 | v0.41.0 |
+| **Mainnet** | v0.41.0 | v0.42.0 |
+| **Testnet** | v0.41.0 | v0.42.0 |
 | **Previewnet** | v0.41.0 | v0.42.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.41.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.41.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: OCTOBER 5, 2021**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: SEPTEMBER 30, 2021**
+{% endhint %}
 
 This release focuses our efforts on improving our [Rosetta API](https://www.rosetta-api.org/) and making it ready for production use. A new Rosetta Helm chart was added for production deployments to Kubernetes. Observability improvements include health probes, metrics, request logs, alerts, and a Grafana dashboard. Postman integration tests were added to verify post-deployment functionality. Finally, a few important bugs were fixed including missing peer IP addresses and a token balance reconciliation failure.
 
 The importer component was optimized to ingest transactions at 15,000 TPS or higher. This change included improvements to reduce CPU and memory usage while simultaneously increasing the allocated memory available to the process.
 
 Other enhancements include revalidating main nodes periodically in the monitor and adding TLS support for the REST API's database connection.
-
-## Latest Releases
 
 ## [v0.40.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.40.0)
 
