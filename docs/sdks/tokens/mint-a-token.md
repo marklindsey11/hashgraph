@@ -8,6 +8,7 @@ Minting fungible token allows you to increase the total supply of the token. Min
 * The metadata field is specific to NFTs. Once an NFT is minted, the metadata cannot be changed and is immutable. 
   * You can use the metadata field to add a URI that contains additional information about the token. You can view the metadata schema [here](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-10.md). The metadata field has a 100 character limit.
 * The serial number for the NFT is returned in the receipt of the transaction.
+* When minting NFTs, do not set the amount. The amount is used for minting fungible tokens only.
 
 **Transaction Signing Requirements:**
 
@@ -30,8 +31,8 @@ new TokenMintTransaction()
 
 | Method | Type | Description | Requirement |
 | :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token for which to mint tokens | Required |
-| `setAmount(<amount>)` | long | Applicable to tokens of type `FUNGIBLE_UNIQUE`The amount to mint to the Treasury Account. The amount must be a positive non-zero number represented in the lowest denomination of the token. The new supply must be lower than `2^63-1`. | Optional |
+| `setTokenId(<tokenId>)` | TokenId | The token ID for which to mint additional tokens | Required |
+| `setAmount(<amount>)` | long | Applicable to tokens of type `FUNGIBLE_UNIQUE`.The amount to mint to the Treasury Account. The amount must be a positive non-zero number represented in the lowest denomination of the token. The new supply must be lower than `2^63-1`. | Optional |
 | `setMetaData(<metaDatas>)` | List&lt;byte\[\]&gt; | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. A list of metadata that are being created. The maximum allowed size of each metadata is 100 bytes and is immutable.  | Optional |
 | `addMetaData(<metaData>)` | byte \[\] | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. A list of metadata that are being created. The maximum allowed size of each metadata is 100 bytes and is immutable.  | Optional |
 
