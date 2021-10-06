@@ -53,7 +53,7 @@ Hedera v1 SDKs for Java and JavaScript will no longer be supported after October
 **IMPACT**: Parsing address book files 0.0.101 and 0.0.102
 
 {% hint style="info" %}
-Deprecated fields will no longer be populated in the 0.19.0 Hedera Services release.
+Deprecated fields will no longer be populated in the 0.20.0 Hedera Services release.
 {% endhint %}
 
 A new `ServiceEndpoint` protobuf message was introduced in the Hedera Services codebase v0.13.0 release.
