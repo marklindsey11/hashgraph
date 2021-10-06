@@ -6,17 +6,37 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.17.4 | 0.18.0 |
+| **Mainnet** | 0.17.4 | 0.18.1 |
 | **Testnet** | 0.18.0 | 0.19.0 |
 | **Previewnet** | 0.18.0 | 0.19.0 |
 
 ## Upcoming Releases
 
-## v0.18.0
+## [v0.18.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.18.1)
 
 {% hint style="info" %}
 **MAINNET UPDATE: OCTOBER 7, 2021**
 {% endhint %}
+
+In Hedera Services 0.18.1, we have a new scalability profile for NFTs in the Hedera Token Service \(HTS\). Up to fifty million \(50M\) NFTs, each with 100 bytes of metadata, may now be minted. Of course our `CryptoTransfer` and `ConsensusSubmitMessage` operations are still supported at 10k TPS even with this scale.
+
+We are happy to also announce that accounts can be customized to take advantage of the upcoming [HIP-23 \(Opt-in Token Associations\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md) feature set. That is, an account owner can now "pre-pay" for token associations via a [`CryptoCreate`](https://hashgraph.github.io/hedera-protobufs/#proto.CryptoCreateTransactionBody) or [`CryptoUpdate`](https://hashgraph.github.io/hedera-protobufs/#proto.CryptoUpdateTransactionBody) transaction, _without_ knowing in advance which specific token types they will use.
+
+Once HIP-24 is fully enabled in release 0.19, when their account receives units or NFT's of a new token type via a `CryptoTransfer`, the network will automatically create the needed association---no explicit `TokenAssociate` transaction needed. This supports several interesting use cases; please see the linked HIP-23 for more details.
+
+There are three other points of interest in this release.
+
+First, we have removed the HIP-18 limitations noted in the previous release. The `tokenFeeScheduleUpdate` transaction has been re-enabled, and multiple royalty fees can now be charged for a non-fungible token type.
+
+Second, the address books in system files `0.0.101` and `0.0.102` will now populate their `ServiceEndpoint` fields. \(However, the deprecated `ipAddress`, `portno`, and `memo` fields will no longer be populated after the next release.\)
+
+Third, please note that the `TokenService` `getTokenNftInfos` and `getAccountNftInfos` queries are now **deprecated** and will be removed in a future release. The best answers to such queries demand historical context that only Mirror Nodes have; so these and related queries will move to mirror REST APIs.
+
+Developers will likely appreciate two other release 0.18.1 items. First, we have migrated to [Dagger2](https://dagger.dev/) for dependency injection. Second, there is a new `getExecutionTime` query in the [`NetworkService`](https://hashgraph.github.io/hedera-protobufs/#proto.NetworkService) that supports granular performance testing in development environments.
+
+![](../../.gitbook/assets/image.png)
+
+## v0.18.0
 
 {% hint style="success" %}
 **TESTNET UPDATE:  SEPTEMBER 23, 2021**
