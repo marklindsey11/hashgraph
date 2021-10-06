@@ -17,7 +17,7 @@ description: Hedera mirror node release notes
 ## [v0.41.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.41.0)
 
 {% hint style="success" %}
-**MAINNET UPDATE COMPLETED: OCTOBER 5, 2021**
+**MAINNET UPDATE COMPLETED: OCTOBER 6, 2021**
 {% endhint %}
 
 {% hint style="success" %}
