@@ -7,7 +7,7 @@ Transfer tokens from some accounts to other accounts. The transaction must be si
 Custom fee tokens are tokens that have a unique custom fee schedule associated to them. The sender account is required to pay for the custom fee\(s\) associated with the token that is being transferred. The sender account must have the amount of the custom fee token being transferred and the custom fee amounts to successfully process the transaction. You can check to see if the token has a custom fee schedule by requesting the [token info query](get-token-info.md). Token with custom fees allow up two levels of nesting in a transfer transaction. 
 
 {% hint style="danger" %}
-Note: Accounts must be associated with the HTS token before tokens can be transferred to it. See '[Associate tokens to an account](associate-tokens-to-an-account.md)'. 
+Note: Accounts must be either be [associated](associate-tokens-to-an-account.md) with the HTS token or have available auto token association slots before tokens can be transferred to it. You will not be able to utilize the token auto association slots in the [0.18 release](../../release-notes/). The full feature will be available in 0.20.0.
 {% endhint %}
 
 {% hint style="warning" %}

@@ -6,21 +6,23 @@ description: Hedera Services release information
 
 | Network | Current Version | Upcoming |
 | :--- | :--- | :--- |
-| **Mainnet** | 0.17.4 | 0.18.1 |
+| **Mainnet** | 0.18.1 | 0.19.0 |
 | **Testnet** | 0.18.0 | 0.19.0 |
 | **Previewnet** | 0.18.0 | 0.19.0 |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.18.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.18.1)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPDATE: OCTOBER 7, 2021**
 {% endhint %}
 
 In Hedera Services 0.18.1, we have a new scalability profile for NFTs in the Hedera Token Service \(HTS\). Up to fifty million \(50M\) NFTs, each with 100 bytes of metadata, may now be minted. Of course our `CryptoTransfer` and `ConsensusSubmitMessage` operations are still supported at 10k TPS even with this scale.
 
-In this release we have also enabled automatic reconnect. This feature comes into play when a network partition causes a node to "fall behind" in the consensus protocol. With reconnect enabled, the node can use a special form of gossip to "catch up" and resume participation in the network with no human intervention. This works even when the node has missed many millions of transactions, and the world state is very different from when it was last active.
+In this release, we have also enabled automatic reconnect. This feature comes into play when a network partition causes a node to "fall behind" in the consensus protocol. With reconnect enabled, the node can use a special form of gossip to "catch up" and resume participation in the network with no human intervention. This works even when the node has missed many millions of transactions, and the world state is very different from when it was last active.
 
 We are happy to also announce that accounts can be customized to take advantage of the upcoming [HIP-23 \(Opt-in Token Associations\)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md) feature set. That is, an account owner can now "pre-pay" for token associations via a [`CryptoCreate`](https://hashgraph.github.io/hedera-protobufs/#proto.CryptoCreateTransactionBody) or [`CryptoUpdate`](https://hashgraph.github.io/hedera-protobufs/#proto.CryptoUpdateTransactionBody) transaction, _without_ knowing in advance which specific token types they will use.
 
@@ -61,8 +63,6 @@ Developers will likely appreciate two other release 0.18.0 items. First, we have
 **Performance Measurement Results:**
 
 ![](../../.gitbook/assets/performance-measurement-results.jpeg)
-
-## Latest Releases
 
 ## [v0.17.4](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3)
 
