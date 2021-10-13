@@ -4,9 +4,13 @@ In this section, you will learn how to make a simple Hedera account. Hedera acco
 
 ## Pre-requisites:
 
-{% page-ref page="../introduction.md" %}
+{% content-ref url="../introduction.md" %}
+[introduction.md](../introduction.md)
+{% endcontent-ref %}
 
-{% page-ref page="environment-set-up.md" %}
+{% content-ref url="environment-set-up.md" %}
+[environment-set-up.md](environment-set-up.md)
+{% endcontent-ref %}
 
 {% hint style="warning" %}
 Note: This example uses **Hedera Go SDK v2.0.** The latest Hedera Go SDK version can be found [here](https://github.com/hashgraph/hedera-sdk-go), however may not be compatible with this tutorial.
@@ -16,7 +20,7 @@ Note: This example uses **Hedera Go SDK v2.0.** The latest Hedera Go SDK version
 
 Create keys for the new account. The public key will be associated with the new account and the corresponding private key is used to sign transactions.
 
-Continue building on the hedera\_examples file from the previous section.
+Continue building on the hedera_examples file from the previous section.
 
 ```go
 //client := hedera.ClientForTestnet()
@@ -39,7 +43,7 @@ To create a new account, you will submit an account create transaction to the He
 ```java
 //Create new account and assign the public key
 newAccount, err := hedera.NewAccountCreateTransaction().
-  SetKey(newAccountPublicKey).
+    SetKey(newAccountPublicKey).
     SetInitialBalance(hedera.HbarFrom(1000, hedera.HbarUnits.Tinybar)).
     Execute(client)
 ```
@@ -48,7 +52,7 @@ Additional properties can be set for accounts [here](../../docs/sdks/cryptocurre
 
 ## Step 3. Get the new account ID
 
-When you issue a transaction that creates a new entity \(account, token, topic, etc\) the entity ID is recovered from the receipt of the transaction. You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
+When you issue a transaction that creates a new entity (account, token, topic, etc) the entity ID is recovered from the receipt of the transaction. You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
 
 ```java
 //Request the receipt of the transaction
@@ -175,4 +179,3 @@ func main() {
     fmt.Println("The account balance for the new account is ", accountBalance.Hbars.AsTinybar())
 }
 ```
-

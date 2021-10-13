@@ -4,11 +4,17 @@ In this section, you will learn how to make a simple Hedera account. Hedera acco
 
 ## Pre-requisites:
 
-{% page-ref page="../introduction.md" %}
+{% content-ref url="../introduction.md" %}
+[introduction.md](../introduction.md)
+{% endcontent-ref %}
 
-{% page-ref page="environment-set-up.md" %}
+{% content-ref url="environment-set-up.md" %}
+[environment-set-up.md](environment-set-up.md)
+{% endcontent-ref %}
 
-{% page-ref page="../../core-concepts/accounts.md" %}
+{% content-ref url="../../core-concepts/accounts.md" %}
+[accounts.md](../../core-concepts/accounts.md)
+{% endcontent-ref %}
 
 {% hint style="warning" %}
 Note: Please follow the example in the version of the SDK you are using. The examples may not be compatible if you are using a different version than what is listed.
@@ -16,7 +22,7 @@ Note: Please follow the example in the version of the SDK you are using. The exa
 
 ## Step 1. Generate keys for the new account
 
-Create keys for the new account you are going to create. The public key will be associated with the new account and the corresponding private key is used to sign transactions. 
+Generate keys for the new account you are going to create. The public key will be associated with the new account and the corresponding private key is used to sign transactions on behalf of the account. 
 
 Continue building on the HederaExamples class from the previous section.
 
@@ -50,7 +56,7 @@ Ed25519PublicKey newAccountPublicKey = newAccountPrivateKey.publicKey;
 
 ## Step 2. Create a new account
 
-To create a new account we will submit an account create transaction to the Hedera test network. The account minimally requires you to assign a public key to the account at creation. This means that the corresponding private key will be required to sign transactions for the new account. We will additionally have a starting balance of 1,000 tinybars. This initial balance is funded from your testnet account to the new account. You can optionally choose to create an account with a zero balance. 
+To create a new account, you will submit an account create transaction to the Hedera test network. The account minimally requires you to assign a public key at creation. This means that the corresponding private key will be required to authorize transactions for the new account. The account will additionally have a starting balance of 1,000 tinybars. This initial balance is funded from your testnet account to the new account. You can optionally choose to create an account with a zero balance. Your testnet account pays for the fee associated for creating the new account. You can view the list of transaction fees [here](../../mainnet/fees/).
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -74,11 +80,11 @@ TransactionId newAccount = new AccountCreateTransaction()
 {% endtab %}
 {% endtabs %}
 
-Additional properties for account creation are explained [here](https://docs.hedera.com/guides/docs/sdks/cryptocurrency/create-an-account). 
+Additional properties you can set for an account are explained [here](https://docs.hedera.com/guides/docs/sdks/cryptocurrency/create-an-account). 
 
 ## Step 3. Get the new account ID
 
-The new entity \(account, topic, token, file, smart contract\) ID is stored in the receipt of the transaction.  You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
+The new account ID is stored in the receipt of the transaction. Requesting a receipt is free of charge today.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -102,7 +108,7 @@ System.out.println("The new account ID is: " +newAccountId);
 
 ## Step 4. Verify the new account balance
 
-Next, you will submit a query to the Hedera test network to return the balance of the new account using the new account ID. The current account balance for the new account should be 1,000 tinybars. 
+Next, you will submit a query to the Hedera test network to return the balance of the new account using the account ID. The balance for the new account should be 1,000 tinybars. 
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -128,15 +134,15 @@ System.out.println("The new account balance is: " +accountBalance);
 {% endtab %}
 {% endtabs %}
 
-⭐ Congratulations! You have successfully completed the following:
+:star: Congratulations! You have successfully completed the following:
 
 * Created new a Hedera account with an initial balance of 1,000 tinybar
 * Obtained the new account ID by requesting the receipt of the transaction
 * Verified the starting balance of the new account by submitting a query to the network
 
-You are now ready to transfer some hbar to the new account 🤑!
+You are now ready to transfer some hbar to the new account :money_mouth:!
 
-## Code Check ✅ 
+## Code Check :white_check_mark: 
 
 What your code should look like at this point:
 
@@ -252,4 +258,3 @@ public class HederaExamples {
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

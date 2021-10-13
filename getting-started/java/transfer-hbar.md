@@ -4,13 +4,21 @@ In this section, you will learn how to transfer hbar from your account to anothe
 
 ## Pre-requisites:
 
-{% page-ref page="../introduction.md" %}
+{% content-ref url="../introduction.md" %}
+[introduction.md](../introduction.md)
+{% endcontent-ref %}
 
-{% page-ref page="environment-set-up.md" %}
+{% content-ref url="environment-set-up.md" %}
+[environment-set-up.md](environment-set-up.md)
+{% endcontent-ref %}
 
-{% page-ref page="../../core-concepts/accounts.md" %}
+{% content-ref url="../../core-concepts/accounts.md" %}
+[accounts.md](../../core-concepts/accounts.md)
+{% endcontent-ref %}
 
-{% page-ref page="create-an-account.md" %}
+{% content-ref url="create-an-account.md" %}
+[create-an-account.md](create-an-account.md)
+{% endcontent-ref %}
 
 {% hint style="warning" %}
 Note: Please follow the example in the version of the SDK you are using. The examples may may be not be compatible if you are using a different version than what is listed.
@@ -18,7 +26,7 @@ Note: Please follow the example in the version of the SDK you are using. The exa
 
 ## Step 1. Create a transfer transaction
 
-You should already have a new account ID from the account you created in the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your account to the new account. The account sending hbars is the signature that is required for this transaction to be processed. 
+You should already have a new account ID from the account you created in the "[Create an account](create-an-account.md)" section. You will now transfer 1,000 tinybars from your account to the new account. The account sending hbars is required to sign the transaction to authorize the transfer out of that account.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -49,12 +57,12 @@ TransactionId sendHbar = new TransferTransaction()
 {% endtabs %}
 
 {% hint style="info" %}
-The net value of the transfer must equal zero \(total number of hbars sent by the sender must equal the total number of hbars received by the recipient\). 
+The net value of the transfer must equal zero (total number of hbars sent by the sender must equal the total number of hbars received by the recipient). 
 {% endhint %}
 
 ## Step 2. Verify the transfer transaction reached consensus
 
-To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transfer transaction. The receipt will let you know if the transaction was successful or not.
+To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transfer transaction. The receipt will let you know if the transaction was successful or not by getting the status.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -102,7 +110,7 @@ System.out.println("The cost of this query is: " +queryCost);
 
 ### 3.2 Get the account balance
 
-You will verify the account balance was updated for the new account by requesting a get account balance query. The current account balance should be the sum of the initial balance \(1,000 tinybar\) plus the transfer amount \(1,000 tinybar\) and equal to 2,000 tinybars. 
+You will verify the account balance was updated for the new account after the transfer by requesting a get account balance query. The current account balance should be the sum of the initial balance (1,000 tinybar) plus the transfer amount (1,000 tinybar) and equal to 2,000 tinybars. 
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -128,7 +136,7 @@ System.out.println("The new account balance is: " +accountBalanceNew);
 {% endtab %}
 {% endtabs %}
 
-⭐ Congratulations! You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
+:star: Congratulations! You have successfully transferred hbars to another account on the Hedera testnet! If you have followed the tutorial from the beginning, you have completed the following thus far:
 
 * Set up your Hedera environment to submit transactions and queries
 * Created an account 
@@ -136,7 +144,15 @@ System.out.println("The new account balance is: " +accountBalanceNew);
 
 Do you want to keep learning? Visit our "Resources" and "Documentation" sections to take your learning experience to the next level. You can also find additional Java SDK examples [here](https://github.com/hashgraph/hedera-sdk-java/tree/master/examples/src/main/java/com/hedera/hashgraph/sdk/examples). 
 
-## Code Check ✅ 
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}
+
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}
+
+## Code Check :white_check_mark: 
 
 Your complete code file should look something like this:
 
@@ -302,8 +318,11 @@ public class HederaExamples {
 
 #### Sample Output:
 
-`The new account ID is: 0.0.215975   
-The new account balance is: 1000 tℏ   
-The transfer transaction was: SUCCESS The cost of this query is: 0   
-The new account balance is: 2000 tℏ`
+```
+The new account ID is: 0.0.215975 
+The new account balance is: 1000 tℏ 
+The transfer transaction was: SUCCESS The cost of this query is: 0 
+The new account balance is: 2000 tℏ
+```
 
+``

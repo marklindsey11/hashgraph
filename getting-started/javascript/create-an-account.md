@@ -4,15 +4,17 @@ The following sample will show you how to make a simple Hedera account. Hedera a
 
 ## Pre-requisites:
 
-{% page-ref page="../introduction.md" %}
+{% content-ref url="../introduction.md" %}
+[introduction.md](../introduction.md)
+{% endcontent-ref %}
 
-{% endpage-ref %}
+{% content-ref url="environment-set-up.md" %}
+[environment-set-up.md](environment-set-up.md)
+{% endcontent-ref %}
 
-{% page-ref page="environment-set-up.md" %}
-
-{% endpage-ref %}
-
-{% page-ref page="../../core-concepts/accounts.md" %}
+{% content-ref url="../../core-concepts/accounts.md" %}
+[accounts.md](../../core-concepts/accounts.md)
+{% endcontent-ref %}
 
 {% hint style="warning" %}
 Note: Please follow the example in the version of the SDK you are using. The examples may not be compatible if you are using a different version than what is listed.
@@ -20,7 +22,7 @@ Note: Please follow the example in the version of the SDK you are using. The exa
 
 ## Step 1: Import the following modules to your project
 
-Continue building on the index.js from the previous example \([Environment Set-up](../java/environment-set-up.md)\) and add the following modules:
+Continue building on the index.js from the previous example ([Environment Set-up](../java/environment-set-up.md)) and add the following modules:
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -85,7 +87,7 @@ Additional properties for accounts are explained [here](https://docs.hedera.com/
 
 ## Step 4: Get the new account ID
 
-The new entity \(account, topic, token, file, smart contract\) ID is stored in the receipt of the transaction. You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
+The new account ID is stored in the receipt of the transaction. You must request the receipt of the transaction to obtain the new account ID. Requesting a receipt is free of charge today.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -253,4 +255,3 @@ main();
 ```
 {% endtab %}
 {% endtabs %}
-

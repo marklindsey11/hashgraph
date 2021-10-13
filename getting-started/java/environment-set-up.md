@@ -46,7 +46,7 @@ dependencies {
 
 ## Step 2: Create a .env file in your project
 
-Create a **.env **file in the root directory of your project. Grab the the Hedera testnet **account ID **and **private key **from your Hedera portal profile** **and enter them in the **MY_ACCOUNT_ID **and **MY_PRIVATE KEY **fields.
+Create a **.env **file in the root directory of your project. Grab the the Hedera testnet **account ID **and **private key **from your Hedera portal profile** **and enter them in the **MY_ACCOUNT_ID **and **MY_PRIVATE_KEY **fields.
 
 {% tabs %}
 {% tab title=".env" %}
@@ -94,9 +94,7 @@ public class HederaExamples {
 
 ## Step 4: Create your Hedera testnet client
 
-You have the option to create a client for the Hedera previewnet, testnet or mainnet. Since we are using a Hedera testnet account ID and private key, we will create a client for the Hedera testnet.
-
-After you create your Hedera testnet client, you will need to set the operator information. The operator is the account that will pay for the transaction and query fees. You will need to sign the transaction or query with the private key of that account to authorize the payment. In this case the operator ID is your testnet account ID and the operator private key is the corresponding testnet account private key.
+You will need to create a testnet account so that you can submit transaction and query requests. After you create your Hedera testnet client, you will need to set the operator information. The operator is the account that will pay for the transaction and query fees. In this case the operator ID is your testnet account ID and the operator private key is the corresponding testnet account private key.
 
 {% tabs %}
 {% tab title="v2.0" %}
@@ -122,7 +120,7 @@ The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar
 
 Your project environment is now set-up to successfully submit transactions and queries to the Hedera test network! 
 
-Next, you will learn how to create a Hedera testnet account.
+Next, you will learn how to create an account.
 
 ### Code Check :white_check_mark: 
 
@@ -148,7 +146,6 @@ public class HederaExamples {
         //Create your Hedera testnet client
         Client client = Client.forTestnet();
         client.setOperator(myAccountId, myPrivateKey);
-
     }
 }
 ```
