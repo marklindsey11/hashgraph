@@ -12,6 +12,20 @@ description: Hedera Services release information
 
 ## Upcoming Releases
 
+## v0.19.0
+
+{% hint style="success" %}
+**MAINNET UPDATE: OCTOBER 21, 2021**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE:  NOVEMBER 4, 2021**
+{% endhint %}
+
+In Hedera Services 0.19.0, we are thrilled to announce migration of the Hedera smart contract service to the Hyperledger Besu EVM, as laid out in [HIP-26](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md). This enables support for the latest v0.8.9 Solidity contracts, and harmonizes our gas schedule with that of the “London” hard fork. The Besu migration also sets the stage for a step change in smart contract performance on Hedera.
+
+Two other HIPs targeting the Hedera Token Service go live in this release. First, the [HIP-23](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md) feature set is now enabled, so that any account that has been configured with a non-zero `maxAutoAssociations` can receive air-drops (i.e., units or NFTs of a token type without explicit association). Second, we have also implemented [HIP-24](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-24.md), which provides a safety measure for token types created with a `pauseKey`. If a `TokenPause` is submitted with this key’s signature, then all operations on the token will be suspended until a subsequent `TokenUnpause`.
+
 ## Latest Releases
 
 ## [v0.18.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.18.1)
