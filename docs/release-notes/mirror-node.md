@@ -4,13 +4,33 @@ description: Hedera mirror node release notes
 
 # Hedera Mirror Node
 
-| Network | Current Version | Upcoming Version |
-| :--- | :--- | :--- |
-| **Mainnet** | v0.41.0 | v0.42.0 |
-| **Testnet** | v0.41.0 | v0.42.0 |
-| **Previewnet** | v0.41.0 | v0.42.0 |
+| Network        | Current Version | Upcoming Version |
+| -------------- | --------------- | ---------------- |
+| **Mainnet**    | v0.41.0         | v0.42.0          |
+| **Testnet**    | v0.41.0         | v0.42.0          |
+| **Previewnet** | v0.41.0         | v0.42.0          |
 
 ## Upcoming Releases
+
+## [v0.42.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.42.0)
+
+This release saw a lot of improvements to the mirror node's Hedera Token Service functionality. Support for [HIP-24](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-24.md) pause feature on Hedera Token Service was completed. The importer can ingest the new token pause and unpause transaction types and update the token appropriately. Likewise, the token REST API was updated to show the new pause key and pause status.
+
+Along those lines, the token REST API was also updated to show the token memo and a flag to show if it's deleted. Now when an account is dissociated from a token its supply will be properly updated to show the negative transfer. And if the token in that dissociate is of type NFT, all of the NFTs owned by that account will be properly marked as deleted. We also fixed issues with some special negative transfer amounts showing up in the transactions REST API.
+
+API A new network supply REST API was added to show the released supply. Having the open source mirror node calculate and show the release supply avoids any single point of failure with the current system because a user could ask multiple mirror nodes and compare their answers (or run their own mirror node).
+
+`GET /api/v1/network/supply`
+
+```
+{
+	"timestamp": "123456870.854775807",
+	"released_supply": 1800000000000000000,
+	"total_supply": 5000000000000000000
+}
+```
+
+Continuing our theme of improving the Rosetta API, NFT support was added to the data and construction APIs. We took the time to convert it to a standard configuration library and reorganize the package structure to be flatter and more consistent. And contexts were added to every layer to enable proper cancellation and timeout support.
 
 ## Latest Releases
 
@@ -24,7 +44,7 @@ description: Hedera mirror node release notes
 **TESTNET UPDATE COMPLETED: SEPTEMBER 30, 2021**
 {% endhint %}
 
-This release focuses our efforts on improving our [Rosetta API](https://www.rosetta-api.org/) and making it ready for production use. A new Rosetta Helm chart was added for production deployments to Kubernetes. Observability improvements include health probes, metrics, request logs, alerts, and a Grafana dashboard. Postman integration tests were added to verify post-deployment functionality. Finally, a few important bugs were fixed including missing peer IP addresses and a token balance reconciliation failure.
+This release focuses our efforts on improving our [Rosetta API](https://www.rosetta-api.org) and making it ready for production use. A new Rosetta Helm chart was added for production deployments to Kubernetes. Observability improvements include health probes, metrics, request logs, alerts, and a Grafana dashboard. Postman integration tests were added to verify post-deployment functionality. Finally, a few important bugs were fixed including missing peer IP addresses and a token balance reconciliation failure.
 
 The importer component was optimized to ingest transactions at 15,000 TPS or higher. This change included improvements to reduce CPU and memory usage while simultaneously increasing the allocated memory available to the process.
 
@@ -56,7 +76,7 @@ On the monitoring side, we enhanced our Grafana dashboards to make them compatib
 **TESTNET UPDATE COMPLETED: AUGUST 30, 2021**
 {% endhint %}
 
-This release provides compatibility with Hedera Services 0.17 including support for Non-Fungible Tokens \(NFTs\) and its enhancement to custom fees. For the latter, an NFT creator can set a royalty fee to be charged when fungible value is exchanged for one of their creations and the mirror node has been updated to track this new type of custom fees. Support was also added for effective payer accounts in assessed custom fees and for storing net-of-transfers in fractional fees.
+This release provides compatibility with Hedera Services 0.17 including support for Non-Fungible Tokens (NFTs) and its enhancement to custom fees. For the latter, an NFT creator can set a royalty fee to be charged when fungible value is exchanged for one of their creations and the mirror node has been updated to track this new type of custom fees. Support was also added for effective payer accounts in assessed custom fees and for storing net-of-transfers in fractional fees.
 
 The mostly unused data generator module was removed, resulting in a large increase in code coverage. Coverage has increased from 84% to 92%.
 
@@ -120,11 +140,11 @@ A small bug fix release that addresses some issues with our [HIP-18](https://git
 **TESTNET UPDATE COMPLETED: JULY 15, 2021**
 {% endhint %}
 
-This release broadens our support for [non-fungible tokens](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md) \(NFTs\) with new NFT-specific REST APIs. A new API was added to return a list of NFTs for a particular token ID. We also added a new API to return a single NFT by its token ID and serial number. Finally, we added an API to see the transaction history for a particular NFT. In an effort to have more manageable REST API code, we now adopt a more object-oriented approach by utilizing models, view-models and services. Below is an example of the three new APIs:
+This release broadens our support for [non-fungible tokens](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md) (NFTs) with new NFT-specific REST APIs. A new API was added to return a list of NFTs for a particular token ID. We also added a new API to return a single NFT by its token ID and serial number. Finally, we added an API to see the transaction history for a particular NFT. In an effort to have more manageable REST API code, we now adopt a more object-oriented approach by utilizing models, view-models and services. Below is an example of the three new APIs:
 
 `GET /api/v1/tokens/0.0.1500/nfts`
 
-```text
+```
 {
   "nfts": [{
     "account_id": "0.0.1002",
@@ -151,7 +171,7 @@ This release broadens our support for [non-fungible tokens](https://github.com/h
 
 `GET /api/v1/tokens/0.0.1500/nfts/1`
 
-```text
+```
 {
   "account_id": "0.0.1001",
   "created_timestamp": "1234567890.000000008",
@@ -165,7 +185,7 @@ This release broadens our support for [non-fungible tokens](https://github.com/h
 
 `GET /api/v1/tokens/0.0.1500/nfts/1/transactions`
 
-```text
+```
 {
   "transactions": [{
     "consensus_timestamp": "1234567890.000000009",
@@ -192,11 +212,11 @@ This release broadens our support for [non-fungible tokens](https://github.com/h
 **MAINNET UPDATE COMPLETED: JULY 19, 2021**
 {% endhint %}
 
-We are happy to [announce](https://hedera.com/blog/now-available-public-mainnet-mirror-node-managed-by-hedera) the availability of a publicly accessible, free-to-use, mainnet Mirror Node operated by the Hedera team. As part of this, we put a large amount of effort into fine-tuning our Kubernetes deployment. We migrated to [Flux 2](https://fluxcd.io/), a GitOps-based deployment tool that allows us to declaratively specify the expected state of the Mirror Node in git and manage our rollouts. You can browse our [deploy branch](https://github.com/hashgraph/hedera-mirror-node/tree/deploy) and see the exact config and versions rolled out to various clusters and environments. The Helm chart was updated to add `PodDisruptionBudgets`, adjust alert rules and other improvements to make it easier to automate the deployment.
+We are happy to [announce](https://hedera.com/blog/now-available-public-mainnet-mirror-node-managed-by-hedera) the availability of a publicly accessible, free-to-use, mainnet Mirror Node operated by the Hedera team. As part of this, we put a large amount of effort into fine-tuning our Kubernetes deployment. We migrated to [Flux 2](https://fluxcd.io), a GitOps-based deployment tool that allows us to declaratively specify the expected state of the Mirror Node in git and manage our rollouts. You can browse our [deploy branch](https://github.com/hashgraph/hedera-mirror-node/tree/deploy) and see the exact config and versions rolled out to various clusters and environments. The Helm chart was updated to add `PodDisruptionBudgets`, adjust alert rules and other improvements to make it easier to automate the deployment.
 
-This release is the first version of the Mirror Node with preliminary support for non-fungible tokens \(NFTs\). NFT support is being added to the Hedera nodes as outlined in [HIP 17](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md). We spent time [designing](https://github.com/hashgraph/hedera-mirror-node/blob/v0.36.0/docs/design/nft.md) how that NFT support will look like for the Mirror Node. Modifications to the schema were made to add new tables and fields and the Importer was updated to ingest NFT transactions. The existing REST APIs were updated to add NFT related fields to the response. This includes adding a `type` field to the token related APIs to indicate fungibility and a`nft_transfers` to `/api/v1/transactions/{id}`:
+This release is the first version of the Mirror Node with preliminary support for non-fungible tokens (NFTs). NFT support is being added to the Hedera nodes as outlined in [HIP 17](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md). We spent time [designing](https://github.com/hashgraph/hedera-mirror-node/blob/v0.36.0/docs/design/nft.md) how that NFT support will look like for the Mirror Node. Modifications to the schema were made to add new tables and fields and the Importer was updated to ingest NFT transactions. The existing REST APIs were updated to add NFT related fields to the response. This includes adding a `type` field to the token related APIs to indicate fungibility and a`nft_transfers` to `/api/v1/transactions/{id}`:
 
-```text
+```
 {
   "transactions": [{
       "consensus_timestamp": "1234567890.000000001",
@@ -217,7 +237,7 @@ One thing to note is that we did not add NFT transfers to the list transactions 
 
 Continuing upon the theme of the last release, we made additional changes to the Rosetta API to bring it up to par with the rest of the components. Rosetta now includes support for HTS via both is data and construction APIs.
 
-The Importer saw a large focus on improving performance and resiliency. It is now highly available \(HA\) when run inside Kubernetes. This allows more than one instance to run at a time and to failover to the secondary instance when the primary becomes unhealthy. A special Kubernetes ConfigMap named `leaders` is used to atomically elect the leader.
+The Importer saw a large focus on improving performance and resiliency. It is now highly available (HA) when run inside Kubernetes. This allows more than one instance to run at a time and to failover to the secondary instance when the primary becomes unhealthy. A special Kubernetes ConfigMap named `leaders` is used to atomically elect the leader.
 
 We’re improving our ingestion time dramatically for entity creation. Previously those were database finds followed by updates. Since inserts are always faster than find and updates, we’ve optimized this to insert the updates into a temporary table and at the end upsert those to the final table. A record file with 6,000 new entities went from 21 seconds to 600 ms, making it 35x improvement. Balance file processing was optimized to greatly reduce memory by only keeping one file in memory at a time.
 
@@ -225,14 +245,14 @@ We’re improving our ingestion time dramatically for entity creation. Previousl
 
 In honor of [Juneteenth](https://en.wikipedia.org/wiki/Juneteenth) and as part of the general industry-wide movement, we renamed our `master` branch to `main`. If you have a clone or fork of the Mirror Node Git repository, you will need to take the below steps to update it to use `main`:
 
-```text
+```
 git branch -m master main
 git fetch origin
 git branch -u origin/main main
 git remote set-head origin -a
 ```
 
-As part of our optimization to reduce memory usage, we now process some things earlier in the lifecycle. Due to this we had to rename some properties to reflect this change. We also changed the disk structure if you are using the `keepFiles` \(now renamed to `writeFiles`\) properties to write the stream files to disk after download. It is no longer archived into folders by day. Instead, the folder structure will exactly match the structure in the bucket. This opens the possibility for a mirror node to download and mirror the bucket itself using a S3 compatible API like [MinIO](https://min.io/). Below is a summary of the renamed properties:
+As part of our optimization to reduce memory usage, we now process some things earlier in the lifecycle. Due to this we had to rename some properties to reflect this change. We also changed the disk structure if you are using the `keepFiles` (now renamed to `writeFiles`) properties to write the stream files to disk after download. It is no longer archived into folders by day. Instead, the folder structure will exactly match the structure in the bucket. This opens the possibility for a mirror node to download and mirror the bucket itself using a S3 compatible API like [MinIO](https://min.io). Below is a summary of the renamed properties:
 
 * Renamed `hedera.mirror.importer.downloader.balance.keepSignatures` to `hedera.mirror.importer.downloader.balance.writeSignatures`
 * Renamed `hedera.mirror.importer.parser.balance.keepFiles` to `hedera.mirror.importer.downloader.balance.writeFiles`
@@ -278,7 +298,7 @@ The REST API maximum and default limit was lowered from 1000 to 500. If you expl
 
 In Hedera Mirror Node v0.34.0, we started work on [designing](https://github.com/hashgraph/hedera-mirror-node/blob/master/docs/design/nft.md) support for [NFTs](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md) that will come in a future Hedera Services release.
 
-By default, the mirror node will validate that at least one-third of all nodes in the address book have signed a stream file before importing it into its database. This ensures that the main nodes have reached two-thirds consensus on the transactions in the file. For performance or verification reasons, you may want to decrease or increase this default percentage. To support this use case, we added a `hedera.mirror.importer.downloader.consensusRatio` property that controls the ratio of verified nodes \(nodes used to come to consensus on the signature file hash\) to the total number of nodes available.
+By default, the mirror node will validate that at least one-third of all nodes in the address book have signed a stream file before importing it into its database. This ensures that the main nodes have reached two-thirds consensus on the transactions in the file. For performance or verification reasons, you may want to decrease or increase this default percentage. To support this use case, we added a `hedera.mirror.importer.downloader.consensusRatio` property that controls the ratio of verified nodes (nodes used to come to consensus on the signature file hash) to the total number of nodes available.
 
 We took the time to undertake some major dependency upgrades for the Rosetta API. This included major updates to the Hedera and Rosetta SDKs that both required a large amount of refactoring. A number of bugs in Rosetta were addressed as well as improvements to Rosetta's CI workflow. These changes lay the groundwork for additional Rosetta improvements in a future release.
 
@@ -336,7 +356,7 @@ For our REST API, we now expose an `entity_id` field on our transactions related
 
 `GET /api/v1/transactions/0.0.1009-1234567890-999999998`
 
-```text
+```
 {
   "transactions": [{
     "consensus_timestamp": "1234567890.999999999",
@@ -367,7 +387,7 @@ There were a number of breaking changes this release to be aware of. If you're u
 
 Mirror node v0.30 brings operational improvements with changes to our continuous integration and monitoring components.
 
-With this release, we've completed the migration from CircleCI to GitHub Actions. CircleCI had some limitations with our use of [Testcontainers](https://www.testcontainers.org/) for unit testing against 3rd party dependencies. We previously had a mixture of GitHub Actions and CircleCI with the latter using slightly different commands than local testing. Consolidating to GitHub Actions allowed us to reduce this difference and further parallelize our checks.
+With this release, we've completed the migration from CircleCI to GitHub Actions. CircleCI had some limitations with our use of [Testcontainers](https://www.testcontainers.org) for unit testing against 3rd party dependencies. We previously had a mixture of GitHub Actions and CircleCI with the latter using slightly different commands than local testing. Consolidating to GitHub Actions allowed us to reduce this difference and further parallelize our checks.
 
 To improve our runtime observability and testing coverage, we've continued to invest in our monitor tool this cycle. Scheduled transaction support was recently added supporting both `ScheduleCreate` and `ScheduleSign` operations. We've added the three new mainnet nodes the monitor's default configuration. A bug with the monitor unable to reach expected TPS with multiple scenarios was fixed.
 
@@ -385,13 +405,13 @@ The REST API also saw some bug fixes including a fix to queries with a credit/de
 
 This release brings an assortment of under the hood improvements across modules and refinements of multiple REST API's.
 
-Historical entity information prior to OA is now available. In this release we've added a repeatable Java migration that will import entity information from a mainnet network snapshot. This runs during upgrade, is configureable \(`hedera.mirror.importer.importHistoricalAccountInfo`\) and works in combination with the `hedera.mirror.importer.startDate`setting.
+Historical entity information prior to OA is now available. In this release we've added a repeatable Java migration that will import entity information from a mainnet network snapshot. This runs during upgrade, is configureable (`hedera.mirror.importer.importHistoricalAccountInfo`) and works in combination with the `hedera.mirror.importer.startDate`setting.
 
 The REST API now expands its filtering options support specifically around transfers and in relation to tokens. Previously the `account.id`and `credit/debit` filtering options supported HBAR transfers only, this release expands both filters to include tokens also.
 
 The stateproof REST API and `check-state-proof` package have also been improved. The API now supports filtering for scheduled transactions via `/api/v1/transactions/:transactionId/stateproof?scheduled=true` as-well as a more compact response format. For record streams that utilize the newer improved HAPI v5 version the stateproof API response send back metadata hashes instead of the full raw bytes. With this, the response is more light weight.
 
-```text
+```
  {
      "address_books": [
        "address book content"
@@ -421,12 +441,12 @@ The stateproof REST API and `check-state-proof` package have also been improved.
  }
 ```
 
-The REST API now also supports repeatable `account.id` query parameters when filtering, with a configureable setting for the maximum number of repeated query parameters  
+The REST API now also supports repeatable `account.id` query parameters when filtering, with a configureable setting for the maximum number of repeated query parameters\
 `/api/v1/(accounts|balances|transactions)?account.id=:id&account.id=:id2...`
 
 `GET /api/v1/accounts?account.id=0.0.7&account.id=0.0.9`
 
-```text
+```
 {
      "accounts": [
        {
@@ -471,7 +491,7 @@ The REST API now also supports repeatable `account.id` query parameters when fil
 
 Multiple modules have also seen security and standardization improvements by the addition of more robust automated analysis tools such as `gosec` as-well as the implementation of suggestions from a 3rd party code audit.
 
-This release also saw a step to support the new and improved v2 offerings of the \(Java SDK\)\[[https://github.com/hashgraph/hedera-sdk-java\](https://github.com/hashgraph/hedera-sdk-java\)\]. Both the monitor module and acceptance tests were updated to use the new SDK and utilize features such as in-built retry and support for scheduled transactions.
+This release also saw a step to support the new and improved v2 offerings of the (Java SDK)\[[https://github.com/hashgraph/hedera-sdk-java\\](https://github.com/hashgraph/hedera-sdk-java/)]. Both the monitor module and acceptance tests were updated to use the new SDK and utilize features such as in-built retry and support for scheduled transactions.
 
 ## [v0.28.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.28.2)
 
@@ -487,7 +507,7 @@ This releases finalizes support for scheduled transactions and HAPI protobuf v0.
 
 `GET /api/v1/schedules?account.id=0.0.1024&schedule.id=gte:4000&order=desc&limit=10`
 
-```text
+```
 {
     "schedules": [
       {
@@ -535,7 +555,7 @@ Other changes include adding an `index` field to `record_file` table to simulate
 **TESTNET UPDATE COMPLETED: FEBRUARY 11, 2021**
 {% endhint %}
 
-This release adds a new REST API component that implements the [Rosetta API](https://www.rosetta-api.org/). The Rosetta API is an open standard for integrating with blockchain-oriented systems. Implementing the Rosetta AP provides a number of advantages. It reduces the time and effort it takes for wallets, exchanges, etc. to integrate with the Hedera network if they have integrated with Rosetta in the past. Even if the systems integrator has not used Rosetta previously, using the Rosetta API in lieu of our separate [REST API](https://docs.hedera.com/guides/docs/mirror-node-api/cryptocurrency-api) might be useful to reduce the friction with using a non-blockchain DLT like Hedera.
+This release adds a new REST API component that implements the [Rosetta API](https://www.rosetta-api.org). The Rosetta API is an open standard for integrating with blockchain-oriented systems. Implementing the Rosetta AP provides a number of advantages. It reduces the time and effort it takes for wallets, exchanges, etc. to integrate with the Hedera network if they have integrated with Rosetta in the past. Even if the systems integrator has not used Rosetta previously, using the Rosetta API in lieu of our separate [REST API](https://docs.hedera.com/guides/docs/mirror-node-api/cryptocurrency-api) might be useful to reduce the friction with using a non-blockchain DLT like Hedera.
 
 [Scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/spec.md) is an new feature being added to the main nodes in a future release. Scheduled transactions allows transactions to be submitted without all the necessary signatures and will execute once all the required parties sign. The mirror node has been updated to understand and store these new types of transactions. Additionally, we've updated our existing REST APIs to expose this information. The next release will add additional schedule specific REST APIs.
 
@@ -557,7 +577,7 @@ But by far the biggest change is support for the new record file V5 and signatur
 
 #### Warning! If you don't upgrade your Mirror Node to v0.26.0 or later before HAPI v0.11.0 is released in a few weeks, your mirror node will be unable to process new transactions.
 
-We continued our progress on switching to TimescaleDB. We integrated a TimescaleDB helm chart into our Kubernetes deployment and added migration scripts to convert from PostgreSQL to TimescaleDB. We're still in the testing phase so it's still recommended to stick with the v1 schema \(the default\) for now.
+We continued our progress on switching to TimescaleDB. We integrated a TimescaleDB helm chart into our Kubernetes deployment and added migration scripts to convert from PostgreSQL to TimescaleDB. We're still in the testing phase so it's still recommended to stick with the v1 schema (the default) for now.
 
 ## [v0.25.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.25.0)
 
@@ -573,7 +593,7 @@ This release saw a slew of enhancements to our new monitoring module. The [monit
 
 A sample percentage property was added to the monitor to control how often the REST API should be verified. We took the time to properly document the monitor tool detailing its configuration and operational steps. Finally, we added a number of new metrics and a Grafana [dashboard](https://github.com/hashgraph/hedera-mirror-node/blob/v0.25.0/docs/monitor.md#dashboard--metrics) to view them.
 
-We made progress towards our goal of replacing PostgreSQL with [TimescaleDB](https://www.timescale.com/). This release contains the initial database migrations to setup the mirror node from scratch using TimescaleDB. These migrations are hidden behind a feature flag. In an upcoming release we'll add further functionality including data migration scripts and Helm support.
+We made progress towards our goal of replacing PostgreSQL with [TimescaleDB](https://www.timescale.com). This release contains the initial database migrations to setup the mirror node from scratch using TimescaleDB. These migrations are hidden behind a feature flag. In an upcoming release we'll add further functionality including data migration scripts and Helm support.
 
 ## [v0.24.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.24.0)
 
@@ -587,7 +607,7 @@ We made progress towards our goal of replacing PostgreSQL with [TimescaleDB](htt
 
 This release adds [OpenAPI 3.0](https://swagger.io/specification) specification support to our REST API. The OpenAPI specification is available at `/api/v1/openapi.yml`and serves as a formal specification of our API. Clients can use the specification to shorten the amount of time it takes to integrate with our API by generating code or tests harnesses. It also provides us with a new auto-generated API documentation site viewable at `/api/v1/docs`.
 
-We now have support for the [AWS Default Credential Provider Chain](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html). Now instead of only being able to provide static access and secret keys in the configuration, you can rely on the default provider chain to retrieve your credentials automatically from the environment \(environment variables, `~/.aws/credentials`, etc\). See our [documentation](https://github.com/hashgraph/hedera-mirror-node/blob/master/docs/configuration.md#connect-to-s3-with-the-default-credentials-provider) for more information.
+We now have support for the [AWS Default Credential Provider Chain](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html). Now instead of only being able to provide static access and secret keys in the configuration, you can rely on the default provider chain to retrieve your credentials automatically from the environment (environment variables, `~/.aws/credentials`, etc). See our [documentation](https://github.com/hashgraph/hedera-mirror-node/blob/master/docs/configuration.md#connect-to-s3-with-the-default-credentials-provider) for more information.
 
 We've enhanced our monitoring tools to provide greater observability into the mirror node's operation. In addition to publishing, our monitor tool now supports subscribing to the gRPC and REST APIs to verify end to end functionality of Hedera. It will also generate metrics off this information. We take advantage of Loki's new log alerting capability and now can alert off of any errors we see in logs that might be cause for concern.
 
@@ -601,7 +621,7 @@ We've enhanced our monitoring tools to provide greater observability into the mi
 **TESTNET UPDATE COMPLETED: NOVEMBER 20, 2020**
 {% endhint %}
 
-This release focuses on finalizing our support for the new Hedera Token Service \(HTS\) provided by the Hedera API [v0.9.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.9.0). There are no new HTS features, just various fixes to make it compatible with the latest protobuf. HTS is currently enabled in previewnet and should be enabled in testnet very soon, so please try it out and let us know if you have any feedback.
+This release focuses on finalizing our support for the new Hedera Token Service (HTS) provided by the Hedera API [v0.9.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.9.0). There are no new HTS features, just various fixes to make it compatible with the latest protobuf. HTS is currently enabled in previewnet and should be enabled in testnet very soon, so please try it out and let us know if you have any feedback.
 
 A new Helm [chart](https://github.com/hashgraph/hedera-mirror-node/tree/master/charts/hedera-mirror-monitor) was added to run the monitor application. The monitor is still under heavy development so stay tuned.
 
@@ -615,7 +635,7 @@ We improved our custom PrometheusRule alerts for the Importer, GRPC and REST API
 
 We also improved our data generator module with support for the majority of HAPI transactions the mirror node importer ingests. Additionally, we also added a java based monitor module that supports generation and publishing of transactions.
 
-This release also includes an improvements to avoid the stale account info bug that stems from balance stream files being received at a slower frequency than record stream files. Now account creations and account info changes will be reflected in REST API call even though the updated balance may not have been received.  
+This release also includes an improvements to avoid the stale account info bug that stems from balance stream files being received at a slower frequency than record stream files. Now account creations and account info changes will be reflected in REST API call even though the updated balance may not have been received.\
 We also extended our REST API support to include case insensitive support query parameters. `/api/v1/transactions?transactionType=tokentransfers` and `/api/v1/transactions?transactiontype=tokentransfers` are now both acceptable.
 
 ## [v0.21.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.21.0)
@@ -628,7 +648,7 @@ We also extended our REST API support to include case insensitive support query 
 **TESTNET UPDATE COMPLETED: NOVEMBER 13, 2020**
 {% endhint %}
 
-This release continues our focus on the Hedera Token Service \(HTS\) by adding three new token REST APIs. A token discovery REST API `/api/v1/tokens` shows available tokens on the network. A token REST API `/api/v1/tokens/${tokenId}` shows details for a token on the network. A token supply distribution REST API `/api/v1/tokens/${tokenId}/balances` shows token distribution across accounts. These APIs have already made their way to previewnet so check them out!
+This release continues our focus on the Hedera Token Service (HTS) by adding three new token REST APIs. A token discovery REST API `/api/v1/tokens` shows available tokens on the network. A token REST API `/api/v1/tokens/${tokenId}` shows details for a token on the network. A token supply distribution REST API `/api/v1/tokens/${tokenId}/balances` shows token distribution across accounts. These APIs have already made their way to previewnet so check them out!
 
 Continuing our HTS theme, we enhanced our testing frameworks with token support. Our acceptance tests can send HTS transactions to HAPI and wait for those transactions to show up via the mirror node REST API. Additionally, our performance tests can simulate a HTS load to test how the system responds to HTS transactions.
 
@@ -648,9 +668,9 @@ We improved our Kubernetes support with AlertManager integration. There are now 
 
 This is a big release that contains support for a new HAPI service and whole new runtime component to dramatically improve performance. Due to the magnitude of the changes, it did take us a little longer to mark it as generally available as we wanted to ensure it was tested as much as possible beforehand.
 
-First up is support for the Hedera Token Service \(HTS\) that was recently [announced](https://hedera.com/blog/previewnet-hedera-token-service-hts-early-access) and rolled out to previewnet. A lot of work was put into supporting the new transaction types on the parser side including enhancing the schema with new tables and ingesting them via the record stream. HTS also required a new balance file version that adds token information to the CSV. Token information is now returned for our existing REST APIs while the next release will contain token specific REST APIs for further granularity. Check it out in previewnet and let us know if you have any feedback!
+First up is support for the Hedera Token Service (HTS) that was recently [announced](https://hedera.com/blog/previewnet-hedera-token-service-hts-early-access) and rolled out to previewnet. A lot of work was put into supporting the new transaction types on the parser side including enhancing the schema with new tables and ingesting them via the record stream. HTS also required a new balance file version that adds token information to the CSV. Token information is now returned for our existing REST APIs while the next release will contain token specific REST APIs for further granularity. Check it out in previewnet and let us know if you have any feedback!
 
-We made a lot of strides in improving the ingestion performance in previous releases, but since we also wanted to ensure low end to end HCS latency via our gRPC API we had to sacrifice some of that speed. As a result, we could only ingest at about 3,000 transactions per second \(TPS\) before latency spiked above 10 seconds. This was entirely due to our use of PostgreSQL notify/listen to notify the gRPC API of new data.
+We made a lot of strides in improving the ingestion performance in previous releases, but since we also wanted to ensure low end to end HCS latency via our gRPC API we had to sacrifice some of that speed. As a result, we could only ingest at about 3,000 transactions per second (TPS) before latency spiked above 10 seconds. This was entirely due to our use of PostgreSQL notify/listen to notify the gRPC API of new data.
 
 In this release, we add a new notification mechanism without sacrificing speed or latency with our support for Redis pub/sub. With Redis, the mirror node can now ingest at least 10,000 TPS while still remaining under 10 seconds from submitting the topic message and receiving it back via the mirror node's streaming API. Redis is enabled by default, but it can be turned off if HCS latency is not a concern and you want to avoid another runtime dependency.
 
@@ -710,7 +730,7 @@ The aforementioned `startDate` property does change how the mirror node operator
 **TESTNET UPGRADE COMPLETED: SEPTEMBER 3, 2020**
 {% endhint %}
 
-This release contains the port of a bug fix to better manage the `VertxException: Thread blocked` issue seen in [\#945](https://github.com/hashgraph/hedera-mirror-node/issues/945)
+This release contains the port of a bug fix to better manage the `VertxException: Thread blocked` issue seen in [#945](https://github.com/hashgraph/hedera-mirror-node/issues/945)
 
 ## [v0.17.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.2)
 
@@ -722,13 +742,13 @@ A small fix to correct a performance regression with not properly caching a heav
 
 ## [v0.17.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.17.0)
 
-This release adds support for the storage of the network address books from file `0.0.101` and `0.0.102`in the mirror node database.  
+This release adds support for the storage of the network address books from file `0.0.101` and `0.0.102`in the mirror node database.\
 The mirror node will now retrieve file address book contents which include node identifiers and their public keys from the database instead of the file system at startup.
 
-This sets the stage for an additional feature which is the State Proof alpha REST API at `/transactions/${transactionId}/stateproof`.  
+This sets the stage for an additional feature which is the State Proof alpha REST API at `/transactions/${transactionId}/stateproof`.\
 With this release it is possible to request the address book, record file and signature files that contain the contents of a transaction and allow for cryptographic verification of the transaction. Mirror node users can now actively verify submitted transactions for themselves.
 
-Other changes include support for continuous deployment \(CD\) using [Github Actions](https://github.com/features/actions) that use [FluxCD](https://fluxcd.io/) to deploy master versions to a Kubernetes cluster. Additionally, this release includes fixes to the database copy operation optimization and improved handling of buffer size used when copying large topic messages.
+Other changes include support for continuous deployment (CD) using [Github Actions](https://github.com/features/actions) that use [FluxCD](https://fluxcd.io) to deploy master versions to a Kubernetes cluster. Additionally, this release includes fixes to the database copy operation optimization and improved handling of buffer size used when copying large topic messages.
 
 ## [v0.16.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.16.0)
 
@@ -748,7 +768,7 @@ Memory improvements were also made in the parser to improve ingestion performanc
 **MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
-Works around an issue sending large JSON payloads via pg\_notify by ignoring them for now. This occurs when a consensus message is sent with a message that exceeds 5824 bytes, which is also very close to the protobuf limit.
+Works around an issue sending large JSON payloads via pg_notify by ignoring them for now. This occurs when a consensus message is sent with a message that exceeds 5824 bytes, which is also very close to the protobuf limit.
 
 ## [v0.15.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.2)
 
@@ -892,7 +912,7 @@ Please note when upgrading that we made major breaking changes to the naming of 
 
 We've removed the `hedera.mirror.addressBookPath` property in favor of a `hedera.mirror.importer.initialAddressBook` property. The former was overloaded to be both the initial bootstrap address book and the live address book being updated by file transactions for `0.0.102`. The live address book is now hardcoded to `${hedera.mirror.importer.dataPath}/addressbook.bin` and cannot be changed.
 
-The REST API to retrieve a topic message by its consensus timestamp now supports both a plural \(`/topics/messages/:consensusTimestamp`\) and singular \(`/topic/message/:consensusTimestamp`\) URI path. The singular format is deprecated and will be going away in the near future, so please update to the plural format soon.
+The REST API to retrieve a topic message by its consensus timestamp now supports both a plural (`/topics/messages/:consensusTimestamp`) and singular (`/topic/message/:consensusTimestamp`) URI path. The singular format is deprecated and will be going away in the near future, so please update to the plural format soon.
 
 We removed the singular form of a few alpha topic REST APIs. The `/topic/:id/message` API was removed in favor of the plural form `/topics/:id/messages`. Similarly, the `/topic/:id/message/:sequencenumber`API was removed in favor of its plural form `/topics/:id/messages/:sequencenumber`. Please update accordingly.
 
@@ -924,7 +944,7 @@ This release contains another new REST API for our [consensus service](https://w
 
 `GET /api/v1/topic/7?sequencenumber=gt:2&timestamp=lte:1234567890.000000006&limit=2`
 
-```text
+```
 {
   "messages": [
     {
@@ -948,7 +968,7 @@ This release contains another new REST API for our [consensus service](https://w
 }
 ```
 
-The other big feature of this release is [Kubernetes](https://kubernetes.io/) support. We've create a [Helm](https://helm.sh/) chart that can be used to deploy a highly available Mirror Node with a single command. This feature is still under heavy development as we work towards converting our current deployments to this new approach.
+The other big feature of this release is [Kubernetes](https://kubernetes.io) support. We've create a [Helm](https://helm.sh) chart that can be used to deploy a highly available Mirror Node with a single command. This feature is still under heavy development as we work towards converting our current deployments to this new approach.
 
 ## [v0.8.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.8.1)
 
@@ -989,4 +1009,3 @@ Please note that one potentially breaking change in this release is to reject su
 * Access still restricted to a white listed set of IP addresses. Request access [here](https://learn.hedera.com/l/576593/2020-01-13/7z5jb).
 * Please see the Mirror Node releases page for the full list of changes [here](https://github.com/hashgraph/hedera-mirror-node/releases).
 * We occasionally may encounter a situation where an additional 15-20 second delay in message round trip time is experienced and subscriber connections are dropped. No messages are lost, and the consensus time is not affected. Clients are encouraged to reconnect. This issue will be fixed in a subsequent release of the Hedera mirror node. Some third-party mirror nodes should not be affected by this issue. We also don't expect it to impact the exchanges using the REST end point for the mirror node. 
-
