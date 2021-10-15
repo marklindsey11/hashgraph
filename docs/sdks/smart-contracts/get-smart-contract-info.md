@@ -4,26 +4,26 @@ A query that returns the current state of a smart contract instance, including i
 
 **Smart Contract Info Response**
 
-| **Field** | Description |
-| :--- | :--- |
-| **Contract ID** | ID of the contract instance, in the format used in transactions. |
-| **Account ID** | ID of the cryptocurrency account owned by the contract instance. |
-| **Contract Account ID** | ID of both the contract instance and the cryptocurrency account owned by the contract ID of both the contract instance and the cryptocurrency account owned by the contract. |
-| **Admin Key** | The state of the instance and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. |
-| **Expiration Time** | The current time at which this contract instance \(and its account\) is set to expire. |
-| **Auto Renew Period** | The expiration time will extend every this many seconds. If there are insufficient funds, then it extends as long as possible. If the account is empty when it expires,  then it is deleted. |
-| **Storage** | Number of bytes of storage being used by this instance \(which affects the cost to  extend the expiration time\). |
-| **Contract Memo** | The memo associated with the contract \(max 100 bytes\). |
-| **Balance** | The current balance of the contract. |
-| **Deleted** | Whether the contract has been deleted. |
-| **TokenRelationships** | The tokens associated to the contract. |
+| **Field**               | The byte code file ID                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Contract ID**         | ID of the contract instance, in the format used in transactions.                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Account ID**          | ID of the cryptocurrency account owned by the contract instance.                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Contract Account ID** | ID of both the contract instance and the cryptocurrency account owned by the contract ID of both the contract instance and the cryptocurrency account owned by the contract.                                                                                                                                                                                                                                                                                    |
+| **Admin Key**           | The state of the instance and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. |
+| **Expiration Time**     | The current time at which this contract instance (and its account) is set to expire.                                                                                                                                                                                                                                                                                                                                                                            |
+| **Auto Renew Period**   | The expiration time will extend every this many seconds. If there are insufficient funds, then it extends as long as possible. If the account is empty when it expires,  then it is deleted.                                                                                                                                                                                                                                                                    |
+| **Storage**             | Number of bytes of storage being used by this instance (which affects the cost to  extend the expiration time).                                                                                                                                                                                                                                                                                                                                                 |
+| **Contract Memo**       | The memo associated with the contract (max 100 bytes).                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **Balance**             | The current balance of the contract.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Deleted**             | Whether the contract has been deleted.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **TokenRelationships**  | The tokens associated to the contract.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 **Query Signing Requirements**
 
-* The client operator account's private key \(fee payer\) is required to sign this query
+* The client operator account's private key (fee payer) is required to sign this query
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor               | Description                            |
+| ------------------------- | -------------------------------------- |
 | `new ContractInfoQuery()` | Initializes a ContractInfoQuery object |
 
 ```java
@@ -34,8 +34,8 @@ new ContractInfoQuery()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
+| Method                        | Type       | Description                                          |
+| ----------------------------- | ---------- | ---------------------------------------------------- |
 | `setContractId(<contractId>)` | ContractId | The ID of the smart contract to return the token for |
 
 {% code title="Java" %}
@@ -82,23 +82,23 @@ println(info)
 
 **Sample Output**
 
-`ContractInfo{  
-     contractId=0.0.104966,   
-     accountId=0.0.104966,   
-     contractAccountId=0000000000000000000000000000000000019a06,      
-     adminKey=302a300506032b6570032100fcd7cce3eef78f76a538c5573ce8f00258   
-          386741e03adc17c66075bf659b865d,   
-     expirationTime=2021-02-10T22:27:15Z,      
-     autoRenewPeriod=PT2160H,   
-     storage=523,   
-     contractMemo=,   
-     balance=0 tℏ  
-}`
+`ContractInfo{`\
+`      contractId=0.0.104966,  `\
+`      accountId=0.0.104966,  `\
+`      contractAccountId=0000000000000000000000000000000000019a06,     `\
+`      adminKey=302a300506032b6570032100fcd7cce3eef78f76a538c5573ce8f00258  `\
+`           386741e03adc17c66075bf659b865d,  `\
+`      expirationTime=2021-02-10T22:27:15Z,     `\
+`      autoRenewPeriod=PT2160H,  `\
+`      storage=523,  `\
+`      contractMemo=,  `\
+`     balance=0 tℏ`\
+`}`
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
+| Method                        | Type       | Description                                          |
+| ----------------------------- | ---------- | ---------------------------------------------------- |
 | `setContractId(<contractId>)` | ContractId | The ID of the smart contract to return the token for |
 
 {% code title="Java" %}
@@ -128,6 +128,4 @@ console.log(info);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

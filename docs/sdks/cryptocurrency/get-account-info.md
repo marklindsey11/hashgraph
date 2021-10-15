@@ -4,30 +4,30 @@ A query that returns the current state of the account. This query **does not** i
 
 **Account Info Response:**
 
-| Field | Description |
-| :--- | :--- |
-| **Account ID** | The account ID of the account the information was requested for. |
-| **Contract Account ID** | The Contract Account ID comprising of both the contract instance and the cryptocurrency account owned by the contract instance, in the format used by Solidity. |
-| **Key\(s\)** | The keys that are currently on the account. |
-| **Balance** | The current balance of hbars on the account. |
-| **Expiration Time** | The account's expiration time. |
-| **Auto Renew Period** | The duration at which the account is charged to renew. |
-| **Deleted** | Whether or not the account is marked as deleted. |
-| **Receiver Signature** | Whether or not the signature of this account is required for other accounts to transfer to it |
-| **Proxy Account** | The Account ID of the account to which this is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking, or if it is not currently running a node, then it will behave as if proxyAccountID was null.  |
-| **Proxy Received**  | The total number of tinybars proxy staked to this account.  |
-| **LiveHash** | All of the livehashes attached to the account \(each of which is a hash along with the keys that authorized it and can delete it\).  |
-| **Tokens** | All tokens related to this account |
-| **Memo** |  A note or description that is recorded with the account entity |
-| **Owned NFTs** | The number of NFTs owned by the specified account |
-| **Max Automatic Token Associations** | The total number of auto token associations that are specified for this account. |
+| **Field**                            | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Account ID**                       | The account ID of the account the information was requested for.                                                                                                                                                                                                                                                                                                                                                                  |
+| **Contract Account ID**              | The Contract Account ID comprising of both the contract instance and the cryptocurrency account owned by the contract instance, in the format used by Solidity.                                                                                                                                                                                                                                                                   |
+| **Key(s)**                           | The keys that are currently on the account.                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Balance**                          | The current balance of hbars on the account.                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Expiration Time**                  | The account's expiration time.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Auto Renew Period**                | The duration at which the account is charged to renew.                                                                                                                                                                                                                                                                                                                                                                            |
+| **Deleted**                          | Whether or not the account is marked as deleted.                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Receiver Signature**               | Whether or not the signature of this account is required for other accounts to transfer to it                                                                                                                                                                                                                                                                                                                                     |
+| **Proxy Account**                    | The Account ID of the account to which this is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking, or if it is not currently running a node, then it will behave as if proxyAccountID was null.  |
+| **Proxy Received**                   | The total number of tinybars proxy staked to this account.                                                                                                                                                                                                                                                                                                                                                                        |
+| **LiveHash**                         | All of the livehashes attached to the account (each of which is a hash along with the keys that authorized it and can delete it).                                                                                                                                                                                                                                                                                                 |
+| **Tokens**                           | All tokens related to this account                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Memo**                             |  A note or description that is recorded with the account entity                                                                                                                                                                                                                                                                                                                                                                   |
+| **Owned NFTs**                       | The number of NFTs owned by the specified account                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Max Automatic Token Associations** | The total number of auto token associations that are specified for this account.                                                                                                                                                                                                                                                                                                                                                  |
 
 **Query Signing Requirements**
 
 * The client operator private key is required to sign the query request
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor              | Description                             |
+| ------------------------ | --------------------------------------- |
 | `new AccountInfoQuery()` | Initializes the AccountInfoQuery object |
 
 ```java
@@ -38,24 +38,24 @@ new AccountInfoQuery()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountId | Required |
-| `<AccountInfo>.accountId` | AccountId | Optional |
-| `<AccountInfo>.contractAccountId` | String | Optional |
-| `<AccountInfo>.isDeleted` | boolean | Optional |
-| `<AccountInfo>.key` | Key | Optional |
-| `<AccountInfo>.balance` | Hbar | Optional |
-| `<AccountInfo>.isReceiverSignatureRequired` | boolean | Optional |
-| `<AccountInfo>.liveHashes` | List&lt;LiveHash&gt; | Optional |
-| `<AccountInfo>.tokenRelationships` | Map&lt;TokenId, TokenRelationships&gt; | Optional |
-| `<AccountInfo>.ownedNfts` | long | Optional |
-| `<AccountInfo>.maxAutomaticTokenAssociations` | int | Optional |
-| `<AccountInfo>.accountMemo` | String | Optional |
-| `<AccountInfo>.expirationTime` | Instant | Optional |
-| `<AccountInfo>.proxyReceived` | Hbar | Optional |
-| `<AccountInfo>.proxyAccountId` | AccountId | Optional |
-| `<AccountInfo>.autoRenewPeriod` | Duration | Optional |
+| Method                                        | Type                              | Requirement |
+| --------------------------------------------- | --------------------------------- | ----------- |
+| `setAccountId(<accountId>)`                   | AccountId                         | Required    |
+| `<AccountInfo>.accountId`                     | AccountId                         | Optional    |
+| `<AccountInfo>.contractAccountId`             | String                            | Optional    |
+| `<AccountInfo>.isDeleted`                     | boolean                           | Optional    |
+| `<AccountInfo>.key`                           | Key                               | Optional    |
+| `<AccountInfo>.balance`                       | Hbar                              | Optional    |
+| `<AccountInfo>.isReceiverSignatureRequired`   | boolean                           | Optional    |
+| `<AccountInfo>.liveHashes`                    | List\<LiveHash>                   | Optional    |
+| `<AccountInfo>.tokenRelationships`            | Map\<TokenId, TokenRelationships> | Optional    |
+| `<AccountInfo>.ownedNfts`                     | long                              | Optional    |
+| `<AccountInfo>.maxAutomaticTokenAssociations` | int                               | Optional    |
+| `<AccountInfo>.accountMemo`                   | String                            | Optional    |
+| `<AccountInfo>.expirationTime`                | Instant                           | Optional    |
+| `<AccountInfo>.proxyReceived`                 | Hbar                              | Optional    |
+| `<AccountInfo>.proxyAccountId`                | AccountId                         | Optional    |
+| `<AccountInfo>.autoRenewPeriod`               | Duration                          | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -110,51 +110,51 @@ fmt.Println(accountInfo)
 
 #### Sample Output:
 
-`{   
-     accountId=0.0.96928,   
-     contractAccountId=0000000000000000000000000000000000017aa0,   
-     "deleted=false",   
-     "proxyAccountId=null",   
-     proxyReceived=0 tℏ,  
-    key=302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a29769    7adef1e04510c9d4ecc5db3f,   
-     balance=1 ℏ,   
-     sendRecordThreshold=92233720368.54775807 ℏ,  
-     receiveRecordThreshold=9223372 0368.54775807 ℏ,   
-     "receiverSignatureRequired=false",  
-     expirationTime=2021-02-02T19:29:36Z,   
-     autoRenewPeriod=PT2160H,   
-     liveHashes="[],  
-     tokenRelationships={  
-          0.0.27335=TokenRelationship{  
-               tokenId=0.0.27335, symbol=F, balance=5, kycStatus=null,  
-               freezeStatus=null, automaticAssociation=true  
-          }  
-     },  
-     accountMemo=,   
-     ownedNfts=0,  
-     maxAutomaticTokenAssociations=10  
-}`
+`{ `\
+`      accountId=0.0.96928,  `\
+`      contractAccountId=0000000000000000000000000000000000017aa0,  `\
+`      "deleted=false",  `\
+`      "proxyAccountId=null",  `\
+`     proxyReceived=0 tℏ,`\
+`     key=302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a29769    7adef1e04510c9d4ecc5db3f,  `\
+`      balance=1 ℏ,  `\
+`     sendRecordThreshold=92233720368.54775807 ℏ,`\
+`      receiveRecordThreshold=9223372 0368.54775807 ℏ,  `\
+`     "receiverSignatureRequired=false",`\
+`      expirationTime=2021-02-02T19:29:36Z,  `\
+`      autoRenewPeriod=PT2160H,  `\
+`     liveHashes="[],`\
+`     tokenRelationships={`\
+`          0.0.27335=TokenRelationship{`\
+`               tokenId=0.0.27335, symbol=F, balance=5, kycStatus=null,`\
+`               freezeStatus=null, automaticAssociation=true`\
+`          }`\
+`     },`\
+`      accountMemo=,  `\
+`     ownedNfts=0,`\
+`     maxAutomaticTokenAssociations=10`\
+`}`
 {% endtab %}
 
 {% tab title="V1" %}
 
 
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountId | Required |
-| `<AccountInfo>.accountId` | AccountId | Optional |
-| `<AccountInfo>.contractAccountId` | String | Optional |
-| `<AccountInfo>.isDeleted` | boolean | Optional |
-| `<AccountInfo>.key` | Key | Optional |
-| `<AccountInfo>.balance` | long | Optional |
-| `<AccountInfo>.isReceiverSignatureRequired` | boolean | Optional |
-| `<AccountInfo>.liveHashes` | List&lt;LiveHash&gt; | Optional |
-| `<AccountInfo>.tokenRelationships` | Map&lt;TokenId, TokenRelationships&gt; | Optional |
-| `<AccountInfo>.ownedNfts` | long | Optional |
-| `<AccountInfo>.expirationTime` | Instant | Optional |
-| `<AccountInfo>.proxyReceived` | long | Optional |
-| `<AccountInfo>.proxyAccountId` | AccountId | Optional |
-| `<AccountInfo>.autoRenewPeriod` | Duration | Optional |
+| Method                                      | Type                              | Requirement |
+| ------------------------------------------- | --------------------------------- | ----------- |
+| `setAccountId(<accountId>)`                 | AccountId                         | Required    |
+| `<AccountInfo>.accountId`                   | AccountId                         | Optional    |
+| `<AccountInfo>.contractAccountId`           | String                            | Optional    |
+| `<AccountInfo>.isDeleted`                   | boolean                           | Optional    |
+| `<AccountInfo>.key`                         | Key                               | Optional    |
+| `<AccountInfo>.balance`                     | long                              | Optional    |
+| `<AccountInfo>.isReceiverSignatureRequired` | boolean                           | Optional    |
+| `<AccountInfo>.liveHashes`                  | List\<LiveHash>                   | Optional    |
+| `<AccountInfo>.tokenRelationships`          | Map\<TokenId, TokenRelationships> | Optional    |
+| `<AccountInfo>.ownedNfts`                   | long                              | Optional    |
+| `<AccountInfo>.expirationTime`              | Instant                           | Optional    |
+| `<AccountInfo>.proxyReceived`               | long                              | Optional    |
+| `<AccountInfo>.proxyAccountId`              | AccountId                         | Optional    |
+| `<AccountInfo>.autoRenewPeriod`             | Duration                          | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -190,21 +190,20 @@ console.log(accountInfo);
 
 #### Sample Output:
 
-`{   
-     accountId=0.0.96928,   
-     contractAccountId=0000000000000000000000000000000000017aa0,   
-     "deleted=false",   
-     "proxyAccountId=null",   
-     proxyReceived=0 tℏ,       
-     key=302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a297697ad ef1e04510c9d4ecc5db3f,   
-     balance=1 ℏ,   
-     sendRecordThreshold=92233720368.54775807 ℏ,  
-     receiveRecordThreshold=9223372 0368.54775807 ℏ,   
-     "receiverSignatureRequired=false",  
-     expirationTime=2021-02-02T19:29:36Z,   
-     autoRenewPeriod=PT2160H,   
-     "liveHashes="[]   
-}`
+`{ `\
+`      accountId=0.0.96928,  `\
+`      contractAccountId=0000000000000000000000000000000000017aa0,  `\
+`      "deleted=false",  `\
+`      "proxyAccountId=null",  `\
+`      proxyReceived=0 tℏ,      `\
+`      key=302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a297697ad ef1e04510c9d4ecc5db3f,  `\
+`      balance=1 ℏ,  `\
+`     sendRecordThreshold=92233720368.54775807 ℏ,`\
+`      receiveRecordThreshold=9223372 0368.54775807 ℏ,  `\
+`     "receiverSignatureRequired=false",`\
+`      expirationTime=2021-02-02T19:29:36Z,  `\
+`      autoRenewPeriod=PT2160H,  `\
+`      "liveHashes="[]  `\
+`}`
 {% endtab %}
 {% endtabs %}
-

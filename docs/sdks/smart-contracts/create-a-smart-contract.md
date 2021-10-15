@@ -4,7 +4,7 @@
 Before you get started with smart contracts consider if the Hedera Token Service is better for your use case. For most, it provides greater performance and lowers costs. Learn more in the blog series, [Getting Started with Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1).
 {% endhint %}
 
-A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can remix or another solidity compiler. After you have hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. Similar to accounts the instance will exist for autoRenewPeriod seconds. 
+A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can [remix](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js) or another [solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler. After you have the hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. 
 
 {% hint style="warning" %}
 **Solidity Support**\
@@ -19,6 +19,7 @@ A transaction that creates a new contract instance. After the contract is create
 **Transaction Signing Requirements**
 
 * The client operator account is required to sign the transaction
+* The admin key, if specified 
 
 **Smart Contract Properties**
 
@@ -50,7 +51,7 @@ new ContractCreateTransaction()
 | `setGas(<gas>)`                                     | long                       | Required    |
 | `setBytecodeFileId(<fileId>)`                       | FileId                     | Required    |
 | `setInitialBalance(<initialBalance>)`               | Hbar                       | Optional    |
-| `setAdminKey(<keys>)`                               | PublicKey                  | Optional    |
+| `setAdminKey(<keys>)`                               | Key                        | Optional    |
 | `setProxyAccountId(<accountId>`)                    | AccountId                  | Optional    |
 | `setConstructorParameters(<constructorParameters>)` | byte \[ ]                  | Optional    |
 | `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional    |
