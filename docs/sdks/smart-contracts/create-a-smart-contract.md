@@ -4,16 +4,16 @@
 Before you get started with smart contracts consider if the Hedera Token Service is better for your use case. For most, it provides greater performance and lowers costs. Learn more in the blog series, [Getting Started with Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1).
 {% endhint %}
 
-A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. You will first need to create a file that stores the bytecode of the contract. Then you will create the smart contract instance that will run the bytecode stored in the given file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. Similar to accounts the instance will exist for autoRenewPeriod seconds. When that is reached, it will renew itself for another autoRenewPeriod seconds by charging its associated cryptocurrency account \(which it creates here\). If it has insufficient cryptocurrency to extend that long, it will extend as long as it can. If its balance is zero, the instance will be deleted.
+A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can remix or another solidity compiler. After you have hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. Similar to accounts the instance will exist for autoRenewPeriod seconds. 
 
 {% hint style="warning" %}
-**Solidity Support**  
-Hedera smart contracts support Solidity versions up to **v0.5.9**.
+**Solidity Support**\
+****Hedera smart contracts support Solidity versions up to **v0.5.9**.
 {% endhint %}
 
 {% hint style="warning" %}
-**Smart Contract State Size and Gas Limit**  
-Each smart contract has a maximum state size of 1MB which can store up to approximately 16,000 key-value pairs. The maximum gas limit is 300\_000.
+**Smart Contract State Size and Gas Limit**\
+****Each smart contract has a maximum state size of 1MB which can store up to approximately 16,000 key-value pairs. The maximum gas limit is 300\_000.
 {% endhint %}
 
 **Transaction Signing Requirements**
@@ -22,20 +22,20 @@ Each smart contract has a maximum state size of 1MB which can store up to approx
 
 **Smart Contract Properties**
 
-| **Field** | **Description** |
-| :--- | :--- |
-| **Admin Key** | Sets the state of the instance and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. |
-| **Gas** | The gas to run the constructor. |
-| **Initial Balance**  | The initial number of hbars to put into the cryptocurrency account associated with and owned by the smart contract. |
-| **Byte Code File** | The file containing the smart contract byte code. |
-| **Proxy Account** | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking, or if it is not currently running a node, then it will behave as if proxyAccountID was null. |
-| **Auto Renew Period** | The period that the instance will charge its account every this many seconds to renew. |
-| **Constructor Parameters** | The constructor parameters to pass. |
-| **Memo** | The memo to be associated with this contract. |
+| **Field**                  | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Admin Key**              | Sets the state of the instance and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. |
+| **Gas**                    | The gas to run the constructor.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Initial Balance **       | The initial number of hbars to put into the cryptocurrency account associated with and owned by the smart contract.                                                                                                                                                                                                                                                                                                                                                  |
+| **Byte Code File**         | The file containing the smart contract byte code.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Proxy Account**          | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking, or if it is not currently running a node, then it will behave as if proxyAccountID was null.                                     |
+| **Auto Renew Period**      | The period that the instance will charge its account every this many seconds to renew.                                                                                                                                                                                                                                                                                                                                                                               |
+| **Constructor Parameters** | The constructor parameters to pass.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Memo**                   | The memo to be associated with this contract.                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
-| Constructor | Description |
-| :--- | :--- |
-| `new ContractCreateTransaction()` | Initializes the ContractCreateTransaction\(\) |
+| Constructor                       | Description                                 |
+| --------------------------------- | ------------------------------------------- |
+| `new ContractCreateTransaction()` | Initializes the ContractCreateTransaction() |
 
 ```java
 new ContractCreateTransaction()
@@ -45,17 +45,17 @@ new ContractCreateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setGas(<gas>)` | long | Required |
-| `setBytecodeFileId(<fileId>)` | FileId | Required |
-| `setInitialBalance(<initialBalance>)` | Hbar | Optional |
-| `setAdminKey(<keys>)` | PublicKey | Optional |
-| `setProxyAccountId(<accountId>`\) | AccountId | Optional |
-| `setConstructorParameters(<constructorParameters>)` | byte \[ \] | Optional |
-| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional |
-| `setContractMemo(<memo>)` | String | Optional |
-| `setAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Optional |
+| Method                                              | Type                       | Requirement |
+| --------------------------------------------------- | -------------------------- | ----------- |
+| `setGas(<gas>)`                                     | long                       | Required    |
+| `setBytecodeFileId(<fileId>)`                       | FileId                     | Required    |
+| `setInitialBalance(<initialBalance>)`               | Hbar                       | Optional    |
+| `setAdminKey(<keys>)`                               | PublicKey                  | Optional    |
+| `setProxyAccountId(<accountId>`)                    | AccountId                  | Optional    |
+| `setConstructorParameters(<constructorParameters>)` | byte \[ ]                  | Optional    |
+| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional    |
+| `setContractMemo(<memo>)`                           | String                     | Optional    |
+| `setAutoRenewPeriod(<autoRenewPeriod>)`             | Duration                   | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -137,17 +137,17 @@ fmt.Printf("The new topic ID is %v\n", newContractId)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setGas(<gas>)` | long | Required |
-| `setBytecodeFileId(<fileId>)` | FileId | Required |
-| `setInitialBalance(<initialBalance>)` | long/Hbar | Optional |
-| `setAdminKey(<publicKeys>)` | Ed25519PublicKey | Optional |
-| `setProxyAccountId(<accountId>`\) | AccountId | Optional |
-| `setConstructorParameters(<constructorParameters>)` | byte \[ \] | Optional |
-| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional |
-| `setContractMemo(<memo>)` | String | Optional |
-| `setAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Optional |
+| Method                                              | Type                       | Requirement |
+| --------------------------------------------------- | -------------------------- | ----------- |
+| `setGas(<gas>)`                                     | long                       | Required    |
+| `setBytecodeFileId(<fileId>)`                       | FileId                     | Required    |
+| `setInitialBalance(<initialBalance>)`               | long/Hbar                  | Optional    |
+| `setAdminKey(<publicKeys>)`                         | Ed25519PublicKey           | Optional    |
+| `setProxyAccountId(<accountId>`)                    | AccountId                  | Optional    |
+| `setConstructorParameters(<constructorParameters>)` | byte \[ ]                  | Optional    |
+| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional    |
+| `setContractMemo(<memo>)`                           | String                     | Optional    |
+| `setAutoRenewPeriod(<autoRenewPeriod>)`             | Duration                   | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -202,16 +202,16 @@ System.out.println("The new contract ID is " + newContractId);
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `getAdminKey(<keys>)` | Key | Optional |
-| `getGas(<gas>)` | long | Optional |
-| `getInitialBalance(<initialBalance>)` | Hbar | Optional |
-| `getBytecodeFileId(<fileId>)` | FileId | Optional |
-| `getProxyAccountId(<accountId>`\) | AccountId | Optional |
-| `getConstructorParameters(<constructorParameters>)` | ByteString | Optional |
-| `getContractMemo(<memo>)` | String | Optional |
-| `getAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Optional |
+| Method                                              | Type       | Requirement |
+| --------------------------------------------------- | ---------- | ----------- |
+| `getAdminKey(<keys>)`                               | Key        | Optional    |
+| `getGas(<gas>)`                                     | long       | Optional    |
+| `getInitialBalance(<initialBalance>)`               | Hbar       | Optional    |
+| `getBytecodeFileId(<fileId>)`                       | FileId     | Optional    |
+| `getProxyAccountId(<accountId>`)                    | AccountId  | Optional    |
+| `getConstructorParameters(<constructorParameters>)` | ByteString | Optional    |
+| `getContractMemo(<memo>)`                           | String     | Optional    |
+| `getAutoRenewPeriod(<autoRenewPeriod>)`             | Duration   | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -262,5 +262,4 @@ transaction.GetAdminKey()
 
 
 
-## 
-
+##
