@@ -29,15 +29,15 @@ new ContractUpdateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                       | Type       | Requirement |
-| -------------------------------------------- | ---------- | ----------- |
-| `setContractId(<contractId>)`                | ContractId | Required    |
-| `setAdminKey(<keys>)`                        | Key        | Optional    |
-| `setBytecodeFileId(<fileId>)`                | FileId     | Optional    |
-| `setProxyAccountId(<accountId>`)             | AccountId  | Optional    |
-| `setContractMemo(<memo>)`                    | String     | Optional    |
-| `setContractExpirationTime(<expirationTime)` | Instant    | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration   | Optional    |
+| Method                                       | Type                                             | Requirement |
+| -------------------------------------------- | ------------------------------------------------ | ----------- |
+| `setContractId(<contractId>)`                | [ContractId](../specialized-types.md#contractid) | Required    |
+| `setAdminKey(<keys>)`                        | Key                                              | Optional    |
+| `setBytecodeFileId(<fileId>)`                | [FileId](../specialized-types.md#fileid)         | Optional    |
+| `setProxyAccountId(<accountId>`)             | [AccountId](../specialized-types.md#accountid)   | Optional    |
+| `setContractMemo(<memo>)`                    | String                                           | Optional    |
+| `setContractExpirationTime(<expirationTime)` | Instant                                          | Optional    |
+| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration                                         | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -180,14 +180,14 @@ System.out.println("The transaction consensus status is " +transactionStatus)
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                 | Type       | Requirement |
-| ---------------------- | ---------- | ----------- |
-| `getContractId()`      | ContractId | Required    |
-| `getAdminKey()`        | Key        | Optional    |
-| `getBytecodeFileId()`  | FileId     | Optional    |
-| `getProxyAccountId()`  | AccountId  | Optional    |
-| `getContractMemo()`    | String     | Optional    |
-| `getAutoRenewPeriod()` | Duration   | Optional    |
+| Method                 | Type                                             | Requirement |
+| ---------------------- | ------------------------------------------------ | ----------- |
+| `getContractId()`      | [ContractId](../specialized-types.md#contractid) | Required    |
+| `getAdminKey()`        | Key                                              | Optional    |
+| `getBytecodeFileId()`  | [FileId](../specialized-types.md#fileid)         | Optional    |
+| `getProxyAccountId()`  | [AccountId](../specialized-types.md#accountid)   | Optional    |
+| `getContractMemo()`    | String                                           | Optional    |
+| `getAutoRenewPeriod()` | Duration                                         | Optional    |
 
 {% code title="Java" %}
 ```java

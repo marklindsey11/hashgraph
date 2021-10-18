@@ -1,14 +1,18 @@
 # Delete a token
 
-Deleting a token marks a token as deleted, though it will remain in the ledger. The operation must be signed by the specified Admin Key of the Token. If the Admin Key is not set, Transaction will result in TOKEN\_IS\_IMMUTABlE. Once deleted update, mint, burn, wipe, freeze, unfreeze, grant kyc, revoke kyc and token transfer transactions will resolve to TOKEN\_WAS\_DELETED.
+Deleting a token marks a token as deleted, though it will remain in the ledger. The operation must be signed by the specified Admin Key of the Token. If the Admin Key is not set, Transaction will result in TOKEN_IS_IMMUTABlE. Once deleted update, mint, burn, wipe, freeze, unfreeze, grant kyc, revoke kyc and token transfer transactions will resolve to TOKEN_WAS_DELETED.
+
+**NFTs**
+
+You cannot delete a specific NFT. You can delete the class of the NFT specified by the token ID after you have burned all associated NFTs associated with the token class
 
 #### Transaction Signing Requirements:
 
 * Admin key
 * Transaction fee payer account key
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                    | Description                                   |
+| ------------------------------ | --------------------------------------------- |
 | `new TokenDeleteTransaction()` | Initializes the TokenDeleteTransaction object |
 
 ```java
@@ -21,9 +25,9 @@ new TokenDeleteTransaction()
 {% tab title="V2" %}
 
 
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The ID of the token to delete | Required |
+| Method                  | Type                   | Description                   | Requirement |
+| ----------------------- | ---------------------- | ----------------------------- | ----------- |
+| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | The ID of the token to delete | Required    |
 
 {% code title="Java" %}
 ```java
@@ -107,9 +111,9 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The ID of the token to delete | Required |
+| Method                  | Type    | Description                   | Requirement |
+| ----------------------- | ------- | ----------------------------- | ----------- |
+| `setTokenId(<tokenId>)` | TokenId | The ID of the token to delete | Required    |
 
 {% code title="Java" %}
 ```java
@@ -152,4 +156,3 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

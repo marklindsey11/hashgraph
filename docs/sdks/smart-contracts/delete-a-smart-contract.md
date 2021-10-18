@@ -1,14 +1,14 @@
 # Delete a smart contract
 
-A transaction that deletes a smart contract from a Hedera network. Once a smart contract is marked deleted, you will not be able to modify any of the contract's properties. ****If a smart contract did not have an admin key defined, you cannot delete the smart contract. You can verify the smart contract was deleted by submitting a smart contract info query to the network.
+A transaction that deletes a smart contract from a Hedera network. Once a smart contract is marked deleted, you will not be able to modify any of the contract's properties.** **If a smart contract did not have an admin key defined, you cannot delete the smart contract. You can verify the smart contract was deleted by submitting a smart contract info query to the network. If a smart contract has an associated hbar balance, you will need to transfer the balance to another Hedera account.
 
 **Transaction Signing Requirements**
 
 * If the admin key was defined for the smart contract it is required to sign the transaction.
-* The client operator \(fee payer account\) private key is required to sign the transaction.
+* The client operator's (fee payer account) private key is required to sign the transaction.
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                       | Description                                    |
+| --------------------------------- | ---------------------------------------------- |
 | `new ContractDeleteTransaction()` | Initializes a ContractDeleteTransaction object |
 
 ```java
@@ -19,11 +19,11 @@ new ContractDeleteTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setContractId(<contractId>)` | ContractId | Sets the contract ID \(x.z.y\) which should be deleted. | Required |
-| `setTransferAccountId(<transferAccountId>)` | AccountId | Sets the account ID \(x.z.y\) which will receive all remaining hbars | Optional |
-| `setTransferContractId(<contractId>)` | ContractId | Sets the contract ID \(x.z.y\) which will receive all remaining hbars. | Optional |
+| Method                                      | Type                                             | Description                                                          | Requirement |
+| ------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------- | ----------- |
+| `setContractId(<contractId>)`               | [ContractId](../specialized-types.md#contractid) | Sets the contract ID (x.z.y) which should be deleted.                | Required    |
+| `setTransferAccountId(<transferAccountId>)` | [AccountId](../specialized-types.md#accountid)   | Sets the account ID (x.z.y) which will receive all remaining hbars   | Optional    |
+| `setTransferContractId(<contractId>)`       | [ContractId](../specialized-types.md#contractid) | Sets the contract ID (x.z.y) which will receive all remaining hbars. | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -56,7 +56,7 @@ const transaction = await new ContractDeleteTransaction()
 //Sign with the admin key on the contract
 const signTx = await transaction.sign(adminKey)
 
-//Sign the transaction with the client operator private key and submit to a Hedera network
+//Sign the transaction with the client operator's private key and submit to a Hedera network
 const txResponse = await signTx.execute(client);
 
 //Get the receipt of the transaction
@@ -101,11 +101,11 @@ fmt.Printf("The transaction consensus status %v\n", transactionStatus)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setContractId(<contractId>)` | ContractId | Sets the contract ID \(x.z.y\) which should be deleted. | Required |
-| `setTransferAccountId(<transferAccountId>)` | AccountId | Sets the account ID \(x.z.y\) which will receive all remaining hbars | Optional |
-| `setTransferContractId(<contractId>)` | ContractId | Sets the contract ID \(x.z.y\) which will receive all remaining hbars. | Optional |
+| Method                                      | Type       | Description                                                          | Requirement |
+| ------------------------------------------- | ---------- | -------------------------------------------------------------------- | ----------- |
+| `setContractId(<contractId>)`               | ContractId | Sets the contract ID (x.z.y) which should be deleted.                | Required    |
+| `setTransferAccountId(<transferAccountId>)` | AccountId  | Sets the account ID (x.z.y) which will receive all remaining hbars   | Optional    |
+| `setTransferContractId(<contractId>)`       | ContractId | Sets the contract ID (x.z.y) which will receive all remaining hbars. | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -149,4 +149,3 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

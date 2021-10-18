@@ -4,7 +4,7 @@
 Before you get started with smart contracts consider if the Hedera Token Service is better for your use case. For most, it provides greater performance and lowers costs. Learn more in the blog series, [Getting Started with Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1).
 {% endhint %}
 
-A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can [remix](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js) or another [solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler. After you have the hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID or by the transaction ID of the transaction that created the file. The constructor will be executed using the given amount of gas. 
+A transaction that creates a new contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can use [remix](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js) or another [solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler. After you have the hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID. The constructor will be executed using the given amount of gas. 
 
 {% hint style="warning" %}
 **Solidity Support**\
@@ -46,17 +46,17 @@ new ContractCreateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                              | Type                       | Requirement |
-| --------------------------------------------------- | -------------------------- | ----------- |
-| `setGas(<gas>)`                                     | long                       | Required    |
-| `setBytecodeFileId(<fileId>)`                       | FileId                     | Required    |
-| `setInitialBalance(<initialBalance>)`               | Hbar                       | Optional    |
-| `setAdminKey(<keys>)`                               | Key                        | Optional    |
-| `setProxyAccountId(<accountId>`)                    | AccountId                  | Optional    |
-| `setConstructorParameters(<constructorParameters>)` | byte \[ ]                  | Optional    |
-| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional    |
-| `setContractMemo(<memo>)`                           | String                     | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`             | Duration                   | Optional    |
+| Method                                              | Type                                           | Requirement |
+| --------------------------------------------------- | ---------------------------------------------- | ----------- |
+| `setGas(<gas>)`                                     | long                                           | Required    |
+| `setBytecodeFileId(<fileId>)`                       | [FileId](../specialized-types.md#fileid)       | Required    |
+| `setInitialBalance(<initialBalance>)`               | Hbar                                           | Optional    |
+| `setAdminKey(<keys>)`                               | Key                                            | Optional    |
+| `setProxyAccountId(<accountId>`)                    | [AccountId](../specialized-types.md#accountid) | Optional    |
+| `setConstructorParameters(<constructorParameters>)` | byte \[ ]                                      | Optional    |
+| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters                     | Optional    |
+| `setContractMemo(<memo>)`                           | String                                         | Optional    |
+| `setAutoRenewPeriod(<autoRenewPeriod>)`             | Duration                                       | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -138,17 +138,17 @@ fmt.Printf("The new topic ID is %v\n", newContractId)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method                                              | Type                       | Requirement |
-| --------------------------------------------------- | -------------------------- | ----------- |
-| `setGas(<gas>)`                                     | long                       | Required    |
-| `setBytecodeFileId(<fileId>)`                       | FileId                     | Required    |
-| `setInitialBalance(<initialBalance>)`               | long/Hbar                  | Optional    |
-| `setAdminKey(<publicKeys>)`                         | Ed25519PublicKey           | Optional    |
-| `setProxyAccountId(<accountId>`)                    | AccountId                  | Optional    |
-| `setConstructorParameters(<constructorParameters>)` | byte \[ ]                  | Optional    |
-| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters | Optional    |
-| `setContractMemo(<memo>)`                           | String                     | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`             | Duration                   | Optional    |
+| Method                                              | Type                                     | Requirement |
+| --------------------------------------------------- | ---------------------------------------- | ----------- |
+| `setGas(<gas>)`                                     | long                                     | Required    |
+| `setBytecodeFileId(<fileId>)`                       | [FileId](../specialized-types.md#fileid) | Required    |
+| `setInitialBalance(<initialBalance>)`               | long/Hbar                                | Optional    |
+| `setAdminKey(<publicKeys>)`                         | Ed25519PublicKey                         | Optional    |
+| `setProxyAccountId(<accountId>`)                    | AccountId                                | Optional    |
+| `setConstructorParameters(<constructorParameters>)` | byte \[ ]                                | Optional    |
+| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters               | Optional    |
+| `setContractMemo(<memo>)`                           | String                                   | Optional    |
+| `setAutoRenewPeriod(<autoRenewPeriod>)`             | Duration                                 | Optional    |
 
 {% code title="Java" %}
 ```java

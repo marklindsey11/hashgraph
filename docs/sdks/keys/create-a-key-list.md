@@ -1,12 +1,12 @@
 # Create a key list
 
-Create a key list key structure where all the keys in the list are required to sign transactions that modify accounts, topics, tokens, smart contracts, or files. If all the keys in the key list key structure do not sign, the transaction will fail and return an "INVALID\_SIGNATURE" error. A key list can have repeated keys. A signature for the repeated key will count as many times as the key is listed in the key list. For example, a key list has three keys. Two of the three public keys in the list are the same. When a user signs a transaction with the repeated key it will account for two out of the three keys required signature. 
+Create a key list key structure where all the keys in the list are required to sign transactions that modify accounts, topics, tokens, smart contracts, or files. If all the keys in the key list key structure do not sign, the transaction will fail and return an "INVALID_SIGNATURE" error. A key list can have repeated keys. A signature for the repeated key will count as many times as the key is listed in the key list. For example, a key list has three keys. Two of the three public keys in the list are the same. When a user signs a transaction with the repeated key it will account for two out of the three keys required signature. 
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `KeyList.of(<keys>)` | Key | Keys to add to the key list |
+| Method               | Type | Description                 |
+| -------------------- | ---- | --------------------------- |
+| `KeyList.of(<keys>)` | Key  | Keys to add to the key list |
 
 {% code title="Java" %}
 ```java
@@ -98,16 +98,16 @@ fmt.Printf("The key list is %v\n", keyStructure)
 
 **Sample Output**
 
-`KeyList{threshold=null,   
-     keys=[302e020100300506032b6570042204201cd556de918842179791d9edd75cdd2b5d34c5c73b0239ec0b34c67eedc020fd, 302e020100300506032b6570042204209ca1ce4463b71c72bba0219c37e18347a5145a9797c6546a6c99e50255c54be3, 302e020100300506032b657004220420982bb43f4947e8376e2f0ebfde086d24323b04d731da29446e5bc399ffbe06e1]  
-}`
+`KeyList{threshold=null, `\
+`     keys=[302e020100300506032b6570042204201cd556de918842179791d9edd75cdd2b5d34c5c73b0239ec0b34c67eedc020fd, 302e020100300506032b6570042204209ca1ce4463b71c72bba0219c37e18347a5145a9797c6546a6c99e50255c54be3, 302e020100300506032b657004220420982bb43f4947e8376e2f0ebfde086d24323b04d731da29446e5bc399ffbe06e1]`\
+`}`
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `add(<key>)` | Ed25519PublicKey | Add one public key to the key list |
-| `addAll(<keys>)` | Ed25519PublicKey | Add all keys to the key list |
+| Method           | Type             | Description                        |
+| ---------------- | ---------------- | ---------------------------------- |
+| `add(<key>)`     | Ed25519PublicKey | Add one public key to the key list |
+| `addAll(<keys>)` | Ed25519PublicKey | Add all keys to the key list       |
 
 {% code title="Java" %}
 ```java
@@ -148,6 +148,4 @@ const keyList = new KeyList().add(publicKey1).add(publicKey2).add(publicKey3);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

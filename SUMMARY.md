@@ -50,7 +50,7 @@
 * [State and History](core-concepts/state-and-history.md)
 * [Mirror Nodes](core-concepts/mirror-nodes.md)
 
-## Documentation <a id="docs"></a>
+## Documentation <a href="docs" id="docs"></a>
 
 * [Release Notes](docs/release-notes/README.md)
   * [Hedera Services](docs/release-notes/services.md)
@@ -178,6 +178,7 @@
     * [TokenBalance](docs/hedera-api/basic-types/tokenbalance.md)
     * [TokenBalances](docs/hedera-api/basic-types/tokenbalances.md)
     * [TokenFreezeStatus](docs/hedera-api/basic-types/tokenfreezestatus.md)
+    * [TokenPauseStatus](docs/hedera-api/basic-types/tokenpausestatus.md)
     * [TokenID](docs/hedera-api/basic-types/tokenid.md)
     * [TokenKycStatus](docs/hedera-api/basic-types/tokenkycstatus.md)
     * [TokenRelationship](docs/hedera-api/basic-types/tokenrelationship.md)
@@ -236,6 +237,8 @@
     * [TokenAssociate](docs/hedera-api/token-service/tokenassociate.md)
     * [TokenDissociate](docs/hedera-api/token-service/tokendissociate.md)
     * [TokenWipeAccount](docs/hedera-api/token-service/tokenwipeaccount.md)
+    * [TokenPause](docs/hedera-api/token-service/tokenpause.md)
+    * [TokenUnpause](docs/hedera-api/token-service/tokenunpause.md)
     * [TokenGetInfo](docs/hedera-api/token-service/tokengetinfo.md)
     * [TokenGetNftInfo](docs/hedera-api/token-service/tokengetnftinfo.md)
     * [TokenGetNftInfos](docs/hedera-api/token-service/tokengetnftinfos.md)
@@ -310,4 +313,3 @@
 * [Hedera FAQ](https://help.hedera.com/hc/en-us)
 * [Status Page](https://status.hedera.com)
 * [Brand Guidelines](support-and-community/brand-guidelines.md)
-
