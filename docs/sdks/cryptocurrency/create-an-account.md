@@ -8,22 +8,78 @@ When creating a **new account** an existing account will need to pay for the tra
 
 **Transaction Signing Requirements**
 
-* The account paying for the transaction fee is required to sign the transaction (usually client operator account private key)
+* The account paying for the transaction fee is required to sign the transaction \(usually client operator account private key\)
 
 **Transaction Properties**
 
-| Field                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Key**                              | The key for the new account.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **Initial Balance**                  | The initial balance of the account, transferred from the operator account, in Hbar.                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Receiver Signature Required**      | <p>If true, all the account keys must sign any transaction depositing into this account (in addition to all withdrawals).</p><p><em>default: false</em></p>                                                                                                                                                                                                                                                                                                                 |
-| **Max Automatic Token Associations** | Accounts can optionally automatically associate tokens to this account if this property is set. You do not need to associate a token prior to transferring it to this account. The maximum number of auto token associations allowed are 1,000. Please see [HIP-23](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md).                                                                                                                    |
-| **Memo**                             | Set a note or description that should be recorded with the state of the account entity (maximum length of 100 characters). Anyone can view this memo on the network.                                                                                                                                                                                                                                                                                                        |
-| **Auto Renew Period**                | <p>The period of time in which the account will auto-renew in seconds. The account is charged tinybars for every auto-renew period. Duration type is in seconds. For example, one hour would result in an input value of 3,600 seconds.<br><br><strong>NOTE:</strong> This is fixed to approximately 3 months (7890000 seconds). Any other value will return the following error: AUTORENEW_DURATION_NOT_IN_RANGE.</p><p><em>default: 2,592,000 seconds</em> (DISABLED)</p> |
-| **Proxy Account**                    | ID of the account to which this account is proxy staked **(**DISABLED).                                                                                                                                                                                                                                                                                                                                                                                                     |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Field</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>Key</b>
+      </td>
+      <td style="text-align:left">The key for the new account.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Initial Balance</b>
+      </td>
+      <td style="text-align:left">The initial balance of the account, transferred from the operator account,
+        in Hbar.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Receiver Signature Required</b>
+      </td>
+      <td style="text-align:left">
+        <p>If true, all the account keys must sign any transaction depositing into
+          this account (in addition to all withdrawals).</p>
+        <p><em>default: false</em>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Max Automatic Token Associations</b>
+      </td>
+      <td style="text-align:left">Accounts can optionally automatically associate tokens to this account
+        if this property is set. You do not need to associate a token prior to
+        transferring it to this account. The maximum number of auto token associations
+        allowed are 1,000. Please see <a href="https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md">HIP-23</a>.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Memo</b>
+      </td>
+      <td style="text-align:left">Set a note or description that should be recorded with the state of the
+        account entity (maximum length of 100 characters). Anyone can view this
+        memo on the network.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Auto Renew Period</b>
+      </td>
+      <td style="text-align:left">
+        <p>The period of time in which the account will auto-renew in seconds. The
+          account is charged tinybars for every auto-renew period. Duration type
+          is in seconds. For example, one hour would result in an input value of
+          3,600 seconds.
+          <br />
+          <br /><b>NOTE:</b> This is fixed to approximately 3 months (7890000 seconds).
+          Any other value will return the following error: AUTORENEW_DURATION_NOT_IN_RANGE.</p>
+        <p><em>default: 2,592,000 seconds</em> (DISABLED)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>Proxy Account</b>
+      </td>
+      <td style="text-align:left">ID of the account to which this account is proxy staked <b>(</b>DISABLED).</td>
+    </tr>
+  </tbody>
+</table>
 
-| Constructor                      | Description                                     |
-| -------------------------------- | ----------------------------------------------- |
+| Constructor | Description |
+| :--- | :--- |
 | `new AccountCreateTransaction()` | Initializes the AccountCreateTransaction object |
 
 ```java
@@ -34,15 +90,15 @@ new AccountCreateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                         | Type                                           | Requirement |
-| ---------------------------------------------- | ---------------------------------------------- | ----------- |
-| `setKey(<key>)`                                | Key                                            | Required    |
-| `setInitialBalance(<initialBalance>)`          | HBar                                           | Optional    |
-| `setReceiverSignatureRequired(<booleanValue>)` | boolean                                        | Optional    |
-| `setMaxAutomaticTokenAssociations(<amount>)`   | int                                            | Optional    |
-| `setAccountMemo(<memo>)`                       | String                                         | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`        | Duration                                       | Disabled    |
-| `setProxyAccount(<accountId>)`                 | [AccountId](../specialized-types.md#accountid) | Disabled    |
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setKey(<key>)` | Key | Required |
+| `setInitialBalance(<initialBalance>)` | HBar | Optional |
+| `setReceiverSignatureRequired(<booleanValue>)` | boolean | Optional |
+| `setMaxAutomaticTokenAssociations(<amount>)` | int | Optional |
+| `setAccountMemo(<memo>)` | String | Optional |
+| `setAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Disabled |
+| `setProxyAccount(<accountId>)` | [AccountId](../specialized-types.md#accountid) | Disabled |
 
 {% code title="Java" %}
 ```java
@@ -118,13 +174,13 @@ fmt.Printf("The new account ID is %v\n", newAccountId)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method                                         | Type            | Requirement |
-| ---------------------------------------------- | --------------- | ----------- |
-| `setKey(<key>)`                                | Ed25519PubicKey | Required    |
-| `setInitialBalance(<initialBalance>)`          | Hbar/long       | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`        | Duration        | Disabled    |
-| `setReceiverSignatureRequired(<booleanValue>)` | boolean         | Optional    |
-| `setProxyAccount(<accountId>)`                 | AccountId       | Disabled    |
+| Method | Type | Requirement |
+| :--- | :--- | :--- |
+| `setKey(<key>)` | Ed25519PubicKey | Required |
+| `setInitialBalance(<initialBalance>)` | Hbar/long | Optional |
+| `setAutoRenewPeriod(<autoRenewPeriod>)` | Duration | Disabled |
+| `setReceiverSignatureRequired(<booleanValue>)` | boolean | Optional |
+| `setProxyAccount(<accountId>)` | AccountId | Disabled |
 
 {% code title="Java" %}
 ```java
@@ -176,12 +232,12 @@ console.log("The new account ID is " +newAccountId);
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                           | Type     | Description                                               |
-| -------------------------------- | -------- | --------------------------------------------------------- |
-| `getKey()`                       | Key      | Returns the public key on the account                     |
-| `getInitialBalance()`            | Hbar     | Returns the initial balance of the account                |
-| `getAutoRenewPeriod()`           | Duration | Returns the auto renew period on the account              |
-| `getReceiverSignatureRequired()` | boolean  | Returns whether the receiver signature is required or not |
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getKey()` | Key | Returns the public key on the account |
+| `getInitialBalance()` | Hbar | Returns the initial balance of the account |
+| `getAutoRenewPeriod()` | Duration | Returns the auto renew period on the account |
+| `getReceiverSignatureRequired()` | boolean | Returns whether the receiver signature is required or not |
 
 {% code title="Java" %}
 ```java
@@ -222,3 +278,4 @@ accountKey, err := AccountCreateTransaction.GetKey()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+

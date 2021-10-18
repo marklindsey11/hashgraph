@@ -12,27 +12,27 @@ A transaction that transfers hbars and tokens between Hedera accounts. You can e
 
 * The account sending the tokens is required to sign the transaction. 
 
-| Constructor                 | Description                                |
-| --------------------------- | ------------------------------------------ |
+{% tabs %}
+{% tab title="V2" %}
+| Constructor | Description |
+| :--- | :--- |
 | `new TransferTransaction()` | Initializes the TransferTransaction object |
 
 ```java
 new TransferTransaction()
 ```
 
-{% tabs %}
-{% tab title="V2" %}
 ### Methods
 
-| Method                                         | Type                     | Description                                                                                                                                             |
-| ---------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `addHbarTransfer(<accountId, value>)`          | AccountID, Hbar          | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero.           |
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `addHbarTransfer(<accountId, value>)` | AccountID, Hbar | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
 | `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, and the value of the token to transfer. The sender and recipient values must net zero. |
 
 {% code title="Java" %}
 ```java
 // Create a transaction to transfer 100 hbars
-TransferTransaction transaction = new TransferTransaction()
+TransferTransaction transaction1 = new TransferTransaction()
      .addHbarTransfer(OPERATOR_ID, new Hbar(-10))
      .addHbarTransfer(newAccountId, new Hbar(10));
 
@@ -105,15 +105,23 @@ fmt.Printf("The transaction consensus status is %v\n", transactionReceipt.Status
 {% endtab %}
 
 {% tab title="V1" %}
-| Method                                         | Type                     | Description                                                                                                                                     |
-| ---------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `addHbarTransfer(<accountId, value>)`          | AccountId, Hbar/long     | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero.   |
+| Constructor | Description |
+| :--- | :--- |
+| `new TransferTransaction()` | Initializes the TransferTransaction object |
+
+```java
+new TransferTransaction()
+```
+
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `addHbarTransfer(<accountId, value>)` | AccountId, Hbar/long | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
 | `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer. The sender and recipient values must net zero. |
 
 {% code title="Java" %}
 ```java
 //Create the transfer transaction
-TransferTransaction transaction = new TransferTransaction()
+TransferTransaction transaction1 = new TransferTransaction()
     .addHbarTransfer(OPERATOR_ID, new Hbar(-10))
     .addHbarTransfer(newAccountId, new Hbar(10));
 
@@ -162,10 +170,10 @@ console.log("The transaction consensus status is " +transactionStatus);
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                | Type                                 | Description                                              |
-| --------------------- | ------------------------------------ | -------------------------------------------------------- |
-| `getHbarTransfers()`  | Map\<AccountId,  Hbar>               | Returns a list of the hbar transfers in this transaction |
-| `getTokenTransfers()` | Map\<TokenId, Map\<AccountId, long>> | Returns the list of token transfers in the transaction   |
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getHbarTransfers()` | Map&lt;AccountId,  Hbar&gt; | Returns a list of the hbar transfers in this transaction |
+| `getTokenTransfers()` | Map&lt;TokenId, Map&lt;AccountId, long&gt;&gt; | Returns the list of token transfers in the transaction |
 
 {% code title="Java" %}
 ```java
@@ -209,3 +217,4 @@ transfers := transaction.GetTransfers()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+

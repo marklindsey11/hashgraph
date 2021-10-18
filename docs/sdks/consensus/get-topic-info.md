@@ -4,17 +4,17 @@ Topic info returns the following values for a topic.  Queries do not change the 
 
 **Topic Info Response:**
 
-| **Field**              | **Description**                                                                                                                                                |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Topic ID**           | The ID of the topic                                                                                                                                            |
-| **Admin Key**          | Access control for update/delete of the topic. Null if there is no key.                                                                                        |
-| **Submit Key**         | Access control for ConsensusService.submitMessage. Null if there is no key.                                                                                    |
-| **Sequence Number**    | Current sequence number (starting at 1 for the first submitMessage) of messages on the topic.                                                                  |
-| **Running Hash**       | SHA-384 running hash                                                                                                                                           |
-| **Expiration Time**    | Effective consensus timestamp at (and after) which submitMessage calls will no longer succeed on the topic and the topic will expire and be marked as deleted. |
-| **Topic Memo**         | Short publicly visible memo about the topic. No guarantee of uniqueness.                                                                                       |
-| **Auto Renew Period**  | The lifetime of the topic and the amount of time to extend the topic's lifetime by                                                                             |
-| **Auto Renew Account** | Null if there is no autoRenewAccount.                                                                                                                          |
+| **Field** | **Description** |
+| :--- | :--- |
+| **Topic ID** | The ID of the topic |
+| **Admin Key** | Access control for update/delete of the topic. Null if there is no key. |
+| **Submit Key** | Access control for ConsensusService.submitMessage. Null if there is no key. |
+| **Sequence Number** | Current sequence number \(starting at 1 for the first submitMessage\) of messages on the topic. |
+| **Running Hash** | SHA-384 running hash  |
+| **Expiration Time** | Effective consensus timestamp at \(and after\) which submitMessage calls will no longer succeed on the topic and the topic will expire and be marked as deleted. |
+| **Topic Memo** | Short publicly visible memo about the topic. No guarantee of uniqueness. |
+| **Auto Renew Period** | The lifetime of the topic and the amount of time to extend the topic's lifetime by |
+| **Auto Renew Account** | Null if there is no autoRenewAccount.  |
 
 **Query Signing Requirements**
 
@@ -22,17 +22,17 @@ Topic info returns the following values for a topic.  Queries do not change the 
 
 {% tabs %}
 {% tab title="V2" %}
-| Constructor            | Description                           |
-| ---------------------- | ------------------------------------- |
+| Constructor | Description |
+| :--- | :--- |
 | `new TopicInfoQuery()` | Initializes the TopicInfoQuery object |
 
 ```java
 new TopicInfoQuery()
 ```
 
-| Method                  | Type    | Description                                | Requirement |
-| ----------------------- | ------- | ------------------------------------------ | ----------- |
-| `setTopicId(<topicId>)` | TopicId | The ID of the topic to get information for | Required    |
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTopicId(<topicId>)` | TopicId | The ID of the topic to get information for | Required |
 
 {% code title="Java" %}
 ```java
@@ -87,24 +87,24 @@ println(info)
 
 **Sample Output:**
 
-`TopicInfo{`\
-`      topicId=0.0.102736,  `\
-`      topicMemo=,  `\
-`      runningHash=[  `\
-`          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,            0. 0, 0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0`\
-`      ],  `\
-`      sequenceNumber=0,  `\
-`      expirationTime=2021-02-09T03:17:07.258292001Z,  `\
-`      adminKey=null,  `\
-`      submitKey=null,  `\
-`      autoRenewPeriod=PT2160H,  `\
-`     autoRenewAccountId=null`\
-`}`
+`TopicInfo{  
+     topicId=0.0.102736,   
+     topicMemo=,   
+     runningHash=[   
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,            0. 0, 0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0  
+     ],   
+     sequenceNumber=0,   
+     expirationTime=2021-02-09T03:17:07.258292001Z,   
+     adminKey=null,   
+     submitKey=null,   
+     autoRenewPeriod=PT2160H,   
+     autoRenewAccountId=null  
+}`
 {% endtab %}
 
 {% tab title="V1" %}
-| Constructor                     | Description                                    |
-| ------------------------------- | ---------------------------------------------- |
+| Constructor | Description |
+| :--- | :--- |
 | `new ConsensusTopicInfoQuery()` | Initializes the ConsensusTopicInfoQuery object |
 
 ```java
@@ -113,9 +113,9 @@ new ConsensusTopicInfoQuery()
 
 
 
-| Method                  | Type    | Description                                | Requirement |
-| ----------------------- | ------- | ------------------------------------------ | ----------- |
-| `setTopicId(<topicId>)` | TopicId | The ID of the topic to get information for | Required    |
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTopicId(<topicId>)` | TopicId | The ID of the topic to get information for | Required |
 
 {% code title="Java" %}
 ```java
@@ -150,4 +150,6 @@ console.log(info);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+
 

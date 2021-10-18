@@ -1,6 +1,6 @@
 # Burn a token
 
-Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supply Key is defined, the transaction will resolve to TOKEN_HAS_NO_SUPPLY_KEY. 
+Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY. 
 
 * The operation decreases the Total Supply of the Token. 
 * Total supply cannot go below zero. 
@@ -12,8 +12,8 @@ Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supp
 * Supply key
 * Transaction fee payer account key
 
-| Constructor                  | Description                                     |
-| ---------------------------- | ----------------------------------------------- |
+| Constructor | Description |
+| :--- | :--- |
 | `new TokenBurnTransaction()` |     Initializes the TokenBurnTransaction object |
 
 ```java
@@ -26,12 +26,12 @@ new TokenBurnTransaction()
 {% tab title="V2" %}
 
 
-| Method                  | Type        | Description                                                                             | Requirement |
-| ----------------------- | ----------- | --------------------------------------------------------------------------------------- | ----------- |
-| `setTokenId(<tokenId>)` | TokenId     | The ID of the token to burn supply                                                      | Required    |
-| `setAmount(<amount>)`   | long        | The number of tokens to burn (fungible tokens)                                          | Optional    |
-| `setSerials(<serials>)` | List\<long> | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The  list of NFT serial IDs to burn. | Optional    |
-| `addSerial(<serial>)`   | long        | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The serial ID to burn.               | Optional    |
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTokenId(<tokenId>)` | TokenId | The ID of the token to burn supply | Required |
+| `setAmount(<amount>)` | long | The number of tokens to burn \(fungible tokens\) | Optional |
+| `setSerials(<serials>)` | List&lt;long&gt; | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The  list of NFT serial IDs to burn. | Optional |
+| `addSerial(<serial>)` | long | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The serial ID to burn. | Optional |
 
 {% code title="Java" %}
 ```java
@@ -118,12 +118,12 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method                     | Type        | Description                                                                        | Requirement |
-| -------------------------- | ----------- | ---------------------------------------------------------------------------------- | ----------- |
-| `setTokenId(<tokenId>)`    | TokenId     | The ID of the token to burn supply                                                 | Required    |
-| `setTokenAmount(<amount>)` | long        | The number of tokens to burn                                                       | Optional    |
-| `addSerial(<serial>)`      | long        | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. Serial ID to burn.             | Optional    |
-| `setSerials(<serials>)`    | List\<Long> | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE. `A list of NFT serials to burn. | Optional    |
+| Method | Type | Description | Requirement |
+| :--- | :--- | :--- | :--- |
+| `setTokenId(<tokenId>)` | TokenId | The ID of the token to burn supply | Required |
+| `setTokenAmount(<amount>)` | long | The number of tokens to burn | Optional |
+| `addSerial(<serial>)` | long | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. Serial ID to burn. | Optional |
+| `setSerials(<serials>)` | List&lt;Long&gt; | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE.` A list of NFT serials to burn. | Optional |
 
 {% code title="Java" %}
 ```java
@@ -168,4 +168,6 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+
 

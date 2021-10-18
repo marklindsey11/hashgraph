@@ -4,25 +4,25 @@ A transaction that updates the properties of an existing topic. This includes th
 
 #### Topic Properties
 
-| Field                  | Description                                                                                         |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| **Topic ID**           | Update the topic ID                                                                                 |
-| **Admin Key**          | Set a new admin key that authorizes update topic and delete topic transactions.                     |
-| **Submit Key**         | Set a new submit key for a topic that authorizes sending messages to this topic.                    |
-| **Topic Memo**         | Set a new short publicly visible memo on the new topic and is stored with the topic. (100 bytes)    |
-| **Auto Renew Account** | Set a new auto-renew account ID for this topic (once autoRenew functionality is supported by HAPI). |
-| **Auto Renew Period**  | Set a new auto -enew period for this topic (once autoRenew functionality is supported by HAPI).     |
+| Field | Description |
+| :--- | :--- |
+| **Topic ID** | Update the topic ID |
+| **Admin Key** | Set a new admin key that authorizes update topic and delete topic transactions.  |
+| **Submit Key** | Set a new submit key for a topic that authorizes sending messages to this topic.  |
+| **Topic Memo** | Set a new short publicly visible memo on the new topic and is stored with the topic. \(100 bytes\) |
+| **Auto Renew Account** | Set a new auto-renew account ID for this topic \(once autoRenew functionality is supported by HAPI\). |
+| **Auto Renew Period** | Set a new auto -enew period for this topic \(once autoRenew functionality is supported by HAPI\). |
 
 **Transaction Signing Requirements**
 
-* If an admin key is updated, the transaction must be signed by the pre-update admin key and post-update admin key.
-* If the admin key was set during the creation of the topic, the admin key must sign the transaction to update any of the topic's properties 
+* If an adminKey is updated, the transaction must be signed by the pre-update adminKey and post-update adminKey.
+* If the adminKey was set during the creation of the topic, the admin key must sign the transaction to update any of the topic's properties 
 * If no adminKey was defined during the creation of the topic, you can only extend the expirationTime.
 
 {% tabs %}
 {% tab title="V2" %}
-| Constructor                    | Description                                   |
-| ------------------------------ | --------------------------------------------- |
+| Constructor | Description |
+| :--- | :--- |
 | `new TopicUpdateTransaction()` | Initializes the TopicUpdateTransaction object |
 
 ```java
@@ -31,18 +31,18 @@ new TopicUpdateTransaction()
 
 ### Methods
 
-| Method                                     | Type      | Requirements |
-| ------------------------------------------ | --------- | ------------ |
-| `setAdminKey(<adminKey>)`                  | Key       | Optional     |
-| `setSubmitKey(<submitKey>)`                | Key       | Optional     |
-| `setExpirationTime(<expirationTime>)`      | Instant   | Optional     |
-| `setTopicMemo(<memo>)`                     | String    | Optional     |
-| `setAutoRenewAccountId(<accountId>)`       | AccountId | Optional     |
-| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration  | Optional     |
-| `clearAdminKey()`                          |           | Optional     |
-| `clearSubmitKey()`                         |           | Optional     |
-| `clearTopicMemo()`                         |           | Optional     |
-| `clearAutoRenewAccountId()`                |           | Optional     |
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `setAdminKey(<adminKey>)` | Key | Optional |
+| `setSubmitKey(<submitKey>)` | Key | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setTopicMemo(<memo>)` | String | Optional |
+| `setAutoRenewAccountId(<accountId>)` | AccountId | Optional |
+| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Optional |
+| `clearAdminKey()` |  | Optional |
+| `clearSubmitKey()` |  | Optional |
+| `clearTopicMemo()` |  | Optional |
+| `clearAutoRenewAccountId()` |  | Optional |
 
 {% code title="Java" %}
 ```java
@@ -123,8 +123,8 @@ fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
 {% endtab %}
 
 {% tab title="V1" %}
-| Constructor                             | Description                                            |
-| --------------------------------------- | ------------------------------------------------------ |
+| Constructor | Description |
+| :--- | :--- |
 | `new ConsensusTopicUpdateTransaction()` | Initializes the ConsensusTopicUpdateTransaction object |
 
 ```java
@@ -133,19 +133,19 @@ new ConsensusTopicUpdateTransaction()
 
 ### Methods
 
-| Method                                     | Type      | Requirements |
-| ------------------------------------------ | --------- | ------------ |
-| `setTopicId(<topicId>)`                    | TopicId   | Required     |
-| `setAdminKey(<adminKey>)`                  | Key       | Optional     |
-| `setSubmitKey(<submitKey>)`                | Key       | Optional     |
-| `setExpirationTime(<expirationTime>)`      | Instant   | Optional     |
-| `setTopicMemo(<memo>)`                     | String    | Optional     |
-| `setAutoRenewAccountId(<accountId>)`       | AccountId | Optional     |
-| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration  | Optional     |
-| `clearAdminKey()`                          |           | Optional     |
-| `clearSubmitKey()`                         |           | Optional     |
-| `clearTopicMemo()`                         |           | Optional     |
-| `clearAutoRenewAccountId()`                |           | Optional     |
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `setTopicId(<topicId>)` | TopicId | Required |
+| `setAdminKey(<adminKey>)` | Key | Optional |
+| `setSubmitKey(<submitKey>)` | Key | Optional |
+| `setExpirationTime(<expirationTime>)` | Instant | Optional |
+| `setTopicMemo(<memo>)` | String | Optional |
+| `setAutoRenewAccountId(<accountId>)` | AccountId | Optional |
+| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Optional |
+| `clearAdminKey()` |  | Optional |
+| `clearSubmitKey()` |  | Optional |
+| `clearTopicMemo()` |  | Optional |
+| `clearAutoRenewAccountId()` |  | Optional |
 
 {% code title="Java" %}
 ```java
@@ -202,14 +202,14 @@ console.log("The transaction consensus status is " +transactionStatus);
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                    | Type      | Requirements |
-| ------------------------- | --------- | ------------ |
-| `getTopicId()`            | TopicId   | Optional     |
-| `getAdminKey()`           | Key       | Optional     |
-| `getSubmitKey()`          | Key       | Optional     |
-| `getTopicMemo()`          | String    | Optional     |
-| `getAutoRenewAccountId()` | AccountId | Disabled     |
-| `getAutoRenewPeriod()`    | Duration  | Disabled     |
+| Method | Type | Requirements |
+| :--- | :--- | :--- |
+| `getTopicId()` | TopicId | Optional |
+| `getAdminKey()` | Key | Optional |
+| `getSubmitKey()` | Key | Optional |
+| `getTopicMemo()` | String | Optional |
+| `getAutoRenewAccountId()` | AccountId | Disabled |
+| `getAutoRenewPeriod()` | Duration | Disabled |
 
 {% code title="Java" %}
 ```java
@@ -251,4 +251,5 @@ transaction := transaction.GetSubmitKey()
 {% endtab %}
 {% endtabs %}
 
-##
+## 
+

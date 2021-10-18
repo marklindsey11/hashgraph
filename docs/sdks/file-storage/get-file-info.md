@@ -4,22 +4,22 @@ A query that returns the current state of a file. Queries do not change the stat
 
 **File Info Response**
 
-| **Field**           | Description                                         |
-| ------------------- | --------------------------------------------------- |
-| **File ID**         | The Hedera ID of the file                           |
-| **Key(s)**          | The current admin key(s) on the account             |
-| **Size**            | The number of bytes in the file contents            |
+| **Field** | Description |
+| :--- | :--- |
+| **File ID** | The Hedera ID of the file |
+| **Key\(s\)** | The current admin key\(s\) on the account |
+| **Size** | The number of bytes in the file contents |
 | **Expiration Time** | The current time at which the file is set to expire |
-| **Deleted**         | Whether or not the file has been deleted            |
-| **Memo**            | A short description, if any                         |
+| **Deleted** | Whether or not the file has been deleted |
+| **Memo** | A short description, if any |
 
-\
+  
 **Query Signing Requirements**
 
 * The client operator account paying for the query fees is required to sign
 
-| Constructor           | Description                          |
-| --------------------- | ------------------------------------ |
+| Constructor | Description |
+| :--- | :--- |
 | `new FileInfoQuery()` | Initializes the FileInfoQuery object |
 
 ```java
@@ -30,9 +30,9 @@ new FileInfoQuery()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                | Type   | Description                                       |
-| --------------------- | ------ | ------------------------------------------------- |
-| `setFileId(<fileId>)` | FileId | The ID of the file to get information for (x.y.z) |
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to get information for \(x.y.z\) |
 
 {% code title="Java" %}
 ```java
@@ -73,22 +73,22 @@ fmt.Println(getInfo)
 ```
 {% endcode %}
 
-**Sample Output:**\
-****\
-****`FileInfo{`\
-`      fileId=0.0.104926,  `\
-`      size=26,  `\
-`      expirationTime=2021-02-10T17:48:15Z,  `\
-`      deleted=false,  `\
-`     keys=[ 302a300506032b6570032100100059296cc51f5d362a3859d3c3c74c6a480cffad9d669a10c1d447ce56e5bf`\
-`     ]`\
-`}`
+**Sample Output:**  
+  
+`FileInfo{  
+     fileId=0.0.104926,   
+     size=26,   
+     expirationTime=2021-02-10T17:48:15Z,   
+     deleted=false,   
+     keys=[ 302a300506032b6570032100100059296cc51f5d362a3859d3c3c74c6a480cffad9d669a10c1d447ce56e5bf  
+     ]  
+}`
 {% endtab %}
 
 {% tab title="V1" %}
-| Method                | Type   | Description                                       |
-| --------------------- | ------ | ------------------------------------------------- |
-| `setFileId(<fileId>)` | FileId | The ID of the file to get information for (x.y.z) |
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `setFileId(<fileId>)` | FileId | The ID of the file to get information for \(x.y.z\) |
 
 {% code title="Java" %}
 ```java
@@ -126,9 +126,9 @@ console.log("File info response: " +getInfo.keys);
 
 {% tabs %}
 {% tab title="V2" %}
-| Method        | Type   | Description                                    |
-| ------------- | ------ | ---------------------------------------------- |
-| `getFileId()` | FileId | The ID of the file to get contents for (x.z.y) |
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `getFileId()` | FileId | The ID of the file to get contents for \(x.z.y\) |
 
 {% code title="Java" %}
 ```java
@@ -171,4 +171,5 @@ getFileId := query.GetFileID()
 {% endtab %}
 {% endtabs %}
 
-##
+## 
+

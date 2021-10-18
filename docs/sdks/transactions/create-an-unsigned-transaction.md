@@ -4,9 +4,9 @@ These methods allow you to build a transaction that requires further processing 
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                 | Type   | Description                                                                                                                                                                                                                |
-| ---------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `freeze()`             |        | Freeze this transaction from further modification to prepare for signing or serialization. You will need to set the node account ID (`setNodeAccountId()`) and transaction ID (`setTransactionId()`).                      |
+| Method | Type | Description |
+| :--- | :--- | :--- |
+| `freeze()` |  | Freeze this transaction from further modification to prepare for signing or serialization. You will need to set the node account ID \(`setNodeAccountId()`\) and transaction ID \(`setTransactionId()`\). |
 | `freezeWith(<client>)` | Client | Freeze this transaction from further modification to prepare for signing or serialization. Will use the 'Client', if available, to generate a default Transaction ID and select 1/3 nodes to prepare this transaction for. |
 
 {% code title="Java" %}
@@ -65,43 +65,43 @@ println(freezeTransaction.String())
 
 #### Sample Output:
 
-`crypto_create_account {`\
-`       auto_renew_period {  `\
-`          seconds: 7776000`\
-`       }  `\
-`      initial_balance: 1000  `\
-`      key {  `\
-`           ed25519:        "\272g\374\310f\354\274\273bU\256\v\032$e\311\021p\216*L\332\277Y\343\230\277PUmy\373"  `\
-`      }  `\
-`      receive_record_threshold: 9223372036854775807  `\
-`      send_record_threshold: 9223372036854775807  `\
-`     node_account_i_d {`\
-`            account_num: 6  `\
-`            realm_num: 0  `\
-`            shard_num: 0  `\
-`      }  `\
-`      transaction_fee: 100000000  `\
-`     transaction_i_d {  `\
-`           account_i_d {  `\
-`                account_num: 9401  `\
-`                realm_num: 0  `\
-`                shard_num: 0  `\
-`           }  `\
-`           transaction_valid_start {  `\
-`                nanos: 469101387  `\
-`                seconds: 1604559135  `\
-`           }  `\
-`      }  `\
-`      transaction_valid_duration {  `\
-`           seconds: 120  `\
-`     }`\
-`}`
+`crypto_create_account {  
+      auto_renew_period {   
+          seconds: 7776000  
+      }   
+     initial_balance: 1000   
+     key {   
+          ed25519:        "\272g\374\310f\354\274\273bU\256\v\032$e\311\021p\216*L\332\277Y\343\230\277PUmy\373"   
+     }   
+     receive_record_threshold: 9223372036854775807   
+     send_record_threshold: 9223372036854775807   
+     node_account_i_d {  
+           account_num: 6   
+           realm_num: 0   
+           shard_num: 0   
+     }   
+     transaction_fee: 100000000   
+    transaction_i_d {   
+          account_i_d {   
+               account_num: 9401   
+               realm_num: 0   
+               shard_num: 0   
+          }   
+          transaction_valid_start {   
+               nanos: 469101387   
+               seconds: 1604559135   
+          }   
+     }   
+     transaction_valid_duration {   
+          seconds: 120   
+     }  
+}`
 {% endtab %}
 
 {% tab title="V1" %}
-|                   | Type   | Description                                                                                                                                                                                                                |
-| ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `build()`         |        | Freeze this transaction from further modification to prepare for signing or serialization. You will need to set the node account ID (`setNodeAccountId()`) and transaction ID (`setTransactionId()`).                      |
+|  | Type | Description |
+| :--- | :--- | :--- |
+| `build()` |  | Freeze this transaction from further modification to prepare for signing or serialization. You will need to set the node account ID \(`setNodeAccountId()`\) and transaction ID \(`setTransactionId()`\). |
 | `build(<client>)` | Client | Freeze this transaction from further modification to prepare for signing or serialization. Will use the 'Client', if available, to generate a default Transaction ID and select 1/3 nodes to prepare this transaction for. |
 
 {% code title="Java" %}
@@ -140,4 +140,5 @@ System.out.println(unsignedTransaction);
 {% endtab %}
 {% endtabs %}
 
-##
+## 
+
