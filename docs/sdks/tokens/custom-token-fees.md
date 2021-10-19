@@ -1,20 +1,16 @@
 # Custom token fees
 
-When you create a token, you have the ability to set one or many custom fees \(up to 10\). Custom fees are fees that are distributed to the specified accounts each time the token is transferred programmatically. These custom fees can be either a fixed fee, fractional fee, or royalty fee. 
+When you create a token, you have the ability to set one or many custom fees (up to 10). Custom fees are fees that are distributed to the specified accounts each time the token is transferred programmatically. These custom fees can be either a fixed fee, fractional fee, or royalty fee.&#x20;
 
-* A **fixed fee** transfers a specified amount of the token each time a token transfer is initiated to the account that was specified to collect the custom fee \(fee collector account\). The custom token fee does not depend on the amount of the token that is being transferred. You have the option to collect the fee in hbar or another fungible Hedera token. A NFT cannot be used as a token type to collect the fee in. You can set a custom fixed fee for both fungible and non-fungible token types. 
+* A **fixed fee** transfers a specified amount of the token each time a token transfer is initiated to the account that was specified to collect the custom fee (fee collector account). The custom token fee does not depend on the amount of the token that is being transferred. You have the option to collect the fee in hbar or another fungible Hedera token. A NFT cannot be used as a token type to collect the fee in. You can set a custom fixed fee for both fungible and non-fungible token types.&#x20;
 * A **fractional fee** transfers the specified fraction of the total value of the tokens that are being transferred to the specified fee collecting account. Along with setting a custom fractional fee, you can impose minimum and maximum fee limits per transfer transaction. Applicable to fungible tokens only.
 * A **royalty fee** is a fractional fee that is assessed each time the ownership of an NFT is transferred from person A to person B. The fee collector account ID defined in the royalty fee schedule will receive the royalty fee each time. The royalty fee charged is a fraction of the value exchanged for the NFT. If there is no value exchanged for the NFT, a fallback fee can be used to charge the receiving account. Applicable to non-fungible tokens only.
 
 A custom fee schedule can include a mix of fee types. You can optionally set a token's fee schedule during the [creation of a token](define-a-token.md).
 
-{% hint style="danger" %}
-The 0.17 Hedera Services release allows for 1 royalty fee to be charged for a non-fungible token. This limitation will be removed in the 0.18 release. 
-{% endhint %}
-
 **Token Custom Fee Payment**
 
-* Fractional fees are by default charged to the token transfer receiver. This means the receiving account of the fungible token will receive less than the transfer amount \(transfer amount - custom fees\). If the `net_of_transfers` field is set to true, the fractional fees are then charged to the sending account. In this case, the receiving account will receive the full amount of the token transfer value.
+* Fractional fees are by default charged to the token transfer receiver. This means the receiving account of the fungible token will receive less than the transfer amount (transfer amount - custom fees). If the `net_of_transfers` field is set to true, the fractional fees are then charged to the sending account. In this case, the receiving account will receive the full amount of the token transfer value.
 * Fixed fees are paid by the sending account in the fungible or non-fungible token transfer transaction.
 * Royalty fees are paid by the account exchanging the fungible value. When the NFT sender does not receive any fungible value, the fallback fee is charged to the NFT receiver
 * The accounts transferring the token to the receiving accounts are responsible for paying the transfer transaction fee in hbar.
@@ -24,11 +20,11 @@ In addition to the custom token fee payment, the sender account is required to p
 **Limits**
 
 * You can add up to 10 custom fees for a given token
-* A token's treasury account and any fee collecting accounts defined in the custom fee schedule for a token are exempt from paying any custom transaction fees when the token is transferred. 
-* At most, two "levels" of custom token fees are allowed. In other words, a token being transferred may have a custom fee schedule \(first layer\) which requires you to pay fees in another token that has its own fee schedule \(second layer\). If that’s the case, a token paid as a fee within the second layer cannot have its own fee schedule, otherwise, that would create a third layer.
+* A token's treasury account and any fee collecting accounts defined in the custom fee schedule for a token are exempt from paying any custom transaction fees when the token is transferred.&#x20;
+* At most, two "levels" of custom token fees are allowed. In other words, a token being transferred may have a custom fee schedule (first layer) which requires you to pay fees in another token that has its own fee schedule (second layer). If that’s the case, a token paid as a fee within the second layer cannot have its own fee schedule, otherwise, that would create a third layer.
 * Fees cannot be a negative value
 
-## Custom Fee 
+## Custom Fee&#x20;
 
 ### Fixed Fee
 
@@ -39,8 +35,8 @@ In addition to the custom token fee payment, the sender account is required to p
     * If the token being generated is an NFT, you cannot use it in the fee schedule
   * If this field is left blank, the default token is hbar
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor            | Description                           |
+| ---------------------- | ------------------------------------- |
 | `new CustomFixedFee()` | Initializes the CustomFixedFee object |
 
 ```java
@@ -51,12 +47,12 @@ new CustomFixedFee()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setFeeCollectorAccountId(<accountId>)` | [AccountId](../../hedera-api/basic-types/accountid.md) | Required |
-| `setHbarAmount(<amount>)` | [Hbar](../hbars.md) | Optional |
-| `setAmount(<amount>)` | long | Optional |
-| `setDenominatingTokenId(<tokenId>)` | [TokenId](../../hedera-api/basic-types/tokenid.md) | Optional |
+| Method                                  | Type                                                   | Requirement |
+| --------------------------------------- | ------------------------------------------------------ | ----------- |
+| `setFeeCollectorAccountId(<accountId>)` | [AccountId](../../hedera-api/basic-types/accountid.md) | Required    |
+| `setHbarAmount(<amount>)`               | [Hbar](../hbars.md)                                    | Optional    |
+| `setAmount(<amount>)`                   | long                                                   | Optional    |
+| `setDenominatingTokenId(<tokenId>)`     | [TokenId](../../hedera-api/basic-types/tokenid.md)     | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -98,11 +94,11 @@ new CustomFixedFee()
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setFeeCollectorAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | Required |
-| `setAmount(<amount>)` | long | Required |
-| `setDenominatingTokenId(<tokenId>)` | [TokenId](token-id.md) | Optional |
+| Method                                  | Type                                           | Requirement |
+| --------------------------------------- | ---------------------------------------------- | ----------- |
+| `setFeeCollectorAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | Required    |
+| `setAmount(<amount>)`                   | long                                           | Required    |
+| `setDenominatingTokenId(<tokenId>)`     | [TokenId](token-id.md)                         | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -137,8 +133,8 @@ new CustomFixedFee()
 * Cannot exceed the fractional range of a 64 bit signed integer
 * If the assessment method field is set, the token's custom fee is charged to the sending account and the receiving account receives the full token transfer amount. If this field is set to false, the receiver pays for the token custom fees and gets the remaining token balance.
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                 | Description                                |
+| --------------------------- | ------------------------------------------ |
 | `new CustomFractionalFee()` | Initializes the CustomFractionalFee object |
 
 ```java
@@ -149,14 +145,14 @@ new CustomFractionalFee()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setFeeCollectorAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | Required |
-| `setNumerator(<numerator>)` | long | Required |
-| `setDenominator(<amount>)` | long | Required |
-| `setMax(<max>)` | long | Optional |
-| `setMin(<min>)` | long | Optional |
-| `setAssessmentMethod(<assessmentMethod>)` | FeeAssessmentMethod | Optional |
+| Method                                    | Type                                           | Requirement |
+| ----------------------------------------- | ---------------------------------------------- | ----------- |
+| `setFeeCollectorAccountId(<accountId>)`   | [AccountId](../specialized-types.md#accountid) | Required    |
+| `setNumerator(<numerator>)`               | long                                           | Required    |
+| `setDenominator(<amount>)`                | long                                           | Required    |
+| `setMax(<max>)`                           | long                                           | Optional    |
+| `setMin(<min>)`                           | long                                           | Optional    |
+| `setAssessmentMethod(<assessmentMethod>)` | FeeAssessmentMethod                            | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -198,14 +194,14 @@ new CustomFractionalFee()
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setFeeCollectorAccountId(<accountId>)` | [AccountId](../specialized-types.md#accountid) | Required |
-| `setNumerator(<numerator>)` | long | Required |
-| `setDenominator(<amount>)` | long | Required |
-| `setMax(<max>)` | long | Optional |
-| `setMin(<min>)` | long | Optional |
-| `setAssessmentMethod(<assessmentMethod>)` | FeeAssessmentMethod | Optional |
+| Method                                    | Type                                           | Requirement |
+| ----------------------------------------- | ---------------------------------------------- | ----------- |
+| `setFeeCollectorAccountId(<accountId>)`   | [AccountId](../specialized-types.md#accountid) | Required    |
+| `setNumerator(<numerator>)`               | long                                           | Required    |
+| `setDenominator(<amount>)`                | long                                           | Required    |
+| `setMax(<max>)`                           | long                                           | Optional    |
+| `setMin(<min>)`                           | long                                           | Optional    |
+| `setAssessmentMethod(<assessmentMethod>)` | FeeAssessmentMethod                            | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -239,11 +235,11 @@ new CustomFractionalFee()
 * The fallback fee is a [fixed fee](custom-token-fees.md#fixed-fee) that is charged to the NFT receiver when there is no fungible value exchanged with the sender of the NFT
 
 {% hint style="info" %}
-Royalty fees are only applicable to non-fungible tokens \(NFTs\).
+Royalty fees are only applicable to non-fungible tokens (NFTs).
 {% endhint %}
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor              | Description                             |
+| ------------------------ | --------------------------------------- |
 | `new CustomRoyaltyFee()` | Initializes the CustomRoyaltyFee object |
 
 ```java
@@ -254,12 +250,12 @@ new CustomRoyaltyFee()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setNumerator(<numerator>)` | long | Required |
-| `setDenominator(<denominator>)` | long | Required |
-| `setFallbackFee(<fallbackFee>)` | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional |
-| `setFeeCollectorAccountId(<feeCollectorAccountId>)` | [AccountId](../specialized-types.md#accountid) | Required |
+| Method                                              | Type                                             | Requirement |
+| --------------------------------------------------- | ------------------------------------------------ | ----------- |
+| `setNumerator(<numerator>)`                         | long                                             | Required    |
+| `setDenominator(<denominator>)`                     | long                                             | Required    |
+| `setFallbackFee(<fallbackFee>)`                     | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional    |
+| `setFeeCollectorAccountId(<feeCollectorAccountId>)` | [AccountId](../specialized-types.md#accountid)   | Required    |
 
 {% code title="Java" %}
 ```java
@@ -308,12 +304,12 @@ new CustomRoyaltyFee()
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setNumerator(<numerator>)` | long | Required |
-| `setDenominator(<denominator>)` | long | Required |
-| `setFallbackFee(<fallbackFee>)` | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional |
-| `setFeeCollectorAccountId(<feeCollectorAccountId>)` | [AccountId](../specialized-types.md#accountid) | Required |
+| Method                                              | Type                                             | Requirement |
+| --------------------------------------------------- | ------------------------------------------------ | ----------- |
+| `setNumerator(<numerator>)`                         | long                                             | Required    |
+| `setDenominator(<denominator>)`                     | long                                             | Required    |
+| `setFallbackFee(<fallbackFee>)`                     | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional    |
+| `setFeeCollectorAccountId(<feeCollectorAccountId>)` | [AccountId](../specialized-types.md#accountid)   | Required    |
 
 {% code title="Java" %}
 ```java
@@ -343,7 +339,5 @@ new CustomRoyaltyFee()
 {% endtab %}
 {% endtabs %}
 
-## 
-
-
+##
 
