@@ -6,20 +6,20 @@ description: Hedera Services release information
 
 | Network        | Current Version | Upcoming |
 | -------------- | --------------- | -------- |
-| **Mainnet**    | 0.18.1          | 0.19.0   |
-| **Testnet**    | 0.18.2          | 0.19.0   |
-| **Previewnet** | v0.19.0-alpha.5 | 0.19.0   |
+| **Mainnet**    | 0.18.           | 0.19.0   |
+| **Testnet**    | 0.18.2          | 0.20.0   |
+| **Previewnet** | v0.19.1         | 0.20.0   |
 
 ## Upcoming Releases
 
 ## v0.19.0
 
 {% hint style="success" %}
-**MAINNET UPDATE: OCTOBER 21, 2021**
+**MAINNET UPDATE:  NOVEMBER 4, 2021**
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE:  NOVEMBER 4, 2021**
+**TESTNET UPDATE:  OCTOBER 21, 2021**
 {% endhint %}
 
 In Hedera Services 0.19.0, we are thrilled to announce migration of the Hedera smart contract service to the Hyperledger Besu EVM, as laid out in [HIP-26](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md). This enables support for the latest v0.8.9 Solidity contracts, and harmonizes our gas schedule with that of the “London” hard fork. The Besu migration also sets the stage for a step change in smart contract performance on Hedera.
@@ -182,7 +182,7 @@ To simplify fee calculations, there is now a maximum entity lifetime of a centur
 
 In Hedera Services 0.14.0, we have implemented account auto-renewal according to the specifications of [HIP-16](https://github.com/hashgraph/hedera-improvement-proposal). This feature will not be enabled until a later date, after ensuring universal awareness of its impact in the user community.
 
-This release includes notable infrastructure work to enable use of the Platform reconnect feature. Reconnect allows a node that has fallen behind in consensus gossip to catch back up dynamically. 
+This release includes notable infrastructure work to enable use of the Platform reconnect feature. Reconnect allows a node that has fallen behind in consensus gossip to catch back up dynamically.&#x20;
 
 A minor improvement to the Hedera API is that the GetVersionInfo query now includes the optional pre-release version and build metadata fields from the Semantic Versioning spec (if applicable).
 
@@ -248,7 +248,7 @@ To simplify tasks for network admins, we have also streamlined the signing requi
 
 In Hedera Services v0.12.0, we completed the MVP implementation of the Hedera Scheduled Transaction Service (HSTS) as detailed in [this](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/spec.md) design document. This service decouples _what_ should execute on the ledger from _when_ it should execute, giving new flexibility and programmability to users. Note that HSTS operations are enabled on Previewnet, but remain disabled on Testnet and Mainnet at this time.
 
-We have given users of the Hedera Token Service (HTS) more control over the lifecycle of their token associations. In v0.11.0, deleted tokens were immediately dissociated from all accounts. This automatic dissociation no longer occurs. If account `X` is associated with token `Y`, then even if token `Y` is marked for deletion, a `getAccountInfo` query for `X` will continue to show the association with `Y` \_until_it is explicitly removed via a `tokenDissociateFromAccount` transaction. Note that for convenience, queries that return token balances now also return the `decimals` value for the relevant token. This allows a user to interpret e.g. `balance=10050` as `100.50` tokens given `decimals=2`.
+We have given users of the Hedera Token Service (HTS) more control over the lifecycle of their token associations. In v0.11.0, deleted tokens were immediately dissociated from all accounts. This automatic dissociation no longer occurs. If account `X` is associated with token `Y`, then even if token `Y` is marked for deletion, a `getAccountInfo` query for `X` will continue to show the association with `Y` \_until\_it is explicitly removed via a `tokenDissociateFromAccount` transaction. Note that for convenience, queries that return token balances now also return the `decimals` value for the relevant token. This allows a user to interpret e.g. `balance=10050` as `100.50` tokens given `decimals=2`.
 
 In a final Hedera API (HAPI) change, we have extended the `memo` field present on contract and topic entities to the account, file, token, and scheduled transaction entities. (Note this `memo` is distinct from the short-lived `memo` that may be given to any `TransactionBody`for inclusion in the `TransactionRecord`.) All of these changes to HAPI are now more easily browsed via GitHub pages [here](https://hashgraph.github.io/hedera-protobufs/); the new [`hashgraph/hedera-protobufs` repository](https://github.com/hashgraph/hedera-protobufs) is now the authoritative source of the protobuf files defining HAPI.
 
@@ -328,7 +328,7 @@ In Hedera Services v0.8.0, we made several minor fixes and improvements. This ta
 
 * Deprecated fields related to threshold records in HAPI protobuf  [#506](https://github.com/hashgraph/hedera-services/issues/506)
 * Update Receipt proto to pair each Status with NodeID - Receipt is deleted only when the latest (duplicate) transaction expires. `getTxRecord` API will continue to return ALL records with the transaction ID.
-* First drafts of `tokenCreate`, `tokenUpdate`, `tokenDelete`, `tokenTransfer`, `tokenFreeze`, `tokenUnfreeze`, `tokenGrantKyc`, `tokenRevokeYc`, `tokenWipe`, and `getTokenInfo` HAPI operations. [#505](https://github.com/hashgraph/hedera-services/pull/505) and [#522](https://github.com/hashgraph/hedera-services/pull/522) 
+* First drafts of `tokenCreate`, `tokenUpdate`, `tokenDelete`, `tokenTransfer`, `tokenFreeze`, `tokenUnfreeze`, `tokenGrantKyc`, `tokenRevokeYc`, `tokenWipe`, and `getTokenInfo` HAPI operations. [#505](https://github.com/hashgraph/hedera-services/pull/505) and [#522](https://github.com/hashgraph/hedera-services/pull/522)&#x20;
 
 ## [v0.7.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.7.0-alpha1)
 
@@ -383,7 +383,7 @@ In Hedera Services v0.6.0, we’ve enhanced the Hedera Consensus Service by supp
 
 **Documentation changes**
 
-* Protobuf v0.6.0 with HAPI doc update to support HCS Topic Fragmentation 
+* Protobuf v0.6.0 with HAPI doc update to support HCS Topic Fragmentation&#x20;
 
 ## \*\*\*\*[**v0.5.8**](https://github.com/hashgraph/hedera-services/releases/tag/oa-release-r5-rc8)\*\*\*\*
 
@@ -405,7 +405,7 @@ Version 0.5.8 includes a patch which addresses the resilience of peer-to-peer ne
 **TESTNET UPGRADE COMPLETED: MAY 5, 2020**
 {% endhint %}
 
-In Hedera Services v0.5.0, we’ve added TLS for trusted communication with nodes on the Hedera network. For better security, only TLS v1.2 and v1.3 with TLS_ECDHE_ECDSA_WITH_AES\_256\_GCM_SHA384 and TLS_RSA_WITH_AES\_256\_GCM_SHA384 cipher suites are allowed.
+In Hedera Services v0.5.0, we’ve added TLS for trusted communication with nodes on the Hedera network. For better security, only TLS v1.2 and v1.3 with TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384 and TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 cipher suites are allowed.
 
 We’ve added new metadata in the Hedera NodeAddressBook, accessible in system file 0.0.101. The versions of the node software and gRPC Hedera API (HAPI) are now queryable via GetVersionInfo under the new NetworkService for node and network-scoped operations.
 
@@ -421,28 +421,28 @@ Finally, if you use the throttle properties in system file 0.0.121 to estimate n
 
 * Add support for TLS
 * Expand address book metadata
-* Return all created contract ids 
+* Return all created contract ids&#x20;
 * Propagate creator contract metadata
-* Introduce GetVersionInfo query 
-* Standardize throttle configuration 
-* Enforce file.encoding=utf-8 on startup 
+* Introduce GetVersionInfo query&#x20;
+* Standardize throttle configuration&#x20;
+* Enforce file.encoding=utf-8 on startup&#x20;
 * Make duration properties inclusive for readability
 
 **Bug fixes**
 
-* Use message SHA-384 hash in running hash 
-* Enable immutable files  
-* Relax FileDelete signing requirements 
-* Fix sbh calculation in FileUpdate 
+* Use message SHA-384 hash in running hash&#x20;
+* Enable immutable files &#x20;
+* Relax FileDelete signing requirements&#x20;
+* Fix sbh calculation in FileUpdate&#x20;
 * Return metadata for deleted files
-* Enforce receiver signing requirements during contract execution 
+* Enforce receiver signing requirements during contract execution&#x20;
 * Reject invalid CryptoGetInfo
 * Reject CryptoCreate with empty key
-* Return NOT_SUPPORTED for state proof queries 
+* Return NOT\_SUPPORTED for state proof queries&#x20;
 * Waive fees for 0.0.57 updating 0.0.111
 * Waive signing requirements for 0.0.55 updating 0.0.121/0.0.122
 * Waive all fees for 0.0.2
-* Do not throttle system accounts 
+* Do not throttle system accounts&#x20;
 
 **Documentation changes**
 
@@ -451,20 +451,20 @@ Finally, if you use the throttle properties in system file 0.0.121 to estimate n
 
 ## v0.4.1
 
-* Software update includes the ability for Hedera to dynamically set throttles on network transaction types. 
-* The following throttles would be updated to: 1000 submit messages per second and 5 topic creates per second. 
-* Reassigning of new Council Member nodes 
+* Software update includes the ability for Hedera to dynamically set throttles on network transaction types.&#x20;
+* The following throttles would be updated to: 1000 submit messages per second and 5 topic creates per second.&#x20;
+* Reassigning of new Council Member nodes&#x20;
 
 ## v0.4.0
 
-* Say hello to the Hedera Consensus Service! This release is the first to include HCS, allowing verifiable timestamping and ordering of application messages.  
-* Network pricing has been updated to include HCS transactions and queries 
-* Network throttle for HCS set to 1000 tps for submitting messages, and 100 tps for each of the other HCS operations. 
+* Say hello to the Hedera Consensus Service! This release is the first to include HCS, allowing verifiable timestamping and ordering of application messages. &#x20;
+* Network pricing has been updated to include HCS transactions and queries&#x20;
+* Network throttle for HCS set to 1000 tps for submitting messages, and 100 tps for each of the other HCS operations.&#x20;
 * Improved end to end testing.
 * General code clean up and refactoring.
 * ContractCall - TransactionReceipt response to ContractCall no longer includes the contractID called
 * CryptoUpdate - TransactionReceipt response to CryptoUpdate no longer includes the accountID updated
-* CryptoTransfer – CryptoTransfer transactions resulting in INSUFFICIENT_ACCOUNT_BALANCE error no longer list Transfers in the TransactionRecord transferList that were not applied
+* CryptoTransfer – CryptoTransfer transactions resulting in INSUFFICIENT\_ACCOUNT\_BALANCE error no longer list Transfers in the TransactionRecord transferList that were not applied
 
 ### Miscellaneous
 
