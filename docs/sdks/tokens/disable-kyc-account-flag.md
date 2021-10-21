@@ -2,11 +2,11 @@
 
 Revokes the KYC flag to the Hedera account for the given Hedera token. This transaction must be signed by the token's KYC Key. If this key is not set, you can submit a TokenUpdateTransaction to provide the token with this key.
 
-*  If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
+* &#x20;If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
 * If the provided token is not found, the transaction will resolve to INVALID\_TOKEN\_ID.
 * If the provided token has been deleted, the transaction will resolve to TOKEN\_WAS\_DELETED.
-*  If an Association between the provided token and account is not found, the transaction will resolve to TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT.
+* &#x20;If an Association between the provided token and account is not found, the transaction will resolve to TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT.
 * If no KYC Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_KYC\_KEY.
 * Once executed the Account is marked as KYC Revoked
 
@@ -15,8 +15,8 @@ Revokes the KYC flag to the Hedera account for the given Hedera token. This tran
 * KYC key
 * Transaction fee payer account key
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                       | Description                                      |
+| --------------------------------- | ------------------------------------------------ |
 | `new TokenRevokeKycTransaction()` | Initializes the TokenRevokeKycTransaction object |
 
 ```java
@@ -29,10 +29,10 @@ new TokenRevokeKycTransaction()
 {% tab title="V2" %}
 
 
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token ID that is associated with the account to remove the KYC flag for | Required |
-| `setAccountId(<setAccountId>)` | AccountId | The account ID that is associated with the account to remove the KYC flag | Required |
+| Method                         | Type      | Description                                                                 | Requirement |
+| ------------------------------ | --------- | --------------------------------------------------------------------------- | ----------- |
+| `setTokenId(<tokenId>)`        | TokenId   | The token ID that is associated with the account to remove the KYC flag for | Required    |
+| `setAccountId(<setAccountId>)` | AccountId | The account ID that is associated with the account to remove the KYC flag   | Required    |
 
 {% code title="Java" %}
 ```java
@@ -100,7 +100,7 @@ if err != nil {
 		panic(err)
 }
 
-//Get the receipt of the transaction
+//Request the receipt of the transaction
 receipt, err = txResponse.GetReceipt(client)
 
 if err != nil {
@@ -118,10 +118,10 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token ID that is associated with the account to remove the KYC flag | Required |
-| `setAccountId(<setAccountId>)` | AccountId | The account ID that is associated with the account to remove the KYC flag | Required |
+| Method                         | Type      | Description                                                               | Requirement |
+| ------------------------------ | --------- | ------------------------------------------------------------------------- | ----------- |
+| `setTokenId(<tokenId>)`        | TokenId   | The token ID that is associated with the account to remove the KYC flag   | Required    |
+| `setAccountId(<setAccountId>)` | AccountId | The account ID that is associated with the account to remove the KYC flag | Required    |
 
 {% code title="Java" %}
 ```java
@@ -166,6 +166,4 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

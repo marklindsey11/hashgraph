@@ -15,8 +15,8 @@ Grants KYC to the Hedera accounts for the given Hedera token. This transaction m
 * KYC key
 * Transaction fee payer account key
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                      | Description                                     |
+| -------------------------------- | ----------------------------------------------- |
 | `new TokenGrantKycTransaction()` | Initializes the TokenGrantKycTransaction object |
 
 ```java
@@ -29,9 +29,9 @@ new TokenGrantKycTransaction()
 {% tab title="V2" %}
 
 
-| Method | Type | Description | Required |
-| :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token for this account to have passed KYC | Required |
+| Method                      | Type      | Description                                   | Required |
+| --------------------------- | --------- | --------------------------------------------- | -------- |
+| `setTokenId(<tokenId>)`     | TokenId   | The token for this account to have passed KYC | Required |
 | `setAccountId(<accountId>)` | AccountId | The account for this token to have passed KYC | Required |
 
 {% code title="Java" %}
@@ -101,7 +101,7 @@ if err != nil {
 		panic(err)
 }
 
-//Get the receipt of the transaction
+//Request the receipt of the transaction
 receipt, err = txResponse.GetReceipt(client)
 
 if err != nil {
@@ -119,10 +119,10 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The token for this account to have passed KYC | Required |
-| `setAccountId(<accountId>)` | AccountId | The account for this token to have passed KYC | Required |
+| Method                      | Type      | Description                                   | Requirement |
+| --------------------------- | --------- | --------------------------------------------- | ----------- |
+| `setTokenId(<tokenId>)`     | TokenId   | The token for this account to have passed KYC | Required    |
+| `setAccountId(<accountId>)` | AccountId | The account for this token to have passed KYC | Required    |
 
 {% code title="Java" %}
 ```java
@@ -167,6 +167,4 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

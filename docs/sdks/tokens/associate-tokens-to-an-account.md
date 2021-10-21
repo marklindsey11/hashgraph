@@ -1,6 +1,6 @@
 # Associate tokens to an account
 
-Associates the provided Hedera account with the provided Hedera token\(s\). Hedera accounts must be associated with a fungible or non-fungible token first before you can transfer tokens to that account. In the case of NON\_FUNGIBLE Type, once an account is associated, it can hold any number of NFTs \(serial numbers\) of that token type. The Hedera account that is being associated with a token is required to sign the transaction.
+Associates the provided Hedera account with the provided Hedera token(s). Hedera accounts must be associated with a fungible or non-fungible token first before you can transfer tokens to that account. In the case of NON\_FUNGIBLE Type, once an account is associated, it can hold any number of NFTs (serial numbers) of that token type. The Hedera account that is being associated with a token is required to sign the transaction.
 
 * If the provided account is not found, the transaction will resolve to INVALID\_ACCOUNT\_ID.
 * If the provided account has been deleted, the transaction will resolve to ACCOUNT\_DELETED.
@@ -19,8 +19,8 @@ The maximum number of Token IDs that can be associated to an account is 1,000.
 * The key of the account the token is being associated to
 * Transaction fee payer account key
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                       | Description                                    |
+| --------------------------------- | ---------------------------------------------- |
 | `new TokenAssociateTransaction()` | Initializes a TokenAssociateTransaction object |
 
 ```java
@@ -31,10 +31,10 @@ new TokenAssociateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountId | The account to be associated with the provided tokens | Required |
-| `setTokenIds(<tokens>)` | List &lt;TokenId&gt; | The tokens to be associated with the provided account | Required |
+| Method                      | Type            | Description                                           | Requirement |
+| --------------------------- | --------------- | ----------------------------------------------------- | ----------- |
+| `setAccountId(<accountId>)` | AccountId       | The account to be associated with the provided tokens | Required    |
+| `setTokenIds(<tokens>)`     | List \<TokenId> | The tokens to be associated with the provided account | Required    |
 
 {% code title="Java" %}
 ```java
@@ -102,7 +102,7 @@ if err != nil {
     panic(err)
 }
 
-//Get the transaction consensus status
+//Request the receipt of the transaction
 receipt, err = txResponse.GetReceipt(client)
 
 if err != nil {
@@ -120,10 +120,10 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setAccountId(<accountId>)` | AccountId | The account to be associated with the provided tokens | Required |
-| `addTokenId(<tokenId>)` | TokenId | The tokens to be associated with the provided account | Required |
+| Method                      | Type      | Description                                           | Requirement |
+| --------------------------- | --------- | ----------------------------------------------------- | ----------- |
+| `setAccountId(<accountId>)` | AccountId | The account to be associated with the provided tokens | Required    |
+| `addTokenId(<tokenId>)`     | TokenId   | The tokens to be associated with the provided account | Required    |
 
 {% code title="Java" %}
 ```java
@@ -168,4 +168,3 @@ console.log("The transaction consensus status " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

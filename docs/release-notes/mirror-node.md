@@ -14,11 +14,15 @@ description: Hedera mirror node release notes
 
 ## [v0.42.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.42.0)
 
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: OCTOBER 18, 2021**
+{% endhint %}
+
 This release saw a lot of improvements to the mirror node's Hedera Token Service functionality. Support for [HIP-24](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-24.md) pause feature on Hedera Token Service was completed. The importer can ingest the new token pause and unpause transaction types and update the token appropriately. Likewise, the token REST API was updated to show the new pause key and pause status.
 
 Along those lines, the token REST API was also updated to show the token memo and a flag to show if it's deleted. Now when an account is dissociated from a token its supply will be properly updated to show the negative transfer. And if the token in that dissociate is of type NFT, all of the NFTs owned by that account will be properly marked as deleted. We also fixed issues with some special negative transfer amounts showing up in the transactions REST API.
 
-API A new network supply REST API was added to show the released supply. Having the open source mirror node calculate and show the release supply avoids any single point of failure with the current system because a user could ask multiple mirror nodes and compare their answers (or run their own mirror node).
+A new network supply REST API was added to show the released supply. Having the open source mirror node calculate and show the release supply avoids any single point of failure with the current system because a user could ask multiple mirror nodes and compare their answers (or run their own mirror node).
 
 `GET /api/v1/network/supply`
 
@@ -318,7 +322,7 @@ We made some operational improvements to our helm chart including alert dependen
 
 This release adds support for HAPI 0.13.2. This brings with it a new address book file format that is more compact and doesn't duplicate IP address and port information. We took the time to adjust our database to reflect the newer format while maintaining compatibility with the older format.
 
-A big focus of this release was on improving the Helm charts for use in production deployments. We now auto-generate passwords for components that require one and ensure they remain the same on upgrades by using Helm's [lookup](https://helm.sh/docs/chart_template_guide/functions_and_pipelines/#using-the-lookup-function) feature. We added `env`, `envFrom`, `volumes`, `volumeMounts` properties to all charts for more flexible configuration. We added a `global.image.tag` chart property to make it easier to test out custom versions. And we made it easier to use dependencies that can be outside the cluster like Redis and PostgreSQL.
+A big focus of this release was on improving the Helm charts for use in production deployments. We now auto-generate passwords for components that require one and ensure they remain the same on upgrades by using Helm's [lookup](https://helm.sh/docs/chart\_template\_guide/functions\_and\_pipelines/#using-the-lookup-function) feature. We added `env`, `envFrom`, `volumes`, `volumeMounts` properties to all charts for more flexible configuration. We added a `global.image.tag` chart property to make it easier to test out custom versions. And we made it easier to use dependencies that can be outside the cluster like Redis and PostgreSQL.
 
 Some internal improvements saw us automating our release process so that version bumps and release note generation can be kicked off via GitHub. This now also includes generating a CHANGELOG and keeping it up to date with the release notes. And finally we updated our acceptance tests to automatically pull and use the latest address book along with validating all nodes to ensure only the latest, valid nodes are used for validation.
 
@@ -350,7 +354,7 @@ We now expose the raw transaction bytes encoded in Base64 format in the REST API
 
 After scheduled transactions were made available in previewnet, we listened to user feedback and further iterated on the design to make it easier to use. This release adds support for this [revised scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/revised-spec.md) design planned to be released in HAPI v0.13. There was no impact to our REST API format, only the importer needed to be updated to parse and ingest the new proto format. Our monitor API and acceptance tests will be adjusted in the next release once the SDKs add support for the new design.
 
-This release also adds support for the newly announced account balance file format that was released in HAPI v0.12. The new [protobuf](https://github.com/hashgraph/hedera-protobufs/blob/main/streams/account_balance_file.proto)based format will eventually replace the CSV format in July 2021. Until then, both formats will exist simultaneously in the bucket so users can transition at their leisure. Besides being more efficient to parse, the new files are also compressed using Gzip for reduced storage and download costs. We also took the time to improve the balance file parsing performance regardless of format. Average parse times should decrease by about 27%.
+This release also adds support for the newly announced account balance file format that was released in HAPI v0.12. The new [protobuf](https://github.com/hashgraph/hedera-protobufs/blob/main/streams/account\_balance\_file.proto)based format will eventually replace the CSV format in July 2021. Until then, both formats will exist simultaneously in the bucket so users can transition at their leisure. Besides being more efficient to parse, the new files are also compressed using Gzip for reduced storage and download costs. We also took the time to improve the balance file parsing performance regardless of format. Average parse times should decrease by about 27%.
 
 For our REST API, we now expose an `entity_id` field on our transactions related APIs. This field represents the main entity associated with that transaction type. For example, if it was a HCS transaction it would be the topic ID created, updated, or deleted.
 
@@ -712,7 +716,7 @@ Contains a small change to the State Proof Alpha REST API to only return the cur
 
 Building upon the availability of the [State Proof Alpha REST API](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/docs/design/stateproofalpha.md) in the last release, we've added [sample code](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/hedera-mirror-rest/state-proof-demo) in JavaScript to retrieve the state proof from a mirror node and locally verify it. This allows users to obtain cryptographic proof that a particular transaction took place on Hedera. The validity of the proof can be checked independently to ensure that the supermajority of Hedera mainnet stake had reached consensus on that transaction. Similar to the promise of the ultimate state proofs, the user can trust this state proof alpha served by the mirror nodes, even when the user does not trust the mirror nodes.
 
-Importer can now be configured to connect to Amazon S3 using temporary security credentials via [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html). With this, a user that does not have permission to access an AWS resource can request a temporary role that will grant them that permission. See the [configuration documentation](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/docs/configuration.md#connect-to-s3-with-assumerole) for more information.
+Importer can now be configured to connect to Amazon S3 using temporary security credentials via [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API\_AssumeRole.html). With this, a user that does not have permission to access an AWS resource can request a temporary role that will grant them that permission. See the [configuration documentation](https://github.com/hashgraph/hedera-mirror-node/blob/v0.18.0/docs/configuration.md#connect-to-s3-with-assumerole) for more information.
 
 Importer also added two new properties to control the subset of data it should download and validate. The `hedera.mirror.importer.startDate` property can be used to exclude data from before this date and "fast-forward" to the point in time of interest. By default, the `startDate` will be set to the current time so mirror node operators can get up and running quicker with the latest data and reduce cloud storage retrieval costs. Note that this property only applies on the importer's first startup and can't be changed after that. The `hedera.mirror.importer.endDate` property can be used to exclude data after this date and halt the importer. By default it is set to a date far in the future so it will effectively never stop.
 
@@ -768,7 +772,7 @@ Memory improvements were also made in the parser to improve ingestion performanc
 **MAINNET UPGRADE COMPLETED: JULY 29, 2020**
 {% endhint %}
 
-Works around an issue sending large JSON payloads via pg_notify by ignoring them for now. This occurs when a consensus message is sent with a message that exceeds 5824 bytes, which is also very close to the protobuf limit.
+Works around an issue sending large JSON payloads via pg\_notify by ignoring them for now. This occurs when a consensus message is sent with a message that exceeds 5824 bytes, which is also very close to the protobuf limit.
 
 ## [v0.15.2](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.15.2)
 
@@ -992,8 +996,8 @@ Also, we moved the persist properties to be grouped under a new path. That is we
 
 ## [v0.6.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.6.0)
 
-* Release focused on stability and performance improvements. 
-* End to end test coverage. 
+* Release focused on stability and performance improvements.&#x20;
+* End to end test coverage.&#x20;
 
 This release was mainly focused on enhancing the stability and performance of the mirror node. We improved the transaction ingestion speed from 600 to about 4000 transactions per second. At the same time, we greatly improved the resiliency and performance of the GRPC module. We also added acceptance tests to test out HCS end to end.
 
@@ -1003,9 +1007,9 @@ Please note that one potentially breaking change in this release is to reject su
 
 ## v0.5.3
 
-* Now supports all HCS functionality including a streaming gRPC API for message topic subscription. 
+* Now supports all HCS functionality including a streaming gRPC API for message topic subscription.&#x20;
 * Changed how the mirror node verifies mainnet consensus. Mirror node now waits for at least third of node signatures rather than greater than two thirds to verify consensus.
 * Added new mainnet nodes to the mirror node address book.
 * Access still restricted to a white listed set of IP addresses. Request access [here](https://learn.hedera.com/l/576593/2020-01-13/7z5jb).
 * Please see the Mirror Node releases page for the full list of changes [here](https://github.com/hashgraph/hedera-mirror-node/releases).
-* We occasionally may encounter a situation where an additional 15-20 second delay in message round trip time is experienced and subscriber connections are dropped. No messages are lost, and the consensus time is not affected. Clients are encouraged to reconnect. This issue will be fixed in a subsequent release of the Hedera mirror node. Some third-party mirror nodes should not be affected by this issue. We also don't expect it to impact the exchanges using the REST end point for the mirror node. 
+* We occasionally may encounter a situation where an additional 15-20 second delay in message round trip time is experienced and subscriber connections are dropped. No messages are lost, and the consensus time is not affected. Clients are encouraged to reconnect. This issue will be fixed in a subsequent release of the Hedera mirror node. Some third-party mirror nodes should not be affected by this issue. We also don't expect it to impact the exchanges using the REST end point for the mirror node.&#x20;

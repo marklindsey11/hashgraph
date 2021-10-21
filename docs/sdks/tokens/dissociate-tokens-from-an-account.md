@@ -19,8 +19,8 @@ The account is required to have a zero balance of the token you wish to disassoc
 * The key of the account the token is being dissociated with
 * Transaction fee payer account key
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                        | Description                                       |
+| ---------------------------------- | ------------------------------------------------- |
 | `new TokenDissociateTransaction()` | Initializes the TokenDissociateTransaction object |
 
 ```java
@@ -31,10 +31,10 @@ new TokenDissociateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setTokenIds(<tokenId>)` | TokenId | The tokens to be dissociated with the provided account | Required |
-| `setAccountId(<accountId>)` | AccountId | The account to be dissociated with the provided tokens | Required |
+| Method                      | Type      | Description                                            | Requirement |
+| --------------------------- | --------- | ------------------------------------------------------ | ----------- |
+| `setTokenIds(<tokenId>)`    | TokenId   | The tokens to be dissociated with the provided account | Required    |
+| `setAccountId(<accountId>)` | AccountId | The account to be dissociated with the provided tokens | Required    |
 
 {% code title="Java" %}
 ```java
@@ -102,7 +102,7 @@ if err != nil {
     panic(err)
 }
 
-//Get the transaction consensus status
+//Request the receipt of the transaction
 receipt, err = txResponse.GetReceipt(client)
 
 if err != nil {
@@ -120,10 +120,10 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | The tokens to be dissociated with the provided account | Required |
-| `setAccountId(<accountId>)` | AccountId | The account to be dissociated with the provided tokens | Required |
+| Method                      | Type      | Description                                            | Requirement |
+| --------------------------- | --------- | ------------------------------------------------------ | ----------- |
+| `setTokenId(<tokenId>)`     | TokenId   | The tokens to be dissociated with the provided account | Required    |
+| `setAccountId(<accountId>)` | AccountId | The account to be dissociated with the provided tokens | Required    |
 
 {% code title="Java" %}
 ```java
@@ -168,4 +168,3 @@ console.log("The transaction consensus status is: " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

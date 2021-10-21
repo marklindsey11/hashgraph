@@ -2,155 +2,35 @@
 
 Gets information about a fungible or non-fungible token instance. The token info query returns the following information:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Item</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><b>TokenId</b>
-      </td>
-      <td style="text-align:left">ID of the token instance</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Token Type</b>
-      </td>
-      <td style="text-align:left">The type of token (fungible or non-fungible)</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Name</b>
-      </td>
-      <td style="text-align:left">The name of the token. It is a string of ASCII only characters</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Symbol</b>
-      </td>
-      <td style="text-align:left">The symbol of the token. It is a UTF-8 capitalized alphabetical string</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Decimals</b>
-      </td>
-      <td style="text-align:left">The number of decimal places a token is divisible by</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Total Supply</b>
-      </td>
-      <td style="text-align:left">The total supply of tokens that are currently in circulation</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Treasury</b>
-      </td>
-      <td style="text-align:left">The ID of the account which is set as Treasury</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Custom Fees</b>
-      </td>
-      <td style="text-align:left">The custom fee schedule of the token, if any</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Fee Schedule Key</b>
-      </td>
-      <td style="text-align:left">Fee schedule key, if any</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Admin Key</b>
-      </td>
-      <td style="text-align:left">The key which can perform update/delete operations on the token. If empty,
-        the token can be perceived as immutable (not being able to be updated/deleted)</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>KYC Key</b>
-      </td>
-      <td style="text-align:left">The key which can grant or revoke KYC of an account for the token&apos;s
-        transactions. If empty, KYC is not required, and KYC grant or revoke operations
-        are not possible.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Freeze Key</b>
-      </td>
-      <td style="text-align:left">The key which can freeze or unfreeze an account for token transactions.
-        If empty, freezing is not possible</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Wipe Key</b>
-      </td>
-      <td style="text-align:left">The key which can wipe token balance of an account. If empty, wipe is
-        not possible</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Supply Key</b>
-      </td>
-      <td style="text-align:left">The key which can change the supply of a token. The key is used to sign
-        Token Mint/Burn operations</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Max Supply</b>
-      </td>
-      <td style="text-align:left">The max supply of the token</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Supply Type</b>
-      </td>
-      <td style="text-align:left">The supply type of the token</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Default Freeze Status</b>
-      </td>
-      <td style="text-align:left">
-        <p>The default Freeze status (not applicable = null, frozen = false, or unfrozen
-          = true) of Hedera accounts relative to this token.<b> </b>FreezeNotApplicable
-          is returned if Token Freeze Key is empty. Frozen is returned if Token Freeze
-          Key is set and defaultFreeze is set to true. Unfrozen is returned if Token
-          Freeze Key is set and defaultFreeze is set to false.</p>
-        <p>FreezeNotApplicable = null;</p>
-        <p>Frozen = false;</p>
-        <p>Unfrozen = true;</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Default KYC Status</b>
-      </td>
-      <td style="text-align:left">
-        <p>The default KYC status (KycNotApplicable or Revoked) of Hedera accounts
-          relative to this token. KycNotApplicable is returned if KYC key is not
-          set, otherwise Revoked.</p>
-        <p>KycNotApplicable = null;</p>
-        <p>Granted = false;</p>
-        <p>Revoked = true;</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Auto Renew Account</b>
-      </td>
-      <td style="text-align:left">An account which will be automatically charged to renew the token&apos;s
-        expiration, at autoRenewPeriod interval</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Auto Renew Period</b>
-      </td>
-      <td style="text-align:left">The interval at which the auto-renew account will be charged to extend
-        the token&apos;s expiry</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Expiry</b>
-      </td>
-      <td style="text-align:left">The epoch second at which the token will expire; if an auto-renew account
-        and period are specified, this is coerced to the current epoch second plus
-        the autoRenewPeriod</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Memo</b>
-      </td>
-      <td style="text-align:left">Short publicly visible memo about the token, if any</td>
-    </tr>
-  </tbody>
-</table>
+| Item                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **TokenId**               | ID of the token instance                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Token Type**            | The type of token (fungible or non-fungible)                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Name**                  | The name of the token. It is a string of ASCII only characters                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Symbol**                | The symbol of the token. It is a UTF-8 capitalized alphabetical string                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **Decimals**              | The number of decimal places a token is divisible by                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Total Supply**          | The total supply of tokens that are currently in circulation                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Treasury**              | The ID of the account which is set as Treasury                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Custom Fees**           | The custom fee schedule of the token, if any                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Fee Schedule Key**      | Fee schedule key, if any                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Admin Key**             | The key which can perform update/delete operations on the token. If empty, the token can be perceived as immutable (not being able to be updated/deleted)                                                                                                                                                                                                                                                                                                                |
+| **KYC Key**               | The key which can grant or revoke KYC of an account for the token's transactions. If empty, KYC is not required, and KYC grant or revoke operations are not possible.                                                                                                                                                                                                                                                                                                    |
+| **Freeze Key**            | The key which can freeze or unfreeze an account for token transactions. If empty, freezing is not possible                                                                                                                                                                                                                                                                                                                                                               |
+| **Wipe Key**              | The key which can wipe token balance of an account. If empty, wipe is not possible                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Supply Key**            | The key which can change the supply of a token. The key is used to sign Token Mint/Burn operations                                                                                                                                                                                                                                                                                                                                                                       |
+| **Pause Key**             | The key that can pause or unpause the token from participating in transactions.                                                                                                                                                                                                                                                                                                                                                                                          |
+| **Pause Status**          | <p>Whether or not the token is paused.</p><p>false = not paused</p><p>true = paused</p>                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Max Supply**            | The max supply of the token                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Supply Type**           | The supply type of the token                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Default Freeze Status** | <p>The default Freeze status (not applicable = null, frozen = false, or unfrozen = true) of Hedera accounts relative to this token.<strong> </strong>FreezeNotApplicable is returned if Token Freeze Key is empty. Frozen is returned if Token Freeze Key is set and defaultFreeze is set to true. Unfrozen is returned if Token Freeze Key is set and defaultFreeze is set to false.</p><p>FreezeNotApplicable = null;</p><p>Frozen = false;</p><p>Unfrozen = true;</p> |
+| **Default KYC Status**    | <p>The default KYC status (KycNotApplicable or Revoked) of Hedera accounts relative to this token. KycNotApplicable is returned if KYC key is not set, otherwise Revoked.</p><p>KycNotApplicable = null;</p><p>Granted = false;</p><p>Revoked = true;</p>                                                                                                                                                                                                                |
+| **Auto Renew Account**    | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval                                                                                                                                                                                                                                                                                                                                                              |
+| **Auto Renew Period**     | The interval at which the auto-renew account will be charged to extend the token's expiry                                                                                                                                                                                                                                                                                                                                                                                |
+| **Expiry**                | The epoch second at which the token will expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod                                                                                                                                                                                                                                                                                                 |
+| **Memo**                  | Short publicly visible memo about the token, if any                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor            | Description                           |
+| ---------------------- | ------------------------------------- |
 | `new TokenInfoQuery()` | Initializes the TokenInfoQuery object |
 
 ```java
@@ -161,31 +41,33 @@ new TokenInfoQuery()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | Required |
-| `<TokenInfoQuery>.tokenId` | TokenId | Optional |
-| `<TokenInfoQuery>.name` | String | Optional |
-| `<TokenInfoQuery>.symbol` | String | Optional |
-| `<TokenInfoQuery>.decimals` | int | Optional |
-| `<TokenInfoQuery>.customFees` | List&lt;CustomFee&gt; | Optional |
-| `<TokenInfoQuery>.totalSupply` | long | Optional |
-| `<TokenInfoQuery>.treasury` | AccountId | Optional |
-| `<TokenInfoQuery>.adminKey` | Key | Optional |
-| `<TokenInfoQuery>.kycKey` | Key | Optional |
-| `<TokenInfoQuery>.freezeKey` | Key | Optional |
-| `<TokenInfoQuery>.feeScheduleKey` | Key | Optional |
-| `<TokenInfoQuery>.wipeKey` | Key | Optional |
-| `<TokenInfoQuery>.supplyKey` | Key | Optional |
-| `<TokenInfoQuery>.defaultFreezeStatus` | boolean | Optional |
-| `<TokenInfoQuery>.defaultKycStatus` | boolean | Optional |
-| `<TokenInfoQuery>.isDeleted` | boolean | Optional |
-| `<TokenInfoQuery>.tokenType` | TokenType | Optional |
-| `<TokenInfoQuery>.supplyType` | TokenSupplyType | Optional |
-| `<TokenInfoQuery>.maxSupply` | long | Optional |
-| `<TokenInfoQuery>.autoRenewAccount` | AccountId | Optional |
-| `<TokenInfoQuery>.autoRenewPeriod` | Duration | Optional |
-| `<TokenInfoQuery>.expiry` | Instant | Optional |
+| Method                                 | Type             | Requirement |
+| -------------------------------------- | ---------------- | ----------- |
+| `setTokenId(<tokenId>)`                | TokenId          | Required    |
+| `<TokenInfoQuery>.tokenId`             | TokenId          | Optional    |
+| `<TokenInfoQuery>.name`                | String           | Optional    |
+| `<TokenInfoQuery>.symbol`              | String           | Optional    |
+| `<TokenInfoQuery>.decimals`            | int              | Optional    |
+| `<TokenInfoQuery>.customFees`          | List\<CustomFee> | Optional    |
+| `<TokenInfoQuery>.totalSupply`         | long             | Optional    |
+| `<TokenInfoQuery>.treasury`            | AccountId        | Optional    |
+| `<TokenInfoQuery>.adminKey`            | Key              | Optional    |
+| `<TokenInfoQuery>.kycKey`              | Key              | Optional    |
+| `<TokenInfoQuery>.freezeKey`           | Key              | Optional    |
+| `<TokenInfoQuery>.feeScheduleKey`      | Key              | Optional    |
+| `<TokenInfoQuery>.wipeKey`             | Key              | Optional    |
+| `<TokenInfoQuery>.supplyKey`           | Key              | Optional    |
+| `<TokenInfoQuery>.defaultFreezeStatus` | boolean          | Optional    |
+| `<TokenInfoQuery>.defaultKycStatus`    | boolean          | Optional    |
+| `<TokenInfoQuery>.isDeleted`           | boolean          | Optional    |
+| `<TokenInfoQuery>.tokenType`           | TokenType        | Optional    |
+| `<TokenInfoQuery>.supplyType`          | TokenSupplyType  | Optional    |
+| `<TokenInfoQuery>.maxSupply`           | long             | Optional    |
+| `<TokenInfoQuery>.pauseKey`            | Key              | Optional    |
+| `<TokenInfoQuery>.pauseStatus`         | boolean          | Optional    |
+| `<TokenInfoQuery>.autoRenewAccount`    | AccountId        | Optional    |
+| `<TokenInfoQuery>.autoRenewPeriod`     | Duration         | Optional    |
+| `<TokenInfoQuery>.expiry`              | Instant          | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -237,31 +119,31 @@ fmt.Printf("The token info is %v\n", tokenInfo)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | Required |
-| `<TokenInfoQuery>.tokenId` | TokenId | Optional |
-| `<TokenInfoQuery>.name` | String | Optional |
-| `<TokenInfoQuery>.symbol` | String | Optional |
-| `<TokenInfoQuery>.customFees` | List&lt;CustomFee&gt; | Optional |
-| `<TokenInfoQuery>.decimals` | int | Optional |
-| `<TokenInfoQuery>.totalSupply` | long | Optional |
-| `<TokenInfoQuery>.treasury` | AccountId | Optional |
-| `<TokenInfoQuery>.adminKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.kycKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.freezeKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.freezeKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.wipeKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.supplyKey` | PublicKey | Optional |
-| `<TokenInfoQuery>.tokenType` | TokenType | Optional |
-| `<TokenInfoQuery>.supplyType` | TokenSupplyType | Optional |
-| `<TokenInfoQuery>.maxSupply` | long | Optional |
-| `<TokenInfoQuery>.defaultFreezeStatus` | boolean | Optional |
-| `<TokenInfoQuery>.defaultKycStatus` | boolean | Optional |
-| `<TokenInfoQuery>.isDeleted` | boolean | Optional |
-| `<TokenInfoQuery>.autoRenewAccount` | AccountId | Optional |
-| `<TokenInfoQuery>.autoRenewPeriod` | Duration | Optional |
-| `<TokenInfoQuery>.expiry` | Instant | Optional |
+| Method                                 | Type             | Requirement |
+| -------------------------------------- | ---------------- | ----------- |
+| `setTokenId(<tokenId>)`                | TokenId          | Required    |
+| `<TokenInfoQuery>.tokenId`             | TokenId          | Optional    |
+| `<TokenInfoQuery>.name`                | String           | Optional    |
+| `<TokenInfoQuery>.symbol`              | String           | Optional    |
+| `<TokenInfoQuery>.customFees`          | List\<CustomFee> | Optional    |
+| `<TokenInfoQuery>.decimals`            | int              | Optional    |
+| `<TokenInfoQuery>.totalSupply`         | long             | Optional    |
+| `<TokenInfoQuery>.treasury`            | AccountId        | Optional    |
+| `<TokenInfoQuery>.adminKey`            | PublicKey        | Optional    |
+| `<TokenInfoQuery>.kycKey`              | PublicKey        | Optional    |
+| `<TokenInfoQuery>.freezeKey`           | PublicKey        | Optional    |
+| `<TokenInfoQuery>.freezeKey`           | PublicKey        | Optional    |
+| `<TokenInfoQuery>.wipeKey`             | PublicKey        | Optional    |
+| `<TokenInfoQuery>.supplyKey`           | PublicKey        | Optional    |
+| `<TokenInfoQuery>.tokenType`           | TokenType        | Optional    |
+| `<TokenInfoQuery>.supplyType`          | TokenSupplyType  | Optional    |
+| `<TokenInfoQuery>.maxSupply`           | long             | Optional    |
+| `<TokenInfoQuery>.defaultFreezeStatus` | boolean          | Optional    |
+| `<TokenInfoQuery>.defaultKycStatus`    | boolean          | Optional    |
+| `<TokenInfoQuery>.isDeleted`           | boolean          | Optional    |
+| `<TokenInfoQuery>.autoRenewAccount`    | AccountId        | Optional    |
+| `<TokenInfoQuery>.autoRenewPeriod`     | Duration         | Optional    |
+| `<TokenInfoQuery>.expiry`              | Instant          | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -292,6 +174,4 @@ console.log("The total supply of this token is " +totalSupply)
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
