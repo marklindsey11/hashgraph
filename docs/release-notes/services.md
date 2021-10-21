@@ -6,13 +6,13 @@ description: Hedera Services release information
 
 | Network        | Current Version | Upcoming |
 | -------------- | --------------- | -------- |
-| **Mainnet**    | 0.18.1          | 0.19.0   |
-| **Testnet**    | 0.18.2          | 0.19.0   |
-| **Previewnet** | v0.19.0-alpha.5 | 0.19.0   |
+| **Mainnet**    | 0.18.1          | 0.19.3   |
+| **Testnet**    | 0.19.3          | 0.20.0   |
+| **Previewnet** | v0.19.3         | 0.20.0   |
 
 ## Upcoming Releases
 
-## [v0.19.1](https://github.com/hashgraph/hedera-services/releases/tag/v0.19.1)
+## [v0.19.3](https://github.com/hashgraph/hedera-services/releases/tag/v0.19.1)
 
 {% hint style="success" %}
 **MAINNET UPDATE: NOVEMBER 4,2021**
