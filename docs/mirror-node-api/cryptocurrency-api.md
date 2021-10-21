@@ -6,76 +6,62 @@ description: >-
 
 # REST API
 
+
+
 {% hint style="info" %}
-**MAINNET**  
-[https://mainnet-public.mirrornode.hedera.com](https://mainnet-public.mirrornode.hedera.com/)
+**MAINNET**\
+****[https://mainnet-public.mirrornode.hedera.com](https://mainnet-public.mirrornode.hedera.com)
 
-**TESTNET**  
-[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
+**TESTNET**\
+[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com)
 
-**PREVIEWNET**  
+**PREVIEWNET**\
 [https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)
 
-You may also check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh/) as alternatives.‌
+You may also check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh) as alternatives.‌
 {% endhint %}
 
 {% hint style="warning" %}
-Public mainnet mirror node requests are throttled at 100 requests per second \(rps\). This may change in the future depending upon performance or security considerations. At this time, no authentication is required.
+Public mainnet mirror node requests are throttled at 100 requests per second (rps). This may change in the future depending upon performance or security considerations. At this time, no authentication is required.
 {% endhint %}
 
-## Accounts <a id="accounts"></a>
+## Accounts <a href="accounts" id="accounts"></a>
 
 The **accounts** object represents the information associated with an account and returns a list of account information.‌
 
-Account IDs take the following format: **0.0.&lt;account number&gt;**.‌
+Account IDs take the following format: **0.0.\<account number>**.‌
 
 Example: 0.0.1000‌
 
 Account IDs can also take the account number as an input value. For example, for account ID 0.0.1000, the number 1000 can be specified in the request.
 
-{% api-method method="get" host="" path=" /api/v1/accounts" %}
-{% api-method-summary %}
-accounts
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path=" /api/v1/accounts" method="get" summary="accounts" %}
+{% swagger-description %}
 The account information for 0.0.1562
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="{account ID}" type="string" %}
+{% swagger-parameter in="path" name="{account ID}" type="string" %}
 Returns information for a specific account ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="transactionType" type="string" required=false %}
+{% swagger-parameter in="query" name="transactionType" type="string" %}
 Filter the account ID by transaction type. Please see the reference to the transaction types you can query for below.
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.id" type="string" required=false %}
+{% swagger-parameter in="query" name="account.id" type="string" %}
 The ID of the account to return account information for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.balance" type="number" %}
+{% swagger-parameter in="query" name="account.balance" type="number" %}
 Returns a list of account IDs that have the specified balance
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.publickey" type="string" %}
+{% swagger-parameter in="query" name="account.publickey" type="string" %}
 Returns the account information for the specified public key
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="" %}
+```
 {
    "account":"0.0.1",
    "auto_renew_period":null,
@@ -95,132 +81,73 @@ Returns the account information for the specified public key
 }
 
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 **Note:** The list of transaction types that you can query can be found [here](https://github.com/hashgraph/hedera-mirror-node/blob/master/hedera-mirror-rest/constants.js#L104).
 
-### Response Details <a id="response-details"></a>
+### Response Details <a href="response-details" id="response-details"></a>
 
-| Response Item | Description |
-| :--- | :--- |
-| **account** | The ID of the account |
-| **auto renew period** | The period in which the account will auto renew |
-| **balance** | The timestamp and account balance of the account |
-| **tokens** | The tokens and their balances associated to the specified account |
-| **deleted** | Whether the account was deleted or not \(Boolean\) |
-| **expiry timestamp** | The expiry date for the entity as set by a create or update transaction |
-| **key** | The public key associated with the account |
-| **max\_automatic\_token\_associations** | The number of automatic token associations, if any |
-| **memo** | The account memo, if any |
-| **receiver\_sig\_required** | Whether or not the account requires a signature to receive a transfer into the account |
-| **links.next** | Hyperlink to the next page of results |
+| **Response Item**                       | **Description**                                                                        |
+| --------------------------------------- | -------------------------------------------------------------------------------------- |
+| **account**                             | The ID of the account                                                                  |
+| **auto renew period**                   | The period in which the account will auto renew                                        |
+| **balance**                             | The timestamp and account balance of the account                                       |
+| **tokens**                              | The tokens and their balances associated to the specified account                      |
+| **deleted**                             | Whether the account was deleted or not (Boolean)                                       |
+| **expiry timestamp**                    | The expiry date for the entity as set by a create or update transaction                |
+| **key**                                 | The public key associated with the account                                             |
+| **max\_automatic\_token\_associations** | The number of automatic token associations, if any                                     |
+| **memo**                                | The account memo, if any                                                               |
+| **receiver\_sig\_required**             | Whether or not the account requires a signature to receive a transfer into the account |
+| **links.next**                          | Hyperlink to the next page of results                                                  |
 
-### Optional Filtering <a id="optional-filtering"></a>
+### Optional Filtering <a href="optional-filtering" id="optional-filtering"></a>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Operator</th>
-      <th style="text-align:left">Example</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>lt</code> (less than)</td>
-      <td style="text-align:left"><code>/api/v1/accounts?account.id=lt:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns account IDs less then 1000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>lte</code> (less than or equal to)</td>
-      <td style="text-align:left"><code>/api/v1/accounts?account.id=lte:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns account IDs less than or equal to 1000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gt</code> (greater than)</td>
-      <td style="text-align:left"><code>/api/v1/accounts?account.id=gt:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns account IDs greater than 1000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gte</code> (greater than or equal to)</td>
-      <td style="text-align:left"><code>/api/v1/accounts?account.id=gte:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns account IDs greater than or equal to 1000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>order</code> (order <code>asc</code> or <code>desc</code> values)</td>
-      <td
-      style="text-align:left">
-        <p><code>/api/v1/accounts?order=asc</code>
-        </p>
-        <p>&#x200B;</p>
-        <p><code>/api/v1/accounts?order=desc</code>
-        </p>
-        </td>
-        <td style="text-align:left">
-          <p>Returns account information in ascending order</p>
-          <p>Returns account information in descending order</p>
-        </td>
-    </tr>
-  </tbody>
-</table>
+| Operator                               | Example                                                                                               | Description                                                                                                 |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `lt` (less than)                       | `/api/v1/accounts?account.id=lt:0.0.1000`                                                             | Returns account IDs less then 1000                                                                          |
+| `lte` (less than or equal to)          | `/api/v1/accounts?account.id=lte:0.0.1000`                                                            | Returns account IDs less than or equal to 1000                                                              |
+| `gt` (greater than)                    | `/api/v1/accounts?account.id=gt:0.0.1000`                                                             | Returns account IDs greater than 1000                                                                       |
+| `gte` (greater than or equal to)       | `/api/v1/accounts?account.id=gte:0.0.1000`                                                            | Returns account IDs greater than or equal to 1000                                                           |
+| `order` (order `asc` or `desc` values) | <p><code>/api/v1/accounts?order=asc</code></p><p>​</p><p><code>/api/v1/accounts?order=desc</code></p> | <p>Returns account information in ascending order</p><p>Returns account information in descending order</p> |
 
-### Additional Examples <a id="additional-examples"></a>
+### Additional Examples <a href="additional-examples" id="additional-examples"></a>
 
-| Example Requests | Description |
-| :--- | :--- |
-| `/api/v1/accounts?account.id=0.0.1001` | Returns the account information of account 1001 |
-| `/api/v1/accounts?account.balance=gt:1000` | Returns all account information that have a balance greater than 1000 tinybars |
+| Example Requests                                                                                       | Description                                                                                                     |
+| ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| `/api/v1/accounts?account.id=0.0.1001`                                                                 | Returns the account information of account 1001                                                                 |
+| `/api/v1/accounts?account.balance=gt:1000`                                                             | Returns all account information that have a balance greater than 1000 tinybars                                  |
 | `/api/v1/accounts?account.publickey=2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed 15e301049517438d61864` | Returns all account information for 2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed15e301049517438d61864 public key |
-| `/api/v1/accounts/2?transactionType=cryptotransfer` | Returns the crypto transfer transactions for account 2. |
+| `/api/v1/accounts/2?transactionType=cryptotransfer`                                                    | Returns the crypto transfer transactions for account 2.                                                         |
 
-## Balances <a id="balances"></a>
+## Balances <a href="balances" id="balances"></a>
 
 The **balance** object represents the balance of accounts on the Hedera network. You can retrieve this to view the **most recent** balance of all the accounts on the network at that given time. The balances object returns the account ID and the balance in hbars. Balances are checked on a periodic basis and thus return the most recent snapshot of time captured prior to the request.
 
-{% api-method method="get" host="" path=" /api/v1/balances" %}
-{% api-method-summary %}
-balances
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path=" /api/v1/balances" method="get" summary="balances" %}
+{% swagger-description %}
 Balances for an account are updated every 15 minutes. You can refer to the timestamp for when the balance was last updated for the account. If you need to return the balance of an account more frequently you can do so by using the free account balance query via the SDK.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="account.id" type="string" required=false %}
+{% swagger-parameter in="query" name="account.id" type="string" %}
 The ID of the account to return the balance for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.balance" type="number" required=false %}
-Returns a list of account IDs that have the specified balance \(tinybars\)
-{% endapi-method-parameter %}
+{% swagger-parameter in="query" name="account.balance" type="number" %}
+Returns a list of account IDs that have the specified balance (tinybars)
+{% endswagger-parameter %}
 
-{% api-method-parameter name="timestamp" type="string" required=false %}
-The timestamp the user would like to return account balances for. The timestamp can be provided in seconds format \(15000000000\) or in seconds.nanoseconds \(15000000000.010000000\).
-{% endapi-method-parameter %}
+{% swagger-parameter in="query" name="timestamp" type="string" %}
+The timestamp the user would like to return account balances for. The timestamp can be provided in seconds format (15000000000) or in seconds.nanoseconds (15000000000.010000000).
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.publickey" type="string" required=false %}
+{% swagger-parameter in="query" name="account.publickey" type="string" %}
 Returns the balance object for a specific public key
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-The balance for account 0.0.2004
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="The balance for account 0.0.2004" %}
+```
 {
     "timestamp": "1602804267.903201001",
     "balances": [
@@ -240,134 +167,98 @@ The balance for account 0.0.2004
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-### Response Details <a id="response-details-1"></a>
+### Response Details <a href="response-details-1" id="response-details-1"></a>
 
-| Response Item | Description |
-| :--- | :--- |
-| **timestamp** | The seconds.nanoseconds of the timestamp at which the list of balances for each account are returned |
-| **balances** | List of balances for each account |
-| **account** | The ID of the account |
-| **balance** | The balance of the account |
-| **tokens** | The tokens that are associated to this account |
-| **tokens.token\_id** | The ID of the token associated to this account |
-| **tokens.balance** | The token balance for the specified token associated to this account |
-| **links.next** | Hyperlink to the next page of results |
+| Response Item        | Description                                                                                          |
+| -------------------- | ---------------------------------------------------------------------------------------------------- |
+| **timestamp**        | The seconds.nanoseconds of the timestamp at which the list of balances for each account are returned |
+| **balances**         | List of balances for each account                                                                    |
+| **account**          | The ID of the account                                                                                |
+| **balance**          | The balance of the account                                                                           |
+| **tokens**           | The tokens that are associated to this account                                                       |
+| **tokens.token\_id** | The ID of the token associated to this account                                                       |
+| **tokens.balance**   | The token balance for the specified token associated to this account                                 |
+| **links.next**       | Hyperlink to the next page of results                                                                |
 
-### Optional Filtering <a id="optional-filtering-1"></a>
+### Optional Filtering <a href="optional-filtering-1" id="optional-filtering-1"></a>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Operator</th>
-      <th style="text-align:left">Example</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>lt</code> (less than)</td>
-      <td style="text-align:left"><code>/api/v1/balances?account.id=lt:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns the balances of account IDs less than 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>lte</code> (less than or equal to)</td>
-      <td style="text-align:left"><code>/api/v1/balances?account.id=lte:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns the balances account IDs less than or equal to 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gt</code> (greater than)</td>
-      <td style="text-align:left"><code>/api/v1/balances?account.id=gt:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns the balances of account IDs greater than to 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gte</code> (greater than or equal to)</td>
-      <td style="text-align:left"><code>/api/v1/balances?account.id=gte:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns the balances of account IDs greater than or equal to 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>order</code> (order <code>asc</code> or <code>desc</code> values)</td>
-      <td
-      style="text-align:left">
-        <p><code>/api/v1/balances?order=asc</code>
-        </p>
-        <p>&#x200B;</p>
-        <p><code>/api/v1/balances?order=desc</code>
-        </p>
-        </td>
-        <td style="text-align:left">
-          <p>Lists balances in ascending order</p>
-          <p>&#x200B;</p>
-          <p>Lists balances in descending order</p>
-        </td>
-    </tr>
-  </tbody>
-</table>
+| Operator                               | Example                                                                                               | Description                                                                               |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `lt` (less than)                       | `/api/v1/balances?account.id=lt:0.0.1000`                                                             | Returns the balances of account IDs less than 1,000                                       |
+| `lte` (less than or equal to)          | `/api/v1/balances?account.id=lte:0.0.1000`                                                            | Returns the balances account IDs less than or equal to 1,000                              |
+| `gt` (greater than)                    | `/api/v1/balances?account.id=gt:0.0.1000`                                                             | Returns the balances of account IDs greater than to 1,000                                 |
+| `gte` (greater than or equal to)       | `/api/v1/balances?account.id=gte:0.0.1000`                                                            | Returns the balances of account IDs greater than or equal to 1,000                        |
+| `order` (order `asc` or `desc` values) | <p><code>/api/v1/balances?order=asc</code></p><p>​</p><p><code>/api/v1/balances?order=desc</code></p> | <p>Lists balances in ascending order</p><p>​</p><p>Lists balances in descending order</p> |
 
-### Additional Examples <a id="additional-examples"></a>
+### Additional Examples <a href="additional-examples" id="additional-examples"></a>
 
-| Example Requests | Description |
-| :--- | :--- |
-| `/api/v1/balances?account.id=0.0.1000` | Returns balance for account ID 1,000 |
-| `/api/v1/balances?account.balance=gt:1000` | Returns all account IDs that have a balance greater than 1000 tinybars |
-| `/api/v1/balances?timestamp=1566562500.040961001` | Returns all account balances referencing the latest snapshot that occurred prior to 1566562500 seconds and 040961001 nanoseconds |
-| `/api/v1/balances?account.publickey=2b60955bcbf0cf5e9ea880b52e5b6 3f664b08edf6ed15e301049517438d61864` | Returns balance information for 2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed 15e301049517438d61864 public key |
+| Example Requests                                                                                       | Description                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| `/api/v1/balances?account.id=0.0.1000`                                                                 | Returns balance for account ID 1,000                                                                                             |
+| `/api/v1/balances?account.balance=gt:1000`                                                             | Returns all account IDs that have a balance greater than 1000 tinybars                                                           |
+| `/api/v1/balances?timestamp=1566562500.040961001`                                                      | Returns all account balances referencing the latest snapshot that occurred prior to 1566562500 seconds and 040961001 nanoseconds |
+| `/api/v1/balances?account.publickey=2b60955bcbf0cf5e9ea880b52e5b6 3f664b08edf6ed15e301049517438d61864` | Returns balance information for 2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed 15e301049517438d61864 public key                     |
 
-## Transactions <a id="transactions"></a>
+## Transactions <a href="transactions" id="transactions"></a>
 
-The **transaction** object represents the transactions processed on the Hedera network. You can retrieve this to view the transaction metadata information including transaction id, timestamp, transaction fee, transfer list, etc. If a transaction was submitted to multiple nodes, the successful transaction and duplicate transaction\(s\) will be returned as separate entries in the response with the same transaction ID. Duplicate transactions will still be assessed [network fees](https://www.hedera.com/fees).
+The **transaction** object represents the transactions processed on the Hedera network. You can retrieve this to view the transaction metadata information including transaction id, timestamp, transaction fee, transfer list, etc. If a transaction was submitted to multiple nodes, the successful transaction and duplicate transaction(s) will be returned as separate entries in the response with the same transaction ID. Duplicate transactions will still be assessed [network fees](https://www.hedera.com/fees).
 
-{% api-method method="get" host="" path="/api/v1/transactions" %}
-{% api-method-summary %}
-transactions
-{% endapi-method-summary %}
+{% swagger baseUrl="" path="/api/v1/transactions" method="get" summary="transactions" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="transactionType" type="string" required=false %}
+{% swagger-parameter in="query" name="transactionType" type="string" %}
 Filter transactions by transaction type. Please see link below to view all the transaction types you can query by.
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.id" type="string" required=false %}
+{% swagger-parameter in="query" name="account.id" type="string" %}
 The ID of the account the user would like to return transactions for within the transferlist.
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="timestamp" type="string" required=false %}
+{% swagger-parameter in="query" name="timestamp" type="string" %}
 The specific timestamp the user would like to return transactions for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="result" type="string" required=false %}
-If `result=fail`l the query returns all failed cryptocurrency transactions  
-If the `result=success` the query returns all successful cryptocurrency transactions
-{% endapi-method-parameter %}
+{% swagger-parameter in="query" name="result" type="string" %}
+If 
 
-{% api-method-parameter name="type" type="string" required=false %}
-If `type=credit` the query returns all transactions that deposited into an account ID  
-If `type=debit` the query returns all transactions that withdrew from an account ID
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+`result=fail`
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-A request to return information for a transaction that was provided a specific timestamp
-{% endapi-method-response-example-description %}
+l the query returns all failed cryptocurrency transactions
 
-```text
+\
+
+
+If the 
+
+`result=success`
+
+ the query returns all successful cryptocurrency transactions
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="type" type="string" %}
+If 
+
+`type=credit`
+
+ the query returns all transactions that deposited into an account ID
+
+\
+
+
+If 
+
+`type=debit`
+
+ the query returns all transactions that withdrew from an account ID
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="A request to return information for a transaction that was provided a specific timestamp" %}
+```
   {
     "transactions": [
       {
@@ -439,171 +330,78 @@ A request to return information for a transaction that was provided a specific t
   }
 
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 **Note:** The list of transaction types that you can query can be found [here](https://github.com/hashgraph/hedera-mirror-node/blob/master/hedera-mirror-importer/src/main/java/com/hedera/mirror/importer/domain/TransactionTypeEnum.java#L32).
 
-### Response Details <a id="response-details-2"></a>
+### Response Details <a href="response-details-2" id="response-details-2"></a>
 
-| Response Item | Description |
-| :--- | :--- |
-| **consensus timestamp** | The consensus timestamp in seconds.nanoseconds |
-| **transaction hash** | The hash value of the transaction processed on the Hedera network |
-| **valid start timestamp** | The time the transaction is valid |
-| **charged tx fee** | The transaction fee that was charged for that transaction |
-| **transaction id** | The ID of the transaction |
-| **memo base64** | The memo attached to the transaction encoded in Base64 format |
-| **result** | Whether the cryptocurrency transaction was successful or not |
-| **name** | The type of transaction |
-| **max fee** | The maximum transaction fee the client is willing to pay |
-| **valid duration seconds** | The seconds for which a submitted transaction is to be deemed valid beyond the start time. The transaction is invalid if consensusTimestamp is greater than transactionValidStart + valid\_duration\_seconds. |
-| **node** | The ID of the node that submitted the transaction to the network |
-| **transfers** | A list of the account IDs the crypto transfer occurred between and the amount that was transferred. A negative \(-\) sign indicates a debit to that account. The transfer list includes the transfers between the from account and to account, the transfer of the [node fee](https://www.hedera.com/fees), the transfer of the [network fee](https://www.hedera.com/fees), and the transfer of the [service fee](https://www.hedera.com/fees) for that transaction. If the transaction was not processed, a [network fee](https://www.hedera.com/fees) is still assessed. |
-| **token transfers** | The token ID, account, and amount that was transferred to by this account in this transaction. This will not be listed if it did not occur in the transaction |
-| **assessed custom fees** | The fees that were charged for a custom fee token transfer |
-| **links.next** | A hyperlink to the next page of responses |
+| Response Item              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **consensus timestamp**    | The consensus timestamp in seconds.nanoseconds                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **transaction hash**       | The hash value of the transaction processed on the Hedera network                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **valid start timestamp**  | The time the transaction is valid                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **charged tx fee**         | The transaction fee that was charged for that transaction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **transaction id**         | The ID of the transaction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **memo base64**            | The memo attached to the transaction encoded in Base64 format                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **result**                 | Whether the cryptocurrency transaction was successful or not                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **name**                   | The type of transaction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **max fee**                | The maximum transaction fee the client is willing to pay                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **valid duration seconds** | The seconds for which a submitted transaction is to be deemed valid beyond the start time. The transaction is invalid if consensusTimestamp is greater than transactionValidStart + valid\_duration\_seconds.                                                                                                                                                                                                                                                                                                                                                            |
+| **node**                   | The ID of the node that submitted the transaction to the network                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **transfers**              | A list of the account IDs the crypto transfer occurred between and the amount that was transferred. A negative (-) sign indicates a debit to that account. The transfer list includes the transfers between the from account and to account, the transfer of the [node fee](https://www.hedera.com/fees), the transfer of the [network fee](https://www.hedera.com/fees), and the transfer of the [service fee](https://www.hedera.com/fees) for that transaction. If the transaction was not processed, a [network fee](https://www.hedera.com/fees) is still assessed. |
+| **token transfers**        | The token ID, account, and amount that was transferred to by this account in this transaction. This will not be listed if it did not occur in the transaction                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **assessed custom fees**   | The fees that were charged for a custom fee token transfer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **links.next**             | A hyperlink to the next page of responses                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-### Optional Filtering <a id="optional-filtering-2"></a>
+### Optional Filtering <a href="optional-filtering-2" id="optional-filtering-2"></a>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Operator</th>
-      <th style="text-align:left">Example</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>lt</code> (less than)</td>
-      <td style="text-align:left"><code>/api/v1/transactions?account.id=lt:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns account.id transactions less than 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>lte</code> (less than or equal to)</td>
-      <td style="text-align:left"><code>/api/v1/transactions?account.id=lte:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns account.id transactions less than or equal to 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gt</code> (greater than)</td>
-      <td style="text-align:left"><code>/api/v1/transactions?account.id=gt:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns account.id transactions greater than 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>gte</code> (greater than or equal to)</td>
-      <td style="text-align:left"><code>api/v1/transactions?account.id=gte:0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns account.id transactions greater than or equal to 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>order</code> (order <code>asc</code> or <code>desc</code> values)</td>
-      <td
-      style="text-align:left">
-        <p><code>/api/v1/transactions?order=asc</code>
-        </p>
-        <p>&#x200B;</p>
-        <p><code>/api/v1/transactions?order=desc</code>
-        </p>
-        </td>
-        <td style="text-align:left">
-          <p>Lists transactions in ascending order Lists transactions descending order</p>
-          <p>&#x200B;</p>
-        </td>
-    </tr>
-  </tbody>
-</table>
+| Operator                               | Example                                                                                                       | Description                                                                              |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `lt` (less than)                       | `/api/v1/transactions?account.id=lt:0.0.1000`                                                                 | Returns account.id transactions less than 1,000                                          |
+| `lte` (less than or equal to)          | `/api/v1/transactions?account.id=lte:0.0.1000`                                                                | Returns account.id transactions less than or equal to 1,000                              |
+| `gt` (greater than)                    | `/api/v1/transactions?account.id=gt:0.0.1000`                                                                 | Returns account.id transactions greater than 1,000                                       |
+| `gte` (greater than or equal to)       | `api/v1/transactions?account.id=gte:0.0.1000`                                                                 | Returns account.id transactions greater than or equal to 1,000                           |
+| `order` (order `asc` or `desc` values) | <p><code>/api/v1/transactions?order=asc</code></p><p>​</p><p><code>/api/v1/transactions?order=desc</code></p> | <p>Lists transactions in ascending order Lists transactions descending order</p><p>​</p> |
 
 **Note**: It is recommended that the **account.id** query should not select no more than 1000 accounts in a query. If the range specified in the query results in selecting more than 1000 accounts, the API will automatically only search for the first 1000 accounts that match the query in the database and return the transactions for those. For example, if you use `?account.id=gt:0.0.15000` or if you use`?account.id=gt:0.0.15000&account.id=lt:0.0.30000`, then the API will only return results or some 1000 accounts in this range that match the rest of the query filters.‌
 
-A single transaction can also be returned by specifying the transaction ID in the request. If a transaction was submitted to multiple nodes, the response will return entries for the successful transaction along with separate entries for the duplicate transaction\(s\). The "result" key indicates "success" for the node that processed the transaction and "DUPLICATE\_TRANSACTION" for each additional node submission. Duplicate entries are still charged network fees.
+A single transaction can also be returned by specifying the transaction ID in the request. If a transaction was submitted to multiple nodes, the response will return entries for the successful transaction along with separate entries for the duplicate transaction(s). The "result" key indicates "success" for the node that processed the transaction and "DUPLICATE\_TRANSACTION" for each additional node submission. Duplicate entries are still charged network fees.
 
-| Parameter | Description |
-| :--- | :--- |
+| Parameter          | Description                                                           |
+| ------------------ | --------------------------------------------------------------------- |
 | `{transaction_ID}` | A specific transaction can be returned by specifying a transaction ID |
 
-### Additional Examples <a id="additional-examples-1"></a>
+### Additional Examples <a href="additional-examples-1" id="additional-examples-1"></a>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Example Request</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>/api/v1/transactions/?account.id=0.0.1000</code>
-      </td>
-      <td style="text-align:left">Returns transaction for account ID 1,000</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>/api/v1/transactions?timestamp=1565779209.711927001</code>
-      </td>
-      <td style="text-align:left">Returns transactions at 1565779209 seconds and 711927001 nanoseconds</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>/api/v1/transactions?result=fail</code>
-      </td>
-      <td style="text-align:left">Returns all transactions that have failed</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>/api/v1/transactions?account.id=0.0.13622&amp;type=credit</code>  <code>/api/v1/transactions?account.id=0.0.13622&amp;type=debit</code>
-      </td>
-      <td style="text-align:left">
-        <p>Returns all transactions that deposited into an account ID 0.0.13622</p>
-        <p>&#x200B;</p>
-        <p>Returns all transactions that withdrew from account ID 0.0.13622
-          <br />
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>/api/v1/transactions?transactionType=cryptotransfer</code>
-      </td>
-      <td style="text-align:left">Returns all cryptotransfer transactions</td>
-    </tr>
-  </tbody>
-</table>
+| Example Request                                                                                                | Description                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/api/v1/transactions/?account.id=0.0.1000`                                                                    | Returns transaction for account ID 1,000                                                                                                                       |
+| `/api/v1/transactions?timestamp=1565779209.711927001`                                                          | Returns transactions at 1565779209 seconds and 711927001 nanoseconds                                                                                           |
+| `/api/v1/transactions?result=fail`                                                                             | Returns all transactions that have failed                                                                                                                      |
+| `/api/v1/transactions?account.id=0.0.13622&type=credit` `/api/v1/transactions?account.id=0.0.13622&type=debit` | <p>Returns all transactions that deposited into an account ID 0.0.13622</p><p>​</p><p>Returns all transactions that withdrew from account ID 0.0.13622<br></p> |
+| `/api/v1/transactions?transactionType=cryptotransfer`                                                          | Returns all cryptotransfer transactions                                                                                                                        |
 
-{% api-method method="get" host="" path="/api/v1/topics/:topicId/messages/" %}
-{% api-method-summary %}
-topic messages
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api/v1/topics/:topicId/messages/" method="get" summary="topic messages" %}
+{% swagger-description %}
 Returns topic messages for a given consensus timestamp
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="sequenceNumber" type="number" required=false %}
+{% swagger-parameter in="path" name="sequenceNumber" type="number" %}
 The sequence number of the message relative to other messages submitted to the same topic
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="topicID" type="string" required=true %}
+{% swagger-parameter in="path" name="topicID" type="string" %}
 The ID of the topic in x.y.z or z format
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="consensusTimestamp" type="string" required=false %}
+{% swagger-parameter in="path" name="consensusTimestamp" type="string" %}
 The consensus timestamp of a message in seconds.nanoseconds
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="" %}
+```
   "responseJson": {
     "consensus_timestamp": "1234567890.000000002",
     "topic_id": "0.0.7",
@@ -612,62 +410,44 @@ The consensus timestamp of a message in seconds.nanoseconds
     "sequence_number": 2
   }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response Details
 
-| Response Item | Description |
-| :--- | :--- |
-| **consensus\_timestamp** | The consensus timestamp of the message in seconds.nanoseconds |
-| **topic\_id** | The ID of the topic the message was submitted to |
-| **message** | The content of the message |
-| **running\_hash** | The new running hash of the topic that received the message |
-| **sequence\_number** | The sequence number of the message relative to all other messages for the same topic |
+| Response Item            | Description                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| **consensus\_timestamp** | The consensus timestamp of the message in seconds.nanoseconds                        |
+| **topic\_id**            | The ID of the topic the message was submitted to                                     |
+| **message**              | The content of the message                                                           |
+| **running\_hash**        | The new running hash of the topic that received the message                          |
+| **sequence\_number**     | The sequence number of the message relative to all other messages for the same topic |
 
 ## Tokens
 
-{% api-method method="get" host="" path="/api/v1/tokens" %}
-{% api-method-summary %}
-tokens
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api/v1/tokens" method="get" summary="tokens" %}
+{% swagger-description %}
 Returns the list of tokens created in a Hedera network.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="tokens" type="string" required=false %}
+{% swagger-parameter in="path" name="tokens" type="string" %}
 The tokens created on a Hedera network.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="publickey" type="string" required=false %}
+{% swagger-parameter in="query" name="publickey" type="string" %}
 The public key to return all tokens for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="token.id" type="string" required=false %}
+{% swagger-parameter in="query" name="token.id" type="string" %}
 The ID of the token to return the query for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.id" type="string" required=false %}
+{% swagger-parameter in="query" name="account.id" type="string" %}
 The ID of the account to return the tokens for
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="" %}
+```
 {
     "tokens": [
         {
@@ -684,72 +464,54 @@ The ID of the account to return the tokens for
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response Details
 
-| Response Item | Description |
-| :--- | :--- |
+| Response Item | Description                         |
+| ------------- | ----------------------------------- |
 | **token\_Id** | The ID of the token in x.y.z format |
-| **symbol** | The symbol of the token |
-| **adminKey** | The admin key for the token |
+| **symbol**    | The symbol of the token             |
+| **adminKey**  | The admin key for the token         |
 
 ### Additional Examples
 
-| Example Request | Description |
-| :--- | :--- |
-| `/api/v1/tokens?publickey=3c3d546321ff6f63d70 1d2ec5c277095874e19f4a235bee1e6bb19258bf362be` | All tokens with matching admin key |
-| `/api/v1/tokens?account.id=0.0.8` | All tokens for matching account |
-| `/api/v1/tokens?token.id=gt:0.0.1001` | All tokens in range |
-| `/api/v1/tokens?order=desc` | All tokens in descending order of `token.id` |
-| `/api/v1/tokens?limit=x` | All tokens taking the first `x` number of tokens |
+| Example Request                                                                              | Description                                      |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `/api/v1/tokens?publickey=3c3d546321ff6f63d70 1d2ec5c277095874e19f4a235bee1e6bb19258bf362be` | All tokens with matching admin key               |
+| `/api/v1/tokens?account.id=0.0.8`                                                            | All tokens for matching account                  |
+| `/api/v1/tokens?token.id=gt:0.0.1001`                                                        | All tokens in range                              |
+| `/api/v1/tokens?order=desc`                                                                  | All tokens in descending order of `token.id`     |
+| `/api/v1/tokens?limit=x`                                                                     | All tokens taking the first `x` number of tokens |
 
-{% api-method method="get" host="" path="/api/v1/tokens/:token\_id/balances" %}
-{% api-method-summary %}
-token balances
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api/v1/tokens/:token_id/balances" method="get" summary="token balances" %}
+{% swagger-description %}
 Returns all the accounts and token balance for the specified token ID.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="token\_id" type="string" required=true %}
+{% swagger-parameter in="path" name="token_id" type="string" %}
 The token ID to get the balances for
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="account.publickey" type="string" required=false %}
+{% swagger-parameter in="query" name="account.publickey" type="string" %}
 The public key
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.id" type="string" required=false %}
+{% swagger-parameter in="query" name="account.id" type="string" %}
 The ID of the account
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.balance" type="string" required=false %}
+{% swagger-parameter in="query" name="account.balance" type="string" %}
 The balance to query for
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="timestamp" type="string" required=false %}
+{% swagger-parameter in="query" name="timestamp" type="string" %}
 The timestamp to query for
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-The request response
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="The request response" %}
+```
    {
         "timestamp": "0.000002345",
         "balances": [
@@ -771,54 +533,38 @@ The request response
         }
     }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response Details
 
-| Response Item | Description |
-| :--- | :--- |
+| Response Item | Description                                                    |
+| ------------- | -------------------------------------------------------------- |
 | **timestamp** | The timestamp of the recorded  balances in seconds.nanoseconds |
-| **balances** | The balance of the tokens in those accounts |
-| **account** | The ID of the account that has the token balance |
-| **balance** | The balance of the token associated with the account |
+| **balances**  | The balance of the tokens in those accounts                    |
+| **account**   | The ID of the account that has the token balance               |
+| **balance**   | The balance of the token associated with the account           |
 
 ### Additional Examples
 
-| Example Request | Description |
-| :--- | :--- |
-| `/api/v1/tokens/<token_id>/balances?order=asc` | The balance of the token in ascending order |
-| `/api/v1/tokens/<token_id>/balances?account.id=0.0.1000` | The balance of the token for account ID 0.0.1000 |
-| `/api/v1/tokens/<token_id>/balances?account.balance=gt:1000` | The balance for the token greater than 1000 |
-| `/api/v1/tokens/<token_id>/balances?timestamp=1566562500.040961001` | The token balances for the specified timestamp |
+| Example Request                                                     | Description                                      |
+| ------------------------------------------------------------------- | ------------------------------------------------ |
+| `/api/v1/tokens/<token_id>/balances?order=asc`                      | The balance of the token in ascending order      |
+| `/api/v1/tokens/<token_id>/balances?account.id=0.0.1000`            | The balance of the token for account ID 0.0.1000 |
+| `/api/v1/tokens/<token_id>/balances?account.balance=gt:1000`        | The balance for the token greater than 1000      |
+| `/api/v1/tokens/<token_id>/balances?timestamp=1566562500.040961001` | The token balances for the specified timestamp   |
 
-{% api-method method="get" host="" path="/api/v1/tokens/:tokenId" %}
-{% api-method-summary %}
-token info
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api/v1/tokens/:tokenId" method="get" summary="token info" %}
+{% swagger-description %}
 Returns the specified token information.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="token\_id" type="object" required=true %}
+{% swagger-parameter in="path" name="token_id" type="object" %}
 The ID of the token to return the information for in x.y.z format.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="" %}
+```
   {
   "token_id": "0.0.1135",
   "symbol": "ORIGINALRDKSE",
@@ -884,68 +630,50 @@ The ID of the token to return the information for in x.y.z format.
 }
 
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response Details
 
-| Response Item | Description |
-| :--- | :--- |
-| **admin\_key** | The token's admin key |
-| **auto\_renew\_account** | The auto renew account ID |
-| **auto\_renew\_period** | The period at which the auto renew account will be charged a renewal fee |
-| **created\_timestamp** | The timestamp of when the token was created |
-| **decimals** | The number of decimal places a token is divisible by |
-| **expiry\_timestamp** | The epoch second at which the token should expire |
-| **freeze\_default** | Whether or not accounts created |
-| **fee\_schedule\_key** | The fee schedule key, if any |
-| **freeze\_key** | The freeze key for the token |
-| **initial\_suppl**y | The initial supply of the token |
-| **kyc\_key** | The KYC key for the token |
-| **modified\_timestamp** | The last time the token properties were modified |
-| **name** | The name of the token |
-| **supply\_key** | The supply key for the token |
-| **symbol** | The token symbol |
-| **token\_id** | The token ID |
-| **total\_supply** | The total supply of the token |
-| **treasury\_account\_id** | The treasury account of the token |
-| **type** | whether a token is a fungible or non-fungible token |
-| **wipe\_key** | The wipe key for the token |
-| **custom\_fees** | The custom fee schedule for the token, if any |
+| Response Item             | Description                                                              |
+| ------------------------- | ------------------------------------------------------------------------ |
+| **admin\_key**            | The token's admin key                                                    |
+| **auto\_renew\_account**  | The auto renew account ID                                                |
+| **auto\_renew\_period**   | The period at which the auto renew account will be charged a renewal fee |
+| **created\_timestamp**    | The timestamp of when the token was created                              |
+| **decimals**              | The number of decimal places a token is divisible by                     |
+| **expiry\_timestamp**     | The epoch second at which the token should expire                        |
+| **freeze\_default**       | Whether or not accounts created                                          |
+| **fee\_schedule\_key**    | The fee schedule key, if any                                             |
+| **freeze\_key**           | The freeze key for the token                                             |
+| **initial\_suppl**y       | The initial supply of the token                                          |
+| **kyc\_key**              | The KYC key for the token                                                |
+| **modified\_timestamp**   | The last time the token properties were modified                         |
+| **name**                  | The name of the token                                                    |
+| **supply\_key**           | The supply key for the token                                             |
+| **symbol**                | The token symbol                                                         |
+| **token\_id**             | The token ID                                                             |
+| **total\_supply**         | The total supply of the token                                            |
+| **treasury\_account\_id** | The treasury account of the token                                        |
+| **type**                  | whether a token is a fungible or non-fungible token                      |
+| **wipe\_key**             | The wipe key for the token                                               |
+| **custom\_fees**          | The custom fee schedule for the token, if any                            |
 
-{% api-method method="get" host="" path="/api/v1/tokens/{tokenId}/nfts" %}
-{% api-method-summary %}
-NFTs
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api/v1/tokens/{tokenId}/nfts" method="get" summary="NFTs" %}
+{% swagger-description %}
 Returns the list of non-fungible tokens.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="tokenId" type="string" required=true %}
+{% swagger-parameter in="path" name="tokenId" type="string" %}
 The ID of token
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="account.id" type="string" required=false %}
+{% swagger-parameter in="query" name="account.id" type="string" %}
 The ID of the account to return the tokens for
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="" %}
+```
 [
   {
     "account_id": "0.1.2",
@@ -958,51 +686,35 @@ The ID of the account to return the tokens for
   }
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response Details
 
-| Response Item | Description |
-| :--- | :--- |
-| **account\_id** | The  account ID of the account associated with the NFT |
-| **created\_timestamp** | The timestamp of when the NFT was created |
-| **deleted** | Whether the token was deleted or not  |
-| **metadata** | The meta data of the NFT |
-| **modified\_timestamp** | The last time the token properties were modified |
-| **serial\_number** | The serial number of the NFT |
-| **token\_id** | The token ID of the NFT |
+| Response Item           | Description                                            |
+| ----------------------- | ------------------------------------------------------ |
+| **account\_id**         | The  account ID of the account associated with the NFT |
+| **created\_timestamp**  | The timestamp of when the NFT was created              |
+| **deleted**             | Whether the token was deleted or not                   |
+| **metadata**            | The meta data of the NFT                               |
+| **modified\_timestamp** | The last time the token properties were modified       |
+| **serial\_number**      | The serial number of the NFT                           |
+| **token\_id**           | The token ID of the NFT                                |
 
-{% api-method method="get" host="" path="/api/v1/tokens/{tokenId}/nfts/{serialNumber}" %}
-{% api-method-summary %}
-NFT info
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api/v1/tokens/{tokenId}/nfts/{serialNumber}" method="get" summary="NFT info" %}
+{% swagger-description %}
 Returns the information associated for specific NFT.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="tokenId" type="string" required=true %}
+{% swagger-parameter in="path" name="tokenId" type="string" %}
 The token ID of the NFT
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="serialNumber" type="integer" required=true %}
+{% swagger-parameter in="path" name="serialNumber" type="integer" %}
 The serial number of the NFT
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 
   "account_id": "0.1.2",
@@ -1014,51 +726,35 @@ The serial number of the NFT
   "token_id": "0.0.222"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response Details
 
-| Response Item | Description |
-| :--- | :--- |
-| **account\_id** | The  account ID of the account associated with the NFT |
-| **created\_timestamp** | The timestamp of when the NFT was created |
-| **deleted** | Whether the token was deleted or not  |
-| **metadata** | The meta data of the NFT |
-| **modified\_timestamp** | The last time the token properties were modified |
-| **serial\_number** | The serial number of the NFT |
-| **token\_id** | The token ID of the NFT |
+| Response Item           | Description                                            |
+| ----------------------- | ------------------------------------------------------ |
+| **account\_id**         | The  account ID of the account associated with the NFT |
+| **created\_timestamp**  | The timestamp of when the NFT was created              |
+| **deleted**             | Whether the token was deleted or not                   |
+| **metadata**            | The meta data of the NFT                               |
+| **modified\_timestamp** | The last time the token properties were modified       |
+| **serial\_number**      | The serial number of the NFT                           |
+| **token\_id**           | The token ID of the NFT                                |
 
-{% api-method method="get" host="" path="​/api​/v1​/tokens​/{tokenId}​/nfts​/{serialNumber}​/transactions" %}
-{% api-method-summary %}
-NFT transaction history
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api​/v1​/tokens​/{tokenId}​/nfts​/{serialNumber}​/transactions" method="get" summary="NFT transaction history" %}
+{% swagger-description %}
 Returns the history of transactions for a NFT.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="tokenId" type="string" required=true %}
+{% swagger-parameter in="path" name="tokenId" type="string" %}
 The token ID
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="serialNumber" type="integer" required=true %}
+{% swagger-parameter in="path" name="serialNumber" type="integer" %}
 The NFT serial number
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 [
   {
@@ -1071,61 +767,72 @@ The NFT serial number
   }
 ]
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ### Response Details
 
-| Response Item | Description |
-| :--- | :--- |
-| **created\_timestamp** | The timestamp of the transaction |
-| **id** | The timestamp of the transaction |
+| Response Item             | Description                       |
+| ------------------------- | --------------------------------- |
+| **created\_timestamp**    | The timestamp of the transaction  |
+| **id**                    | The timestamp of the transaction  |
 | **receiver\_account\_id** | The account that received the NFT |
-| **sender\_account\_id** | The account that sent the NFT |
-| **type** | The type of transaction |
-| **token\_id** | The token ID of the NFT |
+| **sender\_account\_id**   | The account that sent the NFT     |
+| **type**                  | The type of transaction           |
+| **token\_id**             | The token ID of the NFT           |
+
+
+
+{% swagger method="get" path="/api/v1/network/supply" baseUrl="" summary="network supply" %}
+{% swagger-description %}
+This query returns the number of hbars that are released along with the timestamp and total supply.
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="" %}
+```json
+{
+    "released_supply":"922619772920027381",
+    "timestamp":"1634787900.311842000",
+    "total_supply":"5000000000000000000"
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+### Response Details
+
+|                  |                                        |
+| ---------------- | -------------------------------------- |
+| Response Item    | Description                            |
+| released\_supply | The amount of tokens that are released |
+| timestamp        | The timestamp of the request           |
+| total\_supply    | The total supply of the token          |
 
 ## Schedule Transactions
 
-{% api-method method="get" host="" path="/api/v1/schedules" %}
-{% api-method-summary %}
-schedule list
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api/v1/schedules" method="get" summary="schedule list" %}
+{% swagger-description %}
 Returns a list of all scheduled transactions for a network.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="schedule.id" type="string" required=false %}
+{% swagger-parameter in="query" name="schedule.id" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="account.id" type="string" required=false %}
+{% swagger-parameter in="query" name="account.id" type="string" %}
 All schedule transactions matching the creator account
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="executed" type="boolean" required=false %}
+{% swagger-parameter in="query" name="executed" type="boolean" %}
 If equal to true, returns all schedule transactions that were executed
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="limit" type="integer" required=false %}
+{% swagger-parameter in="query" name="limit" type="integer" %}
 Limits results to the first N schedule transactions
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="" %}
+```
 {
   "schedules": [
     {
@@ -1159,57 +866,41 @@ Limits results to the first N schedule transactions
   }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-### Response Details <a id="response-details-1"></a>
+### Response Details <a href="response-details-1" id="response-details-1"></a>
 
-| Response Item | Description |
-| :--- | :--- |
-| **schedules** | List of schedules |
-| **adminKey** | The admin key on the schedule |
-| **adminKey.\_type** | The type of key |
-| **adminKey.key** | The admin public key |
-| **consensus\_timestamp** | The consensus timestamp of when the schedule was created |
-| **creator\_account\_id** | The account ID of the creator of the schedule |
-| **executed\_timestamp** | The timestamp at which the transaction that was scheduled was executed at |
-| **memo** | A string of characters associated with the memo if set |
-| **payer\_account\_id** | The account ID of the account paying for the execution of the transaction |
-| **schedule\_id** | The ID of the schedule entity |
-| **signatures** | The list of keys that signed the transaction |
-| **signatures.consensus\_timestamp** | The consensus timestamp at which the signature was added |
-| **signatures.public\_key\_prefix** | The signatures public key prefix |
-| **signatures.signature** | The signature of the key that signed the schedule transaction |
-| **transaction\_body** | The transaction body of the transaction that was scheduled |
-| **links.next** | Hyperlink to the next page of results |
+| Response Item                       | Description                                                               |
+| ----------------------------------- | ------------------------------------------------------------------------- |
+| **schedules**                       | List of schedules                                                         |
+| **adminKey**                        | The admin key on the schedule                                             |
+| **adminKey.\_type**                 | The type of key                                                           |
+| **adminKey.key**                    | The admin public key                                                      |
+| **consensus\_timestamp**            | The consensus timestamp of when the schedule was created                  |
+| **creator\_account\_id**            | The account ID of the creator of the schedule                             |
+| **executed\_timestamp**             | The timestamp at which the transaction that was scheduled was executed at |
+| **memo**                            | A string of characters associated with the memo if set                    |
+| **payer\_account\_id**              | The account ID of the account paying for the execution of the transaction |
+| **schedule\_id**                    | The ID of the schedule entity                                             |
+| **signatures**                      | The list of keys that signed the transaction                              |
+| **signatures.consensus\_timestamp** | The consensus timestamp at which the signature was added                  |
+| **signatures.public\_key\_prefix**  | The signatures public key prefix                                          |
+| **signatures.signature**            | The signature of the key that signed the schedule transaction             |
+| **transaction\_body**               | The transaction body of the transaction that was scheduled                |
+| **links.next**                      | Hyperlink to the next page of results                                     |
 
-{% api-method method="get" host="" path="/api/v1/schedules/{scheduleId}" %}
-{% api-method-summary %}
-schedule transaction
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="" path="/api/v1/schedules/{scheduleId}" method="get" summary="schedule transaction" %}
+{% swagger-description %}
 Returns the specified schedule entity information.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="scheduleId" type="string" required=true %}
+{% swagger-parameter in="path" name="scheduleId" type="string" %}
 The ID of the schedule to return the information for.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="" %}
+```
 {
   "admin_key": {
     "_type": "ProtobufEncoded",
@@ -1236,59 +927,43 @@ The ID of the schedule to return the information for.
   "transaction_body": "KcyxTMX2XFL+t0KSsB1S/c8t5kXTlLU3BGgNttEy7Gw="
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-### Response Details <a id="response-details-1"></a>
+### Response Details <a href="response-details-1" id="response-details-1"></a>
 
-| Response Item | Description |
-| :--- | :--- |
-| **adminKey** | The admin key on the schedule |
-| **adminKey.\_type** | The type of key |
-| **adminKey.key** | The admin public key |
-| **consensus\_timestamp** | The consensus timestamp of when the schedule was created |
-| **creator\_account\_id** | The account ID of the creator of the schedule |
-| **executed\_timestamp** | The timestamp at which the transaction that was scheduled was executed at |
-| **memo** | A string of characters associated with the memo if set |
-| **payer\_account\_id** | The account ID of the account paying for the execution of the transaction |
-| **schedule\_id** | The ID of the schedule entity |
-| **signatures** | The list of keys that signed the transaction |
-| **signatures.consensus\_timestamp** | The consensus timestamp at which the signature was added |
-| **signatures.public\_key\_prefix** | The signatures public key prefix |
-| **signatures.signature** | The signature of the key that signed the schedule transaction |
-| **transaction\_body** | The transaction body of the transaction that was scheduled |
+| Response Item                       | Description                                                               |
+| ----------------------------------- | ------------------------------------------------------------------------- |
+| **adminKey**                        | The admin key on the schedule                                             |
+| **adminKey.\_type**                 | The type of key                                                           |
+| **adminKey.key**                    | The admin public key                                                      |
+| **consensus\_timestamp**            | The consensus timestamp of when the schedule was created                  |
+| **creator\_account\_id**            | The account ID of the creator of the schedule                             |
+| **executed\_timestamp**             | The timestamp at which the transaction that was scheduled was executed at |
+| **memo**                            | A string of characters associated with the memo if set                    |
+| **payer\_account\_id**              | The account ID of the account paying for the execution of the transaction |
+| **schedule\_id**                    | The ID of the schedule entity                                             |
+| **signatures**                      | The list of keys that signed the transaction                              |
+| **signatures.consensus\_timestamp** | The consensus timestamp at which the signature was added                  |
+| **signatures.public\_key\_prefix**  | The signatures public key prefix                                          |
+| **signatures.signature**            | The signature of the key that signed the schedule transaction             |
+| **transaction\_body**               | The transaction body of the transaction that was scheduled                |
 
 ## State Proof Alpha
 
 The Hedera Mirror Node state proof alpha api provides the ability to cryptographically prove a transaction is valid on Hedera network. The request returns the content of the address book file, signature files, and record file that can be used to validate the transaction occurred on the Hedera network. The address book file contains the consensus node account IDs and their public key files. The signature files are of the supermajority consensus nodes that signed the record file the transaction is contained in.
 
-{% api-method method="get" host="" path="/api/v1/transactions/:transaction-id/stateproof" %}
-{% api-method-summary %}
-transaction state proof
-{% endapi-method-summary %}
+{% swagger baseUrl="" path="/api/v1/transactions/:transaction-id/stateproof" method="get" summary="transaction state proof" %}
+{% swagger-description %}
+Returns a state proof (alpha) for a given transaction.
+{% endswagger-description %}
 
-{% api-method-description %}
-Returns a state proof \(alpha\) for a given transaction.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="transaction-id" type="string" required=true %}
+{% swagger-parameter in="path" name="transaction-id" type="string" %}
 The ID of the transaction to return the state proof in shard.realm.num-sss-nnn format where sss is in seconds and nnn is in nanoseconds of the transaction valid start time.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```text
+{% swagger-response status="200" description="" %}
+```
  "record_file": "AAAAAgAAAAMBV4hvVuLZ8TygLhySPEBj0gQ+2hkPDXt0694+bw6iEB9TtAlgW2ewWwYQM6Zv3qiuAgAAALkaZgpkCiCWH93tdVeDMhepbOhHfXuhAhBpQGwcrACMEApoTtGd9BpAYyz/MpaJRrjWoZ+0ibxeCGmUptyuhbIrpP/n3/NWtCrMcmlWoEYfCjX6F9dSHKKSV4EeIUJrekWW0B4UOLHlDiJPChIKDAjaocT6BRDQ/cuzAxICGFoSAhgGGIDC1y8iAgh4MhhEZXZPcHMgU3ludGhldGljIFRlc3RpbmdyEgoQCgYKAhhaEAEKBgoCGAIQAgAAAMQKKAgWKiQKEAiw6gEQ5aQHGgYIgKbE+gUSEAiw6gEQ96AHGgYIkMLE+gUSMJ+56Xo0BdpRSrXL7hjtr4r8D1ag48std9nnPyN4J0BqiqCd/4V6KZhqe2smdfE5QBoMCOWhxPoFEKvQxP4BIhIKDAjaocT6BRDQ/cuzAxICGFoqGERldk9wcyBTeW50aGV0aWMgVGVzdGluZzCYyg9SJgoGCgIYAhACCggKAhgGEL7zAQoICgIYWhCxlB8KCAoCGGIQ8qAdAgAAALgaZgpkCiCWH93tdVeDMhepbOhHfXuhAhBpQGwcrACMEApoTtGd9BpAyelhOeM7Ga9Cn3xpETIaPcqpyPpTdPEOfnoIM5+wMyvLGldUYTpGWzkUm20+WaeoTgKAPzrwZNklm+dTBOhDASJOChEKCwjbocT6BRCIsqFVEgIYWhICGAYYgMLXLyICCHgyGERldk9wcyBTeW50aGV0aWMgVGVzdGluZ3ISChAKBgoCGFoQAQoGCgIYAhACAAAAwwooCBYqJAoQCLDqARDlpAcaBgiApsT6BRIQCLDqARD3oAcaBgiQwsT6BRIwKPNXHIYztIJVtLQp9JextLMDrGMNiV8iNk6ZkAcO6gHLvAFEb7t9HTFHVwO8ZUwYGgwI5aHE+gUQrdDE/gEiEQoLCNuhxPoFEIiyoVUSAhhaKhhEZXZPcHMgU3ludGhldGljIFRlc3RpbmcwmMoPUiYKBgoCGAIQAgoICgIYBhC+8wEKCAoCGFoQsZQfCggKAhhiEPKgHQIAAAC5GmYKZAoglh/d7XVXgzIXqWzoR317oQIQaUBsHKwAjBAKaE7RnfQaQL6YNu3kW4yQxfs03SQthOt/Jrrgkw51Vb91+8/bYfdEuIVS1vZ2AYAbtn36XJt5kUWT2i35FWqaLnUvrW8XfQAiTwoSCgwI3KHE+gUQqNyxgAMSAhhaEgIYBhiAwtcvIgIIeDIYRGV2T3BzIFN5bnRoZXRpYyBUZXN0aW5nchIKEAoGCgIYWhABCgYKAhgCEAIAAADDCigIFiokChAIsOoBEOWkBxoGCICmxPoFEhAIsOoBEPegBxoGCJDCxPoFEjAFTYQPimebh6ewS66uvLDmVkE40uXiqCe6DRBLSWbrA7jeWKwcQ64D+zjljMkpXPQaCwjnocT6BRDglMBUIhIKDAjcocT6BRCo3LGAAxICGFoqGERldk9wcyBTeW50aGV0aWMgVGVzdGluZzCYyg9SJgoGCgIYAhACCggKAhgGEL7zAQoICgIYWhCxlB8KCAoCGGIQ8qAdAgAAALgaZgpkCiCWH93tdVeDMhepbOhHfXuhAhBpQGwcrACMEApoTtGd9BpA5QfavACo/iTWfX7WEpw5JaTZq7SQ+D2WW9GNqUl7gpdklnLFesu/aV3eKfuGnAbokDsa92kGOnNf/c0gktZRByJOChEKCwjdocT6BRCgkZJBEgIYWhICGAYYgMLXLyICCHgyGERldk9wcyBTeW50aGV0aWMgVGVzdGluZ3ISChAKBgoCGFoQAQoGCgIYAhACAAAAwwooCBYqJAoQCLDqARDlpAcaBgiApsT6BRIQCLDqARD3oAcaBgiQwsT6BRIwmg+96dBreGCkAab+qhXrJ718GSjacX+O0bdel5GAibaIjMyQyjcL+JBp0Mv/KHATGgwI56HE+gUQ0875ngIiEQoLCN2hxPoFEKCRkkESAhhaKhhEZXZPcHMgU3ludGhldGljIFRlc3RpbmcwmMoPUiYKBgoCGAIQAgoICgIYBhC+8wEKCAoCGFoQsZQfCggKAhhiEPKgHQIAAACtGmYKZAogewLtPUzNs23NnDV83HZJ1FhJldJ0tgzflblTlsL95PoaQPQW41CNIdZK6fPzaWcb+l4OdC1m0r5V56DTe+uD5wM9a+7A9PnnRXOSw4hjKnd1Cmx2FcBl+JytX79u4Xha1goiQwoSCgwI3aHE+gUQwPDctwISAhhYEgIYAxiAwtcvIgIIeDIMTmV0d29yayBwaW5nchIKEAoGCgIYAxACCgYKAhhYEAEAAACwCigIFiokChAIsOoBEOWkBxoGCICmxPoFEhAIsOoBEPegBxoGCJDCxPoFEjB4y3kPo3GArtg0x114+WPNJdtjxLSvRAUxJTLHP52Jw8Q7S+HQdNbhcJSeUHmxROAaDAjnocT6BRCgroCfAyISCgwI3aHE+gUQwPDctwISAhhYKgxOZXR3b3JrIHBpbmcwk8QPUh4KCAoCGAMQ0vIBCggKAhhYEKeIHwoICgIYYhDWlR0=",
     "signature_files": {
         "0.0.4": "BOyLjxj4hYhMfvVVYcd4ogJhJlMkWVo3PFeUugIKsGo3imdL/ja9ByL1VQ87cDk76QMAAAGAsc5rXqosU0Pnqsnri3ZOwIT0GcY/sy9ssS9b824ArjM/P5X3JM5AvZ4LVbjOxeACnw1oTAW5Ym1h24Yh54G/BfUMmBqQ7byG0tAj3/6n717tg186G+20j4un8JUHyMClr8NIkP3wHTY78HBQjGEnlhtp1rulR8iEHJGFd04hBqy59abEVdZP2vRmwAVG2qw26RBYMCZZhubeZz4wrhY/TziK+degZDU8J75l8MtyHmBdbGipWDkIdNwcEaT0HWnd/jG0VDIYjQPAehdxcQarWmi5M4x9RJKbGB2w5i+TLH6UPW/YgYU3YicNf1BMRRHLMBxAB9K+AkXM7Shtb6d0neNZmPthXI88l8uSo3lUZ5LsbgOG2jA95VStftgR+qOd3/Udgj9TZDIHjy3nSENScedrNwUeJX5Pd4Z9/sAsvAza87XpXpuuBY+FbWJbYgvmHI932RNuCdYVPoxYuyR2o32g0f6Ytv5dWcU4FqYrzqe/B6IO+4wnL5JcubQuqnJO",
@@ -1301,16 +976,13 @@ The ID of the transaction to return the state proof in shard.realm.num-sss-nnn f
     ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-| Response Item | Description | Format |
-| :--- | :--- | :--- |
-| **record\_file** | The record file content for the specified transaction | base64 encoding |
+| Response Item        | Description                                                                      | Format          |
+| -------------------- | -------------------------------------------------------------------------------- | --------------- |
+| **record\_file**     | The record file content for the specified transaction                            | base64 encoding |
 | **signature\_files** | The signatures file content from the consensus nodes that signed the transaction | base64 encoding |
-| **address\_books** | The address book file contents | base64 encoding |
+| **address\_books**   | The address book file contents                                                   | base64 encoding |
 
 Save the response to a json file and use the [check-state-proof](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof) cli commands to confirm the validity of the transaction. You can find the instructions [here](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof).
-
