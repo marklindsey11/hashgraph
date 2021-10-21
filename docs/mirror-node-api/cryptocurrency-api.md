@@ -799,13 +799,7 @@ This query returns the number of hbars that are released along with the timestam
 {% endswagger-response %}
 {% endswagger %}
 
-### Response Details
 
-| Response Item    | Description                            |
-| ---------------- | -------------------------------------- |
-| released\_supply | The amount of tokens that are released |
-| timestamp        | The timestamp of the request           |
-| total\_supply    | The total supply of the token          |
 
 ## Schedule Transactions
 
