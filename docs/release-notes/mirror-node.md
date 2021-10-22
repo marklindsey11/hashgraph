@@ -6,13 +6,19 @@ description: Hedera mirror node release notes
 
 | Network        | Current Version | Upcoming Version |
 | -------------- | --------------- | ---------------- |
-| **Mainnet**    | v0.41.0         | v0.42.0          |
-| **Testnet**    | v0.41.0         | v0.42.0          |
-| **Previewnet** | v0.41.0         | v0.42.0          |
+| **Mainnet**    | v0.42.0         | v0.43.0          |
+| **Testnet**    | v0.42.0         | v0.43.0          |
+| **Previewnet** | v0.42.0         | v0.43.0          |
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.42.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.42.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: OCTOBER 22, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: OCTOBER 18, 2021**
@@ -35,8 +41,6 @@ A new network supply REST API was added to show the released supply. Having the 
 ```
 
 Continuing our theme of improving the Rosetta API, NFT support was added to the data and construction APIs. We took the time to convert it to a standard configuration library and reorganize the package structure to be flatter and more consistent. And contexts were added to every layer to enable proper cancellation and timeout support.
-
-## Latest Releases
 
 ## [v0.41.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.41.0)
 
