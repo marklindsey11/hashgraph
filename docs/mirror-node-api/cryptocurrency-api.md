@@ -637,7 +637,7 @@ The ID of the token to return the information for in x.y.z format.
 
 | Response Item             | Description                                                              |
 | ------------------------- | ------------------------------------------------------------------------ |
-| **admin\_key**            | The token's admin key                                                    |
+| **admin\_key**            | The token's admin key, if specified                                      |
 | **auto\_renew\_account**  | The auto renew account ID                                                |
 | **auto\_renew\_period**   | The period at which the auto renew account will be charged a renewal fee |
 | **created\_timestamp**    | The timestamp of when the token was created                              |
@@ -645,19 +645,20 @@ The ID of the token to return the information for in x.y.z format.
 | **expiry\_timestamp**     | The epoch second at which the token should expire                        |
 | **freeze\_default**       | Whether or not accounts created                                          |
 | **fee\_schedule\_key**    | The fee schedule key, if any                                             |
-| **freeze\_key**           | The freeze key for the token                                             |
+| **freeze\_key**           | The freeze key for the token, if specified                               |
 | **initial\_suppl**y       | The initial supply of the token                                          |
-| **kyc\_key**              | The KYC key for the token                                                |
+| **kyc\_key**              | The KYC key for the token, if specified                                  |
 | **modified\_timestamp**   | The last time the token properties were modified                         |
 | **name**                  | The name of the token                                                    |
-| **supply\_key**           | The supply key for the token                                             |
+| **supply\_key**           | The supply key for the token, if specified                               |
 | **symbol**                | The token symbol                                                         |
 | **token\_id**             | The token ID                                                             |
 | **total\_supply**         | The total supply of the token                                            |
 | **treasury\_account\_id** | The treasury account of the token                                        |
 | **type**                  | whether a token is a fungible or non-fungible token                      |
-| **wipe\_key**             | The wipe key for the token                                               |
+| **wipe\_key**             | The wipe key for the token, if specified                                 |
 | **custom\_fees**          | The custom fee schedule for the token, if any                            |
+| **pause\_key**            | The pause key for a token, if specified                                  |
 
 {% swagger baseUrl="" path="/api/v1/tokens/{tokenId}/nfts" method="get" summary="NFTs" %}
 {% swagger-description %}
