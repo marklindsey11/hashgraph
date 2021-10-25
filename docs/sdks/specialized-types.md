@@ -2,26 +2,26 @@
 
 ## [AccountId](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/account/AccountId.java)
 
-An `AccountId` is composed of a &lt;shardNum&gt;.&lt;realmNum&gt;.&lt;accountNum&gt; \(eg. 0.0.10\).
+An `AccountId` is composed of a \<shardNum>.\<realmNum>.\<accountNum> (eg. 0.0.10).
 
-* **shardNum** represents the shard number \(`shardId`\). It will default to 0 today, as Hedera only performs in one shard.
-* **realmNum** represents the realm number \(`realmId`\). It will default to 0 today, as realms are not yet supported.
-* **accountNum** represents the account number \(`accountId`\)
+* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
+* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
+* **accountNum** represents the account number (`accountId`)
 
 Together these values make up your `AccountId`. When an `AccountId` is requested, be sure all three values are included.
 
 ### Constructor
 
-| Constructor | Type | Description |
-| :--- | :---: | :--- |
-| `new AccountId(<shardNum>,<realmNum>,<accountNum>)` | long, long, long | Constructs an `AccountId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<accountNum>`\) |
+| Constructor                                         |       Type       | Description                                                                               |
+| --------------------------------------------------- | :--------------: | ----------------------------------------------------------------------------------------- |
+| `new AccountId(<shardNum>,<realmNum>,<accountNum>)` | long, long, long | Constructs an `AccountId` with 0 for `shardNum` and `realmNum` (e.g., `0.0.<accountNum>`) |
 
 ### Methods
 
-| Methods | Type | Description |
-| :--- | :--- | :--- |
-| `fromString(<account>)` | String | Constructs an `AccountId` from a string formatted as &lt;shardNum&gt;.&lt;realmNum&gt;.&lt;accountNum&gt; |
-| `fromSolidityAddress(<address>)` | String | Constructs an `AccountId` from a solidity address in string format |
+| Methods                          | Type   | Description                                                                                |
+| -------------------------------- | ------ | ------------------------------------------------------------------------------------------ |
+| `fromString(<account>)`          | String | Constructs an `AccountId` from a string formatted as \<shardNum>.\<realmNum>.\<accountNum> |
+| `fromSolidityAddress(<address>)` | String | Constructs an `AccountId` from a solidity address in string format                         |
 
 ### Example
 
@@ -51,66 +51,29 @@ console.log(`${acctId}`);
 
 ## [FileId](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/file/FileId.java)
 
-A `FileId` is composed of a &lt;shardNum&gt;.&lt;realmNum&gt;.&lt;fileNum&gt; \(eg. 0.0.15\).
+A `FileId` is composed of a \<shardNum>.\<realmNum>.\<fileNum> (eg. 0.0.15).
 
-* **shardNum** represents the shard number \(`shardId`\). It will default to 0 today, as Hedera only performs in one shard.
-* **realmNum** represents the realm number \(`realmId`\). It will default to 0 today, as realms are not yet supported.
+* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
+* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
 * **fileNum** represents the file number
 
 Together these values make up your accountId. When an `FileId` is requested, be sure all three values are included.
 
 ### Constructor
 
-| Constructor | Type | Description |
-| :--- | :---: | :--- |
-| `new FileId(<shardNum>,<realmNum>,<fileNum>)` | long, long, long | Constructs a `FileId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<fileNum>`\) |
+| Constructor                                   |       Type       | Description                                                                        |
+| --------------------------------------------- | :--------------: | ---------------------------------------------------------------------------------- |
+| `new FileId(<shardNum>,<realmNum>,<fileNum>)` | long, long, long | Constructs a `FileId` with 0 for `shardNum` and `realmNum` (e.g., `0.0.<fileNum>`) |
 
 ### Methods
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Methods</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>fromString()</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">
-        <p>Constructs an <code>FileId</code> from a string formatted as</p>
-        <p>&lt;shardNum&gt;.&lt;realmNum&gt;.&lt;fileNum&gt;</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>fromSolidityAddress()</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">Constructs an <code>FileId</code> from a solidity address in string format</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>FileId.ADDRESS_BOOK</code>
-      </td>
-      <td style="text-align:left">FileId</td>
-      <td style="text-align:left">The public node address book for the current network</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>FileId.EXCHANGE_RATES</code>
-      </td>
-      <td style="text-align:left">FileId</td>
-      <td style="text-align:left">The current exchange rate of HBAR to USD</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>FileId.FEE_SCHEDULE</code>
-      </td>
-      <td style="text-align:left">FileId</td>
-      <td style="text-align:left">The current fee schedule for the network</td>
-    </tr>
-  </tbody>
-</table>
+| Methods                 | Type   | Description                                                                                                              |
+| ----------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `fromString()`          | String | <p>Constructs an <code>FileId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;fileNum></p> |
+| `fromSolidityAddress()` | String | Constructs an `FileId` from a solidity address in string format                                                          |
+| `FileId.ADDRESS_BOOK`   | FileId | The public node address book for the current network                                                                     |
+| `FileId.EXCHANGE_RATES` | FileId | The current exchange rate of HBAR to USD                                                                                 |
+| `FileId.FEE_SCHEDULE`   | FileId | The current fee schedule for the network                                                                                 |
 
 ### Example
 
@@ -140,48 +103,26 @@ console.log(`${newFileIdFromString}`);
 
 ## [ContractId](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/contract/ContractId.java)
 
-A `ContractId` is composed of a &lt;shardNum&gt;.&lt;realmNum&gt;.&lt;contractNum&gt; \(eg. 0.0.20\).
+A `ContractId` is composed of a \<shardNum>.\<realmNum>.\<contractNum> (eg. 0.0.20).
 
-* **shardNum** represents the shard number \(`shardId`\). It will default to 0 today, as Hedera only performs in one shard.
-* **realmNum** represents the realm number \(`realmId`\). It will default to 0 today, as realms are not yet supported.
+* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
+* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
 * **contractNum** represents the contract number
 
 Together these values make up your `ContractId`. When an `ContractId` is requested, be sure all three values are included. ContractId's are automatically assigned when you create a new smart contract.
 
 ### Constructor
 
-| Constructor | Type | Description |
-| :--- | :--- | :--- |
-| `new ContractId(<shardNum>,<realmNum>,<contractNum>)` | long, long, long | Constructs a `ContractId` with 0 for `shardNum` and `realmNum` \(e.g., `0.0.<contractNum>`\) |
+| Constructor                                           | Type             | Description                                                                                |
+| ----------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------ |
+| `new ContractId(<shardNum>,<realmNum>,<contractNum>)` | long, long, long | Constructs a `ContractId` with 0 for `shardNum` and `realmNum` (e.g., `0.0.<contractNum>`) |
 
 ### Methods
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Methods</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>fromString(&lt;account&gt;)</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">
-        <p>Constructs a <code>ContractId</code> from a string formatted as</p>
-        <p>&lt;shardNum&gt;.&lt;realmNum&gt;.&lt;contractNum&gt;</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>fromSolidityAddress(&lt;address&gt;)</code>
-      </td>
-      <td style="text-align:left">String</td>
-      <td style="text-align:left">Constructs a <code>ContractId</code> from a solidity address in string format</td>
-    </tr>
-  </tbody>
-</table>
+| Methods                          | Type   | Description                                                                                                                     |
+| -------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `fromString(<account>)`          | String | <p>Constructs a <code>ContractId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;contractNum></p> |
+| `fromSolidityAddress(<address>)` | String | Constructs a `ContractId` from a solidity address in string format                                                              |
 
 ### Example
 
@@ -215,8 +156,8 @@ A `TransactionId` is composed of the current time and account that is primarily 
 
 ### Constructor
 
-| Constructor | Type | Description |
-| :--- | :--- | :--- |
+| Constructor                      | Type      | Description                                               |
+| -------------------------------- | --------- | --------------------------------------------------------- |
 | `new TransactionId(<accountId>)` | AccountId | Generates a new transaction ID for the given `accountId`. |
 
 ### Example
@@ -238,22 +179,22 @@ console.log(`${txId}`);
 
 ## [TopicId](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/consensus/ConsensusTopicId.java)
 
-A `topicId` is composed of a &lt;shardNum&gt;.&lt;realmNum&gt;.&lt;topicNum&gt; \(eg. 0.0.100\).
+A `topicId` is composed of a \<shardNum>.\<realmNum>.\<topicNum> (eg. 0.0.100).
 
-* **shardNum** represents the shard number \(`shardId`\). It will default to 0 today, as Hedera only performs in one shard.
-* **realmNum** represents the realm number \(`realmId`\). It will default to 0 today, as realms are not yet supported.
-* **topicNum** represents the topic number \(`topicId`\)
+* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
+* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
+* **topicNum** represents the topic number (`topicId`)
 
 ### Constructor
 
-| Constructor | Type | Description |
-| :--- | :--- | :--- |
-| `new ConsensusTopicId(<shardNum>,<realmNum>,<topicNum>)` | long, long, long | Constructs a `TopicId` with `0` for `shardNum` and `realmNum` \(e.g., `0.0.<topicNum>`\) |
+| Constructor                                              | Type             | Description                                                                            |
+| -------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------- |
+| `new ConsensusTopicId(<shardNum>,<realmNum>,<topicNum>)` | long, long, long | Constructs a `TopicId` with `0` for `shardNum` and `realmNum` (e.g., `0.0.<topicNum>`) |
 
-| Methods | Type | Description |
-| :--- | :--- | :--- |
-| `fromString(<topic>)` | String | Constructs a topic ID from a String |
-| `ConsensusTopicId.toString()` |  | Constructs a topic ID to String format |
+| Methods                       | Type   | Description                            |
+| ----------------------------- | ------ | -------------------------------------- |
+| `fromString(<topic>)`         | String | Constructs a topic ID from a String    |
+| `ConsensusTopicId.toString()` |        | Constructs a topic ID to String format |
 
 ### Example
 
@@ -268,8 +209,7 @@ System.out.println(topicId)
 {% tab title="JavaScript" %}
 ```javascript
 const topicId = new ConsensusTopicId(0,0,100);
-System.out.println(topicId)
+console.log(topicId)
 ```
 {% endtab %}
 {% endtabs %}
-
