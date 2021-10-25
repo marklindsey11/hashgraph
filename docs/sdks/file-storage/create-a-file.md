@@ -3,7 +3,7 @@
 A transaction that creates a new file on a Hedera network. The file is referenced by its file ID which can be obtained from the receipt or record once the transaction reaches consensus on a Hedera network. The file does not have a file name. If the file is too big to create with a single `FileCreateTransaction()`, the file can be appended with the remaining content multiple times using the `FileAppendTransaction()`.
 
 {% hint style="info" %}
-The maximum file size is 1,024 kB. 
+The maximum file size is 1,024 kB.&#x20;
 {% endhint %}
 
 **Transaction Signing Requirements**
@@ -12,17 +12,17 @@ The maximum file size is 1,024 kB.
 
 #### File Properties
 
-| Field | Description |
-| :--- | :--- |
-| **Key\(s\)** | Set the keys which must sign any transactions modifying this file \(the owner\(s\) of the file\). All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time \(except the one for the operator account paying for the transaction\). The network currently requires a file to have at least one key \(or key list or threshold key\) but this requirement may be lifted in the future. |
-| **Contents** | The contents of the file. The file contents can be recovered from requesting the FileContentsQuery. Note that the total size for a given transaction is limited to 6KiB \(as of March 2020\) by the network; if you exceed this you may receive a TRANSACTION\_OVERSIZE error. |
-| **Expiration Time** | Set the instant at which this file will expire, after which its contents will no longer be available. Defaults to 1/4 of a Julian year from the instant was invoked. |
-| **Memo** | Short publicly visible memo about the file. No guarantee of uniqueness. \(100 characters max\) |
+| Field               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Key(s)**          | Set the keys which must sign any transactions modifying this file (the owner(s) of the file). All keys must sign to modify the file's contents or keys. No key is required to sign for extending the expiration time (except the one for the operator account paying for the transaction). The network currently requires a file to have at least one key (or key list or threshold key) but this requirement may be lifted in the future. |
+| **Contents**        | The contents of the file. The file contents can be recovered from requesting the FileContentsQuery. Note that the total size for a given transaction is limited to 6KiB (as of March 2020) by the network; if you exceed this you may receive a TRANSACTION\_OVERSIZE error.                                                                                                                                                               |
+| **Expiration Time** | Set the instant at which this file will expire, after which its contents will no longer be available. Defaults to 1/4 of a Julian year from the instant was invoked.                                                                                                                                                                                                                                                                       |
+| **Memo**            | Short publicly visible memo about the file. No guarantee of uniqueness. (100 characters max)                                                                                                                                                                                                                                                                                                                                               |
 
 ### Methods
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                   | Description                                  |
+| ----------------------------- | -------------------------------------------- |
 | `new FileCreateTransaction()` | Initializes the FileCreateTransaction object |
 
 ```java
@@ -30,18 +30,18 @@ new FileCreateTransaction()
 ```
 
 {% hint style="info" %}
-The default max transaction fee \(1 hbar\) is not enough to create a a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars. 
+The default max transaction fee (1 hbar) is not enough to create a a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars.&#x20;
 {% endhint %}
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setKeys(<keys>)` | Key | Required |
-| `setContents(<contents>)` | String | Optional |
-| `setContents(<bytes>)` | bytes \[ \] | Optional |
-| `setExpirationTime(<expirationTime>)` | Instant | Optional |
-| `setFileMemo(<memo>)` | String | Optional |
+| Method                                | Type       | Requirement |
+| ------------------------------------- | ---------- | ----------- |
+| `setKeys(<keys>)`                     | Key        | Required    |
+| `setContents(<contents>)`             | String     | Optional    |
+| `setContents(<bytes>)`                | bytes \[ ] | Optional    |
+| `setExpirationTime(<expirationTime>)` | Instant    | Optional    |
+| `setFileMemo(<memo>)`                 | String     | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -133,12 +133,12 @@ fmt.Printf("The new file ID is %v\n", newFileId)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `addKey(<key>)` | ​PublicKey​ | The public key of the owner of the file | Required |
-| `setContents(<contents>)` | bytes\[\] | The file contents in byte representation | Optional |
-| `setContents(<contents>)` | String | The file contents in string representation | Optional |
-| `setExpirationTime(<expiration>)` | Instant | The time at which this file should expire \(unless FileUpdateTransaction is used before then to extend its life\) | Optional |
+| Method                            | Type        | Description                                                                                                     | Requirement |   |
+| --------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------- | ----------- | - |
+| `addKey(<key>)`                   | ​PublicKey​ | The public key of the owner of the file                                                                         | Required    |   |
+| `setContents(<contents>)`         | bytes\[]    | The file contents in byte representation                                                                        | Optional    |   |
+| `setContents(<contents>)`         | String      | The file contents in string representation                                                                      | Optional    |   |
+| `setExpirationTime(<expiration>)` | Instant     | The time at which this file should expire (unless FileUpdateTransaction is used before then to extend its life) | Optional    |   |
 
 {% code title="Java" %}
 ```java
@@ -196,12 +196,12 @@ console.log("The new file ID is: " + newFileId);
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `getKeys()` | Key | Optional |
-| `getContents()` | ByteString | Optional |
-| `getExpirationTime()` | Instant | Optional |
-| `getFileMemo()` | String | Optional |
+| Method                | Type       | Requirement |
+| --------------------- | ---------- | ----------- |
+| `getKeys()`           | Key        | Optional    |
+| `getContents()`       | ByteString | Optional    |
+| `getExpirationTime()` | Instant    | Optional    |
+| `getFileMemo()`       | String     | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -241,31 +241,27 @@ getContents := transaction.GetContents()
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `addKey(<key>)` | ​Ed25519PublicKey​ | The public key of the owner of the file |  |
-| `setContents(<contents>)` | bytes\[\] | The file contents |  |
-| `setExpirationTime(<expiration>)` | Instant | The time at which this file should expire \(unless FileUpdateTransaction is used before then to extend its life\) |  |
+| Method                            | Type               | Description                                                                                                     | Requirement |
+| --------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------- | ----------- |
+| `addKey(<key>)`                   | ​Ed25519PublicKey​ | The public key of the owner of the file                                                                         |             |
+| `setContents(<contents>)`         | bytes\[]           | The file contents                                                                                               |             |
+| `setExpirationTime(<expiration>)` | Instant            | The time at which this file should expire (unless FileUpdateTransaction is used before then to extend its life) |             |
 
 {% code title="Java" %}
 ```java
-
 ```
 {% endcode %}
 
 {% code title="JavaScript" %}
 ```java
-
 ```
 {% endcode %}
 
 {% code title="Go" %}
 ```java
-
 ```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
-## 
-
+##

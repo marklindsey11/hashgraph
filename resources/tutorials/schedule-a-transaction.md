@@ -8,9 +8,13 @@ In this tutorial, you'll learn how to create and sign a scheduled transaction. S
 
 If you are not familiar with the Hedera SDKs, visit the "Getting Started" section of the docs below.
 
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}
+
 ## 1. Create a transaction to schedule
 
-First, you will need to build the transaction to schedule. In this example below, you will create a transfer transaction. The sender account has a [threshold key](../../docs/sdks/keys/create-a-threshold-key.md) structure that requires 2 out of the 3 keys to sign the transaction to authorize the transfer amount. 
+First, you will need to build the transaction to schedule. In this example below, you will create a transfer transaction. The sender account has a [threshold key](../../docs/sdks/keys/create-a-threshold-key.md) structure that requires 2 out of the 3 keys to sign the transaction to authorize the transfer amount.&#x20;
 
 {% tabs %}
 {% tab title="V2" %}
@@ -44,15 +48,17 @@ transaction := hedera.NewTransferTransaction().
 
 ## 2. Schedule the transfer transaction
 
-Next, you will schedule the transfer transaction by submitting a ScheduleCreate transaction to the network. Once the transfer transaction is scheduled, you can obtain the schedule ID from the receipt of the ScheduleCreate transaction. The schedule ID identifies the schedule that scheduled the transfer transaction.The schedule ID can be shared with the three signatories. The schedule is immutable unless the admin key is specified during creation. 
+Next, you will schedule the transfer transaction by submitting a ScheduleCreate transaction to the network. Once the transfer transaction is scheduled, you can obtain the schedule ID from the receipt of the ScheduleCreate transaction. The schedule ID identifies the schedule that scheduled the transfer transaction.The schedule ID can be shared with the three signatories. The schedule is immutable unless the admin key is specified during creation.&#x20;
 
-The scheduled transaction ID of the transfer transaction can also be returned from the receipt of the ScheduleCreate transaction. You will notice that the transaction ID for a scheduled transaction includes a `?scheduled` flag e.g. `0.0.9401@1620177544.531971543?scheduled.` All transactions that have been scheduled will include this flag.
+The scheduled transaction ID of the transfer transaction can also be returned from the receipt of the ScheduleCreate transaction. You will notice that the transaction ID for a scheduled transaction includes a`  ?scheduled  `flag e.g. `0.0.9401@1620177544.531971543?scheduled.` All transactions that have been scheduled will include this flag.
 
 You can optionally add signatures you may have during the creation of the ScheduleCreate transaction by calling `.freezeWith(client)` and `.sign()` methods. This might make sense if you are one of the required signatures for the scheduled transaction.
 
-Visit the page below to view additional properties that can be set when building a ScheduleCreate transaction. 
+Visit the page below to view additional properties that can be set when building a ScheduleCreate transaction.&#x20;
 
-{% page-ref page="../../docs/sdks/schedule-transaction/create-a-schedule-transaction.md" %}
+{% content-ref url="../../docs/sdks/schedule-transaction/create-a-schedule-transaction.md" %}
+[create-a-schedule-transaction.md](../../docs/sdks/schedule-transaction/create-a-schedule-transaction.md)
+{% endcontent-ref %}
 
 {% tabs %}
 {% tab title="V2" %}
@@ -325,7 +331,7 @@ fmt.Print(query2)
 
 ## 6. Verify the scheduled transaction executed
 
-When the scheduled transaction \(transfer transaction\) executes a record is produced that contains the transaction details. The scheduled transaction record can be requested immediately after the transaction has executed and includes the corresponding schedule ID. If you do not know when the scheduled transaction will execute, you can always query a [mirror node](../../mirrornet/hedera-mirror-node.md) using the scheduled transaction ID without the `?scheduled` flag to get a copy of the transaction record.
+When the scheduled transaction (transfer transaction) executes a record is produced that contains the transaction details. The scheduled transaction record can be requested immediately after the transaction has executed and includes the corresponding schedule ID. If you do not know when the scheduled transaction will execute, you can always query a [mirror node](../../mirrornet/hedera-mirror-node.md) using the scheduled transaction ID without the `?scheduled` flag to get a copy of the transaction record.
 
 {% tabs %}
 {% tab title="V2" %}
@@ -353,6 +359,4 @@ fmt.Printf("The scheduled transaction record is %v\n", scheduledTxRecord)
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 

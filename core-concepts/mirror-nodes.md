@@ -15,10 +15,10 @@ Mirror nodes provide a way to store and cost-effectively query historical data f
 A beta version of mirror node code is [available on GitHub](https://github.com/hashgraph/hedera-mirror-node).
 
 {% hint style="info" %}
-**Current Status**  
-The beta mirror node is available to deploy and downloads transaction data via an Amazon or Google bucket. A full version is actively being developed and will connect directly to a Hedera network \(testnet or mainnet\).  
-  
-**UPDATE: LIMITED AVAILABILITY**   
+**Current Status**\
+The beta mirror node is available to deploy and downloads transaction data via an Amazon or Google bucket. A full version is actively being developed and will connect directly to a Hedera network (testnet or mainnet).\
+\
+**UPDATE: LIMITED AVAILABILITY **\
 Please check out mirror node information [here](https://docs.hedera.com/guides/docs/mirror-node-api/hedera-consensus-service-api-1).
 {% endhint %}
 
@@ -35,7 +35,7 @@ While mirror nodes receive information from the consensus nodes, they do not con
 
 At version 1.0, mirror nodes will run the same code as consensus nodes.
 
-To make the initial deployments easier, the beta version of mirror nodes strive to take away the burden of running a full Hedera node through the creation of periodic files that contain processed information \(such as account balances or transaction records\), and have the full trust of the Hedera consensus nodes. The beta mirror node software reduces the processing burden by receiving pre-constructed files from the network, validating those, populating a database, and providing REST APIs
+To make the initial deployments easier, the beta version of mirror nodes strive to take away the burden of running a full Hedera node through the creation of periodic files that contain processed information (such as account balances or transaction records), and have the full trust of the Hedera consensus nodes. The beta mirror node software reduces the processing burden by receiving pre-constructed files from the network, validating those, populating a database, and providing REST APIs
 
 ![](../.gitbook/assets/betamirrornode-overview.jpg)
 
@@ -53,23 +53,30 @@ Hedera consensus nodes push new record files and signature files to the cloud st
 
 To get access to a Hedera beta mirror node, please follow the link below.
 
-{% page-ref page="../mirrornet/hedera-mirror-node.md" %}
+{% content-ref url="../mirrornet/hedera-mirror-node.md" %}
+[hedera-mirror-node.md](../mirrornet/hedera-mirror-node.md)
+{% endcontent-ref %}
 
-### REST API from Hedera 
+### REST API from Hedera&#x20;
 
-Hedera will provide a REST API to easily query a mirror node that is hosted by Hedera, removing the complexity of having to run your own. After you are whitelisted to a Hedera mirror node on mainnet, you can check out the mirror node REST API docs below. 
+Hedera will provide a REST API to easily query a mirror node that is hosted by Hedera, removing the complexity of having to run your own. After you are whitelisted to a Hedera mirror node on mainnet, you can check out the mirror node REST API docs below.&#x20;
 
-{% page-ref page="../docs/mirror-node-api/" %}
+{% content-ref url="../docs/mirror-node-api/" %}
+[mirror-node-api](../docs/mirror-node-api/)
+{% endcontent-ref %}
 
 {% hint style="info" %}
 Hedera will provide this as a service to bootstrap early use, but anticipates a full ecosystem and marketplace to be established by third parties.
 {% endhint %}
 
-### Run a Mirror Node 
+### Run a Mirror Node&#x20;
 
 Anyone can run a Hedera beta mirror node by downloading and configuring the software on their computer. By running a beta mirror node, you are able to connect to the appropriate cloud storage and store account balance files, record files, and event files as described above. Please check out the below links on how to get started.
 
-{% page-ref page="../mirrornet/run-your-own-beta-mirror-node/" %}
+{% content-ref url="../mirrornet/run-your-own-beta-mirror-node/" %}
+[run-your-own-beta-mirror-node](../mirrornet/run-your-own-beta-mirror-node/)
+{% endcontent-ref %}
 
-{% page-ref page="../mirrornet/one-click-mirror-node-deployment.md" %}
-
+{% content-ref url="../mirrornet/one-click-mirror-node-deployment.md" %}
+[one-click-mirror-node-deployment.md](../mirrornet/one-click-mirror-node-deployment.md)
+{% endcontent-ref %}

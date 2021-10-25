@@ -4,28 +4,28 @@ A transaction that creates a new topic recognized by the Hedera network. The new
 
 #### Private topic
 
-You can also create a private topic where only authorized parties can submit messages to that topic. To create a private topic you would need to set the `submitKey` property of the transaction. The `submitKey` value is then shared with the authorized parties and is required to successfully submit messages to the private topic. 
+You can also create a private topic where only authorized parties can submit messages to that topic. To create a private topic you would need to set the `submitKey` property of the transaction. The `submitKey` value is then shared with the authorized parties and is required to successfully submit messages to the private topic.&#x20;
 
 #### Topic Properties
 
-| Field | Description |
-| :--- | :--- |
-| **Admin Key** | Access control for updateTopic/deleteTopic. Anyone can increase the topic's expirationTime regardless of the adminKey. If no adminKey is specified, updateTopic may only be used to extend the topic's expirationTime, and deleteTopic is disallowed. |
-| **Submit Key** | Access control for submitMessage. If unspecified, no access control is performed to submit messages \(all submissions are allowed\). |
-| **Topic Memo** | Set a short publicly visible memo on the new topic and is stored with the topic. \(100 bytes\) |
-| **Auto Renew Account** | Optional account to be used at the topic's expirationTime to extend the life of the topic \(once autoRenew functionality is supported by HAPI\). The topic lifetime will be extended up to a maximum of the autoRenewPeriod or however long the topic can be extended using all funds on the account \(whichever is the smaller duration/amount and if any extension is possible with the account's funds\). |
-| **Auto Renew Period** | The initial lifetime of the topic and the amount of time to attempt to extend the topic's lifetime by automatically at the topic's expirationTime, if the autoRenewAccount is configured \(once autoRenew functionality is supported by HAPI\). |
+| Field                  | Description                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Admin Key**          | Access control for updateTopic/deleteTopic. Anyone can increase the topic's expirationTime regardless of the adminKey. If no adminKey is specified, updateTopic may only be used to extend the topic's expirationTime, and deleteTopic is disallowed.                                                                                                                                                    |
+| **Submit Key**         | Access control for submitMessage. If unspecified, no access control is performed to submit messages (all submissions are allowed).                                                                                                                                                                                                                                                                       |
+| **Topic Memo**         | Set a short publicly visible memo on the new topic and is stored with the topic. (100 bytes)                                                                                                                                                                                                                                                                                                             |
+| **Auto Renew Account** | Optional account to be used at the topic's expirationTime to extend the life of the topic (once autoRenew functionality is supported by HAPI). The topic lifetime will be extended up to a maximum of the autoRenewPeriod or however long the topic can be extended using all funds on the account (whichever is the smaller duration/amount and if any extension is possible with the account's funds). |
+| **Auto Renew Period**  | The initial lifetime of the topic and the amount of time to attempt to extend the topic's lifetime by automatically at the topic's expirationTime, if the autoRenewAccount is configured (once autoRenew functionality is supported by HAPI).                                                                                                                                                            |
 
 **Transaction Signing Requirements:**
 
-* If an adminKey is specified, the adminKey must sign the transaction
-* If not adminKey is specified the topic is immutable
-* If an autoRenewAccount is specified, that account must also sign this transaction
+* If an admin key is specified, the admin key must sign the transaction
+* If not admin key is specified the topic is immutable
+* If an auto renew account is specified, that account must also sign this transaction
 
 {% tabs %}
 {% tab title="V2" %}
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                    | Description                                   |
+| ------------------------------ | --------------------------------------------- |
 | `new TopicCreateTransaction()` | Initializes the TopicCreateTransaction object |
 
 ```java
@@ -34,13 +34,13 @@ new TopicCreateTransaction()
 
 ### Methods
 
-| Method | Type | Requirements |
-| :--- | :--- | :--- |
-| `setAdminKey(<adminKey>)` | Key | Optional |
-| `setSubmitKey(<submitKey>)` | Key | Optional |
-| `setTopicMemo(<memo>)` | String | Optional |
-| `setAutoRenewAccountId(<accountId>)` | AccountId | Disabled |
-| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Disabled |
+| Method                                     | Type      | Requirements |
+| ------------------------------------------ | --------- | ------------ |
+| `setAdminKey(<adminKey>)`                  | Key       | Optional     |
+| `setSubmitKey(<submitKey>)`                | Key       | Optional     |
+| `setTopicMemo(<memo>)`                     | String    | Optional     |
+| `setAutoRenewAccountId(<accountId>)`       | AccountId | Disabled     |
+| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration  | Disabled     |
 
 {% code title="Java" %}
 ```java
@@ -112,8 +112,8 @@ fmt.Printf("The new topic ID is %v\n", newTopicID)
 {% endtab %}
 
 {% tab title="V1" %}
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                             | Description                                            |
+| --------------------------------------- | ------------------------------------------------------ |
 | `new ConsensusTopicCreateTransaction()` | Initializes the ConsensusTopicCreateTransaction object |
 
 ```java
@@ -122,13 +122,13 @@ new ConsensusTopicCreateTransaction()
 
 ### Methods
 
-| Method | Type | Requirements |
-| :--- | :--- | :--- |
-| `setAdminKey(<adminKey>)` | PublicKey | Optional |
-| `setSubmitKey(<submitKey>)` | PublicKey | Optional |
-| `setTopicMemo(<memo>)` | String | Optional |
-| `setAutoRenewAccountId(<accountId>)` | AccountId | Disabled |
-| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Disabled |
+| Method                                     | Type      | Requirements |
+| ------------------------------------------ | --------- | ------------ |
+| `setAdminKey(<adminKey>)`                  | PublicKey | Optional     |
+| `setSubmitKey(<submitKey>)`                | PublicKey | Optional     |
+| `setTopicMemo(<memo>)`                     | String    | Optional     |
+| `setAutoRenewAccountId(<accountId>)`       | AccountId | Disabled     |
+| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration  | Disabled     |
 
 {% code title="Java" %}
 ```java
@@ -172,13 +172,13 @@ console.log("New topic created: " + newTopicId);
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirements |
-| :--- | :--- | :--- |
-| `getAdminKey(<adminKey>)` | Key | Optional |
-| `getSubmitKey(<submitKey>)` | Key | Optional |
-| `getTopicMemo(<memo>)` | String | Optional |
-| `getAutoRenewAccountId(<accountId>)` | AccountId | Disabled |
-| `getAutoRenewPeriod(<autoRenewAccountId>)` | Duration | Disabled |
+| Method                                     | Type      | Requirements |
+| ------------------------------------------ | --------- | ------------ |
+| `getAdminKey(<adminKey>)`                  | Key       | Optional     |
+| `getSubmitKey(<submitKey>)`                | Key       | Optional     |
+| `getTopicMemo(<memo>)`                     | String    | Optional     |
+| `getAutoRenewAccountId(<accountId>)`       | AccountId | Disabled     |
+| `getAutoRenewPeriod(<autoRenewAccountId>)` | Duration  | Disabled     |
 
 {% code title="Java" %}
 ```java
@@ -218,5 +218,4 @@ getKey := transaction.GetAdminKey()
 {% endtab %}
 {% endtabs %}
 
-## 
-
+##

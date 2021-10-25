@@ -6,28 +6,25 @@ Build your client to interact with any of the Hedera network nodes. Mainnet, tes
 
 {% tabs %}
 {% tab title="V2" %}
-For a predefined network \(preview, testnet, and mainnet\), the mirror node client is configured to the corresponding network mirror node. The default mainnet mirror node connection is to the [whitelisted mirror node](../../mirrornet/hedera-mirror-node.md#mainnet).   
-  
+For a predefined network (preview, testnet, and mainnet), the mirror node client is configured to the corresponding network mirror node. The default mainnet mirror node connection is to the [whitelisted mirror node](../../mirrornet/hedera-mirror-node.md#mainnet). \
+\
 To access the _**public mainnet mirror node**_, use `setMirrorNetwork()` and enter `mainnet-public.mirrornode.hedera.com:433` for the endpoint. The gRPC API requires TLS. The following SDK versions are compatible with TLS:
 
-* **Java:** v2.0.6+
+* **Java: **v2.0.6+
 * **JavaScript**: v2.0.23+
-* **Go:** v2.1.8+
+* **Go: **v2.1.8+
 
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `Client.forPreviewnet()` |  | Constructs a Hedera client pre-configured for Previewnet access |
-| `Client.forTestnet()` |  | Constructs a Hedera client pre-configured for Testnet access |
-| `Client.forMainnet()` |  | Constructs a Hedera client pre-configured for Mainnet access |
-| `Client.forNetwork(<network>)` | Map&lt;String, AccountId&gt; | Construct a client given a set of nodes. It is the responsibility of the caller to ensure that all nodes in the map are part of the same Hedera network. Failure to do so will result in undefined behavior. |
-| `Client.fromJson(<json>)` | String | Configure a client from the given JSON string |
-| `Client.fromJson(<json>)` | Reader | Configure a client from the given JSON reader |
-| `Client.fromJsonFile(<file>)` | File | Configure a client based on a JSON file. |
-| `Client.fromJsonFile(<fileName>)` | String | Configure a client based on a JSON file at the given path. |
-| `Client.<network>.setMirrorNetwork(network)` | List&lt;String&gt;\) | Define a specific mirror network node\(s\) ip:port in string format |
-| `Client.<network>.setMirrorNetwork(network)` |  |  |
-|  |  |  |
-|  |  |  |
+| Method                                       | Type                    | Description                                                                                                                                                                                                  |
+| -------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Client.forPreviewnet()`                     |                         | Constructs a Hedera client pre-configured for Previewnet access                                                                                                                                              |
+| `Client.forTestnet()`                        |                         | Constructs a Hedera client pre-configured for Testnet access                                                                                                                                                 |
+| `Client.forMainnet()`                        |                         | Constructs a Hedera client pre-configured for Mainnet access                                                                                                                                                 |
+| `Client.forNetwork(<network>)`               | Map\<String, AccountId> | Construct a client given a set of nodes. It is the responsibility of the caller to ensure that all nodes in the map are part of the same Hedera network. Failure to do so will result in undefined behavior. |
+| `Client.fromJson(<json>)`                    | String                  | Configure a client from the given JSON string                                                                                                                                                                |
+| `Client.fromJson(<json>)`                    | Reader                  | Configure a client from the given JSON reader                                                                                                                                                                |
+| `Client.fromJsonFile(<file>)`                | File                    | Configure a client based on a JSON file.                                                                                                                                                                     |
+| `Client.fromJsonFile(<fileName>)`            | String                  | Configure a client based on a JSON file at the given path.                                                                                                                                                   |
+| `Client.<network>.setMirrorNetwork(network)` | List\<String>)          | Define a specific mirror network node(s) ip:port in string format                                                                                                                                            |
 
 {% code title="Java" %}
 ```java
@@ -75,16 +72,16 @@ client := Client.forNetwork(nodes)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `Client.forPreviewnet()` |  | Constructs a Hedera client pre-configured for Previewnet access |
-| `Client.forTestnet()` |  | Constructs a Hedera client pre-configured for Testnet access |
-| `Client.forMainnet()` |  | Constructs a Hedera client pre-configured for Mainnet access |
-| `Client.fromFile(<file>)` | File | Configures a client from a file |
-| `Client.fromFile(<fileName>)` | String | Constructs a network from a file |
-| `Client.fromJson(<json>)` | String | Configure a client from the given JSON string |
-| `Client.fromJson(<json>)` | Reader | Configure a client from the given JSON reader |
-| `Client.replaceNodes(<nodes>)` | Map&lt;AccountId, String&gt; | Replaces nodes in the network |
+| Method                         | Type                    | Description                                                     |
+| ------------------------------ | ----------------------- | --------------------------------------------------------------- |
+| `Client.forPreviewnet()`       |                         | Constructs a Hedera client pre-configured for Previewnet access |
+| `Client.forTestnet()`          |                         | Constructs a Hedera client pre-configured for Testnet access    |
+| `Client.forMainnet()`          |                         | Constructs a Hedera client pre-configured for Mainnet access    |
+| `Client.fromFile(<file>)`      | File                    | Configures a client from a file                                 |
+| `Client.fromFile(<fileName>)`  | String                  | Constructs a network from a file                                |
+| `Client.fromJson(<json>)`      | String                  | Configure a client from the given JSON string                   |
+| `Client.fromJson(<json>)`      | Reader                  | Configure a client from the given JSON reader                   |
+| `Client.replaceNodes(<nodes>)` | Map\<AccountId, String> | Replaces nodes in the network                                   |
 
 {% code title="Java" %}
 ```java
@@ -116,10 +113,10 @@ const client = Client.forTestnet();
 
 The operator is the account that will, by default, pay the transaction fee for transactions and queries built with this client. The operator account ID is used to generate the default transaction ID for all transactions executed with this client. The operator private key is used to sign all transactions executed by this client.
 
-| Method | Type |
-| :--- | :--- |
-| `Client.<network>.setOperator(<accountId, privateKey>)` | AccountId, PrivateKey |
-| `Client.<network>.setOperatorWith(<accountId, privateKey, transactionSigner>)` | AccountId, PrivateKey, Function&lt;byte\[ \], byte \[ \]&gt; |
+| Method                                                                         | Type                                                  |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| `Client.<network>.setOperator(<accountId, privateKey>)`                        | AccountId, PrivateKey                                 |
+| `Client.<network>.setOperatorWith(<accountId, privateKey, transactionSigner>)` | AccountId, PrivateKey, Function\<byte\[ ], byte \[ ]> |
 
 ### From an account ID and private key
 
@@ -179,7 +176,7 @@ client.SetOperator(operatorAccountID, operatorKey)
 The .env file is created in the root directory of the SDK. The .env file stores account ID and the associated private key information to reference throughout your code. You will need to import the relevant dotenv module to your project files. The sample .env file may look something like this:
 
 {% code title=".env" %}
-```text
+```
 OPERATOR_ID= 0.0.9410
 OPERATOR_KEY= 302e020100300506032b65700422042012a4a4add3d885bd61d7ce5cff88c5ef2d510651add00a7f64cb90de3359bc5e
 ```
@@ -242,66 +239,19 @@ client.setOperator(OPERATOR_ID, OPERATOR_KEY);
 ## 3. Additional client modifications
 
 {% hint style="warning" %}
-The **max transaction fee** and **max query payment** are both set to 100\_000\_000 tinybar \(1 hbar\). This amount can be modified by using `setMaxTransactionFee()`and `setMaxQueryPayment().`
+The **max transaction fee** and **max query payment** are both set to 100\_000\_000 tinybar (1 hbar). This amount can be modified by using `setMaxTransactionFee()`and `setMaxQueryPayment().`
 {% endhint %}
 
 {% tabs %}
 {% tab title="V2" %}
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Method</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>Client.&lt;network&gt;.setMaxTransactionFee(&lt;fee&gt;)</code>
-      </td>
-      <td style="text-align:left">Hbar</td>
-      <td style="text-align:left">The maximum transaction fee the client is willing to pay. Default: 1 hbar</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Client&lt;network&gt;.setMaxQueryPayment(&lt;maxQueryPayment&gt;)</code>
-      </td>
-      <td style="text-align:left">Hbar</td>
-      <td style="text-align:left">
-        <p>The maximum query payment the client will pay.</p>
-        <p>Default: 1 hbar</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Client.&lt;network&gt;.setNetwork(&lt;nodes&gt;)</code>
-      </td>
-      <td style="text-align:left">Map&lt;String, AccountId&gt;</td>
-      <td style="text-align:left">Replace all nodes in this Client with a new set of nodes (e.g. for an
-        Address Book update)</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Client.&lt;network&gt;.setRequestTimeout(&lt;requestTimeout&gt;)</code>
-      </td>
-      <td style="text-align:left">Duration</td>
-      <td style="text-align:left">The period of time a transaction or query request will retry from a &quot;busy&quot;
-        network response</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Client.&lt;network&gt;.setMinBackoff(&lt;minBackoff&gt;)</code>
-      </td>
-      <td style="text-align:left">Duration</td>
-      <td style="text-align:left">The minimum amount of time to wait between retries. When retrying, the
-        delay will start at this time and increase exponentially until it reaches
-        the maxBackoff</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Client.&lt;network&gt;.setMaxBackoff(&lt;maxBackoff&gt;)</code>
-      </td>
-      <td style="text-align:left">Duration</td>
-      <td style="text-align:left">The maximum amount of time to wait between retries. Every retry attempt
-        will increase the wait time exponentially until it reaches this time</td>
-    </tr>
-  </tbody>
-</table>
+| Method                                                  | Type                    | Description                                                                                                                                                     |
+| ------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Client.<network>.setMaxTransactionFee(<fee>)`          | Hbar                    | The maximum transaction fee the client is willing to pay. Default: 1 hbar                                                                                       |
+| `Client<network>.setMaxQueryPayment(<maxQueryPayment>)` | Hbar                    | <p>The maximum query payment the client will pay.</p><p>Default: 1 hbar</p>                                                                                     |
+| `Client.<network>.setNetwork(<nodes>)`                  | Map\<String, AccountId> | Replace all nodes in this Client with a new set of nodes (e.g. for an Address Book update)                                                                      |
+| `Client.<network>.setRequestTimeout(<requestTimeout>)`  | Duration                | The period of time a transaction or query request will retry from a "busy" network response                                                                     |
+| `Client.<network>.setMinBackoff(<minBackoff>)`          | Duration                | The minimum amount of time to wait between retries. When retrying, the delay will start at this time and increase exponentially until it reaches the maxBackoff |
+| `Client.<network>.setMaxBackoff(<maxBackoff>)`          | Duration                | The maximum amount of time to wait between retries. Every retry attempt will increase the wait time exponentially until it reaches this time                    |
 
 {% code title="Java" %}
 ```java
@@ -350,32 +300,10 @@ client.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
 {% endtab %}
 
 {% tab title="V1" %}
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Method</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>setMaxTransactionFee(&lt;fee&gt;)</code>
-      </td>
-      <td style="text-align:left">Hbar/long</td>
-      <td style="text-align:left">The maximum transaction fee the client is willing to pay. Default: 1 hbar</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>setMaxQueryPayment(&lt;maxQueryPayment&gt;)</code>
-      </td>
-      <td style="text-align:left">Hbar/long</td>
-      <td style="text-align:left">
-        <p>The maximum query payment the client will pay.</p>
-        <p>Default: 1 hbar</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Method                                  | Type      | Description                                                                 |
+| --------------------------------------- | --------- | --------------------------------------------------------------------------- |
+| `setMaxTransactionFee(<fee>)`           | Hbar/long | The maximum transaction fee the client is willing to pay. Default: 1 hbar   |
+| `setMaxQueryPayment(<maxQueryPayment>)` | Hbar/long | <p>The maximum query payment the client will pay.</p><p>Default: 1 hbar</p> |
 
 {% code title="Java" %}
 ```java
@@ -405,4 +333,3 @@ client.setMaxTransactionFee(new Hbar(2));
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

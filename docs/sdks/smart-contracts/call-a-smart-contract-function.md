@@ -1,45 +1,52 @@
 # Call a smart contract function
 
-A query that calls a function of the given smart contract instance, giving it function parameters as its inputs. It will consume the entire given amount of gas provided. 
+The transaction that calls a function of the given smart contract instance, giving it `functionParameters` as its inputs. The call can use at maximum the given amount of gas – the paying account will not be charged for any unspent gas.
 
-**Query Signing Requirements**
+If this function results in data being stored, an amount of gas is calculated that reflects this storage burden.
 
-* The client operator account's private key (fee payer) is required to sign this query
+The amount of gas used, as well as other attributes of the transaction, e.g. size, number of signatures to be verified, determine the fee for the transaction – which is charged to the paying account.
 
-| Constructor               | Description                            |
-| ------------------------- | -------------------------------------- |
-| `new ContractCallQuery()` | Initializes a ContractCallQuery object |
+**Transaction Signing Requirements**
+
+* The key of the transaction fee paying account
+
+| `new ContractExecuteTransaction ()` | Initializes a ContractExecuteTransaction object |
+| ----------------------------------- | ----------------------------------------------- |
 
 ```java
-new ContractCallQuery()
+new ContractExecuteTransaction()
 ```
 
-### Methods
+
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                        | Type                                             | Description                                                                                                                             | Requirement |
-| ----------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `setContractId(<contractId>)` | [ContractId](../specialized-types.md#contractid) | Sets the contract instance to call, in the format used in transactions (x.z.y).                                                         | Required    |
-| `setGas(<gas>)`               | long                                             | Sets the amount of gas to use for the call.                                                                                             | Required    |
-| `setFunction(<name>)`         | String                                           | Sets the function name to call. The function will be called with no parameters.                                                         | Required    |
-| `setFunction(<name, params>)` | <p>String, <br>ContractFunctionParameters</p>    | Sets the function to call, and the parameters to pass to the function.                                                                  | Optional    |
-| `setMaxResultSize(<size>)`    | long                                             | Sets the max number of bytes that the result might include. The run will fail if it would have returned more than this number of bytes. | Optional    |
+| Method                        | Type                               | Description                                                            | Requirement |
+| ----------------------------- | ---------------------------------- | ---------------------------------------------------------------------- | ----------- |
+| `setContractId(<contractId>)` | ContractID                         | The ID of the contract to call.                                        | Required    |
+| `setFunction(<name, params>)` | String, ContractFunctionParameters | Which function to call and the parameters to pass to the function.     | Required    |
+| `setGas(<gas>)`               | long                               | The maximum amount of gas to use for the call.                         | Required    |
+| `setPayableAmount(<amount>)`  | Hbar                               | Number of hbars sent (the function must be payable if this is nonzero) | Optional    |
 
 {% code title="Java" %}
 ```java
-//Contract call query
-ContractCallQuery query = new ContractCallQuery()
-    .setContractId(contractId)
-    .setGas(600)
-    .setFunction("greet"); 
+//Create the transaction
+ContractCreateTransaction transaction = new ContractExecuteTransaction()
+     .setContractId(newContractId)
+     .setGas(100_000_000)
+     .setFunction("set_message", new ContractFunctionParameters()
+           .addString("hello from hedera again!"))
 
-//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
-ContractFunctionResult contractCallResult = query.execute(client);
+//Sign with the client operator private key to pay for the transaction and submit the query to a Hedera network
+TransactionResponse txResponse = transaction.execute(client);
 
-// Get the function value
-String message = contractCallResult.getString(0);
-System.out.println("contract message: " + message);
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
 
 //v2.0.0
 ```
@@ -47,99 +54,57 @@ System.out.println("contract message: " + message);
 
 {% code title="JavaScript" %}
 ```javascript
-//Contract call query
-const query = new ContractCallQuery()
-    .setContractId(contractId)
-    .setGas(600)
-    .setFunction("greet");
+//Create the transaction
+const transaction = new ContractExecuteTransaction()
+     .setContractId(newContractId)
+     .setGas(100_000_000)
+     .setFunction("set_message", new ContractFunctionParameters()
+           .addString("hello from hedera again!"))
 
-//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
-const contractCallResult = await query.execute(client);
+//Sign with the client operator private key to pay for the transaction and submit the query to a Hedera network
+const txResponse = await transaction.execute(client);
 
-// Get the function value
-const message = contractCallResult.getString(0);
-console.log("contract message: " + message);
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus);
+
+//v2.0.0
 ```
 {% endcode %}
 
 {% code title="Go" %}
-```java
-//Contract call query
-query := hedera.NewContractCallQuery().
-		SetContractID(contractID).
-		SetGas(600).
-		SetFunction("greet", nil)
+```go
+//Create the transaction
+transaction, err := hedera.NewContractExecuteTransaction().
+     SetContractID(newContractID).
+     SetGas(100000000).
+     SetFunction("setMessage", contractFunctionParams)
 
-//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
-contractFunctionResult, err := query.Execute(client)
-
+//Sign with the client operator private key to pay for the transaction and submit the query to a Hedera network
+txResponse, err := transaction.Execute(client)
 if err != nil {
-		panic(err)
+	panic(err)
 }
 
-//Print the query results to the console
-println(contractFunctionResult)
+//Request the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+	panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+fmt.Printf("The transaction consensus status %v\n", transactionStatus)
+
 //v2.0.0
-```
-{% endcode %}
-
-**Sample Output**
-
-
-
-```
-ContractFunctionResult{
-     contractId=0.0.104984
-     rawResult=000000000000000000000000000000000000000000000000000000000000002
-        0000000000000000000000000000000000000000000000000000000000000000d48656c
-        6c6f2c20776f726c642100000000000000000000000000000000000000, 
-     bloom=, 
-     gasUsed=581, 
-     errorMessage=null, 
-     logs=[]
-}
-```
-{% endtab %}
-
-{% tab title="V1" %}
-
-
-| Method                        | Type                                              | Description                                                                                                                             | Requirement |
-| ----------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `setContractId(<contractId>)` | ContractId                                        | Sets the contract instance to call, in the format used in transactions (x.z.y).                                                         | Required    |
-| `setGas(<gas>)`               | long                                              | Sets the amount of gas to use for the call.                                                                                             | Required    |
-| `setFunction(<name>)`         | String                                            | Sets the function name to call. The function will be called with no parameters.                                                         | Required    |
-| `setFunction(<name, params>)` | <p>String, <br>Contract<br>FunctionParameters</p> | Sets the function to call, and the parameters to pass to the function.                                                                  | Optional    |
-| `setMaxResultSize(<size>)`    | long                                              | Sets the max number of bytes that the result might include. The run will fail if it would have returned more than this number of bytes. | Optional    |
-
-{% code title="Java" %}
-```java
-//Contract call query
-ContractCallQuery query = new ContractCallQuery()
-    .setContractId(newContractId)
-    .setGas(600)
-    .setFunction("greet");
-
-//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
-ContractFunctionResult contractFunctionResult = query.execute(client);
-
-System.out.println(contractFunctionResult);
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Contract call query
-const query = new ContractCallQuery()
-    .setContractId(newContractId)
-    .setGas(600)
-    .setFunction("greet");
-
-//Sign with the client operator private key to pay for the query and submit the query to a Hedera network
-const contractFunctionResult = await query.execute(client);
-
-console.log(contractFunctionResult);
 ```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+\

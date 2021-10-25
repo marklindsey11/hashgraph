@@ -1,38 +1,38 @@
 # Transfer cryptocurrency
 
-A transaction that transfers hbars and tokens between Hedera accounts. You can enter multiple transfers in a single transaction. The net value of hbars between the sending accounts and receiving accounts must equal zero. 
+A transaction that transfers hbars and tokens between Hedera accounts. You can enter multiple transfers in a single transaction. The net value of hbars between the sending accounts and receiving accounts must equal zero.&#x20;
 
 {% hint style="warning" %}
-* The maximum allowable balance adjustment in a single transfer transaction is 20. A debit from one account and credit to another account equals two balance adjustments. 
+* The maximum allowable balance adjustment in a single transfer transaction is 20. A debit from one account and credit to another account equals two balance adjustments.&#x20;
 * If you are transferring a token with custom fees, only two levels of nesting of fees are allowed
 * The sending account is responsible to pay for the custom token fees
 {% endhint %}
 
 **Transaction Signing Requirements**
 
-* The account sending the tokens is required to sign the transaction. 
+* The account sending the tokens is required to sign the transaction.&#x20;
 
-{% tabs %}
-{% tab title="V2" %}
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                 | Description                                |
+| --------------------------- | ------------------------------------------ |
 | `new TransferTransaction()` | Initializes the TransferTransaction object |
 
 ```java
 new TransferTransaction()
 ```
 
+{% tabs %}
+{% tab title="V2" %}
 ### Methods
 
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `addHbarTransfer(<accountId, value>)` | AccountID, Hbar | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
+| Method                                         | Type                     | Description                                                                                                                                             |
+| ---------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `addHbarTransfer(<accountId, value>)`          | AccountID, Hbar          | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero.           |
 | `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, and the value of the token to transfer. The sender and recipient values must net zero. |
 
 {% code title="Java" %}
 ```java
 // Create a transaction to transfer 100 hbars
-TransferTransaction transaction1 = new TransferTransaction()
+TransferTransaction transaction = new TransferTransaction()
      .addHbarTransfer(OPERATOR_ID, new Hbar(-10))
      .addHbarTransfer(newAccountId, new Hbar(10));
 
@@ -105,23 +105,15 @@ fmt.Printf("The transaction consensus status is %v\n", transactionReceipt.Status
 {% endtab %}
 
 {% tab title="V1" %}
-| Constructor | Description |
-| :--- | :--- |
-| `new TransferTransaction()` | Initializes the TransferTransaction object |
-
-```java
-new TransferTransaction()
-```
-
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `addHbarTransfer(<accountId, value>)` | AccountId, Hbar/long | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero. |
+| Method                                         | Type                     | Description                                                                                                                                     |
+| ---------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `addHbarTransfer(<accountId, value>)`          | AccountId, Hbar/long     | The account the transfer is being debited from. The sending account must sign the transaction. The sender and recipient values must net zero.   |
 | `addTokenTransfer(<tokenId, accountId,value>)` | TokenId, AccountId, long | The ID of the token, the account ID to transfer the tokens from, value of the token to transfer. The sender and recipient values must net zero. |
 
 {% code title="Java" %}
 ```java
 //Create the transfer transaction
-TransferTransaction transaction1 = new TransferTransaction()
+TransferTransaction transaction = new TransferTransaction()
     .addHbarTransfer(OPERATOR_ID, new Hbar(-10))
     .addHbarTransfer(newAccountId, new Hbar(10));
 
@@ -170,10 +162,10 @@ console.log("The transaction consensus status is " +transactionStatus);
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `getHbarTransfers()` | Map&lt;AccountId,  Hbar&gt; | Returns a list of the hbar transfers in this transaction |
-| `getTokenTransfers()` | Map&lt;TokenId, Map&lt;AccountId, long&gt;&gt; | Returns the list of token transfers in the transaction |
+| Method                | Type                                 | Description                                              |
+| --------------------- | ------------------------------------ | -------------------------------------------------------- |
+| `getHbarTransfers()`  | Map\<AccountId,  Hbar>               | Returns a list of the hbar transfers in this transaction |
+| `getTokenTransfers()` | Map\<TokenId, Map\<AccountId, long>> | Returns the list of token transfers in the transaction   |
 
 {% code title="Java" %}
 ```java
@@ -217,4 +209,3 @@ transfers := transaction.GetTransfers()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

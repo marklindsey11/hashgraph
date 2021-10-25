@@ -2,10 +2,8 @@
 
 ## ConsensusDeleteTopicTransactionBody
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
+| Field     | Type                                   | Description       |
+| --------- | -------------------------------------- | ----------------- |
 | `topicID` | ​[TopicID](../basic-types/topicid.md)​ | Topic identifier. |
 
-​  
-
-
+​\

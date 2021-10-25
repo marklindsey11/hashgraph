@@ -1,11 +1,12 @@
 # Update a smart contract
 
-A transaction that allows you to modify a smart contract's state. Once the transaction has been successfully executed on a Hedera network the previous field values will be updated with the new ones. To get a previous state of a smart contract instance, you can query a mirror node for that data. Any null field is ignored (left unchanged)
+A transaction that allows you to modify a smart contract's state if an admin key was specified. A contract is immutable if an admin key is not specified. Once the transaction has been successfully executed on a Hedera network the previous field values will be updated with the new ones. To get a previous state of a smart contract instance, you can query a mirror node for that data. Any null field is ignored (left unchanged)
 
 **Transaction Signing Requirements**
 
 * If only the contractInstanceExpirationTime is being modified, then no signature is needed on this transaction other than for the account paying for the transaction itself.
-* If any other field is being modified, the transaction must be signed by the adminKey.
+* If any other field is being modified, the transaction must be signed by the admin key.
+* If the admin key is being updated, the new key must sign
 
 **Smart Contract Properties**
 
