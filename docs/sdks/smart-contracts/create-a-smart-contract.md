@@ -10,9 +10,11 @@ The constructor will be executed using the given amount of gas, and any unspent 
 
 If this constructor stores information, it is charged gas to store it. There is a fee in hbars to maintain that storage until the expiration time, and that fee is added as part of the transaction fee.
 
+Please refer to [HIP-26](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md) for [opcode](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md#changes-unrelated-to-london-hard-fork) support and [gas costs](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md#table-of-gas-cost-changes). These changes are to be implemented in the 0.19.0 Hedera services release.
+
 {% hint style="warning" %}
 **Solidity Support**\
-****Hedera smart contracts support Solidity versions up to **v0.5.9 **on mainnet. The latest version of solidity is supported on testnet.
+****Hedera smart contracts support Solidity versions up to **v0.5.9 **on mainnet. The latest version of solidity is supported on 0.19.0 previewnet and testnet.
 {% endhint %}
 
 {% hint style="warning" %}
