@@ -12,7 +12,7 @@ Yes, the entity ID is referred to as the schedule ID which is returned in the re
 
 ## 3. What transactions can be scheduled?
 
-In its early iteration, users can schedule token transfers, topic messages, token mint, and burn transactions. All other transaction types will be available to schedule in future releases. The complete list of transactions that users can schedule in the future can be found [here](https://github.com/hashgraph/hedera-protobufs/blob/develop/services/schedulable\_transaction\_body.proto#L76).
+In its early iteration, a small subset of transactions will be schedulable. You check out [this](create-a-schedule-transaction.md) page for a list of transaction types that are supported today. All other transaction types will be available to schedule in future releases. The complete list of transactions that users can schedule in the future can be found here.
 
 ## 4. How can I find a schedule transaction that requires my signature?
 
