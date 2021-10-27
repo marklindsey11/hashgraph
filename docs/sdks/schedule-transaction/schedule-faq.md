@@ -12,16 +12,16 @@ Yes, the entity ID is referred to as the schedule ID which is returned in the re
 
 ## 3. What transactions can be scheduled?
 
-In its early iteration, users can schedule CryptoTransfer and ConsensusSubmitMessage transactions. All other transaction types will be available to schedule in future releases. The complete list of transactions that users can schedule in the future can be found [here](https://github.com/hashgraph/hedera-protobufs/blob/develop/services/schedulable_transaction_body.proto#L76).
+In its early iteration, users can schedule token transfers, topic messages, token mint, and burn transactions. All other transaction types will be available to schedule in future releases. The complete list of transactions that users can schedule in the future can be found [here](https://github.com/hashgraph/hedera-protobufs/blob/develop/services/schedulable\_transaction\_body.proto#L76).
 
 ## 4. How can I find a schedule transaction that requires my signature?
 
 * The creator of the scheduled transaction can provide you a schedule ID which you specify in the ScheduleSign transaction to submit your signature.
-* You can query a mirror node to return all schedule transactions that have your public key associated with it. This option is not available today, but is planned for the future. 
+* You can query a mirror node to return all schedule transactions that have your public key associated with it. This option is not available today, but is planned for the future.&#x20;
 
 ## 5. What happens if the scheduled transaction does not have sufficient balance?
 
-If the scheduled transaction \(inner transaction\) fee payer does not have sufficient balance then the inner transaction will fail while the schedule transaction \(outer transaction\) will be successful.
+If the scheduled transaction (inner transaction) fee payer does not have sufficient balance then the inner transaction will fail while the schedule transaction (outer transaction) will be successful.
 
 ## 6. Can you delay a transaction once it has been scheduled?
 
@@ -36,7 +36,7 @@ No, you cannot delay or modify a scheduled transaction once it's been submitted 
 
 The scheduled transaction executes when the last signature is received.
 
-## 9. How often does the network check to see if the scheduled transaction \(inner transaction\)  has met the signature requirement?
+## 9. How often does the network check to see if the scheduled transaction (inner transaction)  has met the signature requirement?
 
 Every time the schedule transaction is signed.
 
@@ -47,4 +47,3 @@ You can submit a [schedule info query](get-schedule-info.md) request to the netw
 ## 11. When does a scheduled transaction expire?
 
 A scheduled transaction expires in 30 minutes. In future implementations, we will allow the user to set the time at which the scheduled transaction should execute at, and the transaction will expire at that time.
-
