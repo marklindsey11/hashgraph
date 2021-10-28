@@ -391,7 +391,7 @@ In Hedera Services v0.6.0, we’ve enhanced the Hedera Consensus Service by supp
 
 * Protobuf v0.6.0 with HAPI doc update to support HCS Topic Fragmentation&#x20;
 
-## \*\*\*\*[**v0.5.8**](https://github.com/hashgraph/hedera-services/releases/tag/oa-release-r5-rc8)\*\*\*\*
+## [**v0.5.8**](https://github.com/hashgraph/hedera-services/releases/tag/oa-release-r5-rc8)
 
 {% hint style="success" %}
 **MAINNET UPGRADE COMPLETED: JUNE 18, 2020**
