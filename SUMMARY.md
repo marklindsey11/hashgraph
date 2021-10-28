@@ -309,6 +309,7 @@
   * [Run the JavaScript Hedera Consensus Service Chat Demo](resources/tutorials/run-the-hedera-consensus-service-chat-demo.md)
   * [Getting Started with the Hedera Consensus Service Fabric Plugin](resources/tutorials/getting-started-with-the-hedera-consensus-service-fabric-plugin/README.md)
     * [Virtual Environment Set-up](resources/tutorials/getting-started-with-the-hedera-consensus-service-fabric-plugin/virtual-environment-set-up.md)
+  * [Delpoy your first Hedera Smart Contract](resources/tutorials/delpoy-your-first-hedera-smart-contract.md)
 
 ## Support & Community
 
