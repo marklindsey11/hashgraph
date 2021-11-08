@@ -14,7 +14,7 @@ Please refer to [HIP-26](https://github.com/hashgraph/hedera-improvement-proposa
 
 {% hint style="warning" %}
 **Solidity Support**\
-****Hedera smart contracts support Solidity versions up to **v0.5.9 **on mainnet. The latest version of solidity is supported on 0.19.0 previewnet and testnet.
+****The latest version of Solidity is supported on all networks (v0.8.9).
 {% endhint %}
 
 {% hint style="warning" %}
