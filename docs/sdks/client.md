@@ -207,7 +207,7 @@ const operatorPrivateKey = process.env.OPERATOR_KEY;
 const client = Client.forTestnet()
 
 //Set the operator with the operator ID and operator key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
+client.setOperator(operatorAccount, operatorPrivateKey );
 ```
 {% endtab %}
 
