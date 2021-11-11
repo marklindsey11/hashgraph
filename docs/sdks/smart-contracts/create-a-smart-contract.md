@@ -1,7 +1,7 @@
 # Create a smart contract
 
 {% hint style="info" %}
-Before you get started with smart contracts consider if the Hedera Token Service is better for your use case. For most, it provides greater performance and lowers costs. Learn more in the blog series, [Getting Started with Hedera Token Service](https://hedera.com/blog/get-started-with-the-hedera-token-service-part-1).
+For support in the broader Hedera ecosystem, it’s recommended to mint a token on Hedera using the [Hedera Token Service](../tokens/define-a-token.md). In the near future, smart contracts will be able to interact with the Hedera Token Service.
 {% endhint %}
 
 A transaction that creates a new smart contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can use [remix](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js) or another [solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler. After you have the hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID. The constructor will be executed using the given amount of gas.&#x20;
@@ -10,7 +10,7 @@ The constructor will be executed using the given amount of gas, and any unspent 
 
 If this constructor stores information, it is charged gas to store it. There is a fee in hbars to maintain that storage until the expiration time, and that fee is added as part of the transaction fee.
 
-Please refer to [HIP-26](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md) for [opcode](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md#changes-unrelated-to-london-hard-fork) support and [gas costs](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md#table-of-gas-cost-changes). These changes are to be implemented in the 0.19.0 Hedera services release.
+Please refer to [HIP-26](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md) for [opcode](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md#changes-unrelated-to-london-hard-fork) support and [gas costs](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md#table-of-gas-cost-changes).
 
 {% hint style="warning" %}
 **Solidity Support**\

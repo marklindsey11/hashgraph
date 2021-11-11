@@ -1,14 +1,12 @@
 # Brand Guidelines
 
-## Brand Guidelines
-
 Incorporate official Hedera logos and iconography
 
 The Decentralized on Hedera stamp is the official way to denote that your application uses the Hedera Hashgraph network. We think by using it it demonstrates to your users the trust that Hedera can provide to them.
 
 For use on white or light backgrounds.
 
-![](<../.gitbook/assets/Built On Hedera \_ BLACK.png>)
+![](<../.gitbook/assets/Built On Hedera \_ BLACK (1).png>)
 
 For use on black or dark backgrounds
 
