@@ -943,6 +943,62 @@ The ID of the schedule to return the information for.
 | **signatures.signature**            | The signature of the key that signed the schedule transaction             |
 | **transaction\_body**               | The transaction body of the transaction that was scheduled                |
 
+## Smart Contracts
+
+{% swagger method="get" path="" baseUrl="api/v1/contracts" summary="Retrieve smart contracts" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" type="string" required="false" %}
+The ID of the contract in x.z.y or y format (0.0.10 or 10)
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+  "admin_key": {
+    "_type": "ProtobufEncoded",
+    "key": "7b2233222c2233222c2233227d"
+  },
+  "auto_renew_period": 7776000,
+  "bytecode": "0xc896c66db6d98784cc03807640f3dfd41ac3a48c",
+  "contract_id": "0.0.10001",
+  "created_timestamp": "1633466229.96874612",
+  "deleted": false,
+  "expiration_timestamp": "1633466229.96874612",
+  "file_id": "0.0.1000",
+  "memo": "First contract",
+  "obtainer_id": "0.0.101",
+  "proxy_account_id": "0.0.100",
+  "solidity_address": "0x00000000000000000000000000000000000003E9",
+  "timestamp": {
+    "from": "1633466229.96874612",
+    "to": "1633466568.31556926"
+  }
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+| Response Item             | Description                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **admin\_key**            | The admin key of the contract, if specified                                                            |
+| **auto\_renew\_period**   | The period at which the contract auto renews                                                           |
+| **bytecode**              | The bytecode of the contract                                                                           |
+| **contract\_id**          | The contract ID                                                                                        |
+| **created\_timestamp**    | The timestamp the contract was created at                                                              |
+| **deleted**               | Whether or not the contract is deleted                                                                 |
+| **expiration\_timestamp** | The timestamp of when the contract is set to expire                                                    |
+| **file\_id**              | The ID of the file that stored the contract bytecode                                                   |
+| **memo**                  | The memo of the contract, if specified                                                                 |
+| **obtainer\_id**          | The ID of the account or contract that will receive any remaining balance when the contract is deleted |
+| **proxy\_account\_id**    | The proxy account ID (disabled)                                                                        |
+| **solidity\_address**     | The solidity address                                                                                   |
+| **timestamp**             | The period for which the attributes are valid for                                                      |
+
+##
+
 ## State Proof Alpha
 
 The Hedera Mirror Node state proof alpha api provides the ability to cryptographically prove a transaction is valid on Hedera network. The request returns the content of the address book file, signature files, and record file that can be used to validate the transaction occurred on the Hedera network. The address book file contains the consensus node account IDs and their public key files. The signature files are of the supermajority consensus nodes that signed the record file the transaction is contained in.
