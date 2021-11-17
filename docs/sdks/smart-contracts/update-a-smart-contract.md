@@ -13,7 +13,7 @@ A transaction that allows you to modify a smart contract's state if an admin key
 | Field                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Admin Key**         | Sets the new admin key and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. The bytecode will also be immutable. |
-| **Byte Code File ID** | The new file ID containing the smart contract byte code. Updating the file ID does not change the byte code of the smart contract that was created.                                                                                                                                                                                                                                                                                                                                               |
+| **Byte Code File ID** | The new file ID containing the smart contract byte code. Updating the file ID does not change the byte code of the smart contract that was created. \[depecated 0.20.0]                                                                                                                                                                                                                                                                                                                           |
 | **Proxy Account**     | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking, or if it is not currently running a node, then it will behave as if proxyAccountID was null.                                                                  |
 | **Auto Renew Period** | The new period that the instance will charge its account every this many seconds to renew.                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **Memo**              | The new memo to be associated with this contract.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -30,15 +30,15 @@ new ContractUpdateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                       | Type                                             | Requirement |
-| -------------------------------------------- | ------------------------------------------------ | ----------- |
-| `setContractId(<contractId>)`                | [ContractId](../specialized-types.md#contractid) | Required    |
-| `setAdminKey(<keys>)`                        | Key                                              | Optional    |
-| `setBytecodeFileId(<fileId>)`                | [FileId](../specialized-types.md#fileid)         | Optional    |
-| `setProxyAccountId(<accountId>`)             | [AccountId](../specialized-types.md#accountid)   | Optional    |
-| `setContractMemo(<memo>)`                    | String                                           | Optional    |
-| `setContractExpirationTime(<expirationTime)` | Instant                                          | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration                                         | Optional    |
+| Method                                       | Type                                             | Requirement          |
+| -------------------------------------------- | ------------------------------------------------ | -------------------- |
+| `setContractId(<contractId>)`                | [ContractId](../specialized-types.md#contractid) | Required             |
+| `setAdminKey(<keys>)`                        | Key                                              | Optional             |
+| `setBytecodeFileId(<fileId>)`                | [FileId](../specialized-types.md#fileid)         | Deprecated \[0.20.0] |
+| `setProxyAccountId(<accountId>`)             | [AccountId](../specialized-types.md#accountid)   | Optional             |
+| `setContractMemo(<memo>)`                    | String                                           | Optional             |
+| `setContractExpirationTime(<expirationTime)` | Instant                                          | Optional             |
+| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration                                         | Optional             |
 
 {% code title="Java" %}
 ```java
@@ -129,15 +129,15 @@ fmt.Printf("The transaction consensus status %v\n", transactionStatus)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method                                       | Type            | Requirement |
-| -------------------------------------------- | --------------- | ----------- |
-| `setContractId(<contractId>)`                | ContractId      | Required    |
-| `setAdminKey(<publicKey>)`                   | Ed25519PubicKey | Optional    |
-| `setBytecodeFileId(<fileId>)`                | FileId          | Optional    |
-| `setProxyAccountId(<accountId>`)             | AccountId       | Optional    |
-| `setContractMemo(<memo>)`                    | String          | Optional    |
-| `setContractExpirationTime(<expirationTime)` | Instant         | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration        | Optional    |
+| Method                                       | Type            | Requirement          |
+| -------------------------------------------- | --------------- | -------------------- |
+| `setContractId(<contractId>)`                | ContractId      | Required             |
+| `setAdminKey(<publicKey>)`                   | Ed25519PubicKey | Optional             |
+| `setBytecodeFileId(<fileId>)`                | FileId          | Deprecated \[0.20.0] |
+| `setProxyAccountId(<accountId>`)             | AccountId       | Optional             |
+| `setContractMemo(<memo>)`                    | String          | Optional             |
+| `setContractExpirationTime(<expirationTime)` | Instant         | Optional             |
+| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration        | Optional             |
 
 {% code title="Java" %}
 ```java
