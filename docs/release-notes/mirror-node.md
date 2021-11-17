@@ -4,11 +4,7 @@ description: Hedera mirror node release notes
 
 # Hedera Mirror Node
 
-| Network        | Current Version | Upcoming Version |
-| -------------- | --------------- | ---------------- |
-| **Mainnet**    | v0.42.0         | v0.43.0          |
-| **Testnet**    | v0.43.2         | v0.44.0          |
-| **Previewnet** | v0.43.2         | v0.44.0          |
+For the latest versions supported on each network please visit the Hedera status [page](https://status.hedera.com).
 
 ## Upcoming Releases
 
