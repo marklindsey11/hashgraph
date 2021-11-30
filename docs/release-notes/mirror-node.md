@@ -8,6 +8,16 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## [v0.45.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.45.0)
+
+The mirror node now captures the full history of changes that occur to accounts and contracts over time. Prior to this, the mirror node would only maintain the current state of a Hedera entity. With this change, all create, update and delete transaction that occur for an entity will cause a snapshot to be created to represent how it appeared at each of those points in time. This information can be used to query the API for an entity at a particular consensus timestamp in the past.
+
+Currently, this historical lookup option is only supported on the contracts REST API. For example, you can now search for `/api/v1/contracts/0.0.1000?timestamp=lte:1609480800` to see the state of the contract `0.0.1000` on January 1st, 2021. Related to contracts, we added new acceptance tests for contract related APIs. The [design document](https://github.com/hashgraph/hedera-mirror-node/blob/main/docs/design/smart-contracts.md) was updated to detail new APIs that we are proposing to implement. Those changes are also detailed in Hedera Improvement Proposals (HIPs) for [contract results](https://github.com/hashgraph/hedera-improvement-proposal/pull/226) and [contract execution logs](https://github.com/hashgraph/hedera-improvement-proposal/pull/227) REST APIs. Please take a look and let us know if you have any feedback.
+
+On the CitusDB front, we continue to make progress. All of our reference tables are now removed in favor of database or application enums. This should help improve performance and streamline the database migration. We've updated our test harness to use the latest version of CitusDB that uses PostgreSQL 14. Finally, we now create distributed tables with entity IDs used as distribution columns for partitioning and co-locate them with other tables as appropriate.
+
+The Rosetta API also saw some improvements including the ability to create accounts online in `/construction/submit`. An issue with token balance reconciliation was also addresse
+
 ## [v0.44.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.44.0)
 
 Making [progress](https://github.com/hashgraph/hedera-mirror-node/issues/2675) on transitioning our database to [CitusDB](https://citusdata.com), this release adds a new `v2` schema with initial support for CitusDB. Automated testing against CitusDB was added to our CI pipeline so that it runs concurrently with the `v1` PostgreSQL-based schema. The transaction payer account ID was added to transfer related tables. This will be used as a distribution column for database partitioning across a dimension that is not time-based. This allows the mirror node to scale reads and writes as more transaction payers use the system.
@@ -20,13 +30,19 @@ On the REST API, retrieval of accounts by public key was optimized to improve it
 
 The maximum number of rows the REST API can return was changed from 500 to 100. Likewise the default number of rows the REST API returns if the `limit` parameter is unspecified was changed from 500 to 25. If a request is sent requesting more than 100 it won't fail. Instead, it will transparently use the smaller of the two values. As a result, this should not be a breaking change unless your application makes assumptions about the exact number of results being returned. We may tweak these values in the future for performance reasons so it's good practice to update your application to handle arbitrary limits and results.
 
+## Latest Releases
+
 ## [v0.43.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.43.0)
 
-### Smart Contracts
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: NOVEMBER 18, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: NOVEMBER 12, 2021**
 {% endhint %}
+
+### Smart Contracts
 
 With Hedera's increased focus on [Smart Contracts](https://hedera.com/blog/hedera-evm-smart-contracts-now-bring-highest-speed-programmability-to-tokenization), we took the time to revamp the mirror node's smart contract support and lay the groundwork for future enhancements. As detailed in the [design document](https://github.com/hashgraph/hedera-mirror-node/blob/main/docs/design/smart-contracts.md), plans include new contract-specific REST APIs and Ethereum-compatible APIs in the future.
 
@@ -67,8 +83,6 @@ After a detailed analysis of each, we chose CitusDB for our next database due to
 ### Performance Improvements
 
 As is usually the case, we took the time to optimize various pieces of the system to work at scale. Our transactions REST API saw some performance improvements by rewriting them using Common Table Expressions (CTE). This will pay future dividends with CitusDB as it allows queries to be ran in parallel easier. An issue with `/api/v1/topics/{id}/messages` timing out for some topics was addressed and the realm and topic number columns were combined to reduce the table and index size. `/api/v1/tokens/{id}/balances` also saw some performance improvements that decreased its average response time. Configuration options for faster historical ingestion were documented so that mirror node operators can get historical data faster.
-
-## Latest Releases
 
 ## [v0.42.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.42.0)
 
