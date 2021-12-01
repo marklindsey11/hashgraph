@@ -15,7 +15,7 @@ You will need the following information:
 
 Once you deploy your mirror node, you can access mirror node via the GRPC API or the REST API.&#x20;
 
-**GRPC API: **
+**GRPC API:**&#x20;
 
 Terminal commands:
 

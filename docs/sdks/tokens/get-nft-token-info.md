@@ -13,7 +13,7 @@ The request returns the following information:
 | **NFT ID**        | The ID of the non-fungible token in x.y.z format.             |
 | **Account ID**    | The account ID of the current owner of the NFT                |
 | **Creation Time** | The effective consensus timestamp at which the NFT was minted |
-| **Metadata **     | Represents the unique metadata of the NFT                     |
+| **Metadata**      | Represents the unique metadata of the NFT                     |
 
 | Constructor               | Description                              |
 | ------------------------- | ---------------------------------------- |

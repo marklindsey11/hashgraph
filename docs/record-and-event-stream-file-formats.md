@@ -77,7 +77,7 @@ The below table describes the content that can be parsed from a record signature
 
 The record file hash is calculated using the following formula.&#x20;
 
-**h\[i] = hash(p\[i-1] || h\[i-1] || hash(c\[i-1])) **
+**h\[i] = hash(p\[i-1] || h\[i-1] || hash(c\[i-1]))**&#x20;
 
 * **||** denotes concatenation&#x20;
 * **h\[i]** is the hash of the file i&#x20;
@@ -207,7 +207,7 @@ In version 5 there are 3 different hashes being calculated:&#x20;
 
 &#x20;    `entireHash[i] = hash(head[i] || startHash[i] || contents[i] || endHash[i])`&#x20;
 
-**Metadata .rcd Hash **
+**Metadata .rcd Hash**&#x20;
 
 * This hash is calculated on metadata bytes in the file, denoted in the table.&#x20;
 * If some contents of an object were removed from a file, the metadata hash would still be valid.&#x20;
@@ -242,7 +242,7 @@ The below table describes the content that can be parsed from an event stream fi
 | Prev File Hash Marker             | byte          | Value: 1                                                                      |
 | Prev File Hash                    | byte\[48]     | SHA384 hash of previous .evts file, if not exist then all zeroes              |
 | Event Marker                      | byte          | Value: 90                                                                     |
-| Event Format Version** **         | int (4)       | Value: 3                                                                      |
+| Event Format Version ****         | int (4)       | Value: 3                                                                      |
 | Event                             | byte\[]       | <p>serialized Event bytes </p><p>see ` ConsensusEvent` table for details </p> |
 | Event's Hash                      | byte\[]       | This Event’s Hash                                                             |
 | Event Marker                      | byte          | Value: 90                                                                     |

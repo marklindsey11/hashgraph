@@ -283,7 +283,7 @@ A successful run will end with the following message:
 
 \`========= All GOOD, BYFN execution completed ===========
 
-\| _**\_| |  | | | **_** \\**\
+\| _**\_| |  | | |**_**  \\**\
 **| **_**| | | | | | | |**_\
 _**| |**_ | | | | |_| |_\
 _|\_\__| |_| \\_| |_\_\__/\`
@@ -302,8 +302,8 @@ $ ./byfn.sh down
 * Topics and messages created in this tutorial can be verified on any available mirror node explorer
 * At the start of the script, you can see the two HCS topic IDs that were created
 
-`installing hcscli ...  `\
-`generated HCS topics: 0.0.23419 0.0.23420  `\
+`installing hcscli ...`  \
+`generated HCS topics: 0.0.23419 0.0.23420`  \
 `0.0.23419 will be used for the system channel, and 0.0.23420 will be used for the application channel`
 
 * Visit a Hedera [mirror node explorer](https://docs.hedera.com/guides/testnet/mirror-nodes) to verify the topics and messages that were created on testnet by searching the two topic IDs

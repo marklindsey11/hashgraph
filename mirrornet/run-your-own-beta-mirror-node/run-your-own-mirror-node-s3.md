@@ -16,7 +16,7 @@
 Create an IAM user with either an administrator or custom policy.
 {% endhint %}
 
-### **Administrator Policy **
+### **Administrator Policy**&#x20;
 
 * Refer to AWS documentation to create an IAM user with administrator policy [here ](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started\_create-admin-group.html)
   * This sets up an IAM user with Administrator Access Policy&#x20;
@@ -27,29 +27,29 @@ Create an IAM user with either an administrator or custom policy.
 * Select **Create access key**
 * Copy or download your **Access key ID** and **Secret access key** &#x20;
 
-### **Custom Policy **
+### **Custom Policy**&#x20;
 
 * Enable access to billing data
   * Follow step 2 [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started\_create-admin-group.html)
-* From the IAM left navigation bar select **Polices **
-* Click on** Create policy**
+* From the IAM left navigation bar select **Polices**&#x20;
+* Click on **Create policy**
   * Service&#x20;
     * Enter **S3** as your service
   * Actions
     * Access level&#x20;
     * Select **List** and **Read**&#x20;
 * Resources&#x20;
-  * Select **Specify bucket resource ARN for the GetBucketLocation **
+  * Select **Specify bucket resource ARN for the GetBucketLocation**&#x20;
   * Add ARN&#x20;
     * hedera-mainnet-streams&#x20;
   * Add ARN&#x20;
     * hedera-mainnet-streams/\*&#x20;
 * Click **Next:Tags**
-* Click** Next: Review**&#x20;
+* Click **Next: Review**&#x20;
   * Enter a name for the policy
-* Click **Create policy **
+* Click **Create policy**&#x20;
 * From the left navigation bar on the IAM console select **User** **Groups**&#x20;
-* Click **Create group **
+* Click **Create group**&#x20;
 * Enter a user group name
 * Select the policy that was created in the previous step&#x20;
 * Click **Create Group**&#x20;
@@ -57,7 +57,7 @@ Create an IAM user with either an administrator or custom policy.
 * Click on **Add user** &#x20;
 * Enter username&#x20;
 * Select **Programmatic access for Access type**&#x20;
-* Click **Next: Permissions **
+* Click **Next: Permissions**&#x20;
 * Select the group that was created in the previous step&#x20;
 * Click **Next: Tags**&#x20;
 * Click **Next: Review**&#x20;
@@ -101,7 +101,7 @@ hedera:
 
 ## 4. Run your mirror node
 
-* From the` hedera-mirror-node` directory, run the following command:
+* From the `hedera-mirror-node` directory, run the following command:
 
 ```
 docker-compose up

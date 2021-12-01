@@ -20,12 +20,14 @@ For the latest versions supported on each network please visit the Hedera status
 
 Hedera Services 0.20 is primarily a scaffolding release, as our team is working heads-down to deliver the Smart Contract Service refresh with massive new scale and performance; as well as smart contract integration with native tokens created using the Hedera Token Service. The scope of this refresh is significant, and we believe it will be well worth the wait.
 
-The main deliverables in this release are improved automation for node operators to use in software upgrades; and a handful of minor bug fixes, including for <mark style="color:purple;"></mark>[<mark style="color:purple;">#2432</mark>](https://github.com/hashgraph/hedera-services/issues/2432).
+The main deliverables in this release are improved automation for node operators to use in software upgrades; and a handful of minor bug fixes, including for <mark style="color:purple;"></mark> [<mark style="color:purple;">#2432</mark>](https://github.com/hashgraph/hedera-services/issues/2432).
 
 Please also note the following deprecations in the Hedera API protobufs:
 
-* The [<mark style="color:purple;">`ContractUpdateTransactionBody.fileID`</mark> <mark style="color:purple;">field</mark>](https://github.com/hashgraph/hedera-protobufs/blob/main/services/contract\_update.proto#L82), which is redundant given the existence of the <mark style="color:purple;"></mark>[<mark style="color:purple;">`ContractGetBytecode`</mark> <mark style="color:purple;">quer</mark>y](https://github.com/hashgraph/hedera-protobufs/blob/main/services/smart\_contract\_service.proto#L63).
-* The [<mark style="color:purple;">`ContractCallLocalQuery.maxResultSize`</mark> <mark style="color:purple;">field</mark>](https://github.com/hashgraph/hedera-protobufs/blob/main/services/contract\_call\_local.proto#L136), as this limit is now simply a side-effect of the given gas limit.
+* The [<mark style="color:purple;">`ContractUpdateTransactionBody.fileID`</mark> <mark style="color:purple;"></mark><mark style="color:purple;">field</mark>](https://github.com/hashgraph/hedera-protobufs/blob/main/services/contract\_update.proto#L82), which is redundant given the existence of the <mark style="color:purple;"></mark> [<mark style="color:purple;">`ContractGetBytecode`</mark> <mark style="color:purple;"></mark><mark style="color:purple;">quer</mark>y](https://github.com/hashgraph/hedera-protobufs/blob/main/services/smart\_contract\_service.proto#L63).
+* The [<mark style="color:purple;">`ContractCallLocalQuery.maxResultSize`</mark> <mark style="color:purple;"></mark><mark style="color:purple;">field</mark>](https://github.com/hashgraph/hedera-protobufs/blob/main/services/contract\_call\_local.proto#L136), as this limit is now simply a side-effect of the given gas limit.
+
+![](<../../.gitbook/assets/Performance Measurement Results\_Extract.001.jpeg>)
 
 ## Latest Releases
 
@@ -180,7 +182,7 @@ We are very grateful to the Hedera user community for these interesting and powe
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE COMPLETED: JUNE 17, 2021 **
+**TESTNET UPDATE COMPLETED: JUNE 17, 2021**&#x20;
 {% endhint %}
 
 In Hedera Services 0.15.1, we improved performance and integrated with the latest Platform SDK to enable full support of network reconnect.
@@ -198,7 +200,7 @@ To simplify fee calculations, there is now a maximum entity lifetime of a centur
 {% endhint %}
 
 {% hint style="success" %}
-**TESTNET UPDATE COMPLETED: MAY 20, 2021 **
+**TESTNET UPDATE COMPLETED: MAY 20, 2021**&#x20;
 {% endhint %}
 
 In Hedera Services 0.14.0, we have implemented account auto-renewal according to the specifications of [HIP-16](https://github.com/hashgraph/hedera-improvement-proposal). This feature will not be enabled until a later date, after ensuring universal awareness of its impact in the user community.

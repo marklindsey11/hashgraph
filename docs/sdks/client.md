@@ -10,9 +10,9 @@ For a predefined network (preview, testnet, and mainnet), the mirror node client
 \
 To access the _**public mainnet mirror node**_, use `setMirrorNetwork()` and enter `mainnet-public.mirrornode.hedera.com:433` for the endpoint. The gRPC API requires TLS. The following SDK versions are compatible with TLS:
 
-* **Java: **v2.0.6+
+* **Java:** v2.0.6+
 * **JavaScript**: v2.0.23+
-* **Go: **v2.1.8+
+* **Go:** v2.1.8+
 
 | Method                                       | Type                    | Description                                                                                                                                                                                                  |
 | -------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

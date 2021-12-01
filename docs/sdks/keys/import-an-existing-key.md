@@ -4,7 +4,7 @@ Convert keys in another format to a key representation or import keys from a fil
 
 {% tabs %}
 {% tab title="V2" %}
-| **Method **                                  | Type           | Description                                                                                                           |
+| **Method**                                   | Type           | Description                                                                                                           |
 | -------------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `PrivateKey.fromString(<privateKey>)`        | String         | Converts a private key string to PrivateKey                                                                           |
 | `PublicKey.fromString(<publicKey>)`          | String         | Converts a public key string to PublicKey                                                                             |
@@ -61,7 +61,7 @@ if err != nil {
 {% endtab %}
 
 {% tab title="V1" %}
-| **Method **                                    | Type              | Description                                                                                                           |
+| **Method**                                     | Type              | Description                                                                                                           |
 | ---------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `PrivateKey.fromString(<privateKey>)`          | String            | Converts a private key string to PrivateKey                                                                           |
 | `PublicKey.fromString(<publicKey>)`            | String            | Converts a public key string to PublicKey                                                                             |

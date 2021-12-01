@@ -46,7 +46,7 @@ dependencies {
 
 ## Step 2: Create a .env file in your project
 
-Create a **.env **file in the root directory of your project. Grab the the Hedera testnet **account ID **and **private key **from your Hedera portal profile** **and enter them in the **MY_ACCOUNT_ID **and **MY_PRIVATE_KEY **fields.
+Create a **.env** file in the root directory of your project. Grab the the Hedera testnet **account ID** and **private key** from your Hedera portal profile **** and enter them in the **MY\_ACCOUNT\_ID** and **MY\_PRIVATE\_KEY** fields.
 
 {% tabs %}
 {% tab title=".env" %}
@@ -115,14 +115,14 @@ client.setOperator(myAccountId, myPrivateKey);
 {% endtabs %}
 
 {% hint style="info" %}
-The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar) and default **max query payment** of 100,000,000 tinybars (1 hbar). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries. You are only charged the actual cost of the transaction or query. 
+The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar) and default **max query payment** of 100,000,000 tinybars (1 hbar). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries. You are only charged the actual cost of the transaction or query.&#x20;
 {% endhint %}
 
-Your project environment is now set-up to successfully submit transactions and queries to the Hedera test network! 
+Your project environment is now set-up to successfully submit transactions and queries to the Hedera test network!&#x20;
 
 Next, you will learn how to create an account.
 
-### Code Check :white_check_mark: 
+### Code Check :white\_check\_mark:&#x20;
 
 What your code should look like at this point:
 

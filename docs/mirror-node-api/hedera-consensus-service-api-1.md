@@ -10,7 +10,7 @@ description: >-
 {% hint style="info" %}
 **HCS Mirror Node Endpoints:**\
 ****\
-**PREVIEWNET: **hcs.previewnet.mirrornode.hedera.com:5600\
+**PREVIEWNET:** hcs.previewnet.mirrornode.hedera.com:5600\
 **TESTNET**: hcs.testnet.mirrornode.hedera.com:5600 \
 **MAINNET**: mainnet-public.mirrornode.hedera.com:443&#x20;
 {% endhint %}
@@ -35,8 +35,8 @@ If you building your client with a predefined Hedera network (previewnet, testne
 ****\
 ****The default mainnet mirror node points to the whitelisted node when using `Client.forMainnet()`. To establish a connection to the public mainnet mirror node you will need to upgrade to one of the following versions of the SDK that now supports TLS connections.
 
-* **Java: **v2.0.6+
-* **JavaScript: **v2.0.23+
+* **Java:** v2.0.6+
+* **JavaScript:** v2.0.23+
 * **Go:** v2.1.9+
 
 {% code title="Java" %}

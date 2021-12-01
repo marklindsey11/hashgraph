@@ -2,7 +2,7 @@
 
 ## Overview
 
-A** scheduled transaction** is a transaction with the ability to collect the required signatures on a Hedera network in preparation for its execution. Unlike other Hedera transactions, this allows you to queue a transaction for execution in the event you do not have all the required signatures for the network to immediately process the transaction. A schedule transaction is used to create a scheduled transaction. This feature is ideal for transactions that require multiple signatures.
+A **scheduled transaction** is a transaction with the ability to collect the required signatures on a Hedera network in preparation for its execution. Unlike other Hedera transactions, this allows you to queue a transaction for execution in the event you do not have all the required signatures for the network to immediately process the transaction. A schedule transaction is used to create a scheduled transaction. This feature is ideal for transactions that require multiple signatures.
 
 When a user creates a schedule transaction, the network creates a schedule entity. The schedule entity receives an entity ID just like accounts, tokens, etc called a schedule ID. The schedule ID is used to reference the schedule transaction that was created. The transaction that is being scheduled is referenced by a scheduled transaction ID. The schedule transaction can be referred to as the outer transaction while the scheduled transaction can be referenced as the inner transaction.
 
