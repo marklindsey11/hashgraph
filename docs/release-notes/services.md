@@ -8,9 +8,21 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
-## v0.20.0
+## v0.21.0
 
 {% hint style="info" %}
+**MAINNET UPDATE: DECEMBER 21,2021**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE: JANUARY 6, 2022**
+{% endhint %}
+
+## Latest Releases
+
+## v0.20.0
+
+{% hint style="success" %}
 **MAINNET UPDATE: DECEMBER 2,2021**
 {% endhint %}
 
@@ -28,8 +40,6 @@ Please also note the following deprecations in the Hedera API protobufs:
 * The [<mark style="color:purple;">`ContractCallLocalQuery.maxResultSize`</mark> <mark style="color:purple;"></mark><mark style="color:purple;">field</mark>](https://github.com/hashgraph/hedera-protobufs/blob/main/services/contract\_call\_local.proto#L136), as this limit is now simply a side-effect of the given gas limit.
 
 ![](<../../.gitbook/assets/Performance Measurement Results\_Extract.001.jpeg>)
-
-## Latest Releases
 
 ## [v0.19.4](https://github.com/hashgraph/hedera-services/releases/tag/v0.19.4)
 
