@@ -10,13 +10,19 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## [v0.45.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.45.0)
 
-The mirror node now captures the full history of changes that occur to accounts and contracts over time. Prior to this, the mirror node would only maintain the current state of a Hedera entity. With this change, all create, update and delete transaction that occur for an entity will cause a snapshot to be created to represent how it appeared at each of those points in time. This information can be used to query the API for an entity at a particular consensus timestamp in the past.
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: DECEMBER 6, 2021**
+{% endhint %}
+
+The mirror node now captures the full history of changes that occur to accounts and contracts over time. Prior to this, the mirror node would only maintain the current state of a Hedera entity. With this change, all create, update and delete transactions that occur for an entity will cause a snapshot to be created to represent how it appeared at each of those points in time. This information can be used to query the API for an entity at a particular consensus timestamp in the past.
 
 Currently, this historical lookup option is only supported on the contracts REST API. For example, you can now search for `/api/v1/contracts/0.0.1000?timestamp=lte:1609480800` to see the state of the contract `0.0.1000` on January 1st, 2021. Related to contracts, we added new acceptance tests for contract related APIs. The [design document](https://github.com/hashgraph/hedera-mirror-node/blob/main/docs/design/smart-contracts.md) was updated to detail new APIs that we are proposing to implement. Those changes are also detailed in Hedera Improvement Proposals (HIPs) for [contract results](https://github.com/hashgraph/hedera-improvement-proposal/pull/226) and [contract execution logs](https://github.com/hashgraph/hedera-improvement-proposal/pull/227) REST APIs. Please take a look and let us know if you have any feedback.
 
 On the CitusDB front, we continue to make progress. All of our reference tables are now removed in favor of database or application enums. This should help improve performance and streamline the database migration. We've updated our test harness to use the latest version of CitusDB that uses PostgreSQL 14. Finally, we now create distributed tables with entity IDs used as distribution columns for partitioning and co-locate them with other tables as appropriate.
 
-The Rosetta API also saw some improvements including the ability to create accounts online in `/construction/submit`. An issue with token balance reconciliation was also addresse
+The Rosetta API also saw some improvements including the ability to create accounts online in `/construction/submit`. An issue with token balance reconciliation was also addressed.
+
+## Latest Releases
 
 ## [v0.44.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.44.0)
 
@@ -29,8 +35,6 @@ On the REST API, retrieval of accounts by public key was optimized to improve it
 ### Breaking Changes
 
 The maximum number of rows the REST API can return was changed from 500 to 100. Likewise the default number of rows the REST API returns if the `limit` parameter is unspecified was changed from 500 to 25. If a request is sent requesting more than 100 it won't fail. Instead, it will transparently use the smaller of the two values. As a result, this should not be a breaking change unless your application makes assumptions about the exact number of results being returned. We may tweak these values in the future for performance reasons so it's good practice to update your application to handle arbitrary limits and results.
-
-## Latest Releases
 
 ## [v0.43.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.43.0)
 
