@@ -24,19 +24,15 @@
 ## Getting Started
 
 * [Introduction](getting-started/introduction.md)
-* [Java](getting-started/java/README.md)
-  * [Environment Set-up](getting-started/java/environment-set-up.md)
-  * [Create an account](getting-started/java/create-an-account.md)
-  * [Transfer hbar](getting-started/java/transfer-hbar.md)
-  * [HCS: Submit your first message!](getting-started/java/hcs-submit-your-first-message.md)
-* [JavaScript](getting-started/javascript/README.md)
-  * [Environment Set-up](getting-started/javascript/environment-set-up.md)
-  * [Create an account](getting-started/javascript/create-an-account.md)
-  * [Transfer hbar](getting-started/javascript/transfer-hbar.md)
-* [Go](getting-started/go/README.md)
-  * [Environment Set-up](getting-started/go/environment-set-up.md)
-  * [Create an account](getting-started/go/create-an-account.md)
-  * [Transfer hbar](getting-started/go/transfer-hbar.md)
+* [Environment Set-up](getting-started/environment-set-up.md)
+* [Create an account](getting-started/create-an-account.md)
+* [Transfer hbar](getting-started/java.md)
+* [Try Examples! 👩‍💻](getting-started/try-examples/README.md)
+  * [Submit Your First Message](getting-started/try-examples/submit-your-first-message.md)
+  * [Create and Transfer Your First NFT](getting-started/try-examples/create-and-transfer-your-first-nft.md)
+  * [Create and Transfer Your First Fungible Token](getting-started/try-examples/create-and-transfer-your-first-fungible-token.md)
+  * [Schedule Your First Transaction](getting-started/try-examples/schedule-your-first-transaction.md)
+  * [Deploy Your First Smart Contract](getting-started/try-examples/deploy-your-first-smart-contract.md)
 
 ## Core Concepts
 
@@ -50,7 +46,7 @@
 * [State and History](core-concepts/state-and-history.md)
 * [Mirror Nodes](core-concepts/mirror-nodes.md)
 
-## Documentation <a href="docs" id="docs"></a>
+## Documentation <a href="#docs" id="docs"></a>
 
 * [Release Notes](docs/release-notes/README.md)
   * [Hedera Services](docs/release-notes/services.md)
@@ -304,7 +300,6 @@
 * [Starter Projects](resources/starter-projects.md)
 * [Demo Applications](resources/demo-applications.md)
 * [Tutorials](resources/tutorials/README.md)
-  * [Schedule a transaction](resources/tutorials/schedule-a-transaction.md)
   * [Set up a message queue with the Hedera Consensus Service and JavaScript](resources/tutorials/hcs-javascript-setup.md)
   * [Run the JavaScript Hedera Consensus Service Chat Demo](resources/tutorials/run-the-hedera-consensus-service-chat-demo.md)
   * [Getting Started with the Hedera Consensus Service Fabric Plugin](resources/tutorials/getting-started-with-the-hedera-consensus-service-fabric-plugin/README.md)
