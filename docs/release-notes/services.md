@@ -11,11 +11,11 @@ For the latest versions supported on each network please visit the Hedera status
 ## v0.21.0
 
 {% hint style="info" %}
-**MAINNET UPDATE: DECEMBER 21,2021**
+**MAINNET UPDATE: JANUARY 6, 2022**
 {% endhint %}
 
 {% hint style="info" %}
-**TESTNET UPDATE: JANUARY 6, 2022**
+**TESTNET UPDATE:  DECEMBER 21,2021**
 {% endhint %}
 
 ## Latest Releases
