@@ -8,7 +8,13 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.45.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.45.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: DECEMBER 8, 2021**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: DECEMBER 6, 2021**
@@ -21,8 +27,6 @@ Currently, this historical lookup option is only supported on the contracts REST
 On the CitusDB front, we continue to make progress. All of our reference tables are now removed in favor of database or application enums. This should help improve performance and streamline the database migration. We've updated our test harness to use the latest version of CitusDB that uses PostgreSQL 14. Finally, we now create distributed tables with entity IDs used as distribution columns for partitioning and co-locate them with other tables as appropriate.
 
 The Rosetta API also saw some improvements including the ability to create accounts online in `/construction/submit`. An issue with token balance reconciliation was also addressed.
-
-## Latest Releases
 
 ## [v0.44.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.44.0)
 
