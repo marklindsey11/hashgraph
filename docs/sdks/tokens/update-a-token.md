@@ -11,7 +11,7 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 | **KYC Key**            | The new KYC key of the token. If the token does not have currently a KYC key, the transaction will resolve to `TOKEN_HAS_NO_KYC_KEY`.                                                                                                                                 |
 | **Freeze Key**         | The new freeze key of the token. If the token does not have currently a freeze key, the transaction will resolve to `TOKEN_HAS_NO_FREEZE_KEY`.                                                                                                                        |
 | **Fee Schedule Key**   | If set, the new key to use to update the token's custom fee schedule; if the token does not currently have this key, transaction will resolve to `TOKEN_HAS_NO_FEE_SCHEDULE_KEY`                                                                                      |
-| **Pause Key**          | The new pause key that owns the ability to pause or unpause a token.                                                                                                                                                                                                  |
+| **Pause Key**          | Update the token's existing pause key. The pause key has the ability to pause or unpause a token.                                                                                                                                                                     |
 | **Wipe Key**           | The new wipe key of the token. If the token does not have currently a wipe key, the transaction will resolve to `TOKEN_HAS_NO_WIPE_KEY`.                                                                                                                              |
 | **Supply Key**         | The new supply key of the token. If the token does not have currently a supply key, the transaction will resolve to `TOKEN_HAS_NO_SUPPLY_KEY`.                                                                                                                        |
 | **Expiration Time**    | The new expiry time of the token. Expiry can be updated even if the admin key is not set. If the provided expiry is earlier than the current token expiry, the transaction will resolve to `INVALID_EXPIRATION_TIME`.                                                 |
@@ -48,9 +48,9 @@ new TokenUpdateTransaction()
 | `setKycKey(<key>)`                    | Key                                            | Optional    |
 | `setFreezeKey(<key>)`                 | Key                                            | Optional    |
 | `setFeeScheduleKey(<key>)`            | Key                                            | Optional    |
+| `setPauseKey(<key>)`                  | Key                                            | Optional    |
 | `setWipeKey(<key>)`                   | Key                                            | Optional    |
 | `setSupplyKey(<key>)`                 | Key                                            | Optional    |
-| `setFreezeDefault(<freeze>`)          | boolean                                        | Optional    |
 | `setExpirationTime(<expirationTime>)` | Instant                                        | Optional    |
 | `setTokenMemo(<memo>)`                | String                                         | Optional    |
 | `setAutoRenewAccountId(<account>)`    | [AccountId](../specialized-types.md#accountid) | Disabled    |

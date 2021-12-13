@@ -11,12 +11,12 @@ Will not be enabled with the 0.17 Hedera Services release. This transaction will
 * Fee schedule key
 * Transaction fee payer account key
 
-| Property | Description |
-| :--- | :--- |
+| Property         | Description                        |
+| ---------------- | ---------------------------------- |
 | **Fee Schedule** | The new fee schedule for the token |
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                               | Description                                            |
+| ----------------------------------------- | ------------------------------------------------------ |
 | `new TokenFeeScheduleUpdateTransaction()` | Initializes a TokenFeeScheduleUpdateTransaction object |
 
 ```java
@@ -27,17 +27,17 @@ new TokenFeeScheduleUpdateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | [TokenId](token-id.md) | Required |
-| `setCustomFees(<customFees>)` | List&lt;[CustomFee](custom-token-fees.md#custom-fee)&gt; | Optional |
+| Method                        | Type                                               | Requirement |
+| ----------------------------- | -------------------------------------------------- | ----------- |
+| `setTokenId(<tokenId>)`       | [TokenId](token-id.md)                             | Required    |
+| `setCustomFees(<customFees>)` | List<[CustomFee](custom-token-fees.md#custom-fee)> | Optional    |
 
 {% code title="Java" %}
 ```java
 //Create the transaction 
 TokenFeeScheduleUpdateTransaction transaction = new TokenFeeScheduleUpdateTransaction()
      .setTokenId(tokenId)
-     .addCustomFee(customFee)
+     .setCustomFees(customFee)
 
 //Freeze the unsigned transaction, sign with the fee schedule key of the token, submit the transaction to a Hedera network
 TransactionResponse txResponse = transaction.freezeWith(client).sign(feeScheduleKey).execute(client);
@@ -56,9 +56,9 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 {% code title="JavaScript" %}
 ```javascript
 //Create the transaction and freeze for manual signing
-const transaction = await new TokenUpdateFeeScheduleTransaction()
+const transaction = await new TokenFeeScheudleUpdateTransaction()
      .setTokenId(tokenId)
-     .addCustomFee(customFee)
+     .setCustomFees(customFee)
      .freezeWith(client);
 
 //Sign the transaction with the fee schedule key
@@ -82,7 +82,7 @@ console.log("The transaction consensus status is " +transactionStatus);
 ```go
 //Create the transaction and freeze for manual signing 
 transaction, err := hedera.NewTokenFeeScheduleUpdateTransaction().
-		AddCustomFee(customFees).
+		SetCustomFees(customFees).
 		SetTokenID(tokenId).
 		FreezeWith(client)
 
@@ -113,10 +113,10 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setTokenId(<tokenId>)` | TokenId | Required |
-| `setCustomFees(<customFees>)` | List&lt;CustomFee&gt; | Optional |
+| Method                        | Type             | Requirement |
+| ----------------------------- | ---------------- | ----------- |
+| `setTokenId(<tokenId>)`       | TokenId          | Required    |
+| `setCustomFees(<customFees>)` | List\<CustomFee> | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -161,6 +161,4 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
