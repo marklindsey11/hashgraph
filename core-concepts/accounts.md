@@ -13,29 +13,38 @@ Accounts can be created, updated, or deleted. In order to create an account, you
 Accounts are comprised of:
 
 * Account ID
-* Keys
-* Balance
-* Livehash\(es\)
+* Account Keys
+* Token balance(s)
+* Livehash(es)
 
 To create a mainnet or testnet account, please visit one of the following:
 
-{% page-ref page="../mainnet/mainnet-access.md" %}
+{% content-ref url="../mainnet/mainnet-access.md" %}
+[mainnet-access.md](../mainnet/mainnet-access.md)
+{% endcontent-ref %}
 
-{% page-ref page="../testnet/testnet-access.md" %}
+{% content-ref url="../testnet/testnet-access.md" %}
+[testnet-access.md](../testnet/testnet-access.md)
+{% endcontent-ref %}
 
 ## Account ID
 
-Each Hedera account is represented by an account ID. The account ID used to reference a specific account in transactions and queries. Hedera account IDs have the format x.y.z \(eg 0.0.3\) where:
+Each Hedera account is represented by an account ID. The account ID is used to reference a specific account in transactions and queries. Hedera account IDs have the format x.y.z (eg 0.0.3) where:
 
-* x represents the shard number \(`shardId`\). It will default to 0 today, as Hedera only performs in one shard.
-* y represents the realm number \(`realmId`\). It will default to 0 today, as realms are not yet supported.
+* x represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
+* y represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
 * z represents the account number, the equivalent of a human-friendly public key.
 
-The account ID is stored in the receipt of a transaction. In order to view the account for a newly created account you will have to request a receipt or record of the transaction. Requesting a transaction receipt is free of charge where requesting a record for a transaction will incur a small fee.
+The account ID of the new account is found in the receipt or record of the account create transaction. A receipt or record can be requested immediatly after an account create transaction is successfully processed.&#x20;
 
-## Keys
+## Account Keys
 
-Each account has a public and private key pair. The private key of the account is used to authorize and sign transactions for that account. This authorization allows for the modification of the account including deducting from the balance to pay for transaction and query fees. The private key is not to be shared with other members on the network as they can authorize transactions from your account on your behalf. The public key is what is visible to others on the network when account information is requested.
+Each account is required to have a key associated with it. The key type can be a single key, a list of keys, or a threshold of keys.&#x20;
+
+* If the account has a key list, all keys in that key list are required to sign transactions that modify the account like debiting tokens, updating account properties, etc.
+* If an account has a threshold key, all keys that meet the threshold are required to sign transactions that modify the account. For example, if there were 10 keys on the account and the threshold was to a value of five then five out of the ten keys would need to sign the transaction for it to succeed.&#x20;
+
+The private key(s) associated with the account are not to be shared with other members on the network as it will allow others to authorize transactions from your account on your behalf. The corresponding public key is visible to others on the Hedera network and stored on ledger.
 
 The private key should be kept secret to the owner. Private keys without an associated recovery phrase _cannot_ be recovered once they are lost. Private keys generated with a recovery phrase can be recovered.
 
@@ -51,9 +60,9 @@ privatekey = 302e020100300506032...
 publicKey = 302...
 ```
 
-## Balance
+## Token Balance(s)
 
-The amount of HBAR \(ℏ\) held by the account. An account can be created with a zero balance, however, it will eventually need hbars transferred to it from another account to interact with the Hedera APIs. You can purchase hbars [here.](https://www.hedera.com/buying-guide)
+The amount of HBAR (ℏ) or Hedera Token Services tokens held by the account. An account can be created with a zero balance, however, it will eventually need hbars transferred to it from another account to interact with the Hedera APIs. You can purchase hbars [here.](https://www.hedera.com/buying-guide)
 
 ## Expiration
 
@@ -61,7 +70,7 @@ Accounts, like files and smart contracts, take up storage on the network. Accoun
 
 The system will automatically pay account renewal fees if the account has a balance. If the account does not have a balance the account will be suspended for one week before it is deleted. You can renew an account during the suspension period.
 
-The maximum autoRenewPeriod for an account, file, or smart contract will be limited to 3 months \(7890000 seconds\).
+The maximum autoRenewPeriod for an account, file, or smart contract will be limited to 3 months (7890000 seconds).
 
 {% hint style="info" %}
 Currently not implemented on the network i.e. accounts **do not expire**.
@@ -69,5 +78,4 @@ Currently not implemented on the network i.e. accounts **do not expire**.
 
 ## LiveHash
 
-A hash \(presumably of some kind of credential or certificate\), along with a list of keys \(each of which is either a primitive or a threshold key\). Each of them must reach its threshold when signing the transaction, to attach this livehash to this account. At least one of them must reach its threshold to delete this livehash from this account.
-
+A hash (presumably of some kind of credential or certificate), along with a list of keys (each of which is either a primitive or a threshold key). Each of them must reach its threshold when signing the transaction, to attach this livehash to this account. At least one of them must reach its threshold to delete this livehash from this account.

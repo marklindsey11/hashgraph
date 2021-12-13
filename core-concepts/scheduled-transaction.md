@@ -8,7 +8,7 @@ When a user creates a schedule transaction, the network creates a schedule entit
 
 &#x20;Signatures are appended to the schedule transaction by submitting a `ScheduleSign` transaction. The `ScheduleSign` transaction requires the schedule ID of the schedule transaction the signatures will be appended to. In its current design, a schedule transaction has 30 minutes to collect all required signatures before the schedule transaction can be executed or will be deleted from the network. You can delete a schedule transaction by setting an admin key to delete a schedule transaction before it is executed or deleted by the network.&#x20;
 
-You can request the current state of the a schedule transaction by querying the network for `ScheduleGetInfo`. The request will return the following information:
+You can request the current state of a schedule transaction by querying the network for `ScheduleGetInfo`. The request will return the following information:
 
 * Schedule ID
 * Account ID that created the schedule transaction
