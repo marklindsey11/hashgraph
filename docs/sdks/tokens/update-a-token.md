@@ -152,7 +152,6 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 | `setFeeScheduleKey(<key>)`            | PublicKey | Optional    |
 | `setWipeKey(<key>)`                   | PublicKey | Optional    |
 | `setSupplyKey(<key>)`                 | PublicKey | Optional    |
-| `setFreezeDefault(<freeze>`)          | boolean   | Optional    |
 | `setExpirationTime(<expirationTime>)` | Instant   | Optional    |
 | `setAutoRenewAccount(<account>)`      | AccountId | Optional    |
 | `setAutoRenewPeriod(<period>)`        | Duration  | Optional    |
