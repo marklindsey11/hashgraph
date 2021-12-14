@@ -8,7 +8,7 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
-## v0.21.0
+## [v0.21.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.21.0-rc.1)
 
 {% hint style="info" %}
 **MAINNET UPDATE: JANUARY 6, 2022**
@@ -18,9 +18,17 @@ For the latest versions supported on each network please visit the Hedera status
 **TESTNET UPDATE:  DECEMBER 21,2021**
 {% endhint %}
 
+In Hedera Services 0.21 we are pleased to announce support for [ECDSA(secp256k1) keys](https://hips.hedera.com/hip/hip-222) and [auto-account creation](https://hips.hedera.com/hip/hip-32).
+
+The Ethereum network makes heavy use of ECDSA cryptography with the secp256k1 curve, and by supporting these keys we ease the developer experience of migrating a dApp to Hedera. Anywhere a Ed25519 key can be used in the Hedera API, it is now possible to substitute an ECDSA(secp256k1) key.
+
+Auto-account creation lets a new user receive ℏ via a `CryptoTransfer` _without_ having already created an `0.0.X` id on the network. The new user only needs to provide their public key, and when a sponsor account sends ℏ "to" their key via a new [`AccountID.alias` field](https://hashgraph.github.io/hedera-protobufs/#proto.AccountID), the network automatically creates an account with their key. Additional transfers to and from an auto-created account may also use its alias instead of the account id.
+
+Meanwhile, our team continues exhaustive due diligence for Smart Contracts 2.0... 🚀
+
 ## Latest Releases
 
-## v0.20.0
+## [v0.20.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.20.0)
 
 {% hint style="success" %}
 **MAINNET UPDATE: DECEMBER 2,2021**
