@@ -12,13 +12,13 @@ The `execute()` method submits a transaction to a Hedera network. This method wi
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `execute(<client>)` | Client | Sign with the client operator and submit to a Hedera network |
-| `execute(<client, timeout>)` | Client, Duration | The duration of times the client will try to submit the transaction upon the network being busy |
-| `<transactionResponse>.transactionId` | TransactionId | Returns the transaction ID of the transaction |
-| `<transactionResponse>.nodeId` | AccountId | Returns the node ID of the node that processed the transaction |
-| `<transactionResponse>.transactionHash` | byte \[ \] | Returns the hash of the transaction |
+| Method                                  | Type             | Description                                                                                     |
+| --------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------- |
+| `execute(<client>)`                     | Client           | Sign with the client operator and submit to a Hedera network                                    |
+| `execute(<client, timeout>)`            | Client, Duration | The duration of times the client will try to submit the transaction upon the network being busy |
+| `<transactionResponse>.transactionId`   | TransactionId    | Returns the transaction ID of the transaction                                                   |
+| `<transactionResponse>.nodeId`          | AccountId        | Returns the node ID of the node that processed the transaction                                  |
+| `<transactionResponse>.transactionHash` | byte \[ ]        | Returns the hash of the transaction                                                             |
 
 {% code title="Java" %}
 ```java
@@ -105,24 +105,4 @@ fmt.Printf("The node id is %v\n", transactionNodeId)
 ```
 {% endcode %}
 {% endtab %}
-
-{% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-|  |  |  |
-|  |  |  |
-
-{% code title="Java" %}
-```java
-
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-
-```
-{% endcode %}
-{% endtab %}
 {% endtabs %}
-
