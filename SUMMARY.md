@@ -26,7 +26,7 @@
 * [Introduction](getting-started/introduction.md)
 * [Environment Set-up](getting-started/environment-set-up.md)
 * [Create an account](getting-started/create-an-account.md)
-* [Transfer hbar](getting-started/java.md)
+* [Transfer hbar](getting-started/transfer-hbar.md)
 * [Try Examples! 👩‍💻](getting-started/try-examples/README.md)
   * [Submit Your First Message](getting-started/try-examples/submit-your-first-message.md)
   * [Create and Transfer Your First NFT](getting-started/try-examples/create-and-transfer-your-first-nft.md)
