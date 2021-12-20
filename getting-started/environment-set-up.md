@@ -198,7 +198,7 @@ MY_PRIVATE_KEY = ENTER YOUR PRIVATE KEY
 
 This file will contain the code we will write in the following samples. Your project structure should look something like this after:
 
-![](broken-reference)
+![](../.gitbook/assets/image105.png)
 
 Grab your Hedera testnet account ID and private key from the .env file.
 
