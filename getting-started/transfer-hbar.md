@@ -83,15 +83,13 @@ System.out.println("The new account balance is: " +accountBalanceNew.hbars);
 * Created an account&#x20;
 * Transferred hbars to another account
 
-Do you want to keep learning? Visit our "Resources" and "Documentation" sections to take your learning experience to the next level. You can also find additional Java SDK examples [here](https://github.com/hashgraph/hedera-sdk-java/tree/master/examples/src/main/java/com/hedera/hashgraph/sdk/examples).&#x20;
+Do you want to keep learning? Visit our "[Resources](broken-reference)" and "[Documentation](broken-reference)" sections to take your learning experience to the next level. You can also find additional Java SDK examples [here](https://github.com/hashgraph/hedera-sdk-java/tree/main/examples/src/main/java).&#x20;
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="try-examples/" %}
+[try-examples](try-examples/)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
+
 
 ## Code Check :white\_check\_mark:&#x20;
 
@@ -185,8 +183,6 @@ The new account balance is: 1000 tℏ
 The transfer transaction was: SUCCESS The cost of this query is: 0 
 The new account balance is: 2000 tℏ
 ```
-
-
 {% endtab %}
 
 {% tab title="JavaScript" %}
@@ -254,6 +250,10 @@ console.log("The account balance after the transfer is: " +getNewBalance.hbars.t
 * Transferred hbars to another account
 
 Do you want to keep learning? Visit our "Resources" and "Documentation" sections to take your learning experience to the next level. You can also find additional JavaScript SDK examples [here](https://github.com/hashgraph/hedera-sdk-js/tree/master/examples).
+
+{% content-ref url="try-examples/" %}
+[try-examples](try-examples/)
+{% endcontent-ref %}
 
 ## Code Check ✅
 
@@ -401,7 +401,7 @@ if err != nil {
 println("The account balance query cost is:", cost.String())
 ```
 
-###
+
 
 ### Get the account balance
 
@@ -431,6 +431,10 @@ fmt.Println("The hbar account balance for this account is", newAccountBalance.Hb
 * Transferred hbars to another account
 
 Do you want to keep learning? Visit our "[Resources](../resources/starter-projects.md)" and "[Documentation](../docs/sdks/)" sections to take your learning experience to the next level. You can also find additional Hedera Go SDK examples [here](https://github.com/hashgraph/hedera-sdk-go/tree/master/examples).
+
+{% content-ref url="try-examples/" %}
+[try-examples](try-examples/)
+{% endcontent-ref %}
 
 ## Code Check ✅
 
@@ -566,4 +570,6 @@ func main() {
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
