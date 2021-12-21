@@ -4,8 +4,8 @@ Generate a 12 or 24-word mnemonic phrase that can be used to recover the private
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
+| **Method**              | **Type** | **Description**                                                               |
+| ----------------------- | -------- | ----------------------------------------------------------------------------- |
 | `Mnemonic.generate24()` | Mnemonic | Generates a 24-word recovery phrase that can be used to recover a private key |
 | `Mnemonic.generate12()` | Mnemonic | Generates a 12-word recovery phrase that can be used to recover a private key |
 
@@ -58,8 +58,8 @@ fmt.Printf("mnemonic = %v\n", mnemonic)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Description |
-| :--- | :--- |
+| **Method**            | **Description**                     |
+| --------------------- | ----------------------------------- |
 | `Mnemonic.generate()` | Generates a 24 word mnemonic phrase |
 
 {% code title="Java" %}
@@ -78,4 +78,3 @@ const mnemonic = Mnemonic.generate();
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

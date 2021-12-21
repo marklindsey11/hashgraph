@@ -2,7 +2,13 @@
 
 The transaction receipt gives you information about a transaction including whether or not the transaction reached consensus on the network. You request the receipt for every transaction type and there is currently no transaction fee associated with this network request.&#x20;
 
-#### Transaction Receipt Fields
+{% hint style="info" %}
+Receipts can be requested from a Hedera network for up to 3 minutes.&#x20;
+{% endhint %}
+
+#### Transaction Receipt Contents
+
+The transaction receipt returns the following information about a transaction:
 
 * Whether the transaction reached consensus or not (success or fail)
 * The newly generated account ID, topic ID, token ID, file ID, schedule ID, scheduled transaction ID or smart contract ID
@@ -12,17 +18,56 @@ The transaction receipt gives you information about a transaction including whet
 * The total supply of token
 * The serial numbers for of the newly created NFTs after a token mint transaction was executed
 
-Receipts can be requested from the Hedera network for up to 3 minutes.&#x20;
-
 **Transaction Signing Requirements**
 
-* Transaction receipt requests do not have an associated fee at this time
+* Transaction receipt requests do not have an associated fee at this time so there is no signature requirement
 
-### Methods
+| **Constructor**                 | **Description**                                  |
+| ------------------------------- | ------------------------------------------------ |
+| `new TransactionReceiptQuery()` | Initializes the `TransactionReceiptQuery` Object |
+
+* Transaction ID: The ID of the transaction to return the receipt for
+* Include Duplicates: Whether or not to include the receipts for duplicate transactions
+* Include Children: Whether or not to include the receipt for children transactions triggered by a parent transaction
+
+|                                     |                                    |                 |
+| ----------------------------------- | ---------------------------------- | --------------- |
+| **Method**                          | **Type**                           | **Requirement** |
+| `setTransactionId(<transactionId>)` | [TransactionID](transaction-id.md) | Required        |
+| `setIncludeDuplicates(<value>)`     | boolean                            | Optional        |
+| `setIncludeChildren(<value>)`       | boolean                            | Optional        |
+
+{% tabs %}
+{% tab title="Java" %}
+```java
+new TransactionReceiptQuery()
+    .setTransactionId(transactionId)
+    .execute(client)
+```
+{% endtab %}
+
+{% tab title="JavaScript" %}
+```javascript
+new TransactionReceiptQuery()
+    .setTransactionId(transactionId)
+    .execute(client)
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+hedera.NewTransactionReceiptQuery().
+    SetTransactionId(transactionId).
+    Execute(client)
+```
+{% endtab %}
+{% endtabs %}
+
+### Helper Methods
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                                     | Type               | Description                                                                          |
+| **Method**                                                 | **Type**           | **Description**                                                                      |
 | ---------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------ |
 | `<TransactionResponse>.getReceipt(<client>)`               | TransactionReceipt | Returns the receipt of a transaction                                                 |
 | `<TransactionResponse>.getReceipt(<client, timeout>)`      | Client, Duration   | Request the receipt from the network for this duration                               |
@@ -80,24 +125,28 @@ fmt.Printf("The transaction receipt %v\n", receipt)
 
 #### Sample Output:
 
-`TransactionReceipt{`\
-`     status=SUCCESS,`\
-`     exchangeRate=ExchangeRate{`\
-`          hbars=1,`\
-`           cents=12,  `\
-`          expirationTime=2100-01-01T00:00:00Z`\
-`      },  `\
-`     accountId=null,`\
-`      fileId=null,  `\
-`      contractId=null,  `\
-`      topicId=null,  `\
-`      tokenId=null,  `\
-`      topicSequenceNumber=null,  `\
-`      topicRunningHash=null,  `\
-`      totalSupply=0,  `\
-`     scheduleId=0.0.2531`\
-`     schdeduledTransactionId=null,`\
-`     serials=[]`\
-`    }`
+```
+TransactionReceipt{
+     status=SUCCESS,
+     exchangeRate=ExchangeRate{
+          hbars=1,
+          cents=12, 
+          expirationTime=2100-01-01T00:00:00Z
+     }, 
+     accountId=null,
+     fileId=null, 
+     contractId=null, 
+     topicId=null, 
+     tokenId=null, 
+     topicSequenceNumber=null, 
+     topicRunningHash=null, 
+     totalSupply=0, 
+     scheduleId=0.0.2531
+     schdeduledTransactionId=null,
+     serials=[]
+    }
+```
+
+``
 {% endtab %}
 {% endtabs %}

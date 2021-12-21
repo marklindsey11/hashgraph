@@ -1,76 +1,28 @@
 # Modify transaction fields
 
-For every transaction submitted to a Hedera network you can modify the transaction ID, amount of time the transaction has to reach consensus, a memo field to attach a note, the account ID of the node the transaction will be submitted to, and the maximum fee the client is willing to pay for a given transaction. The SDKs do not require you to set these fields when submitting a transaction to a Hedera network as the SDK either creates the value at the time of submission or inputs default values. The methods listed below can be used to modify any of these values. 
+For every transaction submitted to a Hedera network you can modify the transaction ID, amount of time the transaction has to reach consensus, a memo field to attach a note, the account ID of the node the transaction will be submitted to, and the maximum fee the client is willing to pay for a given transaction. The SDKs do not require you to set these fields when submitting a transaction to a Hedera network as the SDK either creates the value at the time of submission or inputs default values. The methods listed below can be used to modify any of these values.&#x20;
 
 {% hint style="info" %}
 Note: The total size for a given transaction is limited to 6KiB
 {% endhint %}
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Fields</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><b>Transaction ID</b>
-      </td>
-      <td style="text-align:left">
-        <p>Set the ID for this transaction. The transaction ID includes the operator&apos;s
-          account ( the account paying the transaction fee). If two transactions
-          have the same transaction ID, they won&apos;t both have an effect. One
-          will complete normally and the other will fail with a duplicate transaction
-          status.</p>
-        <p>
-          <br />Normally, you should not use this method. Just before a transaction is
-          executed, a
-          <br />transaction ID will be generated from the operator on the client.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Valid Duration</b>
-      </td>
-      <td style="text-align:left">
-        <p>Set the duration that this transaction is valid for</p>
-        <p>Note: Max network valid duration is 180 seconds. SDK default value is
-          120 seconds</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Memo</b>
-      </td>
-      <td style="text-align:left">Set a note or description that should be recorded in the transaction record
-        (maximum length of 100 characters). Anyone can view this memo on the network</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Node ID</b>
-      </td>
-      <td style="text-align:left">Set the account ID of the node that this transaction will be submitted
-        to.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Max transaction fee</b>
-      </td>
-      <td style="text-align:left">
-        <p>Set the max transaction fee for the operator (transaction fee payer account)
-          is willing to pay</p>
-        <p>Default: 1 hbar</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| **Fields**              | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Transaction ID**      | <p>Set the ID for this transaction. The transaction ID includes the operator's account ( the account paying the transaction fee). If two transactions have the same transaction ID, they won't both have an effect. One will complete normally and the other will fail with a duplicate transaction status.</p><p><br>Normally, you should not use this method. Just before a transaction is executed, a<br>transaction ID will be generated from the operator on the client.</p> |
+| **Valid Duration**      | <p>Set the duration that this transaction is valid for</p><p>Note: Max network valid duration is 180 seconds. SDK default value is 120 seconds</p>                                                                                                                                                                                                                                                                                                                                |
+| **Memo**                | Set a note or description that should be recorded in the transaction record (maximum length of 100 characters). Anyone can view this memo on the network                                                                                                                                                                                                                                                                                                                          |
+| **Node ID**             | Set the account ID of the node that this transaction will be submitted to.                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **Max transaction fee** | <p>Set the max transaction fee for the operator (transaction fee payer account) is willing to pay</p><p>Default: 1 hbar</p>                                                                                                                                                                                                                                                                                                                                                       |
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setTransactionID(<transactionId>)` | TransactionID | Optional |
-| `setTransactionValidDuration(<validDuration>)` | Duration | Optional |
-| `setTransactionMemo(<memo>)` | String | Optional |
-| `setNodeAccountIds(<nodeAccountIds>)` | List&lt;AccountId&gt; | Optional |
-| `setMaxTransactionFee(<maxTransactionFee>)` | Hbar | Optional |
+| Method                                         | Type             | Requirement |
+| ---------------------------------------------- | ---------------- | ----------- |
+| `setTransactionID(<transactionId>)`            | TransactionID    | Optional    |
+| `setTransactionValidDuration(<validDuration>)` | Duration         | Optional    |
+| `setTransactionMemo(<memo>)`                   | String           | Optional    |
+| `setNodeAccountIds(<nodeAccountIds>)`          | List\<AccountId> | Optional    |
+| `setMaxTransactionFee(<maxTransactionFee>)`    | Hbar             | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -113,13 +65,13 @@ transaction := hedera.NewAccountCreateTransaction(). //Any transaction can be ap
 {% tab title="V1" %}
 
 
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setTransactionID(<transactionId>)` | TransactionID | Optional |
-| `setTransactionValidDuration(<validDuration>)` | Duration | Optional |
-| `setTransactionMemo(<memo>)` | String | Optional |
-| `setNodeAccountId(<nodeAccountId>)` | AccountId | Optional |
-| `setMaxTransactionFee(<maxTransactionFee>)` | long/Hbar | Optional |
+| Method                                         | Type          | Requirement |
+| ---------------------------------------------- | ------------- | ----------- |
+| `setTransactionID(<transactionId>)`            | TransactionID | Optional    |
+| `setTransactionValidDuration(<validDuration>)` | Duration      | Optional    |
+| `setTransactionMemo(<memo>)`                   | String        | Optional    |
+| `setNodeAccountId(<nodeAccountId>)`            | AccountId     | Optional    |
+| `setMaxTransactionFee(<maxTransactionFee>)`    | long/Hbar     | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -153,16 +105,16 @@ const transaction = new AccountCreateTransaction() //Any transaction can be appl
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `getTransactionID()` | TransactionID | Optional |
-| `getTransactionValidDuration()` | Duration | Optional |
-| `getTransactionMemo()` | String | Optional |
-| `getNodeAccountId()` | AccountID | Optional |
-| `getMaxTransactionFee()` | Hbar | Optional |
-| `getTransactionHash()` | byte\[ \] | Optional |
-| `getTransactionHashPerNode()` | Map&lt;AccountId, byte \[ \]&gt; | Optional |
-| `getSignatures()` | Map&lt;AccountId, Map&lt;PublicKey, byte \[ \]&gt;&gt; | Optional |
+| Method                          | Type                                        | Requirement |
+| ------------------------------- | ------------------------------------------- | ----------- |
+| `getTransactionID()`            | TransactionID                               | Optional    |
+| `getTransactionValidDuration()` | Duration                                    | Optional    |
+| `getTransactionMemo()`          | String                                      | Optional    |
+| `getNodeAccountId()`            | AccountID                                   | Optional    |
+| `getMaxTransactionFee()`        | Hbar                                        | Optional    |
+| `getTransactionHash()`          | byte\[ ]                                    | Optional    |
+| `getTransactionHashPerNode()`   | Map\<AccountId, byte \[ ]>                  | Optional    |
+| `getSignatures()`               | Map\<AccountId, Map\<PublicKey, byte \[ ]>> | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -207,5 +159,4 @@ maxtransactionFee := transaction.GetMaxTransactionFee()
 {% endtab %}
 {% endtabs %}
 
-## 
-
+##

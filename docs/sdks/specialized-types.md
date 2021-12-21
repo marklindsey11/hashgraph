@@ -4,24 +4,31 @@
 
 An `AccountId` is composed of a \<shardNum>.\<realmNum>.\<accountNum> (eg. 0.0.10).
 
-* **shardNum** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
-* **realmNum** represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
-* **accountNum** represents the account number (`accountId`)
+* Shard number (`shardNum`**)** represents the shard number (`shardId`). It will default to 0 today, as Hedera only performs in one shard.
+* Realm number (`realmNum`) represents the realm number (`realmId`). It will default to 0 today, as realms are not yet supported.
+* Account represents either an account number or an account alias
+  * Account number (`accountNum`) represents the account number (`accountId`)
+  * Account alias (alias) represented by the public key bytes
+    * The public key bytes are the result of serializing a protobuf Key message for any primitive key type
+    * Currently, only primitive key bytes are supported as an alias
+    * Threshold keys, key list, contract ID, and delegatable\_contract\_id are not supported
+    * The alias can only be used in place of an account ID in transfer transactions in its current version
 
-Together these values make up your `AccountId`. When an `AccountId` is requested, be sure all three values are included.
+Together these values make up your `AccountId`. When an `AccountId` is specified, be sure all three values are included.
 
 ### Constructor
 
-| Constructor                                         |       Type       | Description                                                                               |
+| **Constructor**                                     |     **Type**     | **Description**                                                                           |
 | --------------------------------------------------- | :--------------: | ----------------------------------------------------------------------------------------- |
 | `new AccountId(<shardNum>,<realmNum>,<accountNum>)` | long, long, long | Constructs an `AccountId` with 0 for `shardNum` and `realmNum` (e.g., `0.0.<accountNum>`) |
 
 ### Methods
 
-| Methods                          | Type   | Description                                                                                |
-| -------------------------------- | ------ | ------------------------------------------------------------------------------------------ |
-| `fromString(<account>)`          | String | Constructs an `AccountId` from a string formatted as \<shardNum>.\<realmNum>.\<accountNum> |
-| `fromSolidityAddress(<address>)` | String | Constructs an `AccountId` from a solidity address in string format                         |
+| **Methods**                                | **Type** | **Description**                                                                            |
+| ------------------------------------------ | -------- | ------------------------------------------------------------------------------------------ |
+| `AccountId.fromString(<account>)`          | String   | Constructs an `AccountId` from a string formatted as \<shardNum>.\<realmNum>.\<accountNum> |
+| `AccountId.fromSolidityAddress(<address>)` | String   | Constructs an `AccountId` from a solidity address in string format                         |
+| `AccountId.fromBytes(bytes)`               | byte\[]  | Constructs an `AccountId` from bytes                                                       |
 
 ### Example
 
@@ -61,19 +68,19 @@ Together these values make up your accountId. When an `FileId` is requested, be 
 
 ### Constructor
 
-| Constructor                                   |       Type       | Description                                                                        |
+| **Constructor**                               |     **Type**     | **Description**                                                                    |
 | --------------------------------------------- | :--------------: | ---------------------------------------------------------------------------------- |
 | `new FileId(<shardNum>,<realmNum>,<fileNum>)` | long, long, long | Constructs a `FileId` with 0 for `shardNum` and `realmNum` (e.g., `0.0.<fileNum>`) |
 
 ### Methods
 
-| Methods                 | Type   | Description                                                                                                              |
-| ----------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `fromString()`          | String | <p>Constructs an <code>FileId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;fileNum></p> |
-| `fromSolidityAddress()` | String | Constructs an `FileId` from a solidity address in string format                                                          |
-| `FileId.ADDRESS_BOOK`   | FileId | The public node address book for the current network                                                                     |
-| `FileId.EXCHANGE_RATES` | FileId | The current exchange rate of HBAR to USD                                                                                 |
-| `FileId.FEE_SCHEDULE`   | FileId | The current fee schedule for the network                                                                                 |
+| **Methods**             | **Type** | **Description**                                                                                                          |
+| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `fromString()`          | String   | <p>Constructs an <code>FileId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;fileNum></p> |
+| `fromSolidityAddress()` | String   | Constructs an `FileId` from a solidity address in string format                                                          |
+| `FileId.ADDRESS_BOOK`   | FileId   | The public node address book for the current network                                                                     |
+| `FileId.EXCHANGE_RATES` | FileId   | The current exchange rate of HBAR to USD                                                                                 |
+| `FileId.FEE_SCHEDULE`   | FileId   | The current fee schedule for the network                                                                                 |
 
 ### Example
 
@@ -113,16 +120,16 @@ Together these values make up your `ContractId`. When an `ContractId` is request
 
 ### Constructor
 
-| Constructor                                           | Type             | Description                                                                                |
+| **Constructor**                                       | **Type**         | **Description**                                                                            |
 | ----------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------ |
 | `new ContractId(<shardNum>,<realmNum>,<contractNum>)` | long, long, long | Constructs a `ContractId` with 0 for `shardNum` and `realmNum` (e.g., `0.0.<contractNum>`) |
 
 ### Methods
 
-| Methods                          | Type   | Description                                                                                                                     |
-| -------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `fromString(<account>)`          | String | <p>Constructs a <code>ContractId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;contractNum></p> |
-| `fromSolidityAddress(<address>)` | String | Constructs a `ContractId` from a solidity address in string format                                                              |
+| **Methods**                      | **Type** | **Description**                                                                                                                 |
+| -------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `fromString(<account>)`          | String   | <p>Constructs a <code>ContractId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;contractNum></p> |
+| `fromSolidityAddress(<address>)` | String   | Constructs a `ContractId` from a solidity address in string format                                                              |
 
 ### Example
 
@@ -150,33 +157,6 @@ console.log(`${newContractId}`);
 {% endtab %}
 {% endtabs %}
 
-## [TransactionId](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/TransactionId.java)
-
-A `TransactionId` is composed of the current time and account that is primarily signing the transaction. Every transaction has an associated `TransactionId`. Transaction IDs are automatically assigned for every transaction that is submitted to the network.
-
-### Constructor
-
-| Constructor                      | Type      | Description                                               |
-| -------------------------------- | --------- | --------------------------------------------------------- |
-| `new TransactionId(<accountId>)` | AccountId | Generates a new transaction ID for the given `accountId`. |
-
-### Example
-
-{% tabs %}
-{% tab title="Java" %}
-```java
-TransactionId transactionId = new TransactionId(myAccountId);
-```
-{% endtab %}
-
-{% tab title="JavaScript" %}
-```javascript
-const txId = new TransactionId(newAccountId);
-console.log(`${txId}`);
-```
-{% endtab %}
-{% endtabs %}
-
 ## [TopicId](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/consensus/ConsensusTopicId.java)
 
 A `topicId` is composed of a \<shardNum>.\<realmNum>.\<topicNum> (eg. 0.0.100).
@@ -187,14 +167,14 @@ A `topicId` is composed of a \<shardNum>.\<realmNum>.\<topicNum> (eg. 0.0.100).
 
 ### Constructor
 
-| Constructor                                              | Type             | Description                                                                            |
+| **Constructor**                                          | **Type**         | **Description**                                                                        |
 | -------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------- |
 | `new ConsensusTopicId(<shardNum>,<realmNum>,<topicNum>)` | long, long, long | Constructs a `TopicId` with `0` for `shardNum` and `realmNum` (e.g., `0.0.<topicNum>`) |
 
-| Methods                       | Type   | Description                            |
-| ----------------------------- | ------ | -------------------------------------- |
-| `fromString(<topic>)`         | String | Constructs a topic ID from a String    |
-| `ConsensusTopicId.toString()` |        | Constructs a topic ID to String format |
+| **Methods**                   | **Type** | **Description**                        |
+| ----------------------------- | -------- | -------------------------------------- |
+| `fromString(<topic>)`         | String   | Constructs a topic ID from a String    |
+| `ConsensusTopicId.toString()` |          | Constructs a topic ID to String format |
 
 ### Example
 

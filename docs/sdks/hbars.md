@@ -1,8 +1,8 @@
 # Hbars
 
-| Constructor | Type | Description |
-| :--- | :--- | :--- |
-| `new Hbar(<amount>)` | Hbar | Initializes the Hbar object |
+| **Constructor**      | **Type** | **Description**             |
+| -------------------- | -------- | --------------------------- |
+| `new Hbar(<amount>)` | Hbar     | Initializes the Hbar object |
 
 ```java
 new Hbar(<amount>)
@@ -14,13 +14,13 @@ Construct hbars from different representations.
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `Hbar.from(<hbars>)` | long / BigDecimal | Returns an Hbar whose value is equal to the specified value |
-| `Hbar.from(<hbars, unit>)` | long / BigDecimal , HbarUnit | Returns an Hbar representing the value in the given units |
-| `Hbar.fromString(<text>)` | CharSequence | Converts the provided string into an amount of hbars |
-| `Hbar.fromString(<text, unit>)` | CharSequence, HbarUnit | Converts the provided string into an amount of hbars |
-| `Hbar.fromTinybars(<tinybars>)` | long | Returns an Hbar converted from the specified number of tinybars |
+| **Method**                      | **Type**                     | **Description**                                                 |
+| ------------------------------- | ---------------------------- | --------------------------------------------------------------- |
+| `Hbar.from(<hbars>)`            | long / BigDecimal            | Returns an Hbar whose value is equal to the specified value     |
+| `Hbar.from(<hbars, unit>)`      | long / BigDecimal , HbarUnit | Returns an Hbar representing the value in the given units       |
+| `Hbar.fromString(<text>)`       | CharSequence                 | Converts the provided string into an amount of hbars            |
+| `Hbar.fromString(<text, unit>)` | CharSequence, HbarUnit       | Converts the provided string into an amount of hbars            |
+| `Hbar.fromTinybars(<tinybars>)` | long                         | Returns an Hbar converted from the specified number of tinybars |
 
 {% code title="Java" %}
 ```java
@@ -76,10 +76,10 @@ hedera.HbarFrom(100, hedera.HbarUnits.Tinybar)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `Hbar.from(<amount, unit>)` | HbarUnit | Hbars from the provided denomination |
-| `Hbar.fromTinybar(<amount>)` | long | Hbars converted from tinybars |
+| **Method**                   | **Type** | **Description**                      |
+| ---------------------------- | -------- | ------------------------------------ |
+| `Hbar.from(<amount, unit>)`  | HbarUnit | Hbars from the provided denomination |
+| `Hbar.fromTinybar(<amount>)` | long     | Hbars converted from tinybars        |
 
 {% code title="Java" %}
 ```java
@@ -113,11 +113,11 @@ Convert hbars to a different unit/format.
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `to(<unit>)` | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go. |
+| **Method**         | **Type** | **Description**                                                     |
+| ------------------ | -------- | ------------------------------------------------------------------- |
+| `to(<unit>)`       | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go.            |
 | `toString(<unit>)` | HbarUnit | String value of the hbar unit to convert to. Use `String()` for Go. |
-| `toTinybars()` | Long | Hbar value converted to tinybars |
+| `toTinybars()`     | Long     | Hbar value converted to tinybars                                    |
 
 {% code title="Java" %}
 ```java
@@ -163,10 +163,10 @@ hedera.NewHbar(100).AsTinybar()
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
+| **Method**   | **Type** | **Description**                                          |
+| ------------ | -------- | -------------------------------------------------------- |
 | `as(<unit>)` | HbarUnit | Specify the unit of hbar to convert to. Use `As` for Go. |
-| `toString()` | Long | Hbar value converted to tinybars |
+| `toString()` | Long     | Hbar value converted to tinybars                         |
 
 {% code title="Java" %}
 ```java
@@ -200,11 +200,11 @@ Provided constant values of hbars.
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `Hbar.MAX` | Hbar | A constant value of the maximum number of hbars \(50\_000\_000\_000 hbars\) |
-| `Hbar.MIN` | Hbar | A constant value of the minimum number of hbars \(-50\_000\_000\_000 hbars\) |
-| `Hbar.ZERO` | Hbar | A constant value of zero hbars |
+| **Method**  | **Type** | **Description**                                                            |
+| ----------- | -------- | -------------------------------------------------------------------------- |
+| `Hbar.MAX`  | Hbar     | A constant value of the maximum number of hbars (50\_000\_000\_000 hbars)  |
+| `Hbar.MIN`  | Hbar     | A constant value of the minimum number of hbars (-50\_000\_000\_000 hbars) |
+| `Hbar.ZERO` | Hbar     | A constant value of zero hbars                                             |
 
 {% code title="Java" %}
 ```java
@@ -251,11 +251,11 @@ hbarZero := hedera.ZeroHbar
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `Hbar.MAX` | Hbar | A constant value of the maximum number of hbars \(50\_000\_000\_000 hbars\) |
-| `Hbar.MIN` | Hbar | A constant value of the minimum number of hbars \(-50\_000\_000\_000 hbars\) |
-| `Hbar.ZERO` | Hbar | A constant value of zero hbars |
+| **Method**  | **Type** | **Description**                                                            |
+| ----------- | -------- | -------------------------------------------------------------------------- |
+| `Hbar.MAX`  | Hbar     | A constant value of the maximum number of hbars (50\_000\_000\_000 hbars)  |
+| `Hbar.MIN`  | Hbar     | A constant value of the minimum number of hbars (-50\_000\_000\_000 hbars) |
+| `Hbar.ZERO` | Hbar     | A constant value of zero hbars                                             |
 
 {% code title="Java" %}
 ```java
@@ -295,15 +295,15 @@ Modify the hbar representation to one of the hbar denominations.
 
 {% tabs %}
 {% tab title="V2" %}
-| Function | Description |
-| :--- | :--- |
-| `HbarUnit.TINYBAR` | The atomic \(smallest\) unit of hbar, used natively by the Hedera network |
-| `HbarUnit.MICROBAR` | Equivalent to 100 tinybar or 1⁄1,000,000 hbar. |
-| `HbarUnit.MILLIBAR` | Equivalent to 100,000 tinybar or 1⁄1,000 hbar |
-| `HbarUnit.HBAR` | The base unit of hbar, equivalent to 100 million tinybar. |
-| `HbarUnit.KILOBAR` | Equivalent to 1 thousand hbar or 100 billion tinybar.HbarUnit.Megabar |
-| `HbarUnit.MEGABAR` | Equivalent to 1 million hbar or 100 trillion tinybar. |
-| `HbarUnit.GIGABAR` | Equivalent to 1 billion hbar or 100 quadrillion tinybar. |
+| **Function**        | **Description**                                                         |
+| ------------------- | ----------------------------------------------------------------------- |
+| `HbarUnit.TINYBAR`  | The atomic (smallest) unit of hbar, used natively by the Hedera network |
+| `HbarUnit.MICROBAR` | Equivalent to 100 tinybar or 1⁄1,000,000 hbar.                          |
+| `HbarUnit.MILLIBAR` | Equivalent to 100,000 tinybar or 1⁄1,000 hbar                           |
+| `HbarUnit.HBAR`     | The base unit of hbar, equivalent to 100 million tinybar.               |
+| `HbarUnit.KILOBAR`  | Equivalent to 1 thousand hbar or 100 billion tinybar.HbarUnit.Megabar   |
+| `HbarUnit.MEGABAR`  | Equivalent to 1 million hbar or 100 trillion tinybar.                   |
+| `HbarUnit.GIGABAR`  | Equivalent to 1 billion hbar or 100 quadrillion tinybar.                |
 
 {% code title="Java" %}
 ```java
@@ -334,15 +334,15 @@ hedera.HbarFrom(100, hedera.HbarUnits.Tinybar)
 {% endtab %}
 
 {% tab title="V1" %}
-| Function | Description |
-| :--- | :--- |
-| `HbarUnit.Tinybar` | The atomic \(smallest\) unit of hbar, used natively by the Hedera network |
-| `HbarUnit.Microbar` | Equivalent to 100 tinybar or 1⁄1,000,000 hbar. |
-| `HbarUnit.Millibar` | Equivalent to 100,000 tinybar or 1⁄1,000 hbar |
-| `HbarUnit.Hbar` | The base unit of hbar, equivalent to 100 million tinybar. |
-| `HbarUnit.Kilobar` | Equivalent to 1 thousand hbar or 100 billion tinybar.HbarUnit.Megabar |
-| `HbarUnit.Megabar` | Equivalent to 1 million hbar or 100 trillion tinybar. |
-| `HbarUnit.Gigabar` | Equivalent to 1 billion hbar or 100 quadrillion tinybar. |
+| **Function**        | **Description**                                                         |
+| ------------------- | ----------------------------------------------------------------------- |
+| `HbarUnit.Tinybar`  | The atomic (smallest) unit of hbar, used natively by the Hedera network |
+| `HbarUnit.Microbar` | Equivalent to 100 tinybar or 1⁄1,000,000 hbar.                          |
+| `HbarUnit.Millibar` | Equivalent to 100,000 tinybar or 1⁄1,000 hbar                           |
+| `HbarUnit.Hbar`     | The base unit of hbar, equivalent to 100 million tinybar.               |
+| `HbarUnit.Kilobar`  | Equivalent to 1 thousand hbar or 100 billion tinybar.HbarUnit.Megabar   |
+| `HbarUnit.Megabar`  | Equivalent to 1 million hbar or 100 trillion tinybar.                   |
+| `HbarUnit.Gigabar`  | Equivalent to 1 billion hbar or 100 quadrillion tinybar.                |
 
 {% code title="Java" %}
 ```java
@@ -361,4 +361,3 @@ Hbar.from(100, HbarUnit.Tinybar);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

@@ -1,14 +1,14 @@
 # Manually sign a transaction
 
-Sign a transaction using the private key\(s\) required to sign the transaction. You cannot sign the transaction with a public key. If your client operator account private key is the key used in the key field\(s\) of a transaction, you do not need to manually sign the transaction. The `execute(client)` method signs the transaction with the client operator account private key before it is submitted to a Hedera network.
+Sign a transaction using the private key(s) required to sign the transaction. You cannot sign the transaction with a public key. If your client operator account private key is the key used in the key field(s) of a transaction, you do not need to manually sign the transaction. The `execute(client)` method signs the transaction with the client operator account private key before it is submitted to a Hedera network.
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `sign(<privateKey>)` | PrivateKey | Sign the transaction with an Ed25519 private key |
+| **Method**                                 | **Type**                     | **Description**                                                                    |
+| ------------------------------------------ | ---------------------------- | ---------------------------------------------------------------------------------- |
+| `sign(<privateKey>)`                       | PrivateKey                   | Sign the transaction with an Ed25519 private key                                   |
 | `signWith(<publicKey, transactionSigner>)` | PublicKey, TransactionSigner | Sign the transaction with a callback that may block waiting for user confirmation. |
-| `signWithOperator(<client>)` | Client | Sign the transaction with the client |
+| `signWithOperator(<client>)`               | Client                       | Sign the transaction with the client                                               |
 
 {% code title="Java" %}
 ```java
@@ -62,8 +62,8 @@ signedTransaction := freezeTransaction.Sign(hedera.PrivateKeyFromString("302e020
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
+| **Method**           | **Type**          | **Description**                                  |
+| -------------------- | ----------------- | ------------------------------------------------ |
 | `sign(<privateKey>)` | Ed25519PrivateKey | Sign the transaction with an Ed25519 private key |
 
 {% code title="Java" %}
@@ -104,5 +104,4 @@ const signedTransaction = freezeTransaction
 {% endtab %}
 {% endtabs %}
 
-## 
-
+##

@@ -1,20 +1,22 @@
 # Create an account
 
-A transaction that creates a Hedera account. A Hedera account is required to interact with any of the Hedera network services as you need an account to pay for all associated transaction/query fees. You can visit portal.hedera.com to create a previewnet/testnet/mainnet account. To process an account create transaction, you will need an existing account to pay for the transaction fee. To obtain the new account ID, request the receipt of the transaction.
+### **Create an account using the account create API**
+
+A transaction that creates a Hedera account. A Hedera account is required to interact with any of the Hedera network services as you need an account to pay for all associated transaction/query fees. You can visit the [Hedera Developer Portal](https://portal.hedera.com/register) to create a previewnet or testnet account. You can also use third-party wallets to generate free [mainnet accounts](../../../mainnet/mainnet-access.md). To process an account create transaction, you will need an existing account to pay for the transaction fee. To obtain the new account ID, request the [receipt](../transactions/get-a-transaction-receipt.md) of the transaction.
 
 {% hint style="info" %}
-When creating a **new account** an existing account will need to pay for the transaction fee to create the new account.
+When creating a **new account** using the **** <mark style="color:purple;">`AccountCreateTransaction()`</mark>API you will need an existing account to pay for the associated transaction fee.&#x20;
 {% endhint %}
 
 **Transaction Signing Requirements**
 
-* The account paying for the transaction fee is required to sign the transaction (usually client operator account private key)
+* The account paying for the transaction fee is required to sign the transaction&#x20;
 
 **Transaction Properties**
 
 | Field                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Key**                              | The key for the new account. The key can be a [single key](../keys/generate-a-new-key-pair.md), a [key list](../keys/create-a-key-list.md), or a [threshold key](../keys/create-a-threshold-key.md).                                                                                                                                                                                                                                                                        |
+| **Key**                              | The key for the new account.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | **Initial Balance**                  | The initial balance of the account, transferred from the operator account, in Hbar.                                                                                                                                                                                                                                                                                                                                                                                         |
 | **Receiver Signature Required**      | <p>If true, all the account keys must sign any transaction depositing into this account (in addition to all withdrawals).</p><p><em>default: false</em></p>                                                                                                                                                                                                                                                                                                                 |
 | **Max Automatic Token Associations** | Accounts can optionally automatically associate tokens to this account if this property is set. You do not need to associate a token prior to transferring it to this account. The maximum number of auto token associations allowed are 1,000. Please see [HIP-23](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md).                                                                                                                    |
@@ -30,13 +32,13 @@ When creating a **new account** an existing account will need to pay for the tra
 new AccountCreateTransaction()
 ```
 
-### Methods
+#### Methods
 
 {% tabs %}
 {% tab title="V2" %}
 | Method                                         | Type                                           | Requirement |
 | ---------------------------------------------- | ---------------------------------------------- | ----------- |
-| `setKey(<key>)`                                | [Key](../keys/)                                | Required    |
+| `setKey(<key>)`                                | Key                                            | Required    |
 | `setInitialBalance(<initialBalance>)`          | HBar                                           | Optional    |
 | `setReceiverSignatureRequired(<booleanValue>)` | boolean                                        | Optional    |
 | `setMaxAutomaticTokenAssociations(<amount>)`   | int                                            | Optional    |
@@ -172,7 +174,7 @@ console.log("The new account ID is " +newAccountId);
 {% endtab %}
 {% endtabs %}
 
-## Get transaction values
+#### Get transaction values
 
 {% tabs %}
 {% tab title="V2" %}
@@ -222,3 +224,28 @@ accountKey, err := AccountCreateTransaction.GetKey()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+### **Create an account via an account alias**
+
+You can create an account via an **account alias**. An account alias is a single public key address that is used to create the Hedera account. Hedera supports aliases generated using [Ed25519](../keys/generate-a-new-key-pair.md#ed25519) or [ECDSA](../keys/generate-a-new-key-pair.md#ecdsa-secp256k1) (secp256k1) algorithms. The account alias is immutable and cannot be modified.
+
+The account is officially registered with Hedera when hbars are initially deposited to the account alias. The transaction fee to create the account is deducted from the initial hbar transfer. The remaining balance minus the transaction fee to create the account is the initial balance of the new account. The account create transaction is executed first to register the new account and following the transfer transaction to transfer the remaining hbar balance to the new account.&#x20;
+
+The consensus timestamp for the create account transaction is one nanosecond before the transfer transaction. The parent transfer transaction and the child account create transaction share the same payer account and timestamp in the transaction ID except that the child transaction has an added nonce value. You will also notice the account memo set to `auto-created account`.
+
+You can return the new account ID from one of the following ways:
+
+* Requesting the [child records](../transactions/get-a-transaction-record.md) of the parent transfer transaction using the parent transfer transaction ID. The child transaction ID in the child transaction record will display a nonce value (`0.0.2252@1640119571.329880313/1`).
+* Requesting the [child receipts](../transactions/get-a-transaction-receipt.md) of the parent transfer transaction using the parent transfer transaction ID. The account ID field will be populated with the new account ID.
+* Requesting the receipt of the account create transaction by using the transaction ID of the parent transfer transaction and setting the nonce value to 1
+* Requesting an [account info](get-account-info.md) using the account alias ([known issue](https://github.com/hashgraph/hedera-services/issues/2653))
+* Looking at the parent transfer transaction record transfer list for the account that has a transfer that equals the transfer value minus the transaction fee
+
+{% hint style="info" %}
+**Note:** You cannot get the new account ID from the receipt of the transfer transaction like you would expect from a normal account create transaction that was not triggered by another transaction. You can use the alias in transfer transactions, account info and balance queries. The feature will be enabled to support all other transactions and queries in a future release.
+{% endhint %}
+
+**Transaction Signing Requirements**
+
+* The new account key that corresponds with the account alias public key is required to sign the transfer transaction
+* The account key paying for the transfer transaction fee

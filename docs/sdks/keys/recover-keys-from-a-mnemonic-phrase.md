@@ -4,10 +4,10 @@ Recover private keys from a mnemonic phrase.
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `PrivateKey.fromMnemonic(<mnemonic>)` | Mnemonic | Recover a private key from a mnemonic phrase compatible with the iOS and Android wallets |
-| `PrivateKey.fromMnemonic(<mnemonic, passphrase>)` | Mnemonic. String | Recover a private key from a generated mnemonic phrase and a passphrase |
+| **Method**                                        | **Type**         | **Description**                                                                          |
+| ------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------- |
+| `PrivateKey.fromMnemonic(<mnemonic>)`             | Mnemonic         | Recover a private key from a mnemonic phrase compatible with the iOS and Android wallets |
+| `PrivateKey.fromMnemonic(<mnemonic, passphrase>)` | Mnemonic. String | Recover a private key from a generated mnemonic phrase and a passphrase                  |
 
 {% code title="Java" %}
 ```java
@@ -40,10 +40,10 @@ publicKey := recoveredKey.PublicKey()
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description |
-| :--- | :--- | :--- |
-| `Ed25519PrivateKey.fromMnemonic(<mnemonic>)` | Mnemonic | Recover a private key from a mnemonic phrase compatible with the iOS and Android wallets |
-| `Ed25519PrivateKey.fromMnemonic(<mnemonic, passphrase>)` | Mnemonic, String | Recover a private key from a generated mnemonic phrase and a passphrase |
+| **Method**                                               | **Type**         | **Description**                                                                          |
+| -------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------- |
+| `Ed25519PrivateKey.fromMnemonic(<mnemonic>)`             | Mnemonic         | Recover a private key from a mnemonic phrase compatible with the iOS and Android wallets |
+| `Ed25519PrivateKey.fromMnemonic(<mnemonic, passphrase>)` | Mnemonic, String | Recover a private key from a generated mnemonic phrase and a passphrase                  |
 
 {% code title="Java" %}
 ```java
@@ -60,4 +60,3 @@ Ed25519PrivateKey privateKey = Ed25519PrivateKey.fromMnemonic(mnemonic);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

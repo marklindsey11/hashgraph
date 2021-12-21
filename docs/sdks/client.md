@@ -14,7 +14,7 @@ To access the _**public mainnet mirror node**_, use `setMirrorNetwork()` and ent
 * **JavaScript**: v2.4.0+
 * **Go:** v2.4.0+
 
-| Method                                         | Type                    | Description                                                                                                                                                                                                                            |
+| **Method**                                     | **Type**                | **Description**                                                                                                                                                                                                                        |
 | ---------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Client.forPreviewnet()`                       |                         | Constructs a Hedera client pre-configured for Previewnet access                                                                                                                                                                        |
 | `Client.forTestnet()`                          |                         | Constructs a Hedera client pre-configured for Testnet access                                                                                                                                                                           |
@@ -74,7 +74,7 @@ client := Client.forNetwork(nodes)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method                         | Type                    | Description                                                     |
+| **Method**                     | **Type**                | **Description**                                                 |
 | ------------------------------ | ----------------------- | --------------------------------------------------------------- |
 | `Client.forPreviewnet()`       |                         | Constructs a Hedera client pre-configured for Previewnet access |
 | `Client.forTestnet()`          |                         | Constructs a Hedera client pre-configured for Testnet access    |
