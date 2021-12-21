@@ -10,6 +10,53 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Latest Releases
 
+## [v0.46](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.46.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: DECEMBER 20, 2021**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: DECEMBER 17, 2021**
+{% endhint %}
+
+0.46 is a feature-packed release and includes support for three new HIPs, three new REST APIs, a redesigned monitor dashboard, a new BDD test suite for the Rosetta API, and one new module. Let’s dive in!
+
+[HIP-222](https://hips.hedera.com/hip/hip-222) adds support for ECDSA (secp256k1) keys to the Hedera network to help improve the developer experience of migrating a dApp to Hedera. The mirror node was updated to be able to parse and store the new key type along with its corresponding new signature. Since this key type is also considered a primitive key like ED25519 (e.g. not a complex key list or threshold key), you can now search for accounts and tokens by their 66-character ECDSA public key. As an added bonus, we now also allow searching by complex public keys that are a key list or threshold key with exactly one primitive key.
+
+[HIP-32](https://hips.hedera.com/hip/hip-32) auto-account creation lets a new user receive ℏ via a CryptoTransfer _without_ having already created an account on the network. The mirror node was updated to store the user's alias and map transfers that contain an alias to the newly created account ID. In an upcoming release, we'll add the ability to query for an account by its alias.
+
+[HIP-206](https://hips.hedera.com/hip/hip-206) integrates the Hedera Token Service (HTS) into the Hedera Smart Contract Service (HSCS), allowing contracts to transfer, mint, burn, associate, and dissociate tokens programmatically. While support for consensus nodes is still being worked on, the mirror node now has preliminary support for HTS precompiled transactions. This adds a new `nonce` field to the transaction ID as well as the concept of parent/child relationships between transactions. In an upcoming release, we'll add `nonce` support and expose parent/child relationships to the REST API.
+
+The REST API saw three new REST APIs created to support the new Smart Contracts 2.0 feature. After executing a smart contract, developers can use the `/api/v1/contracts/{id}/results` API to search for a contract's execution results by timestamp range or payer account (e.g. `from`). Once the result is located, the new `/api/v1/contracts/{id}/results/{timestamp}` API can retrieve detailed information about the smart contract call. If you already know the transaction's ID, you can directly retrieve the smart contract results via the new `/api/v1/contracts/results/{transactionId}` API. In an upcoming release, we'll add support for logs, state changes, and more to this API. Below is an example response:
+
+`/api/v1/contracts/results/{transactionId}`
+
+```json
+{
+    "amount": 30,
+    "block_hash": "0x6ceecd8bb224da491",
+    "block_number": 17,
+    "call_result": "0x0606",
+    "contract_id": "0.0.5001",
+    "created_contract_ids": ["0.0.7001"],
+    "error_message": "",
+    "from": "0x0000000000000000000000000000000000001f41",
+    "function_parameters": "0x0707",
+    "gas_limit": 987654,
+    "gas_used": 123,
+    "hash": "0x3531396130303866616264653464",
+    "timestamp": "167654.000123456",
+    "to": "0x0000000000000000000000000000000000001389"
+}
+```
+
+Other miscellaneous changes include now validating the REST API tests against the OpenAPI specification. This should help keep the specification file better in sync with the code until we can fully integrate the specification. The Node.js based monitor dashboard saw a visual refresh in order to make it easier to use. The Rosetta API saw a new suite of crypto and token Behavior Driven Development (BDD) tests. As a result of these tests a number of bugs were found and addressed. Finally, we refactored some common classes into a `hedera-mirror-common` module to share code with a future API module.
+
+#### Database Migration
+
+Due to the aforementioned features, we had to make changes to the database schema that may take some time to complete. We've tested the migrations against a mainnet database with 1.9B+ transactions and it completed in around five hours. Mirror node operators may see the migration take more or less time depending upon the size of their data, database hardware, and database configuration flags.
+
 ## [v0.45.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.45.0)
 
 {% hint style="success" %}

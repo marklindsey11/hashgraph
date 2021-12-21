@@ -14,7 +14,7 @@ For the latest versions supported on each network please visit the Hedera status
 **MAINNET UPDATE: JANUARY 6, 2022**
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 **TESTNET UPDATE:  DECEMBER 21,2021**
 {% endhint %}
 
@@ -22,7 +22,7 @@ In Hedera Services 0.21 we are pleased to announce support for [ECDSA(secp256k1)
 
 The Ethereum network makes heavy use of ECDSA cryptography with the secp256k1 curve, and by supporting these keys we ease the developer experience of migrating a dApp to Hedera. Anywhere a Ed25519 key can be used in the Hedera API, it is now possible to substitute an ECDSA(secp256k1) key.
 
-Auto-account creation lets a new user receive ℏ via a `CryptoTransfer` _without_ having already created an `0.0.X` id on the network. The new user only needs to provide their public key, and when a sponsor account sends ℏ "to" their key via a new [`AccountID.alias` field](https://hashgraph.github.io/hedera-protobufs/#proto.AccountID), the network automatically creates an account with their key. Additional transfers to and from an auto-created account may also use its alias instead of the account id.
+Auto-account creation lets a new user receive ℏ via a `CryptoTransfer` _without_ having already created an `0.0.X` id on the network. The new user only needs to provide their public key, and when a sponsor account sends ℏ "to" their key via a new [`AccountID.alias` field](https://hashgraph.github.io/hedera-protobufs/#proto.AccountID), the network automatically creates an account with their key. Additional transfers to and from an auto-created account may also use its alias instead of the account id. The alias may also be used to get the account balance and account info for the account. You will be able to use the alias in all other transactions and queries in a future release.
 
 Meanwhile, our team continues exhaustive due diligence for Smart Contracts 2.0... 🚀
 
