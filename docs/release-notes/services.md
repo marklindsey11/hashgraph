@@ -28,6 +28,8 @@ An alias may also be used to get the account balance and account info for the ac
 
 Meanwhile, our team continues exhaustive due diligence for Smart Contracts 2.0... 🚀
 
+![](<../../.gitbook/assets/Performance Measurements.jpeg>)
+
 ## Latest Releases
 
 ## [v0.20.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.20.0)
