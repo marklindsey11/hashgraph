@@ -20,6 +20,14 @@ For the latest versions supported on each network please visit the Hedera status
 **TESTNET UPDATE COMPLETED: DECEMBER 30, 2021**
 {% endhint %}
 
+This release continues the focus on Smart Contracts 2.0. The mirror node is useful for debugging a smart contract execution and our focus has been on providing APIs to make developers' lives easier. To that end, we added support for transaction ID nonce, a new contract logs REST API, and a new web3 API component.
+
+The new Web3 API module provides an implementation of existing JSON-RPC APIs for the Hedera network. JSON-RPC API is a widely used standard for interacting with distributed ledgers. The aim in providing a Hedera implementation of these APIs is to ease the migration of existing dApps to Hedera and simplify the developer on-ramp. Currently, the Web3 module only provides a partial implementation of the [Ethereum JSON-RPC API](https://eth.wiki/json-rpc/API). Specifically, only the `eth_blockNumber` method has been implemented in this release as we focused on putting the groundwork in place first.
+
+As part of [HIP-32](https://hips.hedera.com/HIP/hip-32.html) and [HIP-206](https://hips.hedera.com/HIP/hip-206.html) a `nonce` field was added to the `TransactionID` protobuf to guarantee uniqueness for platform generated transactions. This `nonce` field was added to any REST API that returns transaction data. A `nonce` query parameter was added to `/api/v1/transactions/:transactionId`, `/api/v1/transactions/:transactionId/stateproof`, and `/api/v1/contracts/results/:transactionId` to be able to distinguish between a user-submitted transaction and an internal transaction generated as a result of that transaction. Note that `/api/v1/transactions/:transactionId` without a `nonce` parameter will default to returning all transactions regardless of nonce while the other APIs will default `nonce` to `0`.
+
+The new `/api/v1/contracts/{id}/results/logs` REST API provides a search API to query for logs across contract executions for a particular contract. Searching by consensus timestamp and topics is supported. Note that for performance reasons it doesn't currently support pagination and requires a timestamp or timestamp range be provided to search by topic.
+
 ## [v0.46](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.46.0)
 
 {% hint style="success" %}
