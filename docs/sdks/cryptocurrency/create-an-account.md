@@ -231,7 +231,7 @@ You can create an account via an **account alias**. An account alias is a single
 
 The account is officially registered with Hedera when hbars are initially deposited to the account alias. The transaction fee to create the account is deducted from the initial hbar transfer. The remaining balance minus the transaction fee to create the account is the initial balance of the new account. The account create transaction is executed first to register the new account and following the transfer transaction to transfer the remaining hbar balance to the new account.&#x20;
 
-The consensus timestamp for the create account transaction is one nanosecond before the transfer transaction. The parent transfer transaction and the child account create transaction share the same payer account and timestamp in the transaction ID except that the child transaction has an added nonce value. You will also notice the account memo set to `auto-created account`.
+The consensus timestamp for the create account transaction is one nanosecond before the transfer transaction. The parent transfer transaction and the child account create transaction share the same payer account and timestamp in the transaction ID except that the child transaction has an added nonce value. You will also notice the account and transaction memo set to `auto-created account`.
 
 You can return the new account ID from one of the following ways:
 
@@ -248,3 +248,4 @@ You can return the new account ID from one of the following ways:
 **Transaction Signing Requirements**
 
 * The account key paying for the transfer transaction fee
+* The account the hbars are being debited from the transfer transaction
