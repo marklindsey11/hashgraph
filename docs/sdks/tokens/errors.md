@@ -9,7 +9,7 @@ Network response messages and their descriptions.
 | `INVALID_TOKEN_ID`                                          | The token is invalid or does not exist                                                                 |
 | `INVALID_TOKEN_DECIMALS`                                    | Invalid token decimals                                                                                 |
 | `INVALID_TOKEN_INITIAL_SUPPLY`                              | Invalid token initial supply                                                                           |
-| `INVALID_TREASURY_ACCOUNT_FOR_TOKEN`                        | Invalid token initial supply                                                                           |
+| `INVALID_TREASURY_ACCOUNT_FOR_TOKEN`                        | Invalid treasury account for the token                                                                 |
 | `INVALID_TOKEN_SYMBOL`                                      | Token Symbol is not UTF-8 capitalized alphabetical string                                              |
 | `TOKEN_HAS_NO_FREEZE_KEY`                                   | Freeze key is not set on a token                                                                       |
 | `TRANSFERS_NOT_ZERO_SUM_FOR_TOKEN`                          | Amounts in the transfer list are not net-zero                                                          |
