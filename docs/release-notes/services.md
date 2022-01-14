@@ -33,9 +33,11 @@ There are two other HIP's included in this release not related to the smart cont
 
 While we are gaining momentum in our smart contracts roadmap, we are also deeply committed to improving the developer experience, and welcome issues and ideas in our [GitHub repository](https://github.com/hashgraph/hedera-services) and [Discord](https://hedera.com/discord)!
 
+## Latest Releases
+
 ## [v0.21.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.21.0-rc.1)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPDATE: JANUARY 13, 2022**
 {% endhint %}
 
@@ -54,8 +56,6 @@ An alias may also be used to get the account balance and account info for the ac
 Meanwhile, our team continues exhaustive due diligence for Smart Contracts 2.0... 🚀
 
 ![](<../../.gitbook/assets/Performance Measurements.jpeg>)
-
-## Latest Releases
 
 ## [v0.20.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.20.0)
 
