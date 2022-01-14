@@ -4,7 +4,7 @@
 
 **Hedera Mainnet Account**
 
-Hedera accounts are stored on the public ledger and hold hbars which are used to pay for the transaction and query fees. Hedera accounts are referenced by an account ID in following format x.y.z \(0.0.10\). You can create a Hedera mainnet account by visiting the [Hedera portal](https://portal.hedera.com/?network=testnet) website and creating a profile. Every account has an Ed25519 private key that is used to sign and authorize transactions.
+Hedera accounts are stored on the public ledger and hold hbars which are used to pay for the transaction and query fees. Hedera accounts are referenced by an account ID in following format x.y.z (0.0.10). You can create a Hedera mainnet account by visiting the [Hedera portal](https://portal.hedera.com/?network=testnet) website and creating a profile. Every account has an Ed25519 private key that is used to sign and authorize transactions.
 
 Users will require the creation of a Hedera accounts to interact receive tokens created by the Hedera Token Service. When a user purchases a token that was created using the Hedera Token Service, the Hedera account will need to be associated with the token first before the tokens can be transferred into the users Hedera account.
 
@@ -18,25 +18,29 @@ A Hedera mirror node stores the history of transactions that occur on the networ
 
 You can find instructions on how to operate your own Hedera mirror node below.
 
-{% page-ref page="../mirrornet/run-your-own-beta-mirror-node/" %}
+{% content-ref url="../mirrornet/run-your-own-beta-mirror-node/" %}
+[run-your-own-beta-mirror-node](../mirrornet/run-your-own-beta-mirror-node/)
+{% endcontent-ref %}
 
 **Third-party mirror nodes:**
 
-* [Dragon Glass](https://app.dragonglass.me/hedera/home)  
-* [Kabuto](https://kabuto.sh/) 
+* [Dragon Glass](https://app.dragonglass.me/hedera/home) &#x20;
+* [Kabuto](https://kabuto.sh)&#x20;
 
 ## **SDKs and Docs**
 
 The following SDKs support HTS:
 
-* [Java](https://github.com/hashgraph/hedera-sdk-java) 
-* [JavaScript](https://github.com/hashgraph/hedera-sdk-js) 
-* [Go](https://github.com/hashgraph/hedera-sdk-go) 
+* [Java](https://github.com/hashgraph/hedera-sdk-java)&#x20;
+* [JavaScript](https://github.com/hashgraph/hedera-sdk-js)&#x20;
+* [Go](https://github.com/hashgraph/hedera-sdk-go)&#x20;
 * [.NET](https://github.com/bugbytesinc/Hashgraph)
 
 Documentation can be found below.
 
-{% page-ref page="sdks/" %}
+{% content-ref url="sdks/" %}
+[sdks](sdks/)
+{% endcontent-ref %}
 
 ## **Hedera Token Service**
 
@@ -84,9 +88,9 @@ The key which can wipe the token balance of an account.
 
 **Transferring Tokens**
 
-Before Hedera accounts can accept a token transfer, a token associate transaction needs to be submitted in order to associate the token to a Hedera account \(TokenAssociateTransaction\). If you do not associate the token to a Hedera account, a token transfer transaction will not be successful. You will receive a “TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT” error from the networkYou have to issue this transaction for every unique token that you would like to transfer to a Hedera account.
+Before Hedera accounts can accept a token transfer, a token associate transaction needs to be submitted in order to associate the token to a Hedera account (TokenAssociateTransaction). If you do not associate the token to a Hedera account, a token transfer transaction will not be successful. You will receive a “TOKEN\_NOT\_ASSOCIATED\_TO\_ACCOUNT” error from the networkYou have to issue this transaction for every unique token that you would like to transfer to a Hedera account.
 
-To transfer tokens from one account to another, you will use the CryptoTransfer HAPI API \([TransferTransaction](sdks/cryptocurrency/transfer-cryptocurrency.md) via SDK\). This API transfers both hbars and tokens created by users on the network.
+To transfer tokens from one account to another, you will use the CryptoTransfer HAPI API ([TransferTransaction](sdks/cryptocurrency/transfer-cryptocurrency.md) via SDK). This API transfers both hbars and tokens created by users on the network.
 
 **Token Transfer List**
 
@@ -110,7 +114,7 @@ A user’s account can be frozen from transferring token. Token transfers to a H
 
 The token owner has the ability to wipe tokens from a Hedera account. Wiping tokens from an account burns the token and decreases the supply of the token.
 
-**Know Your Customer \(KYC\)**
+**Know Your Customer (KYC)**
 
 Hedera accounts can be optionally flagged for meeting KYC requirements or not. Tokens that require KYC will need to meet the requirements prior to transferring tokens into that Hedera account.
 
@@ -118,14 +122,15 @@ Hedera accounts can be optionally flagged for meeting KYC requirements or not. T
 
 The Hedera Mirror Node has the following REST APIs you can use to query token information from:
 
-* The accounts API returns the tokens that are associated with an account 
-* The transactions API returns the token transfers in a given transaction 
-* The token APIs you can: 
-  * Get all of the tokens that were created in a Hedera network 
-  * Get all the accounts the specified token is associated with 
-  * Get a specified token’s current state on the network with the following information 
+* The accounts API returns the tokens that are associated with an account&#x20;
+* The transactions API returns the token transfers in a given transaction&#x20;
+* The token APIs you can:&#x20;
+  * Get all of the tokens that were created in a Hedera network&#x20;
+  * Get all the accounts the specified token is associated with&#x20;
+  * Get a specified token’s current state on the network with the following information&#x20;
 
 You can find the token REST API information below.
 
-{% page-ref page="mirror-node-api/cryptocurrency-api.md" %}
-
+{% content-ref url="mirror-node-api/rest-api.md" %}
+[rest-api.md](mirror-node-api/rest-api.md)
+{% endcontent-ref %}

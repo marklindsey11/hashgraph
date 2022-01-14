@@ -47,7 +47,7 @@ Example request:
 http://<yourEndpoint>/api/v1/transactions
 ```
 
-{% content-ref url="../docs/mirror-node-api/cryptocurrency-api.md" %}
-[cryptocurrency-api.md](../docs/mirror-node-api/cryptocurrency-api.md)
+{% content-ref url="../docs/mirror-node-api/rest-api.md" %}
+[rest-api.md](../docs/mirror-node-api/rest-api.md)
 {% endcontent-ref %}
 
