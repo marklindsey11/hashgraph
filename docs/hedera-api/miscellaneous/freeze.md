@@ -19,6 +19,6 @@ Set the freezing period in which the platform will stop creating events and acce
 
 #### FreezeService
 
-| RPC      | Request     | Response            | Comments                                                                                         |
-| -------- | ----------- | ------------------- | ------------------------------------------------------------------------------------------------ |
-| `freeze` | Transaction | TransactionResponse | Freezes the nodes by submitting the transaction. The grpc server returns the TransactionResponse |
+| RPC      | Request     | Response                                      | Comments                                                                                         |
+| -------- | ----------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `freeze` | Transaction | [TransactionResponse](transactionresponse.md) | Freezes the nodes by submitting the transaction. The grpc server returns the TransactionResponse |

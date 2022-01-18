@@ -22,4 +22,4 @@ Response when the client sends the node TokenGetInfoQuery
 | Field    | Type                                                 | Description                                                                                                      |
 | -------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | `header` | [ResponseHeader](../miscellaneous/responseheader.md) | Standard response from node to client, including the requested fields: cost, or state proof, or both, or neither |
-| `nfts`   | repeated TokenNftInfo                                | List of NFTs associated to the account                                                                           |
+| `nfts`   | repeated [TokenNftInfo](tokengetinfo.md)             | List of NFTs associated to the account                                                                           |

@@ -49,7 +49,6 @@ The functionality provided by Hedera.
 | `ConsensusDeleteTopic`       | Delete a topic                                                                                                                 |
 | `ConsensusGetTopicInfo`      | Get topic info                                                                                                                 |
 | `ConsensusSubmitMessage`     | Submit a message to a topic                                                                                                    |
-| `UncheckedSubmit`            |                                                                                                                                |
 | `TokenCreate`                | Create Token                                                                                                                   |
 | `TokenTransact`              | Transfer Tokens                                                                                                                |
 | `TokenGetInfo`               | Transfer Tokens                                                                                                                |

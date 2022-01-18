@@ -1,13 +1,12 @@
 # FileService
 
-| RPC | Request | Response | Comments |
-| :--- | :--- | :--- | :--- |
-| `createFile` | Transaction | TransactionResponse | Creates a file  |
-| `updateFile` | Transaction | TransactionResponse | Updates a file  |
-| `deleteFile` | Transaction | TransactionResponse | Deletes a file |
-| `appendContent` | Transaction | TransactionResponse | Appends the file  |
-| `getFileContent` | Query | Response | Retrieves the file content  |
-| `getFileInfo` | Query | Response | Retrieves the file information  |
-| `systemDelete` | Transaction | TransactionResponse | Deletes a file if the submitting account has network admin privileges |
-| `systemUndelete` | Transaction | TransactionResponse | Undeletes a file if the submitting account has network admin privileges |
-
+| RPC              | Request                                                    | Response                                                       | Comments                                                                |
+| ---------------- | ---------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `createFile`     | [Transaction](../miscellaneous/transaction.md#transaction) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Creates a file                                                          |
+| `updateFile`     | [Transaction](../miscellaneous/transaction.md#transaction) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Updates a file                                                          |
+| `deleteFile`     | [Transaction](../miscellaneous/transaction.md#transaction) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Deletes a file                                                          |
+| `appendContent`  | [Transaction](../miscellaneous/transaction.md#transaction) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Appends the file                                                        |
+| `getFileContent` | [Query](../miscellaneous/query.md#query)                   | [Response](../miscellaneous/response.md)                       | Retrieves the file content                                              |
+| `getFileInfo`    | [Query](../miscellaneous/query.md#query)                   | [Response](../miscellaneous/response.md)                       | Retrieves the file information                                          |
+| `systemDelete`   | [Transaction](../miscellaneous/transaction.md#transaction) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Deletes a file if the submitting account has network admin privileges   |
+| `systemUndelete` | [Transaction](../miscellaneous/transaction.md#transaction) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Undeletes a file if the submitting account has network admin privileges |

@@ -1,16 +1,15 @@
 # SmartContractService
 
-| RPC | Request | Response | Comments |
-| :--- | :--- | :--- | :--- |
-| `createContract` | Transaction | TransactionResponse | Creates a contract |
-| `updateContract` | Transaction | TransactionResponse | Updates a contract with the content |
-| `contractCallMethod` | Transaction | TransactionResponse | Calls a contract |
-| `getContractInfo` | Query | Response | Retrieves the contract information |
-| `contractCallLocalMethod` | Query | Response | Calls a smart contract to be run on a single node |
-| `ContractGetBytecode` | Query | Response | Retrieves the byte code of a contract |
-| `getBySolidityID` | Query | Response | Retrieves a contract by its Solidity address |
-| `getTxRecordByContractID` | Query | Response | Retrieves the 25-hour records stored for a contract |
-| `deleteContract` | Transaction | TransactionResponse | Deletes a contract instance and transfers any remaining hbars to a specified receiver |
-| `systemDelete` | Transaction | TransactionResponse | Deletes a contract if the submitting account has network admin privileges |
-| `systemUndelete` | Transaction | TransactionResponse | Undeletes a contract if the submitting account has network admin privileges |
-
+| RPC                       | Request                                        | Response                                                       | Comments                                                                              |
+| ------------------------- | ---------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `createContract`          | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Creates a contract                                                                    |
+| `updateContract`          | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Updates a contract with the content                                                   |
+| `contractCallMethod`      | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Calls a contract                                                                      |
+| `getContractInfo`         | [Query](../miscellaneous/query.md)             | [Response](../miscellaneous/response.md)                       | Retrieves the contract information                                                    |
+| `contractCallLocalMethod` | [Query](../miscellaneous/query.md)             | [Response](../miscellaneous/response.md)                       | Calls a smart contract to be run on a single node                                     |
+| `ContractGetBytecode`     | [Query](../miscellaneous/query.md)             | [Response](../miscellaneous/response.md)                       | Retrieves the byte code of a contract                                                 |
+| `getBySolidityID`         | [Query](../miscellaneous/query.md)             | [Response](../miscellaneous/response.md)                       | Retrieves a contract by its Solidity address                                          |
+| `getTxRecordByContractID` | [Query](../miscellaneous/query.md)             | [Response](../miscellaneous/response.md)                       | Retrieves the 25-hour records stored for a contract                                   |
+| `deleteContract`          | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Deletes a contract instance and transfers any remaining hbars to a specified receiver |
+| `systemDelete`            | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Deletes a contract if the submitting account has network admin privileges             |
+| `systemUndelete`          | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Undeletes a contract if the submitting account has network admin privileges           |
