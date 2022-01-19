@@ -23,12 +23,13 @@ Transactions are currently throttled for mainnet. You will receive a "BUSY" resp
 
 #### Network Throttles
 
-| Network Request Type        | Throttle (tps)                                                                                             |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| Cryptocurrency Transactions | <p>AccountCreateTransaction: 2 tps</p><p>Other: 6,000 tps (excludes CryptoCreate)</p>                      |
-| Consensus Transactions      | <p>TopicCreateTransaction: 5 tps</p><p>TopicMessageSubmitTransaction: 8,000 tps</p><p>Other: 3,000 tps</p> |
-| Token Transactions          | <p>TokenCreateTransaction: 100 tps</p><p>TokenAssociateTransaction: 100 tps</p><p>Other: 3,000 tps</p>     |
-| File Transactions           | 13 tps                                                                                                     |
-| Smart Contract Transactions | 13 tps                                                                                                     |
-| Queries                     | 8,000 tps                                                                                                  |
-| Receipts                    | unlimited (no throttle)                                                                                    |
+| Network Request Type        | Throttle (tps)                                                                                       |
+| --------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Cryptocurrency Transactions | <p>AccountCreateTransaction: 2 tps</p><p>AccountBalanceQuery: unlimited</p><p>Other: 10,000 tps </p> |
+| Consensus Transactions      | <p>TopicCreateTransaction: 5 tps</p><p>Other: 10,000 tps</p>                                         |
+| Token Transactions          | <p>TokenMint (NFT): 1200 tps</p><p>TokenAssociateTransaction: 100 tps</p><p>Other: 3,000 tps</p>     |
+| Schedule Transactions       | 100 tps                                                                                              |
+| File Transactions           | 10 tps                                                                                               |
+| Smart Contract Transactions | 350 tps                                                                                              |
+| Queries                     | 10,000 tps                                                                                           |
+| Receipts                    | unlimited (no throttle)                                                                              |
