@@ -10,106 +10,33 @@ Hedera testnets provide developers with access to a free testing environment for
 
 **Test Networks:**
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>Name</b>
-      </th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><b>Test Network</b>
-      </td>
-      <td style="text-align:left">Runs the same code as the Hedera mainnet, designed to provide a pre-production
-        environment for developers about to move to mainnet. You can find compatible
-        SDKs <a href="../docs/sdks/#hedera-supported-sdks">here</a>.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>Preview Test Network</b>
-      </td>
-      <td style="text-align:left">
-        <p>Code that is under development by the Hedera team, and likely to be used
-          in an upcoming release, designed to give developers early exposure to features
-          coming down the pipe. Updates to the network are made frequently. There
-          is no guarantee an SDK will readily support the up-and-coming features.</p>
-        <p><b>Note:</b> Updates to this network are triggered by a new release and
-          are frequent. These updates will not be reflected on the status page.</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| **Name**                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Test Network**         | Runs the same code as the Hedera mainnet, designed to provide a pre-production environment for developers about to move to mainnet. You can find compatible SDKs [here](../docs/sdks/#hedera-supported-sdks).                                                                                                                                                                                                                                                                |
+| **Preview Test Network** | <p>Code that is under development by the Hedera team, and likely to be used in an upcoming release, designed to give developers early exposure to features coming down the pipe. Updates to the network are made frequently. There is no guarantee an SDK will readily support the up-and-coming features.</p><p><strong>Note:</strong> Updates to this network are triggered by a new release and are frequent. These updates will not be reflected on the status page.</p> |
 
 {% hint style="warning" %}
-**Limited Support**  
+**Limited Support**\
 Transactions are currently throttled for testnets. You will receive a "BUSY" response if the number of transactions submitted to the network exceeds the threshold value.
 {% endhint %}
 
-| Network Service | Availability |
-| :--- | :--- |
-| Cryptocurrency | Limited |
-| Consensus Service | Limited |
-| File Service | Limited |
-| Smart Contract Service | Limited |
-| Token Service | Limited |
+| Network Service        | Availability |
+| ---------------------- | ------------ |
+| Cryptocurrency         | Limited      |
+| Consensus Service      | Limited      |
+| File Service           | Limited      |
+| Smart Contract Service | Limited      |
+| Token Service          | Limited      |
 
 ### Test Network Throttles
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Network Request Type</th>
-      <th style="text-align:left">Throttle (tps)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Cryptocurrency Transactions</td>
-      <td style="text-align:left">
-        <p>AccountCreateTransaction: 2 tps</p>
-        <p>Other: 6,000 tps (excludes CryptoCreate)</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Consensus Transactions</td>
-      <td style="text-align:left">
-        <p>TopicCreateTransaction: 5 tps</p>
-        <p>TopicMessageSubmitTransaction: 8,000 tps</p>
-        <p>Other: 3,000 tps</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Token Transactions</td>
-      <td style="text-align:left">
-        <p>TokenCreateTransaction: 100 tps</p>
-        <p>TokenAssociateTransaction: 100 tps</p>
-        <p>Other: 3,000 tps</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Schedule Transactions</td>
-      <td style="text-align:left">
-        <p>ScheduleCreate: 100 tps</p>
-        <p>ScheduleSign: 100 tps</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">File Transactions</td>
-      <td style="text-align:left">13 tps</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Smart Contract Transactions</td>
-      <td style="text-align:left">13 tps</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Queries</td>
-      <td style="text-align:left">8,000 tps</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Receipts</td>
-      <td style="text-align:left">unlimited (no throttle)</td>
-    </tr>
-  </tbody>
-</table>
-
+| Network Request Type        | Throttle (tps)                                                                                       |
+| --------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Cryptocurrency Transactions | <p>AccountCreateTransaction: 2 tps</p><p>AccountBalanceQuery: unlimited</p><p>Other: 10,000 tps </p> |
+| Consensus Transactions      | <p>TopicCreateTransaction: 5 tps</p><p>Other: 10,000 tps</p>                                         |
+| Token Transactions          | <p>TokenMint (NFT): 1200 tps</p><p>TokenAssociateTransaction: 100 tps</p><p>Other: 3,000 tps</p>     |
+| Schedule Transactions       | 100 tps                                                                                              |
+| File Transactions           | 10 tps                                                                                               |
+| Smart Contract Transactions | 350 tps                                                                                              |
+| Queries                     | 10,000 tps                                                                                           |
+| Receipts                    | unlimited (no throttle)                                                                              |
