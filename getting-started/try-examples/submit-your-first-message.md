@@ -6,7 +6,7 @@
 
 With the Hedera Consensus Service, you can develop applications like stock markets, audit logs, stable coins, or new network services that require high throughput and decentralized trust. This is made possible by having direct access to the native speed, security, and fair ordering guarantees of the hashgraph consensus algorithm, with the full trust of the Hedera ledger.
 
-We recommend you complete the following introduction to get a basic understanding of Hedera transactions.
+We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.&#x20;
 
 {% content-ref url="../environment-set-up.md" %}
 [environment-set-up.md](../environment-set-up.md)

@@ -6,7 +6,7 @@
 
 In this tutorial, you will learn how to create a simple smart contract on Hedera using Solidity.&#x20;
 
-We recommend you complete the following introduction to get a basic understanding of Hedera transactions.
+We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.&#x20;
 
 {% content-ref url="../environment-set-up.md" %}
 [environment-set-up.md](../environment-set-up.md)

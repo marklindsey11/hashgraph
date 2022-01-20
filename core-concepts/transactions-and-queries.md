@@ -6,7 +6,7 @@ description: An overview of Hedera API transactions and queries
 
 ## Transactions
 
-**Transactions** are requests sent by a client to a node with the expectation that they are submitted to the network for processing into consensus order and subsequent application to state. Each transaction (e.g. `TokenCreateTransaction()`) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state.
+**Transactions** are requests sent by a client to a node with the expectation that they are submitted to the network for processing into consensus order and subsequent application to state. Each transaction (e.g. `TokenCreateTransaction()`) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state. Transactions have a valid duration period of&#x20;
 
 **Transaction ID**
 
@@ -24,12 +24,40 @@ A **transaction** generally includes the following:
 * **Transaction Fee**: the maximum fee the paying account is willing to pay for the transaction
 * **Valid Duration**: the number of seconds that the client wishes the transaction to be deemed valid for, starting at the transaction valid start time
 * **Memo**:  a string of text up to 100 bytes of data (optional)
-* **Transaction**: type of request, for instance an HBAR transfer or a smart contract call
+* **Transaction**: type of request, for instance, an HBAR transfer or a smart contract call
 * **Signatures**: at minimum, the paying account will sign the transaction as authorization. Other signatures may be present as well.
 
 The lifecycle of a transaction in the Hedera ecosystem begins when a client creates a transaction. Once the transaction is created it is cryptographically signed at minimum by the account paying for the fees associated with the transaction. Additional signatures may be required depending on the properties set for the account, topic, or token. The client is able to stipulate the maximum fee it is willing to pay for the processing of the transaction and, for a smart contract operation, the maximum amount of gas. Once the required signatures are applied to the transaction the client then submits the transaction to any node on the Hedera network.
 
 The receiving node validates (for instance, confirms the paying account has sufficient balance to pay the fee) the transaction and, if validation is successful, submits the transaction to the Hedera network for consensus by adding the transaction to an event and gossiping that event to another node. Quickly, that event flows out to all the other nodes. The network receives this transaction exponentially fast via the [gossip about gossip protocol](https://docs.hedera.com/docs/gossip-about-gossip). The consensus timestamp for an event (and so the transactions within) is calculated by each node independently calculating the median of the times that the nodes of the network received that event. You may find more information on how the consensus timestamp is calculated [here](https://docs.hedera.com/docs/hashgraph-overview#section-fair-timestamps). The hashgraph algorithm delivers finality of consensus. Once assigned a consensus timestamp the transaction is then applied to the consensus state in the order determined by each transaction’s consensus timestamp. At that point the fees for the transaction are also processed. In this manner, every node in the network maintains a consensus state because they all apply the same transactions in the same order. Each node also creates and temporarily stores receipts/records in support of the client subsequently querying for the status of a transaction.
+
+### Nested Transactions
+
+A **nested transaction** is a transaction that triggers subsequent transactions by executing the top-level transaction. The top-level transaction that a user submits is a **parent transaction**. Each subsequent transaction the parent transaction triggers as a result of the execution of the parent transaction is a **child transaction**.  An example of this kind of nested transaction is where a user submits the top-level transfer transaction to an account alias that triggers an account create transaction behind scenes. This parent/child transaction relationship is also observed with Hedera contracts interacting with HTS precompiles.
+
+**Nested Transaction IDs**
+
+The parent and child transaction IDs share the transaction ID payer account and transaction valid start timestamp. The child transaction IDs have an additional **nonce** value that represents the order in which the child transactions were executed. The parent transaction has a nonce value that is equal to 0. The child transaction nonce value increments for each child transaction that was executed as a result of the parent transaction.
+
+Parent Transaction ID: <mark style="color:red;">payerAccountId</mark>@<mark style="color:blue;">transactionValidStart</mark>
+
+Child Transaction ID: <mark style="color:red;">payerAccountId</mark>@<mark style="color:blue;">transactionValidStart</mark>/<mark style="color:green;">nonce</mark>
+
+Example:
+
+* Parent Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>
+* Child 1 Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>/<mark style="color:green;">1</mark>
+* Child 2 Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>/<mark style="color:green;">2</mark>
+
+**Nested Transaction Records and Receipts**
+
+Nested transaction records can be returned by requesting the parent transaction record and setting the boolean value equal to true to return all child records or receipts. Child transaction records contain the parent consensus timestamp and the child transaction ID.&#x20;
+
+The parent consensus timestamp field in a child record is not populated in the cases where the child transaction was triggered **before** the parent transaction. An example of this case is creating an account using an account alias. The user submits the transfer transaction to create and fund the new account using the account alias. The account create transaction is triggered by the parent transfer transaction but occurs before the transfer transaction to create the new account before completing the transfer. You would not expect the parent consensus timestamp to be populated in this case.
+
+**Nested Transaction Receipts**
+
+Nested transaction receipts can be returned by requesting the parent transaction receipt and setting the boolean value equal to true to return all child transaction receipts.&#x20;
 
 For more information about Hedera transaction fees, please visit Hedera API fees [overview](https://www.hedera.com/fees).
 
