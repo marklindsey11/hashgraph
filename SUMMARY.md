@@ -33,6 +33,7 @@
   * [Create and Transfer Your First Fungible Token](getting-started/try-examples/create-and-transfer-your-first-fungible-token.md)
   * [Schedule Your First Transaction](getting-started/try-examples/schedule-your-first-transaction.md)
   * [Deploy Your First Smart Contract](getting-started/try-examples/deploy-your-first-smart-contract.md)
+  * [Deploy a Contract using The Hedera Token Service](getting-started/try-examples/deploy-a-contract-using-the-hedera-token-service.md)
 
 ## Core Concepts
 
