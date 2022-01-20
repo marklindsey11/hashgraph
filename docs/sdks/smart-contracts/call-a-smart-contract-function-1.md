@@ -2,7 +2,7 @@
 
 A query that calls a function of the given smart contract instance, giving it function parameters as its inputs. This is performed locally on the particular node that the client is communicating with. It cannot change the state of the contract instance (and so, cannot spend anything from the instance's cryptocurrency account). It will not have a consensus timestamp. It cannot generate a record or a receipt. The response will contain the output returned by the function call. This is useful for calling getter functions, which purely read the state and don't change it. It is faster and cheaper than a normal call, because it is purely local to a single node.
 
-Unlike a ContractCall transaction, the node will consume the entire amount of provided gas in determining the fee for this query.
+Unlike a contract execute transaction, the node will consume the entire amount of provided gas in determining the fee for this query.
 
 **Query Signing Requirements**
 

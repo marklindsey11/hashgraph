@@ -1,10 +1,10 @@
 # Update a smart contract
 
-A transaction that allows you to modify the smart contract entity state like admin keys, proxy account, auto renew period and memo. This transaction does not update the contract that is tied to the smart contract entity. The contract tied to the entity is immutable. A contract's entity is immutable if an admin key is not specified. Once the transaction has been successfully executed on a Hedera network the previous field values will be updated with the new ones. To get a previous state of a smart contract instance, you can query a mirror node for that data. Any null field is ignored (left unchanged)
+A transaction that allows you to modify the smart contract entity state like admin keys, proxy account, auto renew period and memo. This transaction does not update the contract that is tied to the smart contract entity. The contract tied to the entity is immutable. The contract entity is immutable if an admin key is not specified. Once the transaction has been successfully executed on a Hedera network the previous field values will be updated with the new ones. To get a previous state of a smart contract instance, you can query a mirror node for that data. Any null field is ignored (left unchanged)
 
 **Transaction Signing Requirements**
 
-* If only the contractInstanceExpirationTime is being modified, then no signature is needed on this transaction other than for the account paying for the transaction itself.
+* If only the expiration time is being modified, then no signature is needed on this transaction other than for the account paying for the transaction itself.
 * If any other smart contract entity property is being modified, the transaction must be signed by the admin key.
 * If the admin key is being updated, the new key must sign
 
@@ -13,7 +13,6 @@ A transaction that allows you to modify the smart contract entity state like adm
 | Field                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Admin Key**         | Sets the new admin key and its fields can be modified arbitrarily if this key signs a transaction to modify it. If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance. Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance. The bytecode will also be immutable. |
-| **Byte Code File ID** | The new file ID containing the smart contract byte code. Updating the file ID does not change the byte code of the smart contract that was created. \[depecated 0.20.0]                                                                                                                                                                                                                                                                                                                           |
 | **Proxy Account**     | The ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments. If the proxyAccountID account refuses to accept proxy staking, or if it is not currently running a node, then it will behave as if proxyAccountID was null.                                                                  |
 | **Auto Renew Period** | The new period that the instance will charge its account every this many seconds to renew.                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **Memo**              | The new memo to be associated with this contract.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -30,15 +29,14 @@ new ContractUpdateTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                       | Type                                             | Requirement          |
-| -------------------------------------------- | ------------------------------------------------ | -------------------- |
-| `setContractId(<contractId>)`                | [ContractId](../specialized-types.md#contractid) | Required             |
-| `setAdminKey(<keys>)`                        | Key                                              | Optional             |
-| `setBytecodeFileId(<fileId>)`                | [FileId](../specialized-types.md#fileid)         | Deprecated \[0.20.0] |
-| `setProxyAccountId(<accountId>`)             | [AccountId](../specialized-types.md#accountid)   | Optional             |
-| `setContractMemo(<memo>)`                    | String                                           | Optional             |
-| `setContractExpirationTime(<expirationTime)` | Instant                                          | Optional             |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration                                         | Optional             |
+| Method                                       | Type                                             | Requirement |
+| -------------------------------------------- | ------------------------------------------------ | ----------- |
+| `setContractId(<contractId>)`                | [ContractId](../specialized-types.md#contractid) | Required    |
+| `setAdminKey(<keys>)`                        | Key                                              | Optional    |
+| `setProxyAccountId(<accountId>`)             | [AccountId](../specialized-types.md#accountid)   | Optional    |
+| `setContractMemo(<memo>)`                    | String                                           | Optional    |
+| `setContractExpirationTime(<expirationTime)` | Instant                                          | Optional    |
+| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration                                         | Optional    |
 
 {% code title="Java" %}
 ```java

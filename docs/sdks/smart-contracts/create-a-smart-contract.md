@@ -1,26 +1,30 @@
 # Create a smart contract
 
-{% hint style="info" %}
-For support in the broader Hedera ecosystem, it’s recommended to mint a token on Hedera using the [Hedera Token Service](../tokens/define-a-token.md). In the near future, smart contracts will be able to interact with the Hedera Token Service.
-{% endhint %}
-
-A transaction that creates a new smart contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can use [remix](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js) or another [solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler. After you have the hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID. The constructor will be executed using the given amount of gas.&#x20;
+A transaction that creates a new smart contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can use [remix](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js) or another [Solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler. After you have the hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID. The constructor will be executed using the given amount of gas.&#x20;
 
 The constructor will be executed using the given amount of gas, and any unspent gas will be refunded to the paying account. Constructor inputs come from the given `constructorParameters`.&#x20;
 
 If this constructor stores information, it is charged gas to store it. There is a fee in hbars to maintain that storage until the expiration time, and that fee is added as part of the transaction fee.
 
-Please refer to [HIP-26](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md) for [opcode](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md#changes-unrelated-to-london-hard-fork) support and [gas costs](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-26.md#table-of-gas-cost-changes).
-
-{% hint style="warning" %}
+{% hint style="info" %}
 **Solidity Support**\
 ****The latest version of Solidity is supported on all networks (v0.8.9).
 {% endhint %}
 
-{% hint style="warning" %}
-**Smart Contract State Size and Gas Limit**\
+{% hint style="info" %}
+**Smart Contract State Size and Gas Limits**\
 ****Each smart contract has a maximum state size of 1MB which can store up to approximately 16,000 key-value pairs. The maximum gas limit is 300\_000.
+
+Hedera Services 0.22 increases the contract state size to 10 MB and the system gas throttle to 15 million gas per second. The max contract call is 4 million gas per second.
 {% endhint %}
+
+{% content-ref url="../../../core-concepts/smart-contracts/gas-and-fees.md" %}
+[gas-and-fees.md](../../../core-concepts/smart-contracts/gas-and-fees.md)
+{% endcontent-ref %}
+
+{% content-ref url="../../../core-concepts/smart-contracts/solidity-variables-and-opcodes.md" %}
+[solidity-variables-and-opcodes.md](../../../core-concepts/smart-contracts/solidity-variables-and-opcodes.md)
+{% endcontent-ref %}
 
 **Transaction Signing Requirements**
 
@@ -68,9 +72,8 @@ new ContractCreateTransaction()
 ```java
 //Create the transaction
 ContractCreateTransaction transaction = new ContractCreateTransaction()
-    .setGas(100_000_000)
-    .setBytecodeFileId(bytecodeFileId)
-    .setAdminKey(adminKey);
+    .setGas(100_000)
+    .setBytecodeFileId(bytecodeFileId);
     
 //Modify the default max transaction fee (default: 1 hbar)
 ContractCreateTransaction modifyTransactionFee = transaction.setMaxTransactionFee(new Hbar(16));
@@ -93,9 +96,8 @@ System.out.println("The new contract ID is " +newContractId);
 ```javascript
 //Create the transaction
 const transaction = new ContractCreateTransaction()
-    .setGas(100_000_000)
-    .setBytecodeFileId(bytecodeFileId)
-    .setAdminKey(adminKey);
+    .setGas(100_000)
+    .setBytecodeFileId(bytecodeFileId);
 
 //Modify the default max transaction fee (default: 1 hbar)
 const modifyTransactionFee = transaction.setMaxTransactionFee(new Hbar(16));
@@ -118,9 +120,8 @@ console.log("The new contract ID is " +newContractId);
 ```java
 //Create the transaction
 transaction := hedera.NewContractCreateTransaction().
-		SetGas(100000000).
-		SetBytecodeFileID(byteCodeFileID).
-		SetAdminKey(adminKey)
+		SetGas(100000).
+		SetBytecodeFileID(byteCodeFileID)
 
 //Sign the transaction with the client operator key and submit to a Hedera network
 txResponse, err := transaction.Execute(client)
