@@ -1,12 +1,12 @@
 # Hyperledger Besu EVM
 
-The EthereumJ virtual machine was replaced with the [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) virtual machine in the Hedera Services release [0.19](https://github.com/hashgraph/hedera-services/releases/tag/v0.19.4) as a result of [HIP-26](https://hips.hedera.com/hip/hip-26). This migration enables Hedera to maintain parity with Ethereum Mainnet evolutions such as the EVM container formats and new opcodes and precompiled contracts. The Besu integration is configured to use the “London” hard fork of Ethereum Mainnet.&#x20;
+The EthereumJ virtual machine was replaced with the [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) virtual machine in the Hedera Services release [0.19](https://github.com/hashgraph/hedera-services/releases/tag/v0.19.4) as a result of [HIP-26](https://hips.hedera.com/hip/hip-26). This migration enables Hedera to maintain parity with Ethereum Mainnet evolutions such as the EVM container formats, new opcodes, and precompiled contracts. The Besu integration is configured to use the “London” hard fork of Ethereum Mainnet.&#x20;
 
 ### London Hard Fork
 
 The smart contract platform is upgraded to support the EVM visible changes for the “London” hard fork. This includes changes introduced in the “Istanbul” and “Berlin” hard forks. Changes relating to block production, data serialization, and the fee market will not be implemented because they are not relevant to Hedera’s architecture.
 
-Starting in the Hedera Services 0.22 release, we will start charging for the __ intrinsic gas cost and for the input data. The intrinsic gas cost is a constant that is charged before any code is executed. The intrinsic gas cost is 21,000 gas. The input data is 16 gas per non-zero byte and 4 gas per zero byte. The input data is the data provided to the external contract function parameters when calling a contract. To learn more about gas fees check out this [page](gas-and-fees.md).
+Starting in the Hedera Services 0.22 release, the __ intrinsic gas cost and input data will be charged. The intrinsic gas cost is a constant that is charged before any code is executed. The intrinsic gas cost is 21,000 gas. The input data is 16 gas per non-zero byte and 4 gas per zero byte. The input data is the data provided to the external contract function parameters when calling a contract. To learn more about gas fees check out this [page](gas-and-fees.md).
 
 ### Gas Schedule
 
@@ -14,7 +14,7 @@ The Hedera Smart Contract Service will use the Gas Schedule from the "London" ha
 
 #### **Warm and Cold Account and Slot Access**
 
-Berlin introduced the notion of warm and cold accounts and storage slots. The first access to an account or storage slot in a transaction will need to pay the "cold" costs and all subsequent calls will pay the lower "warm" access costs. [EIP-2929](https://eips.ethereum.org/EIPS/eip-2929) contains the full details of the new cost scheduling.
+The "Berlin" hard fork introduced the notion of warm and cold accounts and storage slots. The first access to an account or storage slot in a transaction will need to pay the "cold" costs and all subsequent calls will pay the lower "warm" access costs. [EIP-2929](https://eips.ethereum.org/EIPS/eip-2929) contains the full details of the new cost scheduling.
 
 Hedera does not at this time allow for "pre-warming" addresses and storage slots as part of the transaction as seen in [EIP-2930](https://eips.ethereum.org/EIPS/eip-2929). Future HIPs may support this scheme.
 
@@ -26,7 +26,7 @@ In the London gas schedule, the amount of gas that can be returned from storage 
 
 The current opcode gas fees are reflective of the 0.22 Hedera Service release.
 
-| Operation                                                               | London Cost                            | Current Hedera                         |
+| Operation                                                               | London Cost (Gas)                      | Current Hedera (Gas)                   |
 | ----------------------------------------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Code deposit                                                            | 200 \* bytes                           | <p>Max of London<br>or Hedera</p>      |
 | <p><code>BALANCE</code><br>(cold account)</p>                           | 2600                                   | 2600                                   |

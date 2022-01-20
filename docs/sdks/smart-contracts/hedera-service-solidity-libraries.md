@@ -2,11 +2,11 @@
 
 ## Hedera Token Service&#x20;
 
-Hedera Token Service integration allows you to write token transactions natively in Solidity smart contracts. There are two **Solidity source files** available to developers.
+Hedera Token Service integration allows you to write token transactions natively in Solidity smart contracts. There are three **Solidity source files** available to developers.
 
-* [Hedera Token Service](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaTokenService.sol)
-* [Hedera Response Codes](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaResponseCodes.sol)
-* &#x20;[IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
+* [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaTokenService.sol)
+* [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaResponseCodes.sol)
+* [IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
 
 The Hedera Token Service Solidity file provides the transactions to interact with tokens created on Hedera. The Hedera Response Codes contract provides the response codes associated with network errors. The IHedera Token Service is a supporting library for the Hedera Token Service Solidity file. You can grab these libraries [here](https://github.com/hashgraph/hedera-smart-contracts/tree/main/hts-precompile) to add to your project and import them to your Solidity contract. Please see the example file below.
 
@@ -28,7 +28,7 @@ int response = HederaTokenService.transferToken(tokenAddress, msg.sender, addres
 {% endcode %}
 
 {% hint style="info" %}
-**Note:** You will need the [IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)file in your project directory to reference for the supporting libraries.
+**Note:** Although the [IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)file is not imported in the contract, you will need it in your project directory for the supporting libraries to reference.
 {% endhint %}
 
 ### Transfer Tokens
