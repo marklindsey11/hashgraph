@@ -4,7 +4,7 @@
 
 ## Summary
 
-In this tutorial, you will learn how to create a Solidity contract that interacts with the Hedera Token Service (HTS). The initial release of this feature supports token mint, burn, associate, dissociate, and transfer transactions.
+In this example, you will learn how to create a Solidity contract that interacts with the Hedera Token Service (HTS). The initial release of this feature supports token mint, burn, associate, dissociate, and transfer transactions.
 
 The example does not cover the environment set-up or creating certain variables that may be seen in the code blocks. The full coding example can be found at the end of the page.
 
