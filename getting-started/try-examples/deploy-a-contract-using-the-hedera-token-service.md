@@ -671,7 +671,47 @@ console.log("My new account balance is " +(await newAccountBalance).tokens.toStr
 
 {% tab title="Go" %}
 ```go
-//Coming soon...
+//Transfer the token
+transferTx := hedera.NewContractExecuteTransaction().
+	//The contract ID
+	SetContractID(contractId).
+	//The max gas
+	SetGas(100000).
+	//The contract function to call and parameters
+	SetFunction("tokenTransfer", contractParamsAmount)
+
+//Sign with treasury key to authorize the transfer from the treasury account
+signTx, err := transferTx.Sign(treasuryKey).Execute(client)
+
+if err != nil {
+	println(err.Error(), ": error executing contract")
+	return
+}
+//Get the receipt
+transferTxReceipt, err := signTx.GetReceipt(client)
+
+if err != nil {
+	println(err.Error(), ": error getting receipt")
+	return
+}
+
+//Get transaction status
+transferTxStatus := transferTxReceipt.Status
+
+fmt.Printf("The transfer transaction status %v\n", transferTxStatus)
+
+//Verify the transfer by checking the balance
+transferAccountBalance, err := hedera.NewAccountBalanceQuery().
+	SetAccountID(accountIdTest).
+	Execute(client)
+
+if err != nil {
+	println(err.Error(), ": error getting balance")
+	return
+}
+
+//Log the account token balance
+fmt.Printf("The account token balance %v\n", transferAccountBalance.Tokens)
 ```
 {% endtab %}
 {% endtabs %}
@@ -1039,7 +1079,7 @@ async function main() {
     console.log("The " + tokenId + " should now be associated to my account: " + (await accountBalance).tokens.toString());
 
      //Transfer the new token to the account
-    //Contract function params need to be in the order of the paramters provided in the tokenTransfer contract function
+    //Contract function params need to be in the order of the parameters provided in the tokenTransfer contract function
     const tokenTransfer = new ContractExecuteTransaction()
             .setContractId(newContractId)
             .setGas(100000)
@@ -1288,6 +1328,48 @@ func main() {
 
 	//Log the account balance
 	fmt.Printf("The account token balance %v\n", accountBalance.Tokens)
+	
+	//Transfer the token
+	transferTx := hedera.NewContractExecuteTransaction().
+		//The contract ID
+		SetContractID(contractId).
+		//The max gas
+		SetGas(100000).
+		//The contract function to call and parameters
+		SetFunction("tokenTransfer", contractParamsAmount)
+
+	//Sign with treasury key to authorize the transfer from the treasury account
+	signTx, err := transferTx.Sign(treasuryKey).Execute(client)
+
+	if err != nil {
+		println(err.Error(), ": error executing contract")
+		return
+	}
+	//Get the receipt
+	transferTxReceipt, err := signTx.GetReceipt(client)
+
+	if err != nil {
+		println(err.Error(), ": error getting receipt")
+		return
+	}
+
+	//Get transaction status
+	transferTxStatus := transferTxReceipt.Status
+
+	fmt.Printf("The transfer transaction status %v\n", transferTxStatus)
+
+	//Verify the transfer by checking the balance
+	transferAccountBalance, err := hedera.NewAccountBalanceQuery().
+		SetAccountID(accountIdTest).
+		Execute(client)
+
+	if err != nil {
+		println(err.Error(), ": error getting balance")
+		return
+	}
+
+	//Log the account token balance
+	fmt.Printf("The account token balance %v\n", transferAccountBalance.Tokens)
 
 }
 ```
