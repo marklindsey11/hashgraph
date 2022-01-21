@@ -5,7 +5,7 @@
 In this section you will complete the following:
 
 * Create your project directory
-* Create a .env file and store your Hedera testnet account ID and keys
+* Create a `.env` file and store your Hedera testnet account ID and keys
 * Set-up your Hedera testnet client
 
 ## Pre-requisites: <a href="#pre-requisites" id="pre-requisites"></a>

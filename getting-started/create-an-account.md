@@ -71,7 +71,7 @@ Generate a private and public key to associate to the account you will create.&#
 //-----------------------<enter code below>--------------------------------------
 
 // Generate a new key pair
-PrivateKey newAccountPrivateKey = PrivateKey.generate();
+PrivateKey newAccountPrivateKey = PrivateKey.generateED25519()
 PublicKey newAccountPublicKey = newAccountPrivateKey.getPublicKey();
 ```
 {% endtab %}
@@ -83,7 +83,7 @@ PublicKey newAccountPublicKey = newAccountPrivateKey.getPublicKey();
 //-----------------------<enter code below>--------------------------------------
 
 //Create new keys
-const newAccountPrivateKey = await PrivateKey.generate(); 
+const newAccountPrivateKey = await PrivateKey.generateED25519(); 
 const newAccountPublicKey = newAccountPrivateKey.publicKey;
 ```
 {% endtab %}
@@ -95,7 +95,7 @@ const newAccountPublicKey = newAccountPrivateKey.publicKey;
 //-----------------------<enter code below>--------------------------------------
 
 //Generate new keys for the account you will create
-newAccountPrivateKey, err := hedera.GeneratePrivateKey()
+newAccountPrivateKey, err := hedera.PrivateKeyGenerateEd25519()
 
 if err != nil {
   panic(err)
@@ -275,7 +275,7 @@ public class HederaExamples {
         client.setOperator(myAccountId, myPrivateKey);
 ​
         // Generate a new key pair
-        PrivateKey newAccountPrivateKey = PrivateKey.generate();
+        PrivateKey newAccountPrivateKey = PrivateKey.generateED25519();
         PublicKey newAccountPublicKey = newAccountPrivateKey.getPublicKey();
 ​
         //Create new account and assign the public key
@@ -325,7 +325,7 @@ async function main() {
     client.setOperator(myAccountId, myPrivateKey);
 
     //Create new keys
-    const newAccountPrivateKey = await PrivateKey.generate(); 
+    const newAccountPrivateKey = await PrivateKey.generateED25519(); 
     const newAccountPublicKey = newAccountPrivateKey.publicKey;
 
     //Create a new account with 1,000 tinybar starting balance
@@ -392,7 +392,7 @@ func main() {
     client.SetOperator(myAccountId, myPrivateKey)
 
     //Generate new keys for the account you will create
-    newAccountPrivateKey, err := hedera.GeneratePrivateKey()
+    newAccountPrivateKey, err := hedera.PrivateKeyGenerateEd25519()
     if err != nil {
         panic(err)
     }
