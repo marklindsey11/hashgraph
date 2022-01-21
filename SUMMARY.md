@@ -140,6 +140,7 @@
     * [Get file info](docs/sdks/file-storage/get-file-info.md)
     * [Network Response Messages](docs/sdks/file-storage/errors.md)
   * [Smart Contract Service](docs/sdks/smart-contracts/README.md)
+    * [Delegate Contract ID](docs/sdks/smart-contracts/delegate-contract-id.md)
     * [Create a smart contract](docs/sdks/smart-contracts/create-a-smart-contract.md)
     * [Update a smart contract](docs/sdks/smart-contracts/update-a-smart-contract.md)
     * [Delete a smart contract](docs/sdks/smart-contracts/delete-a-smart-contract.md)

@@ -15,6 +15,7 @@ Topic info returns the following values for a topic.  Queries do not change the 
 | **Topic Memo**         | Short publicly visible memo about the topic. No guarantee of uniqueness.                                                                                       |
 | **Auto Renew Period**  | The lifetime of the topic and the amount of time to extend the topic's lifetime by                                                                             |
 | **Auto Renew Account** | Null if there is no autoRenewAccount.                                                                                                                          |
+| **Ledger ID**          | The ID of the network the response came from. See [HIP-198](https://hips.hedera.com/hip/hip-198).                                                              |
 
 **Query Signing Requirements**
 
@@ -26,13 +27,27 @@ Topic info returns the following values for a topic.  Queries do not change the 
 | ---------------------- | ------------------------------------- |
 | `new TopicInfoQuery()` | Initializes the TopicInfoQuery object |
 
+
+
 ```java
 new TopicInfoQuery()
 ```
 
-| Method                  | Type    | Description                                | Requirement |
-| ----------------------- | ------- | ------------------------------------------ | ----------- |
-| `setTopicId(<topicId>)` | TopicId | The ID of the topic to get information for | Required    |
+
+
+| Method                         | Type                                           | Requirement |
+| ------------------------------ | ---------------------------------------------- | ----------- |
+| `setTopicId(<topicId>)`        | TopicId                                        | Required    |
+| `<TopicInfo>.adminKey`         | [Key](../keys/generate-a-new-key-pair.md)      | Optional    |
+| `<TopicInfo>.submitKey`        | [Key](../keys/generate-a-new-key-pair.md)      | Optional    |
+| `<TopicInfo>.topicId`          | [TopicId](../specialized-types.md#topicid)     | Optional    |
+| `<TopicInfo>.sequenceNumber`   | long                                           | Optional    |
+| `<TopicInfo>.runningHash`      | ByteString                                     | Optional    |
+| `<TopicInfo>.memo`             | String                                         | Optional    |
+| `<TopicInfo>.ledgerId`         | LedgerId                                       | Optional    |
+| `<TopicInfo>.expirationTime`   | Instant                                        | Optional    |
+| `<TopicInfo>.autoRenewAccount` | [AccountId](../specialized-types.md#accountid) | Optional    |
+| `<TopicInfo>.autoRenewPeriod`  | Instant                                        | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -87,19 +102,21 @@ println(info)
 
 **Sample Output:**
 
-`TopicInfo{`\
-`      topicId=0.0.102736,  `\
-`      topicMemo=,  `\
-`      runningHash=[  `\
-`          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,            0. 0, 0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0`\
-`      ],  `\
-`      sequenceNumber=0,  `\
-`      expirationTime=2021-02-09T03:17:07.258292001Z,  `\
-`      adminKey=null,  `\
-`      submitKey=null,  `\
-`      autoRenewPeriod=PT2160H,  `\
-`     autoRenewAccountId=null`\
-`}`
+```
+TopicInfo{
+     topicId=0.0.102736, 
+     topicMemo=, 
+     runningHash=[ 
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,            0. 0, 0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0
+     ], 
+     sequenceNumber=0, 
+     expirationTime=2021-02-09T03:17:07.258292001Z, 
+     adminKey=null, 
+     submitKey=null, 
+     autoRenewPeriod=PT2160H, 
+     autoRenewAccountId=null
+}
+```
 {% endtab %}
 
 {% tab title="V1" %}

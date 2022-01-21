@@ -27,6 +27,7 @@ Gets information about a fungible or non-fungible token instance. The token info
 | **Auto Renew Account**    | An account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval                                                                                                                                                                                                                                                                                                                                                               |
 | **Auto Renew Period**     | The interval at which the auto-renew account will be charged to extend the token's expiry                                                                                                                                                                                                                                                                                                                                                                                 |
 | **Expiry**                | The epoch second at which the token will expire; if an auto-renew account and period are specified, this is coerced to the current epoch second plus the autoRenewPeriod                                                                                                                                                                                                                                                                                                  |
+| **Ledger ID**             | The ID of the network the response came from. See [HIP-198](https://hips.hedera.com/hip/hip-198).                                                                                                                                                                                                                                                                                                                                                                         |
 | **Memo**                  | Short publicly visible memo about the token, if any                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 | Constructor            | Description                           |
@@ -41,33 +42,34 @@ new TokenInfoQuery()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                 | Type             | Requirement |
-| -------------------------------------- | ---------------- | ----------- |
-| `setTokenId(<tokenId>)`                | TokenId          | Required    |
-| `<TokenInfoQuery>.tokenId`             | TokenId          | Optional    |
-| `<TokenInfoQuery>.name`                | String           | Optional    |
-| `<TokenInfoQuery>.symbol`              | String           | Optional    |
-| `<TokenInfoQuery>.decimals`            | int              | Optional    |
-| `<TokenInfoQuery>.customFees`          | List\<CustomFee> | Optional    |
-| `<TokenInfoQuery>.totalSupply`         | long             | Optional    |
-| `<TokenInfoQuery>.treasury`            | AccountId        | Optional    |
-| `<TokenInfoQuery>.adminKey`            | Key              | Optional    |
-| `<TokenInfoQuery>.kycKey`              | Key              | Optional    |
-| `<TokenInfoQuery>.freezeKey`           | Key              | Optional    |
-| `<TokenInfoQuery>.feeScheduleKey`      | Key              | Optional    |
-| `<TokenInfoQuery>.wipeKey`             | Key              | Optional    |
-| `<TokenInfoQuery>.supplyKey`           | Key              | Optional    |
-| `<TokenInfoQuery>.defaultFreezeStatus` | boolean          | Optional    |
-| `<TokenInfoQuery>.defaultKycStatus`    | boolean          | Optional    |
-| `<TokenInfoQuery>.isDeleted`           | boolean          | Optional    |
-| `<TokenInfoQuery>.tokenType`           | TokenType        | Optional    |
-| `<TokenInfoQuery>.supplyType`          | TokenSupplyType  | Optional    |
-| `<TokenInfoQuery>.maxSupply`           | long             | Optional    |
-| `<TokenInfoQuery>.pauseKey`            | Key              | Optional    |
-| `<TokenInfoQuery>.pauseStatus`         | boolean          | Optional    |
-| `<TokenInfoQuery>.autoRenewAccount`    | AccountId        | Optional    |
-| `<TokenInfoQuery>.autoRenewPeriod`     | Duration         | Optional    |
-| `<TokenInfoQuery>.expiry`              | Instant          | Optional    |
+| Method                            | Type             | Requirement |
+| --------------------------------- | ---------------- | ----------- |
+| `setTokenId(<tokenId>)`           | TokenId          | Required    |
+| `<TokenInfo>.tokenId`             | TokenId          | Optional    |
+| `<TokenInfo>.name`                | String           | Optional    |
+| `<TokenInfo>.symbol`              | String           | Optional    |
+| `<TokenInfo>.decimals`            | int              | Optional    |
+| `<TokenInfo>.customFees`          | List\<CustomFee> | Optional    |
+| `<TokenInfo>.totalSupply`         | long             | Optional    |
+| `<TokenInfoQuery>.treasury`       | AccountId        | Optional    |
+| `<TokenInfo>.adminKey`            | Key              | Optional    |
+| `<TokenInfo>.kycKey`              | Key              | Optional    |
+| `<TokenInfo>.freezeKey`           | Key              | Optional    |
+| `<TokenInfo>.feeScheduleKey`      | Key              | Optional    |
+| `<TokenInfo>.wipeKey`             | Key              | Optional    |
+| `<TokenInfo>.supplyKey`           | Key              | Optional    |
+| `<TokenInfo>.defaultFreezeStatus` | boolean          | Optional    |
+| `<TokenInfo>.defaultKycStatus`    | boolean          | Optional    |
+| `<TokenInfo>.isDeleted`           | boolean          | Optional    |
+| `<TokenInfo>.tokenType`           | TokenType        | Optional    |
+| `<TokenInfo>.supplyType`          | TokenSupplyType  | Optional    |
+| `<TokenInfo>.maxSupply`           | long             | Optional    |
+| `<TokenInfo>.pauseKey`            | Key              | Optional    |
+| `<TokenInfo>.pauseStatus`         | boolean          | Optional    |
+| `<TokenInfo>.autoRenewAccount`    | AccountId        | Optional    |
+| `<TokenInfo>.autoRenewPeriod`     | Duration         | Optional    |
+| `<TokenInfo>.ledgerId`            | LedgerId         | Optional    |
+| `<TokenInfo>.expiry`              | Instant          | Optional    |
 
 {% code title="Java" %}
 ```java

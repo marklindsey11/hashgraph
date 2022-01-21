@@ -16,6 +16,7 @@ A query that returns the current state of a smart contract instance, including i
 | **Contract Memo**       | The memo associated with the contract (max 100 bytes).                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **Balance**             | The current balance of the contract.                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | **Deleted**             | Whether the contract has been deleted.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **Ledger ID**           | The ID of the network the response came from. See [HIP-198](https://hips.hedera.com/hip/hip-198).                                                                                                                                                                                                                                                                                                                                                               |
 | **TokenRelationships**  | The tokens associated to the contract.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 **Query Signing Requirements**
@@ -82,18 +83,20 @@ println(info)
 
 **Sample Output**
 
-`ContractInfo{`\
-`      contractId=0.0.104966,  `\
-`      accountId=0.0.104966,  `\
-`      contractAccountId=0000000000000000000000000000000000019a06,     `\
-`      adminKey=302a300506032b6570032100fcd7cce3eef78f76a538c5573ce8f00258  `\
-`           386741e03adc17c66075bf659b865d,  `\
-`      expirationTime=2021-02-10T22:27:15Z,     `\
-`      autoRenewPeriod=PT2160H,  `\
-`      storage=523,  `\
-`      contractMemo=,  `\
-`     balance=0 tℏ`\
-`}`
+```
+ContractInfo{
+     contractId=0.0.104966, 
+     accountId=0.0.104966, 
+     contractAccountId=0000000000000000000000000000000000019a06,    
+     adminKey=302a300506032b6570032100fcd7cce3eef78f76a538c5573ce8f00258 
+          386741e03adc17c66075bf659b865d, 
+     expirationTime=2021-02-10T22:27:15Z,    
+     autoRenewPeriod=PT2160H, 
+     storage=523, 
+     contractMemo=, 
+     balance=0 tℏ
+}
+```
 {% endtab %}
 
 {% tab title="V1" %}

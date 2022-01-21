@@ -4,14 +4,15 @@ A query that returns the current state of a file. Queries do not change the stat
 
 **File Info Response**
 
-| **Field**           | Description                                         |
-| ------------------- | --------------------------------------------------- |
-| **File ID**         | The Hedera ID of the file                           |
-| **Key(s)**          | The current admin key(s) on the account             |
-| **Size**            | The number of bytes in the file contents            |
-| **Expiration Time** | The current time at which the file is set to expire |
-| **Deleted**         | Whether or not the file has been deleted            |
-| **Memo**            | A short description, if any                         |
+| **Field**           | Description                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| **File ID**         | The Hedera ID of the file                                                                         |
+| **Key(s)**          | The current admin key(s) on the account                                                           |
+| **Size**            | The number of bytes in the file contents                                                          |
+| **Expiration Time** | The current time at which the file is set to expire                                               |
+| **Deleted**         | Whether or not the file has been deleted                                                          |
+| **Ledger ID**       | The ID of the network the response came from. See [HIP-198](https://hips.hedera.com/hip/hip-198). |
+| **Memo**            | A short description, if any                                                                       |
 
 \
 **Query Signing Requirements**
@@ -73,16 +74,18 @@ fmt.Println(getInfo)
 ```
 {% endcode %}
 
-**Sample Output:**\
-****\
-****`FileInfo{`\
-`      fileId=0.0.104926,  `\
-`      size=26,  `\
-`      expirationTime=2021-02-10T17:48:15Z,  `\
-`      deleted=false,  `\
-`     keys=[ 302a300506032b6570032100100059296cc51f5d362a3859d3c3c74c6a480cffad9d669a10c1d447ce56e5bf`\
-`     ]`\
-`}`
+**Sample Output:**
+
+```
+FileInfo{
+     fileId=0.0.104926, 
+     size=26, 
+     expirationTime=2021-02-10T17:48:15Z, 
+     deleted=false, 
+     keys=[ 302a300506032b6570032100100059296cc51f5d362a3859d3c3c74c6a480cffad9d669a10c1d447ce56e5bf
+     ]
+}
+```
 {% endtab %}
 
 {% tab title="V1" %}
