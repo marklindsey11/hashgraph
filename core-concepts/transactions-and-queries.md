@@ -6,7 +6,9 @@ description: An overview of Hedera API transactions and queries
 
 ## Transactions
 
-**Transactions** are requests sent by a client to a node with the expectation that they are submitted to the network for processing into consensus order and subsequent application to state. Each transaction (e.g. `TokenCreateTransaction()`) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state. Transactions have a valid duration period of&#x20;
+**Transactions** are requests sent by a client to a node with the expectation that they are submitted to the network for processing into consensus order and subsequent application to state. Each transaction (e.g. `TokenCreateTransaction()`) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state. Users can set a max transaction fee for the amount the user is willing to spend. The user is only charged the actual transaction fee.
+
+Transactions have a valid duration up to 180 seconds. This means that the transaction has up to 180 seconds to be accepted by one of the nodes in the network. If the transaction is not accepted in this timeframe, the transaction will expire. The transaction will have to be created, signed, and submitted again.
 
 **Transaction ID**
 
@@ -65,7 +67,7 @@ For more information about Hedera transaction fees, please visit Hedera API fees
 
 **Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally queries are subject to fees. The full list of queries can be found [here](../docs/sdks/queries.md).
 
-A query includes a header that includes a distinct HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.
+A query includes a header that includes a normal HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. There is no way to give a partial payment to a node for processing the query meaning if a user overpaid for the query the user will not receive a refund. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.&#x20;
 
 A client can determine the appropriate fee for a query by first asking a node for the cost and not the actual data. Such a COST\_ANSWER query is free to the client.
 
