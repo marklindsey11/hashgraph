@@ -8,8 +8,6 @@ description: An overview of Hedera API transactions and queries
 
 **Transactions** are requests sent by a client to a node with the expectation that they are submitted to the network for processing into consensus order and subsequent application to state. Each transaction (e.g. `TokenCreateTransaction()`) has an associated transaction fee that compensates the Hedera network for that processing and subsequent maintenance in consensus state. Users can set a max transaction fee for the amount the user is willing to spend. The user is only charged the actual transaction fee.
 
-Transactions have a valid duration up to 180 seconds. This means that the transaction has up to 180 seconds to be accepted by one of the nodes in the network. If the transaction is not accepted in this timeframe, the transaction will expire. The transaction will have to be created, signed, and submitted again.
-
 **Transaction ID**
 
 Each transaction has a unique transaction ID. The transaction ID is used for the following:
@@ -17,7 +15,9 @@ Each transaction has a unique transaction ID. The transaction ID is used for the
 * Obtaining receipts, records, state proofs
 * Internally by the network for detecting when duplicate transactions are submitted
 
-The transaction ID is composed by using the transaction valid start time and the account ID of the account that paid for the transaction. The transaction valid start is the timestamp in seconds.nanoseconds format. A transaction ID looks something like `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is the timestamp in seconds.nanoseconds.
+The transaction ID is composed by using the transaction valid start time and the account ID of the account that is paying for the transaction. The transaction valid start time is the time the transaction begins to be processed on the network. The transaction valid start time can be set to a future date/time. A transaction ID looks something like `0.0.9401@1598924675.82525000`where `0.0.9401` is the transaction fee payer account ID and `1598924675.82525000` is the timestamp in `seconds.nanoseconds`.
+
+Transactions have a valid duration up to 180 seconds and begins at the transaction valid start time. This means that the transaction has up to 180 seconds to be accepted by one of the nodes in the network. If the transaction is not accepted in this timeframe, the transaction will expire. The transaction will have to be created, signed, and submitted again.
 
 A **transaction** generally includes the following:
 
