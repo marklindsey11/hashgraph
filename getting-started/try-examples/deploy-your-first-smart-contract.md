@@ -617,6 +617,12 @@ fmt.Printf("The updated contract message: ", getMessage2)
 
 Want to see more examples? Check out the following:
 
+**SDKs**
+
 * [Java](https://github.com/hashgraph/hedera-sdk-java/tree/main/examples/src/main/java)
 * [JavaScript](https://github.com/hashgraph/hedera-sdk-js/tree/main/examples)
 * [Go](https://github.com/hashgraph/hedera-sdk-go/tree/main/examples)
+
+**YouTube**
+
+{% embed url="https://www.youtube.com/watch?amp%3Bt=24s&v=L9Tm6yn_ayY" %}
