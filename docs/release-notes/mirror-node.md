@@ -8,7 +8,13 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## Latest Releases
+
 ## [v0.48](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.48.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: JANUARY 26, 2022**
+{% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE COMPLETED: JANUARY 18, 2022**
@@ -71,8 +77,6 @@ kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-oper
 kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.53.1/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
 kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.53.1/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
 ```
-
-## Latest Releases
 
 ## [v0.47](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.47.0)
 
