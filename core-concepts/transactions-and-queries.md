@@ -37,7 +37,7 @@ The receiving node validates (for instance, confirms the paying account has suff
 
 A **nested transaction** triggers subsequent transactions after executing a top-level transaction. The top-level transaction that a user submits is a **parent transaction**. Each subsequent transaction the parent transaction triggers as a result of the execution of the parent transaction is a **child transaction**.  An example of a nested transaction is when a user submits the top-level transfer transaction to an account alias that triggers an account create transaction behind scenes. This parent/child transaction relationship is also observed with Hedera contracts interacting with HTS precompile.
 
-**Nested Transaction IDs**
+**Transaction IDs**
 
 The parent and child transactions share the payer account ID and transaction valid start timestamp. The child transaction IDs have an additional **nonce** value that represents the order in which the child transactions were executed. The parent transaction has a nonce value of 0. The nonce value of child transactions increments by 1 for each child transaction executed as a result of the parent transaction.
 
@@ -51,13 +51,13 @@ Example:
 * Child 1 Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>/<mark style="color:green;">1</mark>
 * Child 2 Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>/<mark style="color:green;">2</mark>
 
-**Nested Transaction Records and Receipts**
+**Transaction Records**&#x20;
 
 Obtain nested transaction records by requesting the record for a parent transaction and setting the `setIncludeChildren(<value>)` to true. This returns records for all child transactions. Child transaction records contain the parent consensus timestamp and the child transaction ID.&#x20;
 
 The parent consensus timestamp field in a child transaction record is not populated in cases when the child transaction was triggered **before** the parent transaction. An example of this case is creating an account using an account alias. The user submits the transfer transaction to create and fund the new account using the account alias. The transfer transaction (parent) triggers the account create transaction (child). However, the child transaction occurs before the parent transaction, so the new account is created before completing the transfer. The parent consensus timestamp is not populated in this case.
 
-**Nested Transaction Receipts**
+**Transaction Receipts**
 
 Nested transaction receipts can be returned by requesting the parent transaction receipt and setting the boolean value equal to true to return all child transaction receipts.&#x20;
 
