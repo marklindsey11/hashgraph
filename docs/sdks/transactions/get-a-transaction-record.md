@@ -1,6 +1,6 @@
 # Get a transaction record
 
-You can request a transaction record for up to 3 minutes after a transaction has reached consensus. The transaction record provides the following information about a transaction:
+You can request a transaction record for up to 3 minutes after a transaction has reached consensus. This query returns a maximum of [180 records](https://github.com/hashgraph/hedera-services/blob/master/hedera-node/src/test/resources/bootstrap/standard.properties#L83) per request. The transaction record provides the following information about a transaction:
 
 #### Transaction Record Contents
 
