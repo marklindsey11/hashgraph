@@ -330,7 +330,7 @@ ContractCreateTransaction contractTx = new ContractCreateTransaction()
         //The contract bytecode file
         .setBytecodeFileId(newFileId)
         //The max gas to reserve for this transaction
-        .setGas(100_000);
+        .setGas(2_000_000);
 
 //Submit the transaction to the Hedera test network
 TransactionResponse contractResponse = contractTx.execute(client);
@@ -355,7 +355,7 @@ const contractTx = await new ContractCreateTransaction()
     //The bytecode file ID
     .setBytecodeFileId(bytecodeFileId)
     //The max gas to reserve
-    .setGas(100000);
+    .setGas(2000000);
 
 //Submit the transaction to the Hedera test network
 const contractResponse = await contractTx.execute(client);
@@ -376,7 +376,7 @@ console.log("The smart contract ID is " + newContractId);
 // Deploy the contract instance
 contractTransactionID, err := hedera.NewContractCreateTransaction().
 	//The max gas for the transaction
-	SetGas(100000).
+	SetGas(2000000).
 	//The contract bytecode file ID
 	SetBytecodeFileID(byteCodeFileID).
 	Execute(client)
@@ -411,7 +411,7 @@ ContractExecuteTransaction associateToken = new ContractExecuteTransaction()
      //The contract to call
      .setContractId(newContractId)
      //The gas for the transaction
-     .setGas(100_000)
+     .setGas(2_000_000)
      //The contract function to call and parameters to pass
      .setFunction("tokenAssociate", new ContractFunctionParameters()
               //The account ID to associate the token to
@@ -434,7 +434,7 @@ System.out.println("The transaction status: " +associateTokenResponse.getReceipt
       //The contract to call
       .setContractId(newContractId)
       //The gas for the transaction
-      .setGas(100000)
+      .setGas(2000000)
       //The contract function to call and parameters to pass
       .setFunction("tokenAssociate", new ContractFunctionParameters()
            //The account ID to associate the token to
@@ -476,7 +476,7 @@ associateTx, err := hedera.NewContractExecuteTransaction().
 	//The contract ID
 	SetContractID(contractId).
 	//The max gas
-	SetGas(100000).
+	SetGas(2000000).
 	//The contract function to call and parameters
 	SetFunction("tokenAssociate", contractParamsToken).
 	Execute(client)
@@ -602,7 +602,7 @@ You can verify the transfer was successful by checking the account token balance
 //Contract function params need to be in the order of the paramters provided in the tokenTransfer contract function
 ContractExecuteTransaction tokenTransfer = new ContractExecuteTransaction()
      .setContractId(newContractId)
-     .setGas(100_000)
+     .setGas(2_000_000)
      .setFunction("tokenTransfer", new ContractFunctionParameters()
           //The ID of the token
           .addAddress(tokenId.toSolidityAddress())
@@ -637,7 +637,7 @@ System.out.println("My new account balance is " +newAccountBalance.tokens);
 //Contract function params need to be in the order of the paramters provided in the tokenTransfer contract function
 const tokenTransfer = new ContractExecuteTransaction()
     .setContractId(newContractId)
-    .setGas(100000)
+    .setGas(2000000)
     .setFunction("tokenTransfer", new ContractFunctionParameters()
          //The ID of the token
          .addAddress(tokenId.toSolidityAddress())
@@ -676,7 +676,7 @@ transferTx := hedera.NewContractExecuteTransaction().
 	//The contract ID
 	SetContractID(contractId).
 	//The max gas
-	SetGas(100000).
+	SetGas(2000000).
 	//The contract function to call and parameters
 	SetFunction("tokenTransfer", contractParamsAmount)
 
@@ -827,7 +827,7 @@ public class HTS {
                 //The contract bytecode file
                 .setBytecodeFileId(newFileId)
                 //The max gas to reserve for this transaction
-                .setGas(100_000);
+                .setGas(2_000_000);
 
         //Submit the transaction to the Hedera test network
         TransactionResponse contractResponse = contractTx.execute(client);
@@ -846,7 +846,7 @@ public class HTS {
                 //The contract to call
                 .setContractId(newContractId)
                 //The gas for the transaction
-                .setGas(100_000)
+                .setGas(2_000_000)
                 //The contract function to call and parameters to pass
                 .setFunction("tokenAssociate", new ContractFunctionParameters()
                         //The account ID to associate the token to
@@ -880,7 +880,7 @@ public class HTS {
         //Contract function params need to be in the order of the paramters provided in the tokenTransfer contract function
         ContractExecuteTransaction tokenTransfer = new ContractExecuteTransaction()
                 .setContractId(newContractId)
-                .setGas(100_000)
+                .setGas(2_000_000)
                 .setFunction("tokenTransfer", new ContractFunctionParameters()
                         //The ID of the token
                         .addAddress(tokenId.toSolidityAddress())
@@ -1018,7 +1018,7 @@ async function main() {
         //The bytecode file ID
         .setBytecodeFileId(bytecodeFileId)
         //The max gas to reserve
-        .setGas(100000);
+        .setGas(2000000);
 
     //Submit the transaction to the Hedera test network
     const contractResponse = await contractTx.execute(client);
@@ -1037,7 +1037,7 @@ async function main() {
         //The contract to call
         .setContractId(newContractId)
         //The gas for the transaction
-        .setGas(100000)
+        .setGas(2000000)
         //The contract function to call and parameters to pass
         .setFunction("tokenAssociate", new ContractFunctionParameters()
              //The account ID to associate the token to
@@ -1082,7 +1082,7 @@ async function main() {
     //Contract function params need to be in the order of the parameters provided in the tokenTransfer contract function
     const tokenTransfer = new ContractExecuteTransaction()
             .setContractId(newContractId)
-            .setGas(100000)
+            .setGas(2000000)
             .setFunction("tokenTransfer", new ContractFunctionParameters()
                     //The ID of the token
                     .addAddress(tokenId.toSolidityAddress())
@@ -1250,7 +1250,7 @@ func main() {
 	// Deploy the contract instance
 	contractTransactionID, err := hedera.NewContractCreateTransaction().
 		//The max gas for the transaction
-		SetGas(100000).
+		SetGas(2000000).
 		//The contract bytecode file ID
 		SetBytecodeFileID(byteCodeFileID).
 		Execute(client)
@@ -1285,7 +1285,7 @@ func main() {
 		//The contract ID
 		SetContractID(contractId).
 		//The max gas
-		SetGas(100000).
+		SetGas(2000000).
 		//The contract function to call and parameters
 		SetFunction("tokenAssociate", contractParamsToken).
 		Execute(client)
@@ -1334,7 +1334,7 @@ func main() {
 		//The contract ID
 		SetContractID(contractId).
 		//The max gas
-		SetGas(100000).
+		SetGas(2000000).
 		//The contract function to call and parameters
 		SetFunction("tokenTransfer", contractParamsAmount)
 
