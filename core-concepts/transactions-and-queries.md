@@ -29,7 +29,7 @@ A **transaction** generally includes the following:
 * **Transaction**: type of request, for instance, an HBAR transfer or a smart contract call
 * **Signatures**: at minimum, the paying account will sign the transaction as authorization. Other signatures may be present as well.
 
-The lifecycle of a transaction in the Hedera ecosystem begins when a client creates a transaction. Once the transaction is created it is cryptographically signed at minimum by the account paying for the fees associated with the transaction. Additional signatures may be required depending on the properties set for the account, topic, or token. The client is able to stipulate the maximum fee it is willing to pay for the processing of the transaction and, for a smart contract operation, the maximum amount of gas. Once the required signatures are applied to the transaction the client then submits the transaction to any node on the Hedera network.
+The lifecycle of a transaction in the Hedera ecosystem begins when a client creates a transaction. Once the transaction is created it is cryptographically signed at a minimum by the account paying for the fees associated with the transaction. Additional signatures may be required depending on the properties set for the account, topic, or token. The client is able to stipulate the maximum fee it is willing to pay for the processing of the transaction and, for a smart contract operation, the maximum amount of gas. Once the required signatures are applied to the transaction the client then submits the transaction to any node on the Hedera network.
 
 The receiving node validates (for instance, confirms the paying account has sufficient balance to pay the fee) the transaction and, if validation is successful, submits the transaction to the Hedera network for consensus by adding the transaction to an event and gossiping that event to another node. Quickly, that event flows out to all the other nodes. The network receives this transaction exponentially fast via the [gossip about gossip protocol](https://docs.hedera.com/docs/gossip-about-gossip). The consensus timestamp for an event (and so the transactions within) is calculated by each node independently calculating the median of the times that the nodes of the network received that event. You may find more information on how the consensus timestamp is calculated [here](https://docs.hedera.com/docs/hashgraph-overview#section-fair-timestamps). The hashgraph algorithm delivers finality of consensus. Once assigned a consensus timestamp the transaction is then applied to the consensus state in the order determined by each transaction’s consensus timestamp. At that point the fees for the transaction are also processed. In this manner, every node in the network maintains a consensus state because they all apply the same transactions in the same order. Each node also creates and temporarily stores receipts/records in support of the client subsequently querying for the status of a transaction.
 
@@ -61,13 +61,15 @@ The parent consensus timestamp field in a child transaction record is not popula
 
 Nested transaction receipts can be returned by requesting the parent transaction receipt and setting the boolean value equal to true to return all child transaction receipts.&#x20;
 
-For more information about Hedera transaction fees, please visit Hedera API fees [overview](https://www.hedera.com/fees).
+**Child Transaction Fees**
+
+The transaction fee for the child transaction is included in the record of the parent transaction. The transaction fee will return zero in the child transaction.
 
 ## Queries
 
-**Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally queries are subject to fees. The full list of queries can be found [here](../docs/sdks/queries.md).
+**Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally, queries are subject to fees. The full list of queries can be found [here](../docs/sdks/queries.md).
 
-A query includes a header that includes a normal HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. There is no way to give a partial payment to a node for processing the query meaning if a user overpaid for the query the user will not receive a refund. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.&#x20;
+A query includes a header that includes a normal HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. There is no way to give partial payment to a node for processing the query meaning if a user overpaid for the query the user will not receive a refund. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.&#x20;
 
 A client can determine the appropriate fee for a query by first asking a node for the cost and not the actual data. Such a COST\_ANSWER query is free to the client.
 
@@ -91,7 +93,7 @@ Once a transaction has been submitted to the network, clients may seek confirmat
 
 * **Receipts:** Receipts provide minimal information - simply whether or not the transaction was successfully processed into consensus state. Receipts are generated by default and are persisted for 3 minutes. Receipts are free.
 * **Records:** Records provide greater detail about the transaction than do receipts — such as the consensus timestamp it received or the results of a smart contract function call. Records are generated by default but are persisted for 3 minutes. Longer lived records (24 hours) are created if a crypto transfer transaction surpasses a threshold defined on the accounts involved.
-* **State proofs (coming soon):** When querying for a record, a client can optionally indicate that it desires the network to return a state proof in addition to the record. A state proof documents network consensus on the contents of that record in the consensus state — this collective assertion includes signatures of most of the network nodes. Because state proofs are cryptographically signed by a super majority of the network, they are secure and potentially admissible in a court of law.
+* **State proofs (coming soon):** When querying for a record, a client can optionally indicate that it desires the network to return a state proof in addition to the record. A state proof documents network consensus on the contents of that record in the consensus state — this collective assertion includes signatures of most of the network nodes. Because state proofs are cryptographically signed by a supermajority of the network, they are secure and potentially admissible in a court of law.
 
 {% hint style="info" %}
 An early version of a state proof, state proof alpha, is now available. Please check out the Mirror Node REST API section to get started.
