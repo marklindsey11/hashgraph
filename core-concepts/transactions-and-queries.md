@@ -39,7 +39,7 @@ A **nested transaction** triggers subsequent transactions after executing a top-
 
 **Transaction IDs**
 
-The parent and child transactions share the payer account ID and transaction valid start timestamp. The child transaction IDs have an additional **nonce** value that represents the order in which the child transactions were executed. The parent transaction has a nonce value of 0. The nonce value of child transactions increments by 1 for each child transaction executed as a result of the parent transaction.
+Parent and child transactions share the payer account ID and transaction valid start timestamp. The child transaction IDs have an additional **nonce** value that represents the order in which the child transactions were executed. The parent transaction has a nonce value of 0. The nonce value of child transactions increments by 1 for each child transaction executed as a result of the parent transaction.
 
 Parent Transaction ID: <mark style="color:red;">payerAccountId</mark>@<mark style="color:blue;">transactionValidStart</mark>
 
@@ -53,7 +53,7 @@ Example:
 
 **Transaction Records**&#x20;
 
-Obtain nested transaction records by requesting the record for a parent transaction and setting the `setIncludeChildren(<value>)` to true. This returns records for all child transactions. Child transaction records contain the parent consensus timestamp and the child transaction ID.&#x20;
+Nested transaction records are returned by requesting the record for the parent transaction and setting the `setIncludeChildren(<value>)` to true. This returns records for all child transactions associated with the parent transaction. Child transaction records include the parent consensus timestamp and the child transaction ID.&#x20;
 
 The parent consensus timestamp field in a child transaction record is not populated in cases when the child transaction was triggered **before** the parent transaction. An example of this case is creating an account using an account alias. The user submits the transfer transaction to create and fund the new account using the account alias. The transfer transaction (parent) triggers the account create transaction (child). However, the child transaction occurs before the parent transaction, so the new account is created before completing the transfer. The parent consensus timestamp is not populated in this case.
 
