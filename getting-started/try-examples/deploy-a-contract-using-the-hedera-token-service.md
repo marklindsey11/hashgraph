@@ -449,7 +449,7 @@ const signTx = await associateToken.freezeWith(client).sign(accountKeyTest);
 const submitAssociateTx = await signTx.execute(client);
 
 //Get the receipt
-const txReceipt = await submitAccountCreateTx.getReceipt(client);
+const txReceipt = await submitAssociateTx.getReceipt(client);
 
 //Get transaction status
 const txStatus = txReceipt.status
@@ -1052,7 +1052,7 @@ async function main() {
     const submitAssociateTx = await signTx.execute(client);
 
     //Get the receipt
-    const txReceipt = await submitAccountCreateTx.getReceipt(client);
+    const txReceipt = await submitAssociateTx.getReceipt(client);
 
     //Get transaction status
     const txStatus = txReceipt.status
