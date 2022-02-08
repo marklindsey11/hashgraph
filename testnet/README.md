@@ -30,13 +30,16 @@ Transactions are currently throttled for testnets. You will receive a "BUSY" res
 
 ### Test Network Throttles
 
-| Network Request Type        | Throttle (tps)                                                                                       |
-| --------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Cryptocurrency Transactions | <p>AccountCreateTransaction: 2 tps</p><p>AccountBalanceQuery: unlimited</p><p>Other: 10,000 tps </p> |
-| Consensus Transactions      | <p>TopicCreateTransaction: 5 tps</p><p>Other: 10,000 tps</p>                                         |
-| Token Transactions          | <p>TokenMint (NFT): 1200 tps</p><p>TokenAssociateTransaction: 100 tps</p><p>Other: 3,000 tps</p>     |
-| Schedule Transactions       | 100 tps                                                                                              |
-| File Transactions           | 10 tps                                                                                               |
-| Smart Contract Transactions | 350 tps                                                                                              |
-| Queries                     | 10,000 tps                                                                                           |
-| Receipts                    | unlimited (no throttle)                                                                              |
+
+
+| Network Request Type        | Throttle (tps)                                                                                                                                                                 |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cryptocurrency Transactions | <p>AccountCreateTransaction: 2 tps</p><p>AccountBalanceQuery: unlimited</p><p>Other: 10,000 tps </p>                                                                           |
+| Consensus Transactions      | <p>TopicCreateTransaction: 5 tps</p><p>Other: 10,000 tps</p>                                                                                                                   |
+| Token Transactions          | <p>TokenMintTransaction (NFT): 1200 tps</p><p>TokenAssociateTransaction: 100 tps</p><p>Other: 3,000 tps</p>                                                                    |
+| Schedule Transactions       | <p>ScheduleSignTransaction: 100 tps<br>ScheduleCreateTransaction: 100 tps</p>                                                                                                  |
+| File Transactions           | 10 tps                                                                                                                                                                         |
+| Smart Contract Transactions | <p>ContractExecuteTransaction: 350 tps<br>ContractCreateTransaction: 350 tps<br><br></p>                                                                                       |
+| Queries                     | <p>ContractGetInfo: 700 tps<br>ContractGetBytecode: 700 tps<br>ContractCallLocal: 700 tps<br><br>FileGetInfo: 700 tps<br>FileGetContents: 700 tps<br><br>Other: 10,000 tps</p> |
+| Receipts                    | unlimited (no throttle)                                                                                                                                                        |
+
