@@ -10,7 +10,9 @@ A transaction that transfers hbars and tokens between Hedera accounts. You can e
 
 **Transaction Signing Requirements**
 
-* The account sending the tokens is required to sign the transaction.&#x20;
+* The account sending the tokens is required to sign the transaction
+* The transaction fee paying account is required to sign the transaction
+* The spending account is required to sign the transaction for accounts that have an approved allowance from another account
 
 | Constructor                 | Description                                |
 | --------------------------- | ------------------------------------------ |
@@ -28,8 +30,11 @@ new TransferTransaction()
 | ---------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `addHbarTransfer(<accountId, value>)`                            | AccountId, Hbar                                   | <p>The account involved in the transfer and the number of hbars. <br><br>The sender and recipient values must net zero.</p>                                                             |
 | `addTokenTransfer(<tokenId, accountId,value>)`                   | TokenId, AccountId, long                          | <p>The ID of the token, the account ID involved in the transfer, and the number of tokens to transfer. <br><br>The sender and recipient values must net zero.</p>                       |
-| `addTokenTransferWithDecimals(<tokenId, accountId, value, int>)` | TokenId, AccountId, long, decimals                | <p>The ID of the token, the account ID involved in the transfer, the number of tokens to transfer, the decimals of the token.<br><br>The sender and recipient values must net zero.</p> |
 | `addNftTransfer(<nftId, sender, receiver>)`                      | [NftId](../tokens/nft-id.md), AcountId, AccountId | The NFT ID (token + serial number), the sending account, and receiving account.                                                                                                         |
+| `addTokenTransferWithDecimals(<tokenId, accountId, value, int>)` | TokenId, AccountId, long, decimals                | <p>The ID of the token, the account ID involved in the transfer, the number of tokens to transfer, the decimals of the token.<br><br>The sender and recipient values must net zero.</p> |
+| `setHbarTransferApproval(<accountId>,<isApproved>)`              | AccountId, boolean                                |                                                                                                                                                                                         |
+| `setTokenTransferApproval(<tokenId>, <accountId>, <isApproved>)` | TokenId, AccountId, boolean                       |                                                                                                                                                                                         |
+| `setNftTransferApproval(<nftId>,<isApproved>)`                   | NftId, boolean                                    |                                                                                                                                                                                         |
 
 {% code title="Java" %}
 ```java

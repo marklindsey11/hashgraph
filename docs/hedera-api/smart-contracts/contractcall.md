@@ -10,7 +10,7 @@ The amount of gas used, as well as other attributes of the transaction, e.g. siz
 
 | Field                | Type                                       | Description                                                               |
 | -------------------- | ------------------------------------------ | ------------------------------------------------------------------------- |
-| `contractID`         | [ContractID](../basic-types/contractid.md) | The contract instance to call, in the format used in transactions         |
+| `contractID`         | [ContractID](../basic-types/contractid.md) | The contract instance to call                                             |
 | `gas`                | int64                                      | The maximum amount of gas to use for the call                             |
 | `amount`             | int64                                      | Number of tinybars sent (the function must be payable if this is nonzero) |
 | `functionParameters` | bytes                                      | Which function to call, and the parameters to pass to the function        |

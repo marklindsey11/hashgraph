@@ -6,8 +6,8 @@ A transaction that appends new file content to the end of an existing file. The 
 
 * The key on the file is required to sign the transaction if different than the client operator account key
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor               | Description                                  |
+| ------------------------- | -------------------------------------------- |
 | `FileAppendTransaction()` | Initializes the FileAppendTransaction object |
 
 ```java
@@ -15,18 +15,20 @@ new FileAppendTransaction()
 ```
 
 {% hint style="info" %}
-The default max transaction fee \(1 hbar\) is not enough to create a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars
+The default max transaction fee (1 hbar) is not enough to create a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars. The default chunk size is 2048 kb.&#x20;
 {% endhint %}
 
 ### Methods
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setFileId(<fileId>)` | FileId | The ID of the file to append | Required |
-| `setContents(<text>)` | String | The content in String format | Optional |
-| `setContents(<content>)` | byte \[ \] | The content in byte format | Optional |
+| Method                         | Type      | Description                  | Requirement |
+| ------------------------------ | --------- | ---------------------------- | ----------- |
+| `setFileId(<fileId>)`          | FileId    | The ID of the file to append | Required    |
+| `setContents(<text>)`          | String    | The content in String format | Optional    |
+| `setContents(<content>)`       | byte \[ ] | The content in byte format   | Optional    |
+| `setChunkSize(<chunkSize>)`    | int       | The chunk size               | Optional    |
+| `setMaxChunkSize(<maxChunks>)` | int       | The max chunk size           | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -119,11 +121,11 @@ fmt.Println("The transaction consensus status is ", transactionStatus)
 {% endtab %}
 
 {% tab title="V1" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `setFileId(<fileId>)` | FileId | The ID of the file to append | Required |
-| `setContents(<content>)` | byte \[ \] | The content in byte format | Optional |
-| `setContents(<content>)` | String | The content in string format | Optional |
+| Method                   | Type      | Description                  | Requirement |
+| ------------------------ | --------- | ---------------------------- | ----------- |
+| `setFileId(<fileId>)`    | FileId    | The ID of the file to append | Required    |
+| `setContents(<content>)` | byte \[ ] | The content in byte format   | Optional    |
+| `setContents(<content>)` | String    | The content in string format | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -171,10 +173,10 @@ console.log("The transaction consensus status is " +transactionStatus)
 
 {% tabs %}
 {% tab title="V2" %}
-| Method | Type | Description | Requirement |
-| :--- | :--- | :--- | :--- |
-| `getFileId()` | FileId | The file ID in the transaction | Optional |
-| `getContents()` | String | The content in the transaction | Optional |
+| Method          | Type   | Description                    | Requirement |
+| --------------- | ------ | ------------------------------ | ----------- |
+| `getFileId()`   | FileId | The file ID in the transaction | Optional    |
+| `getContents()` | String | The content in the transaction | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -217,4 +219,3 @@ getContents2 := transaction2.GetContents()
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

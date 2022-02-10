@@ -73,4 +73,6 @@ The functionality provided by Hedera.
 | `NetworkGetExecutionTime`    | Get execution time(s) by TransactionID, if available                                                                           |
 | `TokenPause`                 | Pause the Token                                                                                                                |
 | `TokenUnpause`               | Unpause the Token                                                                                                              |
+| `CryptoApproveAllowance`     | Approve allowance for a spender relative to the payer account                                                                  |
+| `CryptoAdjustAllowance`      | Adjust allowances for a spender relative to the payer account                                                                  |
 

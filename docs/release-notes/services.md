@@ -8,6 +8,23 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## v0.23
+
+Hedera Services 0.23 adds some interesting flexibility to our crypto, token, and smart contract services by delivering [HIP-336 (Approval and Allowance API for Tokens)](https://hips.hedera.com/hip/hip-336) and [HIP-329 (Support `CREATE2` opcode)](https://hips.hedera.com/hip/hip-329).
+
+Account owners can now grant other accounts the permission to manage some portion of their ℏ, fungible token, or NFT assets. This can simplify interactions with a trusted NFT marketplace or merchant, allowing the trusted party to transact on an owner’s account _without_ direct access to the account’s key, or\
+direct involvement of the owner.
+
+Smart contract developers are now free to use the `CREATE2` EVM opcode. A typical use case is a distributed exchange that wants its pair contracts to have deterministic addresses based on the tokens in the pair.
+
+Please note two issues fixed in this release. [First](https://github.com/hashgraph/hedera-services/issues/2841), in release 0.22, the nodes returned the `bytes ledger_id` stipulated by [HIP-33](https://hips.hedera.com/hip/hip-33) as a UTF-8 encoding of a hex string. The returned bytes are now the big-endian representation of the numeric id’s.
+
+[Second](https://github.com/hashgraph/hedera-services/issues/2857), prior to this release, the record of a `dissociateToken` from a deleted token did not list the discarded balance of the dissociated account if the token’s treasury was missing. This is now fixed.
+
+## Latest Releases
+
+
+
 ## [v0.22](https://github.com/hashgraph/hedera-services/releases/tag/v0.22.1)
 
 {% hint style="success" %}
@@ -34,8 +51,6 @@ There are two other HIP's included in this release not related to the smart cont
 While we are gaining momentum in our smart contracts roadmap, we are also deeply committed to improving the developer experience, and welcome issues and ideas in our [GitHub repository](https://github.com/hashgraph/hedera-services) and [Discord](https://hedera.com/discord)!
 
 ![](<../../.gitbook/assets/Performance Measurement Results\_Extract.001 (1).jpeg>)
-
-## Latest Releases
 
 ## [v0.21.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.21.0-rc.1)
 

@@ -74,13 +74,13 @@ Together these values make up your accountId. When an `FileId` is requested, be 
 
 ### Methods
 
-| **Methods**             | **Type** | **Description**                                                                                                          |
-| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `fromString()`          | String   | <p>Constructs an <code>FileId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;fileNum></p> |
-| `fromSolidityAddress()` | String   | Constructs an `FileId` from a solidity address in string format                                                          |
-| `FileId.ADDRESS_BOOK`   | FileId   | The public node address book for the current network                                                                     |
-| `FileId.EXCHANGE_RATES` | FileId   | The current exchange rate of HBAR to USD                                                                                 |
-| `FileId.FEE_SCHEDULE`   | FileId   | The current fee schedule for the network                                                                                 |
+| **Methods**                    | **Type** | **Description**                                                                                                          |
+| ------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `FileId.fromString()`          | String   | <p>Constructs an <code>FileId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;fileNum></p> |
+| `FileId.fromSolidityAddress()` | String   | Constructs an `FileId` from a solidity address in string format                                                          |
+| `FileId.ADDRESS_BOOK`          | FileId   | The public node address book for the current network                                                                     |
+| `FileId.EXCHANGE_RATES`        | FileId   | The current exchange rate of HBAR to USD                                                                                 |
+| `FileId.FEE_SCHEDULE`          | FileId   | The current fee schedule for the network                                                                                 |
 
 ### Example
 
@@ -126,10 +126,11 @@ Together these values make up your `ContractId`. When an `ContractId` is request
 
 ### Methods
 
-| **Methods**                      | **Type** | **Description**                                                                                                                 |
-| -------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `fromString(<account>)`          | String   | <p>Constructs a <code>ContractId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;contractNum></p> |
-| `fromSolidityAddress(<address>)` | String   | Constructs a `ContractId` from a solidity address in string format                                                              |
+| **Methods**                                                 | **Type**           | **Description**                                                                                                                 |
+| ----------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `ContractId.fromString(<account>)`                          | String             | <p>Constructs a <code>ContractId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;contractNum></p> |
+| `ContractId.fromSolidityAddress(<address>)`                 | String             | Constructs a `ContractId` from a solidity address in string format                                                              |
+| `ContractId.fromEvmAddress(<shard>, <realm>, <evmAddress>)` | long, long, String | Constructs a `ContractId` from evm address                                                                                      |
 
 ### Example
 

@@ -16,11 +16,12 @@ Child transactions are transactions that were triggered by a parent transaction.
 
 {% tabs %}
 {% tab title="V2" %}
-| **Method**                            | **Type**  | **Description**                                                                            |
-| ------------------------------------- | --------- | ------------------------------------------------------------------------------------------ |
-| `TransactionId.generate(<accountId>)` | AccountId | Generates a new transaction ID. Pass the payer account ID to generate the transaction ID.  |
-| `TransactionId.fromBytes(<bytes>)`    | byte \[ ] | Converts to a transaction ID from bytes                                                    |
-| `TransactionId.fromString(<string>)`  | String    | Converts a string to transaction ID                                                        |
+| **Method**                                                | **Type**           | **Description**                                                                            |
+| --------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ |
+| `TransactionId.generate(<accountId>)`                     | AccountId          | Generates a new transaction ID. Pass the payer account ID to generate the transaction ID.  |
+| `TransactionId.fromBytes(<bytes>)`                        | byte \[ ]          | Converts to a transaction ID from bytes                                                    |
+| `TransactionId.fromString(<string>)`                      | String             | Converts a string to transaction ID                                                        |
+| `TransactionId.withValidStart(<accountId>, <validStart>)` | AccountId, Instant | Create a transaction ID by passing the payer account and valid start time                  |
 
 {% code title="Java" %}
 ```java
