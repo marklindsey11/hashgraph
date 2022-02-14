@@ -42,7 +42,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 {% tabs %}
 {% tab title="Java" %}
 ```java
-new TransactionRecordtQuery()
+new TransactionRecordQuery()
     .setTransactionId(transactionId)
     .execute(client)
 ```
@@ -50,7 +50,7 @@ new TransactionRecordtQuery()
 
 {% tab title="JavaScript" %}
 ```javascript
-new TransactionRecordtQuery()
+new TransactionRecordQuery()
     .setTransactionId(transactionId)
     .execute(client)
 ```
