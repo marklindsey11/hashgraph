@@ -10,6 +10,14 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## v0.23
 
+{% hint style="info" %}
+**MAINNET UPDATE: MARCH 3, 2022**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE:  FEBRUARY 17, 2022**
+{% endhint %}
+
 Hedera Services 0.23 adds some interesting flexibility to our crypto, token, and smart contract services by delivering [HIP-336 (Approval and Allowance API for Tokens)](https://hips.hedera.com/hip/hip-336) and [HIP-329 (Support `CREATE2` opcode)](https://hips.hedera.com/hip/hip-329).
 
 Account owners can now grant other accounts the permission to manage some portion of their ℏ, fungible token, or NFT assets. This can simplify interactions with a trusted NFT marketplace or merchant, allowing the trusted party to transact on an owner’s account _without_ direct access to the account’s key, or\
