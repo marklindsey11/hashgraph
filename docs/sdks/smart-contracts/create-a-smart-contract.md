@@ -12,10 +12,9 @@ If this constructor stores information, it is charged gas to store it. There is 
 {% endhint %}
 
 {% hint style="info" %}
-**Smart Contract State Size and Gas Limits**\
-****Each smart contract has a maximum state size of 1MB which can store up to approximately 16,000 key-value pairs. The maximum gas limit is 300\_000.
+**Smart Contract State Size and Gas Limits**
 
-Hedera Services 0.22 increases the contract state size to 10 MB and the system gas throttle to 15 million gas per second. Contract call and contract create are throttled at 4 million gas per second.
+Hedera Services 0.22 release increases the contract state size to 10 MB and the system gas throttle to 15 million gas per second. Contract call and contract create are throttled at 4 million gas per second.
 {% endhint %}
 
 {% content-ref url="../../../core-concepts/smart-contracts/gas-and-fees.md" %}
