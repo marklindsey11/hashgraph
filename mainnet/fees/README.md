@@ -34,6 +34,8 @@ All fees are subject to change.
 | ---------------------------- | -------- |
 | CryptoCreate                 | $0.05    |
 | CryptoAccountAutoRenew       | $0.00022 |
+| CryptoAdjustAllowance        | $0.05    |
+| CryptoApproveAllowance       | $0.05    |
 | CryptoUpdate                 | $0.00022 |
 | CryptoTransfer               | $0.0001  |
 | CryptoTransfer (custom fees) | $0.002   |
