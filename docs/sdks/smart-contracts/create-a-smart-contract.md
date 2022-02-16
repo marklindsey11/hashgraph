@@ -17,6 +17,10 @@ If this constructor stores information, it is charged gas to store it. There is 
 Hedera Services 0.22 release increases the contract state size to 10 MB and the system gas throttle to 15 million gas per second. Contract call and contract create are throttled at 4 million gas per second.
 {% endhint %}
 
+{% hint style="warning" %}
+Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.
+{% endhint %}
+
 {% content-ref url="../../../core-concepts/smart-contracts/gas-and-fees.md" %}
 [gas-and-fees.md](../../../core-concepts/smart-contracts/gas-and-fees.md)
 {% endcontent-ref %}
