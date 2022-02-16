@@ -2,6 +2,10 @@
 
 Gas is used to pay for Hedera Smart Contract Service transactions like creating a contract, calling a smart contract function, or returning contract values. Gas reflects the cost necessary to pay for the computational resources used to process transactions.
 
+{% hint style="warning" %}
+Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.&#x20;
+{% endhint %}
+
 ### Gas Fees
 
 Gas fees include the intrinsic gas cost and the cost of the EVM operation from the London gas schedule for all non-Hedera Service transactions. The changes from the London gas schedule are noted [here](hyperledger-besu-evm.md#gas-schedule). The intrinsic gas cost is 21,000 per transaction plus the cost of input data (16 gas per non-zero byte and 4 gas per zero byte). If you are calling a Hedera Service transaction in your contract then an additional Hedera Service transaction gas fee will be assessed along with the intrinsic gas cost and EVM operation cost.&#x20;
@@ -49,7 +53,5 @@ When a transaction is submitted to a node with a `gasLimit` that is greater than
 {% hint style="info" %}
 Gas throttle per contract call and contract create: **4 million gas per second**.
 {% endhint %}
-
-
 
 Reference [HIP-185](https://hips.hedera.com/hip/hip-185)

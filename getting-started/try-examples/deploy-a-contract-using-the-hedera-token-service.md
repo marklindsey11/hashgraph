@@ -8,6 +8,10 @@ In this example, you will learn how to create a Solidity contract that interacts
 
 The example does not cover the environment set-up or creating certain variables that may be seen in the code blocks. The full coding example can be found at the end of the page.
 
+{% hint style="warning" %}
+Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.&#x20;
+{% endhint %}
+
 ## 1. Create Your "HTS" Smart Contract
 
 In this example, you will associate a token to an account and transfer tokens to the associated account by interacting with the HTS contract deployed to Hedera. The "HTS" contract has three functions that allow you to associate, transfer, and dissociate tokens from a Hedera account.&#x20;
