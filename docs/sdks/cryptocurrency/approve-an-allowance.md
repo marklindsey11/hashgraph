@@ -1,5 +1,9 @@
 # Approve an allowance
 
+{% hint style="info" %}
+This feature is available on previewnet.
+{% endhint %}
+
 A transaction that allows a token owner to delegate a token spender to spend the specified token amount on behalf of the token owner's account. An owner can provide an allowance for hbars, non-fungible and fungible tokens. The transaction fee is paid by the owner.
 
 * Owner: the account that owns the tokens.
@@ -17,7 +21,7 @@ The total number of approvals in a transaction cannot exceed 20. Note that each 
 | ------------------------------------------ | --------------------------------------------------------- |
 | `new AccountAllowanceApproveTransaction()` | Initializes the AccountAllowanceApproveTransaction object |
 
-Methods
+### Methods
 
 | **Method**                                                  | **Type**                                                                                                                | **Description**                                                                                                                                                                                                                |
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

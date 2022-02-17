@@ -1,5 +1,9 @@
 # Adjust an allowance
 
+{% hint style="info" %}
+This feature is available on previewnet.
+{% endhint %}
+
 A transaction called by the token owner to increase or decrease the allowance of an account that was previously approved by the token owner. Tokens include hbar, fungible and non-fungible tokens.  The token owner can modify multiple allowances in a single transaction. The transaction fee is paid by the owner.
 
 {% hint style="warning" %}
@@ -19,7 +23,7 @@ If the NFT serial number is _positive_ then the NFT will be added to the approve
 | ----------------------------------------- | -------------------------------------------------------- |
 | `new AccountAllowanceAdjustTransaction()` | Initializes the AccountAllowanceAdjustTransaction object |
 
-Methods
+### Methods
 
 
 
