@@ -22,19 +22,21 @@ A transaction that transfers hbars and tokens between Hedera accounts. You can e
 new TransferTransaction()
 ```
 
-{% tabs %}
-{% tab title="V2" %}
 ### Methods
 
-| Method                                                           | Type                                              | Description                                                                                                                                                                             |
-| ---------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `addHbarTransfer(<accountId, value>)`                            | AccountId, Hbar                                   | <p>The account involved in the transfer and the number of hbars. <br><br>The sender and recipient values must net zero.</p>                                                             |
-| `addTokenTransfer(<tokenId, accountId,value>)`                   | TokenId, AccountId, long                          | <p>The ID of the token, the account ID involved in the transfer, and the number of tokens to transfer. <br><br>The sender and recipient values must net zero.</p>                       |
-| `addNftTransfer(<nftId, sender, receiver>)`                      | [NftId](../tokens/nft-id.md), AcountId, AccountId | The NFT ID (token + serial number), the sending account, and receiving account.                                                                                                         |
-| `addTokenTransferWithDecimals(<tokenId, accountId, value, int>)` | TokenId, AccountId, long, decimals                | <p>The ID of the token, the account ID involved in the transfer, the number of tokens to transfer, the decimals of the token.<br><br>The sender and recipient values must net zero.</p> |
-| `setHbarTransferApproval(<accountId>,<isApproved>)`              | AccountId, boolean                                |                                                                                                                                                                                         |
-| `setTokenTransferApproval(<tokenId>, <accountId>, <isApproved>)` | TokenId, AccountId, boolean                       |                                                                                                                                                                                         |
-| `setNftTransferApproval(<nftId>,<isApproved>)`                   | NftId, boolean                                    |                                                                                                                                                                                         |
+{% tabs %}
+{% tab title="V2" %}
+###
+
+| Method                                                                 | Type                                                                                                              | Description                                                                                                                                                                             |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `addHbarTransfer(<accountId>, <value>)`                                | AccountId, Hbar                                                                                                   | <p>The account involved in the transfer and the number of hbars. <br><br>The sender and recipient values must net zero.</p>                                                             |
+| `addTokenTransfer(<tokenId>, <accountId>,<value>)`                     | TokenId, AccountId, long                                                                                          | <p>The ID of the token, the account ID involved in the transfer, and the number of tokens to transfer. <br><br>The sender and recipient values must net zero.</p>                       |
+| `addNftTransfer(<nftId>, <sender>, <receiver>)`                        | [NftId](../tokens/nft-id.md), [AcountId](../specialized-types.md), [AccountId](../specialized-types.md#accountid) | The NFT ID (token + serial number), the sending account, and receiving account.                                                                                                         |
+| `addTokenTransferWithDecimals(<tokenId>, <accountId>, <value>, <int>)` | [TokenId](../tokens/token-id.md), AccountId, long, decimals                                                       | <p>The ID of the token, the account ID involved in the transfer, the number of tokens to transfer, the decimals of the token.<br><br>The sender and recipient values must net zero.</p> |
+| `setHbarTransferApproval(<accountId>,<isApproved>)`                    | AccountId, boolean                                                                                                | The spender account that is approved                                                                                                                                                    |
+| `setTokenTransferApproval(<tokenId>, <accountId>, <isApproved>)`       | TokenId, AccountId, boolean                                                                                       | The spender account and token that is approved                                                                                                                                          |
+| `setNftTransferApproval(<nftId>,<isApproved>)`                         | NftId, boolean                                                                                                    | The NFT ID that is approved                                                                                                                                                             |
 
 {% code title="Java" %}
 ```java
