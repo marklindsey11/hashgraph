@@ -14,6 +14,8 @@ Note: If the `spender` does not have an allowance established with the owner for
 
 If the NFT serial number is _positive_ then the NFT will be added to the approved list. Conversely, if the serial number is _negative_ the NFT will be removed from the approved list.
 
+You can view the account allowances for an account by requesting the [account info](get-account-info.md).
+
 **Transaction Signing Requirements:**
 
 * The transaction must be signed by the token owner's account and the account paying for the transaction fee

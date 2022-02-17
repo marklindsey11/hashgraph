@@ -142,6 +142,21 @@ fmt.Println(accountInfo)
      accountMemo=, 
      ownedNfts=0,
      maxAutomaticTokenAssociations=10
+     ledgerId=previewnet, 
+     hbarAllowances=[
+          HbarAllowance{
+               ownerAccountId=null, 
+               spenderAccountId=0.0.6019, 
+               amount=50 ℏ
+          }, 
+          HbarAllowance{
+               ownerAccountId=null, 
+               spenderAccountId=0.0.6020, 
+               amount=50 ℏ
+          }
+     ], 
+     tokenAllowances=[], 
+     tokenNftAllowances=[]
 }
 ```
 {% endtab %}

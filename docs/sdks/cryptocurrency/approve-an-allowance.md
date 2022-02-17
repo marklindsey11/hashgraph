@@ -4,13 +4,15 @@
 This feature is available on previewnet.
 {% endhint %}
 
-A transaction that allows a token owner to delegate a token spender to spend the specified token amount on behalf of the token owner. An owner can provide an allowance for hbars, non-fungible and fungible tokens. The transaction fee is paid by the owner.
+A transaction that allows a token owner to delegate a token spender to spend the specified token amount on behalf of the token owner. An owner can provide an allowance for hbars, non-fungible and fungible tokens. The token owner is the caller of the transaction. The transaction fee is paid by the owner.  To change the token owner in the transaction use `setTransactionId(TransactionId.generate(<ownerAccountId>))`.
 
 * Owner: the account that owns the tokens.
 * Spender: the delegate account, the account being granted the power to spend the owner’s tokens.
 * Recipient: the receiver of tokens when the spender issues a `Transfer` operation.
 
 The total number of approvals in a transaction cannot exceed 20. Note that each NFT serial number counts as a single approval, hence a transaction granting 20 serial numbers to a spender will use all of the approvals permitted for the transaction. An account can have a total of 100 allowances. Each NFT serial counts as an allowance.
+
+You can view the account allowances for an account by requesting the [account info](get-account-info.md).
 
 **Transaction Signing Requirements**
 
