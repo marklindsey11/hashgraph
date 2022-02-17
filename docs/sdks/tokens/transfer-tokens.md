@@ -6,6 +6,14 @@ Transfer tokens from some accounts to other accounts. The transaction must be si
 
 Custom fee tokens are tokens that have a unique custom fee schedule associated to them. The sender account is required to pay for the custom fee(s) associated with the token that is being transferred. The sender account must have the amount of the custom fee token being transferred and the custom fee amounts to successfully process the transaction. You can check to see if the token has a custom fee schedule by requesting the [token info query](get-token-info.md). Token with custom fees allow up two levels of nesting in a transfer transaction.&#x20;
 
+**Account Allowances**
+
+An account can have [another account](../cryptocurrency/approve-an-allowance.md) spend on its behalf. If the delegated spender account is transacting hbars from the owner account that authorized the allowance, the owner account needs to be specified in the transaction by calling one of the following:
+
+* `setHbarTransferApproval`
+* `setTokenTransferApproval`
+* `setNftTransferApproval`
+
 {% hint style="warning" %}
 * The maximum allowable balance adjustment in a single transfer transaction is 20. A debit from one account and credit to another account equals two balance adjustments.&#x20;
 {% endhint %}

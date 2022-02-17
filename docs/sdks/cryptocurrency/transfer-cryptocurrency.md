@@ -8,6 +8,14 @@ A transaction that transfers hbars and tokens between Hedera accounts. You can e
 * The sending account is responsible to pay for the custom token fees
 {% endhint %}
 
+**Account Allowances**
+
+An account can have [another account](approve-an-allowance.md) spend on its behalf. If the delegated spender account is transacting hbars from the owner account that authorized the allowance, the owner account needs to be specified in the transaction by calling one of the following:
+
+* `setHbarTransferApproval`
+* `setTokenTransferApproval`
+* `setNftTransferApproval`
+
 **Transaction Signing Requirements**
 
 * The account sending the tokens is required to sign the transaction
@@ -34,9 +42,9 @@ new TransferTransaction()
 | `addTokenTransfer(<tokenId>, <accountId>,<value>)`                     | TokenId, AccountId, long                                                                                          | <p>The ID of the token, the account ID involved in the transfer, and the number of tokens to transfer. <br><br>The sender and recipient values must net zero.</p>                       |
 | `addNftTransfer(<nftId>, <sender>, <receiver>)`                        | [NftId](../tokens/nft-id.md), [AcountId](../specialized-types.md), [AccountId](../specialized-types.md#accountid) | The NFT ID (token + serial number), the sending account, and receiving account.                                                                                                         |
 | `addTokenTransferWithDecimals(<tokenId>, <accountId>, <value>, <int>)` | [TokenId](../tokens/token-id.md), AccountId, long, decimals                                                       | <p>The ID of the token, the account ID involved in the transfer, the number of tokens to transfer, the decimals of the token.<br><br>The sender and recipient values must net zero.</p> |
-| `setHbarTransferApproval(<accountId>,<isApproved>)`                    | AccountId, boolean                                                                                                | The owner account ID the spender is authorized to transfer from                                                                                                                         |
-| `setTokenTransferApproval(<tokenId>, <accountId>, <isApproved>)`       | TokenId, AccountId, boolean                                                                                       | The owner account ID and token the spender is authorized to transfer from                                                                                                               |
-| `setNftTransferApproval(<nftId>,<isApproved>)`                         | NftId, boolean                                                                                                    | The NFT ID the  spender is authorized to transfer                                                                                                                                       |
+| `setHbarTransferApproval(<accountId>,<isApproved>)`                    | [AccountId](../specialized-types.md#accountid), boolean                                                           | The owner account ID the spender is authorized to transfer from                                                                                                                         |
+| `setTokenTransferApproval(<tokenId>, <accountId>, <isApproved>)`       | [TokenId](../tokens/token-id.md), [AccountId](../specialized-types.md#accountid), boolean                         | The owner account ID and token the spender is authorized to transfer from                                                                                                               |
+| `setNftTransferApproval(<nftId>,<isApproved>)`                         | [NftId](../tokens/nft-id.md), boolean                                                                             | The NFT ID the  spender is authorized to transfer                                                                                                                                       |
 
 {% code title="Java" %}
 ```java
