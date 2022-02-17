@@ -118,30 +118,32 @@ fmt.Println(accountInfo)
 
 #### Sample Output:
 
-`{` \
-&#x20;    `accountId=0.0.96928,` \
-&#x20;    `contractAccountId=0000000000000000000000000000000000017aa0,` \
-&#x20;    `"deleted=false",` \
-&#x20;    `"proxyAccountId=null",` \
-&#x20;    `proxyReceived=0 tℏ,`\
-&#x20;   `key=302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a29769    7adef1e04510c9d4ecc5db3f,` \
-&#x20;    `balance=1 ℏ,` \
-&#x20;    `sendRecordThreshold=92233720368.54775807 ℏ,`\
-&#x20;    `receiveRecordThreshold=9223372 0368.54775807 ℏ,` \
-&#x20;    `"receiverSignatureRequired=false",`\
-&#x20;    `expirationTime=2021-02-02T19:29:36Z,` \
-&#x20;    `autoRenewPeriod=PT2160H,` \
-&#x20;    `liveHashes="[],`\
-&#x20;    `tokenRelationships={`\
-&#x20;         `0.0.27335=TokenRelationship{`\
-&#x20;              `tokenId=0.0.27335, symbol=F, balance=5, kycStatus=null,`\
-&#x20;              `freezeStatus=null, automaticAssociation=true`\
-&#x20;         `}`\
-&#x20;    `},`\
-&#x20;    `accountMemo=,` \
-&#x20;    `ownedNfts=0,`\
-&#x20;    `maxAutomaticTokenAssociations=10`\
-`}`
+```
+{ 
+     accountId=0.0.96928, 
+     contractAccountId=0000000000000000000000000000000000017aa0, 
+     "deleted=false", 
+     "proxyAccountId=null", 
+     proxyReceived=0 tℏ,
+     key=302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a297697adef1e04510c9d4ecc5db3f, 
+     balance=1 ℏ, 
+     sendRecordThreshold=92233720368.54775807 ℏ,
+     receiveRecordThreshold=9223372 0368.54775807 ℏ, 
+     "receiverSignatureRequired=false",
+     expirationTime=2021-02-02T19:29:36Z, 
+     autoRenewPeriod=PT2160H, 
+     liveHashes="[],
+     tokenRelationships={
+          0.0.27335=TokenRelationship{
+               tokenId=0.0.27335, symbol=F, balance=5, kycStatus=null,
+               freezeStatus=null, automaticAssociation=true
+          }
+     },
+     accountMemo=, 
+     ownedNfts=0,
+     maxAutomaticTokenAssociations=10
+}
+```
 {% endtab %}
 
 {% tab title="V1" %}

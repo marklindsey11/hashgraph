@@ -4,7 +4,7 @@
 This feature is available on previewnet.
 {% endhint %}
 
-A transaction that allows a token owner to delegate a token spender to spend the specified token amount on behalf of the token owner's account. An owner can provide an allowance for hbars, non-fungible and fungible tokens. The transaction fee is paid by the owner.
+A transaction that allows a token owner to delegate a token spender to spend the specified token amount on behalf of the token owner. An owner can provide an allowance for hbars, non-fungible and fungible tokens. The transaction fee is paid by the owner.
 
 * Owner: the account that owns the tokens.
 * Spender: the delegate account, the account being granted the power to spend the owner’s tokens.
@@ -15,7 +15,7 @@ The total number of approvals in a transaction cannot exceed 20. Note that each 
 **Transaction Signing Requirements**
 
 * The transaction must be signed by the token owner's account and the account paying for the transaction fee
-* If the token owner account and the transaction fee-paying account are the same only one signature is required
+* If the token owner account and the transaction fee paying account are the same only one signature is required
 
 | **Constructor**                            | **Description**                                           |
 | ------------------------------------------ | --------------------------------------------------------- |
@@ -30,28 +30,74 @@ The total number of approvals in a transaction cannot exceed 20. Note that each 
 | `addTokenNftAllowance(<nftId>, <spenderAccountId>)`         | [nftId](../tokens/nft-id.md), [AccountId](../specialized-types.md#accountid)                                            | The specific NFT the spending account is approved for.                                                                                                                                                                         |
 | `addAllTokenNftAllowance(<tokenId>,<spenderAccountId>)`     | [TokenId](../tokens/token-id.md), [AccountId](../specialized-types.md#accountid)                                        | The class of NFTs the spending account is approved for.                                                                                                                                                                        |
 
+
+
 {% tabs %}
 {% tab title="Java" %}
 ```java
 //Create the transaction
-AccountAllowanceApproveTransaction transaction = new AccountAllowanceAdjustTransaction()
-    .addHbarAllowance(spenderAccount, Hbar.from(100));
+AccountAllowanceApproveTransaction transaction = new AccountAllowanceApproveTransaction()
+    .addHbarAllowance(spenderAccountId, Hbar.from(100));
+
+//Sign the transaction with the owner account  
+TransactionResponse txResponse = transaction.freezeWith(client).sign(ownerAccountKey).execute(client);
+
+//Request the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+Status transactionStatus = receipt.status;
+
+System.out.println("The transaction consensus status is " +transactionStatus);
 ```
 {% endtab %}
 
 {% tab title="JavaScript" %}
-{% code title="" %}
 ```javascript
 //Create the transaction
-const transaction = new AccountAllowanceAdjustTransaction()
-    .addHbarAllowance(spenderAccount, Hbar.from(100));
+const transaction = new AccountAllowanceApproveTransaction()
+    .addHbarAllowance(spenderAccountId, Hbar.from(100));
+    
+//Sign the transaction with the token owner
+const signTx = await transaction.sign(ownerAccountKey);
+
+//Sign the transaction with the client operator private key and submit to a Hedera network
+const txResponse = await signTx.execute(client);
+
+//Request the receipt of the transaction
+const receipt = await txResponse.getReceipt(client);
+
+//Get the transaction consensus status
+const transactionStatus = receipt.status;
+
+console.log("The transaction consensus status is " +transactionStatus.toString());
 ```
-{% endcode %}
 {% endtab %}
 
 {% tab title="Go" %}
 ```go
-// Some code
+//Create the transaction
+transaction := hedera.NewAccountAllowanceApproveTransaction().
+     AddHbarAllowance(spenderAccountId, Hbar.fromTinybars(10))
+        FreezeWith(client)
+
+if err != nil {
+    panic(err)
+}
+
+//Sign the transaction with the token owner account private key   
+txResponse, err := transaction.Sign(newKey).Sign(ownerAccountKey).Execute(client)
+
+//Request the receipt of the transaction
+receipt, err := txResponse.GetReceipt(client)
+if err != nil {
+    panic(err)
+}
+
+//Get the transaction consensus status
+transactionStatus := receipt.Status
+
+println("The transaction consensus status is ", transactionStatus)
 ```
 {% endtab %}
 {% endtabs %}
