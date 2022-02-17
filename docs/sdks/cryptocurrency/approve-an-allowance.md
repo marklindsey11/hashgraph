@@ -1,6 +1,6 @@
 # Approve an allowance
 
-A transaction that allows a token owner to delegate a token spender to spend the specified token on behalf of the token owner's account. A user can provide an allowance for hbars, non-fungible and fungible tokens. Transaction fees are paid by the owner's account for all transfers the spender account authorizes. The owner's account for this transaction is the account that is assigned as the operator in the SDK.
+A transaction that allows a token owner to delegate a token spender to spend the specified token amount on behalf of the token owner's account. An owner can provide an allowance for hbars, non-fungible and fungible tokens. The transaction fee is paid by the owner.
 
 * Owner: the account that owns the tokens.
 * Spender: the delegate account, the account being granted the power to spend the owner’s tokens.
@@ -11,7 +11,7 @@ The total number of approvals in a transaction cannot exceed 20. Note that each 
 **Transaction Signing Requirements**
 
 * The transaction must be signed by the token owner's account and the account paying for the transaction fee
-* If the token owner account and the transaction fee-paying account is the same only one signature is required
+* If the token owner account and the transaction fee-paying account are the same only one signature is required
 
 | **Constructor**                            | **Description**                                           |
 | ------------------------------------------ | --------------------------------------------------------- |

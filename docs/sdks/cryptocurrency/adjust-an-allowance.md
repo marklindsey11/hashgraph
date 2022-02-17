@@ -1,6 +1,6 @@
 # Adjust an allowance
 
-A transaction called by the token owner to increase or decrease the allowance of an account that was previously approved by the token owner. Tokens include hbar, fungible and non-fungible tokens.  The token owner can modify multiple allowances in a single transaction.
+A transaction called by the token owner to increase or decrease the allowance of an account that was previously approved by the token owner. Tokens include hbar, fungible and non-fungible tokens.  The token owner can modify multiple allowances in a single transaction. The transaction fee is paid by the owner.
 
 {% hint style="warning" %}
 Note: If the `spender` does not have an allowance established with the owner for the specified token and the `amount` is positive, this transaction will implicitly create a new approved allowance for the `spender` for the specified `amount` of tokens.
