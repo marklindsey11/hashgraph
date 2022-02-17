@@ -6,7 +6,9 @@ description: Join a Hedera Testnet
 
 ## Overview
 
-Hedera testnets provide developers with access to a free testing environment for Hedera network services. Testnets simulate the exact same development environment as you would expect for mainnet. This includes transaction fees, throttles, available services, etc. Once your application has been built and tested in this test environment you can expect to migrate your decentralized application to mainnet without any changes. Testnets are likely to change and data may be deleted
+Hedera testnets provide developers with access to a free testing environment for Hedera network services. Testnets simulate the exact same development environment as you would expect for mainnet. This includes transaction fees, throttles, available services, etc. To create a Hedera testnet or previewnet account, you can visit the [Hedera Developer Portal](https://portal.hedera.com/login).
+
+Once your application has been built and tested in this test environment you can expect to migrate your decentralized application to mainnet without any changes. Testnets are likely to change and data may be deleted.
 
 **Test Networks:**
 
