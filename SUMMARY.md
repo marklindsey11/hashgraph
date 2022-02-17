@@ -157,7 +157,7 @@
     * [AccountAmount](docs/hedera-api/basic-types/accountamount.md)
     * [AccountID](docs/hedera-api/basic-types/accountid.md)
     * [ContractID](docs/hedera-api/basic-types/contractid.md)
-    * [CyrptoAllowance](docs/hedera-api/basic-types/cyrptoallowance.md)
+    * [CryptoAllowance](docs/hedera-api/basic-types/cryptoallowance.md)
     * [CurrentAndNextFeeSchedule](docs/hedera-api/basic-types/currentandnextfeeschedule.md)
     * [FeeComponents](docs/hedera-api/basic-types/feecomponents.md)
     * [FeeData](docs/hedera-api/basic-types/feedata.md)

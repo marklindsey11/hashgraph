@@ -8,6 +8,6 @@ Creates one or more hbar/token approved allowances **relative to the payer accou
 
 | Field             | Type                                                          | Description                                                         |
 | ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `cryptoAllowance` | repeated [CryptoAllowance](../basic-types/cyrptoallowance.md) | List of hbar allowances approved by the account owner               |
+| `cryptoAllowance` | repeated [CryptoAllowance](../basic-types/cryptoallowance.md) | List of hbar allowances approved by the account owner               |
 | `nftAllowance`    | repeated [NftAllowance](../basic-types/nftallowance.md)       | List of non-fungible token allowances approved by the account owner |
 | `tokenAllowance`  | repeated [TokenAllowance](../basic-types/tokenallowance.md)   | List of fungible token allowances approved by the account owner.    |

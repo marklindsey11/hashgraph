@@ -14,6 +14,6 @@ If the allowance does not exist, it will be created with the hbar/token amount b
 
 | Field             | Type                                                          | Description                                                         |
 | ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `cryptoAllowance` | repeated [CryptoAllowance](../basic-types/cyrptoallowance.md) | List of hbar allowances approved by the account owner               |
+| `cryptoAllowance` | repeated [CryptoAllowance](../basic-types/cryptoallowance.md) | List of hbar allowances approved by the account owner               |
 | `nftAllowance`    | repeated [NftAllowance](../basic-types/nftallowance.md)       | List of non-fungible token allowances approved by the account owner |
 | `tokenAllowance`  | repeated [TokenAllowance](../basic-types/tokenallowance.md)   | List of fungible token allowances approved by the account owner.    |

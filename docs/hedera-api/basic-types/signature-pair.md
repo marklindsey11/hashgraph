@@ -10,14 +10,15 @@ The client may use any number of bytes from zero to the whole length of the publ
 
 Only Ed25519 and ECDSA(secp256k1) keys and hence signatures are currently supported.
 
-| Field          | Type       | Description                       | ​                                                     |
-| -------------- | ---------- | --------------------------------- | ----------------------------------------------------- |
-| `pubKeyPrefix` | ​          | First few bytes of the public key | ​                                                     |
-| `signature`    | oneof      | ​                                 | ​                                                     |
-| ​              | contract   | ​                                 | smart contract virtual signature (always length zero) |
-| ​              | ed25519    | ​                                 | ed25519 signature                                     |
-| ​              | RSA\_3072  | ​                                 | RSA-3072 signature                                    |
-| ​              | ECDSA\_384 | ​                                 | ECDSA p-384 signature                                 |
+| Field          | Type             | Description                       | ​                                                     |
+| -------------- | ---------------- | --------------------------------- | ----------------------------------------------------- |
+| `pubKeyPrefix` | ​                | First few bytes of the public key | ​                                                     |
+| `signature`    | oneof            | ​                                 | ​                                                     |
+| ​              | contract         | ​                                 | smart contract virtual signature (always length zero) |
+| ​              | ed25519          | ​                                 | ed25519 signature                                     |
+| ​              | RSA\_3072        | ​                                 | RSA-3072 signature                                    |
+| ​              | ECDSA\_384       | ​                                 | ECDSA p-384 signature                                 |
+|                | ECDSA\_secp256k1 |                                   | ECDSA(secp256k1) signature                            |
 
 \
 \
