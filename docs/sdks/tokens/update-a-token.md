@@ -1,6 +1,8 @@
 # Update a token
 
-Updates the properties of an existing token. The Admin Key must sign this transaction to update any of the token properties. If no value is given for a field, that field is left unchanged. For an immutable token (that is, a token created without an Admin Key), only the expiry may be updated. Setting any other field, in that case, will cause the transaction status to resolve to `TOKEN_IS_IMMUTABlE`.
+A transaction that updates the properties of an existing token. The admin key must sign this transaction to update any of the token properties. The admin key can update exisitng keys, but cannot add new keys if they were not set during the creation of the token. If no value is given for a field, that field is left unchanged.&#x20;
+
+For an immutable token (that is, a token created without an admin key), only the expiry may be updated. Setting any other field, in that case, will cause the transaction status to resolve to `TOKEN_IS_IMMUTABlE`.
 
 | Property               | Description                                                                                                                                                                                                                                                           |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,8 +25,8 @@ Updates the properties of an existing token. The Admin Key must sign this transa
 
 * Admin key is required to sign to update any token properties
 * Updating the admin key requires the new admin key to sign
-* If a new treasury account is set, the treasury key is required to sign
-* Transaction fee payer account key
+* If a new treasury account is set, the new treasury key is required to sign
+* The account that is paying for the transaction fee
 
 | Constructor                    | Description                                 |
 | ------------------------------ | ------------------------------------------- |
