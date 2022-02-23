@@ -16,8 +16,16 @@ Child transactions are transactions that were triggered by a parent transaction.
 
 {% tabs %}
 {% tab title="V2" %}
+| **Constructor**       | **Description**                      |
+| --------------------- | ------------------------------------ |
+| `new TransactionId()` | Initializes the TransactionId object |
+
+
+
 | **Method**                                                | **Type**           | **Description**                                                                            |
 | --------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ |
+| `setNonce(<nonce>)`                                       | Integer            | Set the nonce for the child transaction ID                                                 |
+| `setScheduled(<schedule>)`                                | boolean            | Set the boolean value for a scheduled transaction ID                                       |
 | `TransactionId.generate(<accountId>)`                     | AccountId          | Generates a new transaction ID. Pass the payer account ID to generate the transaction ID.  |
 | `TransactionId.fromBytes(<bytes>)`                        | byte \[ ]          | Converts to a transaction ID from bytes                                                    |
 | `TransactionId.fromString(<string>)`                      | String             | Converts a string to transaction ID                                                        |
