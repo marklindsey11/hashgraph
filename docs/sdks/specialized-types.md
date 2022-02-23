@@ -46,12 +46,18 @@ System.out.println(accountId);
 
 {% tab title="JavaScript" %}
 ```javascript
-const acctId = new AccountId(100);
-console.log(`${acctId}`);
+const accountId = new AccountId(100);
+console.log(`${accountId}`);
 
 // Construct accountId from String
-const acctId = AccountId.fromString(`100`);
-console.log(`${acctId}`);
+const accountId = AccountId.fromString(`100`);
+console.log(`${accountId}`);
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+hedera.AccountIDFromString("0.0.3")
 ```
 {% endtab %}
 {% endtabs %}
@@ -106,6 +112,12 @@ const newFileIdFromString = FileId.fromString(`100`);
 console.log(`${newFileIdFromString}`);
 ```
 {% endtab %}
+
+{% tab title="Go" %}
+```go
+hedera.FileIDFromString("0.0.3")
+```
+{% endtab %}
 {% endtabs %}
 
 ## [ContractId](https://github.com/hashgraph/hedera-sdk-java/blob/master/src/main/java/com/hedera/hashgraph/sdk/contract/ContractId.java)
@@ -129,7 +141,7 @@ Together these values make up your `ContractId`. When an `ContractId` is request
 | **Methods**                                                 | **Type**           | **Description**                                                                                                                 |
 | ----------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | `ContractId.fromString(<account>)`                          | String             | <p>Constructs a <code>ContractId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;contractNum></p> |
-| `ContractId.fromSolidityAddress(<address>)`                 | String             | Constructs a `ContractId` from a solidity address in string format                                                              |
+| `ContractId.fromSolidityAddress(<address>)`                 | String             | Constructs a `ContractId` from a solidity address in string format \[deprecated use `ContractId.fromEvmAddres()]`               |
 | `ContractId.fromEvmAddress(<shard>, <realm>, <evmAddress>)` | long, long, String | Constructs a `ContractId` from evm address                                                                                      |
 
 ### Example
@@ -154,6 +166,12 @@ console.log(`${newContractId}`);
 // Construct a contractId from a String
 const newContractId = ContractId.fromString(`100`); 
 console.log(`${newContractId}`);
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```
+hedera.ContractIDFromString("0.0.3")
 ```
 {% endtab %}
 {% endtabs %}
@@ -191,6 +209,12 @@ System.out.println(topicId)
 ```javascript
 const topicId = new ConsensusTopicId(0,0,100);
 console.log(topicId)
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+hedera.TopicIDFromString("0.0.3")
 ```
 {% endtab %}
 {% endtabs %}
