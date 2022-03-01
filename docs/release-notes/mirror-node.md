@@ -6,9 +6,124 @@ description: Hedera mirror node release notes
 
 For the latest versions supported on each network please visit the Hedera status [page](https://status.hedera.com).
 
-## Upcoming Releases
-
 ## Latest Releases
+
+## [v0.51](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.51.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: FEBRUARY 28, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: FEBRUARY 25, 2022**
+{% endhint %}
+
+This is a smaller release focusing on observability improvements and Rosetta API fixes.
+
+On the observability front, we've reduced the volume of log information the REST API produces in half. We also change the REST API to generate a consistent trace log for all responses that includes accurate client IPs, the elapsed time, and a status code. We reduced the number of time series by about 50% that the mirror node produces to reduce monitoring costs.
+
+For the Rosetta API, we added a workaround for the missing disappearing token transfer issue that allows the check data reconciliation to pass. Overall reconciliation time was improved by tweaking configuration parameters and improving NFT balance tracking performance. We worked around slow genesis account balance file loading by Rosetta CLI by switching to a dynamic account balance loading approach. A number of other Rosetta issues were also addressed.
+
+## [v0.50](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.50.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: FEBRUARY 23, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: FEBRUARY 15, 2022**
+{% endhint %}
+
+This release adds support for three new improvement proposals: HIP-260 Smart Contract Traceability, HIP-329 CREATE2 Opcode, and HIP-336 Allowance APIs. It also updates the REST API to reflect the latest phases of HIP-226 and HIP-227 and updates the Rosetta API for HIP-31.
+
+[HIP-260](https://hips.hedera.com/hip/hip-260) describes a need for improving the traceability of smart contracts by providing a verifiable trail of contract state changes in the transaction record. The mirror node can now store these state changes and expose them via the contract results REST API to show the values read and written for each slot. This information was added to both `/api/v1/contracts/results/{transactionId}` and `/api/v1/contracts/{id}/results/{timestamp}`. Below is an example, with other fields omitted for brevity:
+
+```
+{
+  "state_changes": [{
+      "address": "0x0000000000000000000000000000000000001f41",
+      "contract_id": "0.0.8001",
+      "slot": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "value_read": "0xaf846d22986843e3d25981b94ce181adc556b334ccfdd8225762d7f709841df0",
+      "value_written": "0x000000000000000000000000000000000000000000c2a8c408d0e29d623347c5"
+    }, {
+      "address": "0x0000000000000000000000000000000000001f42",
+      "contract_id": "0.0.8002",
+      "slot": "0xe1b094dec1b7d360498fa8130bf1944104b7b5d8a48f9ca88c3fc0f96c2d7225",
+      "value_read": "0x000000000000000000000000000000000000000000000001eafa3aaed1d27246",
+      "value_written": null
+   }]
+}
+```
+
+[HIP-329](https://hips.hedera.com/hip/hip-329) adds support for [EIP-1014](https://eips.ethereum.org/EIPS/eip-1014) generated contract addresses via the CREATE2 opcode. As part of this, a new `evm_address` is added to the transaction record that will be present for contract create transactions. Additionally, this `evm_address` can be populated in any `ContractID` that appears in the transaction body. The mirror node was updated to be able to map this `evm_address` to its corresponding contract number and to expose this property on the contracts REST API. We also store full contract information for child contracts since they now appear as separate internal transactions in the record stream, filling a long-standing gap in missing smart contract data.
+
+[HIP-336](https://hips.hedera.com/hip/hip-336) allowance functionality allows an account owner to delegate another account to spend hbars or tokens on his or her behalf. This feature provides an implementation of [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20), IERC20, and [ERC721](https://docs.openzeppelin.com/contracts/2.x/api/token/erc721) on the Hedera network. The mirror node was updated to support these new transaction types and store the absolute or relative crypto, fungible or non-fungible allowances. In a later release we will expose this information via a REST API as detailed in the design [document](https://github.com/hashgraph/hedera-mirror-node/blob/v0.50.0/docs/design/allowances.md).
+
+Multiple new fields were added to the contract REST APIs as outlined in [HIP-226](https://hips.hedera.com/hip/hip-227) and [HIP-227](https://hips.hedera.com/hip/hip-226). The fields `bloom`, `result`, and `status` were added to the contract results API response. `result` and `status` show similar information with the former being the HAPI response enum while the latter returning `0x1` or `0x0` to show if the transaction was successful or not, as is common in web3 APIs. We also added `bloom` to the contract logs API response. Finally, we now return a partial response for contract calls without a result.
+
+The importer component added a new `hedera.mirror.importer.parser.record.entity.persist.topics` property to control the persistence of topic messages. This can be set to false for mirror node operators if topic message data is not being used. On mainnet alone, this data currently takes up to 2TB worth of storage.
+
+The Monitor component gained support for parallel node validation to improve startup performance. Now all validation is done in a background thread, adding and removing nodes as necessary while the publisher thread continues publishing transactions without any interruptions. This re-work also fixed issues with subscription halting during node validation and taking too long to validate a down node.
+
+Rosetta saw a few important improvements including adding support for [HIP-31](https://hips.hedera.com/hip/hip-31) expected token decimals. The Rosetta unified Docker image saw functionality added to automatically restore the database using a database snapshot on initial startup.
+
+### Breaking Changes
+
+As part of HIP-329 CREATE2, we renamed the existing `solidity_address` in the contract REST API to `evm_address`. This new name accurately reflects the naming in the HIP and protobuf and avoids tying the address to Solidity when Hedera supports more than just Solidity contracts.
+
+## [v0.49](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.49.1)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: FEBRUARY 15, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: FEBRUARY 4, 2022**
+{% endhint %}
+
+This release implements three Hedera Improvement Proposals (HIPs) and upgrades the mirror node database to the latest version.
+
+[HIP-21](https://hips.hedera.com/hip/hip-21) describes the need for a free network info query to enable SDKs and other clients to be able to retrieve the current list of nodes. To satisfy this need we added a new `NetworkService.getNodes()` streaming gRPC API to get the list of current nodes from the address book network file. By making it a streaming API we avoid the client having to handle paging themselves, while still allowing us to split the large address book into smaller chunks. Since there are two address book files, we provide an option to choose which `FileID` to return.
+
+```
+message AddressBookQuery {
+    .proto.FileID file_id = 1; // The ID of the address book file on the network. Can be either 0.0.101 or 0.0.102.
+    int32 limit = 2;           // The maximum number of node addresses to receive before stopping. If not set or set to zero it will return all node addresses in the database.
+}
+
+service NetworkService {
+    rpc getNodes (AddressBookQuery) returns (stream .proto.NodeAddress);
+}
+```
+
+[HIP-171](https://hips.hedera.com/hip/hip-171) describes the need for returning the payer account in the topic message REST API response. This release does just that while also adding in the topic message chunk information that was present in the gRPC API but missing from the REST API.
+
+```
+ {
++  "chunk_info": {
++    "initial_transaction_id": {
++      "account_id": "0.0.1000",
++      "nonce": 0,
++      "scheduled": false,
++      "transaction_valid_start": "1234567890-000000006"
++    },
++    "number": 2,
++    "total": 5
++  },
+   "consensus_timestamp": "1234567890.000000001",
+   "topic_id": "0.0.7",
+   "message": "bWVzc2FnZQ==",
++  "payer_account_id": "0.0.1000",
+   "running_hash": "cnVubmluZ19oYXNo",
+   "running_hash_version": 2,
+   "sequence_number": 1
+ }
+```
+
+Continuing our support for [HIP-32](https://hips.hedera.com/hip/hip-32) auto account creation, we added alias support to our accounts REST API. Now when you query `/v1/api/accounts/:id` the `id` can be either a Hedera entity in the `0.0.x` form or a hex-encoded alias. An account's `alias` will now also show up in all of the accounts REST API output.
+
+A lot of testing was done to ensure that PostgreSQL 14 functions correctly with the mirror node and provides as good as or better performance to older versions. We are now in the process of migrating our Hedera managed mirror nodes to PostgreSQL 14. We recommend other mirror node operators consider upgrading to the latest database version at their earliest convenience and have provided upgrade [instructions](https://github.com/hashgraph/hedera-mirror-node/blob/main/docs/database.md#upgrade) to aid in that process.
 
 ## [v0.48](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.48.0)
 
