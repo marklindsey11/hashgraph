@@ -16,13 +16,15 @@ Note: The total size for a given transaction is limited to 6KiB
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                         | Type             | Requirement |
-| ---------------------------------------------- | ---------------- | ----------- |
-| `setTransactionID(<transactionId>)`            | TransactionID    | Optional    |
-| `setTransactionValidDuration(<validDuration>)` | Duration         | Optional    |
-| `setTransactionMemo(<memo>)`                   | String           | Optional    |
-| `setNodeAccountIds(<nodeAccountIds>)`          | List\<AccountId> | Optional    |
-| `setMaxTransactionFee(<maxTransactionFee>)`    | Hbar             | Optional    |
+| Method                                                  | Type             | Requirement |
+| ------------------------------------------------------- | ---------------- | ----------- |
+| `setTransactionID(<transactionId>)`                     | TransactionID    | Optional    |
+| `setTransactionValidDuration(<validDuration>)`          | Duration         | Optional    |
+| `setTransactionMemo(<memo>)`                            | String           | Optional    |
+| `setNodeAccountIds(<nodeAccountIds>)`                   | List\<AccountId> | Optional    |
+| `setMaxTransactionFee(<maxTransactionFee>)`             | Hbar             | Optional    |
+| `setGrpcDeadline(<grpcDeadline>)`                       | Duration         | Optional    |
+| `setRegenerateTransactionId(<regenerateTransactionId>)` | boolean          | Optional    |
 
 {% code title="Java" %}
 ```java
