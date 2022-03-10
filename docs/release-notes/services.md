@@ -8,6 +8,8 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## Latest Releases &#x20;
+
 ## [v0.23](https://github.com/hashgraph/hedera-services/releases/tag/v0.23.0)
 
 {% hint style="success" %}
@@ -23,8 +25,6 @@ Hedera Services 0.23 fleshes out our smart contract service via the implementati
 Please note two issues fixed in this release. [First](https://github.com/hashgraph/hedera-services/issues/2841), in release 0.22, the nodes returned the `bytes ledger_id` stipulated by [HIP-33](https://hips.hedera.com/hip/hip-33) as a UTF-8 encoding of a hex string. The returned bytes are now the big-endian representation of the ledger's numeric id. [Second](https://github.com/hashgraph/hedera-services/issues/2857), prior to this release, the record of a `dissociateToken` from a deleted token did not list the discarded balance of the dissociated account if the token's treasury was missing. This is now fixed.
 
 ![](<../../.gitbook/assets/Performance Measurement Results\_Extract.001 (2).jpeg>)
-
-## Latest Releases &#x20;
 
 ## [v0.22](https://github.com/hashgraph/hedera-services/releases/tag/v0.22.1)
 
