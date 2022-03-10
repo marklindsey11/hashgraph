@@ -166,6 +166,8 @@ contract HelloHedera {
 
 Create a file using the <mark style="color:purple;">`FileCreateTransaction()`</mark> API to store the hex-encoded byte code of the "Hello Hedera" contract. Once the file is created you can obtain the file ID from the receipt of the transaction.
 
+You can alternatively use the [<mark style="color:purple;">`CreateContractFlow()`</mark>](../../docs/sdks/smart-contracts/create-a-smart-contract.md#contractcreateflow) API that creates the bytecode file for you and subsequently creates the contract on Hedera in a single API.
+
 {% hint style="warning" %}
 Note: The bytecode is required to be hex-encoded. It should not be the actual data the hex represents.
 {% endhint %}

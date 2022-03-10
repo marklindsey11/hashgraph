@@ -1,10 +1,14 @@
 # Create a smart contract
 
-A transaction that creates a new smart contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can use [remix](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js) or another [Solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler. After you have the hex-encoded byte code of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the byte code stored in the given Hedera file, referenced either by file ID. The constructor will be executed using the given amount of gas.&#x20;
+A transaction that creates a new smart contract instance. After the contract is created you can get the new contract ID by requesting the receipt of the transaction. To create the solidity smart contract, you can use [remix](https://remix.ethereum.org/#optimize=false\&runs=200\&evmVersion=null\&version=soljson-v0.8.7+commit.e28d00a7.js) or another [Solidity](https://docs.soliditylang.org/en/v0.8.9/) compiler. After you have the hex-encoded bytecode of the smart contract you need to store that on a file using the [Hedera File Service](../file-storage/create-a-file.md). Then you will create the smart contract instance that will run the bytecode stored in the Hedera file, referenced by file ID. Alternatively, you can use the <mark style="color:purple;">`ContractCreateFlow()`</mark> API to create the file storing the bytecode and contract in a single step.
 
-The constructor will be executed using the given amount of gas, and any unspent gas will be refunded to the paying account. Constructor inputs come from the given `constructorParameters`.&#x20;
+The constructor will be executed using the given amount of gas, and any unspent gas will be refunded to the paying account. Constructor inputs are passed in the `constructorParameters`.&#x20;
 
 If this constructor stores information, it is charged gas to store it. There is a fee in hbars to maintain that storage until the expiration time, and that fee is added as part of the transaction fee.
+
+{% hint style="danger" %}
+Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.&#x20;
+{% endhint %}
 
 {% hint style="info" %}
 **Solidity Support**\
@@ -14,11 +18,7 @@ If this constructor stores information, it is charged gas to store it. There is 
 {% hint style="info" %}
 **Smart Contract State Size and Gas Limits**
 
-Hedera Services 0.22 release increases the contract state size to 10 MB and the system gas throttle to 15 million gas per second. Contract call and contract create are throttled at 4 million gas per second.
-{% endhint %}
-
-{% hint style="warning" %}
-Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.
+The Hedera Services 0.22 release increases the contract state size to 10 MB and the system gas throttle to 15 million gas per second. Contract call and contract create are throttled at 4 million gas per second.
 {% endhint %}
 
 {% content-ref url="../../../core-concepts/smart-contracts/gas-and-fees.md" %}
@@ -47,13 +47,110 @@ Smart contract entity auto renewal and expiry will be enabled in a future releas
 | **Constructor Parameters** | The constructor parameters to pass.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | **Memo**                   | The memo to be associated with this contract. (max 100 bytes)                                                                                                                                                                                                                                                                                                                                                                                                        |
 
-| Constructor                       | Description                                 |
-| --------------------------------- | ------------------------------------------- |
-| `new ContractCreateTransaction()` | Initializes the ContractCreateTransaction() |
+## `ContractCreateFlow()`
 
+The <mark style="color:purple;">`ContractCreateFlow()`</mark>streamlines the creation of a contract by taking the bytecode of the contract and creating the file on Hedera to store the bytecode for you.&#x20;
+
+First, a <mark style="color:purple;">`FileCreateTransaction()`</mark> will be executed to create a file on Hedera to store the specified contract bytecode. Second, the <mark style="color:purple;">`ContractCreateTransaction()`</mark> will be executed to create the contract instance on Hedera.
+
+The response will return the contract create transaction information like the new contract ID. You will not get the ID of the file that was created that stored your contract bytecode. If you would like to know the file ID of your contract bytecode, you can [create a file](../file-storage/create-a-file.md) and use the <mark style="color:purple;">`ContractCreateTransaction()`</mark> API directly.
+
+| Constructor                | Description                                 |
+| -------------------------- | ------------------------------------------- |
+| `new ContractCreateFlow()` | Initializes the ContractCreateFlow() object |
+
+### Methods
+
+{% tabs %}
+{% tab title="V2" %}
+{% hint style="info" %}
+**Note:** Please refer to [ContractCreateTransaction()](create-a-smart-contract.md#contractcreatetransaction) for a complete list of applicable methods.&#x20;
+{% endhint %}
+
+| Method                    | Type       |
+| ------------------------- | ---------- |
+| `setBytecode(<bytecode>)` | byte       |
+| `setBytecode(<bytecode>)` | String     |
+| `setBytecode(<bytecode>)` | ByteString |
+
+{% code title="Java" %}
 ```java
-new ContractCreateTransaction()
+//Create the transaction
+ContractCreateFlow contractCreate = new ContractCreateFlow()
+     .setBytecode(bytecode)
+     .setGas(100_000);
+
+//Sign the transaction with the client operator key and submit to a Hedera network
+TransactionResponse txResponse = contractCreate.execute(client);
+
+//Get the receipt of the transaction
+TransactionReceipt receipt = txResponse.getReceipt(client);
+
+//Get the new contract ID
+ContractId newContractId = receipt.contractId;
+        
+System.out.println("The new contract ID is " +newContractId);
+//SDK Version: v2.10.0-beta.1
 ```
+{% endcode %}
+
+{% code title="JavaScript" %}
+```javascript
+//Create the transaction
+const contractCreate = new ContractCreateFlow()
+    .setGas(100000)
+    .setBytecode(bytecode);
+
+//Sign the transaction with the client operator key and submit to a Hedera network
+const txResponse = contractCreate.execute(client);
+
+//Get the receipt of the transaction
+const receipt = (await txResponse).getReceipt(client);
+
+//Get the new contract ID
+const newContractId = (await receipt).contractId;
+        
+console.log("The new contract ID is " +newContractId);
+//SDK Version: v2.11.0-beta.1
+```
+{% endcode %}
+
+{% code title="Go" %}
+```java
+//Create the transaction
+contractCreate := hedera.NewContractCreateFlow().
+		SetGas(100000).
+		SetBytecode(byteCode)
+
+//Sign the transaction with the client operator key and submit to a Hedera network
+txResponse, err := contractCreate.Execute(client)
+if err != nil {
+		panic(err)
+}
+
+//Request the receipt of the transaction
+receipt, err = txResponse.GetReceipt(client)
+if err != nil {
+		panic(err)
+}
+
+//Get the topic ID
+newContractId := *receipt.ContractID
+
+fmt.Printf("The new topic ID is %v\n", newContractId)
+//SDK Version: 2.11.0-beta.1
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## `ContractCreateTransaction()`
+
+Creates a smart contract instance using the file ID of the contract bytecode.
+
+| Constructor                       | Description                                        |
+| --------------------------------- | -------------------------------------------------- |
+| `new ContractCreateTransaction()` | Initializes the ContractCreateTransaction() object |
 
 ### Methods
 

@@ -2,7 +2,7 @@
 
 Gas is used to pay for Hedera Smart Contract Service transactions like creating a contract, calling a smart contract function, or returning contract values. Gas reflects the cost necessary to pay for the computational resources used to process transactions.
 
-{% hint style="warning" %}
+{% hint style="danger" %}
 Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.&#x20;
 {% endhint %}
 
