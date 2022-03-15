@@ -238,7 +238,7 @@ You can return the new account ID from one of the following ways:
 * Requesting the [child records](../transactions/get-a-transaction-record.md) of the parent transfer transaction using the parent transfer transaction ID. The child transaction ID in the child transaction record will display a nonce value (`0.0.2252@1640119571.329880313/1`).
 * Requesting the [child receipts](../transactions/get-a-transaction-receipt.md) of the parent transfer transaction using the parent transfer transaction ID. The account ID field will be populated with the new account ID.
 * Requesting the receipt or record of the account create transaction by using the transaction ID of the parent transfer transaction and setting the nonce value to 1
-* Requesting an [account info](get-account-info.md) using the account alias ([known issue](https://github.com/hashgraph/hedera-services/issues/2653))
+* Requesting an [account info](get-account-info.md) using the account alias&#x20;
 * Looking at the parent transfer transaction record transfer list for the account that has a transfer that equals the transfer value minus the transaction fee
 
 {% hint style="info" %}
