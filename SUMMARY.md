@@ -44,6 +44,7 @@
   * [Hyperledger Besu EVM](core-concepts/smart-contracts/hyperledger-besu-evm.md)
   * [Gas and Fees](core-concepts/smart-contracts/gas-and-fees.md)
   * [Solidity Variables and Opcodes](core-concepts/smart-contracts/solidity-variables-and-opcodes.md)
+  * [Hethers](core-concepts/smart-contracts/hethers.md)
   * [Hedera Services Integration with Smart Contracts](core-concepts/smart-contracts/hedera-services-integration-with-smart-contracts.md)
 * [Hashgraph Consensus Algorithm](core-concepts/hashgraph-consensus-algorithms/README.md)
   * [Gossip About Gossip](core-concepts/hashgraph-consensus-algorithms/gossip-about-gossip.md)
