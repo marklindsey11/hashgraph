@@ -8,6 +8,11 @@ A transaction that transfers hbars and tokens between Hedera accounts. You can e
 * The sending account is responsible to pay for the custom token fees
 {% endhint %}
 
+**Transaction Fees**
+
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
+
 **Spender Account Allowances**
 
 An account can have [another account](approve-an-allowance.md) spend tokens on its behalf. If the delegated spender account is transacting tokens from the owner account that authorized the allowance, the owner account needs to be specified in the transaction by calling one of the following:

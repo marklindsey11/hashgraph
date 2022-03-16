@@ -20,10 +20,15 @@ If the flag is set to true, the tokens that are transferred are debited from the
 * The maximum allowable balance adjustment in a single transfer transaction is 20. A debit from one account and credit to another account equals two balance adjustments.&#x20;
 {% endhint %}
 
-#### Transaction Signing Requirements:
+#### Transaction Signing Requirements
 
 * The key of the account sending the tokens
 * The transaction fee payer account key
+
+**Transaction Fees**
+
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
 | Constructor                 | Description                              |
 | --------------------------- | ---------------------------------------- |

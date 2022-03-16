@@ -41,11 +41,16 @@ Note: It is required to set the initial supply for an NFT to 0.
 | **Auto Renew Period**  | The interval at which the auto-renew account will be charged to extend the token's expiry. The default auto-renew period is 131,500 minutes. This is not currently enabled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | **Memo**               | A short publicly visible memo about the token.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-**Transaction Signing Requirements:**
+**Transaction Signing Requirements**
 
 * Treasury key is required to sign
 * Admin key, if specified&#x20;
 * Transaction fee payer key
+
+**Transaction Fees**
+
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
 | Constructor                    | Description                                   |
 | ------------------------------ | --------------------------------------------- |

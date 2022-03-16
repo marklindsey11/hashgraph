@@ -8,6 +8,11 @@ A transaction that creates a Hedera account. A Hedera account is required to int
 When creating a **new account** using the **** <mark style="color:purple;">`AccountCreateTransaction()`</mark>API you will need an existing account to pay for the associated transaction fee.&#x20;
 {% endhint %}
 
+**Transaction Fees**
+
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
+
 **Transaction Signing Requirements**
 
 * The account paying for the transaction fee is required to sign the transaction&#x20;

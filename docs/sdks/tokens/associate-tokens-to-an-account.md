@@ -14,10 +14,15 @@ Associates the provided Hedera account with the provided Hedera token(s). Hedera
 The maximum number of Token IDs that can be associated to an account is 1,000.
 {% endhint %}
 
-**Transaction Signing Requirements:**
+**Transaction Signing Requirements**
 
 * The key of the account the token is being associated to
 * Transaction fee payer account key
+
+**Transaction Fees**
+
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
 | Constructor                       | Description                                    |
 | --------------------------------- | ---------------------------------------------- |
