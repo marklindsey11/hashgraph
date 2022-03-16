@@ -26,7 +26,7 @@ Mainnet transaction and query fees can be estimated using the [Hedera Fee Estima
 
 ## Transaction and Query Fees
 
-All fees are subject to change.
+All fees are subject to change. The fees below reflect a base price for the transaction or query. Transaction characteristics may increase the price from the base price shown below. Transaction characteristics include having more than one signature, a memo field, etc. Please reference the [Hedera fee estimator](https://hedera.com/fees) to estimate the a transaction or query fee.&#x20;
 
 ### Cryptocurrency Service
 
