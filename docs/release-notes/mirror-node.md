@@ -8,6 +8,54 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Latest Releases
 
+## [v0.52](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.52.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: MARCH 18, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: MARCH 15, 2022**
+{% endhint %}
+
+[HIP-331](https://hips.hedera.com/HIP/hip-331.html) is a community contributed improvement proposal requesting the addition of a new REST API to retrieve an account's list of owned non-fungible tokens (NFTs). The mirror node has an existing `/api/v1/tokens/{tokenId}/nfts` API to retrieve all NFTs for a given token, but it didn't satisfy the requirement to show NFTs across token classes. This release adds the new `/api/v1/accounts/{accountId}/nfts` API to satisfy this need. It is our first API with multiple query parameters required for paging and as such has a few restrictions around their use. Please see the OpenAPI [description](https://github.com/hashgraph/hedera-mirror-node/blob/21c6c464f77d555619af5955843e7d798fcd17b4/hedera-mirror-rest/api/v1/openapi.yml#L51) for this API for further details.
+
+`GET /api/v1/accounts/0.0.1001/nfts?token.id=gte:1500&serialnumber=gte:2&order=asc&limit=2`
+
+```
+  {
+    "nfts": [
+      {
+        "account_id": "0.0.1001",
+        "created_timestamp": "1234567890.000000006",
+        "deleted": false,
+        "metadata": "bTI=",
+        "modified_timestamp": "1234567890.000000006",
+        "serial_number": 2,
+        "token_id": "0.0.1500"
+      },
+      {
+        "account_id": "0.0.1001",
+        "created_timestamp": "1234567890.000000008",
+        "deleted": false,
+        "metadata": "bTM=",
+        "modified_timestamp": "1234567890.000000008",
+        "serial_number": 3,
+        "token_id": "0.0.1500"
+      }
+    ],
+    "links": {
+      "next": "/api/v1/accounts/0.0.1001/nfts?order=asc&limit=2&token.id=gte:0.0.1500&serialnumber=gt:3"
+    }
+  }
+```
+
+The mirror node now has performance tests written using [k6](https://k6.io) for all of our APIs. These tests can be used to verify the performance doesn't regress from release to release. In the future, we plan to integrate these into a [nightly regression test suite](https://github.com/hashgraph/hedera-mirror-node/issues/3099) to improve our current approach of testing each release.
+
+A number of deployment issues were addressed in this release. We now disable leader election by default until we can fix the issues with its implementation. Likewise we changed the importer Kubernetes deployment strategy from a rolling update to recreate to avoid ever having multiple importer pods running concurrently. A migration readiness probe was added to the importer. This will mark importer pods as unready until it completes all database migrations. Doing this will ensure Helm doesn't finish its release and run its tests before the migrations are completed.
+
+We continue to fine tune our Rosetta implementation with a number of performance improvements and bug fixes. The performance of the Rosetta get genesis balance script was improved to reduce initial startup time. The embedded PostgreSQL container was upgraded to PostgreSQL 14. The Rosetta unified Docker image was updated to comply with the Rosetta persistence requirements.
+
 ## [v0.51](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.51.0)
 
 {% hint style="success" %}
