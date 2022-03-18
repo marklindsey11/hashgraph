@@ -8,6 +8,22 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## [v0.24](https://github.com/hashgraph/hedera-services/releases/tag/v0.24.0)
+
+{% hint style="info" %}
+**MAINNET UPDATE: APRIL 15, 2022**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE:  MARCH 24, 2022**
+{% endhint %}
+
+In the 0.24 release of Hedera Services, we are excited to give smart contract developers a new level of interoperability with native Hedera Token Service (HTS) tokens via [HIP-218 (Smart Contract interactions with Hedera Token Accounts)](https://hips.hedera.com/hip/hip-218). The Hedera EVM now exposes every HTS fungible token as an ERC-20 token at the address of the token’s `0.0.X` entity id; and analogously, every HTS non-fungible token appears as an ERC-721 token. This means a smart contract can look up its balance of a fungible HTS token; or change its behavior based on the owner of a particular HTS NFT. Please see the linked HIP for full details.
+
+One change to the Hedera API (HAPI) is that we now have enough evidence to conclude the experimental `getAccountNftInfos` and `getTokenNftInfos` queries do not have a favorable cost/benefit ratio, and these queries are now [_permanently disabled_](https://hashgraph.github.io/hedera-protobufs/#proto.TokenService).
+
+
+
 ## Latest Releases &#x20;
 
 ## [v0.23](https://github.com/hashgraph/hedera-services/releases/tag/v0.23.0)
