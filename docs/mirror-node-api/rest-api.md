@@ -267,6 +267,69 @@ _Available values_
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="get" path="/api/v1/accounts/{accountId}/nfts" baseUrl="" summary="NFTs by account ID" %}
+{% swagger-description %}
+Specify the account ID or account alias you would like to return the NFTs for. Please reference this 
+
+[doc](https://testnet.mirrornode.hedera.com/api/v1/docs/#/accounts/listNftByAccountId)
+
+ for additional filtering guidelines. 
+{% endswagger-description %}
+
+{% swagger-parameter in="query" name="token.id" type="String" %}
+The ID of the token to return information for
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="serialNumber" type="String" %}
+The nft serial number (64 bit type). Requires a tokenId value also be populated.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="accountAliasOrAccountId" required="true" %}
+The account ID or account alias (0.0.accountNum or 0.0.accountAlias)
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="integer" %}
+The maximum number of items to return. 
+
+\
+
+
+Default: 25
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="order" %}
+The order in which items are listed
+
+_Available values_ : asc, desc
+
+_Default value_ : desc
+
+_Example_ : asc\
+
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="NFTs for account 0.1.2" %}
+```javascript
+{
+  "nfts": [
+    {
+      "account_id": "0.1.2",
+      "created_timestamp": "1234567890.000000001",
+      "deleted": false,
+      "metadata": "VGhpcyBpcyBhIHRlc3QgTkZU",
+      "modified_timestamp": "1610682445.003266001",
+      "serial_number": 124,
+      "token_id": "0.0.222"
+    }
+  ],
+  "links": {
+    "next": null
+  }
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
 ## Balances <a href="#balances" id="balances"></a>
 
 The **balance** object represents the balance of accounts on the Hedera network. You can retrieve this to view the **most recent** balance of all the accounts on the network at that given time. The balances object returns the account ID and the balance in hbars. Balances are checked on a periodic basis and thus return the most recent snapshot of time captured prior to the request.
@@ -1145,8 +1208,6 @@ The NFT serial number
 | **sender\_account\_id**   | The account that sent the NFT     |
 | **type**                  | The type of transaction           |
 | **token\_id**             | The token ID of the NFT           |
-
-
 
 {% swagger method="get" path="/api/v1/network/supply" baseUrl="" summary="network supply" %}
 {% swagger-description %}
