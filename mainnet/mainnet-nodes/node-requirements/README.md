@@ -16,10 +16,11 @@ Currently, the Hedera mainnet will perform at a rate determined by the lowest-pe
 To ensure accurate conformity with the minimum requirements, please provide node hardware, connectivity, and hosting details to Hedera prior to purchase \(devops@hedera.com\).
 {% endhint %}
 
-Chassis \(hardware nodes only\)
+# Chassis \(hardware nodes only\)
 
 * Dual Power - 1600W minimum, 2000W recommended
 
+# All nodes
 Network Connectivity: Single 1-Gigabit / 10-Gigabit Ethernet \(physical connectivity subject to network infrastructure\)
 
 24-core or better CPU hyperthreaded (48 threads) - Intel Xeon Silver class or higher / AMD EPYC 74xx class or higher 
