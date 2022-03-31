@@ -495,74 +495,79 @@ _Default value_ : desc
 {% swagger-response status="200" description="A request to return information for a transaction that was provided a specific timestamp" %}
 ```
   {
-    "transactions": [
-      {
-        "consensus_timestamp": "1234567890.000000001",
-        "valid_start_timestamp": "1234567890.000000000",
-        "charged_tx_fee": 7,
-        "memo_base64": null,
-        "result": "SUCCESS",
-        "transaction_hash": "aGFzaA==",
-        "name": "CRYPTOTRANSFER",
-        "node": "0.0.3",
-        "transaction_id": "0.0.10-1234567890-000000000",
-        "valid_duration_seconds": "11",
-        "max_fee": "33",
-        "transfers": [
-          {
-            "account": "0.0.9",
-            "amount": 10
-          },
-          {
-            "account": "0.0.10",
-            "amount": -161
-          },
-          {
-            "account": "0.0.98",
-            "amount": 1
-          },
-          {
-            "account": "0.0.87501",
-            "amount": 150
-          }
-        ],
-        "token_transfers": [
-          {
-            "account": "0.0.200",
-            "amount": 200,
-            "token_id": "0.0.90000"
-          },
-          {
-            "account": "0.0.10",
-            "amount": -1210,
-            "token_id": "0.0.90000"
-          },
-          {
-            "account": "0.0.400",
-            "amount": 1000,
-            "token_id": "0.0.90000"
-          },
-          {
-            "account": "0.0.87502",
-            "amount": 10,
-            "token_id": "0.0.90000"
-          }
-        ],
-        "assessed_custom_fees": [
-          {
-            "amount": 150,
-            "collector_account_id": "0.0.87501",
-            "token_id": null
-          },
-          {
-            "amount": 10,
-            "collector_account_id": "0.0.87502",
-            "token_id": "0.0.90000"
-          }
-        ]
-      }
-    ]
+  "transactions": [
+    {
+      "consensus_timestamp": "1234567890.000000007",
+      "transaction_hash": "vigzKe2J7fv4ktHBbNTSzQmKq7Lzdq1/lJMmHT+a2KgvdhAuadlvS4eKeqKjIRmW",
+      "valid_start_timestamp": "1234567890.000000006",
+      "charged_tx_fee": 7,
+      "memo_base64": null,
+      "bytes": null,
+      "result": "SUCCESS",
+      "entity_id": "0.0.2281979",
+      "name": "CRYPTOTRANSFER",
+      "nft_transfers": [
+        {
+          "receiver_account_id": "0.0.121",
+          "sender_account_id": "0.0.122",
+          "serial_number": 1,
+          "token_id": "0.0.123"
+        },
+        {
+          "receiver_account_id": "0.0.321",
+          "sender_account_id": "0.0.422",
+          "serial_number": 2,
+          "token_id": "0.0.123"
+        }
+      ],
+      "max_fee": 33,
+      "valid_duration_seconds": 11,
+      "node": "0.0.3",
+      "transaction_id": "0.0.8-1234567890-000000006",
+      "scheduled": false,
+      "transfers": [
+        {
+          "account": "0.0.3",
+          "amount": 2
+        },
+        {
+          "account": "0.0.8",
+          "amount": -3
+        },
+        {
+          "account": "0.0.98",
+          "amount": 1
+        }
+      ],
+      "token_transfers": [
+        {
+          "token_id": "0.0.90000",
+          "account": "0.0.9",
+          "amount": 1200
+        },
+        {
+          "token_id": "0.0.90000",
+          "account": "0.0.8",
+          "amount": -1200
+        }
+      ],
+      "assessed_custom_fees": [
+        {
+          "amount": 100,
+          "collector_account_id": "0.0.10",
+          "effective_payer_account_ids": [
+            "0.0.8",
+            "0.0.72"
+          ],
+          "token_id": "0.0.90001"
+        }
+      ]
+    }
+  ],
+  "links": {
+    "next": null
   }
+}
 
 ```
 {% endswagger-response %}
@@ -579,6 +584,7 @@ _Default value_ : desc
 | **transaction id**         | The ID of the transaction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | **memo base64**            | The memo attached to the transaction encoded in Base64 format                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | **result**                 | Whether the cryptocurrency transaction was successful or not                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **entity ID**              | The entity ID that is created from create transactions (AccountCreateTransaction, TopicCreateTransaction, TokenCreateTransaction, ScheduleCreateTransaction, ContractCreateTransaction, FileCreateTransaction).                                                                                                                                                                                                                                                                                                                                                          |
 | **name**                   | The type of transaction                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | **max fee**                | The maximum transaction fee the client is willing to pay                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | **valid duration seconds** | The seconds for which a submitted transaction is to be deemed valid beyond the start time. The transaction is invalid if consensusTimestamp is greater than transactionValidStart + valid\_duration\_seconds.                                                                                                                                                                                                                                                                                                                                                            |
