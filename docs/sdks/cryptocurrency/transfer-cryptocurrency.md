@@ -13,21 +13,26 @@ A transaction that transfers hbars and tokens between Hedera accounts. You can e
 * Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
-**Spender Account Allowances**
+**Spender Account Allowances**&#x20;
 
-An account can have [another account](approve-an-allowance.md) spend tokens on its behalf. If the delegated spender account is transacting tokens from the owner account that authorized the allowance, the owner account needs to be specified in the transaction by calling one of the following:
+{% hint style="warning" %}
+Available on previewnet only. API subject to change.
+{% endhint %}
 
-* `setHbarTransferApproval`
-* `setTokenTransferApproval`
-* `setNftTransferApproval`
+An account can have [another account](approve-an-allowance.md) spend tokens on its behalf. If the delegated spender account is transacting tokens from the owner account that authorized the allowance, the owner account needs to be specified in the transfer transaction by calling one of the following:
 
-If the flag is set to true, the tokens that are transferred are debited from the spender allowance and does not require the signature of the owner account. It does not require the signature of the owner account because the owner account pre-authorized the spender account to spend tokens on its behalf.&#x20;
+* `addApprovedHbarTransfer()`
+* `addApprovedTokenTransfer()`
+* `addApprovedNftTransfer()`
+* `addApprovedTokenTransferWithDecimals()`
+
+The debiting account is the owner account when using this feature.&#x20;
 
 **Transaction Signing Requirements**
 
-* The account sending the tokens is required to sign the transaction
+* The accounts the tokens are being debited from are required to sign the transaction
+  * If an authorized spender account is spending on behalf of the account that owns the tokens then the spending account is required to sign
 * The transaction fee paying account is required to sign the transaction
-* The spender account is required to sign the transaction for accounts that have an approved allowance from another account
 
 | Constructor                 | Description                                |
 | --------------------------- | ------------------------------------------ |
@@ -43,15 +48,17 @@ new TransferTransaction()
 {% tab title="V2" %}
 ###
 
-| Method                                                                 | Type                                                                                                              | Description                                                                                                                                                                             |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `addHbarTransfer(<accountId>, <value>)`                                | AccountId, Hbar                                                                                                   | <p>The account involved in the transfer and the number of hbars. <br><br>The sender and recipient values must net zero.</p>                                                             |
-| `addTokenTransfer(<tokenId>, <accountId>,<value>)`                     | TokenId, AccountId, long                                                                                          | <p>The ID of the token, the account ID involved in the transfer, and the number of tokens to transfer. <br><br>The sender and recipient values must net zero.</p>                       |
-| `addNftTransfer(<nftId>, <sender>, <receiver>)`                        | [NftId](../tokens/nft-id.md), [AcountId](../specialized-types.md), [AccountId](../specialized-types.md#accountid) | The NFT ID (token + serial number), the sending account, and receiving account.                                                                                                         |
-| `addTokenTransferWithDecimals(<tokenId>, <accountId>, <value>, <int>)` | [TokenId](../tokens/token-id.md), AccountId, long, decimals                                                       | <p>The ID of the token, the account ID involved in the transfer, the number of tokens to transfer, the decimals of the token.<br><br>The sender and recipient values must net zero.</p> |
-| `setHbarTransferApproval(<accountId>,<isApproved>)`                    | [AccountId](../specialized-types.md#accountid), boolean                                                           | The owner account ID the spender is authorized to transfer from. Set the flag equal to true for allowance transfers. Applicable to allowance transfers only.                            |
-| `setTokenTransferApproval(<tokenId>, <accountId>, <isApproved>)`       | [TokenId](../tokens/token-id.md), [AccountId](../specialized-types.md#accountid), boolean                         | The owner account ID and token the spender is authorized to transfer from. Set the flag equal to true for allowance transfers. Applicable to allowance transfers only.                  |
-| `setNftTransferApproval(<nftId>,<isApproved>)`                         | [NftId](../tokens/nft-id.md), boolean                                                                             | The NFT ID the  spender is authorized to transfer. Set the flag equal to true for allowance transfers. Applicable to allowance transfers only.                                          |
+| Method                                                                                           | Type                                                                                                               | Description                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `addHbarTransfer(<accountId>, <value>)`                                                          | AccountId, Hbar                                                                                                    | <p>The account involved in the transfer and the number of hbars. <br><br>The sender and recipient values must net zero.</p>                                                                             |
+| `addTokenTransfer(<tokenId>, <accountId>,<value>)`                                               | TokenId, AccountId, long                                                                                           | <p>The ID of the token, the account ID involved in the transfer, and the number of tokens to transfer. <br><br>The sender and recipient values must net zero.</p>                                       |
+| `addNftTransfer(<nftId>, <sender>, <receiver>)`                                                  | [NftId](../tokens/nft-id.md), [AcountId](../specialized-types.md), [AccountId](../specialized-types.md#accountid)  | The NFT ID (token + serial number), the sending account, and receiving account.                                                                                                                         |
+| `addTokenTransferWithDecimals(<tokenId>, <accountId>, <value>, <int>)`                           | [TokenId](../tokens/token-id.md), AccountId, long, decimals                                                        | <p>The ID of the token, the account ID involved in the transfer, the number of tokens to transfer, the decimals of the token.<br><br>The sender and recipient values must net zero.</p>                 |
+| \[previewnet]`addApprovedHbarTransfer(<ownerAccountId>,<amount>)`                                | [AccountId](../specialized-types.md#accountid), Hbar                                                               | <p>The owner account ID the spender is authorized to transfer from and the amount. <br>Applicable to allowance transfers only. </p>                                                                     |
+| \[previewnet]`addApprovedTokenTransfer(<tokenId>, <accountId>, <value>)`                         | [TokenId](../tokens/token-id.md), [AccountId](../specialized-types.md#accountid), long                             | <p>The owner account ID and token the spender is authorized to transfer from. The debiting account is the owner account.<br>Applicable to allowance transfers only. <br></p>                            |
+| \[previewnet]`addApprovedTokenTransferWithDecimals(<tokenId>, <accountId>, <value>, <decimals>)` | [TokenId](../tokens/token-id.md), [AccountId](../specialized-types.md#accountid), long, int                        | <p>The owner account ID and token ID (with decimals) the spender is authorized to transfer from. The debit account is the account ID of the sender.<br>Applicable to allowance transfers only. <br></p> |
+| `addApprovedNftTransfer(<nftId>,<sender>, <receiver>)`                                           | [NftId](../tokens/nft-id.md),  [AcountId](../specialized-types.md), [AccountId](../specialized-types.md#accountid) | <p>The NFT ID the  spender is authorized to transfer. The sender is the owner account and receiver is the receiving account.<br>Applicable to allowance transfers only. </p>                            |
+|                                                                                                  |                                                                                                                    |                                                                                                                                                                                                         |
 
 {% code title="Java" %}
 ```java

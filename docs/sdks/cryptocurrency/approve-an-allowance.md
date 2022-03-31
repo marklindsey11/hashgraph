@@ -6,16 +6,11 @@ This feature is available on previewnet. API subject to change.&#x20;
 
 A transaction that allows a token owner to delegate a token spender to spend the specified token amount on behalf of the token owner. An owner can provide a token allowance for hbars, non-fungible and fungible tokens. The owner is the account that owns the tokens and grants the allowance to the spender. The spender is the account that spends tokens authorized by the owner from the owners account. The spender pays for the transaction fees when transferring tokens from the owners account to another recipient.&#x20;
 
-There are two ways this API can be used:
-
-* You can set the owner account ID in the transaction
-* You can omit the owner account ID in the transaction and it will default to the caller of the transaction. This means that account paying for the transaction fee is represented as the owner account
-
 The total number of approvals in this transaction cannot exceed 20. Note that each NFT serial number counts as a single approval, hence a transaction granting 20 serial numbers to a spender will use all of the approvals permitted for the transaction.&#x20;
 
 An account can have a total of 100 allowances. Each NFT serial counts as an allowance.
 
-You can request an [account info](get-account-info.md) to view all spender accounts for a given owner.
+You can request an [account info](get-account-info.md) to view all spender accounts for a given owner account.
 
 **Transaction Fees**
 
@@ -27,22 +22,20 @@ You can request an [account info](get-account-info.md) to view all spender accou
 * If the owner account is specified, the transaction needs to be signed by the owner account key and the transaction fee payer key. If the owner account key and transaction fee payer key are the same only one signature is required.
 * If the owner account is not specified then the transaction fee payer account must be the owner account. The owner account key is required to sign the transaction.&#x20;
 
+**Reference:** [HIP-336](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-336.md)
+
 | **Constructor**                            | **Description**                                           |
 | ------------------------------------------ | --------------------------------------------------------- |
 | `new AccountAllowanceApproveTransaction()` | Initializes the AccountAllowanceApproveTransaction object |
 
 ### Methods
 
-| **Method**                                                                             | **Type**                                                                                                                                                                           | **Description**                                                                                                                                                                                                                                                         |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `addHbarAllowance(<spenderAccountId>, <amount>)`                                       | [AccountId](../specialized-types.md#accountid), [Hbar](../hbars.md)                                                                                                                | The spender account and amount of hbar the allowance is approved for. If `amount` is 0 the transaction will remove the `spender`’s allowance from the owner’s account, thereby freeing an allowance for future use.                                                     |
-| `addHbarAllowanceWithOwner(<spenderAccountId>, <amount>, <ownerAccountId>)`            | [AccountId](../specialized-types.md#accountid), [Hbar](../hbars.md), [AccountId](../specialized-types.md#accountid)                                                                | The spender account ID, amount of hbar, and the owner account ID. If `amount` is 0 the transaction will remove the `spender`’s allowance from the owner’s account, thereby freeing an allowance for future use.                                                         |
-| `addTokenAllowance(<tokenId>,<spenderAccountId>, <amount>)`                            | <p><a href="../tokens/token-id.md">TokenId</a>, <br><a href="../specialized-types.md#accountid">AccountId</a>, long</p>                                                            | The spender account the allowance is approved for, the specified token, and the token amount being approved by the owner. If `amount` is 0 the transaction will remove the `spender`’s allowance from the owner’s account, thereby freeing an allowance for future use. |
-| `addTokenAllowanceWithOwner(<tokenId>,<spenderAccountId>, <amount>, <ownerAccountId>)` | <p><a href="../tokens/token-id.md">TokenId</a>, <br><a href="../specialized-types.md#accountid">AccountId</a>, long, <a href="../specialized-types.md#accountid">AccountId</a></p> | The spender account the allowance is approved for, the specified token, the token amount, and owner account ID. If `amount` is 0 the transaction will remove the `spender`’s allowance from the owner’s account, thereby freeing an allowance for future use.           |
-| `addTokenNftAllowance(<nftId>, <spenderAccountId>)`                                    | [nftId](../tokens/nft-id.md), [AccountId](../specialized-types.md#accountid)                                                                                                       | The specific NFT the spender account is being approved for.                                                                                                                                                                                                             |
-| `addTokenNftAllowanceWithOwner(<nftId>, <spenderAccountId>, <ownerAccountId>)`         | <p><a href="../tokens/nft-id.md">nftId</a>, <a href="../specialized-types.md#accountid">AccountId</a>,<br><a href="../specialized-types.md#accountid">AccountId</a></p>            | The specific NFT the spending account is approved for.                                                                                                                                                                                                                  |
-| `addAllTokenNftAllowance(<tokenId>,<spenderAccountId>)`                                | [TokenId](../tokens/token-id.md), [AccountId](../specialized-types.md#accountid)                                                                                                   | The class of NFTs the spending account is approved for. This approves the spender to spend all NFTs in a given token class.                                                                                                                                             |
-| `addAllTokenNftAllowanceWithOwner(<tokenId>,<spenderAccountId>, <ownerAccountId>)`     | <p><a href="../tokens/token-id.md">TokenId</a>, <a href="../specialized-types.md#accountid">AccountId</a>,<br><a href="../specialized-types.md#accountid">AccountId</a></p>        | The class of NFTs the spending account is approved for. This approves the spender to spend all NFTs in a given token class.                                                                                                                                             |
+| **Method**                                                                           | **Type**                                                                                                                                                                                   | **Description**                                                                                                                                                                               |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `approveHbarAllowance(<ownerAccountId>,<spenderAccountId>, <amount>)`                | [AccountId](../specialized-types.md#accountid), [AccountId](../specialized-types.md#accountid), [Hbar](../hbars.md)                                                                        | The owner account ID that is authorizing the allowance, the spender account ID to authorize, the amount of hbar the owner account is authorizing the spender account to use.                  |
+| `approveTokenAllowance(<tokenId>,<ownerAccountId>,<spenderAccountId>, <amount>)`     | <p><a href="../tokens/token-id.md">TokenId</a>, <br><a href="../specialized-types.md#accountid">AccountId</a>, </p><p><a href="../specialized-types.md#accountid">AccountId</a>, long</p>  | The token ID of the token being granted an allowance by the spender account, the account ID of the owner account, the account ID of the spender account.                                      |
+| `approveTokenNftAllowance(<nftId>,<ownerAccountId>, <spenderAccountId>)`             | <p><a href="../tokens/nft-id.md">nftId</a>, <a href="../specialized-types.md#accountid">AccountId</a>,<br><a href="../specialized-types.md#accountid">AccountId</a></p>                    | The NFT ID of the NFT being granted an allowance by the owner account, the account ID of the owner account, the account ID of the spender account.                                            |
+| `approveTokenNftAllowanceAllSerials(<tokenId>,<ownerAccountId>, <spenderAccountId>)` | <p><a href="../tokens/token-id.md">TokenId</a>, <br><a href="../specialized-types.md#accountid">AccountId</a>,  <br><a href="../specialized-types.md#accountid">AccountId</a>, </p><p></p> | Grant a spender account access to all NFTs in a given token class/collection. The token ID of the NFT collection, the account ID of the owner account, the account ID of the spender account. |
 
 
 
@@ -51,7 +44,7 @@ You can request an [account info](get-account-info.md) to view all spender accou
 ```java
 //Create the transaction
 AccountAllowanceApproveTransaction transaction = new AccountAllowanceApproveTransaction()
-    .addHbarAllowanceWithOwner(spenderAccountId, Hbar.from(100), ownerAccountId);
+    .approveHbarAllowance(ownerAccount, spenderAccountId, Hbar.from(100));
 
 //Sign the transaction with the owner account key and the transaction fee payer key (client)  
 TransactionResponse txResponse = transaction.freezeWith(client).sign(ownerAccountKey).execute(client);
@@ -70,7 +63,7 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 ```javascript
 //Create the transaction
 const transaction = new AccountAllowanceApproveTransaction()
-    .addHbarAllowanceWithOwner(spenderAccountId, Hbar.from(100), ownerAccountId);
+    .approveHbarAllowance(ownerAccount, spenderAccountId, Hbar.from(100));
     
 //Sign the transaction with the owner account key
 const signTx = await transaction.sign(ownerAccountKey);
@@ -92,7 +85,7 @@ console.log("The transaction consensus status is " +transactionStatus.toString()
 ```go
 //Create the transaction
 transaction := hedera.NewAccountAllowanceApproveTransaction().
-     AddHbarAllowance(spenderAccountId, Hbar.fromTinybars(100), ownerAccountId)
+     ApproveHbarAllowance(ownerAccount, spenderAccountId, Hbar.fromTinybars(100), ownerAccountId)
         FreezeWith(client)
 
 if err != nil {

@@ -6,16 +6,6 @@ Transfer tokens from some accounts to other accounts. The transaction must be si
 
 Custom fee tokens are tokens that have a unique custom fee schedule associated to them. The sender account is required to pay for the custom fee(s) associated with the token that is being transferred. The sender account must have the amount of the custom fee token being transferred and the custom fee amounts to successfully process the transaction. You can check to see if the token has a custom fee schedule by requesting the [token info query](get-token-info.md). Token with custom fees allow up two levels of nesting in a transfer transaction.&#x20;
 
-**Spender Account Allowances**
-
-An account can have [another account](../cryptocurrency/approve-an-allowance.md) spend tokens on its behalf. If the delegated spender account is transacting tokens from the owner account that authorized the allowance, the owner account needs to be specified in the transaction by calling one of the following:
-
-* `setHbarTransferApproval`
-* `setTokenTransferApproval`
-* `setNftTransferApproval`
-
-If the flag is set to true, the tokens that are transferred are debited from the spender allowance and does not require the signature of the owner account. It does not require the signature of the owner account because the owner account pre-authorized the spender account to spend tokens on its behalf.&#x20;
-
 {% hint style="warning" %}
 * The maximum allowable balance adjustment in a single transfer transaction is 20. A debit from one account and credit to another account equals two balance adjustments.&#x20;
 {% endhint %}
@@ -42,14 +32,11 @@ new TransferTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                                           | Type                                                                                                  | Description                                                                                                                                                                                                                                             |
-| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `addHbarTransfer(<accountId, value>)`                            | [AccountID](../specialized-types.md#accountid), Hbar/long                                             | Add the from and to account to transfer hbars (you will need to call this method twice). The sending account must sign the transaction. The sender and recipient values must net zero.                                                                  |
-| `addTokenTransfer(<tokenId, accountId,value>)`                   | [TokenId](token-id.md), AccountId, long                                                               | Add the from and to account to transfer tokens (you will need to call this method twice). The ID of the token, the account ID to transfer the tokens from or to, and the value of the token to transfer. The sender and recipient values must net zero. |
-| `addNftTransfer(<nftId, sender, receiver)`                       | NftId, [AccountId](../specialized-types.md#accountid), [AccountId](../specialized-types.md#accountid) | The NFT ID being transferred, the account ID the NFT owner, the account ID of the receiver of the NFT.                                                                                                                                                  |
-| `setHbarTransferApproval(<accountId>,<isApproved>)`              | [AccountId](../specialized-types.md#accountid), boolean                                               | The owner account ID the spender is authorized to transfer from. Set the flag equal to true for allowance transfers. Applicable to allowance transfers only.                                                                                            |
-| `setTokenTransferApproval(<tokenId>, <accountId>, <isApproved>)` | [TokenId](token-id.md), [AccountId](../specialized-types.md#accountid), boolean                       | The owner account ID and token the spender is authorized to transfer from. Set the flag equal to true for allowance transfers. Applicable to allowance transfers only.                                                                                  |
-| `setNftTransferApproval(<nftId>,<isApproved>)`                   | [NftId](nft-id.md), boolean                                                                           | The NFT ID the  spender is authorized to transfer. Set the flag equal to true for allowance transfers. Applicable to allowance transfers only.                                                                                                          |
+| Method                                             | Type                                                                                                  | Description                                                                                                                                                                                                                                             |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `addHbarTransfer(<accountId>, <value>)`            | [AccountID](../specialized-types.md#accountid), Hbar/long                                             | Add the from and to account to transfer hbars (you will need to call this method twice). The sending account must sign the transaction. The sender and recipient values must net zero.                                                                  |
+| `addTokenTransfer(<tokenId>, <accountId>,<value>)` | [TokenId](token-id.md), AccountId, long                                                               | Add the from and to account to transfer tokens (you will need to call this method twice). The ID of the token, the account ID to transfer the tokens from or to, and the value of the token to transfer. The sender and recipient values must net zero. |
+| `addNftTransfer(<nftId>, <sender>, <receiver>)`    | NftId, [AccountId](../specialized-types.md#accountid), [AccountId](../specialized-types.md#accountid) | The NFT ID being transferred, the account ID the NFT owner, the account ID of the receiver of the NFT.                                                                                                                                                  |
 
 {% code title="Java" %}
 ```java
