@@ -15,6 +15,10 @@ For the latest versions supported on each network please visit the Hedera status
 {% endhint %}
 
 {% hint style="success" %}
+**TESTNET UPDATE: APRIL 7, 2022**
+{% endhint %}
+
+{% hint style="success" %}
 **TESTNET UPDATE:  MARCH 31, 2022**
 {% endhint %}
 
