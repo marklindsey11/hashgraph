@@ -8,6 +8,32 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## v0.25
+
+{% hint style="info" %}
+**MAINNET UPDATE: MAY 13, 2022**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE: APRIL 21, 2022**
+{% endhint %}
+
+The Hedera Services 0.25 release brings good news for HTS users who manage large numbers of token types, as it delivers [HIP-367 (Unlimited Token Associations per Account)](https://hips.hedera.com/hip/hip-367). In particular, a single account can now serve as treasury for any number of token types. (Please do note the `CryptoService` HAPI queries still return information for only an account’s 1000 most recently associated tokens; mirror nodes remain the best source for full history.)
+
+We are also very excited to announce support for [HIP-358 (Allow `TokenCreate` through Hedera Token Service Precompiled Contract)](https://hips.hedera.com/hip/hip-358). This HIP supercharges contract integration, making it possible for a smart contract to create a new HTS token---fungible or non-fungible, with or without custom fees. (An interested Solidity developer might consult the examples in [this contract](https://github.com/hashgraph/hedera-services/blob/master/test-clients/src/main/resource/contract/solidity/FeeHelper.sol).)
+
+In a harbinger of [more upcoming HTS precompile support](https://hips.hedera.com/hip/hip-376), this release will also enable [HIP-336 (Approval and Allowance API for Tokens)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-336.md). Token owners can now approve other accounts to manage their HTS tokens or NFTs, in direct analogy to the `approve()` and `transferFrom()` mechanisms in ERC-20 and ERC-721 style tokens.
+
+### Enhancements
+
+* HIP-336 implementation [#2814](https://github.com/hashgraph/hedera-services/issues/2814)
+* HIP-358 implementation [#3015](https://github.com/hashgraph/hedera-services/issues/3015)
+* HIP-367 implementation [#2917](https://github.com/hashgraph/hedera-services/issues/2917)
+
+### Fixes
+
+* ERC `view` functions now usable in `ContractCallLocalQuery` [#3061](https://github.com/hashgraph/hedera-services/issues/3061)
+
 ## [v0.24](https://github.com/hashgraph/hedera-services/releases/tag/v0.24.0)
 
 {% hint style="info" %}
