@@ -8,7 +8,7 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
-## v0.25
+## [v0.25](https://github.com/hashgraph/hedera-services/releases/tag/v0.25.0)
 
 {% hint style="info" %}
 **MAINNET UPDATE: MAY 13, 2022**
@@ -34,9 +34,11 @@ In a harbinger of [more upcoming HTS precompile support](https://hips.hedera.com
 
 * ERC `view` functions now usable in `ContractCallLocalQuery` [#3061](https://github.com/hashgraph/hedera-services/issues/3061)
 
+## Latest Releases &#x20;
+
 ## [v0.24](https://github.com/hashgraph/hedera-services/releases/tag/v0.24.0)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPDATE: APRIL 15, 2022**
 {% endhint %}
 
@@ -57,10 +59,6 @@ In the 0.24 release of Hedera Services, we are excited to give smart contract de
 This upgrade also creates two new system accounts 0.0.800 and 0.0.801 that will hold reward funds.
 
 One change to the Hedera API (HAPI) is that we now have enough evidence to conclude the experimental `getAccountNftInfos` and `getTokenNftInfos` queries do not have a favorable cost/benefit ratio, and these queries are now [permanently disabled](https://hashgraph.github.io/hedera-protobufs/#proto.TokenService).
-
-
-
-## Latest Releases &#x20;
 
 ## [v0.23](https://github.com/hashgraph/hedera-services/releases/tag/v0.23.0)
 
