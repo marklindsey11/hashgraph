@@ -8,6 +8,135 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Latest Releases
 
+## [v0.54](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.54.0)
+
+This release adds support for three new REST APIs and four HIPs.
+
+[HIP-21](https://hips.hedera.com/hip/hip-21) describes the need for a free network info query to enable SDKs and other clients to be able to retrieve the current list of nodes. In v0.49.1, we added a new `NetworkService.getNodes()` gRPC API. In this release, we're adding an equivalent address book API to our REST API. In addition to the standard `order` and `limit` parameters, it supports a `file.id` query parameter to filter by the two address books `0.0.101` or `0.0.102` and a `node.id` query parameter to filter nodes and provide pagination.
+
+`GET /api/v1/network/nodes`
+
+```
+{
+  "nodes": [
+    {
+      "description": "",
+      "file_id": "0.0.102",
+      "memo": "0.0.3",
+      "node_account_id": "0.0.3",
+      "node_cert_hash": "0x3334...",
+      "node_id": 0,
+      "public_key": "0x308201...",
+      "service_endpoints": [
+        {
+          "ip_address_v4": "13.124.142.126",
+          "port": 50211
+        }
+      ],
+      "timestamp": {
+        "from": "1636052707.740848001",
+        "to": null
+      }
+    }
+  ],
+  "links": {
+    "next": null
+  }
+}
+```
+
+[HIP-336](https://hips.hedera.com/hip/hip-336) describes new Hedera APIs to approve and exercise allowances to a delegate account. An allowance grants a spender the right to transfer a predetermined amount of the payer's hbars or tokens to another account of the spender's choice. In v0.50.0 we added database support to store the new allowance transactions. In this release, two new REST APIs were created to expose the hbar and fungible token allowances. Full allowance support won't be available until a future release when consensus nodes enable it on mainnet.
+
+`GET /api/v1/accounts/{accountId}/allowances/crypto`
+
+```
+{
+  "allowances": [
+    {
+      "amount_granted": 10,
+      "owner": "0.0.1000",
+      "spender": "0.0.8488",
+      "timestamp": {
+        "from": "1633466229.96874612",
+        "to": "1633466568.31556926"
+      }
+    },
+    {
+      "amount_granted": 5,
+      "owner": "0.0.1000",
+      "spender": "0.0.9857",
+      "timestamp": {
+        "from": "1633466229.96874612",
+        "to": null
+      }
+    }
+  ],
+  "links": {}
+}
+```
+
+`GET /api/v1/accounts/{accountId}/allowances/tokens`
+
+```
+{
+  "allowances": [
+    {
+      "amount_granted": 10,
+      "owner": "0.0.1000",
+      "spender": "0.0.8488",
+      "token_id": "0.0.1032",
+      "timestamp": {
+        "from": "1633466229.96874612",
+        "to": "1633466568.31556926"
+      }
+    },
+    {
+      "amount_granted": 5,
+      "owner": "0.0.1000",
+      "spender": "0.0.9857",
+      "token_id": "0.0.1032",
+      "timestamp": {
+        "from": "1633466229.96874612",
+        "to": null
+      }
+    }
+  ],
+  "links": {}
+}
+```
+
+Also on the REST API, we added support for [HIP-329](https://hips.hedera.com/HIP/hip-329.html) CREATE2 addresses. Now any API that accepts a contract ID will also accept the 20-byte EVM address as a hex-encoded string. We improved the performance of the REST API by adding cache control headers to enable distributed caching via a CDN. The performance of the list transactions by type REST API saw a fix to improve its performance.
+
+As part of [HIP-260](https://hips.hedera.com/hip/hip-260), contract precompile call data now populates new fields `amount`, `gas`, and `function_parameter` inside `ContractFunctionResult` within the `TransactionRecord`. Mirror node now stores these fields and exposes them via its existing contract results REST APIs.
+
+There were a number of security improvements made to containerized mirror nodes. All Docker images now run as non-root regardless of running in Kubernetes or Docker Compose. The helm charts saw changes to conform to the Kubernetes [restricted](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) pod security standard. This ensures the mirror node runs with security best practices and reduces its overall attack surface. The Kubernetes Pod Security Standard replaces the deprecated PodSecurityPolicy and as such we've removed all configuration related to the latter.
+
+### Upgrading
+
+This release has a long migration that is expected to take around 75 minutes to complete, depending upon your database hardware and configuration. As always, we recommend a red/black deployment to eliminate downtime during migrations. If you're using the `hedera-mirror-common` chart, please check the [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack#upgrading-chart) upgrade notes to ensure Prometheus Operator can update successfully.
+
+## [v0.53](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.53.1)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: APRIL 7, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: MARCH 29, 2022**
+{% endhint %}
+
+This release is mainly focused around the area of data integrity and ensuring the data in the mirror node is consistent with consensus nodes. To this end, we added an errata database migration that only runs for mainnet and corrects three [known issues](https://github.com/hashgraph/hedera-mirror-node/blob/main/docs/database.md#errata) that impacted the stream files. The state of the consensus nodes was never impacted, only the externalization of these changes to the stream files that the mirror node consumes.
+
+To find the inconsistent data and ensure it stays consistent going forward, we added a new balance reconciliation job. This job runs nightly and compares the balance file information against the record file information to ensure they are in sync. It does three checks for each balance file: verifies the balance files add up to 50 billion hbars, verifies the aggregated hbar transfers match the balance file, and verifies the aggregated token transfers match the balance file. It can be disabled if not needed via `hedera.mirror.importer.reconciliation.enabled=false`.
+
+We also fixed a bug that caused transfers with a zero amount to show up for crypto create transactions with a zero initial balance. This was due entirely to our code inserting the extra transfers, not because of any problem in the stream files. We also fixed an REST API bug that caused the contract byte code to show up as double encoded to hex.
+
+For the Rosetta API, we added account alias support to various endpoints. And we now support parsing contract results for precompiled contract functions like HTS functions. This capability is disabled by a feature flag and will be enabled in a future release.
+
+### Upgrading
+
+This release contains a couple medium sized database migrations to correct the erroneous data in the database. It is expected to take about 45 minutes against a full mainnet database.
+
 ## [v0.52](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.52.0)
 
 {% hint style="success" %}
