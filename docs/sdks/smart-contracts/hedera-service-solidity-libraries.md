@@ -45,7 +45,7 @@ A transaction that creates a fungible token. Returns the new token address.
 
 | **Param**            | **Type**                               | **Description**                                                                                                                                                         |
 | -------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`              | IHederaTokenService.HederaToken memory | **The basic properties of the token being created**                                                                                                                     |
+| `token`              | IHederaTokenService.HederaToken memory | The basic properties of the token being created.                                                                                                                        |
 | `initialTotalSupply` | uint                                   | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible. |
 | `decimals`           | uint                                   | The number of decimal places a token is divisible by.                                                                                                                   |
 
@@ -55,7 +55,7 @@ A transaction that creates a fungible token with custom fees. Returns the new to
 
 | **Param**            | **Type**                               | **Description**                                                                                                                                                         |
 | -------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`              | IHederaTokenService.HederaToken memory | **The basic properties of the token being created**                                                                                                                     |
+| `token`              | IHederaTokenService.HederaToken memory | The basic properties of the token being created.                                                                                                                        |
 | `initialTotalSupply` | uint                                   | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible. |
 | `decimals`           | uint                                   | The number of decimal places a token is divisible by.                                                                                                                   |
 | `fixedFees`          | IHederaTokenService.FixedFee\[]        | List of fixed fees to apply to the token.                                                                                                                               |
@@ -65,19 +65,19 @@ A transaction that creates a fungible token with custom fees. Returns the new to
 
 Creates a non fungible token. Returns the new token address.
 
-| **Param** | **Type**                               | **Description**                                     |
-| --------- | -------------------------------------- | --------------------------------------------------- |
-| `token`   | IHederaTokenService.HederaToken memory | **The basic properties of the token being created** |
+| **Param** | **Type**                               | **Description**                                  |
+| --------- | -------------------------------------- | ------------------------------------------------ |
+| `token`   | IHederaTokenService.HederaToken memory | The basic properties of the token being created. |
 
 ### <mark style="color:purple;">`createNonFungibleTokenWithCustomFees(token, fixedFees, fractionalFees)`</mark>
 
 Creates a non fungible token with custom fees. Returns the new token address.
 
-| **Param**        | **Type**                               | **Description**                                     |
-| ---------------- | -------------------------------------- | --------------------------------------------------- |
-| `token`          | IHederaTokenService.HederaToken memory | **The basic properties of the token being created** |
-| `fixedFees`      | IHederaTokenService.FixedFee\[]        | List of fixed fees to apply to the token.           |
-| `fractionalFees` | IHederaTokenService.FractionalFee\[]   | List of fractional fees to apply to the token.      |
+| **Param**        | **Type**                               | **Description**                                  |
+| ---------------- | -------------------------------------- | ------------------------------------------------ |
+| `token`          | IHederaTokenService.HederaToken memory | The basic properties of the token being created. |
+| `fixedFees`      | IHederaTokenService.FixedFee\[]        | List of fixed fees to apply to the token.        |
+| `fractionalFees` | IHederaTokenService.FractionalFee\[]   | List of fractional fees to apply to the token.   |
 
 ### Transfer Tokens
 
