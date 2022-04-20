@@ -8,9 +8,13 @@ A transaction that allows a token owner to delegate a token spender to spend the
 
 The total number of approvals in this transaction cannot exceed 20. Note that each NFT serial number counts as a single approval, hence a transaction granting 20 serial numbers to a spender will use all of the approvals permitted for the transaction.&#x20;
 
-An account can have a total of 100 allowances. Each NFT serial counts as an allowance.
+A single NFT serial number can only be granted to one spender at a time. If an approval assigns a previously approved NFT serial number to a new user, the old user will have their approval removed.
 
-You can request an [account info](get-account-info.md) to view all spender accounts for a given owner account.
+Each account is limited to 100 allowances. This limit spans hbar and fungible token allowances and non-fungible token `approved_for_all` grants. There is no limit on the number of NFT serial number approvals an owner may grant.
+
+The number of allowances set on an account will increase the auto renewal fee for the account. Conversely, removing allowances will decrease the auto renewal fee for the account.
+
+To decrease the allowance for a given spender, you will need to set the amount to the value you would like to authorize the spender account for. If the spender account was authorized to spend 25 hbars and the owner now wants to modify their allowance to 5 hbars, the owner would submit the AccountAllowanceApproveTransaction for 5 hbars.
 
 **Transaction Fees**
 
@@ -19,8 +23,9 @@ You can request an [account info](get-account-info.md) to view all spender accou
 
 **Transaction Signing Requirements**
 
-* If the owner account is specified, the transaction needs to be signed by the owner account key and the transaction fee payer key. If the owner account key and transaction fee payer key are the same only one signature is required.
-* If the owner account is not specified then the transaction fee payer account must be the owner account. The owner account key is required to sign the transaction.&#x20;
+* Must be signed by the owner's account
+* Must be signed by the transaction fee payer if different then the owner account
+* If the owner and transaction fee payer key are the same only one signature is required
 
 **Reference:** [HIP-336](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-336.md)
 
@@ -56,6 +61,8 @@ TransactionReceipt receipt = txResponse.getReceipt(client);
 Status transactionStatus = receipt.status;
 
 System.out.println("The transaction consensus status is " +transactionStatus);
+
+//v2.12.0+
 ```
 {% endtab %}
 
@@ -78,6 +85,8 @@ const receipt = await txResponse.getReceipt(client);
 const transactionStatus = receipt.status;
 
 console.log("The transaction consensus status is " +transactionStatus.toString());
+
+//v2.13.0
 ```
 {% endtab %}
 

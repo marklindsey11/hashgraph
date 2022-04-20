@@ -330,6 +330,130 @@ _Example_ : asc\
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="get" path="/api/v1/accounts/{accountId}/allowances/crypto" baseUrl="" summary="Hbar allowances for an account" %}
+{% swagger-description %}
+Returns hbar allowances for an account.
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="account.id" required="true" %}
+The account ID or account alias to return the hbar allowances for.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="spender.id" %}
+The ID of the spender to return information for.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="integer" %}
+The maximum number of items to return
+
+_Default value_ : 25
+
+_Example_ : 2
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="order" %}
+The order in which items are listed
+
+_Available values_ : asc, desc
+
+_Default value_ : desc
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="The hbar allowances returned for account 0.0.1000." %}
+```javascript
+{
+  {
+  "allowances": [
+    {
+      "amount_granted": 10,
+      "owner": "0.0.1000",
+      "spender": "0.0.8488",
+      "timestamp": {
+        "from": "1633466229.96874612",
+        "to": "1633466568.31556926"
+      }
+    },
+    {
+      "amount_granted": 5,
+      "owner": "0.0.1000",
+      "spender": "0.0.9857",
+      "timestamp": {
+        "from": "1633466229.96874612",
+        "to": null
+      }
+    }
+  ],
+  "links": {}
+}
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="get" path="/api/v1/accounts/{accountId}/allowances/tokens" baseUrl="" summary="Fungible token allowances for an account" %}
+{% swagger-description %}
+Returns information for fungible token allowances for an account. Please refer to 
+
+[this](https://testnet.mirrornode.hedera.com/api/v1/docs/#/accounts/listTokenAllowancesByAccountId)
+
+ document regarding filtering restrictions.
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="account.id" type="String" required="true" %}
+Account ID or account alias to return the fungible token allowances for.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="spender.id" type="String" %}
+The ID of the spender to return information for.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="token.id" type="String" %}
+The ID of the token to return information for.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="integer" %}
+The maximum number of items to return
+
+_Default value_ : 25
+
+_Example_ : 2
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="order" %}
+The order in which items are listed
+
+_Available values_ : asc, desc
+
+_Default value_ : asc
+
+_Example_ : desc
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+  "allowances": [
+    {
+      "amount_granted": 100,
+      "owner": "0.1.2",
+      "spender": "0.1.2",
+      "timestamp": {
+        "from": "1586567700.453054000",
+        "to": "1586567700.453054000"
+      },
+      "token_id": "0.1.2"
+    }
+  ],
+  "links": {
+    "next": null
+  }
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+## &#x20;<a href="#balances" id="balances"></a>
+
 ## Balances <a href="#balances" id="balances"></a>
 
 The **balance** object represents the balance of accounts on the Hedera network. You can retrieve this to view the **most recent** balance of all the accounts on the network at that given time. The balances object returns the account ID and the balance in hbars. Balances are checked on a periodic basis and thus return the most recent snapshot of time captured prior to the request.
@@ -1793,3 +1917,68 @@ _Default value_
 | **address\_books**   | The address book file contents                                                   | base64 encoding |
 
 Save the response to a json file and use the [check-state-proof](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof) cli commands to confirm the validity of the transaction. You can find the instructions [here](https://github.com/hashgraph/hedera-mirror-node/tree/master/hedera-mirror-rest/check-state-proof).
+
+## Network
+
+{% swagger method="get" path="/api/v1/network/nodes" baseUrl="" summary="Get the network address book" %}
+{% swagger-description %}
+Returns the network's list of nodes used in consensus.
+{% endswagger-description %}
+
+{% swagger-parameter in="query" name="file.id" %}
+0.0.101 or 0.0.102 address book files
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="node.id" %}
+The node account ID (ex. 0.0.10)
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="integer" %}
+The maximum number of items to return
+
+_Default value_ : 25
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="order" %}
+The order in which items are listed
+
+_Available values_ : asc, desc
+
+_Default value_ : asc
+
+_Example_ : desc
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+    {
+  "nodes": [
+    {
+      "description": "",
+      "file_id": "0.0.102",
+      "memo": "0.0.3",
+      "node_account_id": "0.0.3",
+      "node_cert_hash": "0x3334...",
+      "node_id": 0,
+      "public_key": "0x308201...",
+      "service_endpoints": [
+        {
+          "ip_address_v4": "13.124.142.126",
+          "port": 50211
+        }
+      ],
+      "timestamp": {
+        "from": "1636052707.740848001",
+        "to": null
+      }
+    }
+  ],
+  "links": {
+    "next": null
+  }
+}
+}
+```
+{% endswagger-response %}
+{% endswagger %}

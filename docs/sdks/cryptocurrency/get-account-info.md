@@ -27,9 +27,6 @@ A query that returns the current state of the account. This query **does not** i
 | **Owned NFTs**                       | The number of NFTs owned by the specified account                                                                                                                                                                                                                                                                                                                                                                                 |
 | **Max Automatic Token Associations** | The total number of auto token associations that are specified for this account.                                                                                                                                                                                                                                                                                                                                                  |
 | **Ledger ID**                        | The ID of the network the response came from. See [HIP-198](https://hips.hedera.com/hip/hip-198).                                                                                                                                                                                                                                                                                                                                 |
-| **Crypto Allowances**                | All of the hbar account allowances approved by the account owner                                                                                                                                                                                                                                                                                                                                                                  |
-| **Token Allowances**                 | All of the fungible token account allowances approved by the account owner                                                                                                                                                                                                                                                                                                                                                        |
-| **NFT Allowances**                   | All of the non-fungible token account allowances approved by the account owner                                                                                                                                                                                                                                                                                                                                                    |
 
 **Query Signing Requirements**
 
@@ -66,9 +63,6 @@ new AccountInfoQuery()
 | `<AccountInfo>.proxyAccountId`                | AccountId                         | Optional    |
 | `<AccountInfo>.autoRenewPeriod`               | Duration                          | Optional    |
 | `<AccountInfo>.ledgerId`                      | LedgerId                          | Optional    |
-| `<AccountInfo>.hbarAllowances`                | List \<HbarAllowance>             | Optional    |
-| `<AccountInfo>.tokenAllowances`               | List \<TokenAllowance>            | Optional    |
-| `<AccountInfo>.nftAllowances`                 | List \<TokenNftAllowance>         | Optional    |
 
 {% code title="Java" %}
 ```java
