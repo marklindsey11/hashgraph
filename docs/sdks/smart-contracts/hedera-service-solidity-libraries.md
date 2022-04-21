@@ -2,11 +2,14 @@
 
 ## Hedera Token Service&#x20;
 
-Hedera Token Service integration allows you to write token transactions natively in Solidity smart contracts. There are three **Solidity source files** available to developers.
+Hedera Token Service integration allows you to write token transactions natively in Solidity smart contracts. There are a few **Solidity source files** available to developers.
 
 * [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaTokenService.sol)
 * [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaResponseCodes.sol)
 * [IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
+* [ExpiryHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/ExpiryHelper.sol)
+* [FeeHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/FeeHelper.sol)
+* [KeyHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/KeyHelper.sol)
 
 The Hedera Token Service Solidity file provides the transactions to interact with tokens created on Hedera. The Hedera Response Codes contract provides the response codes associated with network errors. The IHedera Token Service is a supporting library for the Hedera Token Service Solidity file. You can grab these libraries [here](https://github.com/hashgraph/hedera-smart-contracts/tree/main/hts-precompile) to add to your project and import them to your Solidity contract. Please see the example file below.
 
@@ -36,7 +39,7 @@ int response = HederaTokenService.transferToken(tokenAddress, msg.sender, addres
 ### Create Tokens
 
 {% hint style="info" %}
-Token create precompile is live on previewnet.
+[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/TokenCreateContract.sol)  example contains four examples for how to create a token using the token create solidity libraries.
 {% endhint %}
 
 ### <mark style="color:purple;">`createFungibleToken(token, initialTotalSupply, decimals)`</mark>
@@ -45,7 +48,7 @@ A transaction that creates a fungible token. Returns the new token address.
 
 | **Param**            | **Type**                               | **Description**                                                                                                                                                         |
 | -------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`              | IHederaTokenService.HederaToken memory | The basic properties of the token being created.                                                                                                                        |
+| `token`              | IHederaTokenService.HederaToken memory | The basic properties of the token being created.  This includes the token name, symbol, treasury account, keys, expiry, etc.                                            |
 | `initialTotalSupply` | uint                                   | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible. |
 | `decimals`           | uint                                   | The number of decimal places a token is divisible by.                                                                                                                   |
 
@@ -55,7 +58,7 @@ A transaction that creates a fungible token with custom fees. Returns the new to
 
 | **Param**            | **Type**                               | **Description**                                                                                                                                                         |
 | -------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`              | IHederaTokenService.HederaToken memory | The basic properties of the token being created.                                                                                                                        |
+| `token`              | IHederaTokenService.HederaToken memory | The basic properties of the token being created. This includes the token name, symbol, treasury account, keys, expiry, etc.                                             |
 | `initialTotalSupply` | uint                                   | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible. |
 | `decimals`           | uint                                   | The number of decimal places a token is divisible by.                                                                                                                   |
 | `fixedFees`          | IHederaTokenService.FixedFee\[]        | List of fixed fees to apply to the token.                                                                                                                               |
@@ -65,19 +68,19 @@ A transaction that creates a fungible token with custom fees. Returns the new to
 
 Creates a non fungible token. Returns the new token address.
 
-| **Param** | **Type**                               | **Description**                                  |
-| --------- | -------------------------------------- | ------------------------------------------------ |
-| `token`   | IHederaTokenService.HederaToken memory | The basic properties of the token being created. |
+| **Param** | **Type**                               | **Description**                                                                                                             |
+| --------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `token`   | IHederaTokenService.HederaToken memory | The basic properties of the token being created. This includes the token name, symbol, treasury account, keys, expiry, etc. |
 
 ### <mark style="color:purple;">`createNonFungibleTokenWithCustomFees(token, fixedFees, fractionalFees)`</mark>
 
 Creates a non fungible token with custom fees. Returns the new token address.
 
-| **Param**        | **Type**                               | **Description**                                  |
-| ---------------- | -------------------------------------- | ------------------------------------------------ |
-| `token`          | IHederaTokenService.HederaToken memory | The basic properties of the token being created. |
-| `fixedFees`      | IHederaTokenService.FixedFee\[]        | List of fixed fees to apply to the token.        |
-| `fractionalFees` | IHederaTokenService.FractionalFee\[]   | List of fractional fees to apply to the token.   |
+| **Param**        | **Type**                               | **Description**                                                                                                             |
+| ---------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `token`          | IHederaTokenService.HederaToken memory | The basic properties of the token being created. This includes the token name, symbol, treasury account, keys, expiry, etc. |
+| `fixedFees`      | IHederaTokenService.FixedFee\[]        | List of fixed fees to apply to the token.                                                                                   |
+| `fractionalFees` | IHederaTokenService.FractionalFee\[]   | List of fractional fees to apply to the token.                                                                              |
 
 ### Transfer Tokens
 
@@ -207,9 +210,14 @@ ABI Version: 2
 | `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)                                     | The account to be dissociated from the provided tokens                                                                                                                             |
 | `tokens`  | [address](https://docs.soliditylang.org/en/v0.6.2/types.html?highlight=address%20%5B%5D#address)\[] memory | <p>The list of tokens to be dissociated from the provided account.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p> |
 
-### Gas Cost
+## Gas Cost
 
 {% content-ref url="../../../core-concepts/smart-contracts/gas-and-fees.md" %}
 [gas-and-fees.md](../../../core-concepts/smart-contracts/gas-and-fees.md)
 {% endcontent-ref %}
 
+## Examples
+
+{% content-ref url="../../../getting-started/try-examples/deploy-a-contract-using-the-hedera-token-service.md" %}
+[deploy-a-contract-using-the-hedera-token-service.md](../../../getting-started/try-examples/deploy-a-contract-using-the-hedera-token-service.md)
+{% endcontent-ref %}
