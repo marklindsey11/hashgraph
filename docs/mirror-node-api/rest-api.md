@@ -1799,15 +1799,16 @@ _Example_ : 4.027126854939018e+76
 {
   "logs": [
     {
-      "address": "1.0038928713678618e+77",
+      "address": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+      "bloom": "0x549358c4c2e573e02410ef7b5a5ffa5f36dd7398",
       "contract_id": "0.1.2",
-      "data": "250",
-      "index": 1,
-      "root_contract_id": "0.1.2",
-      "timestamp": "1586567700.453054000",
+      "data": "0x00000000000000000000000000000000000000000000000000000000000000fa",
+      "index": 0,
       "topics": [
-        1.1057190016089302e+77
-      ]
+        "0xf4757a49b326036464bec6fe419a4ae38c8a02ce3e68bf0809674f6aab8ad300"
+      ],
+      "root_contract_id": "0.1.2",
+      "timestamp": "1586567700.453054000"
     }
   ]
 }
