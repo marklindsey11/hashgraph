@@ -114,6 +114,7 @@ if err != nil {
 transactionStatus := receipt.Status
 
 println("The transaction consensus status is ", transactionStatus)
+//v2.13.1+
 ```
 {% endtab %}
 {% endtabs %}
