@@ -64,6 +64,8 @@ This upgrade also creates two new system accounts 0.0.800 and 0.0.801 that will 
 
 One change to the Hedera API (HAPI) is that we now have enough evidence to conclude the experimental `getAccountNftInfos` and `getTokenNftInfos` queries do not have a favorable cost/benefit ratio, and these queries are now [permanently disabled](https://hashgraph.github.io/hedera-protobufs/#proto.TokenService).
 
+![](<../../.gitbook/assets/Performance Measurement Results\_Extract.001 (4).jpeg>)
+
 ## [v0.23](https://github.com/hashgraph/hedera-services/releases/tag/v0.23.0)
 
 {% hint style="success" %}
