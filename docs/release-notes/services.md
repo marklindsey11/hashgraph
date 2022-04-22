@@ -15,7 +15,11 @@ For the latest versions supported on each network please visit the Hedera status
 {% endhint %}
 
 {% hint style="info" %}
-**TESTNET UPDATE: APRIL 21, 2022**
+**TESTNET UPDATE: APRIL 26, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE: APRIL 21, 202**
 {% endhint %}
 
 The Hedera Services 0.25 release brings good news for HTS users who manage large numbers of token types, as it delivers [HIP-367 (Unlimited Token Associations per Account)](https://hips.hedera.com/hip/hip-367). In particular, a single account can now serve as treasury for any number of token types. (Please do note the `CryptoService` HAPI queries still return information for only an account’s 1000 most recently associated tokens; mirror nodes remain the best source for full history.)

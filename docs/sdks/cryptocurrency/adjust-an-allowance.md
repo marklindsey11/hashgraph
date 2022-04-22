@@ -1,7 +1,7 @@
 # Delete an allowance
 
 {% hint style="info" %}
-This feature is available on previewnet. API subject to change.
+This feature is available on previewnet and testnet as part of the 0.25 release.
 {% endhint %}
 
 A transaction called by the token owner to delete allowances for NFTs only. In order to delete an existing hbar or fungible token allowance the `AccountAllowanceApproveTransaction` API should be used with an `amount` of 0.

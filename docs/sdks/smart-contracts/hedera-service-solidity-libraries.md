@@ -39,7 +39,7 @@ int response = HederaTokenService.transferToken(tokenAddress, msg.sender, addres
 ### Create Tokens
 
 {% hint style="info" %}
-[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/TokenCreateContract.sol)  example contains four examples for how to create a token using the token create solidity libraries.
+[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet and testnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/TokenCreateContract.sol)  example contains four examples for how to create a token using the token create solidity libraries.
 {% endhint %}
 
 ### <mark style="color:purple;">`createFungibleToken(token, initialTotalSupply, decimals)`</mark>

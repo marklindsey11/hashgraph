@@ -1,7 +1,7 @@
 # Approve an allowance
 
 {% hint style="info" %}
-This feature is available on previewnet. API subject to change.&#x20;
+This feature is available on previewnet and testnet part of the 0.25 release.
 {% endhint %}
 
 A transaction that allows a token owner to delegate a token spender to spend the specified token amount on behalf of the token owner. An owner can provide a token allowance for hbars, non-fungible and fungible tokens. The owner is the account that owns the tokens and grants the allowance to the spender. The spender is the account that spends tokens authorized by the owner from the owners account. The spender pays for the transaction fees when transferring tokens from the owners account to another recipient.&#x20;

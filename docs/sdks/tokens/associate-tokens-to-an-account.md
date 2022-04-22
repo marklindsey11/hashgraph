@@ -13,7 +13,7 @@ Associates the provided Hedera account with the provided Hedera token(s). Hedera
 {% hint style="info" %}
 The maximum number of Token IDs that can be associated to an account is 1,000.\
 \
-Note: There will be no limit on the number of token IDs that can be associated to an account after the 0.25 mainnet release is updated on all networks. Currently, live on previewnet. Reference [HIP-367](https://hips.hedera.com/hip/hip-367)
+Note: There will be no limit on the number of token IDs that can be associated to an account after the 0.25 mainnet release is updated on all networks. Currently, live on previewnet and testnet. Reference [HIP-367](https://hips.hedera.com/hip/hip-367)
 {% endhint %}
 
 **Transaction Signing Requirements**
