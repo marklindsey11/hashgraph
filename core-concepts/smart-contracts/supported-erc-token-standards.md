@@ -125,8 +125,8 @@ The following ERC-721 operations are currently not supported.
 
 ## Examples
 
-* [ERC20Contract.sol](https://github.com/hashgraph/hedera-services/blob/master/test-clients/src/main/resource/contract/solidity/ERC20Contract.sol)
-* [ERC721Contract.sol](https://github.com/hashgraph/hedera-services/blob/master/test-clients/src/main/resource/contract/solidity/ERC721Contract.sol)
+* [ERC20Contract.sol](https://github.com/hashgraph/hedera-services/blob/master/test-clients/src/main/resource/contract/contracts/ERC20Contract/ERC20Contract.sol)
+* [ERC721Contract.sol](https://github.com/hashgraph/hedera-services/blob/master/test-clients/src/main/resource/contract/contracts/ERC721Contract/ERC721Contract.sol)
 
 ## References
 
