@@ -8,7 +8,23 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Latest Releases
 
+## [v0.55](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.55.0)
+
+This release is mainly focused on finishing out our support for [HIP-336](https://hips.hedera.com/hip/hip-336) Approval and Allowance API for Tokens. We added support for the new `CryptoDeleteAllowance` transaction and removed support for the `CryptoAdjustAllowance` transaction that didn't make it into the final design. NFT allowances are tracked at the NFT transfer granularity allowing for up to date allowance information on the mirror node. Current spender information will show up in both `/api/v1/accounts/{id}/nfts` and `/api/v1/tokens/{id}/nfts` REST APIs. We also added the `is_approval` flag to APIs that show transfers.
+
+With more developers using computers using Apple's M-series CPUs, it become clear the mirror node needed to support ARM-based architectures to accommodate them. In this release we added multi-architecture Docker images using [docker buildx](https://docs.docker.com/buildx/working-with-buildx/). We now push `linux/amd64` and `linux/arm64` variants to our [Google Container Registry](https://gcr.io/mirrornode). If there's a need for additional operating systems or architectures in the future it can easily be expanded upon.
+
+We also updated our [GCP Marketplace](https://console.cloud.google.com/marketplace/details/mirror-node-public/hedera-mirror-node) application to the latest version.
+
 ## [v0.54](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.54.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: APRIL 25, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: APRIL 19, 2022**
+{% endhint %}
 
 This release adds support for three new REST APIs and four HIPs.
 
