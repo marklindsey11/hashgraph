@@ -20,7 +20,7 @@ new FileAppendTransaction()
 ```
 
 {% hint style="info" %}
-The default max transaction fee (1 hbar) is not enough to create a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars. The default chunk size is 2048 kb.&#x20;
+The default max transaction fee (1 hbar) is not enough to create a file. Use `setMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars. The default chunk size is 2,048 bytes.&#x20;
 {% endhint %}
 
 ### Methods
