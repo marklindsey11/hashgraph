@@ -40,9 +40,6 @@ All fees are subject to change. The fees below reflect a base price for the tran
 | CryptoTransfer               | $0.0001  |
 | CryptoTransfer (custom fees) | $0.002   |
 | CryptoDelete                 | $0.005   |
-| CryptoAddLiveHash            | $0.1     |
-| CryptoDeleteLiveHash         | $0.005   |
-| CryptoGetLiveHash            | $0.0001  |
 | CryptoGetAccountRecords      | $0.0001  |
 | CryptoGetAccountBalance      | $0.00    |
 | CryptoGetInfo                | $0.0001  |
