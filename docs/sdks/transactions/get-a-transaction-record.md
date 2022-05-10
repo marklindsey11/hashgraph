@@ -21,6 +21,7 @@ You can request a transaction record for up to 3 minutes after a transaction has
 | **Automatic Associations**     | The token(s) that were auto associated to the account in this transaction, if any                                                                                                                                                                                                                                     |
 | **Alias**                      | In the record of an internal `AccountCreateTransaction` triggered by a user transaction with a (previously unused) alias, the new account's alias.                                                                                                                                                                    |
 | **Parent Consensus Timestamp** | The parent consensus timestamp is found in the record of a child transaction. The parent consensus timestamp is the consensus timestamp related to the parent transaction to this child transaction.                                                                                                                  |
+| **Ethereum Hash**              | The keccak256 hash of the ethereumData. This field will only be populated for EthereumTransaction.                                                                                                                                                                                                                    |
 
 **Transaction Signing Requirements**
 
@@ -87,6 +88,7 @@ hedera.NewTransactionRecordQuery().
 | `<TransactionRecord>.scheduleRef`                | ScheduleId                                  | Optional        |
 | `<TransactionRecord>.assessedCustomFees`         | List\<AssessedCustomFees>                   | Optional        |
 | `<TransactionRecord>.automaticTokenAssociations` | List\<TokenAssociation>                     | Optional        |
+| `<TransactionRecord>.ethereumHash`               | ByteString                                  | Optional        |
 | `<TransactionRecord>.parentConsensusTimestamp`   | Instant                                     | Optional        |
 
 {% code title="Java" %}

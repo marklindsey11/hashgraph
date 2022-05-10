@@ -26,6 +26,7 @@ A query that returns the current state of the account. This query **does not** i
 | **Memo**                             |  A note or description that is recorded with the account entity                                                                                                                                                                                                                                                                                                                                                                   |
 | **Owned NFTs**                       | The number of NFTs owned by the specified account                                                                                                                                                                                                                                                                                                                                                                                 |
 | **Max Automatic Token Associations** | The total number of auto token associations that are specified for this account.                                                                                                                                                                                                                                                                                                                                                  |
+| **Ethereum Nonce**                   | The Ethereum transaction nonce associated with this account.                                                                                                                                                                                                                                                                                                                                                                      |
 | **Ledger ID**                        | The ID of the network the response came from. See [HIP-198](https://hips.hedera.com/hip/hip-198).                                                                                                                                                                                                                                                                                                                                 |
 
 **Query Signing Requirements**
@@ -63,6 +64,7 @@ new AccountInfoQuery()
 | `<AccountInfo>.proxyAccountId`                | AccountId                         | Optional    |
 | `<AccountInfo>.autoRenewPeriod`               | Duration                          | Optional    |
 | `<AccountInfo>.ledgerId`                      | LedgerId                          | Optional    |
+| `<AccountInfo>.ethereumNonce`                 | long                              | Optional    |
 
 {% code title="Java" %}
 ```java
