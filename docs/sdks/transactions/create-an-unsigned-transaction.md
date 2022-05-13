@@ -4,10 +4,11 @@ These methods allow you to build a transaction that requires further processing 
 
 {% tabs %}
 {% tab title="V2" %}
-| **Method**             | **Type** | **Description**                                                                                                                                                                                                            |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `freeze()`             |          | Freeze this transaction from further modification to prepare for signing or serialization. You will need to set the node account ID (`setNodeAccountId()`) and transaction ID (`setTransactionId()`).                      |
-| `freezeWith(<client>)` | Client   | Freeze this transaction from further modification to prepare for signing or serialization. Will use the 'Client', if available, to generate a default Transaction ID and select 1/3 nodes to prepare this transaction for. |
+| **Method**                   | **Type** | **Description**                                                                                                                                                                                                            |
+| ---------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `freeze()`                   |          | Freeze this transaction from further modification to prepare for signing or serialization. You will need to set the node account ID (`setNodeAccountId()`) and transaction ID (`setTransactionId()`).                      |
+| `freezeWith(<client>)`       | Client   | Freeze this transaction from further modification to prepare for signing or serialization. Will use the 'Client', if available, to generate a default Transaction ID and select 1/3 nodes to prepare this transaction for. |
+| `freezeWithSigner(<signer>)` |          | Freeze the transaction with a local wallet. Local wallet available in Hedera JavaScript SDK only. >=`v2.11.0`                                                                                                              |
 
 {% code title="Java" %}
 ```java

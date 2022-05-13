@@ -18,7 +18,7 @@ Smart contract entity auto renewal and expiry will be enabled in a future releas
 {% hint style="info" %}
 **Smart Contract State Size and Gas Limits**
 
-The Hedera Services 0.22 release increases the contract state size to 10 MB and the system gas throttle to 15 million gas per second. Contract call and contract create are throttled at 4 million gas per second.
+The Hedera Services 0.22 release increases the contract state size to 10 MB and the system gas throttle to 15 million gas per second. Contract call and contract create are throttled at 5 million gas per second.
 {% endhint %}
 
 {% content-ref url="../../../core-concepts/smart-contracts/gas-and-fees.md" %}

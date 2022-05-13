@@ -51,7 +51,7 @@ Because consensus time execution is now limited by actual gas used and not based
 When a transaction is submitted to a node with a `gasLimit` that is greater than the per-transaction gas limit the transaction must be rejected during precheck with a response code of `INDIVIDUAL_TX_GAS_LIMIT_EXCEEDED`. The transaction must not be submitted to consensus.
 
 {% hint style="info" %}
-Gas throttle per contract call and contract create: **4 million gas per second**.
+Gas throttle per contract call and contract create: **5 million gas per second**.
 {% endhint %}
 
 Reference [HIP-185](https://hips.hedera.com/hip/hip-185)
