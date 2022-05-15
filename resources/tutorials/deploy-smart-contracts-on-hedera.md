@@ -6,4 +6,6 @@
 
 {% embed url="https://hedera.com/blog/how-to-use-hethers-js-to-deploy-smart-contracts-on-hedera" %}
 
+{% embed url="https://hedera.com/blog/meet-strato-a-concise-yet-powerful-sdk-alternative-for-js-devs" %}
+
 {% embed url="https://hedera.com/blog/mapping-hedera-token-service-standards-to-erc20-erc721-erc1155" %}
