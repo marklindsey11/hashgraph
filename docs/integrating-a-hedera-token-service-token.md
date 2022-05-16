@@ -25,7 +25,7 @@ You can find instructions on how to operate your own Hedera mirror node below.
 **Third-party mirror nodes:**
 
 * [Dragon Glass](https://app.dragonglass.me/hedera/home) &#x20;
-* [Kabuto](https://kabuto.sh)&#x20;
+* [Kabuto](https://kabuto.sh/)&#x20;
 
 ## **SDKs and Docs**
 

@@ -187,7 +187,7 @@ yarn add dotenv
 
 The .env file will store your Hedera testnet **account ID** and **private key.** Create this file in the root directory of your project and save it as **.env** file.
 
-Now you can add your testnet account ID and private key provided from your [Hedera Portal](https://portal.hedera.com) Account.
+Now you can add your testnet account ID and private key provided from your [Hedera Portal](https://portal.hedera.com/) Account.
 
 ```
 MY_ACCOUNT_ID = ENTER YOUR ACCOUNT ID

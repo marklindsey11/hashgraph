@@ -4,7 +4,7 @@ description: Hedera mirror node release notes
 
 # Hedera Mirror Node
 
-For the latest versions supported on each network please visit the Hedera status [page](https://status.hedera.com).
+For the latest versions supported on each network please visit the Hedera status [page](https://status.hedera.com/).
 
 ## Latest Releases
 
@@ -195,7 +195,7 @@ This release contains a couple medium sized database migrations to correct the e
   }
 ```
 
-The mirror node now has performance tests written using [k6](https://k6.io) for all of our APIs. These tests can be used to verify the performance doesn't regress from release to release. In the future, we plan to integrate these into a [nightly regression test suite](https://github.com/hashgraph/hedera-mirror-node/issues/3099) to improve our current approach of testing each release.
+The mirror node now has performance tests written using [k6](https://k6.io/) for all of our APIs. These tests can be used to verify the performance doesn't regress from release to release. In the future, we plan to integrate these into a [nightly regression test suite](https://github.com/hashgraph/hedera-mirror-node/issues/3099) to improve our current approach of testing each release.
 
 A number of deployment issues were addressed in this release. We now disable leader election by default until we can fix the issues with its implementation. Likewise we changed the importer Kubernetes deployment strategy from a rolling update to recreate to avoid ever having multiple importer pods running concurrently. A migration readiness probe was added to the importer. This will mark importer pods as unready until it completes all database migrations. Doing this will ensure Helm doesn't finish its release and run its tests before the migrations are completed.
 
@@ -471,7 +471,7 @@ The Rosetta API also saw some improvements including the ability to create accou
 
 ## [v0.44.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.44.0)
 
-Making [progress](https://github.com/hashgraph/hedera-mirror-node/issues/2675) on transitioning our database to [CitusDB](https://citusdata.com), this release adds a new `v2` schema with initial support for CitusDB. Automated testing against CitusDB was added to our CI pipeline so that it runs concurrently with the `v1` PostgreSQL-based schema. The transaction payer account ID was added to transfer related tables. This will be used as a distribution column for database partitioning across a dimension that is not time-based. This allows the mirror node to scale reads and writes as more transaction payers use the system.
+Making [progress](https://github.com/hashgraph/hedera-mirror-node/issues/2675) on transitioning our database to [CitusDB](https://citusdata.com/), this release adds a new `v2` schema with initial support for CitusDB. Automated testing against CitusDB was added to our CI pipeline so that it runs concurrently with the `v1` PostgreSQL-based schema. The transaction payer account ID was added to transfer related tables. This will be used as a distribution column for database partitioning across a dimension that is not time-based. This allows the mirror node to scale reads and writes as more transaction payers use the system.
 
 The rest of the release is mainly focused around performance improvements. We no longer persist minimal entity information for every entity ID encountered in a transaction. This was a performance drag but also caused problems with our plans to track entity history in an upcoming release. A few of our reference tables were removed in favor of using an application enum instead to map protobuf values to descriptive strings.
 
@@ -525,7 +525,7 @@ To prepare for that, the database schema and importer were updated to normalize 
 
 ### Data Architecture
 
-Over the last few months, work has been underway to analyze possible `PostgreSQL` replacements as the need for handling an ever-increasing amount of data puts strain on the existing mirror node database. After agreeing upon the acceptance criteria, priority was placed on a PostgreSQL-compatible distributed database that can shard our time-series data across many nodes for scale-out reads and writes. That would ensure the quickest time to market and ease transition for Hedera and others using the open source mirror node software. The four distributed databases we chose for our proof of concept included [CitusDB](https://citusdata.com), [CockroachDB](https://cockroachlabs.com), [TimescaleDB](https://www.timescale.com), and [YugabyteDB](https://www.yugabyte.com).
+Over the last few months, work has been underway to analyze possible `PostgreSQL` replacements as the need for handling an ever-increasing amount of data puts strain on the existing mirror node database. After agreeing upon the acceptance criteria, priority was placed on a PostgreSQL-compatible distributed database that can shard our time-series data across many nodes for scale-out reads and writes. That would ensure the quickest time to market and ease transition for Hedera and others using the open source mirror node software. The four distributed databases we chose for our proof of concept included [CitusDB](https://citusdata.com/), [CockroachDB](https://cockroachlabs.com/), [TimescaleDB](https://www.timescale.com/), and [YugabyteDB](https://www.yugabyte.com/).
 
 After a detailed analysis of each, we chose CitusDB for our next database due to its excellent PostgreSQL compatibility (it's a PostgreSQL extension) and its mature support for sharding time-series data. Its distributed query engine routes and parallelizes DDL, DML, and other operations on distributed tables across the cluster. And its columnar storage can compress data up to 8x, speeds up table scans, and supports fast projections. This release contains some foundational work to get our schema ready for partitioning. You can track our [progress](https://github.com/hashgraph/hedera-mirror-node/issues/2675) as we work towards integrating CitusDB into our codebase over the next few months. We plan on maintaining support for both databases for a period of time after the work is complete.
 
@@ -571,7 +571,7 @@ Continuing our theme of improving the Rosetta API, NFT support was added to the 
 **TESTNET UPDATE COMPLETED: SEPTEMBER 30, 2021**
 {% endhint %}
 
-This release focuses our efforts on improving our [Rosetta API](https://www.rosetta-api.org) and making it ready for production use. A new Rosetta Helm chart was added for production deployments to Kubernetes. Observability improvements include health probes, metrics, request logs, alerts, and a Grafana dashboard. Postman integration tests were added to verify post-deployment functionality. Finally, a few important bugs were fixed including missing peer IP addresses and a token balance reconciliation failure.
+This release focuses our efforts on improving our [Rosetta API](https://www.rosetta-api.org/) and making it ready for production use. A new Rosetta Helm chart was added for production deployments to Kubernetes. Observability improvements include health probes, metrics, request logs, alerts, and a Grafana dashboard. Postman integration tests were added to verify post-deployment functionality. Finally, a few important bugs were fixed including missing peer IP addresses and a token balance reconciliation failure.
 
 The importer component was optimized to ingest transactions at 15,000 TPS or higher. This change included improvements to reduce CPU and memory usage while simultaneously increasing the allocated memory available to the process.
 
@@ -739,7 +739,7 @@ This release broadens our support for [non-fungible tokens](https://github.com/h
 **MAINNET UPDATE COMPLETED: JULY 19, 2021**
 {% endhint %}
 
-We are happy to [announce](https://hedera.com/blog/now-available-public-mainnet-mirror-node-managed-by-hedera) the availability of a publicly accessible, free-to-use, mainnet Mirror Node operated by the Hedera team. As part of this, we put a large amount of effort into fine-tuning our Kubernetes deployment. We migrated to [Flux 2](https://fluxcd.io), a GitOps-based deployment tool that allows us to declaratively specify the expected state of the Mirror Node in git and manage our rollouts. You can browse our [deploy branch](https://github.com/hashgraph/hedera-mirror-node/tree/deploy) and see the exact config and versions rolled out to various clusters and environments. The Helm chart was updated to add `PodDisruptionBudgets`, adjust alert rules and other improvements to make it easier to automate the deployment.
+We are happy to [announce](https://hedera.com/blog/now-available-public-mainnet-mirror-node-managed-by-hedera) the availability of a publicly accessible, free-to-use, mainnet Mirror Node operated by the Hedera team. As part of this, we put a large amount of effort into fine-tuning our Kubernetes deployment. We migrated to [Flux 2](https://fluxcd.io/), a GitOps-based deployment tool that allows us to declaratively specify the expected state of the Mirror Node in git and manage our rollouts. You can browse our [deploy branch](https://github.com/hashgraph/hedera-mirror-node/tree/deploy) and see the exact config and versions rolled out to various clusters and environments. The Helm chart was updated to add `PodDisruptionBudgets`, adjust alert rules and other improvements to make it easier to automate the deployment.
 
 This release is the first version of the Mirror Node with preliminary support for non-fungible tokens (NFTs). NFT support is being added to the Hedera nodes as outlined in [HIP 17](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-17.md). We spent time [designing](https://github.com/hashgraph/hedera-mirror-node/blob/v0.36.0/docs/design/nft.md) how that NFT support will look like for the Mirror Node. Modifications to the schema were made to add new tables and fields and the Importer was updated to ingest NFT transactions. The existing REST APIs were updated to add NFT related fields to the response. This includes adding a `type` field to the token related APIs to indicate fungibility and a`nft_transfers` to `/api/v1/transactions/{id}`:
 
@@ -779,7 +779,7 @@ git branch -u origin/main main
 git remote set-head origin -a
 ```
 
-As part of our optimization to reduce memory usage, we now process some things earlier in the lifecycle. Due to this we had to rename some properties to reflect this change. We also changed the disk structure if you are using the `keepFiles` (now renamed to `writeFiles`) properties to write the stream files to disk after download. It is no longer archived into folders by day. Instead, the folder structure will exactly match the structure in the bucket. This opens the possibility for a mirror node to download and mirror the bucket itself using a S3 compatible API like [MinIO](https://min.io). Below is a summary of the renamed properties:
+As part of our optimization to reduce memory usage, we now process some things earlier in the lifecycle. Due to this we had to rename some properties to reflect this change. We also changed the disk structure if you are using the `keepFiles` (now renamed to `writeFiles`) properties to write the stream files to disk after download. It is no longer archived into folders by day. Instead, the folder structure will exactly match the structure in the bucket. This opens the possibility for a mirror node to download and mirror the bucket itself using a S3 compatible API like [MinIO](https://min.io/). Below is a summary of the renamed properties:
 
 * Renamed `hedera.mirror.importer.downloader.balance.keepSignatures` to `hedera.mirror.importer.downloader.balance.writeSignatures`
 * Renamed `hedera.mirror.importer.parser.balance.keepFiles` to `hedera.mirror.importer.downloader.balance.writeFiles`
@@ -914,7 +914,7 @@ There were a number of breaking changes this release to be aware of. If you're u
 
 Mirror node v0.30 brings operational improvements with changes to our continuous integration and monitoring components.
 
-With this release, we've completed the migration from CircleCI to GitHub Actions. CircleCI had some limitations with our use of [Testcontainers](https://www.testcontainers.org) for unit testing against 3rd party dependencies. We previously had a mixture of GitHub Actions and CircleCI with the latter using slightly different commands than local testing. Consolidating to GitHub Actions allowed us to reduce this difference and further parallelize our checks.
+With this release, we've completed the migration from CircleCI to GitHub Actions. CircleCI had some limitations with our use of [Testcontainers](https://www.testcontainers.org/) for unit testing against 3rd party dependencies. We previously had a mixture of GitHub Actions and CircleCI with the latter using slightly different commands than local testing. Consolidating to GitHub Actions allowed us to reduce this difference and further parallelize our checks.
 
 To improve our runtime observability and testing coverage, we've continued to invest in our monitor tool this cycle. Scheduled transaction support was recently added supporting both `ScheduleCreate` and `ScheduleSign` operations. We've added the three new mainnet nodes the monitor's default configuration. A bug with the monitor unable to reach expected TPS with multiple scenarios was fixed.
 
@@ -1082,7 +1082,7 @@ Other changes include adding an `index` field to `record_file` table to simulate
 **TESTNET UPDATE COMPLETED: FEBRUARY 11, 2021**
 {% endhint %}
 
-This release adds a new REST API component that implements the [Rosetta API](https://www.rosetta-api.org). The Rosetta API is an open standard for integrating with blockchain-oriented systems. Implementing the Rosetta AP provides a number of advantages. It reduces the time and effort it takes for wallets, exchanges, etc. to integrate with the Hedera network if they have integrated with Rosetta in the past. Even if the systems integrator has not used Rosetta previously, using the Rosetta API in lieu of our separate [REST API](https://docs.hedera.com/guides/docs/mirror-node-api/cryptocurrency-api) might be useful to reduce the friction with using a non-blockchain DLT like Hedera.
+This release adds a new REST API component that implements the [Rosetta API](https://www.rosetta-api.org/). The Rosetta API is an open standard for integrating with blockchain-oriented systems. Implementing the Rosetta AP provides a number of advantages. It reduces the time and effort it takes for wallets, exchanges, etc. to integrate with the Hedera network if they have integrated with Rosetta in the past. Even if the systems integrator has not used Rosetta previously, using the Rosetta API in lieu of our separate [REST API](https://docs.hedera.com/guides/docs/mirror-node-api/cryptocurrency-api) might be useful to reduce the friction with using a non-blockchain DLT like Hedera.
 
 [Scheduled transactions](https://github.com/hashgraph/hedera-services/blob/master/docs/scheduled-transactions/spec.md) is an new feature being added to the main nodes in a future release. Scheduled transactions allows transactions to be submitted without all the necessary signatures and will execute once all the required parties sign. The mirror node has been updated to understand and store these new types of transactions. Additionally, we've updated our existing REST APIs to expose this information. The next release will add additional schedule specific REST APIs.
 
@@ -1120,7 +1120,7 @@ This release saw a slew of enhancements to our new monitoring module. The [monit
 
 A sample percentage property was added to the monitor to control how often the REST API should be verified. We took the time to properly document the monitor tool detailing its configuration and operational steps. Finally, we added a number of new metrics and a Grafana [dashboard](https://github.com/hashgraph/hedera-mirror-node/blob/v0.25.0/docs/monitor.md#dashboard--metrics) to view them.
 
-We made progress towards our goal of replacing PostgreSQL with [TimescaleDB](https://www.timescale.com). This release contains the initial database migrations to setup the mirror node from scratch using TimescaleDB. These migrations are hidden behind a feature flag. In an upcoming release we'll add further functionality including data migration scripts and Helm support.
+We made progress towards our goal of replacing PostgreSQL with [TimescaleDB](https://www.timescale.com/). This release contains the initial database migrations to setup the mirror node from scratch using TimescaleDB. These migrations are hidden behind a feature flag. In an upcoming release we'll add further functionality including data migration scripts and Helm support.
 
 ## [v0.24.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.24.0)
 
@@ -1275,7 +1275,7 @@ The mirror node will now retrieve file address book contents which include node 
 This sets the stage for an additional feature which is the State Proof alpha REST API at `/transactions/${transactionId}/stateproof`.\
 With this release it is possible to request the address book, record file and signature files that contain the contents of a transaction and allow for cryptographic verification of the transaction. Mirror node users can now actively verify submitted transactions for themselves.
 
-Other changes include support for continuous deployment (CD) using [Github Actions](https://github.com/features/actions) that use [FluxCD](https://fluxcd.io) to deploy master versions to a Kubernetes cluster. Additionally, this release includes fixes to the database copy operation optimization and improved handling of buffer size used when copying large topic messages.
+Other changes include support for continuous deployment (CD) using [Github Actions](https://github.com/features/actions) that use [FluxCD](https://fluxcd.io/) to deploy master versions to a Kubernetes cluster. Additionally, this release includes fixes to the database copy operation optimization and improved handling of buffer size used when copying large topic messages.
 
 ## [v0.16.0](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.16.0)
 
@@ -1495,7 +1495,7 @@ This release contains another new REST API for our [consensus service](https://w
 }
 ```
 
-The other big feature of this release is [Kubernetes](https://kubernetes.io) support. We've create a [Helm](https://helm.sh) chart that can be used to deploy a highly available Mirror Node with a single command. This feature is still under heavy development as we work towards converting our current deployments to this new approach.
+The other big feature of this release is [Kubernetes](https://kubernetes.io/) support. We've create a [Helm](https://helm.sh/) chart that can be used to deploy a highly available Mirror Node with a single command. This feature is still under heavy development as we work towards converting our current deployments to this new approach.
 
 ## [v0.8.1](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.8.1)
 

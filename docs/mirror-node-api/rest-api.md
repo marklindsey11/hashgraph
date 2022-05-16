@@ -16,15 +16,15 @@ You can also view the Hedera Mirror Node Swagger UI documentation where you can 
 
 {% hint style="info" %}
 **MAINNET**\
-****[https://mainnet-public.mirrornode.hedera.com](https://mainnet-public.mirrornode.hedera.com)
+****[https://mainnet-public.mirrornode.hedera.com](https://mainnet-public.mirrornode.hedera.com/)
 
 **TESTNET**\
-[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com)
+[https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
 
 **PREVIEWNET**\
 [https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)
 
-You may also check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh) as alternatives.‌
+You may also check out [DragonGlass](https://app.dragonglass.me/hedera/home) and [Kabuto](https://kabuto.sh/) as alternatives.‌
 {% endhint %}
 
 {% hint style="warning" %}

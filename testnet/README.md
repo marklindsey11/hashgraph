@@ -38,7 +38,7 @@ What you should do:
 * Take note of the upcoming reset dates
 * Have the ability to recreate test data for your application to minimize interruptions&#x20;
 * After the reset, you will need to visit the [Hedera Developer Portal](https://portal.hedera.com/register) to get a new testnet account information
-* Subscribe to the [Hedera status page](https://status.hedera.com) to receive reset notifications
+* Subscribe to the [Hedera status page](https://status.hedera.com/) to receive reset notifications
 
 If you have any questions or concerns, please connect with us via [Discord](https://discord.com/invite/EC2GY8ueRk).
 
