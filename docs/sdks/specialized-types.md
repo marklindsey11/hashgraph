@@ -24,11 +24,16 @@ Together these values make up your `AccountId`. When an `AccountId` is specified
 
 ### Methods
 
-| **Methods**                                | **Type** | **Description**                                                                            |
-| ------------------------------------------ | -------- | ------------------------------------------------------------------------------------------ |
-| `AccountId.fromString(<account>)`          | String   | Constructs an `AccountId` from a string formatted as \<shardNum>.\<realmNum>.\<accountNum> |
-| `AccountId.fromSolidityAddress(<address>)` | String   | Constructs an `AccountId` from a solidity address in string format                         |
-| `AccountId.fromBytes(bytes)`               | byte\[]  | Constructs an `AccountId` from bytes                                                       |
+| **Methods**                                | **Type**    | **Description**                                                                            |
+| ------------------------------------------ | ----------- | ------------------------------------------------------------------------------------------ |
+| `AccountId.fromString(<account>)`          | String      | Constructs an `AccountId` from a string formatted as \<shardNum>.\<realmNum>.\<accountNum> |
+| `AccountId.fromSolidityAddress(<address>)` | String      | Constructs an `AccountId` from a solidity address in string format                         |
+| `AccountId.fromBytes(bytes)`               | byte\[]     | Constructs an `AccountId` from bytes                                                       |
+| `AccountId.toSolidityAddress()`            | String      | Constructs a solidity address from `AccountID`                                             |
+| `AccountId.toString()`                     | String      | Constructs an `AccountID` from string                                                      |
+| `AccountId.aliasKey`                       | PublicKey   | The alias key of the `AccountID`                                                           |
+| `AccountId.aliasEvmAddress`                | EVM address | The EVM address of the `AccountID`                                                         |
+| `AccountId.toBytes()`                      | byte\[]     | Constructs an `AccountID` from bytes                                                       |
 
 ### Example
 
