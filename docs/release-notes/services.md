@@ -15,7 +15,7 @@ For the latest versions supported on each network please visit the Hedera status
 {% endhint %}
 
 {% hint style="info" %}
-**TESTNET UPDATE: MAY 19, 2022**
+**TESTNET UPDATE: MAY 24, 2022**
 {% endhint %}
 
 In this alpha release of Hedera Services 0.26, we are excited to deploy previewnet support for [HIP-410 (Wrapping Ethereum Transaction Bytes in a Hedera Transaction)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-410.md). and [HIP-415 (Introduction Of Blocks)](https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-415.md).
@@ -35,7 +35,7 @@ Any permissions granted in a contract through `approve()` or `setApprovalForAll(
 ## [v0.25](https://github.com/hashgraph/hedera-services/releases/tag/v0.25.0)
 
 {% hint style="success" %}
-**MAINNET UPDATE: MAY 13, 2022**
+**MAINNET UPDATE: MAY 19, 2022**
 {% endhint %}
 
 {% hint style="success" %}
