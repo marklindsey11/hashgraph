@@ -1,10 +1,12 @@
 # Create a token
 
 {% hint style="info" %}
-Check out "Getting Started with the Hedera Token Service" video tutorial in JavaScript [here](https://youtu.be/JZDAMScxbpU).
+Check out "Getting Started with the Hedera Token Service" video tutorial in JavaScript [here](https://youtu.be/lp3mwdYEZEk).
 {% endhint %}
 
-Create a new fungible or non-fungible token (NFT) on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt. Smart contracts cannot access or transfer HTS tokens at this time.
+Create a new fungible or non-fungible token (NFT) on the Hedera network. After you submit the transaction to the Hedera network, you can obtain the new token ID by requesting the receipt.&#x20;
+
+You can also create, access, or transfer HTS tokens using smart contracts - see [Hedera Service Solidity Libraries](https://docs.hedera.com/guides/docs/sdks/smart-contracts/hedera-service-solidity-libraries) and [Supported ERC Token Standards](https://docs.hedera.com/guides/core-concepts/smart-contracts/supported-erc-token-standards).
 
 **NFTs**
 
