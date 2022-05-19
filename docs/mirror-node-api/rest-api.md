@@ -144,19 +144,19 @@ _Default value_ : asc
 | `/api/v1/accounts?account.publickey=2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed 15e301049517438d61864` | Returns all account information for 2b60955bcbf0cf5e9ea880b52e5b63f664b08edf6ed15e301049517438d61864 public key |
 | `/api/v1/accounts/2?transactionType=cryptotransfer`                                                    | Returns the crypto transfer transactions for account 2.                                                         |
 
-{% swagger method="get" path="/api/v1/accounts/{accountId}" baseUrl="" summary="account by account ID" %}
+{% swagger method="get" path="/api/v1/accounts/{AccountIdorAccountAlias}" baseUrl="" summary="account by account ID" %}
 {% swagger-description %}
-Return the account transactions and balance information given an account id
+Return the account transactions and balance information given an account ID or the account alias.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="accountId" type="String" required="true" %}
-The ID of the account in 0.0.accountNumber format
+{% swagger-parameter in="path" name="AccountIdorAccountAlias" type="String" required="true" %}
+The ID of the account in 0.0.accountNumber format or 0.0.accountAlias format.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="transactionType" type="String" required="false" %}
+{% swagger-parameter in="query" name="transactiontype" type="String" required="false" %}
 _Available values_
 
-: CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT
+: CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT_Available values_ : CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOAPPROVEALLOWANCE, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETEALLOWANCE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -164,71 +164,53 @@ _Available values_
 {
   "transactions": [
     {
-      "consensus_timestamp": "1234567890.000000007",
-      "transaction_hash": "vigzKe2J7fv4ktHBbNTSzQmKq7Lzdq1/lJMmHT+a2KgvdhAuadlvS4eKeqKjIRmW",
-      "valid_start_timestamp": "1234567890.000000006",
-      "charged_tx_fee": 7,
-      "memo_base64": null,
       "bytes": null,
-      "result": "SUCCESS",
+      "charged_tx_fee": 7,
+      "consensus_timestamp": "1234567890.000000007",
       "entity_id": "0.0.2281979",
-      "name": "CRYPTOTRANSFER",
-      "nft_transfers": [
-        {
-          "receiver_account_id": "0.0.121",
-          "sender_account_id": "0.0.122",
-          "serial_number": 1,
-          "token_id": "0.0.123"
-        },
-        {
-          "receiver_account_id": "0.0.321",
-          "sender_account_id": "0.0.422",
-          "serial_number": 2,
-          "token_id": "0.0.123"
-        }
-      ],
       "max_fee": 33,
-      "valid_duration_seconds": 11,
+      "memo_base64": null,
+      "name": "CRYPTOTRANSFER",
       "node": "0.0.3",
-      "transaction_id": "0.0.8-1234567890-000000006",
+      "nonce": 0,
+      "parent_consensus_timestamp": "1234567890.000000007",
+      "result": "SUCCESS",
       "scheduled": false,
-      "transfers": [
-        {
-          "account": "0.0.3",
-          "amount": 2
-        },
-        {
-          "account": "0.0.8",
-          "amount": -3
-        },
-        {
-          "account": "0.0.98",
-          "amount": 1
-        }
-      ],
+      "transaction_hash": "vigzKe2J7fv4ktHBbNTSzQmKq7Lzdq1/lJMmHT+a2KgvdhAuadlvS4eKeqKjIRmW",
+      "transaction_id": "0.0.8-1234567890-000000006",
       "token_transfers": [
         {
           "token_id": "0.0.90000",
           "account": "0.0.9",
-          "amount": 1200
+          "amount": 1200,
+          "is_approval": false
         },
         {
           "token_id": "0.0.90000",
           "account": "0.0.8",
-          "amount": -1200
+          "amount": -1200,
+          "is_approval": false
         }
       ],
-      "assessed_custom_fees": [
+      "transfers": [
         {
-          "amount": 100,
-          "collector_account_id": "0.0.10",
-          "effective_payer_account_ids": [
-            "0.0.8",
-            "0.0.72"
-          ],
-          "token_id": "0.0.90001"
+          "account": "0.0.3",
+          "amount": 2,
+          "is_approval": false
+        },
+        {
+          "account": "0.0.8",
+          "amount": -3,
+          "is_approval": false
+        },
+        {
+          "account": "0.0.98",
+          "amount": 1,
+          "is_approval": false
         }
-      ]
+      ],
+      "valid_duration_seconds": 11,
+      "valid_start_timestamp": "1234567890.000000006"
     }
   ],
   "balance": {
@@ -242,6 +224,7 @@ _Available values_
     ]
   },
   "account": "0.1.2",
+  "alias": "HIQQEXWKW53RKN4W6XXC4Q232SYNZ3SZANVZZSUME5B5PRGXL663UAQA",
   "expiry_timestamp": "1586567700.453054000",
   "auto_renew_period": "string",
   "key": {
@@ -262,11 +245,11 @@ _Available values_
 
 {% swagger method="get" path="/api/v1/accounts/{accountId}/nfts" baseUrl="" summary="NFTs by account ID" %}
 {% swagger-description %}
-Specify the account ID or account alias you would like to return the NFTs for. Please reference this
+Specify the account ID or account alias you would like to return the NFTs for. Please reference this 
 
 [doc](https://testnet.mirrornode.hedera.com/api/v1/docs/#/accounts/listNftByAccountId)
 
-for additional filtering guidelines.
+ for additional filtering guidelines.
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="token.id" type="String" required="false" %}
@@ -281,10 +264,12 @@ The nft serial number (64 bit type). Requires a tokenId value also be populated.
 The account ID or account alias (0.0.accountNum or 0.0.accountAlias)
 {% endswagger-parameter %}
 
+{% swagger-parameter in="query" name="spender.id" %}
+The account ID of the spender to return information for
+{% endswagger-parameter %}
+
 {% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The maximum number of items to return.
-
-\\
 
 Default: 25
 {% endswagger-parameter %}
@@ -299,12 +284,12 @@ _Default value_ : desc
 _Example_ : asc\\
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="NFTs for account 0.1.2" %}
+{% swagger-response status="200: OK" description="NFTs for account 0.0.5" %}
 ```javascript
 {
   "nfts": [
     {
-      "account_id": "0.1.2",
+      "account_id": "0.0.5",
       "created_timestamp": "1234567890.000000001",
       "deleted": false,
       "metadata": "VGhpcyBpcyBhIHRlc3QgTkZU",
@@ -321,12 +306,12 @@ _Example_ : asc\\
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="/api/v1/accounts/{accountId}/allowances/crypto" baseUrl="" summary="Hbar allowances for an account" %}
+{% swagger method="get" path="/api/v1/accounts/{accountAliasOrAccountId}/allowances/crypto" baseUrl="" summary="Hbar allowances for an account" %}
 {% swagger-description %}
 Returns hbar allowances for an account.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="account.id" required="true" %}
+{% swagger-parameter in="path" name="accountAliasOrAccountId" required="true" %}
 The account ID or account alias to return the hbar allowances for.
 {% endswagger-parameter %}
 
@@ -381,16 +366,16 @@ _Default value_ : desc
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="/api/v1/accounts/{accountId}/allowances/tokens" baseUrl="" summary="Fungible token allowances for an account" %}
+{% swagger method="get" path="/api/v1/accounts/{accountAliasOrAccountId}/allowances/tokens" baseUrl="" summary="Fungible token allowances for an account" %}
 {% swagger-description %}
-Returns information for fungible token allowances for an account. Please refer to
+Returns information for fungible token allowances for an account. Please refer to 
 
 [this](https://testnet.mirrornode.hedera.com/api/v1/docs/#/accounts/listTokenAllowancesByAccountId)
 
-document regarding filtering restrictions.
+ document regarding filtering restrictions.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="account.id" type="String" required="true" %}
+{% swagger-parameter in="path" name="accountAliasOrAccountId" type="String" required="true" %}
 Account ID or account alias to return the fungible token allowances for.
 {% endswagger-parameter %}
 
@@ -548,7 +533,7 @@ Filter transactions by transaction type.
 
 _Available values_
 
-: CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT
+: CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT_Available values_ : CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOAPPROVEALLOWANCE, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETEALLOWANCE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="account.id" type="String" required="false" %}
@@ -566,7 +551,7 @@ If
 
 l the query returns all failed cryptocurrency transactions
 
-\\
+
 
 If the
 
@@ -582,7 +567,7 @@ If
 
 the query returns all transactions that deposited into an account ID
 
-\\
+
 
 If
 
@@ -605,76 +590,58 @@ _Available values_ : asc, desc
 _Default value_ : desc
 {% endswagger-parameter %}
 
-{% swagger-response status="200" description="A request to return information for a transaction that was provided a specific timestamp" %}
+{% swagger-response status="200" description="" %}
 ```
   {
   "transactions": [
     {
-      "consensus_timestamp": "1234567890.000000007",
-      "transaction_hash": "vigzKe2J7fv4ktHBbNTSzQmKq7Lzdq1/lJMmHT+a2KgvdhAuadlvS4eKeqKjIRmW",
-      "valid_start_timestamp": "1234567890.000000006",
-      "charged_tx_fee": 7,
-      "memo_base64": null,
       "bytes": null,
-      "result": "SUCCESS",
+      "charged_tx_fee": 7,
+      "consensus_timestamp": "1234567890.000000007",
       "entity_id": "0.0.2281979",
-      "name": "CRYPTOTRANSFER",
-      "nft_transfers": [
-        {
-          "receiver_account_id": "0.0.121",
-          "sender_account_id": "0.0.122",
-          "serial_number": 1,
-          "token_id": "0.0.123"
-        },
-        {
-          "receiver_account_id": "0.0.321",
-          "sender_account_id": "0.0.422",
-          "serial_number": 2,
-          "token_id": "0.0.123"
-        }
-      ],
       "max_fee": 33,
-      "valid_duration_seconds": 11,
+      "memo_base64": null,
+      "name": "CRYPTOTRANSFER",
       "node": "0.0.3",
-      "transaction_id": "0.0.8-1234567890-000000006",
+      "nonce": 0,
+      "parent_consensus_timestamp": "1234567890.000000007",
+      "result": "SUCCESS",
       "scheduled": false,
-      "transfers": [
-        {
-          "account": "0.0.3",
-          "amount": 2
-        },
-        {
-          "account": "0.0.8",
-          "amount": -3
-        },
-        {
-          "account": "0.0.98",
-          "amount": 1
-        }
-      ],
+      "transaction_hash": "vigzKe2J7fv4ktHBbNTSzQmKq7Lzdq1/lJMmHT+a2KgvdhAuadlvS4eKeqKjIRmW",
+      "transaction_id": "0.0.8-1234567890-000000006",
       "token_transfers": [
         {
           "token_id": "0.0.90000",
           "account": "0.0.9",
-          "amount": 1200
+          "amount": 1200,
+          "is_approval": false
         },
         {
           "token_id": "0.0.90000",
           "account": "0.0.8",
-          "amount": -1200
+          "amount": -1200,
+          "is_approval": false
         }
       ],
-      "assessed_custom_fees": [
+      "transfers": [
         {
-          "amount": 100,
-          "collector_account_id": "0.0.10",
-          "effective_payer_account_ids": [
-            "0.0.8",
-            "0.0.72"
-          ],
-          "token_id": "0.0.90001"
+          "account": "0.0.3",
+          "amount": 2,
+          "is_approval": false
+        },
+        {
+          "account": "0.0.8",
+          "amount": -3,
+          "is_approval": false
+        },
+        {
+          "account": "0.0.98",
+          "amount": 1,
+          "is_approval": false
         }
-      ]
+      ],
+      "valid_duration_seconds": 11,
+      "valid_start_timestamp": "1234567890.000000006"
     }
   ],
   "links": {
@@ -740,9 +707,7 @@ Return the information about a specific transaction by specifying the transactio
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="transactionId" required="true" type="String" %}
-The transaction ID
-
-\\
+The transaction ID.
 
 _Example_
 
@@ -1494,7 +1459,7 @@ The ID of the contract to return information for
 {% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The limit of items to return
 
-\\
+
 
 _Default value_
 
@@ -1512,45 +1477,58 @@ _Default value_ : desc
 {% swagger-response status="200: OK" description="" %}
 ```
 {
-  "admin_key": {
-    "_type": "ProtobufEncoded",
-    "key": "7b2233222c2233222c2233227d"
-  },
-  "auto_renew_period": 7776000,
-  "bytecode": "0xc896c66db6d98784cc03807640f3dfd41ac3a48c",
-  "contract_id": "0.0.10001",
-  "created_timestamp": "1633466229.96874612",
-  "deleted": false,
-  "expiration_timestamp": "1633466229.96874612",
-  "file_id": "0.0.1000",
-  "memo": "First contract",
-  "obtainer_id": "0.0.101",
-  "proxy_account_id": "0.0.100",
-  "solidity_address": "0x00000000000000000000000000000000000003E9",
-  "timestamp": {
-    "from": "1633466229.96874612",
-    "to": "1633466568.31556926"
+  "contracts": [
+    {
+      "admin_key": {
+        "_type": "ProtobufEncoded",
+        "key": "7b2231222c2231222c2231227d"
+      },
+      "auto_renew_account": "0.1.2",
+      "auto_renew_period": null,
+      "contract_id": "0.1.2",
+      "created_timestamp": "1586567700.453054000",
+      "deleted": false,
+      "evm_address": "0000000000000000000000000000000000001f41",
+      "expiration_timestamp": "1586567700.453054000",
+      "file_id": "0.1.2",
+      "max_automatic_token_associations": 0,
+      "memo": "contract memo",
+      "obtainer_id": "0.1.2",
+      "permanent_removal": true,
+      "proxy_account_id": "0.1.2",
+      "timestamp": {
+        "from": "1586567700.453054000",
+        "to": "1586567700.453054000"
+      }
+    }
+  ],
+  "links": {
+    "next": null
   }
 }
 ```
 {% endswagger-response %}
 {% endswagger %}
 
-| Response Item             | Description                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------ |
-| **admin\_key**            | The admin key of the contract, if specified                                                            |
-| **auto\_renew\_period**   | The period at which the contract auto renews                                                           |
-| **bytecode**              | The bytecode of the contract                                                                           |
-| **contract\_id**          | The contract ID                                                                                        |
-| **created\_timestamp**    | The timestamp the contract was created at                                                              |
-| **deleted**               | Whether or not the contract is deleted                                                                 |
-| **expiration\_timestamp** | The timestamp of when the contract is set to expire                                                    |
-| **file\_id**              | The ID of the file that stored the contract bytecode                                                   |
-| **memo**                  | The memo of the contract, if specified                                                                 |
-| **obtainer\_id**          | The ID of the account or contract that will receive any remaining balance when the contract is deleted |
-| **proxy\_account\_id**    | The proxy account ID (disabled)                                                                        |
-| **solidity\_address**     | The solidity address                                                                                   |
-| **timestamp**             | The period for which the attributes are valid for                                                      |
+| Response Item                           | Description                                                                                            |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **admin\_key**                          | The admin key of the contract, if specified                                                            |
+| **auto\_renew\_account**                | The account paying the auto renew fees, if set                                                         |
+| **auto\_renew\_period**                 | The period at which the contract auto renews                                                           |
+| **bytecode**                            | The bytecode of the contract                                                                           |
+| **contract\_id**                        | The contract ID                                                                                        |
+| **created\_timestamp**                  | The timestamp the contract was created at                                                              |
+| **deleted**                             | Whether or not the contract is deleted                                                                 |
+| **evm\_address**                        | The EVM address of the contract                                                                        |
+| **expiration\_timestamp**               | The timestamp of when the contract is set to expire                                                    |
+| **file\_id**                            | The ID of the file that stored the contract bytecode                                                   |
+| **max\_automatic\_token\_associations** | The number of automatic token association slots                                                        |
+| **memo**                                | The memo of the contract, if specified                                                                 |
+| **obtainer\_id**                        | The ID of the account or contract that will receive any remaining balance when the contract is deleted |
+| **permanent\_removal**                  | Set to `true` when the system expires a contract                                                       |
+| **proxy\_account\_id**                  | The proxy account ID (disabled)                                                                        |
+| **solidity\_address**                   | The solidity address                                                                                   |
+| **timestamp**                           | The period for which the attributes are valid for                                                      |
 
 {% swagger method="get" path="/api/v1/contracts/{contractId}" baseUrl="" summary="contract by ID" %}
 {% swagger-description %}
@@ -1694,21 +1672,23 @@ _Example_: 1234567890.0000007
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="/api/v1/contracts/{contractId}/results/logs" baseUrl="" summary="contract logs" %}
+{% swagger method="get" path="/api/v1/contracts/{contractIdOrAddress}/results/logs" baseUrl="" summary="contract logs" %}
 {% swagger-description %}
-Returns a list of all ContractLogs for a single specified contract's function executions. Chained logs are not included but can be found by calling
+Returns a list of all ContractLogs for a single specified contract's function executions. Chained logs are not included but can be found by calling 
 
 `/api/v1/contracts/{contractId}/results/{timestamp}`
 
-or
+ or 
 
 `/api/v1/contracts/results/{transactionId}`
+
+. When searching by topic a timestamp parameter must be supplied and span a time range of at most seven days.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="contractId" type="String" required="true" %}
-The ID of the contract in 0.0.contractNumber format
+{% swagger-parameter in="path" name="contractIdOrAddress" type="String" required="true" %}
+The ID or hex encoded EVM address associated with this contract
 
-\\
+
 
 _Example_
 
@@ -1739,28 +1719,20 @@ The timestamp at which the associated transaction reached consensus
 _Example_: 1234567890.0000007
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="topic0" type="String" required="false" %}
-The topic in topic0 of a ContractLog
-
-_Example_ : 4.027126854939018e+76
+{% swagger-parameter in="query" name="topic0" type="array[string]" required="false" %}
+The first topic associated with a contract log. Requires a timestamp range also be populated.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="topic1" type="String" required="false" %}
-The topic in topic1 of a ContractLog
-
-_Example_ : 4.027126854939018e+76
+{% swagger-parameter in="query" name="topic1" type="array[string]ring" required="false" %}
+The second topic associated with a contract log. Requires a timestamp range also be populated.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="topic2" type="String" required="false" %}
-The topic in topic2 of a ContractLog
-
-_Example_ : 4.027126854939018e+76
+{% swagger-parameter in="query" name="topic2" type="array[string]" required="false" %}
+The third topic associated with a contract log. Requires a timestamp range also be populated.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="topic3" type="String" required="false" %}
-The topic in topic3 of a ContractLog
-
-_Example_ : 4.027126854939018e+76
+{% swagger-parameter in="query" name="topic3" type="array[string]g" required="false" %}
+The third topic associated with a The fourth topic associated with a contract log. Requires a timestamp range also be populated.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -1849,7 +1821,7 @@ _Default value_ : 0
 {% swagger-parameter in="query" name="scheduled" type="boolean" required="false" %}
 Filter transactions by the scheduled flag. If true, return information for the scheduled transaction. If false, return information for the non-scheduled transaction.
 
-\\
+
 
 _Default value_
 
