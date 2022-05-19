@@ -159,7 +159,7 @@ Thread.sleep(30000);
 {% tab title="JavaScript" %}
 ```javascript
 // Send one message
-let submitMessage = await new TopicMessageSubmitTransaction({
+let sendResponse = await new TopicMessageSubmitTransaction({
 	topicId: topicId,
 	message: "Hello, HCS!",
 }).execute(client);
