@@ -16,7 +16,7 @@ You can also view the Hedera Mirror Node Swagger UI documentation where you can 
 
 {% hint style="info" %}
 **MAINNET**\
-****[https://mainnet-public.mirrornode.hedera.com](https://mainnet-public.mirrornode.hedera.com/)
+[https://mainnet-public.mirrornode.hedera.com](https://mainnet-public.mirrornode.hedera.com/)
 
 **TESTNET**\
 [https://testnet.mirrornode.hedera.com](https://testnet.mirrornode.hedera.com/)
@@ -46,45 +46,39 @@ Account IDs can also take the account number as an input value. For example, for
 Returns a list of all account entity items on the network
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="account.id" type="string" %}
+{% swagger-parameter in="query" name="account.id" type="string" required="false" %}
 The ID of the account to return account information for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.balance" type="number" %}
+{% swagger-parameter in="query" name="account.balance" type="number" required="false" %}
 Returns a list of account IDs that have the specified balance
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.publickey" type="string" %}
+{% swagger-parameter in="query" name="account.publickey" type="string" required="false" %}
 Returns the account information for the specified public key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="balance" type="boolean" %}
+{% swagger-parameter in="query" name="balance" type="boolean" required="false" %}
 Whether to include balance information or not
 
-\
-
-
-
+\\
 
 _Default value_
 
 : true
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The limit of items to return
 
-\
-
-
-
+\\
 
 _Default value_
 
 : 25
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
@@ -111,7 +105,6 @@ _Default value_ : asc
    "memo":null,
    "receiver_sig_required":null
 }
-
 ```
 {% endswagger-response %}
 {% endswagger %}
@@ -160,10 +153,10 @@ Return the account transactions and balance information given an account id
 The ID of the account in 0.0.accountNumber format
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="transactionType" type="String" %}
+{% swagger-parameter in="query" name="transactionType" type="String" required="false" %}
 _Available values_
 
- : CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT
+: CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -269,18 +262,18 @@ _Available values_
 
 {% swagger method="get" path="/api/v1/accounts/{accountId}/nfts" baseUrl="" summary="NFTs by account ID" %}
 {% swagger-description %}
-Specify the account ID or account alias you would like to return the NFTs for. Please reference this 
+Specify the account ID or account alias you would like to return the NFTs for. Please reference this
 
 [doc](https://testnet.mirrornode.hedera.com/api/v1/docs/#/accounts/listNftByAccountId)
 
- for additional filtering guidelines. 
+for additional filtering guidelines.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="token.id" type="String" %}
+{% swagger-parameter in="query" name="token.id" type="String" required="false" %}
 The ID of the token to return information for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="serialNumber" type="String" %}
+{% swagger-parameter in="query" name="serialNumber" type="String" required="false" %}
 The nft serial number (64 bit type). Requires a tokenId value also be populated.
 {% endswagger-parameter %}
 
@@ -288,24 +281,22 @@ The nft serial number (64 bit type). Requires a tokenId value also be populated.
 The account ID or account alias (0.0.accountNum or 0.0.accountAlias)
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
-The maximum number of items to return. 
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
+The maximum number of items to return.
 
-\
-
+\\
 
 Default: 25
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
 
 _Default value_ : desc
 
-_Example_ : asc\
-
+_Example_ : asc\\
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="NFTs for account 0.1.2" %}
@@ -339,11 +330,11 @@ Returns hbar allowances for an account.
 The account ID or account alias to return the hbar allowances for.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="spender.id" %}
+{% swagger-parameter in="query" name="spender.id" required="false" %}
 The ID of the spender to return information for.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The maximum number of items to return
 
 _Default value_ : 25
@@ -351,7 +342,7 @@ _Default value_ : 25
 _Example_ : 2
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
@@ -392,26 +383,26 @@ _Default value_ : desc
 
 {% swagger method="get" path="/api/v1/accounts/{accountId}/allowances/tokens" baseUrl="" summary="Fungible token allowances for an account" %}
 {% swagger-description %}
-Returns information for fungible token allowances for an account. Please refer to 
+Returns information for fungible token allowances for an account. Please refer to
 
 [this](https://testnet.mirrornode.hedera.com/api/v1/docs/#/accounts/listTokenAllowancesByAccountId)
 
- document regarding filtering restrictions.
+document regarding filtering restrictions.
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="account.id" type="String" required="true" %}
 Account ID or account alias to return the fungible token allowances for.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="spender.id" type="String" %}
+{% swagger-parameter in="query" name="spender.id" type="String" required="false" %}
 The ID of the spender to return information for.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="token.id" type="String" %}
+{% swagger-parameter in="query" name="token.id" type="String" required="false" %}
 The ID of the token to return information for.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The maximum number of items to return
 
 _Default value_ : 25
@@ -419,7 +410,7 @@ _Default value_ : 25
 _Example_ : 2
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
@@ -463,25 +454,25 @@ The **balance** object represents the balance of accounts on the Hedera network.
 Returns a timestamped list of account balances on the network. Balances for an account are updated every 15 minutes. You can refer to the timestamp for when the balance was last updated for the account. If you need to return the balance of an account more frequently you can do so by using the free account balance query via the SDK.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="account.id" type="String" %}
+{% swagger-parameter in="query" name="account.id" type="String" required="false" %}
 The ID of the account to return the balance for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.balance" type="String" %}
+{% swagger-parameter in="query" name="account.balance" type="String" required="false" %}
 Returns a list of account IDs that have the specified balance (tinybars)
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="timestamp" type="array[string]" %}
+{% swagger-parameter in="query" name="timestamp" type="array[string]" required="false" %}
 The timestamp the user would like to return account balances for. The timestamp can be provided in seconds format (15000000000) or in seconds.nanoseconds (15000000000.010000000).
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.publickey" type="String" %}
+{% swagger-parameter in="query" name="account.publickey" type="String" required="false" %}
 The account's public key to compare against
 
 _Example_ : 3c3d546321ff6f63d701d2ec5c277095874e19f4a235bee1e6bb19258bf362be
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The limit of items to return
 
 _Default value_ : 25
@@ -552,63 +543,61 @@ The **transaction** object represents the transactions processed on the Hedera n
 Lists transactions on the network. This includes successful and unsuccessful transactions.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="transactionType" type="String" %}
-Filter transactions by transaction type. 
+{% swagger-parameter in="query" name="transactionType" type="String" required="false" %}
+Filter transactions by transaction type.
 
 _Available values_
 
- : CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT
+: CONSENSUSCREATETOPIC, CONSENSUSDELETETOPIC, CONSENSUSSUBMITMESSAGE, CONSENSUSUPDATETOPIC, CONTRACTCALL, CONTRACTCREATEINSTANCE, CONTRACTDELETEINSTANCE, CONTRACTUPDATEINSTANCE, CRYPTOADDLIVEHASH, CRYPTOCREATEACCOUNT, CRYPTODELETE, CRYPTODELETELIVEHASH, CRYPTOTRANSFER, CRYPTOUPDATEACCOUNT, FILEAPPEND, FILECREATE, FILEDELETE, FILEUPDATE, FREEZE, SCHEDULECREATE, SCHEDULEDELETE, SCHEDULESIGN, SYSTEMDELETE, SYSTEMUNDELETE, TOKENASSOCIATE, TOKENBURN, TOKENCREATION, TOKENDELETION, TOKENDISSOCIATE, TOKENFEESCHEDULEUPDATE, TOKENFREEZE, TOKENGRANTKYC, TOKENMINT, TOKENPAUSE, TOKENREVOKEKYC, TOKENUNFREEZE, TOKENUNPAUSE, TOKENUPDATE, TOKENWIPE, UNCHECKEDSUBMIT
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.id" type="String" %}
+{% swagger-parameter in="query" name="account.id" type="String" required="false" %}
 The ID of the account the user would like to return transactions for within the transferlist.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="timestamp" type="array[string]" %}
+{% swagger-parameter in="query" name="timestamp" type="array[string]" required="false" %}
 The specific timestamp the user would like to return transactions for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="result" type="" %}
-If 
+{% swagger-parameter in="query" name="result" type="" required="false" %}
+If
 
 `result=fail`
 
 l the query returns all failed cryptocurrency transactions
 
-\
+\\
 
-
-If the 
+If the
 
 `result=success`
 
- the query returns all successful cryptocurrency transactions
+the query returns all successful cryptocurrency transactions
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="type" type="" %}
-If 
+{% swagger-parameter in="query" name="type" type="" required="false" %}
+If
 
 `type=credit`
 
- the query returns all transactions that deposited into an account ID
+the query returns all transactions that deposited into an account ID
 
-\
+\\
 
-
-If 
+If
 
 `type=debit`
 
- the query returns all transactions that withdrew from an account ID
+the query returns all transactions that withdrew from an account ID
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The limit of items to return
 
 _Default value_ : 25
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
@@ -692,7 +681,6 @@ _Default value_ : desc
     "next": null
   }
 }
-
 ```
 {% endswagger-response %}
 {% endswagger %}
@@ -752,23 +740,20 @@ Return the information about a specific transaction by specifying the transactio
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="transactionId" required="true" type="String" %}
-The transaction ID 
+The transaction ID
 
-\
-
-
-
+\\
 
 _Example_
 
- : 0.0.10-1234567890-000000000
+: 0.0.10-1234567890-000000000
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="nonce" type="integer" %}
+{% swagger-parameter in="query" name="nonce" type="integer" required="false" %}
 Filter the query result by the nonce of the transaction. The filter honors the last value. If not specified, all transactions with the specified payer account ID and valid start timestamp match.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="scheduled" type="boolean" %}
+{% swagger-parameter in="query" name="scheduled" type="boolean" required="false" %}
 Filter transactions by the scheduled flag. If true, return information for the scheduled transaction. If false, return information for the non-scheduled transaction. If not present, return information for all transactions matching transactionId.
 {% endswagger-parameter %}
 
@@ -860,11 +845,11 @@ Returns the list of topic messages for the given topic id.
 The ID of the topic in x.y.z or z format
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="sequenceNumber" type="integer" %}
+{% swagger-parameter in="query" name="sequenceNumber" type="integer" required="false" %}
 The sequence number of the message relative to other messages submitted to the same topic
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="consensusTimestamp" type="array[string]" %}
+{% swagger-parameter in="query" name="consensusTimestamp" type="array[string]" required="false" %}
 The consensus timestamp of a message in seconds.nanoseconds
 {% endswagger-parameter %}
 
@@ -955,38 +940,35 @@ The timestamp at which the associated transaction reached consensus
 Returns the list of tokens created in a Hedera network
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="publickey" type="String" %}
+{% swagger-parameter in="query" name="publickey" type="String" required="false" %}
 The public key to return all tokens for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="token.id" type="String" %}
+{% swagger-parameter in="query" name="token.id" type="String" required="false" %}
 The ID of the token to return the query for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.id" type="String" %}
+{% swagger-parameter in="query" name="account.id" type="String" required="false" %}
 The ID of the account to return the tokens for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="type" type="String" %}
+{% swagger-parameter in="query" name="type" type="String" required="false" %}
 The token type to return
 
-\
-
-
-
+\\
 
 _Example_
 
- : List [ "ALL", "FUNGIBLE_COMMON", "NON_FUNGIBLE_UNIQUE" ]
+: List \[ "ALL", "FUNGIBLE\_COMMON", "NON\_FUNGIBLE\_UNIQUE" ]
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The limit of items to return
 
 _Default value_ : 25
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
@@ -1041,19 +1023,19 @@ Returns all the accounts and token balance for the specified token ID.
 The token ID to get the balances for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.publickey" type="String" %}
+{% swagger-parameter in="query" name="account.publickey" type="String" required="false" %}
 The public key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.id" type="String" %}
+{% swagger-parameter in="query" name="account.id" type="String" required="false" %}
 The ID of the account
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.balance" type="String" %}
+{% swagger-parameter in="query" name="account.balance" type="String" required="false" %}
 The balance to query for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="timestamp" type="String" %}
+{% swagger-parameter in="query" name="timestamp" type="String" required="false" %}
 The consensus timestamp to query for
 {% endswagger-parameter %}
 
@@ -1085,12 +1067,12 @@ The consensus timestamp to query for
 
 #### Response Details
 
-| Response Item | Description                                                    |
-| ------------- | -------------------------------------------------------------- |
-| **timestamp** | The timestamp of the recorded  balances in seconds.nanoseconds |
-| **balances**  | The balance of the tokens in those accounts                    |
-| **account**   | The ID of the account that has the token balance               |
-| **balance**   | The balance of the token associated with the account           |
+| Response Item | Description                                                   |
+| ------------- | ------------------------------------------------------------- |
+| **timestamp** | The timestamp of the recorded balances in seconds.nanoseconds |
+| **balances**  | The balance of the tokens in those accounts                   |
+| **account**   | The ID of the account that has the token balance              |
+| **balance**   | The balance of the token associated with the account          |
 
 #### Additional Examples
 
@@ -1110,7 +1092,7 @@ Returns the specified token information.
 The ID of the token to return the information for in x.y.z format.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="timestamp" type="String" %}
+{% swagger-parameter in="query" name="timestamp" type="String" required="false" %}
 The consensus timestamp to query for
 {% endswagger-parameter %}
 
@@ -1184,7 +1166,6 @@ The consensus timestamp to query for
     ]
   }
 }
-
 ```
 {% endswagger-response %}
 {% endswagger %}
@@ -1226,7 +1207,7 @@ Returns the list of non-fungible tokens.
 The ID of token
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.id" type="String" %}
+{% swagger-parameter in="query" name="account.id" type="String" required="false" %}
 The ID of the account to return the tokens for
 {% endswagger-parameter %}
 
@@ -1249,15 +1230,15 @@ The ID of the account to return the tokens for
 
 #### Response Details
 
-| Response Item           | Description                                            |
-| ----------------------- | ------------------------------------------------------ |
-| **account\_id**         | The  account ID of the account associated with the NFT |
-| **created\_timestamp**  | The timestamp of when the NFT was created              |
-| **deleted**             | Whether the token was deleted or not                   |
-| **metadata**            | The meta data of the NFT                               |
-| **modified\_timestamp** | The last time the token properties were modified       |
-| **serial\_number**      | The serial number of the NFT                           |
-| **token\_id**           | The token ID of the NFT                                |
+| Response Item           | Description                                           |
+| ----------------------- | ----------------------------------------------------- |
+| **account\_id**         | The account ID of the account associated with the NFT |
+| **created\_timestamp**  | The timestamp of when the NFT was created             |
+| **deleted**             | Whether the token was deleted or not                  |
+| **metadata**            | The meta data of the NFT                              |
+| **modified\_timestamp** | The last time the token properties were modified      |
+| **serial\_number**      | The serial number of the NFT                          |
+| **token\_id**           | The token ID of the NFT                               |
 
 {% swagger baseUrl="" path="/api/v1/tokens/{tokenId}/nfts/{serialNumber}" method="get" summary="NFT info" %}
 {% swagger-description %}
@@ -1274,7 +1255,6 @@ The serial number of the NFT
 
 {% swagger-response status="200" description="" %}
 ```
-
   "account_id": "0.1.2",
   "created_timestamp": "1234567890.000000001",
   "deleted": false,
@@ -1289,15 +1269,15 @@ The serial number of the NFT
 
 #### Response Details
 
-| Response Item           | Description                                            |
-| ----------------------- | ------------------------------------------------------ |
-| **account\_id**         | The  account ID of the account associated with the NFT |
-| **created\_timestamp**  | The timestamp of when the NFT was created              |
-| **deleted**             | Whether the token was deleted or not                   |
-| **metadata**            | The meta data of the NFT                               |
-| **modified\_timestamp** | The last time the token properties were modified       |
-| **serial\_number**      | The serial number of the NFT                           |
-| **token\_id**           | The token ID of the NFT                                |
+| Response Item           | Description                                           |
+| ----------------------- | ----------------------------------------------------- |
+| **account\_id**         | The account ID of the account associated with the NFT |
+| **created\_timestamp**  | The timestamp of when the NFT was created             |
+| **deleted**             | Whether the token was deleted or not                  |
+| **metadata**            | The meta data of the NFT                              |
+| **modified\_timestamp** | The last time the token properties were modified      |
+| **serial\_number**      | The serial number of the NFT                          |
+| **token\_id**           | The token ID of the NFT                               |
 
 {% swagger baseUrl="" path="/api​/v1​/tokens​/{tokenId}​/nfts​/{serialNumber}​/transactions" method="get" summary="NFT transaction history" %}
 {% swagger-description %}
@@ -1344,7 +1324,7 @@ The NFT serial number
 This query returns the number of hbars that are released along with the timestamp and total supply.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="timestamp" type="array[string]" %}
+{% swagger-parameter in="query" name="timestamp" type="array[string]" required="false" %}
 The timestamp to return the information for
 {% endswagger-parameter %}
 
@@ -1359,8 +1339,6 @@ The timestamp to return the information for
 {% endswagger-response %}
 {% endswagger %}
 
-
-
 ## Schedule Transactions
 
 {% swagger baseUrl="" path="/api/v1/schedules" method="get" summary="schedule list" %}
@@ -1368,19 +1346,19 @@ The timestamp to return the information for
 Returns a list of all scheduled transactions for a network.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="schedule.id" type="String" %}
+{% swagger-parameter in="query" name="schedule.id" type="String" required="false" %}
 
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="account.id" type="String" %}
+{% swagger-parameter in="query" name="account.id" type="String" required="false" %}
 All schedule transactions matching the creator account
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="executed" type="boolean" %}
+{% swagger-parameter in="query" name="executed" type="boolean" required="false" %}
 If equal to true, returns all schedule transactions that were executed
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 Limits results to the first N schedule transactions
 {% endswagger-parameter %}
 
@@ -1509,24 +1487,21 @@ The ID of the schedule to return the information for.
 Returns a list of all contract entity items on the network.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="contractId" type="String" %}
+{% swagger-parameter in="query" name="contractId" type="String" required="false" %}
 The ID of the contract to return information for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The limit of items to return
 
-\
-
-
-
+\\
 
 _Default value_
 
- : 25
+: 25
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
@@ -1586,7 +1561,7 @@ Return the contract information given an id
 The ID of the contract in 0.0.contractNumber format
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="timestamp" type="array[string]" %}
+{% swagger-parameter in="query" name="timestamp" type="array[string]" required="false" %}
 The timestamp to query the results with
 {% endswagger-parameter %}
 
@@ -1626,11 +1601,11 @@ Returns a list of all ContractResults for a contract's function executions.
 The ID of the contract in 0.0.contractNumber format
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="timestamp" type="array[string]" %}
+{% swagger-parameter in="query" name="timestamp" type="array[string]" required="false" %}
 The timestamp to query the results for
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
@@ -1638,7 +1613,7 @@ _Available values_ : asc, desc
 _Default value_ : asc
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" %}
+{% swagger-parameter in="query" name="limit" required="false" %}
 The limit of items to return
 
 _Default value_ : 25
@@ -1680,14 +1655,11 @@ Returns a single ContractResult for a contract's function executions at a specif
 {% swagger-parameter in="path" name="contractId" type="String" required="true" %}
 The ID of the contract in 0.0.contractNumber format
 
-\
-
-
-
+\\
 
 _Example_
 
- : 0.0.10
+: 0.0.10
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="timestamp" type="String" required="true" %}
@@ -1724,11 +1696,11 @@ _Example_: 1234567890.0000007
 
 {% swagger method="get" path="/api/v1/contracts/{contractId}/results/logs" baseUrl="" summary="contract logs" %}
 {% swagger-description %}
-Returns a list of all ContractLogs for a single specified contract's function executions. Chained logs are not included but can be found by calling 
+Returns a list of all ContractLogs for a single specified contract's function executions. Chained logs are not included but can be found by calling
 
 `/api/v1/contracts/{contractId}/results/{timestamp}`
 
- or 
+or
 
 `/api/v1/contracts/results/{transactionId}`
 {% endswagger-description %}
@@ -1736,27 +1708,24 @@ Returns a list of all ContractLogs for a single specified contract's function ex
 {% swagger-parameter in="path" name="contractId" type="String" required="true" %}
 The ID of the contract in 0.0.contractNumber format
 
-\
-
-
-
+\\
 
 _Example_
 
- : 0.0.10
+: 0.0.10
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="index" type="integer" %}
+{% swagger-parameter in="query" name="index" type="integer" required="false" %}
 Contract log index
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The limit of items to return
 
 _Default value_ : 25
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
@@ -1764,31 +1733,31 @@ _Available values_ : asc, desc
 _Default value_ : asc
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="timestamp" type="array[string]" %}
+{% swagger-parameter in="query" name="timestamp" type="array[string]" required="false" %}
 The timestamp at which the associated transaction reached consensus
 
 _Example_: 1234567890.0000007
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="topic0" type="String" %}
+{% swagger-parameter in="query" name="topic0" type="String" required="false" %}
 The topic in topic0 of a ContractLog
 
 _Example_ : 4.027126854939018e+76
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="topic1" type="String" %}
+{% swagger-parameter in="query" name="topic1" type="String" required="false" %}
 The topic in topic1 of a ContractLog
 
 _Example_ : 4.027126854939018e+76
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="topic2" type="String" %}
+{% swagger-parameter in="query" name="topic2" type="String" required="false" %}
 The topic in topic2 of a ContractLog
 
 _Example_ : 4.027126854939018e+76
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="topic3" type="String" %}
+{% swagger-parameter in="query" name="topic3" type="String" required="false" %}
 The topic in topic3 of a ContractLog
 
 _Example_ : 4.027126854939018e+76
@@ -1825,7 +1794,7 @@ Returns a single ContractResult for a contract's function executions for a given
 The transaction ID
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="nonce" type="integer" %}
+{% swagger-parameter in="query" name="nonce" type="integer" required="false" %}
 Filter the query result by the nonce of the transaction. The filter honors the last value. Default is 0 when not specified.
 
 _Default value_ : 0
@@ -1871,23 +1840,20 @@ Returns the contents of the address book file, signature files, and record file 
 The ID of the transaction to return the state proof in shard.realm.num-sss-nnn format where sss is in seconds and nnn is in nanoseconds of the transaction valid start time.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="nonce" type="integer" %}
+{% swagger-parameter in="query" name="nonce" type="integer" required="false" %}
 Filter the query result by the nonce of the transaction. The filter honors the last value. Default is 0 when not specified.
 
 _Default value_ : 0
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="scheduled" type="boolean" %}
+{% swagger-parameter in="query" name="scheduled" type="boolean" required="false" %}
 Filter transactions by the scheduled flag. If true, return information for the scheduled transaction. If false, return information for the non-scheduled transaction.
 
-\
-
-
-
+\\
 
 _Default value_
 
- : false
+: false
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -1926,21 +1892,21 @@ Save the response to a json file and use the [check-state-proof](https://github.
 Returns the network's list of nodes used in consensus.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="file.id" %}
+{% swagger-parameter in="query" name="file.id" required="false" %}
 0.0.101 or 0.0.102 address book files
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="node.id" %}
+{% swagger-parameter in="query" name="node.id" required="false" %}
 The node account ID (ex. 0.0.10)
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
+{% swagger-parameter in="query" name="limit" type="integer" required="false" %}
 The maximum number of items to return
 
 _Default value_ : 25
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="order" %}
+{% swagger-parameter in="query" name="order" required="false" %}
 The order in which items are listed
 
 _Available values_ : asc, desc
