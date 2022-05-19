@@ -1452,7 +1452,7 @@ The ID of the schedule to return the information for.
 Returns a list of all contract entity items on the network.
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="contractId" type="String" required="false" %}
+{% swagger-parameter in="query" name="contract.id" type="String" required="false" %}
 The ID of the contract to return information for
 {% endswagger-parameter %}
 
