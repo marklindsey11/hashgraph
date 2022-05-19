@@ -67,24 +67,25 @@ hedera.NewTransactionReceiptQuery().
 
 {% tabs %}
 {% tab title="V2" %}
-| **Method**                                                 | **Type**           | **Description**                                                                      |
-| ---------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------ |
-| `<TransactionResponse>.getReceipt(<client>)`               | TransactionReceipt | Returns the receipt of a transaction                                                 |
-| `<TransactionResponse>.getReceipt(<client, timeout>)`      | Client, Duration   | Request the receipt from the network for this duration                               |
-| `<TransactionResponse>.getReceiptAsync(<client, timeout>)` | Client, Duration   | Request receipt asynchronously for the provided duration                             |
-| `<TransactionReceipt>.status`                              | Status             | Whether the transaction reached consensus or not                                     |
-| `<TransactionReceipt>.accountId`                           | AccountId          | The newly generated account ID                                                       |
-| `<TransactionReceipt>.topicId`                             | TopicId            | The newly generated topic ID                                                         |
-| `<TransactionReceipt>).fileId`                             | FileId             | The newly generated file ID                                                          |
-| `<TransactionReceipt>).contractId`                         | ContractId         | The newly generated contract ID                                                      |
-| `<TransactionReceipt>).tokenId`                            | TokenId            | The newly generated token ID                                                         |
-| `<TransactionReceipt>).scheduleId`                         | ScheduleId         | The newly generated schedule ID                                                      |
-| `<TransactionReceipt>).scheduledTransactionId`             | TransactionId      | The generated scheduled transaction ID                                               |
-| `<TransactionReceipt>).exchangeRate`                       | ExchangeRate       | The exchange rate in hbar, cents, and expiration time                                |
-| `<TransactionReceipt>.topicRunningHash`                    | ByteString         | The topic running hash                                                               |
-| `<TransactionReceipt>.topicSequenceNumber`                 | long               | The topic sequence number                                                            |
-| `<TransactionReceipt>.totalSupply`                         | long               | The total supply of a token                                                          |
-| `<TransactionReceipt>.serials`                             | List\<long>        | The list of newly created serial numbers upon execution of a token mint transaction. |
+| **Method**                                                 | **Type**                | **Description**                                                                                                                                                                                 |
+| ---------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<TransactionResponse>.getReceipt(<client>)`               | TransactionReceipt      | Returns the receipt of a transaction                                                                                                                                                            |
+| `<TransactionResponse>.getReceipt(<client, timeout>)`      | Client, Duration        | Request the receipt from the network for this duration                                                                                                                                          |
+| `<TransactionResponse>.getReceiptQuery()`                  | TransactionReceiptQuery | Returns the TransactionReceiptQuery response for a transaction. This will not error on bad status like `RECEIPT_NOT_FOUND` and will return information about a failed transaction if necessary. |
+| `<TransactionResponse>.getReceiptAsync(<client, timeout>)` | Client, Duration        | Request receipt asynchronously for the provided duration                                                                                                                                        |
+| `<TransactionReceipt>.status`                              | Status                  | Whether the transaction reached consensus or not                                                                                                                                                |
+| `<TransactionReceipt>.accountId`                           | AccountId               | The newly generated account ID                                                                                                                                                                  |
+| `<TransactionReceipt>.topicId`                             | TopicId                 | The newly generated topic ID                                                                                                                                                                    |
+| `<TransactionReceipt>).fileId`                             | FileId                  | The newly generated file ID                                                                                                                                                                     |
+| `<TransactionReceipt>).contractId`                         | ContractId              | The newly generated contract ID                                                                                                                                                                 |
+| `<TransactionReceipt>).tokenId`                            | TokenId                 | The newly generated token ID                                                                                                                                                                    |
+| `<TransactionReceipt>).scheduleId`                         | ScheduleId              | The newly generated schedule ID                                                                                                                                                                 |
+| `<TransactionReceipt>).scheduledTransactionId`             | TransactionId           | The generated scheduled transaction ID                                                                                                                                                          |
+| `<TransactionReceipt>).exchangeRate`                       | ExchangeRate            | The exchange rate in hbar, cents, and expiration time                                                                                                                                           |
+| `<TransactionReceipt>.topicRunningHash`                    | ByteString              | The topic running hash                                                                                                                                                                          |
+| `<TransactionReceipt>.topicSequenceNumber`                 | long                    | The topic sequence number                                                                                                                                                                       |
+| `<TransactionReceipt>.totalSupply`                         | long                    | The total supply of a token                                                                                                                                                                     |
+| `<TransactionReceipt>.serials`                             | List\<long>             | The list of newly created serial numbers upon execution of a token mint transaction.                                                                                                            |
 
 {% code title="Java" %}
 ```java
