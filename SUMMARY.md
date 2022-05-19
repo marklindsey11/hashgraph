@@ -149,6 +149,7 @@
     * [Update a smart contract](docs/sdks/smart-contracts/update-a-smart-contract.md)
     * [Delete a smart contract](docs/sdks/smart-contracts/delete-a-smart-contract.md)
     * [Call a smart contract function](docs/sdks/smart-contracts/call-a-smart-contract-function.md)
+    * [Ethereum Transaction](docs/sdks/smart-contracts/ethereum-transaction.md)
     * [Get a smart contract function](docs/sdks/smart-contracts/call-a-smart-contract-function-1.md)
     * [Get smart contract bytecode](docs/sdks/smart-contracts/get-smart-contract-bytecode.md)
     * [Get smart contract info](docs/sdks/smart-contracts/get-smart-contract-info.md)
