@@ -9,12 +9,12 @@ In this example, you will learn how to create a Solidity contract that interacts
 The example does not cover the environment set-up or creating certain variables that may be seen in the code blocks. The full coding example can be found at the end of the page.
 
 {% hint style="warning" %}
-Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.&#x20;
+Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.
 {% endhint %}
 
 ## 1. Create Your "HTS" Smart Contract
 
-In this example, you will associate a token to an account and transfer tokens to the associated account by interacting with the HTS contract deployed to Hedera. The "HTS" contract has three functions that allow you to associate, transfer, and dissociate tokens from a Hedera account.&#x20;
+In this example, you will associate a token to an account and transfer tokens to the associated account by interacting with the HTS contract deployed to Hedera. The "HTS" contract has three functions that allow you to associate, transfer, and dissociate tokens from a Hedera account.
 
 * <mark style="color:purple;">`tokenAssociate`</mark>
 * <mark style="color:purple;">`tokenTransfer`</mark>
@@ -26,7 +26,7 @@ To write a contract using HTS, you will need to add the HTS Solidity support lib
 
 * [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaTokenService.sol)
 * [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaResponseCodes.sol)
-* [IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
+* [IHederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
 
 {% tabs %}
 {% tab title="HTS.sol" %}
@@ -49,7 +49,7 @@ contract HTS is HederaTokenService {
     }
 
     function tokenTransfer(address tokenId, address fromAccountId , address toAccountId , int64 tokenAmount) external {
-        int response = HederaTokenService.transferToken(tokenId, toAccountId, fromAccountId, tokenAmount);
+        int response = HederaTokenService.transferToken(tokenId, fromAccountId, toAccountId, tokenAmount);
 
         if (response != HederaResponseCodes.SUCCESS) {
             revert ("Transfer Failed");
@@ -322,8 +322,7 @@ fmt.Printf("The contract bytecode file ID: %v\n", byteCodeFileID)
 Create the contract and set the file ID to the file that contains the hex-encoded bytecode from the previous step. You will need to set the gas high enough to deploy the contract. The gas should be estimated to be within 25% of the actual gas cost to avoid paying extra gas. You can read more about gas and fees [here](../../core-concepts/smart-contracts/gas-and-fees.md).
 
 {% hint style="warning" %}
-You will need to set the gas value high enough to deploy the contract. If you don't have enough gas you will receive an <mark style="color:purple;">`INSUFFICIENT_GAS`</mark> response. If you set the value too high you will be refunded a maximum of 20% of the amount that was set for the transaction.\
-
+You will need to set the gas value high enough to deploy the contract. If you don't have enough gas you will receive an <mark style="color:purple;">`INSUFFICIENT_GAS`</mark> response. If you set the value too high you will be refunded a maximum of 20% of the amount that was set for the transaction.\\
 {% endhint %}
 
 {% tabs %}
@@ -398,12 +397,11 @@ contractId := *contractReceipt.ContractID
 
 //Log the contract ID
 fmt.Printf("The contract ID %v\n", contractId)
-
 ```
 {% endtab %}
 {% endtabs %}
 
-## 4. Call the <mark style="color:purple;"></mark> <mark style="color:purple;"></mark><mark style="color:purple;">`tokenAssociate`</mark> <mark style="color:purple;"></mark><mark style="color:purple;"></mark> Contract Function
+## 4. Call the <mark style="color:purple;">`tokenAssociate`</mark> Contract Function
 
 The <mark style="color:purple;">`tokenAssociate`</mark> function in the contract will associate a token that was created using the native Hedera Token Service. You can create a new token using HTS or using an existing token in this example. Use the <mark style="color:purple;">`ContractExecuteTransaction()`</mark> API to call the contract's <mark style="color:purple;">`tokenAssociate`</mark> function. You will pass the token ID and account ID in Solidity <mark style="color:purple;">`address`</mark> format to the contract function. The contract function parameters need to be provided in the order expected by the function to successfully execute.
 
@@ -427,7 +425,6 @@ ContractExecuteTransaction associateToken = new ContractExecuteTransaction()
 TransactionResponse associateTokenResponse = associateToken.freezeWith(client).sign(privateKeyTest).execute(client);
 
 System.out.println("The transaction status: " +associateTokenResponse.getReceipt(client).status);
-
 ```
 {% endtab %}
 
@@ -554,7 +551,6 @@ const accountBalance = new AccountBalanceQuery()
     .execute(client);
 
 console.log("The " + tokenId + " should now be associated to my account: " + (await accountBalance).tokens.toString());
-
 ```
 {% endtab %}
 
@@ -593,7 +589,7 @@ fmt.Printf("The account token balance %v\n", accountBalance.Tokens)
 
 ## 6. Call the <mark style="color:purple;">`tokenTransfer`</mark> Contract Function
 
-Transfer 100 units of the token to the account that was associated with the token. You will use the <mark style="color:purple;">`ContractExecuteTransaction()`</mark> API and set the contract function to `tokenTransfer`. The contract function parameters must be provided in the order of the function expects to receive them.&#x20;
+Transfer 100 units of the token to the account that was associated with the token. You will use the <mark style="color:purple;">`ContractExecuteTransaction()`</mark> API and set the contract function to `tokenTransfer`. The contract function parameters must be provided in the order of the function expects to receive them.
 
 The transaction must be signed by the account that is sending the tokens. In this case, it is the treasury account.
 
@@ -915,7 +911,6 @@ public class HTS {
         System.out.println("My new account balance is " +newAccountBalance.tokens);
     }
 }
-
 ```
 {% endtab %}
 
@@ -1379,13 +1374,5 @@ func main() {
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-
-
-
 
 ####
