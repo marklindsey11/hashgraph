@@ -15,6 +15,7 @@ description: Examples of different use cases and projects built on Hedera.
 | Proof-of-action microservice                                                     | [GitHub](https://github.com/hashgraph/hedera-proof-of-action-microservice)                                               | Hedera    |
 | Trusted Business Networks                                                        | [GitHub](https://github.com/hashgraph/hedera-hcs-sxc-java/tree/master/hcs-sxc-java-examples/hcs-sxc-java-queue-consumer) | Hedera    |
 | [Hedera Transaction Tool](https://docs.hedera.com/hedera-transaction-tool-demo/) | [GitHub](https://github.com/hashgraph/hedera-transaction-tool-demo)                                                      | Hedera    |
+| Hedera JSON-RPC Relay                                                            | [GitHub](https://github.com/hashgraph/hedera-json-rpc-relay)                                                             | Hedera    |
 | Others                                                                           | Coming soon!                                                                                                             | Community |
 {% endtab %}
 
