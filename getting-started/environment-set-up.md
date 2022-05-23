@@ -28,7 +28,7 @@ Open your favorite IDE and create a new gradle project. Add the following depend
 ```
 dependencies {
 
-    implementation 'com.hedera.hashgraph:sdk:2.5.0'
+    implementation 'com.hedera.hashgraph:sdk:2.14.0'
     implementation 'io.grpc:grpc-netty-shaded:1.40.0'
     compile 'io.github.cdimascio:java-dotenv:5.2.1' // Module that stores your environment variables from a .env file
     implementation 'org.slf4j:slf4j-nop:1.7.29'
@@ -91,7 +91,7 @@ client.setOperator(myAccountId, myPrivateKey);
 ```
 
 {% hint style="info" %}
-The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar) and default **max query payment** of 100,000,000 tinybars (1 hbar). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries. You are only charged the actual cost of the transaction or query.&#x20;
+The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar) and default **max query payment** of 100,000,000 tinybars (1 hbar). If you need to change these values, you can use`.setDefaultMaxTransactionFee()` for a transaction and `.setDefaultMaxQueryPayment()` for queries. You are only charged the actual cost of the transaction or query.&#x20;
 {% endhint %}
 
 Your project environment is now set up to successfully submit transactions and queries to the Hedera test network!&#x20;
@@ -238,7 +238,7 @@ client.setOperator(myAccountId, myPrivateKey);
 {% endcode %}
 
 {% hint style="info" %}
-The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar) and default **max query payment** of 100,000,000 tinybars (1 hbar). If you need to change these values, you can use`.setMaxTransactionFee()` for a transaction and `.setMaxQueryPayment()` for queries.
+The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar) and default **max query payment** of 100,000,000 tinybars (1 hbar). If you need to change these values, you can use`.setMaxDefaultTransactionFee()` for a transaction and `.setDefaultMaxQueryPayment()` for queries.
 {% endhint %}
 
 
@@ -378,7 +378,7 @@ client.SetOperator(myAccountId, myPrivateKey)
 ```
 
 {% hint style="info" %}
-The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar) and default **max query payment** of 100,000,000 tinybars (1 hbar). If you need to change these values, you can use`.setMaxTransactionFee()` for transactions and `.setMaxQueryPayment()` for queries. You are only charged the actual cost of the transaction or query.
+The client has a default **max transaction fee** of 100,000,000 tinybars (1 hbar) and default **max query payment** of 100,000,000 tinybars (1 hbar). If you need to change these values, you can use`.setDefaultMaxTransactionFee()` for transactions and `.setDefaultMaxQueryPayment()` for queries. You are only charged the actual cost of the transaction or query.
 {% endhint %}
 
 Your project environment is now set up to successfully submit transactions/queries to the Hedera test network!
