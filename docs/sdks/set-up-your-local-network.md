@@ -15,7 +15,7 @@ Set-up your local network by following the instructions found in the [readme](ht
 
 Once you have your local network up and running, you will need to configure your Hedera client to point to your local network in your project of choice. Your project should have your language specific Hedera SDK as a dependency and imported into your project. You may reference the [environment set-up](../../getting-started/environment-set-up.md) instructions if you don't know how.
 
-Your local network IP address and port will be <mark style="color:purple;">`127.0.0.1:50211`</mark> and your local mirror node IP and port will be <mark style="color:purple;">`127.0.0.1:5600`</mark>. The consensus node account ID is <mark style="color:purple;">`0.0.3`</mark>. This is the node account ID that will receive your transaction and query requests. You can optionally set these variables in a `.env` or a config file. These values will be hard-coded in the example for demonstration purposes.
+Your local network IP address and port will be <mark style="color:purple;">`127.0.0.1:50211`</mark> and your local mirror node IP and port will be <mark style="color:purple;">`127.0.0.1:5600`</mark>. The consensus node account ID is <mark style="color:purple;">`0.0.3`</mark>. This is the node account ID that will receive your transaction and query requests. It is recommended to store these variables in an environment or config file. These values will be hard-coded in the example for demonstration purposes.
 
 Configure your local network by using <mark style="color:purple;">`Client.forNetwork()`</mark>. This allows you to set a custom consensus network by providing the IP address and port. <mark style="color:purple;">`Client.setMirrorNetwork()`</mark> allows you to set a custom mirror node network by providing the IP address and port.
 
@@ -29,6 +29,7 @@ Client client = Client.forNetwork(Collections.singletonMap("127.0.0.1:50211", Ac
 
 {% tab title="JavaScript" %}
 ```javascript
+//Create your local client
 const node = {"127.0.0.1:50211": new AccountId(3)};
 const client = Client.forNetwork(node).setMirrorNetwork("127.0.0.1:5600");
 ```
@@ -36,6 +37,7 @@ const client = Client.forNetwork(node).setMirrorNetwork("127.0.0.1:5600");
 
 {% tab title="Go" %}
 ```go
+//Create your local client
 node := make(map[string]hedera.AccountID, 1)
 node["127.0.0.1:50211"] = hedera.AccountID{Account: 3}
 
@@ -88,7 +90,7 @@ Submit a transaction that will create a new account in your local network. The c
 {% tabs %}
 {% tab title="Java" %}
 ```java
-//Submit a transaction
+//Submit a transaction to your local node
 TransactionResponse newAccount = new AccountCreateTransaction()
         .setKey(PrivateKey.fromString("302e020100300506032b65700422042091132178e72057a1d7528025956fe39b0b847f200ab59b2fdd367017f3087137"))
         .setInitialBalance(new Hbar(1))
@@ -105,6 +107,7 @@ System.out.println(newAccountId);
 
 {% tab title="JavaScript" %}
 ```javascript
+//Submit a transaction to your local node
 const newAccount = await new AccountCreateTransaction()
         .setKey(PrivateKey.fromString("302e020100300506032b65700422042091132178e72057a1d7528025956fe39b0b847f200ab59b2fdd367017f3087137"))
         .setInitialBalance(new Hbar(1))
@@ -121,7 +124,7 @@ console.log(newAccountId);
 
 {% tab title="Go" %}
 ```go
-//Submit a transaction
+//Submit a transaction to your local node
 newAccount, err := hedera.NewAccountCreateTransaction().
 	SetKey(privateKey).
 	SetInitialBalance(hedera.HbarFromTinybar(1000)).
