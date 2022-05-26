@@ -13,7 +13,7 @@ Set-up your local network by following the instructions found in the [readme](ht
 
 ### 2. Configure your network
 
-Once you have your local network up and running, you will need to configure your Hedera client to point to your local network in your project of choice. Your project should have your language specific Hedera SDK as dependency and imported into your project. You may reference the [environment set-up](../../getting-started/environment-set-up.md) instructions if you don't know how.
+Once you have your local network up and running, you will need to configure your Hedera client to point to your local network in your project of choice. Your project should have your language specific Hedera SDK as a dependency and imported into your project. You may reference the [environment set-up](../../getting-started/environment-set-up.md) instructions if you don't know how.
 
 Your local network IP address and port will be <mark style="color:purple;">`127.0.0.1:50211`</mark> and your local mirror node IP and port will be <mark style="color:purple;">`127.0.0.1:5600`</mark>. The consensus node account ID is <mark style="color:purple;">`0.0.3`</mark>. This is the node account ID that will receive your transaction and query requests. You can optionally set these variables in a `.env` or a config file. These values will be hard-coded in the example for demonstration purposes.
 
@@ -49,7 +49,7 @@ client.SetMirrorNetwork(mirrorNode)
 
 ### 3. Set your local node transaction fee paying account
 
-You will need and account ID and key to pay for the [fees](../../mainnet/fees/) associated with each transaction and query that is submitted to your local network. You will use the account ID and key provided by the local node on startup to set-up your operator account ID and key.
+You will need and account ID and key to pay for the [fees](../../mainnet/fees/) associated with each transaction and query that is submitted to your local network. You will use the account ID and key provided by the local node on startup to set-up your operator account ID and key. The operator is the default account that pays for transaction and query fees.
 
 | **Account ID**  | `0.0.2`                                                                                            |
 | --------------- | -------------------------------------------------------------------------------------------------- |
@@ -81,11 +81,9 @@ client.SetOperator(accountId, privateKey)
 {% endtab %}
 {% endtabs %}
 
-
-
 ### 4. Submit your transaction
 
-Submit a transaction that will create a new account that will exist in your local network. The console should print out the new account ID. In this example, we are using the same key as the transaction fee paying account as the key for the new account. You can also create a [new key](keys/generate-a-new-key-pair.md) if you wish.&#x20;
+Submit a transaction that will create a new account in your local network. The console should print out the new account ID. In this example, we are using the same key as the transaction fee paying account as the key for the new account. You can also create a [new key](keys/generate-a-new-key-pair.md) if you wish.&#x20;
 
 {% tabs %}
 {% tab title="Java" %}
@@ -146,13 +144,17 @@ fmt.Print(newAccountId)
 
 ### 5. View your transaction
 
-You can view the executed transaction by querying the local mirror node.&#x20;
+You can view the executed transaction by querying your local mirror node.&#x20;
 
 The local mirror node endpoint URL is `http://localhost:5551/`.&#x20;
 
-You can view the transactions you have submitted to your local node by submitting this request: [http://localhost:5551/api/v1/transactions](http://localhost:5551/api/v1/transactions).&#x20;
+You can view the transactions that were submitted to your local node by submitting this request:&#x20;
 
-You can view the list of supported mirror node REST APIs [here](../mirror-node-api/rest-api.md). You have now set-up your local node to continue developing. Check out the following links for more examples.
+```http
+http://localhost:5551/api/v1/transactions
+```
+
+The list of supported mirror node REST APIs can be found [here](../mirror-node-api/rest-api.md). You have now set-up your local environment. Check out the following links for more examples.
 
 {% content-ref url="../../getting-started/try-examples/" %}
 [try-examples](../../getting-started/try-examples/)
