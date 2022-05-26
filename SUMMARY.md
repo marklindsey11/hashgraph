@@ -62,6 +62,7 @@
   * [Hedera Mirror Node](docs/release-notes/mirror-node.md)
 * [SDKs](docs/sdks/README.md)
   * [Build your Hedera client](docs/sdks/client.md)
+  * [Set-up Your Local Network](docs/sdks/set-up-your-local-network.md)
   * [Network address book](docs/sdks/address-book.md)
   * [Keys](docs/sdks/keys/README.md)
     * [Generate a new key pair](docs/sdks/keys/generate-a-new-key-pair.md)
