@@ -266,7 +266,8 @@ public class CreateTopicTutorial {
 
 {% tab title="JavaScript" %}
 ```javascript
-/console.clear();
+
+console.clear();
 require("dotenv").config();
 const {
     AccountId,
