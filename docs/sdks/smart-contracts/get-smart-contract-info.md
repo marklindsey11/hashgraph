@@ -18,6 +18,7 @@ A query that returns the current state of a smart contract instance, including i
 | **Deleted**             | Whether the contract has been deleted.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **Ledger ID**           | The ID of the network the response came from. See [HIP-198](https://hips.hedera.com/hip/hip-198).                                                                                                                                                                                                                                                                                                                                                               |
 | **TokenRelationships**  | The tokens associated to the contract.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **Staking Info**        | <p>The staking metadata for this contract. This includes the staking period start, the pending reward, the account ID or the node ID, whether or not rewards were declined, and how many hbars are staked to this contract account, if any. <a href="https://hips.hedera.com/hip/hip-406">See HIP-406</a>.<br>Live on: <code>previewnet/testnet</code></p>                                                                                                      |
 
 **Query Signing Requirements**
 
@@ -61,7 +62,7 @@ System.out.print(info);
 ```javascript
 //Create the query
 const query = new ContractInfoQuery()
-    .setContractId(contactId);
+    .setContractId(contractId);
 
 //Sign the query with the client operator private key and submit to a Hedera network
 const info = await query.execute(client);
