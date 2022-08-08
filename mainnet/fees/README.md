@@ -121,6 +121,7 @@ All fees are subject to change. The fees below reflect a base price for the tran
 | Operations            | USD ($) |
 | --------------------- | ------- |
 | EthereumTransaction   | $0.0001 |
+| PrngTransaction       | $0.001  |
 | GetVersion            | $0.001  |
 | GetByKey              | $0.0001 |
 | TransactionGetReceipt | $0.0000 |
