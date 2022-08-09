@@ -30,6 +30,20 @@ This release also includes some bug fixes and smaller improvements; most notably
 
 ## [v0.27](https://github.com/hashgraph/hedera-services/releases)
 
+### v0.27.7
+
+{% hint style="info" %}
+**MAINNET UPDATE: AUGUST 9, 2022**
+{% endhint %}
+
+Any ledger that will grow to billions of entities must have an efficient way to remove expired entities. In the Hedera network, this means keeping a list of NFTs owned by an account, so that when an account expires, we can return its NFTs to their respective treasury accounts.
+
+Under certain conditions in the 0.27.5 release, a bug in the logic maintaining these lists could cause NFT transfers to fail, without refunding fees.
+
+We appreciate the Hedera community working with us on this issue. We invite any users who were affected by this bug to apply for a bug bounty at https://hedera.com/bounty
+
+### v0.27.0
+
 {% hint style="success" %}
 **MAINNET UPDATE: JULY 21, 2022**
 {% endhint %}
