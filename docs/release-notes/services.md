@@ -32,7 +32,7 @@ This release also includes some bug fixes and smaller improvements; most notably
 
 ### v0.27.7
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPDATE: AUGUST 9, 2022**
 {% endhint %}
 
