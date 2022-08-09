@@ -10,6 +10,10 @@ How to Deploy Smart Contracts on Hedera – Part 1: A Simple Getter and Setter C
 How to Deploy Smart Contracts on Hedera – Part 2: A Contract with Hedera Token Service Integration
 {% endembed %}
 
+{% embed url="https://hedera.com/blog/how-to-deploy-smart-contracts-on-hedera-using-truffle" %}
+How to Deploy Smart Contracts on Hedera Using Truffle
+{% endembed %}
+
 ## Send/Receive HBAR
 
 {% embed url="https://hedera.com/blog/how-to-send-and-receive-hbar-using-smart-contracts-part-1-using-the-sdk" %}
