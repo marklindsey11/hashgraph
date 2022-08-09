@@ -27,3 +27,7 @@ How to Create Hedera Tokens Using SDKs and Smart Contract - Part 2: Non-Fungible
 {% embed url="https://hedera.com/blog/how-to-manage-hedera-tokens-using-smart-contracts" %}
 How to Manage Hedera Tokens using Smart Contracts
 {% endembed %}
+
+{% embed url="https://hedera.com/blog/how-to-send-and-receive-hedera-tokens-using-smart-contracts-part-1-sdks" %}
+How to Send and Receive Hedera Tokens Using Smart Contracts - Part 1: SDKs
+{% endembed %}

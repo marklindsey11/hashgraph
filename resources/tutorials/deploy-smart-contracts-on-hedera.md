@@ -10,6 +10,8 @@ How to Deploy Smart Contracts on Hedera – Part 1: A Simple Getter and Setter C
 How to Deploy Smart Contracts on Hedera – Part 2: A Contract with Hedera Token Service Integration
 {% endembed %}
 
+## Send/Receive HBAR
+
 {% embed url="https://hedera.com/blog/how-to-send-and-receive-hbar-using-smart-contracts-part-1-using-the-sdk" %}
 How to Send and Receive HBAR Using Smart Contracts – Part 1: Using the SDK
 {% endembed %}
@@ -30,4 +32,8 @@ Meet Strato, a concise yet powerful SDK alternative for JS Devs
 
 {% embed url="https://hedera.com/blog/mapping-hedera-token-service-standards-to-erc20-erc721-erc1155" %}
 Mapping Hedera Token Service Standards to ERC20, ERC721, & ERC1155
+{% endembed %}
+
+{% embed url="https://hedera.com/blog/the-create2-opcode-on-hedera-an-introduction" %}
+The CREATE2 Opcode on Hedera: An Introduction
 {% endembed %}
