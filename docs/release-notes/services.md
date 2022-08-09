@@ -40,7 +40,7 @@ Any ledger that will grow to billions of entities must have an efficient way to 
 
 Under certain conditions in the 0.27.5 release, a bug in the logic maintaining these lists could cause NFT transfers to fail, without refunding fees.
 
-We appreciate the Hedera community working with us on this issue. We invite any users who were affected by this bug to apply for a bug bounty at https://hedera.com/bounty
+We appreciate the Hedera community working with us on this issue. We invite any users who were affected by this bug to apply for a [bug bounty](https://hedera.com/bounty).&#x20;
 
 ### v0.27.0
 
