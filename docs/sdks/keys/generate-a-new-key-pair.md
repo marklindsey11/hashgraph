@@ -114,7 +114,7 @@ System.out.println("public = " + publicKey);
 {% code title="JavaScript" %}
 ```javascript
 const privateKey = PrivateKey.generateECDSA();
-const publicKey = privateKey.publicKey();icKey;
+const publicKey = privateKey.publicKey();
 
 console.log("private = " + privateKey);
 console.log("public = " + publicKey);
