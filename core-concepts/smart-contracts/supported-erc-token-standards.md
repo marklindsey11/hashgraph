@@ -88,7 +88,7 @@ Returns balance of the HTS non fungible token from the account owner. The <mark 
 
 Returns the account ID of the specified HTS token owner. The `_tokenId` is the Hedera serial number of the NFT.
 
-**approve**
+**approve (previewnet)**
 
 <mark style="color:purple;">`function approve(address _approved, uint256 _tokenId) external payable`</mark>
 
