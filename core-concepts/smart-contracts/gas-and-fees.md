@@ -2,10 +2,6 @@
 
 Gas is used to pay for Hedera Smart Contract Service transactions like creating a contract, calling a smart contract function, or returning contract values. Gas reflects the cost necessary to pay for the computational resources used to process transactions.
 
-{% hint style="danger" %}
-Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.
-{% endhint %}
-
 ### Gas Fees
 
 Gas fees include the intrinsic gas cost and the cost of the EVM operation from the London gas schedule for all non-Hedera Service transactions. The changes from the London gas schedule are noted [here](hyperledger-besu-evm.md#gas-schedule). The intrinsic gas cost is 21,000 per transaction plus the cost of input data (16 gas per non-zero byte and 4 gas per zero byte). If you are calling a Hedera Service transaction in your contract then an additional Hedera Service transaction gas fee will be assessed along with the intrinsic gas cost and EVM operation cost.
@@ -59,3 +55,21 @@ Gas throttle per contract call and contract create: **8 million gas per second**
 {% endhint %}
 
 Reference [HIP-185](https://hips.hedera.com/hip/hip-185)
+
+### Smart Contract Rent
+
+{% hint style="danger" %}
+Smart contract entity auto renewal and expiry will be enabled in a future release. Please check out [HIP-16](https://hips.hedera.com/hip/hip-16) for more information.
+{% endhint %}
+
+[Smart contract rent](https://hedera.com/blog/smart-contract-rent-on-hedera-is-coming-what-you-need-to-know) on Hedera will start once a total of **100 million key-value pairs** are stored cumulatively across the network. The expectation is that Hedera Coin Economics Committee will set this rent rate of _**$0.02 per key-value pair per year**_. This applies to all contracts on Hedera, regardless of the contract being created before or after the rent payments go live.
+
+Once rent payments are enabled on Hedera:
+
+* Each contract has **100 free key-value pairs** of storage available
+* Once a contract exceeds the first 100 free key-value pairs, it must pay rent. Note that valid renewal windows are between \~30 and \~92 days (see [HIP-372](https://hips.hedera.com/hip/hip-372))
+
+If a high enough utilization threshold is reached, **congestion pricing applies**
+
+* In this circumstance, prices charged are inversely proportional to the remaining system capacity of the network (lower remaining capacity means higher pricing)
+* This applies to all transactions
