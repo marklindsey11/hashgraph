@@ -47,6 +47,7 @@
   * [Solidity Variables and Opcodes](core-concepts/smart-contracts/solidity-variables-and-opcodes.md)
   * [Supported ERC Token Standards](core-concepts/smart-contracts/supported-erc-token-standards.md)
   * [Hedera Services Integration with Smart Contracts](core-concepts/smart-contracts/hedera-services-integration-with-smart-contracts.md)
+  * [JSON-RPC Relay](core-concepts/smart-contracts/json-rpc-relay.md)
   * [Hethers](core-concepts/smart-contracts/hethers.md)
 * [Staking](core-concepts/staking.md)
 * [Hashgraph Consensus Algorithm](core-concepts/hashgraph-consensus-algorithms/README.md)
@@ -333,7 +334,6 @@
   * [Developer Tools](resources/tutorials/developer-tools.md)
 * [Demo Applications](resources/demo-applications.md)
 * [Starter Projects](resources/starter-projects.md)
-* [JSON-RPC Relay](resources/json-rpc-relay.md)
 
 ## Support & Community
 

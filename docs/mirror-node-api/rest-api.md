@@ -24,7 +24,7 @@ You can also view the Hedera Mirror Node Swagger UI documentation where you can 
 **PREVIEWNET**\
 [https://previewnet.mirrornode.hedera.com](https://previewnet.mirrornode.hedera.com/api/v1/transactions)
 
-You may also check out [HederaExplorer](https://hederaexplorer.io/), [DragonGlass](https://app.dragonglass.me/hedera/home), [Kabuto](https://kabuto.sh/), or [Ledger Works](https://lworks.io) as alternatives.‌
+You may also check out [DragonGlass](https://app.dragonglass.me/hedera/home), [Kabuto](https://kabuto.sh/), or [Ledger Works](https://lworks.io) as alternatives.‌
 {% endhint %}
 
 {% hint style="warning" %}
@@ -1577,11 +1577,11 @@ _Default value_ : 0
 ## Blocks
 
 {% swagger src="https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml" path="/api/v1/blocks" method="get" %}
-[ https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml ](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
+[https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
 {% endswagger %}
 
 {% swagger src="https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml" path="/api/v1/blocks/{hashOrNumber}" method="get" %}
-[ https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml ](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
+[https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
 {% endswagger %}
 
 ## State Proof Alpha
