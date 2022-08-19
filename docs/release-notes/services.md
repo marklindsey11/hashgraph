@@ -8,6 +8,28 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## [v0.29.0](https://github.com/hashgraph/hedera-services/releases/tag/v0.29.0)
+
+{% hint style="info" %}
+**MAINNET UPDATE: SEPTEMBER 15, 2022**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE: AUGUST 30, 2022**
+{% endhint %}
+
+### Contract-managed tokens 🪙
+
+In Services 0.29 we have followed the [HIP-514 roadmap](https://hips.hedera.com/hip/hip-514) to give contract authors many new ways to inspect and manage HTS tokens.
+
+The HIP enumerates the ways; examples include a contract that revokes an account's KYC for a token, or deletes a token for which it has admin privileges, or even changes a token's supply key based on the metadata in an NFT!
+
+Note there are four HIP-514 functions that will be part of release 0.30, as follows: `getTokenExpiryInfo(address)`, `updateTokenExpiryInfo(address, Expiry)`, `updateTokenInfo(address, HederaToken)`, `isToken(address token)` and `getTokenType(address token)`.
+
+### Deprecations
+
+Please note this [important deprecation](https://github.com/hashgraph/hedera-protobufs/blob/main/services/crypto\_get\_info.proto#L141) that will change how clients fetch token associations and balances after the November release in this year. At that time, mirror nodes will become the exclusive source of token association metadata. This is because [HIP-367](https://hips.hedera.com/hip/hip-367) made token associations unlimited, so in the long run it will not be efficient for consensus nodes to serve this information.
+
 ## [v0.28](https://github.com/hashgraph/hedera-services/releases/tag/v0.28.0)
 
 {% hint style="info" %}
