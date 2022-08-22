@@ -38,6 +38,7 @@ new TopicUpdateTransaction()
 
 | Method                                     | Type      | Requirements |
 | ------------------------------------------ | --------- | ------------ |
+| `setTopicId(<topicId>)`                    | TopicId   | Required     |
 | `setAdminKey(<adminKey>)`                  | Key       | Optional     |
 | `setSubmitKey(<submitKey>)`                | Key       | Optional     |
 | `setExpirationTime(<expirationTime>)`      | Instant   | Optional     |
@@ -53,6 +54,7 @@ new TopicUpdateTransaction()
 ```java
  //Create a transaction to add a submit key
 TopicUpdateTransaction transaction = new TopicUpdateTransaction()
+    .setTopicId(topicId)
     .setSubmitKey(submitKey);
 
 //Sign the transaction with the admin key to authorize the update
@@ -77,7 +79,8 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 ```javascript
 //Create a transaction to add a submit key
 const transaction = await new TopicUpdateTransaction()
-    .setSubmitKey(submitKey
+    .setTopicId(topicId)
+    .setSubmitKey(submitKey)
     .freezeWith(client);
 
 //Sign the transaction with the admin key to authorize the update
@@ -101,8 +104,9 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% code title="Go" %}
 ```java
 //Create the transaction
-transaction := hedera.NewTopicUpdateTransaction()
-    SetTopicMemo("new memo)
+transaction := hedera.NewTopicUpdateTransaction().
+		SetTopicId(topicId).
+    		SetTopicMemo("new memo")
 
 //Sign with the client operator private key and submit the transaction to a Hedera network
 txResponse, err := transaction.FreezeWith(client).Sign(adminkey)Execute(client)
