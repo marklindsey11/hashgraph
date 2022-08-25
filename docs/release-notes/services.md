@@ -34,7 +34,7 @@ Please note this [important deprecation](https://github.com/hashgraph/hedera-pro
 
 ## [v0.28](https://github.com/hashgraph/hedera-services/releases/tag/v0.28.0)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPDATE: AUGUST 25, 2022**
 {% endhint %}
 
