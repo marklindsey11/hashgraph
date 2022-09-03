@@ -11,12 +11,18 @@ For the latest versions supported on each network please visit the Hedera status
 ## [v0.29](https://github.com/hashgraph/hedera-services/releases/tag/v0.29.0)
 
 {% hint style="info" %}
-**MAINNET UPDATE: SEPTEMBER 15, 2022**
+**MAINNET UPDATE: SEPTEMBER 20, 2022**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE: SEPTEMBER 7, 2022**
 {% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE: AUGUST 30, 2022**
 {% endhint %}
+
+###
 
 ### Contract-managed tokens 🪙
 
