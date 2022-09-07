@@ -34,7 +34,7 @@ Nodes have a **minimum stake** and **maximum stake**. The node's minimum stake m
 
 Example:
 
-Minimum Stake: ​50,000,000,000 hbars\*(1/26nodes)\*(1/2)
+Minimum Stake: ​50,000,000,000 hbars\*(1/26nodes)\*(1/4)
 
 Maximum Stake: ​50,000,000,000 hbars\*(1/26nodes)
 
