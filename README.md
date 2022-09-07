@@ -82,4 +82,8 @@ If you find something that needs to be fixed, updated, or would like to publish 
 * Create a pull request
   * Fork the repository and submit a pull request that includes the suggested updates
 
-Issues and pull requests will be reviewed by the Hedera team.
+Issues and pull requests will be reviewed by the Hedera team.&#x20;
+{% hint style="info" %}
+Have a question?
+[Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)&#x20;
+{% endhint %}
