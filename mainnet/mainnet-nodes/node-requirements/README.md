@@ -101,7 +101,7 @@ Proxy Connectivity
 
 ## Network Topology /(Typical Corporate Datacenter Configuration/)
 
-![](../../../.gitbook/assets/network-topology.jpg)
+![](../../../.gitbook/assets/Network-topology.jpg)
 
 ## Deployment Steps
 
