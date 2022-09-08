@@ -1,12 +1,12 @@
 # Hedera Service Solidity Libraries
 
-## Hedera Token Service&#x20;
+## Hedera Token Service
 
 Hedera Token Service integration allows you to write token transactions natively in Solidity smart contracts. There are a few **Solidity source files** available to developers.
 
 * [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaTokenService.sol)
 * [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaResponseCodes.sol)
-* [IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
+* [IHederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
 * [ExpiryHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/ExpiryHelper.sol)
 * [FeeHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/FeeHelper.sol)
 * [KeyHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/KeyHelper.sol)
@@ -39,7 +39,7 @@ int response = HederaTokenService.transferToken(tokenAddress, msg.sender, addres
 ### Create Tokens
 
 {% hint style="info" %}
-[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet and testnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/TokenCreateContract.sol)  example contains four examples for how to create a token using the token create solidity libraries.
+[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet and testnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/TokenCreateContract.sol) example contains four examples for how to create a token using the token create solidity libraries.
 {% endhint %}
 
 ### <mark style="color:purple;">`createFungibleToken(token, initialTotalSupply, decimals)`</mark>
@@ -48,7 +48,7 @@ A transaction that creates a fungible token. Returns the new token address.
 
 | **Param**            | **Type**                               | **Description**                                                                                                                                                         |
 | -------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`              | IHederaTokenService.HederaToken memory | The basic properties of the token being created.  This includes the token name, symbol, treasury account, keys, expiry, etc.                                            |
+| `token`              | IHederaTokenService.HederaToken memory | The basic properties of the token being created. This includes the token name, symbol, treasury account, keys, expiry, etc.                                             |
 | `initialTotalSupply` | uint                                   | Specifies the initial supply of tokens to be put in circulation. The initial supply is sent to the Treasury Account. The supply is in the lowest denomination possible. |
 | `decimals`           | uint                                   | The number of decimal places a token is divisible by.                                                                                                                   |
 
@@ -96,7 +96,7 @@ ABI Version: 2
 
 ### <mark style="color:purple;">`transferToken(token, sender, receiver, amount)`</mark>
 
-Transfers tokens where the calling account/contract is implicitly the first entry in the token transfer list, <mark style="color:purple;"></mark> where the amount is the value needed to zero balance the transfers. The account address sending the token is required to sign the transaction.
+Transfers tokens where the calling account/contract is implicitly the first entry in the token transfer list, where the amount is the value needed to zero balance the transfers. The account address sending the token is required to sign the transaction.
 
 ABI Version: 1
 
@@ -121,7 +121,7 @@ ABI Version: 1
 
 ### <mark style="color:purple;">`transferNFT(token, sender, receiver, serialNum)`</mark>
 
-Transfers tokens where the calling account/contract is implicitly the first entry in the token transfer list, <mark style="color:purple;"></mark> where the amount is the value needed to zero balance the transfers. The address sending the token is required to sign the transaction.
+Transfers tokens where the calling account/contract is implicitly the first entry in the token transfer list, where the amount is the value needed to zero balance the transfers. The address sending the token is required to sign the transaction.
 
 ABI Version: 1
 
@@ -149,15 +149,15 @@ ABI Version: 1
 
 ### <mark style="color:purple;">`mintToken(token, amount, metadata)`</mark>
 
-Mints an amount of the token to the defined treasury account.&#x20;
+Mints an amount of the token to the defined treasury account.
 
 ABI Version: 2
 
-| **Param**  | **Type**                                                               | **Description**                                                                                                                                                                                                                       |
-| ---------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`    | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address) | The Hedera token to mint. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address.                                                                                                                   |
-| `amount`   | <p><br>uint64</p>                                                      | <p>Applicable to FUNGIBLE TOKENS ONLY. <br><br>The amount to mint to the Treasury Account. Amount must be a positive non-zero number represented in the lowest denomination of the token. The new supply must be lower than 2^63.</p> |
-| `metadata` | bytes\[] memory                                                        | <p>Applicable to NON-FUNGIBLE TOKENS ONLY. <br>Maximum allowed size of each metadata is 100 bytes</p>                                                                                                                                 |
+| **Param**  | **Type**                                                               | **Description**                                                                                                                                                                                                                      |
+| ---------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `token`    | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address) | The Hedera token to mint. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address.                                                                                                                  |
+| `amount`   | <p><br>uint64</p>                                                      | <p>Applicable to FUNGIBLE TOKENS ONLY.<br><br>The amount to mint to the Treasury Account. Amount must be a positive non-zero number represented in the lowest denomination of the token. The new supply must be lower than 2^63.</p> |
+| `metadata` | bytes\[] memory                                                        | <p>Applicable to NON-FUNGIBLE TOKENS ONLY.<br>Maximum allowed size of each metadata is 100 bytes</p>                                                                                                                                 |
 
 ### Burn Tokens
 
@@ -167,11 +167,11 @@ Burns an amount of the token from the defined treasury account<mark style="color
 
 ABI Version: 2
 
-| **Param**       | **Type**                                                               | **Description**                                                                                                                                                                                                                                                                                 |
-| --------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`         | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address) | The token to burn. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address.                                                                                                                                                                                    |
-| `amount`        | uint64                                                                 | <p>Applicable to FUNGIBLE TOKENS ONLY. <br><br>The amount to burn from the Treasury Account. <mark style="color:purple;"></mark> Amount must be a positive non-zero number, not bigger than the token balance of the treasury account (0; balance], represented in the lowest denomination.</p> |
-| `serialNumbers` | int64\[]                                                               | <p>Applicable to NON-FUNGIBLE TOKENS ONLY.<br></p><p>The list of serial numbers to be burned.</p>                                                                                                                                                                                               |
+| **Param**       | **Type**                                                               | **Description**                                                                                                                                                                                                                                            |
+| --------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `token`         | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address) | The token to burn. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address.                                                                                                                                               |
+| `amount`        | uint64                                                                 | <p>Applicable to FUNGIBLE TOKENS ONLY.<br><br>The amount to burn from the Treasury Account. Amount must be a positive non-zero number, not bigger than the token balance of the treasury account (0; balance], represented in the lowest denomination.</p> |
+| `serialNumbers` | int64\[]                                                               | <p>Applicable to NON-FUNGIBLE TOKENS ONLY.<br></p><p>The list of serial numbers to be burned.</p>                                                                                                                                                          |
 
 ### Associate Tokens
 
@@ -181,10 +181,10 @@ Associates the provided account with the provided tokens. Must be signed by the 
 
 ABI Version: 2
 
-| **Param** | **Type**                                                                                                   | **Description**                                                                                                                                                                                                                                                                                                                     |
-| --------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)                                     | The account to be associated with the provided tokens. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address.                                                                                                                                                                                    |
-| `token`   | [address](https://docs.soliditylang.org/en/v0.6.2/types.html?highlight=address%20%5B%5D#address)\[] memory | <p>The list of tokens to be associated with the provided account. </p><p><br>In the case of non-fungible tokens, once an account is associated, it can hold any number of NFTs (serial numbers) of that token type.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p> |
+| **Param** | **Type**                                                                                                   | **Description**                                                                                                                                                                                                                                                                                                                    |
+| --------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)                                     | The account to be associated with the provided tokens. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address.                                                                                                                                                                                   |
+| `token`   | [address](https://docs.soliditylang.org/en/v0.6.2/types.html?highlight=address%20%5B%5D#address)\[] memory | <p>The list of tokens to be associated with the provided account.</p><p><br>In the case of non-fungible tokens, once an account is associated, it can hold any number of NFTs (serial numbers) of that token type.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p> |
 
 ### Dissociate Tokens
 
@@ -194,10 +194,10 @@ Dissociates the provided account with the provided token. Must be signed by the 
 
 ABI Version: 2
 
-| **Param** | **Type**                                                               | **Description**                                                                                                                                                                   |
-| --------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address) | <p>The Hedera account to be dissociated from the provided token. <br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p> |
-| `token`   | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address) | <p>The token to be dissociated from the provided account.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p>         |
+| **Param** | **Type**                                                               | **Description**                                                                                                                                                                  |
+| --------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address) | <p>The Hedera account to be dissociated from the provided token.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p> |
+| `token`   | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address) | <p>The token to be dissociated from the provided account.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p>        |
 
 ### <mark style="color:purple;">`dissociateTokens(account, tokens)`</mark>
 
@@ -209,6 +209,271 @@ ABI Version: 2
 | --------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)                                     | The account to be dissociated from the provided tokens                                                                                                                             |
 | `tokens`  | [address](https://docs.soliditylang.org/en/v0.6.2/types.html?highlight=address%20%5B%5D#address)\[] memory | <p>The list of tokens to be dissociated from the provided account.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p> |
+
+### <mark style="color:purple;">**`allowance(token, owner, spender)`**</mark>
+
+Returns the amount which spender is still allowed to withdraw from owner. Only applicable to fungible tokens.&#x20;
+
+| **Param** | **Type** | **Description**                                                   |
+| --------- | -------- | ----------------------------------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format to check the allowance of. |
+| `owner`   | address  | The owner account in Solidity format of the tokens to be spent.   |
+| `spender` | address  | The spender account in Solidity format.                           |
+
+### <mark style="color:purple;">`approve(token, spender, amount)`</mark>
+
+Allows spender to withdraw from your account multiple times, up to the value amount. If this function is called again it overwrites the current allowance.
+
+| **Param** | **Type** | **Description**                                               |
+| --------- | -------- | ------------------------------------------------------------- |
+| `token`   | address  | The Hedera token ID to approve in Solidity format             |
+| `spender` | address  | The spender account ID authorized to spend in Solidity format |
+| `amount`  | uint256  | The amount of tokens the spender is authorized to spend       |
+
+### <mark style="color:purple;">`approveNFT(token, approved, serialNumber)`</mark>
+
+Allow or reaffirm the approved address to transfer an NFT the approved address does not own. Applicable to non-fungible tokens (NFTs).
+
+| **Param**      | **Type** | **Description**                                                                                    |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------- |
+| `token`        | address  | The Hedera NFT token ID in solidity format to approve.                                             |
+| `approved`     | address  | The Hedera account ID to approve in Solidity format. To revoke approvals pass in the zero address. |
+| `serialNumber` | uint256  | The NFT serial number to approve.                                                                  |
+
+### <mark style="color:purple;">`getApproved(token, serialNumber)`</mark>
+
+Get the approved address for a single NFT. Applicable to non-fungible tokens (NFTs).
+
+| **Param**      | **Type** | **Description**                                     |
+| -------------- | -------- | --------------------------------------------------- |
+| `token`        | address  | The Hedera token ID for the NFT in Solidity format. |
+| `serialNumber` | int64    | The NFT serial number.                              |
+
+### <mark style="color:purple;">`isApprovedForAll(token, owner, operator)`</mark>
+
+Returns whether or not the operator account is approved to spend on behalf of the owner.
+
+| **Param**  | **Type** | **Description**                          |
+| ---------- | -------- | ---------------------------------------- |
+| `token`    | address  | The Hedera token ID in Solidity format.  |
+| `owner`    | address  | The Hedera account ID in Solidity format |
+| `operator` | address  | The Hedera account ID in Solidity format |
+
+### <mark style="color:purple;">`setApprovalForAll(token, operator, approved)`</mark>
+
+Enable or disable approval for a third party ("operator") to manage all of `msg.sender`'s assets.&#x20;
+
+| **Param**  | **Type** | **Description**                           |
+| ---------- | -------- | ----------------------------------------- |
+| `token`    | address  | The Hedera token ID in Solidity format.   |
+| `operator` | address  | The Hedera account ID in Solidity format. |
+| `approved` | bool     | The Hedera account ID in Solidity format. |
+
+### <mark style="color:purple;">`isFrozen(token, account)`</mark>
+
+Returns whether or not the account was frozen. The response will return true is the account is frozen. This means the token cannot be transferred from the account until the account is unfrozen.
+
+| **Param** | **Type** | **Description**                           |
+| --------- | -------- | ----------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format.   |
+| `account` | address  | The Hedera account ID in Solidity format. |
+
+### <mark style="color:purple;">`isKyc(token, account)`</mark>
+
+Returns whether or not the token has been granted KYC.
+
+| **Param** | **Type** | **Description**                           |
+| --------- | -------- | ----------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format.   |
+| `account` | address  | The Hedera account ID in Solidity format. |
+
+### <mark style="color:purple;">`isToken(token)`</mark>
+
+Returns whether or not the token exists on Hedera.
+
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
+
+### <mark style="color:purple;">`deleteToken(token)`</mark>
+
+Deletes the specified token.&#x20;
+
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
+
+### <mark style="color:purple;">`getTokenCustomFees(token)`</mark>
+
+Returns the custom fees for the specified token.
+
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
+
+### <mark style="color:purple;">`getTokenDefaultFreezeStatus(token)`</mark>
+
+Returns the token freeze status pm the specified token.
+
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
+
+### <mark style="color:purple;">`getTokenDefaultKycStatus(token)`</mark>
+
+Returns the KYC status on the specified token.
+
+| **Param** | **Type** | **Description**                        |
+| --------- | -------- | -------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format |
+
+### <mark style="color:purple;">`getTokenExpiryInfo(token)`</mark>
+
+Returns the token expiration for the specified token.
+
+| **Param** | **Type** | **Description**                                |
+| --------- | -------- | ---------------------------------------------- |
+| `token`   | address  | The ID of the Hedera token in Solidity format. |
+
+### <mark style="color:purple;">`getTokenInfo(token)`</mark>
+
+Retrieves general token entity information for the specified token.
+
+| **Param** | **Type** | **Description**                                |
+| --------- | -------- | ---------------------------------------------- |
+| `token`   | address  | The ID of the Hedera token in Solidity format. |
+
+### <mark style="color:purple;">`getFungibleTokenInfo(token)`</mark>
+
+Retrieves fungible specific token property information for a fungible token.
+
+| **Param** | **Type** | **Description**                                               |
+| --------- | -------- | ------------------------------------------------------------- |
+| `token`   | address  | The Hedera token ID of the fungible token in Solidity format. |
+
+### <mark style="color:purple;">`getNonFungibleTokenInfo(token)`</mark>    <mark style="color:purple;"></mark><mark style="color:purple;"></mark>   &#x20;
+
+Retrieves non-fungible specific token info for a given NFT
+
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
+
+### <mark style="color:purple;">`getTokenKey(token, keyType)`</mark>
+
+Returns the token key for the specified key type. A key type can be be the KYC key, pause key, freeze key, etc.
+
+| **Param** | **Type** | **Description**                                                 |
+| --------- | -------- | --------------------------------------------------------------- |
+| `token`   | address  | The ID of the token in solidity format to return the key value. |
+| `keyType` | uint     | The keyType of the desired key value.                           |
+
+### <mark style="color:purple;">`getTokenType(token)`</mark>
+
+Returns the token type (fungible or non-fungible) for the specified token.
+
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
+
+### <mark style="color:purple;">`freezeToken(token, account)`</mark>
+
+Freezes the account from transacting the specified token.
+
+| **Param** | **Type** | **Description**                           |
+| --------- | -------- | ----------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format.   |
+| `account` | address  | The Hedera account ID in Solidity format. |
+
+### <mark style="color:purple;">`unfreezeToken(token, account)`</mark>
+
+Unfreezes the account from transacting the specified token.
+
+| **Param** | **Type** | **Description**                           |
+| --------- | -------- | ----------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format.   |
+| `account` | address  | The Hedera account ID in Solidity format. |
+
+### <mark style="color:purple;">`grantTokenKyc(token, account)`</mark>
+
+Grants KYC to the Hedera account for the specified token.
+
+| **Param** | **Type** | **Description**                           |
+| --------- | -------- | ----------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format.   |
+| `account` | address  | The Hedera account ID in Solidity format. |
+
+### <mark style="color:purple;">**`revokeTokenKyc(token, account)`**</mark>
+
+Revokes KYC to the Hedera account for the specified token.
+
+| **Param** | **Type** | **Description**                           |
+| --------- | -------- | ----------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format.   |
+| `account` | address  | The Hedera account ID in Solidity format. |
+
+### <mark style="color:purple;">`pauseToken(token)`</mark>
+
+Prevents a token from being transacted if set.
+
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
+
+### <mark style="color:purple;">`unpauseToken(token)`</mark>
+
+Unpauses a token from a previously paused state.
+
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
+
+### <mark style="color:purple;">`wipeTokenAccount(token, account, amount)`</mark>
+
+Wipes fungible tokens from the specified account.
+
+| **Param** | **Type** | **Description**                           |
+| --------- | -------- | ----------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format.   |
+| `account` | address  | The Hedera account ID in Solidity format. |
+| `amount`  | uint32   | The amount of fungible tokens to wipe.    |
+
+### <mark style="color:purple;">`wipeTokenAccountNFT(token, token, serialNumbers)`</mark>
+
+Wipes a non-fungible token from the specified account.
+
+| **Param**       | **Type**        | **Description**                                  |
+| --------------- | --------------- | ------------------------------------------------ |
+| `token`         | address         | The Hedera token ID in Solidity format.          |
+| `account`       | address         | The Hedera account ID in Solidity format.        |
+| `serialNumbers` | int64\[] memory | The NFT serial numbers to wipe from the account. |
+
+### <mark style="color:purple;">`updateTokenInfo(token, tokenInfo)`</mark>
+
+Updates the properties of a token including the name, symbol, treasury account, memo, etc.
+
+| **Param**   | **Type**                                                                                                                                            | **Description**                         |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| `token`     | address                                                                                                                                             | The Hedera token ID in Solidity format. |
+| `tokenInfo` | [IHederaTokenService.HederaToken](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol#L120) memory | The token properties to update.         |
+
+### <mark style="color:purple;">`updateTokenExpiryInfo(token, expiryInfo)`</mark>
+
+Update the token expiration time.
+
+| **Param**    | **Type**                                                                                                                                      | **Description**                         |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| `token`      | address                                                                                                                                       | The Hedera token ID in Solidity format. |
+| `expiryInfo` | [IHederaTokenService.Expiry](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol#L53) memory | The expiry properties of a token.       |
+
+### <mark style="color:purple;">`updateTokenKeys(token, keys)`</mark>
+
+Update the keys set on a token. The key type is defined in the key parameter.
+
+| **Param** | **Type**                                                                                                                                             | **Description**                         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| `token`   | address                                                                                                                                              | The Hedera token ID in Solidity format. |
+| `keys`    | [IHederaTokenService.TokenKey\[\]](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol#L100) memory | The token key type.                     |
 
 ## Gas Cost
 
