@@ -207,12 +207,12 @@ ABI Version: 2
 
 | **Param** | **Type**                                                                                                   | **Description**                                                                                                                                                                    |
 | --------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)                                     | The account to be dissociated from the provided tokens                                                                                                                             |
+| `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)                                     | The account to be dissociated from the provided tokens.                                                                                                                            |
 | `tokens`  | [address](https://docs.soliditylang.org/en/v0.6.2/types.html?highlight=address%20%5B%5D#address)\[] memory | <p>The list of tokens to be dissociated from the provided account.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p> |
 
 ### <mark style="color:purple;">**`allowance(token, owner, spender)`**</mark>
 
-Returns the amount which spender is still allowed to withdraw from owner. Only applicable to fungible tokens.&#x20;
+Returns the amount the spender is still allowed to withdraw from owner. Only applicable to fungible tokens.&#x20;
 
 | **Param** | **Type** | **Description**                                                   |
 | --------- | -------- | ----------------------------------------------------------------- |
@@ -224,11 +224,11 @@ Returns the amount which spender is still allowed to withdraw from owner. Only a
 
 Allows spender to withdraw from your account multiple times, up to the value amount. If this function is called again it overwrites the current allowance.
 
-| **Param** | **Type** | **Description**                                               |
-| --------- | -------- | ------------------------------------------------------------- |
-| `token`   | address  | The Hedera token ID to approve in Solidity format             |
-| `spender` | address  | The spender account ID authorized to spend in Solidity format |
-| `amount`  | uint256  | The amount of tokens the spender is authorized to spend       |
+| **Param** | **Type** | **Description**                                                |
+| --------- | -------- | -------------------------------------------------------------- |
+| `token`   | address  | The Hedera token ID to approve in Solidity format.             |
+| `spender` | address  | The spender account ID authorized to spend in Solidity format. |
+| `amount`  | uint256  | The amount of tokens the spender is authorized to spend.       |
 
 ### <mark style="color:purple;">`approveNFT(token, approved, serialNumber)`</mark>
 
@@ -242,7 +242,7 @@ Allow or reaffirm the approved address to transfer an NFT the approved address d
 
 ### <mark style="color:purple;">`getApproved(token, serialNumber)`</mark>
 
-Get the approved address for a single NFT. Applicable to non-fungible tokens (NFTs).
+Get the approved Hedera accounts for a single NFT. Applicable to non-fungible tokens (NFTs).
 
 | **Param**      | **Type** | **Description**                                     |
 | -------------- | -------- | --------------------------------------------------- |
@@ -313,7 +313,7 @@ Returns the custom fees for the specified token.
 
 ### <mark style="color:purple;">`getTokenDefaultFreezeStatus(token)`</mark>
 
-Returns the token freeze status pm the specified token.
+Returns the token freeze status on the specified token.
 
 | **Param** | **Type** | **Description**                         |
 | --------- | -------- | --------------------------------------- |
@@ -323,9 +323,9 @@ Returns the token freeze status pm the specified token.
 
 Returns the KYC status on the specified token.
 
-| **Param** | **Type** | **Description**                        |
-| --------- | -------- | -------------------------------------- |
-| `token`   | address  | The Hedera token ID in Solidity format |
+| **Param** | **Type** | **Description**                         |
+| --------- | -------- | --------------------------------------- |
+| `token`   | address  | The Hedera token ID in Solidity format. |
 
 ### <mark style="color:purple;">`getTokenExpiryInfo(token)`</mark>
 
@@ -353,7 +353,7 @@ Retrieves fungible specific token property information for a fungible token.
 
 ### <mark style="color:purple;">`getNonFungibleTokenInfo(token)`</mark>    <mark style="color:purple;"></mark><mark style="color:purple;"></mark>   &#x20;
 
-Retrieves non-fungible specific token info for a given NFT
+Retrieves non-fungible specific token info for a given NFT.
 
 | **Param** | **Type** | **Description**                         |
 | --------- | -------- | --------------------------------------- |
