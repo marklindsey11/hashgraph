@@ -147,6 +147,7 @@ Together these values make up your `ContractId`. When an `ContractId` is request
 | -------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | `ContractId.fromString(<account>)`                                                     | String             | <p>Constructs a <code>ContractId</code> from a string formatted as</p><p>&#x3C;shardNum>.&#x3C;realmNum>.&#x3C;contractNum></p> |
 | `ContractId.fromSolidityAddress(<address>)[deprecated use ConractId.fromEvmAddress()]` | String             | Constructs a `ContractId` from a solidity address in string format \[deprecated use `ContractId.fromEvmAddres()]`               |
+| `ContractId.toSolidityAddress(<contractId>)`                                           | String             | Contruct a Solidity address from a Hedera contract ID                                                                           |
 | `ContractId.fromEvmAddress(<shard>, <realm>, <evmAddress>)`                            | long, long, String | Constructs a `ContractId` from evm address                                                                                      |
 
 ### Example
