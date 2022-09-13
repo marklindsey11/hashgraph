@@ -14,15 +14,13 @@ For the latest versions supported on each network please visit the Hedera status
 **MAINNET UPDATE: SEPTEMBER 20, 2022**
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 **TESTNET UPDATE: SEPTEMBER 7, 2022**
 {% endhint %}
 
 {% hint style="success" %}
 **TESTNET UPDATE: AUGUST 30, 2022**
 {% endhint %}
-
-###
 
 ### Contract-managed tokens 🪙
 
@@ -37,6 +35,8 @@ Note there are four HIP-514 functions that will be part of release 0.30, as foll
 ### Deprecations
 
 Please note this [important deprecation](https://github.com/hashgraph/hedera-protobufs/blob/main/services/crypto\_get\_info.proto#L141) that will change how clients fetch token associations and balances after the November release in this year. At that time, mirror nodes will become the exclusive source of token association metadata. This is because [HIP-367](https://hips.hedera.com/hip/hip-367) made token associations unlimited, so in the long run it will not be efficient for consensus nodes to serve this information.
+
+## Latest Releases
 
 ## [v0.28](https://github.com/hashgraph/hedera-services/releases/tag/v0.28.0)
 
@@ -96,8 +96,6 @@ This will set the stage for the second phase of staking, in which a node’s con
 Observant readers might recall that an earlier [alpha release](https://github.com/hashgraph/hedera-services/releases/tag/v0.27.0-alpha.5) of Services 0.27 _also_ enabled [HIP-423 (Long Term Scheduled Transactions)](https://hips.hedera.com/hip/hip-423). This is a complex feature with some deep implications, and we have decided to defer for one more release before going to production.
 
 ![](<../../.gitbook/assets/0.27.4\_results copy.001.jpeg>)
-
-## Latest Releases
 
 ## [v0.26](https://github.com/hashgraph/hedera-services/releases)
 

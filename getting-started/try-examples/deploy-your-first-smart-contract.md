@@ -1,6 +1,6 @@
 # Deploy Your First Smart Contract
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-01 at 2.26.12 PM.png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-01 at 2.26.12 PM (1).png>)
 
 ## Summary
 
@@ -628,7 +628,7 @@ Want to see more examples? Check out the following:
 **YouTube**
 
 {% embed url="https://www.youtube.com/watch?amp%3Bt=24s&v=L9Tm6yn_ayY" %}
+
 {% hint style="info" %}
-Have a question?
-[Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)&#x20;
+Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}

@@ -1,6 +1,6 @@
 # Submit Your First Message
 
-![](<../../.gitbook/assets/Screen Shot 2021-12-01 at 2.26.12 PM (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-12-01 at 2.26.12 PM.png>)
 
 ## Summary
 
@@ -407,6 +407,5 @@ func main() {
 {% endtabs %}
 
 {% hint style="info" %}
-Have a question?
-[Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)&#x20;
+Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}
