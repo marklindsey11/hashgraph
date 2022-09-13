@@ -8,6 +8,77 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Latest Releases
 
+## [v0.64](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.64.0)
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: SEPTEMBER 12, 2022**
+{% endhint %}
+
+In the last release, we began keeping track of the current balance of every account and contract instead of solely relying upon the balance file written every 15 minutes by consensus nodes. In this release, we now show this up-to-date balance on the `/api/v1/accounts` and `/api/v1/accounts/{id}` REST APIs in the existing `balance` field. Token balances and the balances REST API still shows the balance information from the 15 minute balance file. In a future release, we'll look at changing those to track the current balance.
+
+As part of [HIP-406](https://hips.hedera.com/hip/hip-406), it details a pending reward calculation that can be used to estimate the reward payout between your last payout event and the staking period that just ended. The mirror node now does a similar calculation daily and will in a future release show this pending reward amount on the REST API.
+
+The [reconciliation](https://github.com/hashgraph/hedera-mirror-node/tree/main/docs/importer#reconciliation-job) job periodically runs and reconciles the balance files with the crypto transfers that occurred in the record files. This job allowed us to catch an [issue](https://github.com/hashgraph/hedera-mirror-node/blob/main/docs/database.md#record-missing-for-fail\_invalid-nft-transfers) with missing transactions for `FAIL_INVALID` crypto transfers that was fixed in hedera-services `v0.27.7`. This release contains the errata for the missing transactions that allows reconciliation to proceed successfully once again. It also saw performance improvements including a `delay` property to throttle its speed and added job status persistence so it doesn't restart from the beginning every time. A new `remediationStrategy` property provides a mechanism to continue after failure to aid in debugging multiple reconciliation errors.
+
+## [v0.63](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.63.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: SEPTEMBER 7 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: SEPTEMBER 2, 2022**
+{% endhint %}
+
+This release adds a highly requested feature: the mirror node now tracks the current account balance. Previously, the mirror node would store balance information whose source was a balance file that consensus nodes generate and upload every 15 minutes. As a result, balance information was always behind by up to 15 minutes for active accounts. We were able to figure out a way to track this information at scale with SQL in this release. The next release will actually expose this up to date account balance information on both `/api/v1/accounts` or `/api/v1/accounts/{id}`. In future releases, will look at adding live balances to `/api/v1/balances` when no timestamp parameter is provided and track up to date token balances.
+
+Work continues on [HIP-513 Contract Traceability](https://hips.hedera.com/HIP/hip-513.html), with this release adding a few important items. Consensus nodes will, when first activating the sidecar mechanism, send migration records that includes all smart contract runtime bytecode and current storage values. The mirror node now supports receiving these special migration sidecars and updating its database with the migrated data. This paves the way for the mirror node to have the necessary information to execute smart contracts without modifying state in a future release. Also in this release we now show the contract initcode that was used to unsuccessfully create a smart contract in a new `failed_initcode` field in the contract result REST API.
+
+The network supply REST API saw an update to adjust the unreleased supply accounts used to calculate the unreleased supply. This change was necessary as Hedera adjusts the treasury accounts for use with staking.
+
+## [v0.62](https://github.com/hashgraph/hedera-mirror-node/releases?page=2)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: AUGUST 29, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: AUGUST 22, 2022**
+{% endhint %}
+
+Mirror Node 0.62 saw [HIP-406](https://hips.hedera.com/HIP/hip-406.html) staking related improvements to its REST API and partial support for HIP-513 contract traceability.
+
+The `/api/v1/network/nodes` will now use the address book stake as a fallback when it has not seen any `NodeStakeUpdate` transactions on the network. This release also contains a new network stake REST API `/api/v1/network/stake` to show aggregate stake information common to all nodes:
+
+```
+{
+  "max_staking_reward_rate_per_hbar": 17808,
+  "node_reward_fee_fraction": 0.0,
+  "stake_total": 35000000000000000,
+  "staking_period": {
+    "from": "1658774045.000000000",
+    "to": "1658860445.000000000"
+  },
+  "staking_period_duration": 1440,
+  "staking_periods_stored": 365,
+  "staking_reward_fee_fraction": 1.0,
+  "staking_reward_rate": 100000000000,
+  "staking_start_threshold": 25000000000000000
+}
+```
+
+[HIP-513](https://hips.hedera.com/HIP/hip-513.html) Smart Contract Traceability adds support for an optional sidecar to contain contract traceability information. In this release, the mirror node supports downloading and persisting contract state changes, contract initcode, contract runtime bytecode, and contract actions (AKA traces). The `/api/v1/contracts/{id}` REST API now shows the runtime bytecode for newly created contracts. The next release will support a sidecar migration that will populate contract state changes and bytecode for all existing contracts.
+
+[HIP-435](https://hips.hedera.com/HIP/hip-435.html) Record Stream V6 required changes to the state proof REST API in order to not break when V6 was enabled. With this release, the API was updated to support record files in the new v6 format.
+
+The Rosetta API saw a few minor fixes and improvements. It now uses the Hedera network alias everywhere in the Rosetta server . It also fixes the issue that Rosetta did not support alias as the from address for crypto transfers. Additionally, the Rosetta `sub_network_identifier` was disabled since it was not needed.
+
+There were a surprising number of technical debt improvements this release. The REST API and monitor API were both converted from CommonJS to ES6 modules, allowing us to finally upgrade some of our dependencies to the latest version. The REST API spec tests were organization into folders by endpoint and changed to use a single database container for the entire suite. On the importer, mutable contract information was merged into the `entity` table. The `RecordItem` constructor was removed everywhere in favor its builder method. Finally, we added parser performance tests to be able to generate large record files and stress test record file ingestion.
+
+### Breaking Changes
+
+In a recent release, we added the `stake_total` field to the `/api/v1/network/nodes` API to show the aggregate stake of the network. With the addition of the new `/api/v1/network/stake` API, we now have a separate API to return aggregate staking information associated with the network. As such, we made the decision in this release to remove the `stake_total` field from the response of the `/api/v1/network/nodes` API to stay consistent. If you're using this field, please update your code to use the `stake_total` field in the `/api/v1/network/stake` API.
+
 ## [v0.61](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.61.0)
 
 {% hint style="success" %}
