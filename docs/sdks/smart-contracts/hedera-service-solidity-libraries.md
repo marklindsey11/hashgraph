@@ -4,14 +4,14 @@
 
 Hedera Token Service integration allows you to write token transactions natively in Solidity smart contracts. There are a few **Solidity source files** available to developers.
 
-* [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaTokenService.sol)
-* [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaResponseCodes.sol)
-* [IHederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
-* [ExpiryHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/ExpiryHelper.sol)
-* [FeeHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/FeeHelper.sol)
-* [KeyHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/KeyHelper.sol)
+* [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/HederaTokenService.sol)
+* [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/HederaResponseCodes.sol)
+* [IHederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/IHederaTokenService.sol)
+* [ExpiryHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/ExpiryHelper.sol)
+* [FeeHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/FeeHelper.sol)
+* [KeyHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/KeyHelper.sol)
 
-The Hedera Token Service Solidity file provides the transactions to interact with tokens created on Hedera. The Hedera Response Codes contract provides the response codes associated with network errors. The IHedera Token Service is a supporting library for the Hedera Token Service Solidity file. You can grab these libraries [here](https://github.com/hashgraph/hedera-smart-contracts/tree/main/hts-precompile) to add to your project and import them to your Solidity contract. Please see the example file below.
+The Hedera Token Service Solidity file provides the transactions to interact with tokens created on Hedera. The Hedera Response Codes contract provides the response codes associated with network errors. The IHedera Token Service is a supporting library for the Hedera Token Service Solidity file. You can grab these libraries [here](https://github.com/hashgraph/hedera-smart-contracts/tree/main/contracts/hts-precompile) to add to your project and import them to your Solidity contract. Please see the example file below.
 
 {% code title="ContractExample.sol" %}
 ```solidity
@@ -31,7 +31,7 @@ int response = HederaTokenService.transferToken(tokenAddress, msg.sender, addres
 {% endcode %}
 
 {% hint style="info" %}
-**Note:** Although the [IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)file is not imported in the contract, you will need it in your project directory for the supporting libraries to reference.
+**Note:** Although the [IHederaTokenService.sol ](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/IHederaTokenService.sol)file is not imported in the contract, you will need it in your project directory for the supporting libraries to reference.
 {% endhint %}
 
 ## HederaTokenService.sol API Docs
@@ -39,7 +39,7 @@ int response = HederaTokenService.transferToken(tokenAddress, msg.sender, addres
 ### Create Tokens
 
 {% hint style="info" %}
-[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet and testnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/TokenCreateContract.sol) example contains four examples for how to create a token using the token create solidity libraries.
+[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet and testnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/TokenCreateContract.sol) example contains four examples for how to create a token using the token create solidity libraries.
 {% endhint %}
 
 ### <mark style="color:purple;">`createFungibleToken(token, initialTotalSupply, decimals)`</mark>
