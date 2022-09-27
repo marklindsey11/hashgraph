@@ -34,6 +34,11 @@ A contract unable to pay renewal fees will enter a week-long "grace period" duri
 
 We **strongly** encourage all contract authors to set an auto-renew account for their contract. This isolates the contract logic from the existence of rent.
 
+This release also brings two peripheral improvements:
+
+1. It will become possible to schedule a `CryptoApproveAllowance` transaction.
+2. Mirror node operators will be able to use the daily `NodeStakeUpdate` export to track the current values of [several key staking properties](https://github.com/hashgraph/hedera-protobufs/blob/main/services/node\_stake\_update.proto#L45). Please review the linked protobuf comments for more details on these properties.
+
 ## [v0.29](https://github.com/hashgraph/hedera-services/releases/tag/v0.29.0)
 
 {% hint style="success" %}
