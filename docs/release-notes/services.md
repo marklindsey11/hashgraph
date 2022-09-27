@@ -18,9 +18,25 @@ For the latest versions supported on each network please visit the Hedera status
 **TESTNET UPDATE: SEPTEMBER 29, 2022**
 {% endhint %}
 
+Services 0.30 completes the [HIP-514 roadmap](https://hips.hedera.com/hip/hip-514) for making Hedera native tokens manageable via smart contracts. There are five new system contracts: `getTokenExpiryInfo(address)`, `updateTokenExpiryInfo(address, Expiry)`, `isToken(address token)`, `getTokenType(address token)`, and `updateTokenInfo(address, HederaToken)`.
+
+The `updateTokenInfo(address, HederaToken)` call is especially powerful. If a token's admin key signs the transaction calling a contract, that contract can now make itself the token's treasury, assume authority to mint or burn units or NFTs, and so on.
+
+⚠️ Contract authors should know this release initiates Hedera's [expiration and rent model for contracts](https://hedera.com/blog/smart-contract-rent-on-hedera-is-coming-what-you-need-to-know). There will be two visible effects immediately after the 0.30 upgrade:
+
+* All non-deleted contracts will have their expiry extended to at least 90 days after the upgrade date.
+* Deleted contracts will start to be purged from state; so a `getContractInfo` query that previously\
+  returned `CONTRACT_DELETED` may now report `INVALID_CONTRACT_ID`.
+
+About 90 days after the 0.30 upgrade, some contracts will begin to expire. The network will try to automatically charge the renewal fee (approximately `$0.026` for 90 days) to the expired contract's auto-renew account. If an auto-renew account has zero balance, the network will then try to charge the contract itself.
+
+A contract unable to pay renewal fees will enter a week-long "grace period" during which it is unusable, unless its expiry is extended via `ContractUpdate` or it receives hbar. After this grace period, the contract will be purged from state.
+
+We **strongly** encourage all contract authors to set an auto-renew account for their contract. This isolates the contract logic from the existence of rent.
+
 ## [v0.29](https://github.com/hashgraph/hedera-services/releases/tag/v0.29.0)
 
-{% hint style="info" %}
+{% hint style="success" %}
 **MAINNET UPDATE: SEPTEMBER 27, 2022**
 {% endhint %}
 
