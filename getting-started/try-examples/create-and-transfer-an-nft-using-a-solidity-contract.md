@@ -6,12 +6,12 @@
 
 Besides creating NFTs using Hedera SDK, you can use a Solidity Contract to create, mint, and transfer NFTs by calling contract functions directly. These are the contracts you will need to import into your working directory provided by Hedera:
 
-* [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaTokenService.sol)
-* [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaResponseCodes.sol)
-* [IHederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
-* [ExpiryHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/ExpiryHelper.sol)
-* [FeeHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/FeeHelper.sol)
-* [KeyHelper.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/KeyHelper.sol)
+* [HederaTokenService.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/HederaTokenService.sol)
+* [HederaResponseCodes.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/HederaResponseCodes.sol)
+* [IHederaTokenService.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/IHederaTokenService.sol)
+* [ExpiryHelper.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/ExpiryHelper.sol)
+* [FeeHelper.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/FeeHelper.sol)
+* [KeyHelper.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/KeyHelper.sol)
 
 We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.
 
