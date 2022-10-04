@@ -11,11 +11,11 @@ For the latest versions supported on each network please visit the Hedera status
 ## [v0.30](https://github.com/hashgraph/hedera-services/releases/tag/v0.30.0)
 
 {% hint style="info" %}
-**MAINNET UPDATE: OCTOBER 13, 2022**
+**MAINNET UPDATE: OCTOBER 18, 2022**
 {% endhint %}
 
 {% hint style="info" %}
-**TESTNET UPDATE: TBD**
+**TESTNET UPDATE: OCTOBER 6, 2022**
 {% endhint %}
 
 Services 0.30 completes the [HIP-514 roadmap](https://hips.hedera.com/hip/hip-514) for making Hedera native tokens manageable via smart contracts. There are five new system contracts: `getTokenExpiryInfo(address)`, `updateTokenExpiryInfo(address, Expiry)`, `isToken(address token)`, `getTokenType(address token)`, and `updateTokenInfo(address, HederaToken)`.
