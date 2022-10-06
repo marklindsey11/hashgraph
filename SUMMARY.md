@@ -61,7 +61,6 @@
 
 * [Release Notes](docs/release-notes/README.md)
   * [Hedera Services](docs/release-notes/services.md)
-  * [Hedera Platform](docs/release-notes/hedera-platform.md)
   * [Hedera Mirror Node](docs/release-notes/mirror-node.md)
 * [SDKs](docs/sdks/README.md)
   * [Build your Hedera client](docs/sdks/client.md)
