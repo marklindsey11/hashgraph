@@ -4,14 +4,14 @@
 
 ## Summary
 
-Besides creating NFTs using Hedera SDK, you can use a Solidity Contract to create, mint, and transfer NFTs by calling contract functions directly. These are the contracts you will need to import into your working directory provided by Hedera:
+Besides creating NFTs using Hedera SDK, you can use a Solidity Contract to create, mint, and transfer NFTs by calling contract functions directly. These are the contracts you will need to import into your working directory provided by Hedera that you can find in the **contracts** folder [here](https://github.com/hashgraph/hedera-smart-contracts):
 
-* [HederaTokenService.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/HederaTokenService.sol)
-* [HederaResponseCodes.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/HederaResponseCodes.sol)
-* [IHederaTokenService.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/IHederaTokenService.sol)
-* [ExpiryHelper.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/ExpiryHelper.sol)
-* [FeeHelper.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/FeeHelper.sol)
-* [KeyHelper.sol](https://github.com/cisc0f/hedera/blob/main/src/002\_nft\_hscs\_hts/KeyHelper.sol)
+* HederaTokenService.sol
+* HederaResponseCodes.sol
+* IHederaTokenService.sol
+* ExpiryHelper.sol
+* FeeHelper.sol
+* KeyHelper.sol
 
 We recommend you complete the following introduction to get a basic understanding of Hedera transactions. This example does not build upon the previous examples.
 
