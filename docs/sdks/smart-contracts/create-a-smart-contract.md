@@ -76,11 +76,12 @@ The response will return the contract create transaction information like the ne
 **Note:** Please refer to [ContractCreateTransaction()](create-a-smart-contract.md#contractcreatetransaction) for a complete list of applicable methods.
 {% endhint %}
 
-| Method                    | Type       |
-| ------------------------- | ---------- |
-| `setBytecode(<bytecode>)` | byte       |
-| `setBytecode(<bytecode>)` | String     |
-| `setBytecode(<bytecode>)` | ByteString |
+| Method                     | Type       |
+| -------------------------- | ---------- |
+| `setBytecode(<bytecode>)`  | byte       |
+| `setBytecode(<bytecode>)`  | String     |
+| `setBytecode(<bytecode>)`  | ByteString |
+| `setMaxChunks(<maxChunks)` | int        |
 
 {% code title="Java" %}
 ```java

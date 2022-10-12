@@ -1,9 +1,9 @@
 # Get a transaction receipt
 
-The transaction receipt gives you information about a transaction including whether or not the transaction reached consensus on the network. You request the receipt for every transaction type and there is currently no transaction fee associated with this network request.&#x20;
+The transaction receipt gives you information about a transaction including whether or not the transaction reached consensus on the network. You request the receipt for every transaction type and there is currently no transaction fee associated with this network request.
 
 {% hint style="info" %}
-Receipts can be requested from a Hedera network for up to 3 minutes.&#x20;
+Receipts can be requested from a Hedera network for up to 3 minutes.
 {% endhint %}
 
 #### Transaction Receipt Contents
@@ -85,6 +85,7 @@ hedera.NewTransactionReceiptQuery().
 | `<TransactionReceipt>.topicRunningHash`                    | ByteString              | The topic running hash                                                                                                                                                                          |
 | `<TransactionReceipt>.topicSequenceNumber`                 | long                    | The topic sequence number                                                                                                                                                                       |
 | `<TransactionReceipt>.totalSupply`                         | long                    | The total supply of a token                                                                                                                                                                     |
+| `<TransactionReceipt>.transactionId`                       | TransactionId           | The transaction ID of the transaction the receipt is being requested for                                                                                                                        |
 | `<TransactionReceipt>.serials`                             | List\<long>             | The list of newly created serial numbers upon execution of a token mint transaction.                                                                                                            |
 
 {% code title="Java" %}
@@ -124,7 +125,7 @@ fmt.Printf("The transaction receipt %v\n", receipt)
 ```
 {% endcode %}
 
-#### Sample Output:
+**Sample Output:**
 
 ```
 TransactionReceipt{
@@ -148,6 +149,6 @@ TransactionReceipt{
     }
 ```
 
-``
+\`\`
 {% endtab %}
 {% endtabs %}
