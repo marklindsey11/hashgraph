@@ -45,7 +45,7 @@ If you have any questions or concerns, please connect with us via [Discord](http
 
 **Reset Dates 2022**
 
-* Oct 27, 2022
+* Oct 27, 2022 \[Cancelled]
 
 ### Test Network Throttles
 
