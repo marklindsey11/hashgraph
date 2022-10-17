@@ -11,7 +11,11 @@ For the latest versions supported on each network please visit the Hedera status
 ## [v0.30](https://github.com/hashgraph/hedera-services/releases/tag/v0.30.0)
 
 {% hint style="info" %}
-**MAINNET UPDATE: OCTOBER 18, 2022**
+**MAINNET UPDATE: OCTOBER 21, 2022**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE: OCTOBER 19, 2022**
 {% endhint %}
 
 {% hint style="success" %}
