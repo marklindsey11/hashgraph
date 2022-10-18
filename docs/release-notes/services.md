@@ -8,6 +8,28 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Upcoming Releases
 
+## [v0.31](https://github.com/hashgraph/hedera-services/releases/tag/v0.31.0)
+
+{% hint style="info" %}
+**MAINNET UPDATE: NOVEMBER 10, 2022**
+{% endhint %}
+
+{% hint style="info" %}
+**TESTNET UPDATE: OCTOBER 27, 2022**
+{% endhint %}
+
+Services 0.31 completes the following features:
+
+* [HIP-542 roadmap](https://hips.hedera.com/hip/hip-542) for making payer of the `CryptoTransfer` sponsor for `auto-creation`. It also enables auto-creation with Token transfers in addition to Hbar transfers.
+* [HIP-564 roadmap](https://hips.hedera.com/hip/hip-564) for allowing zero unit fungible token transfers
+* [HIP-573 roadmap](https://hips.hedera.com/hip/hip-573) for enabling token creators an option to exempt _all_ of their token’s fee collectors from a custom fee.
+
+In addition to the above features,
+
+* Adds support of the ERC20/721 `transferFrom` method for HTS precompiles from [HIP-514 roadmap](https://hips.hedera.com/hip/hip-514).
+* Enables Smart Contract Traceability.
+* Adds some changes related to testability improvements.
+
 ## [v0.30](https://github.com/hashgraph/hedera-services/releases/tag/v0.30.0)
 
 {% hint style="info" %}
