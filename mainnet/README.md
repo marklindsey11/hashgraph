@@ -23,13 +23,13 @@ Transactions are currently [throttled](https://docs.hedera.com/guides/mainnet#ne
 
 #### Network Throttles
 
-| Network Request Type        | Throttle (tps)                                                                                                                                                                 |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Cryptocurrency Transactions | <p>AccountCreateTransaction: 2 tps</p><p>AccountBalanceQuery: unlimited</p><p>TransferTransaction (inc. tokens): 10,000 tps<br>Other: 10,000 tps</p>                           |
-| Consensus Transactions      | <p>TopicCreateTransaction: 5 tps</p><p>Other: 10,000 tps</p>                                                                                                                   |
-| Token Transactions          | <p>TokenMint (NFT): 1200 tps</p><p>TokenAssociateTransaction: 100 tps<br>TransferTransaction (inc. tokens): 10,000 tps</p><p>Other: 3,000 tps</p>                              |
-| Schedule Transactions       | <p>ScheduleSignTransaction: 100 tps<br>ScheduleCreateTransaction: 100 tps</p>                                                                                                  |
-| File Transactions           | 10 tps                                                                                                                                                                         |
-| Smart Contract Transactions | <p>ContractExecuteTransaction: 350 tps<br>ContractCreateTransaction: 350 tps</p>                                                                                               |
-| Queries                     | <p>ContractGetInfo: 700 tps<br>ContractGetBytecode: 700 tps<br>ContractCallLocal: 700 tps<br><br>FileGetInfo: 700 tps<br>FileGetContents: 700 tps<br><br>Other: 10,000 tps</p> |
-| Receipts                    | unlimited (no throttle)                                                                                                                                                        |
+| Network Request Type        | Throttle (tps)                                                                                                                                                                                             |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cryptocurrency Transactions | <p>AccountCreateTransaction: 2 tps</p><p>AccountBalanceQuery: unlimited</p><p>TransferTransaction (inc. tokens): 10,000 tps<br>Other: 10,000 tps</p>                                                       |
+| Consensus Transactions      | <p>TopicCreateTransaction: 5 tps</p><p>Other: 10,000 tps</p>                                                                                                                                               |
+| Token Transactions          | <p>TokenMint: </p><ul><li>125 TPS for fungible mint</li><li>50 TPS for NFT mint</li></ul><p>TokenAssociateTransaction: 100 tps<br>TransferTransaction (inc. tokens): 10,000 tps</p><p>Other: 3,000 tps</p> |
+| Schedule Transactions       | <p>ScheduleSignTransaction: 100 tps<br>ScheduleCreateTransaction: 100 tps</p>                                                                                                                              |
+| File Transactions           | 10 tps                                                                                                                                                                                                     |
+| Smart Contract Transactions | <p>ContractExecuteTransaction: 350 tps<br>ContractCreateTransaction: 350 tps</p>                                                                                                                           |
+| Queries                     | <p>ContractGetInfo: 700 tps<br>ContractGetBytecode: 700 tps<br>ContractCallLocal: 700 tps<br><br>FileGetInfo: 700 tps<br>FileGetContents: 700 tps<br><br>Other: 10,000 tps</p>                             |
+| Receipts                    | unlimited (no throttle)                                                                                                                                                                                    |
