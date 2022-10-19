@@ -24,9 +24,9 @@ The HTS.sol will serve as a reference to the contract that was compiled. The HTS
 
 To write a contract using HTS, you will need to add the HTS Solidity support libraries to your project and import them into your contract. Please see the HTS.sol example for reference. The IHederaTokenService.sol will need to be in the same directory as the other two files. An explanation of the functions can be found [here](../../docs/sdks/smart-contracts/hedera-service-solidity-libraries.md).
 
-* [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaTokenService.sol)
-* [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/HederaResponseCodes.sol)
-* [IHederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/hts-precompile/IHederaTokenService.sol)
+* [HederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/HederaTokenService.sol)
+* [HederaResponseCodes.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/HederaResponseCodes.sol)
+* [IHederaTokenService.sol](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/IHederaTokenService.sol)
 
 {% tabs %}
 {% tab title="HTS.sol" %}
@@ -1374,8 +1374,9 @@ func main() {
 ```
 {% endtab %}
 {% endtabs %}
+
 {% hint style="info" %}
-Have a question?
-[Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)&#x20;
+Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}
-####
+
+\####
