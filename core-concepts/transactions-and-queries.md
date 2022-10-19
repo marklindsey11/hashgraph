@@ -25,7 +25,7 @@ A **transaction** generally includes the following:
 * **Transaction ID**: the identifier for a transaction has two components, the account ID of the paying account plus the transaction’s valid start time
 * **Transaction Fee**: the maximum fee the paying account is willing to pay for the transaction
 * **Valid Duration**: the number of seconds that the client wishes the transaction to be deemed valid for, starting at the transaction valid start time
-* **Memo**:  a string of text up to 100 bytes of data (optional)
+* **Memo**: a string of text up to 100 bytes of data (optional)
 * **Transaction**: type of request, for instance, an HBAR transfer or a smart contract call
 * **Signatures**: at minimum, the paying account will sign the transaction as authorization. Other signatures may be present as well.
 
@@ -35,7 +35,7 @@ The receiving node validates (for instance, confirms the paying account has suff
 
 ### Nested Transactions
 
-A **nested transaction** triggers subsequent transactions after executing a top-level transaction. The top-level transaction that a user submits is a **parent transaction**. Each subsequent transaction the parent transaction triggers as a result of the execution of the parent transaction is a **child transaction**.  An example of a nested transaction is when a user submits the top-level transfer transaction to an account alias that triggers an account create transaction behind scenes. This parent/child transaction relationship is also observed with Hedera contracts interacting with HTS precompile.
+A **nested transaction** triggers subsequent transactions after executing a top-level transaction. The top-level transaction that a user submits is a **parent transaction**. Each subsequent transaction the parent transaction triggers as a result of the execution of the parent transaction is a **child transaction**. An example of a nested transaction is when a user submits the top-level transfer transaction to an account alias that triggers an account create transaction behind scenes. This parent/child transaction relationship is also observed with Hedera contracts interacting with HTS precompile. A parent transaction supports up to 999 child transactions since platform reserves 1000 nano seconds per user submitted transaction.
 
 **Transaction IDs**
 
@@ -51,15 +51,15 @@ Example:
 * Child 1 Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>/<mark style="color:green;">1</mark>
 * Child 2 Transaction ID: <mark style="color:red;">0.0.2252</mark>@<mark style="color:blue;">1640119571.329880313</mark>/<mark style="color:green;">2</mark>
 
-**Transaction Records**&#x20;
+**Transaction Records**
 
-Nested transaction records are returned by requesting the record for the parent transaction and setting the `setIncludeChildren(<value>)` to true. This returns records for all child transactions associated with the parent transaction. Child transaction records include the parent consensus timestamp and the child transaction ID.&#x20;
+Nested transaction records are returned by requesting the record for the parent transaction and setting the `setIncludeChildren(<value>)` to true. This returns records for all child transactions associated with the parent transaction. Child transaction records include the parent consensus timestamp and the child transaction ID.
 
 The parent consensus timestamp field in a child transaction record is not populated in cases when the child transaction was triggered **before** the parent transaction. An example of this case is creating an account using an account alias. The user submits the transfer transaction to create and fund the new account using the account alias. The transfer transaction (parent) triggers the account create transaction (child). However, the child transaction occurs before the parent transaction, so the new account is created before completing the transfer. The parent consensus timestamp is not populated in this case.
 
 **Transaction Receipts**
 
-Nested transaction receipts can be returned by requesting the parent transaction receipt and setting the boolean value equal to true to return all child transaction receipts.&#x20;
+Nested transaction receipts can be returned by requesting the parent transaction receipt and setting the boolean value equal to true to return all child transaction receipts.
 
 **Child Transaction Fees**
 
@@ -69,7 +69,7 @@ The transaction fee for the child transaction is included in the record of the p
 
 **Queries** are processed only by the single node to which they are sent. Clients send queries to retrieve some aspect of the current consensus state like the balance of an account. Certain queries are free but generally, queries are subject to fees. The full list of queries can be found [here](../docs/sdks/queries.md).
 
-A query includes a header that includes a normal HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. There is no way to give partial payment to a node for processing the query meaning if a user overpaid for the query the user will not receive a refund. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.&#x20;
+A query includes a header that includes a normal HBAR transfer transaction that will serve as the means by which the client pays the node the appropriate fee. There is no way to give partial payment to a node for processing the query meaning if a user overpaid for the query the user will not receive a refund. The node processing the query will submit that payment transaction to the network for processing into consensus statement in order to receive its fee.
 
 A client can determine the appropriate fee for a query by first asking a node for the cost and not the actual data. Such a COST\_ANSWER query is free to the client.
 
