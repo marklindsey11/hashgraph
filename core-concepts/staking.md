@@ -4,17 +4,17 @@ The Hedera public ledger uses a proof-of-stake consensus mechanism, in which eac
 
 The staking feature will be rolled out in four phases; the first two phases are described below; the final two phases will be made available at the start of Phase I.
 
-**Phase I: Technical Availability**
+**Phase I: Technical Availability \[Complete]**
 
 The staking functionality is now available and live on both the Hedera testnet and mainnet, as of July 21, 2022. In phase I, users will technically be able to stake their account to mainnet nodes but this will not contribute to a node’s consensus weight (voting power). This initial technical availability release does not reward participants for staking, but enables a level playing field whereby all market participants have the possibility to join the staking program, and avoids giving an unfair advantage to the first few who stake.
 
-**Phase II: Ecosystem Development**&#x20;
+**Phase II: Ecosystem Development  \[Complete]**
 
 During this phase, supported exchanges and wallets will be able to integrate the staking functionality to provide account holders an easy way to stake their hbars, but will not distribute rewards. In addition, web applications for delegating stake will likely be built for utilization by the retail ecosystem. During this phase, there will be visibility of stake per node, and staking to a node will affect its consensus weight (voting power) with monthly updates.
 
-#### **Phase III: Staking Rewards Program Launch**
+#### **Phase III: Staking Rewards Program Launch \[Complete]**
 
-The Hedera Governing Council will determine when the Hedera ecosystem has reached a minimum viable set of integrations to enable staking rewards. Once this is determined, the council (through CoinCom) will vote to update the reward rate, and subsequently, the mainnet will be updated with the agreed-upon reward rate.\
+The Hedera Governing Council will determine when the Hedera ecosystem has reached a minimum viable set of integrations to enable staking rewards. Once this is determined, the council (through CoinCom) will vote to update the reward rate, and subsequently, the mainnet will be updated with the agreed-upon reward rate. The staking reward rate voted on by CoinComm is 1 billion hbars/year. \
 \
 Once updated, the staking reward account (0.0.800) will be eligible to distribute rewards earned by stakers, once the rewards threshold of 250M total hbars has been met. Rewards will continue to be distributed even if, after this time, the balance of account 0.0.800 goes below 250M.
 
