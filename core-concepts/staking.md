@@ -96,7 +96,6 @@ Supported Wallets:
 * [Blade](https://www.bladewallet.io/)
 * [MyHbarWallet](https://myhbarwallet.com/)
 * [Wallwallet ](https://wallawallet.com/2022/07/21/how-to-stake-hbar/)
-* [Yamgo](https://yamgo.com/earn-crypto-asset-app)
 
 Exchanges:
 
