@@ -94,3 +94,7 @@ Supported Wallets:
 
 * [HashPack](https://www.hashpack.app/post/staking-with-hashpack)
 * [Wallwallet ](https://wallawallet.com/2022/07/21/how-to-stake-hbar/)
+
+Exchanges:
+
+* [OKX](https://www.okx.com/support/hc/en-us/articles/9824479181709-Win-up-to-72-APY-with-Hedera-HBAR-Staking)
