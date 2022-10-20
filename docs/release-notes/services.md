@@ -36,7 +36,7 @@ In addition to the above features,
 **MAINNET UPDATE: OCTOBER 21, 2022**
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 **TESTNET UPDATE: OCTOBER 19, 2022**
 {% endhint %}
 
