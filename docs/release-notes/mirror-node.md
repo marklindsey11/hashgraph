@@ -8,7 +8,106 @@ For the latest versions supported on each network please visit the Hedera status
 
 ## Latest Releases
 
+## [v0.67](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.67.0)
+
+[HIP-367](https://hips.hedera.com/hip/hip-367) deprecated the list of token balances for an account returned via HAPI. The mirror node has been working on its replacement for a few releases by [storing](https://github.com/hashgraph/hedera-mirror-node/issues/4030) the current account balance, [combining](https://github.com/hashgraph/hedera-mirror-node/issues/4150) contract and entity tables, and [adding a history table](https://github.com/hashgraph/hedera-mirror-node/issues/3251) for `token_account`. This work has paved the way for a new token relationships REST API that will list all fungible and non-fungible tokens associated with a particular account. This API also returns some metadata like balance, KYC status, freeze status, and whether it's an automatic association or not. Currently the fungible token balance being returned is from the 15 minute account balance file. We are [actively](https://github.com/hashgraph/hedera-mirror-node/issues/4402) working towards tracking the real-time fungible token balance and it will be updated to reflect that in a future release.
+
+`GET /api/v1/accounts/{id}/tokens`
+
+```
+{
+  "tokens": [{
+    "automatic_association": true,
+    "balance": 15,
+    "created_timestamp": "1234567890.000000002",
+    "freeze_status": "UNFROZEN",
+    "kyc_status": "GRANTED",
+    "token_id": "0.0.1135"
+  }],
+  "links": {
+    "next": null
+  }
+}
+```
+
+[HIP-513](https://hips.hedera.com/HIP/hip-513.html) details how smart contract traceability information from consensus nodes is made available via sidecar files. The contract state changes within the sidecar are persisted by mirror nodes and made available on the contract results APIs. However, these state changes do not always reflect the full list of smart contract storage values since not all slots are modified during any particular contract invocation. We now persist a rolled up view of state changes to track the latest slot key/value pairs. This contract state information is now exposed via a new `/api/v1/contracts/{id}/state` REST API where `id` is either the `shard.realm.num`, `realm.num`, `num`, or a hex encoded EVM address of the smart contract.
+
+`GET /api/v1/contracts/{id}/state`
+
+```
+{
+  "state": [{
+    "address": "0x0000000000000000000000000000000000001f41",
+    "contract_id": "0.0.100",
+    "slot": "0x0000000000000000000000000000000000000000000000000000000000000001",
+    "timestamp": "1676540001.234390005",
+    "value": "0x0000000000000000000000000000000000000000000000000000000000000010"
+  }],
+  "links": {
+    "next": null
+  }
+}
+```
+
+In a push for further decentralization, we now randomize node used to download data files after reaching consensus. Previously, the data structure we used generally caused us to use the first node returned in the verified list, which was usually `0.0.3`. We now randomly pick a node until we can successfully download the stream file. We also internally changed all tables that used node account ID to use its node ID instead.
+
+On the testing front, we enhanced various test and monitoring tools to add support for new APIs. We also added an acceptance test startup probe to delay the start of the tests until the network as a whole was healthy. This avoids the mirror node acceptance tests reporting a false positive when a long migration or startup process on the consensus or mirror nodes causes a delay.
+
+## [v0.66](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.66.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: OCTOBER 24, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: OCTOBER 17, 2022**
+{% endhint %}
+
+Continuing our goal of having up to date balances everywhere, this release now shows the current hbar balance on the balances REST API. If you provide a `timestamp` parameter, it will fallback to the previous behavior and use the 15 minute balance file. This allows us to continue to provide a historical view of your balance over time, while also showing the latest balance if no specific time range is requested. Live fungible token balance is actively being worked on for an upcoming release.
+
+Another big feature this release is support for cloud storage failover. The importer can now be configured with multiple S3 download sources and will iterate over each until one is successful. This makes the mirror node more decentralized and provides more resiliency in the face of cloud failure. The existing `hedera.mirror.importer.downloader` properties used to configure the `cloudProvider`, `accessKey`, `secretKey`, etc. will continue to be supported and inserted as the first entry in the sources list, but it's recommended to migrate your configuration to the newer format. Also in the downloader, we increased the downloader batch size to 100 to improve historical synchronization speed. A `hedera.mirror.importer.downloader.sources.connectionTimeout` property was added to avoid occasional connection errors.
+
+```
+hedera:
+   mirror:
+    importer:
+      downloader:
+        sources:
+        - backoff: 30s
+          connectionTimeout: 10s
+          credentials:
+            accessKey: <redacted>
+            secretKey: <redacted>
+          maxConcurrency: 50
+          projectId: myapp
+          region: us-east-2
+          type: GCP
+          uri: https://storage.googleapis.com
+        - credentials:
+            accessKey: <redacted>
+            secretKey: <redacted>
+          type: S3
+```
+
+[HIP-573](https://hips.hedera.com/hip/hip-573) gives token creators the option to exempt all of their token’s fee collectors from a custom fee. This mirror node release adds support to persist this new `all_collectors_are_exempt` HAPI field and expose it via the `/api/v1/tokens/{id}` REST API.
+
+An important characteristic of a mirror node is that anyone can run one and store only the data they care about. The mirror node has supported such capability for a few years now but the configuration syntax was a bit tricky to get correct. To address this shortcoming, we add some [examples](https://github.com/hashgraph/hedera-mirror-node/blob/main/docs/configuration.md#transaction-and-entity-filtering) to the configuration documentation to clarify things. This entity filtering was historically limited to just create, update and delete operations on entities. We've now expanded this filtering to include payer account IDs and accounts or tokens involved in transfers.
+
+### Breaking Changes
+
+As part of the S3 failover work, we made a number of changes to existing properties to streamline things and only support one property for all stream types. The `hedera.mirror.importer.downloader.(balance|event|record).batchSize` properties were removed in favor of a single, generic `hedera.mirror.importer.downloader.batchSize`. Likewise, the `hedera.mirror.importer.downloader.(balance|event|record).threads` properties were removed in favor of `hedera.mirror.importer.downloader.threads`. The `hedera.mirror.importer.downloader.(balance|event|record).prefix` properties were removed in favor of hardcoded configuration since there's never been a need to adjust these. If you're using any of these properties, please adjust your config accordingly.
+
+If you're writing stream files to disk after downloading by enabling the `writeFiles` or `writeSignatures` properties, there is one other breaking change to be aware of. As part of our migration away from node account IDs, we changed the paths on disk to use the node ID as well. If you'd like to avoid having two directories for the same node please rename your local directories manually. For example, change `${dataDir}/recordstreams/record0.0.3` to `${dataDir}/recordstreams/record0`.
+
 ## [v0.65](https://github.com/hashgraph/hedera-mirror-node/releases/tag/v0.65.0)
+
+{% hint style="success" %}
+**MAINNET UPDATE COMPLETED: OCTOBER 11, 2022**
+{% endhint %}
+
+{% hint style="success" %}
+**TESTNET UPDATE COMPLETED: OCTOBER 6, 2022**
+{% endhint %}
 
 The mirror node now calculates consensus using the staking weight of all the nodes as outlined in [HIP-406](https://hips.hedera.com/HIP/hip-406.html). If staking is not yet activated, it falls back to the previous behavior of counting each node as `1/N` weight where `N` is the number of consensus nodes running on the network. The `/api/v1/accounts` and `/api/v1/accounts/{id}`REST APIs now expose a `pending_reward` field that provides an estimate of the staking reward payout in tinybars as of the last staking period. The `/api/v1/network/supply` REST API updated its configured list of unreleased supply accounts to accurately reflect the separation of accounts done for staking purposes by Hedera.
 
