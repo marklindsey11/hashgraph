@@ -109,7 +109,7 @@ ABI Version: 1
 
 ### <mark style="color:purple;">`transferTokens(token, accountIds, amount)`</mark>
 
-Initiates a fungible token transfer. Not applicable to non-fungible tokens.
+Initiates a fungible token transfer. This transaction accepts zero unit token transfer operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564)). Not applicable to non-fungible tokens.
 
 ABI Version: 1
 
@@ -149,7 +149,7 @@ ABI Version: 1
 
 ### <mark style="color:purple;">`mintToken(token, amount, metadata)`</mark>
 
-Mints an amount of the token to the defined treasury account.
+Mints an amount of the token to the defined treasury account. This transaction accepts zero amount token mint operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564)).
 
 ABI Version: 2
 
@@ -163,7 +163,7 @@ ABI Version: 2
 
 ### <mark style="color:purple;">`burnToken(token, amount, serialNumbers)`</mark>
 
-Burns an amount of the token from the defined treasury account<mark style="color:purple;">.</mark>
+Burns an amount of the token from the defined treasury account<mark style="color:purple;">.</mark> This transaction accepts zero amount token burn operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564)).
 
 ABI Version: 2
 
@@ -430,7 +430,7 @@ Unpauses a token from a previously paused state.
 
 ### <mark style="color:purple;">`wipeTokenAccount(token, account, amount)`</mark>
 
-Wipes fungible tokens from the specified account.
+Wipes fungible tokens from the specified account. This transaction accepts zero amount token wipe operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564)).
 
 | **Param** | **Type** | **Description**                           |
 | --------- | -------- | ----------------------------------------- |

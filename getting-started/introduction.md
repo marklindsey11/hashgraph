@@ -4,9 +4,9 @@ Through this short coding series, you will learn the basics of creating an accou
 
 ### Create Hedera Portal Profile (Faucet)
 
-![](../.gitbook/assets/portal-testnet.png)
+![](../.gitbook/assets/testnet.png)
 
-**You will need a Hedera testnet account**. The Hedera testnet account allows you to interact with our APIs and pay for the transaction fees. Visit the [Hedera portal](https://portal.hedera.com/register) to set up your Hedera testnet account and follow the instructions. 
+**You will need a Hedera testnet account**. The Hedera testnet account allows you to interact with our APIs and pay for the transaction fees. Visit the [Hedera portal](https://portal.hedera.com/register) to set up your Hedera testnet account and follow the instructions.
 
 Once you have completed the instructions, you will receive a Hedera testnet account ID (0.0.x) and your private/public key pair on your testnet page. You will need to copy over your account ID and key pair information when you set up your coding environment in the following steps.
 

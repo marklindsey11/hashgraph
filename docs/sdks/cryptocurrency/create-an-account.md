@@ -244,9 +244,9 @@ Wallet software can allow the user to create an "account" instantly, for free, e
 
 The account alias is immutable, cannot be modified, and it will continue to be associated with that account for as long as it exists. Still, if the account is deleted and removed from Hedera, the alias can be associated with a new account.
 
-The account is officially registered with Hedera when hbars are initially deposited to the account alias. The transaction fee to create the account is deducted from the initial hbar transfer. The remaining balance minus the transaction fee to create the account is the initial balance of the new account. The account create transaction is executed first to register the new account and following the transfer transaction to transfer the remaining hbar balance to the new account.
+The account is officially registered with Hedera when hbars, fungible or non-fungible tokens are initially deposited to the account alias. The fee to create the accounts is charged in the transaction fee of the transfer transaction used to send the token to the account alias. The account create transaction is executed first to register the new account and following the transfer transaction to transfer the tokens to the new account.
 
-The consensus timestamp for the create account transaction is one nanosecond before the transfer transaction. The parent transfer transaction and the child account create transaction share the same payer account and timestamp in the transaction ID except that the child transaction has an added nonce value. You will also notice the account and transaction memo set to `auto-created account`.
+The consensus timestamp for the create account transaction is one nanosecond before the transfer transaction. The parent transfer transaction and the child account create transaction share the same payer account and timestamp in the transaction ID except that the child transaction has an added nonce value. You will also notice the account and transaction memo set to `auto-created account` indicating this account was created by using an account alias.
 
 You can return the new account ID from one of the following ways:
 
@@ -260,7 +260,22 @@ You can return the new account ID from one of the following ways:
 **Note:** You cannot get the new account ID from the receipt of the transfer transaction like you would expect from a normal account create transaction that was not triggered by another transaction. You can use the alias in transfer transactions, account info and balance queries. The feature will be enabled to support all other transactions and queries in a future release.
 {% endhint %}
 
+Follow the steps below to create an account using an account alias:
+
+* Create an ED25519 or ECDSA (secp256k1) key pair
+  * The public key will be the account alias
+  * The private key of the key pair you created will be the private key associated with the new Hedera account that will be created in a following step
+* Convert the public key (account alias) to a Hedera account ID format (0.0.publicKey)
+* Use the `TransferTransaction` and transfer hbars, fungible, or your non-fungible token to the public key address in the Hedera account ID format&#x20;
+  * The transfer will trigger an `AccountCreateTransaction` and create the Hedera account for you
+  * Following the transaction that creates your account, the tokens will be transferred to that account
+* Get the new Hedera account ID (0.0.accountNum) by requesting the child record, child receipt, or account info (see above)
+
 **Transaction Signing Requirements**
 
 * The account key paying for the transfer transaction fee
-* The account the hbars are being debited from the transfer transaction
+
+**Reference HIPs**
+
+* [HIP-32](https://hips.hedera.com/hip/hip-32)
+* [HIP-542](https://hips.hedera.com/hip/hip-542)

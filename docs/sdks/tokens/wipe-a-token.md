@@ -12,6 +12,7 @@ Wipes the provided amount of fungible or non-fungible tokens from the specified 
 * On success, tokens are removed from the account and the total supply of the token is decreased by the wiped amount.
 * The amount provided is in the lowest denomination possible.
   * Example: Token A has 2 decimals. In order to wipe 100 tokens from an account, one must provide an amount of 10000. In order to wipe 100.55 tokens, one must provide an amount of 10055.
+* This transaction accepts zero unit token wipe operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564))
 
 **Transaction Signing Requirements:**
 

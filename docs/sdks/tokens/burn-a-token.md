@@ -1,11 +1,12 @@
 # Burn a token
 
-Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY.&#x20;
+Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supply Key is defined, the transaction will resolve to TOKEN\_HAS\_NO\_SUPPLY\_KEY.
 
-* The operation decreases the Total Supply of the Token.&#x20;
-* Total supply cannot go below zero.&#x20;
-* The amount provided must be in the lowest denomination possible.&#x20;
+* The operation decreases the Total Supply of the Token.
+* Total supply cannot go below zero.
+* The amount provided must be in the lowest denomination possible.
   * Example: Token A has 2 decimals. In order to burn 100 tokens, one must provide an amount of 10000. In order to burn 100.55 tokens, one must provide an amount of 10055.
+* This transaction accepts zero unit token burn operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564))
 
 **Transaction Signing Requirements**
 
@@ -17,9 +18,9 @@ Burns fungible and non-fungible tokens owned by the Treasury Account. If no Supp
 * Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
-| Constructor                  | Description                                     |
-| ---------------------------- | ----------------------------------------------- |
-| `new TokenBurnTransaction()` |     Initializes the TokenBurnTransaction object |
+| Constructor                  | Description                                 |
+| ---------------------------- | ------------------------------------------- |
+| `new TokenBurnTransaction()` | Initializes the TokenBurnTransaction object |
 
 ```java
 new TokenBurnTransaction()
@@ -29,14 +30,12 @@ new TokenBurnTransaction()
 
 {% tabs %}
 {% tab title="V2" %}
-
-
-| Method                  | Type        | Description                                                                             | Requirement |
-| ----------------------- | ----------- | --------------------------------------------------------------------------------------- | ----------- |
-| `setTokenId(<tokenId>)` | TokenId     | The ID of the token to burn supply                                                      | Required    |
-| `setAmount(<amount>)`   | long        | The number of tokens to burn (fungible tokens)                                          | Optional    |
-| `setSerials(<serials>)` | List\<long> | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The  list of NFT serial IDs to burn. | Optional    |
-| `addSerial(<serial>)`   | long        | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The serial ID to burn.               | Optional    |
+| Method                  | Type        | Description                                                                            | Requirement |
+| ----------------------- | ----------- | -------------------------------------------------------------------------------------- | ----------- |
+| `setTokenId(<tokenId>)` | TokenId     | The ID of the token to burn supply                                                     | Required    |
+| `setAmount(<amount>)`   | long        | The number of tokens to burn (fungible tokens)                                         | Optional    |
+| `setSerials(<serials>)` | List\<long> | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The list of NFT serial IDs to burn. | Optional    |
+| `addSerial(<serial>)`   | long        | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The serial ID to burn.              | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -173,4 +172,3 @@ console.log("The transaction consensus status is " +transactionStatus);
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-

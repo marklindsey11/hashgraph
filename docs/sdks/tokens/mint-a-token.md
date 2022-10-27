@@ -9,6 +9,7 @@ Minting fungible token allows you to increase the total supply of the token. Min
   * You can use the metadata field to add a URI that contains additional information about the token. You can view the metadata schema [here](https://hips.hedera.com/hip/hip-412). The metadata field has a 100 character limit.
 * The serial number for the NFT is returned in the receipt of the transaction.
 * When minting NFTs, do not set the amount. The amount is used for minting fungible tokens only.
+* This transaction accepts zero unit minting operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564))
 
 **Transaction Signing Requirements**
 

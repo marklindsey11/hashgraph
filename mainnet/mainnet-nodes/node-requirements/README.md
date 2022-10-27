@@ -48,59 +48,58 @@ Considerations for future expansion (hardware based deployments):
 * 1x Nvidia Tesla V100 PCIe 16GB/32GB GPU
 
 ### **Node Operating System:**
-- Linux
-    - Kernel minimum version 3.10+
-    - Actively Support Long-Term-Support Release
-        - Ubuntu LTS 18.04+
-        - RHEL 7/8
+
+* Linux
+  * Kernel minimum version 3.10+
+  * Actively Support Long-Term-Support Release
+    * Ubuntu LTS 18.04+
+    * RHEL 7/8
 
 ### **Node Software:**
 
-- Docker Engine (`docker-ce` version 20.10.6)
-    - Deployed with root privileges
-    - Privileged container support enabled (optional)
-        - If privileged container support is disabled then host machine must run the Havege Daemon
-- Docker Compose (`docker-compose` version 1.29.2)
-- IPTables Support (`linux-kernel` version 3.10+)
-- Havege Daemon (`haveged` version 1.9.14)
-    - If privileged container support is enabled then this requirement is optional
-- HashDeep Utilities (`hashdeep` version 4.4)
-    - Required for update integrity validation
-- Bindplane Collector (`bindplane-collector` version 4+)
-    - Required for node software log monitoring
-- JQ CLI (`jq` version 1.5+)
-    - Required dependency for the Node Management Tools
-- GNU CoreUtils (`coreutils` version 8.00+)
-    - Required dependency for the Node Management Tools
-- cURL CLI (`curl` version 7.58.0+)
-    - Required dependency for the Node Management Tools 
-- InCron Daemon (`incron` version 0.5.12+)
-    - Required dependency for the Node Management Tools 
-    - Required for automated network upgrade
-- Rsync CLI (`rsync` version 3.0.0+)
-    - Required dependency for the Node Management Tools
-    - Required for automated network upgrade
-- Node Management Tools (`node-mgmt-tools` version 0.1.0+)
-    - Updates deployed via the node upgrade process
-    - Must be installed at the following path: `/opt/hgcapp/node-mgmt-tools`
-        - The path must be writable and executable by the `hgcadmin` user account
+* Docker Engine (`docker-ce` version 20.10.6)
+  * Deployed with root privileges
+  * Privileged container support enabled (optional)
+    * If privileged container support is disabled then host machine must run the Havege Daemon
+* Docker Compose (`docker-compose` version 1.29.2)
+* IPTables Support (`linux-kernel` version 3.10+)
+* Havege Daemon (`haveged` version 1.9.14)
+  * If privileged container support is enabled then this requirement is optional
+* HashDeep Utilities (`hashdeep` version 4.4)
+  * Required for update integrity validation
+* Bindplane Collector (`bindplane-collector` version 4+)
+  * Required for node software log monitoring
+* JQ CLI (`jq` version 1.5+)
+  * Required dependency for the Node Management Tools
+* GNU CoreUtils (`coreutils` version 8.00+)
+  * Required dependency for the Node Management Tools
+* cURL CLI (`curl` version 7.58.0+)
+  * Required dependency for the Node Management Tools
+* InCron Daemon (`incron` version 0.5.12+)
+  * Required dependency for the Node Management Tools
+  * Required for automated network upgrade
+* Rsync CLI (`rsync` version 3.0.0+)
+  * Required dependency for the Node Management Tools
+  * Required for automated network upgrade
+* Node Management Tools (`node-mgmt-tools` version 0.1.0+)
+  * Updates deployed via the node upgrade process
+  * Must be installed at the following path: `/opt/hgcapp/node-mgmt-tools`
+    * The path must be writable and executable by the `hgcadmin` user account
 
-<a name="toc-node-req-sys-user"></a>
 ### **System User Accounts:**
 
-- _**Node Software Account (mandatory)**_
-    - User Specification
-        - Name: `hedera`
-        - Unix UID: `2000`
-        - Group Membership
-            - Primary: `hedera`
-            - Secondary: `admin` or `wheel` _(depending on Linux distribution)_
-        - Permissions:
-            - Read, Write, and Execute Access to the entire `/opt/hgcapp` folder tree
-    - Group Specification
-        - Name: `hedera`
-        - Unix GID: `2000`
-
+* _**Node Software Account (mandatory)**_
+  * User Specification
+    * Name: `hedera`
+    * Unix UID: `2000`
+    * Group Membership
+      * Primary: `hedera`
+      * Secondary: `admin` or `wheel` _(depending on Linux distribution)_
+    * Permissions:
+      * Read, Write, and Execute Access to the entire `/opt/hgcapp` folder tree
+  * Group Specification
+    * Name: `hedera`
+    * Unix GID: `2000`
 
 {% hint style="info" %}
 Reference Configurations available in Appendices B, C, D
@@ -143,10 +142,7 @@ Proxy Connectivity
 
 Interface Bonding (optional)
 
-* If using interface bonding, note that mutual TLS is in use, and Layer 3
-  Policy Based Routing (PBR) with dual-pathways is not supported. Only Layer
-  2 interface bonding using mode 1 (autonomous ports using active-backup)
-  or mode 4 (LACP 802.3ad active/active) is supported.
+* If using interface bonding, note that mutual TLS is in use, and Layer 3 Policy Based Routing (PBR) with dual-pathways is not supported. Only Layer 2 interface bonding using mode 1 (autonomous ports using active-backup) or mode 4 (LACP 802.3ad active/active) is supported.
 
 ### Hosting
 
@@ -166,7 +162,7 @@ Interface Bonding (optional)
 
 ## Network Topology /(Typical Corporate Datacenter Configuration/)
 
-![](../../../.gitbook/assets/network-topology.jpg)
+![](<../../../.gitbook/assets/network-topology (1).jpg>)
 
 ## Deployment Steps
 

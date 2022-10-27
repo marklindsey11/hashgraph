@@ -1,6 +1,8 @@
 # Custom token fees
 
-When you create a token, you have the ability to set one or many custom fees (up to 10). Custom fees are fees that are distributed to the specified accounts each time the token is transferred programmatically. These custom fees can be either a fixed fee, fractional fee, or royalty fee.
+When you create a token, you have the ability to set one or many custom fees (up to 10). Custom fees are fees that are distributed to the specified accounts each time the token is transferred programmatically. These custom fees can be either a fixed fee, fractional fee, or royalty fee. \
+\
+All fee collectors can be exempt from being charged custom fees. To exempt all fee collectors from being charged a custom fee you must set all custom fee collectors from being exempt when creating the custom fees ([HIP-573](https://hips.hedera.com/hip/hip-573)). If this is not enabled then custom fees are only exempt for a fee collector account for which it is the collector.
 
 * A **fixed fee** transfers a specified amount of the token, to the specified collection account(s), each time a token transfer is initiated. The custom token fee does not depend on the amount of the token that is being transferred. You have the option to collect the fee in hbar or another fungible Hedera token. A NFT cannot be used as a token type to collect the fee in. You can set a custom fixed fee for both fungible and non-fungible token types.
 * A **fractional fee** transfers the specified fraction of the total value of the tokens that are being transferred to the specified fee collecting account. Along with setting a custom fractional fee, you can impose minimum and maximum fee limits per transfer transaction. Applicable to fungible tokens only.
@@ -54,12 +56,13 @@ new CustomFixedFee()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                  | Type                                                   | Requirement |
-| --------------------------------------- | ------------------------------------------------------ | ----------- |
-| `setFeeCollectorAccountId(<accountId>)` | [AccountId](../../hedera-api/basic-types/accountid.md) | Required    |
-| `setHbarAmount(<amount>)`               | [Hbar](../hbars.md)                                    | Optional    |
-| `setAmount(<amount>)`                   | long                                                   | Optional    |
-| `setDenominatingTokenId(<tokenId>)`     | [TokenId](../../hedera-api/basic-types/tokenid.md)     | Optional    |
+| Method                                                | Type                                                   | Requirement |
+| ----------------------------------------------------- | ------------------------------------------------------ | ----------- |
+| `setFeeCollectorAccountId(<accountId>)`               | [AccountId](../../hedera-api/basic-types/accountid.md) | Required    |
+| `setHbarAmount(<amount>)`                             | [Hbar](../hbars.md)                                    | Optional    |
+| `setAmount(<amount>)`                                 | long                                                   | Optional    |
+| `setDenominatingTokenId(<tokenId>)`                   | [TokenId](../../hedera-api/basic-types/tokenid.md)     | Optional    |
+| `setAllCollectorsAreExempt(<allCollectorsAreExempt>)` | boolean                                                | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -152,14 +155,15 @@ new CustomFractionalFee()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                    | Type                                           | Requirement |
-| ----------------------------------------- | ---------------------------------------------- | ----------- |
-| `setFeeCollectorAccountId(<accountId>)`   | [AccountId](../specialized-types.md#accountid) | Required    |
-| `setNumerator(<numerator>)`               | long                                           | Required    |
-| `setDenominator(<amount>)`                | long                                           | Required    |
-| `setMax(<max>)`                           | long                                           | Optional    |
-| `setMin(<min>)`                           | long                                           | Optional    |
-| `setAssessmentMethod(<assessmentMethod>)` | FeeAssessmentMethod                            | Optional    |
+| Method                                                | Type                                           | Requirement |
+| ----------------------------------------------------- | ---------------------------------------------- | ----------- |
+| `setFeeCollectorAccountId(<accountId>)`               | [AccountId](../specialized-types.md#accountid) | Required    |
+| `setNumerator(<numerator>)`                           | long                                           | Required    |
+| `setDenominator(<amount>)`                            | long                                           | Required    |
+| `setMax(<max>)`                                       | long                                           | Optional    |
+| `setMin(<min>)`                                       | long                                           | Optional    |
+| `setAssessmentMethod(<assessmentMethod>)`             | FeeAssessmentMethod                            | Optional    |
+| `setAllCollectorsAreExempt(<allCollectorsAreExempt>)` | boolean                                        | Optional    |
 
 {% code title="Java" %}
 ```java
@@ -257,12 +261,13 @@ new CustomRoyaltyFee()
 
 {% tabs %}
 {% tab title="V2" %}
-| Method                                              | Type                                             | Requirement |
-| --------------------------------------------------- | ------------------------------------------------ | ----------- |
-| `setNumerator(<numerator>)`                         | long                                             | Required    |
-| `setDenominator(<denominator>)`                     | long                                             | Required    |
-| `setFallbackFee(<fallbackFee>)`                     | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional    |
-| `setFeeCollectorAccountId(<feeCollectorAccountId>)` | [AccountId](../specialized-types.md#accountid)   | Required    |
+| Method                                                | Type                                             | Requirement |
+| ----------------------------------------------------- | ------------------------------------------------ | ----------- |
+| `setNumerator(<numerator>)`                           | long                                             | Required    |
+| `setDenominator(<denominator>)`                       | long                                             | Required    |
+| `setFallbackFee(<fallbackFee>)`                       | [CustomFixedFee](custom-token-fees.md#fixed-fee) | Optional    |
+| `setFeeCollectorAccountId(<feeCollectorAccountId>)`   | [AccountId](../specialized-types.md#accountid)   | Required    |
+| `setAllCollectorsAreExempt(<allCollectorsAreExempt>)` | boolean                                          | Optional    |
 
 {% code title="Java" %}
 ```java
