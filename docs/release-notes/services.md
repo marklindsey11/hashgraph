@@ -14,7 +14,7 @@ For the latest versions supported on each network please visit the Hedera status
 **MAINNET UPDATE: NOVEMBER 10, 2022**
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="success" %}
 **TESTNET UPDATE: OCTOBER 27, 2022**
 {% endhint %}
 
@@ -29,6 +29,8 @@ In addition to the above features,
 * Adds support of the ERC20/721 `transferFrom` method for HTS precompiles from [HIP-514 roadmap](https://hips.hedera.com/hip/hip-514).
 * Enables Smart Contract Traceability.
 * Adds some changes related to testability improvements.
+
+## Latest Releases
 
 ## [v0.30](https://github.com/hashgraph/hedera-services/releases/tag/v0.30.0)
 
@@ -66,8 +68,6 @@ This release also brings two peripheral improvements:
 2. Mirror node operators will be able to use the daily `NodeStakeUpdate` export to track the current values of [several key staking properties](https://github.com/hashgraph/hedera-protobufs/blob/main/services/node\_stake\_update.proto#L45). Please review the linked protobuf comments for more details on these properties.
 
 <figure><img src="../../.gitbook/assets/0.30_results.001.png" alt=""><figcaption></figcaption></figure>
-
-## Latest Releases
 
 ## [v0.29](https://github.com/hashgraph/hedera-services/releases/tag/v0.29.0)
 
