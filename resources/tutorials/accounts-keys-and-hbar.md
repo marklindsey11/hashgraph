@@ -4,6 +4,10 @@
 Staking on Hedera for Developers – Back to the Basics
 {% endembed %}
 
+{% embed url="https://hedera.com/blog/how-to-auto-create-hedera-accounts-with-hbar-and-token-transfers" %}
+How to Auto-Create Hedera Accounts with HBAR and Token Transfers
+{% endembed %}
+
 {% embed url="https://hedera.com/blog/how-to-approve-hbar-allowances-on-hedera-using-the-sdk" %}
 How to Approve HBAR Allowances on Hedera Using the SDK
 {% endembed %}
@@ -11,3 +15,4 @@ How to Approve HBAR Allowances on Hedera Using the SDK
 {% embed url="https://hedera.com/blog/how-to-approve-fungible-token-and-nft-allowances-on-hedera-part-1-using-the-sdk" %}
 How to Approve Fungible Token and NFT Allowances on Hedera – Part 1: Using the SDK
 {% endembed %}
+

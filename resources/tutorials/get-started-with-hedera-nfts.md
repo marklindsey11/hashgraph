@@ -39,3 +39,7 @@ How to Send and Receive Hedera Tokens Using Smart Contracts - Part 2: Solidity
 {% embed url="https://hedera.com/blog/how-to-exempt-hedera-accounts-from-custom-token-fees" %}
 How to Exempt Hedera Accounts from Custom Token Fees
 {% endembed %}
+
+{% embed url="https://hedera.com/blog/how-to-exempt-hedera-accounts-from-custom-token-fees" %}
+How to Exempt Hedera Accounts from Custom Token Fees
+{% endembed %}

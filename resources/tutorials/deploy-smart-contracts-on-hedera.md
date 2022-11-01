@@ -45,3 +45,7 @@ Mapping Hedera Token Service Standards to ERC20, ERC721, & ERC1155
 {% embed url="https://hedera.com/blog/the-create2-opcode-on-hedera-an-introduction" %}
 The CREATE2 Opcode on Hedera: An Introduction
 {% endembed %}
+
+{% embed url="https://hedera.com/blog/how-to-pass-zero-token-values-to-hedera-contracts" %}
+How to Pass Zero Token Values to Hedera Contracts
+{% endembed %}
