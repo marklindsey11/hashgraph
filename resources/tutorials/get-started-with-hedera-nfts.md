@@ -35,3 +35,7 @@ How to Send and Receive Hedera Tokens Using Smart Contracts - Part 1: SDKs
 {% embed url="https://hedera.com/blog/how-to-send-and-receive-hedera-tokens-using-smart-contracts-part-2-solidity" %}
 How to Send and Receive Hedera Tokens Using Smart Contracts - Part 2: Solidity
 {% endembed %}
+
+{% embed url="https://hedera.com/blog/how-to-exempt-hedera-accounts-from-custom-token-fees" %}
+How to Exempt Hedera Accounts from Custom Token Fees
+{% endembed %}
