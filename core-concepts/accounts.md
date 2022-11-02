@@ -79,24 +79,15 @@ Accounts can have an account alias if the account was created by transferring hb
 
 ## Staked Node ID
 
-An account can elect to stake its hbars to a node in the Hedera network. The staked node ID is the ID of the node the account anticipates staking to. The full balance of the account is staked to the node. The account balance is liquid at all times. There is no lock-up period. The node ID can be found [here](../mainnet/) or can be queried from the [nodes API](https://testnet.mirrornode.hedera.com/api/v1/docs/#/network/getNetworkNodes). Staking to node is an optional account feature. An account can only stake to one node or one account at any given time. Reference [HIP-406](https://hips.hedera.com/hip/hip-406). This feature is available on:
-
-* `previewnet`
-* `testnet`
+An account can elect to stake its hbars to a node in the Hedera network. The staked node ID is the ID of the node the account anticipates staking to. The full balance of the account is staked to the node. The account balance is liquid at all times. There is no lock-up period. The node ID can be found [here](../mainnet/) or can be queried from the [nodes API](https://testnet.mirrornode.hedera.com/api/v1/docs/#/network/getNetworkNodes). Staking to node is an optional account feature. An account can only stake to one node or one account at any given time. Reference [HIP-406](https://hips.hedera.com/hip/hip-406).&#x20;
 
 ## Staked Account ID
 
-An account can elect to stake its hbars to another account in the Hedera network. This is referenced as indirect staking. The staked account ID is the ID of the account this account would like to stake to. The full balance of the account is staked to the specified account. Staking to an account is an optional account feature. An account can only stake to one node or one account at any given time. Reference [HIP-406](https://hips.hedera.com/hip/hip-406). This feature is available on:
-
-* `previewnet`
-* `testnet`
+An account can elect to stake its hbars to another account in the Hedera network. This is referenced as indirect staking. The staked account ID is the ID of the account this account would like to stake to. The full balance of the account is staked to the specified account. Staking to an account is an optional account feature. An account can only stake to one node or one account at any given time. Reference [HIP-406](https://hips.hedera.com/hip/hip-406).&#x20;
 
 ## Decline to Earn Staking Rewards
 
-Accounts have the option to decline earning staking rewards when they stake to a node or an account that then stakes to a node. The staked account still contributes to the stake of the node, but does not earn rewards or calculated as part of the rewards payment to the other accounts that have elected to earn rewards. By default, all staked accounts will earn rewards unless this flag is set. Declining to earn rewards is an optional account feature. Reference [HIP-406](https://hips.hedera.com/hip/hip-406). This feature is available on:
-
-* `previewnet`
-* `testnet`
+Accounts have the option to decline earning staking rewards when they stake to a node or an account that then stakes to a node. The staked account still contributes to the stake of the node, but does not earn rewards or calculated as part of the rewards payment to the other accounts that have elected to earn rewards. By default, all staked accounts will earn rewards unless this flag is set. Declining to earn rewards is an optional account feature. Reference [HIP-406](https://hips.hedera.com/hip/hip-406).&#x20;
 
 ## Expiration
 
@@ -110,4 +101,3 @@ The maximum autoRenewPeriod for an account, file, or smart contract will be limi
 Currently not implemented on the network i.e. accounts **do not expire**.
 {% endhint %}
 
-A hash (presumably of some kind of credential or certificate), along with a list of keys (each of which is either a primitive or a threshold key). Each of them must reach its threshold when signing the transaction, to attach this livehash to this account. At least one of them must reach its threshold to delete this livehash from this account.
