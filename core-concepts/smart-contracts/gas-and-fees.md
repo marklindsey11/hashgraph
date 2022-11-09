@@ -56,7 +56,7 @@ Gas throttle per contract call and contract create: **8 million gas per second**
 
 Reference [HIP-185](https://hips.hedera.com/hip/hip-185)
 
-### Smart Contract Rent
+### Smart Contract Rent and Auto Renewal
 
 {% hint style="info" %}
 Smart contract entity auto renewal and expiry was introduced in the `0.30.4` Hedera Services release. All contract authors to are encouraged to set an auto-renew account for their contract. \
