@@ -71,10 +71,14 @@ A contract unable to pay renewal fees will enter a week-long "grace period" duri
 
 [Smart contract rent](https://hedera.com/blog/smart-contract-rent-on-hedera-is-coming-what-you-need-to-know) on Hedera will start once a total of **100 million key-value pairs** are stored cumulatively across the network. The expectation is that Hedera Coin Economics Committee will set this rent rate of _**$0.02 per key-value pair per year**_. This applies to all contracts on Hedera, regardless of the contract being created before or after the rent payments go live.
 
-Once rent payments are enabled on Hedera:
+Once storage rent payments are enabled on Hedera:
 
 * Each contract has **100 free key-value pairs** of storage available
 * Once a contract exceeds the first 100 free key-value pairs, it must pay rent. Note that valid renewal windows are between \~30 and \~92 days (see [HIP-372](https://hips.hedera.com/hip/hip-372))
+
+{% hint style="info" %}
+Storage rent will be part of the auto renew fee collected when a contract expired and is auto-renewed.&#x20;
+{% endhint %}
 
 If a high enough utilization threshold is reached, **congestion pricing applies**
 
