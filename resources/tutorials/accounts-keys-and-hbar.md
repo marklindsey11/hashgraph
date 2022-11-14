@@ -16,3 +16,7 @@ How to Approve HBAR Allowances on Hedera Using the SDK
 How to Approve Fungible Token and NFT Allowances on Hedera – Part 1: Using the SDK
 {% endembed %}
 
+{% embed url="https://hedera.com/blog/how-to-approve-fungible-token-and-nft-allowances-on-hedera-part-2-using-solidity-libraries" %}
+How to Approve Fungible Token and NFT Allowances on Hedera - Part 2: Using Solidity Libraries
+{% endembed %}
+
