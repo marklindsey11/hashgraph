@@ -221,6 +221,10 @@ _Example_ : desc
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger src="https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml" path="/api/v1/accounts/{idOrAliasOrEvmAddress}/tokens" method="get" %}
+[https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
+{% endswagger %}
+
 ## Balances <a href="#balances" id="balances"></a>
 
 The **balance** object represents the balance of accounts on the Hedera network. You can retrieve this to view the **most recent** balance of all the accounts on the network at that given time. The balances object returns the account ID and the balance in hbars. Balances are checked on a periodic basis and thus return the most recent snapshot of time captured prior to the request.
@@ -1355,6 +1359,10 @@ The timestamp to query the results with
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger src="https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml" path="/api/v1/contracts/results" method="get" %}
+[ https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
+{% endswagger %}
+
 {% swagger method="get" path="/api/v1/contracts/{contractId}/results" baseUrl="" summary="contract results" %}
 {% swagger-description %}
 Returns a list of all ContractResults for a contract's function executions.
@@ -1582,7 +1590,15 @@ _Default value_ : 0
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger src="https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml" path="/api/v1/contracts/results/logs" method="get" %}
+[ https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
+{% endswagger %}
+
 {% swagger src="https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml" path="/api/v1/contracts/results/{transactionIdOrHash}/actions" method="get" %}
+[ https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
+{% endswagger %}
+
+{% swagger src="https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml" path="/api/v1/contracts/{contractIdOrAddress}/state" method="get" %}
 [ https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml](https://raw.githubusercontent.com/hashgraph/hedera-mirror-node/main/hedera-mirror-rest/api/v1/openapi.yml)
 {% endswagger %}
 
