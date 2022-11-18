@@ -1,6 +1,6 @@
 ---
 description: >-
-  The Hedera mainnet is currently comprised of permissioned consensus nodes
+  The Hedera Mainnet is currently comprised of permissioned consensus nodes
   operated by the Hedera Governing Council
 ---
 
@@ -10,7 +10,7 @@ The following is provided to help Hedera Governing Council members deploy their 
 
 ## Minimum Node Requirements
 
-Currently, the Hedera mainnet will perform at a rate determined by the lowest-performing node. To ensure a common level of performance minimum hardware, connectivity and hosting requirements have been defined for the initial permissioned, Governing Council nodes.
+Currently, the Hedera Mainnet will perform at a rate determined by the lowest-performing node. To ensure a common level of performance minimum hardware, connectivity and hosting requirements have been defined for the initial permissioned, Governing Council nodes.
 
 {% hint style="warning" %}
 To ensure accurate conformity with the minimum requirements, please provide node hardware, connectivity, and hosting details to Hedera prior to purchase (devops@hedera.com).

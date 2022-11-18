@@ -1,4 +1,4 @@
-# Transfer hbar
+# Transfer HBAR
 
 ## Summary
 
@@ -22,9 +22,9 @@ You can always check the "Code Check ✅ " section at the bottom of each page to
 
 {% tabs %}
 {% tab title="Java" %}
-#### Step 1. Create a transfer transaction
+**Step 1. Create a transfer transaction**
 
-You should already have a new account from the account you created in the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your account to the new account. The account transferring hbars is required to sign the transaction with the account's corresponding private key to authorize the transfer. Since you are transferring from the account associated with the client, you do not need to explicitly sign the transaction as the operator account signs all transactions to authorize the payment of the transaction fee.
+You should already have a new account from the account you created in the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your account to the new account. The account transferring HBAR is required to sign the transaction with the account's corresponding private key to authorize the transfer. Since you are transferring from the account associated with the client, you do not need to explicitly sign the transaction as the operator account signs all transactions to authorize the payment of the transaction fee.
 
 ```java
 //System.out.println("The new account balance is: " +accountBalance.hbars);
@@ -41,7 +41,7 @@ TransactionResponse sendHbar = new TransferTransaction()
 The net value of the transfer must equal zero (total number of hbars sent by the sender must equal the total number of hbars received by the recipient).
 {% endhint %}
 
-#### Step 2. Verify the transfer transaction reached consensus
+**Step 2. Verify the transfer transaction reached consensus**
 
 To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transfer transaction. The receipt will let you know if the transaction was successful or not.
 
@@ -49,7 +49,7 @@ To verify the transfer transaction reached consensus by the network, you will su
 System.out.println("The transfer transaction was: " +sendHbar.getReceipt(client).status);
 ```
 
-#### Step 3. Get the account balance
+**Step 3. Get the account balance**
 
 **Get the cost of requesting the query**
 
@@ -89,7 +89,7 @@ Do you want to keep learning? Visit our "[Resources](../resources/starter-projec
 [try-examples](try-examples/)
 {% endcontent-ref %}
 
-#### Code Check :white\_check\_mark:
+**Code Check** :white\_check\_mark:
 
 Your complete code file should look something like this:
 
@@ -183,7 +183,7 @@ The new account balance is: 2000 tℏ
 {% endtab %}
 
 {% tab title="JavaScript" %}
-#### Step 1: Create a transfer transaction
+**Step 1: Create a transfer transaction**
 
 You should already have a new account ID from the account you created from the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your account to the new account. The account sending hbars is the signature that is required for this transaction to be processed.
 
@@ -202,7 +202,7 @@ const sendHbar = await new TransferTransaction()
 The net value of the transfer must equal zero (total number of hbars sent by the sender must equal the total number of hbars received by the recipient).
 {% endhint %}
 
-#### Step 2: Verify the transfer transaction reached consensus
+**Step 2: Verify the transfer transaction reached consensus**
 
 To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transaction. The receipt status will let you know if the transaction was successful (reached consensus) or not.
 
@@ -212,7 +212,7 @@ const transactionReceipt = await sendHbar.getReceipt(client);
 console.log("The transfer transaction from my account to the new account was: " + transactionReceipt.status.toString());
 ```
 
-#### Step 3: Get the updated account balance
+**Step 3: Get the updated account balance**
 
 **Get the cost of requesting the query**
 
@@ -252,7 +252,7 @@ Do you want to keep learning? Visit our "[Resources](../resources/starter-projec
 [try-examples](try-examples/)
 {% endcontent-ref %}
 
-#### Code Check ✅
+**Code Check ✅**
 
 Your complete index.js file should look something like this:
 
@@ -333,7 +333,7 @@ main();
 {% endtab %}
 
 {% tab title="Go" %}
-#### Step 1. Create a transfer transaction
+**Step 1. Create a transfer transaction**
 
 You should already have a new account ID from the account you created in the "[Create an account](create-an-account.md)" section. You will transfer 1,000 tinybars from your testnet account to the new account. The sender account's private key is required to sign the transaction. The sender account is your testnet account so the client is already set-up to sign with your testnet account's private key to authorize the transfer.
 
@@ -359,7 +359,7 @@ if err != nil {
 The net value of the transfer must equal zero (total number of hbars sent by the sender must equal the total number of hbars received by the recipient).
 {% endhint %}
 
-#### Step 2. Verify the transfer transaction reached consensus
+**Step 2. Verify the transfer transaction reached consensus**
 
 To verify the transfer transaction reached consensus by the network, you will submit a request to obtain the receipt of the transfer transaction. The receipt will let you know if the transaction was successful or not.
 
@@ -377,7 +377,7 @@ transactionStatus := transferReceipt.Status
 fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
 ```
 
-#### Step 3. Get the account balance
+**Step 3. Get the account balance**
 
 **Get the cost of requesting the query**
 
@@ -429,7 +429,7 @@ Do you want to keep learning? Visit our "[Resources](../resources/starter-projec
 [try-examples](try-examples/)
 {% endcontent-ref %}
 
-#### Code Check ✅
+**Code Check ✅**
 
 Your complete code file should look something like this:
 
@@ -563,7 +563,7 @@ func main() {
 ```
 {% endtab %}
 {% endtabs %}
+
 {% hint style="info" %}
-Have a question?
-[Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)&#x20;
+Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}

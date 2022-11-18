@@ -5,8 +5,8 @@
 In this section you will complete the following:
 
 * Create your project directory
-* Create a `.env` file and store your Hedera testnet account ID and keys
-* Set-up your Hedera testnet client
+* Create a `.env` file and store your Hedera Testnet account ID and keys
+* Set-up your Hedera Testnet client
 
 ## Pre-requisites: <a href="#pre-requisites" id="pre-requisites"></a>
 
@@ -38,7 +38,7 @@ dependencies {
 
 #### Step 2: Create a .env file in your project
 
-Create a **.env** file in the root directory of your project. Grab the the Hedera testnet **account ID** and **private key** from your [Hedera portal profile](https://portal.hedera.com/) and enter them in the `MY_ACCOUNT_ID` and `MY_PRIVATE_KEY` fields.
+Create a **.env** file in the root directory of your project. Grab the the Hedera Testnet **account ID** and **private key** from your [Hedera portal profile](https://portal.hedera.com/) and enter them in the `MY_ACCOUNT_ID` and `MY_PRIVATE_KEY` fields.
 
 ```
 MY_ACCOUNT_ID=ENTER TESTNET ACCOUNT ID 
@@ -63,21 +63,21 @@ public class HederaExamples {
 
     public static void main(String[] args) {
 
-        //Grab your Hedera testnet account ID and private key
+        //Grab your Hedera Testnet account ID and private key
         AccountId myAccountId = AccountId.fromString(Dotenv.load().get("MY_ACCOUNT_ID"));
         PrivateKey myPrivateKey = PrivateKey.fromString(Dotenv.load().get("MY_PRIVATE_KEY"));  
     }
 }
 ```
 
-**Step 4: Create your Hedera testnet client**
+**Step 4: Create your Hedera Testnet client**
 
-You have the option to create a client for the Hedera previewnet, testnet or mainnet. Since we are using a Hedera testnet account ID and private key, we will create a client for the Hedera testnet. You can view all the client configurations here.
+You have the option to create a client for the Hedera Previewnet, Testnet or Mainnet. Since we are using a Hedera Testnet account ID and private key, we will create a client for the Hedera Testnet. You can view all the client configurations here.
 
-After you create your Hedera testnet client, you will need to set the operator information. The operator is the account that will pay for the transaction and query fees in hbar. You will need to sign the transaction or query with the private key of that account to authorize the payment. In this case, the operator ID is your testnet account ID and the operator private key is the corresponding testnet account private key.
+After you create your Hedera Testnet client, you will need to set the operator information. The operator is the account that will pay for the transaction and query fees in HBAR. You will need to sign the transaction or query with the private key of that account to authorize the payment. In this case, the operator ID is your testnet account ID and the operator private key is the corresponding testnet account private key.
 
 ```java
-//Create your Hedera testnet client
+//Create your Hedera Testnet client
 Client client = Client.forTestnet();
 client.setOperator(myAccountId, myPrivateKey);
 ```
@@ -105,11 +105,11 @@ public class HederaExamples {
 ​
     public static void main(String[] args) {
 ​
-        //Grab your Hedera testnet account ID and private key
+        //Grab your Hedera Testnet account ID and private key
         AccountId myAccountId = AccountId.fromString(Dotenv.load().get("MY_ACCOUNT_ID"));
         PrivateKey myPrivateKey = PrivateKey.fromString(Dotenv.load().get("MY_PRIVATE_KEY"));
 ​
-        //Create your Hedera testnet client
+        //Create your Hedera Testnet client
         Client client = Client.forTestnet();
         client.setOperator(myAccountId, myPrivateKey);
 ​

@@ -6,14 +6,14 @@ description: Join Hedera mainnet
 
 ## Overview
 
-The Hedera mainnet, short for main network, is where applications are run in production with real transactions and associated costs. Transactions can be submitted to the Hedera mainnet by any application user and are timestamped and ordered automatically by the distributed ledger. Any data associated with Hedera services and stored on ledger can be accessed by any Hedera account. For each transaction, small **transaction fees** will be charged (in tinybars). You can find more information about transaction fees [here](https://www.hedera.com/fees). If you are looking to test your application or just to experiment, please check out [Testnet Access,](../testnet/testnet-access.md) which allows you to prototype and practice in a real Hedera network without incurring those fees.
+The Hedera Mainnet, short for main network, is where applications are ran in production with real transactions and associated costs. Transactions can be submitted to the Hedera Mainnet by any application user and are timestamped and ordered automatically by the distributed ledger. All data associated with Hedera services and stored on ledger are accessible by any Hedera account. For each transaction, a small **transaction fee** will be charged (in tinybars). You can find more information about transaction fees [here](https://www.hedera.com/fees). If you are looking to test your application or just to experiment, please check out [Testnet Access,](../testnet/testnet-access.md) which allows you to prototype and practice in a real Hedera network without incurring those fees.
 
 {% hint style="warning" %}
 **Limited Support**\
-Transactions are currently [throttled](https://docs.hedera.com/guides/mainnet#network-throttles) for mainnet. You will receive a "BUSY" response if the number of transactions submitted to the network exceeds the threshold value.
+Transactions are currently [throttled](https://docs.hedera.com/guides/mainnet#network-throttles) for Mainnet. You will receive a "BUSY" response if the number of transactions submitted to the network exceeds the threshold value.
 {% endhint %}
 
-| Network Service        | Availability |
+| Network Services       | Availability |
 | ---------------------- | ------------ |
 | Cryptocurrency         | Limited      |
 | Smart Contract Service | Limited      |
@@ -23,7 +23,7 @@ Transactions are currently [throttled](https://docs.hedera.com/guides/mainnet#ne
 
 #### Network Throttles
 
-| Network Request Type        | Throttle (tps)                                                                                                                                                                                             |
+| Network Request Types       | Throttle (tps)                                                                                                                                                                                             |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cryptocurrency Transactions | <p>AccountCreateTransaction: 2 tps</p><p>AccountBalanceQuery: unlimited</p><p>TransferTransaction (inc. tokens): 10,000 tps<br>Other: 10,000 tps</p>                                                       |
 | Consensus Transactions      | <p>TopicCreateTransaction: 5 tps</p><p>Other: 10,000 tps</p>                                                                                                                                               |

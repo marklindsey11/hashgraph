@@ -65,7 +65,7 @@ Generate a private and public key to associate to the account you will create.
 {% tabs %}
 {% tab title="Java" %}
 ```java
-//Create your Hedera testnet client
+//Create your Hedera Testnet client
 //Client client = Client.forTestnet();
 //client.setOperator(myAccountId, myPrivateKey)
 //-----------------------<enter code below>--------------------------------------
@@ -264,11 +264,11 @@ public class HederaExamples {
 ​
     public static void main(String[] args) throws TimeoutException, HederaPreCheckStatusException, HederaReceiptStatusException {
 ​
-        //Grab your Hedera testnet account ID and private key
+        //Grab your Hedera Testnet account ID and private key
         AccountId myAccountId = AccountId.fromString(Dotenv.load().get("MY_ACCOUNT_ID"));
         PrivateKey myPrivateKey = PrivateKey.fromString(Dotenv.load().get("MY_PRIVATE_KEY"));
 ​
-        //Create your Hedera testnet client
+        //Create your Hedera Testnet client
         Client client = Client.forTestnet();
         client.setOperator(myAccountId, myPrivateKey);
 ​
@@ -431,7 +431,7 @@ func main() {
 ```
 {% endtab %}
 {% endtabs %}
+
 {% hint style="info" %}
-Have a question?
-[Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)&#x20;
+Have a question? [Ask it on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph)
 {% endhint %}

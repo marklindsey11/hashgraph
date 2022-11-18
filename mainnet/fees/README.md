@@ -12,7 +12,7 @@ Fee estimates are based on assumptions about the details of a specific API call.
 
 Mainnet transaction and query fees can be estimated using the [Hedera Fee Estimator](https://www.hedera.com/fees). The Fee Estimator allows you to determine fees (in both USD and HBAR, using the current exchange rate live on the mainnet) for individual transactions & queries based on their characteristics, as well as projected costs based on expected volume for those transactions. The estimations may not be 100% accurate and the underlying prices are subject to change without prior notice.
 
-## Hbar Denominations and Abbreviations
+## HBAR Denominations and Abbreviations
 
 | Denominations | Abbreviations  | Amount of HBAR Cryptocurrency |
 | ------------- | -------------- | ----------------------------- |
