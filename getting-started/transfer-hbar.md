@@ -30,7 +30,7 @@ You should already have a new account from the account you created in the "[Crea
 //System.out.println("The new account balance is: " +accountBalance.hbars);
 //-----------------------<enter code below>--------------------------------------
 
-//Transfer hbar
+//Transfer HBAR
 TransactionResponse sendHbar = new TransferTransaction()
      .addHbarTransfer(myAccountId, Hbar.fromTinybars(-1000)) //Sending account
      .addHbarTransfer(newAccountId, Hbar.fromTinybars(1000)) //Receiving account
@@ -145,7 +145,7 @@ public class HederaExamples {
 
         System.out.println("The new account balance is: " +accountBalance.hbars);
 
-        //Transfer hbar
+        //Transfer HBAR
         TransactionResponse sendHbar = new TransferTransaction()
                 .addHbarTransfer(myAccountId, Hbar.fromTinybars(-1000))
                 .addHbarTransfer(newAccountId, Hbar.fromTinybars(1000))
