@@ -81,9 +81,4 @@ If you find something that needs to be updated or would like to publish addition
 
 Issues and pull requests will be reviewed by the Hedera team.&#x20;
 
-
-
-{% hint style="info" %}
 Have a question? [Ask on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph).&#x20;
-{% endhint %}
-
