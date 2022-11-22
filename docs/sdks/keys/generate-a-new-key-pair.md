@@ -1,6 +1,6 @@
 # Generate a new key pair
 
-## Ed25519
+## ED25519
 
 Create a new Ed25519 key pair used to sign transactions and queries on the Hedera network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file entity on the network. The public key can be shared with other users on the network.
 

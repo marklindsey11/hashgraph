@@ -10,7 +10,7 @@ When creating a **new account** using the<mark style="color:purple;">`AccountCre
 
 **Transaction Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
 **Transaction Signing Requirements**
@@ -238,22 +238,22 @@ accountKey, err := AccountCreateTransaction.GetKey()
 
 ### **Create an account via an account alias**
 
-Since the introduction of [HIP-32](https://hips.hedera.com/hip/hip-32), you can create an account via an **account alias**. An account alias is a single public key address that is used to create the Hedera account. Hedera supports aliases generated using [Ed25519](../keys/generate-a-new-key-pair.md#ed25519) or [ECDSA](../keys/generate-a-new-key-pair.md#ecdsa-secp256k1) (secp256k1) algorithms.
+Since the introduction of [HIP-32](https://hips.hedera.com/hip/hip-32), you can create an account via an **account alias**. An account alias is a single public key address that is used to create the Hedera account. Hedera supports aliases generated using [ED25519](../keys/generate-a-new-key-pair.md#ed25519) or [ECDSA](../keys/generate-a-new-key-pair.md#ecdsa-secp256k1) (secp256k1) algorithms.
 
-Wallet software can allow the user to create an "account" instantly, for free, even without an internet connection. In this case, it will not create an actual account on Hedera. Instead, it will simply create a public/private key pair for the user. The software will then display this as an "account" with a zero balance, with a "long account ID". This long form doesn't look like `0.0.123`, but instead is an alias consisting of `<shard>.<realm>.<bytes>`, where the `bytes` is a [base32url](https://datatracker.ietf.org/doc/html/rfc4648#section-6) representation of the bytes of a serialized HAPI primitive `Key`, with the trailing `=` padding characters removed. For example, `0.0.CIQNOWUYAGBLCCVX2VF75U6JMQDTUDXBOLZ5VJRDEWXQEGTI64DVCGQ` is the alias address of shard 0 realm 0 with a serialization of a HAPI `Key` for the ed25519 public key `0xd75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a`.
+Wallet software can allow the user to create an "account" instantly, for free, even without an internet connection. In this case, it will not create an actual account on Hedera. Instead, it will simply create a public/private key pair for the user. The software will then display this as an "account" with a zero balance, with a "long account ID". This long-form doesn't look like `0.0.123`, but instead is an alias consisting of `<shard>.<realm>.<bytes>`, where the `bytes` is a [base32url](https://datatracker.ietf.org/doc/html/rfc4648#section-6) representation of the bytes of a serialized HAPI primitive `Key`, with the trailing `=` padding characters removed. For example, `0.0.CIQNOWUYAGBLCCVX2VF75U6JMQDTUDXBOLZ5VJRDEWXQEGTI64DVCGQ` is the alias address of shard 0 realm 0 with the serialization of a HAPI `Key` for the ed25519 public key `0xd75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a`.
 
 The account alias is immutable, cannot be modified, and it will continue to be associated with that account for as long as it exists. Still, if the account is deleted and removed from Hedera, the alias can be associated with a new account.
 
-The account is officially registered with Hedera when hbars, fungible or non-fungible tokens are initially deposited to the account alias. The fee to create the accounts is charged in the transaction fee of the transfer transaction used to send the token to the account alias. The account create transaction is executed first to register the new account and following the transfer transaction to transfer the tokens to the new account.
+The account is officially registered with Hedera when HBARs, fungible or non-fungible tokens are initially deposited to the account alias. The fee to create the accounts is charged in the transaction fee of the transfer transaction used to send the token to the account alias. The account creation transaction is executed first to register the new account and following the transfer transaction to transfer the tokens to the new account.
 
 The consensus timestamp for the create account transaction is one nanosecond before the transfer transaction. The parent transfer transaction and the child account create transaction share the same payer account and timestamp in the transaction ID except that the child transaction has an added nonce value. You will also notice the account and transaction memo set to `auto-created account` indicating this account was created by using an account alias.
 
-You can return the new account ID from one of the following ways:
+You can return the new account ID in one of the following ways:
 
 * Requesting the [child records](../transactions/get-a-transaction-record.md) of the parent transfer transaction using the parent transfer transaction ID. The child transaction ID in the child transaction record will display a nonce value (`0.0.2252@1640119571.329880313/1`).
 * Requesting the [child receipts](../transactions/get-a-transaction-receipt.md) of the parent transfer transaction using the parent transfer transaction ID. The account ID field will be populated with the new account ID.
 * Requesting the receipt or record of the account create transaction by using the transaction ID of the parent transfer transaction and setting the nonce value to 1
-* Requesting an [account info](get-account-info.md) using the account alias
+* Requesting [account info](get-account-info.md) using the account alias
 * Looking at the parent transfer transaction record transfer list for the account that has a transfer that equals the transfer value minus the transaction fee
 
 {% hint style="info" %}
@@ -264,9 +264,9 @@ Follow the steps below to create an account using an account alias:
 
 * Create an ED25519 or ECDSA (secp256k1) key pair
   * The public key will be the account alias
-  * The private key of the key pair you created will be the private key associated with the new Hedera account that will be created in a following step
+  * The private key of the key pair you created will be the private key associated with the new Hedera account that will be created in the following step
 * Convert the public key (account alias) to a Hedera account ID format (0.0.publicKey)
-* Use the `TransferTransaction` and transfer hbars, fungible, or your non-fungible token to the public key address in the Hedera account ID format&#x20;
+* Use the `TransferTransaction` and transfer HBARs, fungible, or your non-fungible token to the public key address in the Hedera account ID format&#x20;
   * The transfer will trigger an `AccountCreateTransaction` and create the Hedera account for you
   * Following the transaction that creates your account, the tokens will be transferred to that account
 * Get the new Hedera account ID (0.0.accountNum) by requesting the child record, child receipt, or account info (see above)
