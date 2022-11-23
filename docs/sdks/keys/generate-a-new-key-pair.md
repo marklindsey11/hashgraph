@@ -13,28 +13,27 @@ Create a new Ed25519 key pair used to sign transactions and queries on the Heder
 | **`[DEPRECATED]`**`PrivateKey.generate()`                               | PrivateKey | Generates an Ed25519 private key                             |
 
 {% tabs %}
-{% tab title="V2" %}
-{% code title="Java" %}
+{% tab title="Java" %}
 ```java
 PrivateKey privateKey = PrivateKey.generateED25519();
 PublicKey publicKey = privateKey.getPublicKey();
 
 System.out.println("private = " + privateKey);
-System.out.println("public = " + publicKey);
+System.out.println("public = " + publicKey);Java
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 const privateKey = await PrivateKey.generateED25519Async();
 const publicKey = privateKey.publicKey;
 
 console.log("private = " + privateKey);
-console.log("public = " + publicKey);
+console.log("public = " + publicKey);ava
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 privateKey, err := hedera.GenerateEd25519PrivateKey()
 if err != nil {
@@ -44,9 +43,10 @@ if err != nil {
 publicKey := privateKey.PublicKey()
 
 fmt.Printf("private = %v\n", privateKey)
-fmt.Printf("public = %v\n", publicKey)
+fmt.Printf("public = %v\n", publicKey)go
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 **Sample Output:**
 
@@ -54,15 +54,11 @@ fmt.Printf("public = %v\n", publicKey)
 private key = 3030020100300706052b8104000a04220420818c50766e025db403416421cb4a16d26ab0044b7f1a1e45513cef2c86123b91 
 public key = 302d300706052b8104000a0322000224d3700dc68fc9061457c5f50b66442c73367f7d0b1d5a7e3a1903e352ca217c
 ```
-{% endtab %}
-{% endtabs %}
 
 ## ECDSA (secp256k1\_)
 
 Create a new ECDSA (secp256k1) key pair used to sign transactions and queries on a Hedera network. The private key is kept confidential and is used to sign transactions that modify the state of an account, topic, token, smart contract, or file entity on the network. The public key can be shared with other users on the network.
 
-{% tabs %}
-{% tab title="V2" %}
 | **Method**                                                             | **Type**   | **Description**                                          |
 | ---------------------------------------------------------------------- | ---------- | -------------------------------------------------------- |
 | `PrivateKey.generateECDSA()`                                           | PrivateKey | Generates an ECSDA private key                           |
@@ -70,7 +66,8 @@ Create a new ECDSA (secp256k1) key pair used to sign transactions and queries on
 | `PrivateKey.generateECDSA().publicKey()`                               | PublicKey  | Derive a public key from this ECDSA private key          |
 | `PrivateKey.generateECDSA().publicKey().toAccountId(<shard>, <realm>)` | long, long | Contructs an account ID from an account alias public key |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 PrivateKey privateKey = PrivateKey.generateECDSA();
 PublicKey publicKey = privateKey.getPublicKey();
@@ -78,9 +75,9 @@ PublicKey publicKey = privateKey.getPublicKey();
 System.out.println("private = " + privateKey);
 System.out.println("public = " + publicKey);
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 const privateKey = PrivateKey.generateECDSA();
 const publicKey = privateKey.publicKey();
@@ -88,9 +85,9 @@ const publicKey = privateKey.publicKey();
 console.log("private = " + privateKey);
 console.log("public = " + publicKey);
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 privateKey, err := hedera.GenerateEcdsaPrivateKey()
 if err != nil {
@@ -102,7 +99,8 @@ publicKey := privateKey.PublicKey()
 fmt.Printf("private = %v\n", privateKey)
 fmt.Printf("public = %v\n", publicKey)
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 **Sample Output:**
 
@@ -110,7 +108,3 @@ fmt.Printf("public = %v\n", publicKey)
 private key = 302e020100300506032b657004220420b9c3ebac81a72aafa5490cc78111643d016d311e60869436fbb91c73307ed35a 
 public key = 302a300506032b65700321001a5a62bb9f35990d3fea1a5bb7ef6f1df0a297697adef1e04510c9d4ecc5db3f
 ```
-{% endtab %}
-{% endtabs %}
-
-##
