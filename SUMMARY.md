@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Hedera](README.md)
+* [Hedera Docs](README.md)
 * [Mainnet](mainnet/README.md)
   * [Mainnet Access](mainnet/mainnet-access.md)
   * [Mainnet Nodes](mainnet/mainnet-nodes/README.md)
