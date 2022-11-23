@@ -6,11 +6,11 @@ The network is made up of permissioned nodes run by the [Hedera Governing Counci
 
 Ready to submit your first transaction to a Hedera network? Visit our [Getting Started ](getting-started/introduction.md)section to learn the basics of how to create an account and transfer HBAR :boom: .
 
-#### What is Hashgraph?
+### What is Hashgraph?
 
 Hashgraph is a distributed consensus algorithm and data structure that is fast, fair, and secure. This indirectly creates a trusted community, even when members do not necessarily trust each other. Hedera is the only authorized public network to use hashgraph. You can learn more about the consensus algorithm [here](core-concepts/hashgraph-consensus-algorithms/).
 
-#### Hello Future
+### Hello Future Roadmap
 
 Hedera has an audacious but simple vision: to build a trusted, secure, and empowered digital future for all. Take a look at our development [roadmap](https://hedera.com/roadmap) for a glimpse into the future.
 
