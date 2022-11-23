@@ -6,9 +6,7 @@ Hedera is a distributed ledger for building and deploying decentralized applicat
 
 The network is made up of permissioned nodes run by the [Hedera Governing Council](https://hedera.com/council), a group of term-limited enterprises that lead the network's direction. Over time the network will [move to a permissionless model](https://www.youtube.com/watch?v=QTNNYeSks-s).
 
-{% hint style="info" %}
-Ready to submit your first transaction to a Hedera network? Visit our [Getting Started ](getting-started/introduction.md)section to learn the basics of how to create an account and transfer HBARs :boom: .
-{% endhint %}
+> Ready to submit your first transaction to a Hedera network? Visit our [Getting Started ](getting-started/introduction.md)section to learn the basics of how to create an account and transfer HBARs :boom: .
 
 #### What is Hashgraph?
 
@@ -79,6 +77,6 @@ If you find something that needs to be updated or would like to publish addition
 * Create a pull request
   * Fork the repository and submit a pull request that includes the suggested updates
 
-Issues and pull requests will be reviewed by the Hedera team.&#x20;
+Issues and pull requests will be reviewed by the Hedera team.
 
-Have a question? [Ask on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph).&#x20;
+Have a question? [Ask on StackOverflow](https://stackoverflow.com/questions/tagged/hedera-hashgraph).
