@@ -8,10 +8,8 @@ The `execute()` method submits a transaction to a Hedera network. This method wi
 
 **Transaction Signing Requirements**
 
-* Please refer to the specific transaction type and defined key structure of the account, topic, token, file or smart contract to understand the signing requirements
+* Please refer to the specific transaction type and defined key structure of the account, topic, token, file, or smart contract to understand the signing requirements
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                                      | Type             | Description                                                                                                        |
 | ----------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------ |
 | `execute(<client>)`                                         | Client           | Sign with the client operator and submit to a Hedera network                                                       |
@@ -23,7 +21,8 @@ The `execute()` method submits a transaction to a Hedera network. This method wi
 | `<transactionResponse>.setValidateStatus(<validateStatus>)` | boolean          | Whether getReceipt() or getRecord() will throw an exception if the receipt status is not SUCCESS                   |
 | `<transactionResponse>.getValidateStatus`                   | boolean          | Return whether getReceipt() or getRecord() will throw an exception if the receipt status is not SUCCESS            |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 AccountCreateTransaction transaction = new AccountCreateTransaction()
@@ -48,9 +47,9 @@ System.out.println("The node ID is " +nodeId);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = new AccountCreateTransaction()
@@ -75,9 +74,9 @@ console.log("The node ID is " +nodeId);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewAccountCreateTransaction().
@@ -106,6 +105,5 @@ fmt.Printf("The node id is %v\n", transactionNodeId)
 
 //v2.0.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

@@ -33,14 +33,13 @@ new TokenDissociateTransaction()
 
 ## Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                      | Type      | Description                                            | Requirement |
 | --------------------------- | --------- | ------------------------------------------------------ | ----------- |
 | `setTokenIds(<tokenId>)`    | TokenId   | The tokens to be dissociated with the provided account | Required    |
 | `setAccountId(<accountId>)` | AccountId | The account to be dissociated with the provided tokens | Required    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Disassociate a token from an account
 TokenDissociateTransaction transaction = new TokenDissociateTransaction()
@@ -59,9 +58,9 @@ Status transactionStatus = receipt.status;
 System.out.println("The transaction consensus status is: " +transactionStatus);
 //v2.0.1
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Dissociate a token from an account and freeze the unsigned transaction for signing
 const transaction = await new TokenDissociateTransaction()
@@ -85,9 +84,9 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Dissociate the token from an account and freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenDissociateTransaction().
@@ -120,55 +119,5 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 
 //v2.1.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                      | Type      | Description                                            | Requirement |
-| --------------------------- | --------- | ------------------------------------------------------ | ----------- |
-| `setTokenId(<tokenId>)`     | TokenId   | The tokens to be dissociated with the provided account | Required    |
-| `setAccountId(<accountId>)` | AccountId | The account to be dissociated with the provided tokens | Required    |
-
-{% code title="Java" %}
-```java
-//Disassociate a token from an account
-TokenDissociateTransaction transaction = new TokenDissociateTransaction()
-    .setAccountId(accountId)
-    .addTokenId(tokenId);
-
-//Build the unsigned transaction, sign with the private key of the account that is being dissociated from a token, submit the transaction to a Hedera network
-TransactionId transactionId = transaction.build(client).sign(accountKey).execute(client);
-
-//Request the receipt of the transaction
-TransactionReceipt getReceipt = transactionId.getReceipt(client);
-
-//Obtain the transaction consensus status
-Status transactionStatus = getReceipt.status;
-
-System.out.println("The transaction consensus status is: " +transactionStatus);
-//Version: 1.2.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Disassociate a token from an account
-const transaction = new TokenDissociateTransaction()
-    .setAccountId(accountId)
-    .addTokenId(tokenId);
-
-//Build the unsigned transaction, sign with the private key of the account that is being dissociated from a token, submit the transaction to a Hedera network
-const transactionId = await transaction.build(client).sign(accountKey).execute(client);
-
-//Request the receipt of the transaction
-const getReceipt = await transactionId.getReceipt(client);
-
-//Obtain the transaction consensus status
-const transactionStatus = getReceipt.status;
-
-console.log("The transaction consensus status is: " +transactionStatus);
-//Version 1.4.2
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

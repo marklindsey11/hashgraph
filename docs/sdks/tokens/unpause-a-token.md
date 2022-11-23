@@ -9,7 +9,7 @@ A token unpause transaction is a transaction that unpauses the token that was pr
 
 **Transaction Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
 | Constructor                     | Description                                    |
@@ -20,15 +20,14 @@ A token unpause transaction is a transaction that unpauses the token that was pr
 new TokenUnpauseTransaction()
 ```
 
-## Methods
-
-{% tabs %}
-{% tab title="V2" %}
 | Method                  | Type    | Description                  | Requirement |
 | ----------------------- | ------- | ---------------------------- | ----------- |
 | `setTokenId(<tokenId>)` | TokenId | The ID of the token to pause | Required    |
 
-{% code title="Java" %}
+## Methods
+
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the token unpause transaction and specify the token to pause
 TokenUnpauseTransaction transaction = new TokenUnpauseTransaction()
@@ -46,9 +45,9 @@ Status transactionStatus = receipt.status;
 System.out.println("The transaction consensus status is: " +transactionStatus);
 //v2.2.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the token unpause transaction, specify the token to pause, freeze the unsigned transaction for signing
 const transaction = new TokenUnpauseTransaction()
@@ -71,9 +70,9 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 //v2.2.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the token unpause transaction, specify the token to pause, freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenUnpauseTransaction().
@@ -105,6 +104,5 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 
 //v2.3.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

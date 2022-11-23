@@ -28,8 +28,6 @@ new TokenBurnTransaction()
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                  | Type        | Description                                                                            | Requirement |
 | ----------------------- | ----------- | -------------------------------------------------------------------------------------- | ----------- |
 | `setTokenId(<tokenId>)` | TokenId     | The ID of the token to burn supply                                                     | Required    |
@@ -37,7 +35,8 @@ new TokenBurnTransaction()
 | `setSerials(<serials>)` | List\<long> | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The list of NFT serial IDs to burn. | Optional    |
 | `addSerial(<serial>)`   | long        | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`.The serial ID to burn.              | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Burn 1,000 tokens
 TokenBurnTransaction transaction = new TokenBurnTransaction()
@@ -57,9 +56,9 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 //v2.0.1
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Burn 1,000 tokens and freeze the unsigned transaction for manual signing
 const transaction = await new TokenBurnTransaction()
@@ -83,9 +82,9 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 //v2.0.7
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Burn 1,000 tokens and freeze the unsigned transaction for manual signing
 transaction, err = hedera.NewTokenBurnTransaction().
@@ -118,57 +117,5 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 
 //v2.1.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                     | Type        | Description                                                                        | Requirement |
-| -------------------------- | ----------- | ---------------------------------------------------------------------------------- | ----------- |
-| `setTokenId(<tokenId>)`    | TokenId     | The ID of the token to burn supply                                                 | Required    |
-| `setTokenAmount(<amount>)` | long        | The number of tokens to burn                                                       | Optional    |
-| `addSerial(<serial>)`      | long        | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. Serial ID to burn.             | Optional    |
-| `setSerials(<serials>)`    | List\<Long> | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE.` A list of NFT serials to burn. | Optional    |
-
-{% code title="Java" %}
-```java
-//Burn 1,000 tokens
-TokenBurnTransaction transaction = new TokenBurnTransaction()
-    .setTokenId(newTokenId)
-    .setAmount(1000)
-
-//Build the unsigned transaction, sign with the supply private key of the token, submit the transaction to a Hedera network
-TransactionId transactionId = transaction.build(client).sign(supplyKey).execute(client);
-    
-//Request the receipt of the transaction
-TransactionReceipt getReceipt = transactionId.getReceipt(client);
-    
-//Obtain the transaction consensus status
-Status transactionStatus = getReceipt.status;
-
-System.out.println("The transaction consensus status is " +transactionStatus);
-//Version: 1.2.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Burn 1,000 tokens
-const transaction = new TokenBurnTransaction()
-    .setTokenId(newTokenId)
-    .setAmount(1000)
-
-//Build the unsigned transaction, sign with the supply private key of the token, submit the transaction to a Hedera network
-const transactionId = await transaction.build(client).sign(supplyKey).execute(client);
-    
-//Request the receipt of the transaction
-const getReceipt = await transactionId.getReceipt(client);
-    
-//Obtain the transaction consensus status
-const transactionStatus = getReceipt.status;
-
-console.log("The transaction consensus status is " +transactionStatus);
-//Version 1.4.2
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

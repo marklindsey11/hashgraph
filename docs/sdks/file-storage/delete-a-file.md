@@ -1,6 +1,6 @@
 # Delete a file
 
-A transaction that deletes a file from a Hedera network. When deleted, a file's contents are truncated to zero length and it can no longer be updated or appended to, or its expiration time extended. When you request the contents or info of a deleted file, the network will return FILE\_DELETED.&#x20;
+A transaction that deletes a file from a Hedera network. When deleted, a file's contents are truncated to zero length and it can no longer be updated or appended to, or its expiration time extended. When you request the contents or info of a deleted file, the network will return FILE\_DELETED.
 
 **Transaction Signing Requirements**
 
@@ -22,13 +22,12 @@ new FileDeleteTransaction()
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                | Type   | Description                                  |
 | --------------------- | ------ | -------------------------------------------- |
 | `setFileId(<fileId>)` | FileId | The ID of the file to delete in x.y.z format |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 FileDeleteTransaction transaction = new FileDeleteTransaction()
@@ -50,9 +49,9 @@ System.out.println("The transaction consensus status is " + transactionStatus);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = await new FileDeleteTransaction()
@@ -76,9 +75,9 @@ console.log("The transaction consensus status " +transactionStatus3.toString());
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewFileDeleteTransaction().
@@ -112,71 +111,17 @@ fmt.Println("The transaction consensus status is ", transactionStatus)
 
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                | Type   | Description                                  |
-| --------------------- | ------ | -------------------------------------------- |
-| `setFileId(<fileId>)` | FileId | The ID of the file to delete in x.y.z format |
-
-{% code title="Java" %}
-```java
-FileDeleteTransaction transaction = new FileDeleteTransaction()
-    .setFileId(newFileId);
-
-//Change the default transaction fee to 2 hbars
-FileDeleteTransaction newMaxFee = transaction.setMaxTransactionFee(new Hbar(2));
-
-//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-TransactionId txId = newMaxFee.build(client).sign(key).execute(client);
-
-//Request the receipt
-TransactionReceipt receipt = txId.getReceipt(client);
-
-//Get the transaction consensus status
-Status transactionStatus = receipt.status;
-
-System.out.println("The transaction consensus status is " + transactionStatus);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-const transaction = new FileDeleteTransaction()
-    .setFileId(newFileId);
-
-//Change the default transaction fee to 2 hbars
-const newMaxFee = transaction.setMaxTransactionFee(new Hbar(2));
-
-//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-const txId = await newMaxFee.build(client).sign(key).execute(client);
-
-//Request the receipt
-const receipt = await txId.getReceipt(client);
-
-//Get the transaction consensus status
-const transactionStatus = receipt.status;
-
-console.log("The transaction consensus status is " + transactionStatus);
-
-//v1.4.4 (issue: returns unauthorized)
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get transaction values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                | Type   | Description                          |
 | --------------------- | ------ | ------------------------------------ |
 | `getFileId(<fileId>)` | FileId | The ID of the file to delete (x.z.y) |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 FileDeleteTransaction transaction = new FileDeleteTransaction()
@@ -185,9 +130,9 @@ FileDeleteTransaction transaction = new FileDeleteTransaction()
 //Get the file ID
 FileId getFileId = transaction.getFileId();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = new FileDeleteTransaction()
@@ -196,9 +141,9 @@ const transaction = new FileDeleteTransaction()
 //Get the file ID
 FileId getFileId = transaction.getFileId();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewFileDeleteTransaction().
@@ -207,8 +152,5 @@ transaction := hedera.NewFileDeleteTransaction().
 //Get the file ID
 getFileId := transaction.GetFileID()
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-##

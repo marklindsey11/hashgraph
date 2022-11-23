@@ -34,14 +34,13 @@ new TokenAssociateTransaction()
 
 ## Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                      | Type            | Description                                           | Requirement |
 | --------------------------- | --------------- | ----------------------------------------------------- | ----------- |
 | `setAccountId(<accountId>)` | AccountId       | The account to be associated with the provided tokens | Required    |
 | `setTokenIds(<tokens>)`     | List \<TokenId> | The tokens to be associated with the provided account | Required    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Associate a token to an account
 TokenAssociateTransaction transaction = new TokenAssociateTransaction()
@@ -60,9 +59,9 @@ Status transactionStatus = receipt.status;
 System.out.println("The transaction consensus status " +transactionStatus);
 //v2.0.4
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Associate a token to an account and freeze the unsigned transaction for signing
 const transaction = await new TokenAssociateTransaction()
@@ -86,9 +85,9 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 //v2.0.7
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Associate the token to an account and freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenAssociateTransaction().
@@ -121,55 +120,5 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 
 //v2.1.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                      | Type      | Description                                           | Requirement |
-| --------------------------- | --------- | ----------------------------------------------------- | ----------- |
-| `setAccountId(<accountId>)` | AccountId | The account to be associated with the provided tokens | Required    |
-| `addTokenId(<tokenId>)`     | TokenId   | The tokens to be associated with the provided account | Required    |
-
-{% code title="Java" %}
-```java
-//Associate a token to an account
-TokenAssociateTransaction transaction = new TokenAssociateTransaction()
-        .setAccountId(accountId)
-        .addTokenId(tokenId);
-
-//Build the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
-TransactionId transactionId = transaction.build(client).sign(accountKey).execute(client);
-
-//Request the receipt of the transaction
-TransactionReceipt getReceipt = transactionId.getReceipt(client);
-
-//Obtain the transaction consensus status
-Status transactionStatus = getReceipt.status;
-
-System.out.println("The transaction consensus status " +transactionStatus);
-//Version: 1.2.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Associate a token to an account 
-const transaction = new TokenAssociateTransaction()
-        .setAccountId(accountId)
-        .addTokenId(tokenId); //Will change to addTokenId()
-
-//Build the unsigned transaction, sign with the private key of the account that is being associated to a token, submit the transaction to a Hedera network
-const transactionId = await transaction.build(client).sign(accountKey).execute(client);
-
-//Request the receipt of the transaction
-const getReceipt = await transactionId.getReceipt(client);
-
-//Obtain the transaction consensus status
-const transactionStatus = getReceipt.status;
-
-console.log("The transaction consensus status " +transactionStatus);
-//Version 1.4.2
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

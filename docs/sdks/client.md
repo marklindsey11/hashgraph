@@ -4,8 +4,6 @@
 
 Build your client to interact with any of the Hedera network nodes. Mainnet, testnet, and previewnet are the three Hedera networks you can submit transactions and queries to.
 
-{% tabs %}
-{% tab title="V2" %}
 For a predefined network (preview, testnet, and mainnet), the mirror node client is configured to the corresponding network mirror node. The default mainnet mirror node connection is to the [whitelisted mirror node](../../mirrornet/hedera-mirror-node.md#mainnet).\
 \
 To access the _**public mainnet mirror node**_, use `setMirrorNetwork()` and enter `mainnet-public.mirrornode.hedera.com:433` for the endpoint. The gRPC API requires TLS. The following SDK versions are compatible with TLS:
@@ -34,7 +32,8 @@ To access the _**public mainnet mirror node**_, use `setMirrorNetwork()` and ent
 | `Client.getLedgerId()`                            | LedgerId                | Get the ledger ID                                                                                                                                                                                                                       |
 | `Client.setVerifyCertificates()`                  | boolean                 | Set if server certificates should be verified against an existing address book.                                                                                                                                                         |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 // From a pre-configured network
 Client client = Client.forTestnet();
@@ -47,10 +46,10 @@ Client.forNetwork(nodes);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
-```java
+{% tab title="JavaScript" %}
+```javascript
 // From a pre-configured network
 const client = Client.forTestnet();
 
@@ -60,10 +59,10 @@ const client = Client.forNetwork(nodes);
 
 //v2.0.7
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
-```java
+{% tab title="Go" %}
+```go
 // From a pre-configured network
 client := hedera.ClientForTestnet()
 
@@ -76,44 +75,6 @@ client := Client.forNetwork(nodes)
 
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| **Method**                     | **Type**                | **Description**                                                 |
-| ------------------------------ | ----------------------- | --------------------------------------------------------------- |
-| `Client.forPreviewnet()`       |                         | Constructs a Hedera client pre-configured for Previewnet access |
-| `Client.forTestnet()`          |                         | Constructs a Hedera client pre-configured for Testnet access    |
-| `Client.forMainnet()`          |                         | Constructs a Hedera client pre-configured for Mainnet access    |
-| `Client.fromFile(<file>)`      | File                    | Configures a client from a file                                 |
-| `Client.fromFile(<fileName>)`  | String                  | Constructs a network from a file                                |
-| `Client.fromJson(<json>)`      | String                  | Configure a client from the given JSON string                   |
-| `Client.fromJson(<json>)`      | Reader                  | Configure a client from the given JSON reader                   |
-| `Client.replaceNodes(<nodes>)` | Map\<AccountId, String> | Replaces nodes in the network                                   |
-
-{% code title="Java" %}
-```java
-// From a pre-configured network
-Client client = Client.forTestnet();
-
-//Replace nodes
-Map<AccountId, String> nodes = new HashMap<>();
-nodes.put(AccountId.fromString("0.0.10"), "34.94.106.61:50211" ,);
-
-client.replaceNodes(nodes);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-// From a pre-configured network
-const client = Client.forTestnet();
-
-//v1.4.4
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -250,8 +211,6 @@ client.setOperator(operatorAccount, operatorPrivateKey );
 The **max transaction fee** and **max query payment** are both set to 100\_000\_000 tinybar (1 hbar). This amount can be modified by using `setDefaultMaxTransactionFee()`and `setDefaultMaxQueryPayment().`
 {% endhint %}
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                                                          | Type                    | Description                                                                                                                                                     |
 | ------------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Client.<network>.SetDefaultRegenerateTransactionId(<regenerateTransactionId>)` | boolean                 | Whether or not to regenerate the transaction IDs                                                                                                                |
@@ -277,7 +236,8 @@ The **max transaction fee** and **max query payment** are both set to 100\_000\_
 | `Client.<network>.setMaxNodeReadmitTime(<readmitTime>)`                         | Duration                | The max time to wait before attempting to readmit nodes                                                                                                         |
 | `Client.<network>.getMaxNodeReadmitTime()`                                      | Duration                | Get the max node readmit time                                                                                                                                   |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 // For test network (testnet)
 Client client = Client.forTestnet()
@@ -290,8 +250,9 @@ client.setMaxTransactionFee(new Hbar(2));
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
+{% tab title="JavaScript" %}
 {% code title="JavaScript" %}
 ```java
 // For test network (testnet)
@@ -306,8 +267,9 @@ client.setMaxTransactionFee(new Hbar(2));
 //v2.0.0
 ```
 {% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 // For test network (testnet)
 client := hedera.ClientForTestnet()
@@ -320,40 +282,5 @@ client.SetMaxTransactionFee(hedera.HbarFrom(2, hedera.HbarUnits.Hbar))
 
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                                  | Type      | Description                                                                 |
-| --------------------------------------- | --------- | --------------------------------------------------------------------------- |
-| `setMaxTransactionFee(<fee>)`           | Hbar/long | The maximum transaction fee the client is willing to pay. Default: 1 hbar   |
-| `setMaxQueryPayment(<maxQueryPayment>)` | Hbar/long | <p>The maximum query payment the client will pay.</p><p>Default: 1 hbar</p> |
-
-{% code title="Java" %}
-```java
- Client client = Client.forTestnet();
-
- client.setOperator(OPERATOR_ID, OPERATOR_KEY);
-
- client.setMaxTransactionFee(new Hbar(2));
-
- //v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-// For test network (testnet)
-const client = Client.forTestnet()
-
-//Set the operator and operator private key
-client.setOperator(OPERATOR_ID, OPERATOR_KEY);
-
-//Set the max transaction fee the client is willing to pay to 2 hbars
-client.setMaxTransactionFee(new Hbar(2)); 
-
-//v1.4.4
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

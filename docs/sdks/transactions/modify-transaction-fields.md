@@ -1,6 +1,6 @@
 # Modify transaction fields
 
-For every transaction submitted to a Hedera network you can modify the transaction ID, amount of time the transaction has to reach consensus, a memo field to attach a note, the account ID of the node the transaction will be submitted to, and the maximum fee the client is willing to pay for a given transaction. The SDKs do not require you to set these fields when submitting a transaction to a Hedera network as the SDK either creates the value at the time of submission or inputs default values. The methods listed below can be used to modify any of these values.&#x20;
+For every transaction submitted to a Hedera network you can modify the transaction ID, amount of time the transaction has to reach consensus, a memo field to attach a note, the account ID of the node the transaction will be submitted to, and the maximum fee the client is willing to pay for a given transaction. The SDKs do not require you to set these fields when submitting a transaction to a Hedera network as the SDK either creates the value at the time of submission or inputs default values. The methods listed below can be used to modify any of these values.
 
 {% hint style="info" %}
 Note: The total size for a given transaction is limited to 6KiB
@@ -14,8 +14,6 @@ Note: The total size for a given transaction is limited to 6KiB
 | **Node ID**             | Set the account ID of the node that this transaction will be submitted to.                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **Max transaction fee** | <p>Set the max transaction fee for the operator (transaction fee payer account) is willing to pay</p><p>Default: 1 hbar</p>                                                                                                                                                                                                                                                                                                                                                       |
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                                  | Type             | Requirement |
 | ------------------------------------------------------- | ---------------- | ----------- |
 | `setTransactionID(<transactionId>)`                     | TransactionID    | Optional    |
@@ -26,7 +24,8 @@ Note: The total size for a given transaction is limited to 6KiB
 | `setGrpcDeadline(<grpcDeadline>)`                       | Duration         | Optional    |
 | `setRegenerateTransactionId(<regenerateTransactionId>)` | boolean          | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction and set the transaction properties
 Transaction transaction = new AccountCreateTransaction() //Any transaction can be applied here
@@ -37,9 +36,9 @@ Transaction transaction = new AccountCreateTransaction() //Any transaction can b
     
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction and set the transaction properties
 const transaction = await new AccountCreateTransaction() //Any transaction can be applied here
@@ -48,9 +47,9 @@ const transaction = await new AccountCreateTransaction() //Any transaction can b
     .setMaxTransactionFee(new Hbar(2)) //Set the max transaction fee to 2 hbar
     .setTransactionMemo("Transaction memo"); //Set the node ID to submit the transaction to
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the transaction and set the transaction properties
 transaction := hedera.NewAccountCreateTransaction(). //Any transaction can be applied here
@@ -61,52 +60,11 @@ transaction := hedera.NewAccountCreateTransaction(). //Any transaction can be ap
 
 //v2.0.0 
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-
-
-| Method                                         | Type          | Requirement |
-| ---------------------------------------------- | ------------- | ----------- |
-| `setTransactionID(<transactionId>)`            | TransactionID | Optional    |
-| `setTransactionValidDuration(<validDuration>)` | Duration      | Optional    |
-| `setTransactionMemo(<memo>)`                   | String        | Optional    |
-| `setNodeAccountId(<nodeAccountId>)`            | AccountId     | Optional    |
-| `setMaxTransactionFee(<maxTransactionFee>)`    | long/Hbar     | Optional    |
-
-{% code title="Java" %}
-```java
-//Create the transaction and set the transaction properties
-Transaction transaction = new AccountCreateTransaction() //Any transaction can be applied here
-    .setKey(publicKey)
-    .setInitialBalance(new Hbar(100))
-    .setMaxTransactionFee(new Hbar(2)) //Set the max transaction fee to 2 hbar
-    .setTransactionMemo("Transaction memo"); //Set the node ID to submit the transaction to
-    
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the transaction and set the transaction properties
-const transaction = new AccountCreateTransaction() //Any transaction can be applied here
-    .setKey(publicKey)
-    .setInitialBalance(new Hbar(100))
-    .setMaxTransactionFee(new Hbar(2)) //Set the max transaction fee to 2 hbar
-    .setTransactionMemo("Transaction memo"); 
-
-//v1.4.4
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get transaction properties
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                          | Type                                        | Requirement |
 | ------------------------------- | ------------------------------------------- | ----------- |
 | `getTransactionID()`            | TransactionID                               | Optional    |
@@ -118,7 +76,8 @@ const transaction = new AccountCreateTransaction() //Any transaction can be appl
 | `getTransactionHashPerNode()`   | Map\<AccountId, byte \[ ]>                  | Optional    |
 | `getSignatures()`               | Map\<AccountId, Map\<PublicKey, byte \[ ]>> | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction and set the transaction properties
 Transaction transaction = new AccountCreateTransaction() //Any transaction can be applied here
@@ -130,9 +89,9 @@ Transaction transaction = new AccountCreateTransaction() //Any transaction can b
 Hbar maxTransactionFee = transaction.getMaxTransactionFee();
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction and set the transaction properties
 const transaction = await new AccountCreateTransaction() //Any transaction can be applied here
@@ -143,9 +102,9 @@ const transaction = await new AccountCreateTransaction() //Any transaction can b
     
 const maxTransactionFee = transaction.getMaxTransactionFee();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction and set the transaction properties
 transaction := hedera.NewAccountCreateTransaction(). //Any transaction can be applied here
@@ -157,8 +116,5 @@ transaction := hedera.NewAccountCreateTransaction(). //Any transaction can be ap
 maxtransactionFee := transaction.GetMaxTransactionFee()
 //v2.0.0         
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-##

@@ -20,15 +20,13 @@ You can also create a private topic where only authorized parties can submit mes
 
 * If an admin key is specified, the admin key must sign the transaction
 * If not admin key is specified the topic is immutable
-* If an auto renew account is specified, that account must also sign this transaction
+* If an auto-renew account is specified, that account must also sign this transaction
 
 **Transaction Fees**
 
 * Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
-{% tabs %}
-{% tab title="V2" %}
 | Constructor                    | Description                                   |
 | ------------------------------ | --------------------------------------------- |
 | `new TopicCreateTransaction()` | Initializes the TopicCreateTransaction object |
@@ -47,7 +45,8 @@ new TopicCreateTransaction()
 | `setAutoRenewAccountId(<accountId>)`       | AccountId | Disabled     |
 | `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration  | Disabled     |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 TopicCreateTransaction transaction = new TopicCreateTransaction();
@@ -65,9 +64,9 @@ System.out.println("The new topic ID is " + newTopicId);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = new TopicCreateTransaction();
@@ -85,9 +84,9 @@ console.log("The new topic ID is " + newTopicId);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the transaction
 transaction := hedera.NewTopicCreateTransaction()
@@ -113,70 +112,11 @@ fmt.Printf("The new topic ID is %v\n", newTopicID)
 
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Constructor                             | Description                                            |
-| --------------------------------------- | ------------------------------------------------------ |
-| `new ConsensusTopicCreateTransaction()` | Initializes the ConsensusTopicCreateTransaction object |
-
-```java
-new ConsensusTopicCreateTransaction()
-```
-
-#### Methods
-
-| Method                                     | Type      | Requirements |
-| ------------------------------------------ | --------- | ------------ |
-| `setAdminKey(<adminKey>)`                  | PublicKey | Optional     |
-| `setSubmitKey(<submitKey>)`                | PublicKey | Optional     |
-| `setTopicMemo(<memo>)`                     | String    | Optional     |
-| `setAutoRenewAccountId(<accountId>)`       | AccountId | Disabled     |
-| `setAutoRenewPeriod(<autoRenewAccountId>)` | Duration  | Disabled     |
-
-{% code title="Java" %}
-```java
-//Create the transaction
-ConsensusTopicCreateTransaction transaction = new ConsensusTopicCreateTransaction();
- 
-//Submit the transaction to a Hedera network, store the transaction ID
-TransactionId txId = transaction.execute(client);
-
-//Request the receipt of the transaction
-TransactionReceipt receipt = txId.getReceipt(client);
-
-//Get the topic ID
-ConsensusTopicId newTopicId = receipt.getConsensusTopicId();
-
-System.out.println("New topic created: " + newTopicId);
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the transaction
-const transaction = new ConsensusTopicCreateTransaction();
- 
-//Submit the transaction to a Hedera network, store the transaction ID
-const txId = await transaction.execute(client);
-
-//Request the receipt of the transaction
-const receipt = await txId.getReceipt(client);
-
-//Get the topic ID
-const newTopicId = receipt.getConsensusTopicId();
-
-console.log("New topic created: " + newTopicId);
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get transaction values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                     | Type      | Requirements |
 | ------------------------------------------ | --------- | ------------ |
 | `getAdminKey(<adminKey>)`                  | Key       | Optional     |
@@ -185,7 +125,8 @@ console.log("New topic created: " + newTopicId);
 | `getAutoRenewAccountId(<accountId>)`       | AccountId | Disabled     |
 | `getAutoRenewPeriod(<autoRenewAccountId>)` | Duration  | Disabled     |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 TopicCreateTransaction transaction = new TopicCreateTransaction()
@@ -196,9 +137,9 @@ Key getKey = transaction.getAdminKey();
 
 //V2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = await TopicCreateTransaction()
@@ -207,9 +148,9 @@ const transaction = await TopicCreateTransaction()
 //Get the admin key from the transaction    
 const getKey = transaction.getAdminKey();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewTopicCreateTransaction().
@@ -219,8 +160,5 @@ getKey := transaction.GetAdminKey()
 
 //V2.0.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-##

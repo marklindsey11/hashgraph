@@ -1,6 +1,6 @@
 # Pause a token
 
-A token pause transaction prevents the token from being involved in any kind of operation. The token's pause key is required to sign the transaction. This is a key that is specified during the creation of a token. If a token has no pause key, you will not be able to pause the token.  If the pause key was not set during the creation of a token, you will not be able to update the token to add this key.&#x20;
+A token pause transaction prevents the token from being involved in any kind of operation. The token's pause key is required to sign the transaction. This is a key that is specified during the creation of a token. If a token has no pause key, you will not be able to pause the token. If the pause key was not set during the creation of a token, you will not be able to update the token to add this key.
 
 The following operations cannot be performed when a token is paused and will result in a `TOKEN_IS_PAUSED` status.
 
@@ -36,13 +36,12 @@ new TokenPauseTransaction()
 
 ## Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                  | Type    | Description                  | Requirement |
 | ----------------------- | ------- | ---------------------------- | ----------- |
 | `setTokenId(<tokenId>)` | TokenId | The ID of the token to pause | Required    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the token pause transaction and specify the token to pause
 TokenPauseTransaction transaction = new TokenPauseTransaction()
@@ -60,9 +59,9 @@ Status transactionStatus = receipt.status;
 System.out.println("The transaction consensus status is: " +transactionStatus);
 //v2.2.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the token pause transaction, specify the token to pause, freeze the unsigned transaction for signing
 const transaction = new TokenPauseTransaction()
@@ -85,9 +84,9 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 //v2.2.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the token pause transaction, specify the token to pause, freeze the unsigned transaction for signing
 transaction, err := hedera.NewTokenPauseTransaction().
@@ -119,6 +118,5 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 
 //v2.3.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

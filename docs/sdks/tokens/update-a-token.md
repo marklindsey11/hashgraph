@@ -1,6 +1,6 @@
 # Update a token
 
-A transaction that updates the properties of an existing token. The admin key must sign this transaction to update any of the token properties. The admin key can update exisitng keys, but cannot add new keys if they were not set during the creation of the token. If no value is given for a field, that field is left unchanged.&#x20;
+A transaction that updates the properties of an existing token. The admin key must sign this transaction to update any of the token properties. The admin key can update exisitng keys, but cannot add new keys if they were not set during the creation of the token. If no value is given for a field, that field is left unchanged.
 
 For an immutable token (that is, a token created without an admin key), only the expiry may be updated. Setting any other field, in that case, will cause the transaction status to resolve to `TOKEN_IS_IMMUTABlE`.
 
@@ -30,7 +30,7 @@ For an immutable token (that is, a token created without an admin key), only the
 
 **Transaction Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* the Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
 | Constructor                    | Description                                 |
@@ -43,8 +43,6 @@ new TokenUpdateTransaction()
 
 ## Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                | Type                                           | Requirement |
 | ------------------------------------- | ---------------------------------------------- | ----------- |
 | `setTokenId(<tokenId>)`               | [TokenId](token-id.md)                         | Required    |
@@ -63,7 +61,8 @@ new TokenUpdateTransaction()
 | `setAutoRenewAccountId(<account>)`    | [AccountId](../specialized-types.md#accountid) | Disabled    |
 | `setAutoRenewPeriod(<period>)`        | Duration                                       | Disabled    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction 
 TokenUpdateTransaction transaction = new TokenUpdateTransaction()
@@ -83,9 +82,9 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 //v2.0.1
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction and freeze for manual signing
 const transaction = await new TokenUpdateTransaction()
@@ -109,9 +108,9 @@ console.log("The transaction consensus status is " +transactionStatus);
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the transaction and freeze for manual signing 
 tokenUpdateTransaction, err := hedera.NewTokenUpdateTransaction().
@@ -143,67 +142,5 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 
 //v2.1.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                                | Type      | Requirement |
-| ------------------------------------- | --------- | ----------- |
-| `setTokenId(<tokenId>)`               | TokenId   | Required    |
-| `setName(<name>)`                     | String    | Optional    |
-| `setSymbol(<symbol>)`                 | String    | Optional    |
-| `setTreasury(<treasury>)`             | AccountId | Optional    |
-| `setAdminKey(<key>)`                  | PublicKey | Optional    |
-| `setKycKey(<key>)`                    | PublicKey | Optional    |
-| `setFreezeKey(<key>)`                 | PublicKey | Optional    |
-| `setFeeScheduleKey(<key>)`            | PublicKey | Optional    |
-| `setWipeKey(<key>)`                   | PublicKey | Optional    |
-| `setSupplyKey(<key>)`                 | PublicKey | Optional    |
-| `setExpirationTime(<expirationTime>)` | Instant   | Optional    |
-| `setAutoRenewAccount(<account>)`      | AccountId | Optional    |
-| `setAutoRenewPeriod(<period>)`        | Duration  | Optional    |
-
-{% code title="Java" %}
-```java
-//Update the name of the token
-TokenUpdateTransaction transaction = new TokenUpdateTransaction()
-    .setTokenId(newTokenId)
-    .setName("Your New Token Name");
-
-//Build the unsigned transaction, sign with the admin private key of the token, submit the transaction to a Hedera network
-TransactionId transactionId = transaction.build(client).sign(adminKey).execute(client);
-
-//Request the receipt of the transaction
-TransactionReceipt receipt = transactionId.getReceipt(client);
-
-//Get the transaction consensus status
-Status transactionStatus = receipt.status;
-
-System.out.println("The transaction consensus status is " +transactionStatus);
-//Version: 1.2.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Update the name of the token
-const transaction = new TokenUpdateTransaction()
-    .setTokenId(newTokenId)
-    .setName("Your New Token Name");
-
-//Build the unsigned transaction, sign with the token admin private key of the token, submit the transaction to a Hedera network
-const transactionId = await transaction.build(client).sign(adminKey).execute(client);
-
-//Request the receipt of the transaction
-const receipt = await transactionId.getReceipt(client);
-
-//Get the transaction consensus status
-const transactionStatus = receipt.status;
-
-console.log("The transaction consensus status is " +transactionStatus);
-//Version: 1.4.2
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-

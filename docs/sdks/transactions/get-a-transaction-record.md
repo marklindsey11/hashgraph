@@ -72,8 +72,6 @@ hedera.NewTransactionRecordQuery().
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | **Method**                                       | **Type**                                    | **Requirement** |
 | ------------------------------------------------ | ------------------------------------------- | --------------- |
 | `<TransactionResponse>.getRecord(<client>)`      | TransactionRecord                           | Required        |
@@ -95,7 +93,8 @@ hedera.NewTransactionRecordQuery().
 | `<TransactionRecord>.prngBytes`                  | ByteString                                  | Optional        |
 | `<TransactionRecord>.prngNumber`                 | Integer                                     | Optional        |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create a transaction
 AccountCreateTransaction transaction = new AccountCreateTransaction()
@@ -112,9 +111,9 @@ System.out.println("The transaction record is " +record);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create a transaction
 const transaction = new AccountCreateTransaction()
@@ -131,9 +130,9 @@ console.log("The transaction record is " +record);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create a transaction
 transaction := hedera.NewAccountCreateTransaction().
@@ -150,10 +149,11 @@ fmt.Printf("The transaction record is %v\n", record)
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
-**Sample Output:**
-
+{% tabs %}
+{% tab title="Sample Output:" %}
 ```
 TransactionRecord{
      receipt=TransactionReceipt{
@@ -188,61 +188,4 @@ TransactionRecord{
 }
 ```
 {% endtab %}
-
-{% tab title="V1" %}
-| **Method**                                   | **Type**                                    | **Requirement** |
-| -------------------------------------------- | ------------------------------------------- | --------------- |
-| `<TransactionId>.getRecord(<client>)`        | TransactionRecord                           | Required        |
-| `<TransactionRecord>.transactionId`          | TransactionId                               | Optional        |
-| `<TransactionRecord>.consensusTimestamp`     | Instant                                     | Optional        |
-| `<TransactionRecord>.contractFunctionResult` | ContractFunctionResult                      | Optional        |
-| `<TransactionRecord>.receipt`                | TransactionReceipt                          | Optional        |
-| `<TransactionRecord>.transactionFee`         | long                                        | Optional        |
-| `<TransactionRecord>.transactionHash`        | byte \[ ]                                   | Optional        |
-| `<TransactionRecord>.transactionMemo`        | String                                      | Optional        |
-| `<TransactionRecord>.transfers`              | List\<Transfer>                             | Optional        |
-| `<TransactionRecord>.tokentransfers`         | Map\<TokenId, Map\<AccountId, List\<Long>>> | Optional        |
-| `<TransactionRecord>.scheduleRef`            | ScheduleId                                  | Optional        |
-| `<TransactionRecord>.assessedCustomFees`     | List\<AssessedCustomFees>                   | Optional        |
-
-{% code title="Java" %}
-```java
-//Create a transaction
-AccountCreateTransaction transaction = new AccountCreateTransaction()
-        .setKey(newKey.getPublicKey())
-        .setInitialBalance(new Hbar(1));
-
-//Sign with the client operator account key and submit to a Hedera network
-TransactionId txId = transaction.execute(client);
-
-//Request the record of the transaction
-TransactionRecord record = txId.getRecord(client);
-
-System.out.println("The transaction record is " +record);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create a transaction
-const transaction = new AccountCreateTransaction()
-        .setKey(newKey.getPublicKey())
-        .setInitialBalance(new Hbar(1));
-
-//Sign with the client operator account key and submit to a Hedera network
-const txId = await transaction.execute(client);
-
-//Request the record of the transaction
-const record = await txId.getRecord(client);
-
-console.log("The transaction record is " +record);
-
-//v1.4.4
-```
-{% endcode %}
-{% endtab %}
 {% endtabs %}
-
-##

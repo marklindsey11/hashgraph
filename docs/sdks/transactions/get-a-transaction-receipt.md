@@ -65,8 +65,6 @@ hedera.NewTransactionReceiptQuery().
 
 ### Helper Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | **Method**                                                 | **Type**                | **Description**                                                                                                                                                                                 |
 | ---------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<TransactionResponse>.getReceipt(<client>)`               | TransactionReceipt      | Returns the receipt of a transaction                                                                                                                                                            |
@@ -88,7 +86,8 @@ hedera.NewTransactionReceiptQuery().
 | `<TransactionReceipt>.transactionId`                       | TransactionId           | The transaction ID of the transaction the receipt is being requested for                                                                                                                        |
 | `<TransactionReceipt>.serials`                             | List\<long>             | The list of newly created serial numbers upon execution of a token mint transaction.                                                                                                            |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Get the receipt of the transaction
 TransactionReceipt receipt = txResponse.getReceipt(client);
@@ -97,9 +96,9 @@ System.out.println("The transaction receipt: " +receipt);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Get the receipt of the transaction
 const receipt = await txResponse.getReceipt(client);
@@ -108,9 +107,9 @@ console.log("The transaction receipt: " +receipt);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Request the receipt of the transaction
 receipt, err := txResponse.GetReceipt(client)
@@ -123,10 +122,11 @@ fmt.Printf("The transaction receipt %v\n", receipt)
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
-**Sample Output:**
-
+{% tabs %}
+{% tab title="Sample Output:" %}
 ```
 TransactionReceipt{
      status=SUCCESS,
@@ -148,7 +148,5 @@ TransactionReceipt{
      serials=[]
     }
 ```
-
-\`\`
 {% endtab %}
 {% endtabs %}

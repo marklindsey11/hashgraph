@@ -30,16 +30,13 @@ new TokenGrantKycTransaction()
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
-
-
 | Method                      | Type      | Description                                   | Required |
 | --------------------------- | --------- | --------------------------------------------- | -------- |
 | `setTokenId(<tokenId>)`     | TokenId   | The token for this account to have passed KYC | Required |
 | `setAccountId(<accountId>)` | AccountId | The account for this token to have passed KYC | Required |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Enable KYC flag on account
 TokenGrantKycTransaction transaction = new TokenGrantKycTransaction()
@@ -59,9 +56,9 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 //v2.0.1
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Enable KYC flag on account and freeze the transaction for manual signing
 const transaction = await new TokenGrantKycTransaction()
@@ -85,9 +82,9 @@ console.log("The transaction consensus status " +transactionStatus.toString());
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Enable KYC flag on account and freeze the transaction for manual signing
 transaction, err = hedera.NewTokenGrantKycTransaction().
@@ -120,56 +117,5 @@ fmt.Printf("The transaction consensus status is %v\n", status)
 
 //v2.1.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                      | Type      | Description                                   | Requirement |
-| --------------------------- | --------- | --------------------------------------------- | ----------- |
-| `setTokenId(<tokenId>)`     | TokenId   | The token for this account to have passed KYC | Required    |
-| `setAccountId(<accountId>)` | AccountId | The account for this token to have passed KYC | Required    |
-
-{% code title="Java" %}
-```java
-//Enable KYC flag on account
-TokenGrantKycTransaction transaction = new TokenGrantKycTransaction()
-    .setTokenId(newTokenId)
-    .setAccountId(newAccountId);
-
-//Build the unsigned transaction, sign with the kyc private key of the token, submit the transaction to a Hedera network
-TransactionId transactionId = transaction.build(client).sign(kycKey).execute(client);
-    
-//Request the receipt of the transaction
-TransactionReceipt getReceipt = transactionId.getReceipt(client);
-    
-//Obtain the transaction consensus status
-Status transactionStatus = getReceipt.status;
-
-System.out.println("The transaction consensus status is " +transactionStatus);
-//Version: 1.2.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Enable KYC flag on account
-const transaction = new TokenGrantKycTransaction()
-    .setTokenId(newTokenId)
-    .setAccountId(newAccountId);
-
-//Build the unsigned transaction, sign with the kyc private key of the token, submit the transaction to a Hedera network
-const transactionId = await transaction.build(client).sign(kycKey).execute(client);
-    
-//Request the receipt of the transaction
-const getReceipt = await transactionId.getReceipt(client);
-    
-//Obtain the transaction consensus status
-const transactionStatus = getReceipt.status;
-
-console.log("The transaction consensus status is " +transactionStatus);
-//Version 1.4.2 
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-

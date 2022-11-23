@@ -51,7 +51,7 @@ Note: It is required to set the initial supply for an NFT to 0.
 
 **Transaction Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
 | Constructor                    | Description                                   |
@@ -64,8 +64,6 @@ new TokenCreateTransaction()
 
 ## Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                | Type                                               | Requirement |
 | ------------------------------------- | -------------------------------------------------- | ----------- |
 | `setTokenName(<name>)`                | String                                             | Required    |
@@ -90,7 +88,8 @@ new TokenCreateTransaction()
 | `setAutoRenewAccountId(<account>)`    | [AccountId](../specialized-types.md#accountid)     | Disabled    |
 | `setAutoRenewPeriod(<period>)`        | Duration                                           | Disabled    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 TokenCreateTransaction transaction = new TokenCreateTransaction()
@@ -114,9 +113,9 @@ System.out.println("The new token ID is " + tokenId);
 
 //v2.0.1
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction and freeze for manual signing
 const transaction = await new TokenCreateTransaction()
@@ -144,9 +143,9 @@ console.log("The new token ID is " + tokenId);
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the transaction and freeze the unsigned transaction
 tokenCreateTransaction, err := hedera.NewTokenCreateTransaction().
@@ -182,79 +181,5 @@ fmt.Printf("The new token ID is %v\n", tokenId)
 
 //v2.1.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                                | Type                                                                      | Requirement |
-| ------------------------------------- | ------------------------------------------------------------------------- | ----------- |
-| `setName(<name>)`                     | String                                                                    | Required    |
-| `setTokenType(<tokenType>)`           | [TokenType](token-types.md)                                               | Optional    |
-| `setSymbol(<symbol>)`                 | String                                                                    | Required    |
-| `setDecimals(<decimal>)`              | int                                                                       | Optional    |
-| `setInitialSupply(<initialSupply>)`   | int                                                                       | Optional    |
-| `setTreasury(<treasury>)`             | [AccountId](../specialized-types.md#accountid)                            | Required    |
-| `setAdminKey(<key>)`                  | [PublicKey](../keys/generate-a-new-key-pair.md)                           | Required    |
-| `setKycKey(<key>)`                    | [PublicKey](../keys/generate-a-new-key-pair.md)                           | Optional    |
-| `setFreezeKey(<key>)`                 | [PublicKey](../keys/generate-a-new-key-pair.md)                           | Optional    |
-| `setWipeKey(<key>)`                   | [PublicKey](../keys/generate-a-new-key-pair.md)                           | Optional    |
-| `setSupplyKey(<key>)`                 | [PublicKey](../keys/generate-a-new-key-pair.md)                           | Optional    |
-| `setCustomFees(<customFee>)`          | List<[CustomFee](../../hedera-api/token-service/customfees/customfee.md)> | Optional    |
-| `setFeeScheduleKey(<key>)`            | PublicKey                                                                 | Optional    |
-| `setMaxSupply(<maxSupply>)`           | long                                                                      | Optional    |
-| `setFreezeDefault(<freeze>`)          | boolean                                                                   | Optional    |
-| `setExpirationTime(<expirationTime>)` | Instant                                                                   | Required    |
-| `setAutoRenewAccount(<account>)`      | [AccountId](../specialized-types.md#accountid)                            | Optional    |
-| `setAutoRenewPeriod(<period>)`        | Duration                                                                  | Optional    |
-
-{% code title="Java" %}
-```java
-//Create a token
-TokenCreateTransaction transaction = new TokenCreateTransaction()
-    .setName("Your Token Name")
-    .setSymbol("F")
-    .setTreasury(treasuryAccountId)
-    .setInitialSupply(5000)
-    .setAdminKey(adminKey.publicKey);
-
-//Build the unsigned transaction, sign with admin private key of the token, sign with the token treasury private key, submit the transaction to a Hedera network
-TransactionId transactionId = transaction.build(client).sign(adminKey).sign(treasuryKey).execute(client);
-
-//Request the receipt of the transaction
-TransactionReceipt getReceipt = transactionId.getReceipt(client);
-
-//Get the token ID from the receipt
-TokenId tokenId = getReceipt.getTokenId();
-
-System.out.println("The new token ID is " +tokenId);
-
-//Version: 1.2.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create a token
-const transaction = new TokenCreateTransaction()
-    .setName("Your Token Name")
-    .setSymbol("F")
-    .setTreasury(treasuryAccountId)
-    .setInitialSupply(5000)
-    .setAdminKey(adminKey.publicKey);
-
-//Build the unsigned transaction, sign with the admin private key of the token, sign with the token treasury private key, submit the transaction to a Hedera network
-const transactionId = await transaction.build(client).sign(adminKey).sign(treasuryKey).execute(client);
-
-//Request the receipt of the transaction
-const getReceipt = await transactionId.getReceipt(client);
-
-//Get the token ID from the receipt
-const tokenId = getReceipt.getTokenId();
-
-console.log("The new token ID is " +tokenId);
-
-//Version: 1.4.2
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

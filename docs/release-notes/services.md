@@ -22,8 +22,6 @@ For the latest versions supported on each network please visit the Hedera status
 **TESTNET UPDATE: OCTOBER 27, 2022**
 {% endhint %}
 
-
-
 Services 0.31 completes the following features:
 
 * [HIP-542 roadmap](https://hips.hedera.com/hip/hip-542) for making payer of the `CryptoTransfer` sponsor for `auto-creation`. It also enables auto-creation with Token transfers in addition to Hbar transfers.
@@ -188,7 +186,7 @@ Approved operators can manage an owner's tokens on their behalf; this is necessa
 
 Any permissions granted in a contract through `approve()` or `setApprovalForAll()` have an equivalent HAPI `cryptoApproveAllowance` or `cryptoDeleteAllowance` expression---and this expression is externalized as a HAPI `TransactionBody` in the record stream. That is, the HIP-376 system contracts expose a subset of the native HAPI operations, only within the EVM.
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 ## [v0.25](https://github.com/hashgraph/hedera-services/releases/tag/v0.25.0)
 
@@ -332,7 +330,7 @@ Please also note the following deprecations in the Hedera API protobufs:
 * The [<mark style="color:purple;">`ContractUpdateTransactionBody.fileID`</mark> <mark style="color:purple;">field</mark>](https://github.com/hashgraph/hedera-protobufs/blob/main/services/contract\_update.proto#L82), which is redundant given the existence of the [<mark style="color:purple;">`ContractGetBytecode`</mark> <mark style="color:purple;">quer</mark>y](https://github.com/hashgraph/hedera-protobufs/blob/main/services/smart\_contract\_service.proto#L63).
 * The [<mark style="color:purple;">`ContractCallLocalQuery.maxResultSize`</mark> <mark style="color:purple;">field</mark>](https://github.com/hashgraph/hedera-protobufs/blob/main/services/contract\_call\_local.proto#L136), as this limit is now simply a side-effect of the given gas limit.
 
-![](<../../.gitbook/assets/Performance Measurement Results\_Extract.001 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).jpeg>)
+![](<../../.gitbook/assets/Performance Measurement Results\_Extract.001 (3).jpeg>)
 
 ## [v0.19.4](https://github.com/hashgraph/hedera-services/releases/tag/v0.19.4)
 
@@ -378,7 +376,7 @@ Third, please note that the `TokenService` `getTokenNftInfos` and `getAccountNft
 
 Developers will likely appreciate two other release 0.18.1 items. First, we have migrated to [Dagger2](https://dagger.dev/) for dependency injection. Second, there is a new `getExecutionTime` query in the [`NetworkService`](https://hashgraph.github.io/hedera-protobufs/#proto.NetworkService) that supports granular performance testing in development environments.
 
-![](<../../.gitbook/assets/image (1).png>)
+![](../../.gitbook/assets/image.png)
 
 ## v0.18.0
 
@@ -402,7 +400,7 @@ Developers will likely appreciate two other release 0.18.0 items. First, we have
 
 **Performance Measurement Results:**
 
-![](../../.gitbook/assets/performance-measurement-results.jpeg)
+![](<../../.gitbook/assets/Performance Measurement Results.jpeg>)
 
 ## [v0.17.4](https://github.com/hashgraph/hedera-services/releases/tag/v0.17.3)
 

@@ -1,6 +1,6 @@
 # Sign a scheduled transaction
 
-A transaction that appends signatures to a schedule transaction. You will need to know the schedule ID to reference the schedule transaction to submit signatures to. A record will be generated for each ScheduleSign transaction that is successful and the schedule entity will subsequently update with the public keys that have signed the schedule transaction. To view the keys that have signed the schedule transaction, you can query the network for the schedule info. Once a schedule transaction receives the last required signature, the schedule transaction executes.
+A transaction that appends signatures to a scheduled transaction. You will need to know the schedule ID to reference the scheduled transaction to submit signatures. A record will be generated for each ScheduleSign transaction that is successful and the scheduled entity will subsequently update with the public keys that have signed the scheduled transaction. To view the keys that have signed the scheduled transaction, you can query the network for the schedule info. Once a scheduled transaction receives the last required signature, the scheduled transaction executes.
 
 **Transaction Signing Requirements**
 
@@ -8,12 +8,12 @@ A transaction that appends signatures to a schedule transaction. You will need t
 
 **Transaction Properties**
 
-| Field | Description |
-| :--- | :--- |
-| **Schedule ID** | The ID of the schedule transaction to submit the signature for |
+| Field           | Description                                                     |
+| --------------- | --------------------------------------------------------------- |
+| **Schedule ID** | The ID of the scheduled transaction to submit the signature for |
 
-| Constructor | Description |
-| :--- | :--- |
+| Constructor                     | Description                                    |
+| ------------------------------- | ---------------------------------------------- |
 | `new ScheduleSignTransaction()` | Initializes the ScheduleSignTransaction object |
 
 ```java
@@ -22,14 +22,14 @@ new ScheduleSignTransaction()
 
 ## Methods
 
-{% tabs %}
-{% tab title="V2" %}
-| Method | Type | Requirement |
-| :--- | :--- | :--- |
-| `setScheduleId(<scheduleId>)` | ScheduleId | Required |
-| `clearScheduleId(<scheduleId>)` | ScheduleId | Optional |
-| `getScheduleId()` | ScheduleId | Optional |
+| Method                          | Type       | Requirement |
+| ------------------------------- | ---------- | ----------- |
+| `setScheduleId(<scheduleId>)`   | ScheduleId | Required    |
+| `clearScheduleId(<scheduleId>)` | ScheduleId | Optional    |
+| `getScheduleId()`               | ScheduleId | Optional    |
 
+{% tabs %}
+{% tab title="Java" %}
 {% code title="Java" %}
 ```java
 //Create the transaction
@@ -49,8 +49,9 @@ Status transactionStatus = receipt.status;
 System.out.println("The transaction consensus status is " +transactionStatus);
 ```
 {% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = await new ScheduleSignTransaction()
@@ -68,9 +69,9 @@ const receipt = await txResponse.getReceipt(client);
 const transactionStatus = receipt.status;
 console.log("The transaction consensus status is " +transactionStatus);
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the transaction and freeze the unsigned transaction
 transaction, err := hedera.NewScheduleSignTransaction().
@@ -100,7 +101,5 @@ status:= *receipt.Status
 
 fmt.Printf("The transaction consensus status is %v\n", status)
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-

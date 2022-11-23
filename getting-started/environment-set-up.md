@@ -18,7 +18,7 @@ You can always check the "Code Check ✅ " section at the bottom of each page to
 
 {% tabs %}
 {% tab title="Java" %}
-#### Step 1: Create a new Gradle project in your favorite IDE
+**Step 1: Create a new Gradle project in your favorite IDE**
 
 Open your favorite IDE and create a new gradle project. Add the following dependencies to your build.gradle file. You may choose to install the latest version of the SDK [here](https://github.com/hashgraph/hedera-sdk-java).
 
@@ -36,7 +36,7 @@ dependencies {
 ```
 {% endcode %}
 
-#### Step 2: Create a .env file in your project
+**Step 2: Create a .env file in your project**
 
 Create a **.env** file in the root directory of your project. Grab the the Hedera Testnet **account ID** and **private key** from your [Hedera portal profile](https://portal.hedera.com/) and enter them in the `MY_ACCOUNT_ID` and `MY_PRIVATE_KEY` fields.
 
@@ -45,7 +45,7 @@ MY_ACCOUNT_ID=ENTER TESTNET ACCOUNT ID
 MY_PRIVATE_KEY=ENTER TESTNET PRIVATE KEY
 ```
 
-#### Step 3: Create a new class
+**Step 3: Create a new class**
 
 Create a new java class and title it something like `HederaExamples`. Import the following classes to use in your example.
 
@@ -90,7 +90,7 @@ Your project environment is now set up to successfully submit transactions and q
 
 Next, you will learn how to create an account. Click the link at the bottom to get started.
 
-#### Code Check :white\_check\_mark:
+**Code Check** :white\_check\_mark:
 
 What your code should look like at this point:
 
@@ -120,7 +120,7 @@ public class HederaExamples {
 {% endtab %}
 
 {% tab title="JavaScript" %}
-#### Step 1: Set up your node.js environment
+**Step 1: Set up your node.js environment**
 
 **Create a new directory for our sample & move into it**
 
@@ -152,7 +152,7 @@ Note: you can just say “yes” to all of the defaults and/or plugin what makes
 }
 ```
 
-#### Step 2: Install the Hedera JavaScript SDK
+**Step 2: Install the Hedera JavaScript SDK**
 
 Now that you have your node environment setup, we can install the Hedera’s JS SDK! You can open this project in your favorite text editor like [Visual Studio Code](https://code.visualstudio.com/Download).
 
@@ -176,7 +176,7 @@ npm install dotenv
 yarn add dotenv
 ```
 
-#### Step 3: Create a .env file in your project
+**Step 3: Create a .env file in your project**
 
 The .env file will store your Hedera testnet **account ID** and **private key.** Create this file in the root directory of your project and save it as **.env** file.
 
@@ -187,7 +187,7 @@ MY_ACCOUNT_ID = ENTER YOUR ACCOUNT ID
 MY_PRIVATE_KEY = ENTER YOUR PRIVATE KEY
 ```
 
-#### Step 4: Create an index.js file in the 'root' directory
+**Step 4: Create an index.js file in the 'root' directory**
 
 This file will contain the code we will write in the following samples.
 
@@ -197,7 +197,7 @@ touch index.js
 
 Your project structure should look something like this after:
 
-![](../.gitbook/assets/image105.png)
+![](../.gitbook/assets/project\_directory.png)
 
 Grab your Hedera testnet account ID and private key from the .env file.
 
@@ -222,7 +222,7 @@ main();
 ```
 {% endcode %}
 
-#### Step 5: Create your Hedera testnet client
+**Step 5: Create your Hedera testnet client**
 
 You have the option to create a client for the Hedera mainnet or testnet. Since we are using a Hedera testnet account ID and private key, we will create a client for the Hedera testnet. You can find all the client configurations here.
 
@@ -242,7 +242,7 @@ Your project environment is now set up to successfully submit transactions/queri
 
 Next, you will learn how to create an account. Click the link at the bottom to get started.
 
-#### Code Check ✅
+**Code Check ✅**
 
 What your `index.js` file should look like at this point:
 
@@ -275,7 +275,7 @@ main();
 {% endtab %}
 
 {% tab title="Go" %}
-#### Step 1: Create your Go project
+**Step 1: Create your Go project**
 
 Open your terminal and create a project directory called something like `hedera-go-examples` to store your Go source code.
 
@@ -283,7 +283,7 @@ Open your terminal and create a project directory called something like `hedera-
 mkdir hedera-go-examples && cd hedera-go-examples
 ```
 
-#### Step 2: Create a .env file in your project
+**Step 2: Create a .env file in your project**
 
 Open the project in your favorite IDE and create a **.env** file in the root directory of your project. Enter your Hedera testnet account ID and private key provided to you from your Hedera portal account.
 
@@ -292,7 +292,7 @@ MY_ACCOUNT_ID = ENTER TESTNET ACCOUNT ID
 MY_PRIVATE_KEY = ENTER TESTNET PRIVATE KEY
 ```
 
-#### Step 3: Install the Hedera Go SDK
+**Step 3: Install the Hedera Go SDK**
 
 Create a `hedera_examples.go` file in `hedera-go-examples` directory. You will write all of your code in this file.
 
@@ -360,7 +360,7 @@ Run your code to see your testnet account ID and private key are printed to the 
 go run hedera_examples.go
 ```
 
-#### Step 4: Create your Hedera testnet client
+**Step 4: Create your Hedera testnet client**
 
 You have the option to create a client for the Hedera previewnet, testnet, and mainnet. Since we are using a Hedera testnet account ID and private key, we will create a client for the Hedera testnet. This allows you to submit transactions and queries to the test network.
 
@@ -380,7 +380,7 @@ Your project environment is now set up to successfully submit transactions/queri
 
 Next, you will learn how to create a Hedera testnet account. Click the link at the bottom to get started.
 
-#### Code Check ✅
+**Code Check ✅**
 
 What your code should look like at this point:
 

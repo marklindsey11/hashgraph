@@ -26,7 +26,7 @@ A query that returns the current state of a smart contract instance, including i
 
 **Query Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your query fee cost
 
 | Constructor               | Description                            |
@@ -39,13 +39,12 @@ new ContractInfoQuery()
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                        | Type       | Description                                          |
 | ----------------------------- | ---------- | ---------------------------------------------------- |
 | `setContractId(<contractId>)` | ContractId | The ID of the smart contract to return the token for |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the query
 ContractInfoQuery query = new ContractInfoQuery()
@@ -56,9 +55,9 @@ ContractInfo info = query.execute(client);
 
 System.out.print(info);
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Javascript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the query
 const query = new ContractInfoQuery()
@@ -69,9 +68,9 @@ const info = await query.execute(client);
 
 console.log(info);
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the query
 query := hedera.NewContractInfoQuery().
@@ -85,12 +84,13 @@ if err != nil {
 }
 
 //Print the account key to the console
-println(info)
+println(info
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
-**Sample Output**
-
+{% tabs %}
+{% tab title="Sample Output:" %}
 ```
 ContractInfo{
      contractId=0.0.104966, 
@@ -105,37 +105,5 @@ ContractInfo{
      balance=0 tℏ
 }
 ```
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                        | Type       | Description                                          |
-| ----------------------------- | ---------- | ---------------------------------------------------- |
-| `setContractId(<contractId>)` | ContractId | The ID of the smart contract to return the token for |
-
-{% code title="Java" %}
-```java
-//Create the query
-ContractInfoQuery query = new ContractInfoQuery()
-     .setContractId(newContractId);
-
-//Sign with the client operator private key and submit to a Hedera network
-ContractInfo info = query.execute(client);
-
-System.out.println(info);
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the query
-const query = new ContractInfoQuery()
-     .setContractId(newContractId);
-
-//Sign with the client operator private key and submit to a Hedera network
-const info = await query.execute(client);
-
-console.log(info);
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

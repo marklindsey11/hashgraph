@@ -36,8 +36,6 @@ new FileUpdateTransaction()
 **Note:** The total size for a given transaction is limited to 6KiB. If you exceed this value you will need to submit a FileUpdateTransaction that is less than 6KiB and then submit a FileAppendTransaction to add the remaining content to the file.
 {% endhint %}
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                            | Type      | Requirement |
 | --------------------------------- | --------- | ----------- |
 | `setFileId(<fileId>)`             | FileId    | Required    |
@@ -47,7 +45,8 @@ new FileUpdateTransaction()
 | `setExpirationTime(<expiration>)` | Instant   | Optional    |
 | `setFileMemo(<memo>)`             | String    | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 FileUpdateTransaction transaction = new FileUpdateTransaction()
@@ -70,9 +69,9 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = await new FileUpdateTransaction()
@@ -97,9 +96,9 @@ console.log("The transaction consensus status " +transactionStatus3.toString());
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewFileUpdateTransaction().
@@ -134,70 +133,11 @@ fmt.Println("The transaction consensus status is ", transactionStatus)
 
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                            | Type      | Requirement |
-| --------------------------------- | --------- | ----------- |
-| `setFileId(<fileId>)`             | FileId    | Required    |
-| `addKey(<keys>)`                  | PublicKey | Optional    |
-| `setContents(<bytes>)`            | byte \[ ] | Optional    |
-| `setContents(<text>)`             | String    | Optional    |
-| `setExpirationTime(<expiration>)` | Instant   | Optional    |
-
-{% code title="Java" %}
-```java
-//Create the transaction
-FileUpdateTransaction transaction = new FileUpdateTransaction()
-    .addKey(newPublicKey)
-    .setFileId(newFileId);
-
-//Modify the default max transaction fee from 1 hbar to 2 hbars
-FileUpdateTransaction txFee = transaction.setMaxTransactionFee(new Hbar(3));
-
-//Build the transaction, sign with the original key, sign with the new key, sign with the client operator key and submit the transaction to a Hedera network
-TransactionId txId = txFee.build(client).sign(key).sign(newKey).execute(client);
-
-//Request the receipt of the transaction
-TransactionReceipt receipt = txId.getReceipt(client);
-
-//Get the transaction consensus status
-Status transactionStatus = receipt.status;
-
-System.out.println("The transaction consensus status is " +transactionStatus);
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the transaction
-const transaction = new FileUpdateTransaction()
-    .addKey(newPublicKey)
-    .setFileId(newFileId);
-
-//Modify the default max transaction fee from 1 hbar to 2 hbars
-const txFee = transaction.setMaxTransactionFee(new Hbar(3));
-
-//Build the transaction, sign with the original key, sign with the new key, sign with the client operator key and submit the transaction to a Hedera network
-const txId = await txFee.build(client).sign(key).sign(newKey).execute(client);
-
-//Request the receipt of the transaction
-const receipt = await txId.getReceipt(client);
-
-//Get the transaction consensus status
-const transactionStatus = receipt.status;
-
-console.log("The transaction consensus status is " +transactionStatus);
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get transaction values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                | Type       | Requirement |
 | --------------------- | ---------- | ----------- |
 | `getFileId()`         | FileId     | Optional    |
@@ -206,7 +146,8 @@ console.log("The transaction consensus status is " +transactionStatus);
 | `getExpirationTime()` | Instant    | Optional    |
 | `getFileMemo()`       | String     | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 FileUpdateTransaction transaction = new FileUpdateTransaction()
@@ -218,9 +159,9 @@ Key getKey = transaction.getKey();
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```java
 //Create the transaction
 const transaction = new FileUpdateTransaction()
@@ -229,9 +170,9 @@ const transaction = new FileUpdateTransaction()
 //Get the contents of a file
 const getKey = transaction.getKey();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewFileUpdateTransaction().
@@ -243,6 +184,5 @@ getKey := transaction.GetKeys()
 
 //v2.0.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

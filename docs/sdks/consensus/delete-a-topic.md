@@ -9,11 +9,9 @@ A transaction that deletes a topic from the Hedera network. Once a topic is dele
 
 **Transaction Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
-{% tabs %}
-{% tab title="V2" %}
 | Constructor                    | Description                                 |
 | ------------------------------ | ------------------------------------------- |
 | `new TopicDeleteTransaction()` | Initializes a TopicDeleteTransaction object |
@@ -28,7 +26,8 @@ new TopicDeleteTransaction()
 | ----------------------- | ------- | ----------------------------- | ----------- |
 | `setTopicId(<topicId>)` | TopicId | The ID of the topic to delete | Required    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 TopicDeleteTransaction transaction = new TopicDeleteTransaction()
@@ -47,9 +46,9 @@ System.out.println("The transaction consensus status is " +transactionStatus);
 
 //V2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = await new TopicDeleteTransaction()
@@ -72,9 +71,9 @@ console.log("The transaction consensus status is " +transactionStatus);
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction and freeze the transaction to prepare for signing
 transaction := hedera.NewTopicDeleteTransaction().
@@ -101,75 +100,17 @@ fmt.Printf("The transaction consensus status is %v\n", transactionStatus)
 
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Constructor                             | Description                                          |
-| --------------------------------------- | ---------------------------------------------------- |
-| `new ConsensusTopicDeleteTransaction()` | Initializes a ConsensusTopicDeleteTransaction object |
-
-```java
-new ConsensusTopicDeleteTransaction()
-```
-
-#### Methods
-
-| Method                  | Type    | Description                   |
-| ----------------------- | ------- | ----------------------------- |
-| `setTopicId(<topicId>)` | TopicId | The ID of the topic to delete |
-
-{% code title="Java" %}
-```java
-ConsensusTopicDeleteTransaction transaction = new ConsensusTopicDeleteTransaction()
-     .setTopicId(newTopicId);
-
-//Sign the transaction with the admin key, sign with the client operator and submit the transaction to a Hedera network, get the transaction ID
-TransactionId txId = transaction.build(client).sign(adminKey).execute(client);
-
-//Request the receipt of the transaction
-TransactionReceipt receipt = txId.getReceipt(client);
-
-//Get the transaction consensus status
-Status transactionStatus = receipt.status;
-
-System.out.println("The transaction consensus status is " +transactionStatus);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-const transaction = new ConsensusTopicDeleteTransaction()
-     .setTopicId(newTopicId);
-
-//Sign the transaction with the admin key, sign with the client operator and submit the transaction to a Hedera network, get the transaction ID
-const txId = await transaction.build(client).sign(adminKey).execute(client);
-
-//Request the receipt of the transaction
-const receipt = await txId.getReceipt(client);
-
-//Get the transaction consensus status
-const transactionStatus = receipt.status;
-
-console.log("The transaction consensus status is " +transactionStatus);
-
-//v1.4.4
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get transaction values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                  | Type    | Description                   | Requirement |
 | ----------------------- | ------- | ----------------------------- | ----------- |
 | `getTopicId(<topicId>)` | TopicId | The ID of the topic to delete | Required    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 TopicDeleteTransaction transaction = new TopicDeleteTransaction()
@@ -180,9 +121,9 @@ TopicId getTopicId = transaction.getTopicId();
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```java
 //Create the transaction
 const transaction = new TopicDeleteTransaction()
@@ -193,9 +134,9 @@ const getTopicId = transaction.getTopicId();
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewTopicDeleteTransaction().
@@ -206,8 +147,5 @@ getTopicId := transaction.GetTopicID()
 
 //v2.0.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-##

@@ -1,6 +1,6 @@
 # Get topic info
 
-Topic info returns the following values for a topic.  Queries do not change the state of the topic or require network consensus. The information is returned from a single node processing the query.
+Topic info returns the following values for a topic. Queries do not change the state of the topic or require network consensus. The information is returned from a single node processing the query.
 
 **Topic Info Response:**
 
@@ -23,22 +23,16 @@ Topic info returns the following values for a topic.  Queries do not change the 
 
 **Query Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your query fee cost
 
-{% tabs %}
-{% tab title="V2" %}
 | Constructor            | Description                           |
 | ---------------------- | ------------------------------------- |
 | `new TopicInfoQuery()` | Initializes the TopicInfoQuery object |
 
-
-
 ```java
 new TopicInfoQuery()
 ```
-
-
 
 | Method                         | Type                                           | Requirement |
 | ------------------------------ | ---------------------------------------------- | ----------- |
@@ -54,7 +48,8 @@ new TopicInfoQuery()
 | `<TopicInfo>.autoRenewAccount` | [AccountId](../specialized-types.md#accountid) | Optional    |
 | `<TopicInfo>.autoRenewPeriod`  | Instant                                        | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the account info query
 TopicInfoQuery query = new TopicInfoQuery()
@@ -68,9 +63,9 @@ System.out.println(info);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the account info query
 const query = new TopicInfoQuery()
@@ -84,9 +79,9 @@ console.log(info);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the account info query
 query, err := hedera.NewTopicInfoQuery().
@@ -103,10 +98,11 @@ println(info)
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
-**Sample Output:**
-
+{% tabs %}
+{% tab title="Sample Output:" %}
 ```
 TopicInfo{
      topicId=0.0.102736, 
@@ -123,53 +119,4 @@ TopicInfo{
 }
 ```
 {% endtab %}
-
-{% tab title="V1" %}
-| Constructor                     | Description                                    |
-| ------------------------------- | ---------------------------------------------- |
-| `new ConsensusTopicInfoQuery()` | Initializes the ConsensusTopicInfoQuery object |
-
-```java
-new ConsensusTopicInfoQuery()
-```
-
-
-
-| Method                  | Type    | Description                                | Requirement |
-| ----------------------- | ------- | ------------------------------------------ | ----------- |
-| `setTopicId(<topicId>)` | TopicId | The ID of the topic to get information for | Required    |
-
-{% code title="Java" %}
-```java
-//Create the account info query
-TopicInfoQuery query = new ConsensusTopicInfoQuery()
-    .setTopicId(newTopicId);
-
-//Submit the query to a Hedera network
-TopicInfo info = query.execute(client);
-
-//Print the account key to the console
-System.out.println(info);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the account info query
-const query = new ConsensusTopicInfoQuery()
-    .setTopicId(newTopicId);
-
-//Submit the query to a Hedera network
-const info = await query.execute(client);
-
-//Print the account key to the console
-console.log(info);
-
-//v1.4.4
-```
-{% endcode %}
-{% endtab %}
 {% endtabs %}
-

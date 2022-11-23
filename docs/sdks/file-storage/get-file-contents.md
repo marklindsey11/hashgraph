@@ -8,7 +8,7 @@ A query to get the contents of a file. Queries do not change the state of the fi
 
 **Query Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your query fee cost
 
 | Constructor               | Description                            |
@@ -21,13 +21,12 @@ new FileContentsQuery()
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                | Type   | Description                                    |
 | --------------------- | ------ | ---------------------------------------------- |
 | `setFileId(<fileId>)` | FileId | The ID of the file to get contents for (x.z.y) |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the query
 FileContentsQuery query = new FileContentsQuery()
@@ -43,9 +42,9 @@ System.out.println(contentsToUtf8);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the query
 const query = new FileContentsQuery()
@@ -58,9 +57,9 @@ console.log(contents.toString());
 
 //v2.0.7
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the query
 query := hedera.NewFileContentsQuery().
@@ -73,56 +72,17 @@ fmt.Println(string(contents))
 
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                | Type   | Description                                    |
-| --------------------- | ------ | ---------------------------------------------- |
-| `setFileId(<fileId>)` | FileId | The ID of the file to get contents for (x.z.y) |
-
-{% code title="Java" %}
-```java
-//Create the query
-FileContentsQuery query = new FileContentsQuery()
-    .setFileId(newFileId);
-
-//Sign with client operator private key and submit the query to a Hedera network
-byte [] contents = query.execute(client);
-
-//Change to Utf-8 encoding
-String contentsToUtf8 = contents.toStringUtf8();
-
-System.out.println(contentsToUtf8);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the query
-const query = new FileContentsQuery()
-    .setFileId(newFileId);
-
-//Sign with client operator private key and submit the query to a Hedera network
-const contents = await query.execute(client);
-
-console.log(contents);
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get query values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method        | Type   | Description                                    |
 | ------------- | ------ | ---------------------------------------------- |
 | `getFileId()` | FileId | The ID of the file to get contents for (x.z.y) |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the query
 FileContentsQuery query = new FileContentsQuery()
@@ -133,9 +93,9 @@ FileId getFileId = query.getFileId();
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the query
 const query = new FileContentsQuery()
@@ -144,9 +104,9 @@ const query = new FileContentsQuery()
 //Get file ID
 const getFileId = query.getFileId();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the query
 query := hedera.NewFileContentsQuery().
@@ -157,8 +117,5 @@ getFileId := query.GetFileID()
 
 //v2.0.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-##

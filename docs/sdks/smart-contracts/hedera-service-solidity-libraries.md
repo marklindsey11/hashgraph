@@ -39,7 +39,7 @@ int response = HederaTokenService.transferToken(tokenAddress, msg.sender, addres
 ### Create Tokens
 
 {% hint style="info" %}
-[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet and testnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/TokenCreateContract.sol) example contains four examples for how to create a token using the token create solidity libraries.
+[HIP-358](https://hips.hedera.com/hip/hip-358): Token create precompile is live on previewnet and testnet. The [TokenCreateContract](https://github.com/hashgraph/hedera-smart-contracts/blob/main/contracts/hts-precompile/TokenCreateContract.sol) example contains four examples of how to create a token using the token create solidity libraries.
 {% endhint %}
 
 ### <mark style="color:purple;">`createFungibleToken(token, initialTotalSupply, decimals)`</mark>
@@ -143,13 +143,13 @@ ABI Version: 1
 | `token`        | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)           | The ID of the token to transfer. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address.          |
 | `sender`       | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)\[] memory | The address sending the token. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address.            |
 | `receiver`     | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)\[] memory | The address of the receiver of the token. The address is a mapping of `shard.realm.number` (0.0.x) into a 20 byte Solidity address. |
-| `serialNumber` | int64                                                                            | The serial number of the nft sent by the same index at sender.                                                                      |
+| `serialNumber` | int64                                                                            | The serial number of the NFT is sent by the same index of the sender.                                                               |
 
 ### Mint Tokens
 
 ### <mark style="color:purple;">`mintToken(token, amount, metadata)`</mark>
 
-Mints an amount of the token to the defined treasury account. This transaction accepts zero amount token mint operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564)).
+Mints an amount of the token to the defined treasury account. This transaction accepts zero-amount token mint operations for fungible tokens ([HIP-564](https://hips.hedera.com/hip/hip-564)).
 
 ABI Version: 2
 
@@ -177,7 +177,7 @@ ABI Version: 2
 
 ### <mark style="color:purple;">`associateToken(account, tokens)`</mark>
 
-Associates the provided account with the provided tokens. Must be signed by the account that is being associated with the token.
+Associates the provided account with the provided tokens. Must be signed by the account that is associated with the token.
 
 ABI Version: 2
 
@@ -207,12 +207,12 @@ ABI Version: 2
 
 | **Param** | **Type**                                                                                                   | **Description**                                                                                                                                                                    |
 | --------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)                                     | The account to be dissociated from the provided tokens.                                                                                                                            |
-| `tokens`  | [address](https://docs.soliditylang.org/en/v0.6.2/types.html?highlight=address%20%5B%5D#address)\[] memory | <p>The list of tokens to be dissociated from the provided account.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20 byte Solidity address.</p> |
+| `account` | [address](https://docs.soliditylang.org/en/v0.8.10/types.html#address)                                     | The account is to be dissociated from the provided tokens.                                                                                                                         |
+| `tokens`  | [address](https://docs.soliditylang.org/en/v0.6.2/types.html?highlight=address%20%5B%5D#address)\[] memory | <p>The list of tokens to be dissociated from the provided account.<br><br>The address is a mapping of <code>shard.realm.number</code> (0.0.x) into a 20-byte Solidity address.</p> |
 
 ### <mark style="color:purple;">**`allowance(token, owner, spender)`**</mark>
 
-Returns the amount the spender is still allowed to withdraw from owner. Only applicable to fungible tokens.&#x20;
+Returns the amount the spender is still allowed to withdraw from the owner. Only applicable to fungible tokens.
 
 | **Param** | **Type** | **Description**                                                   |
 | --------- | -------- | ----------------------------------------------------------------- |
@@ -222,7 +222,7 @@ Returns the amount the spender is still allowed to withdraw from owner. Only app
 
 ### <mark style="color:purple;">`approve(token, spender, amount)`</mark>
 
-Allows spender to withdraw from your account multiple times, up to the value amount. If this function is called again it overwrites the current allowance.
+Allows `spender` to withdraw from your account multiple times, up to the value amount. If this function is called again it overwrites the current allowance.
 
 | **Param** | **Type** | **Description**                                                |
 | --------- | -------- | -------------------------------------------------------------- |
@@ -261,7 +261,7 @@ Returns whether or not the operator account is approved to spend on behalf of th
 
 ### <mark style="color:purple;">`setApprovalForAll(token, operator, approved)`</mark>
 
-Enable or disable approval for a third party ("operator") to manage all of `msg.sender`'s assets.&#x20;
+Enable or disable approval for a third party ("operator") to manage all of `msg.sender`'s assets.
 
 | **Param**  | **Type** | **Description**                           |
 | ---------- | -------- | ----------------------------------------- |
@@ -297,7 +297,7 @@ Returns whether or not the token exists on Hedera.
 
 ### <mark style="color:purple;">`deleteToken(token)`</mark>
 
-Deletes the specified token.&#x20;
+Deletes the specified token.
 
 | **Param** | **Type** | **Description**                         |
 | --------- | -------- | --------------------------------------- |
@@ -351,7 +351,7 @@ Retrieves fungible specific token property information for a fungible token.
 | --------- | -------- | ------------------------------------------------------------- |
 | `token`   | address  | The Hedera token ID of the fungible token in Solidity format. |
 
-### <mark style="color:purple;">`getNonFungibleTokenInfo(token)`</mark>    <mark style="color:purple;"></mark><mark style="color:purple;"></mark>   &#x20;
+### <mark style="color:purple;">`getNonFungibleTokenInfo(token)`</mark>
 
 Retrieves non-fungible specific token info for a given NFT.
 

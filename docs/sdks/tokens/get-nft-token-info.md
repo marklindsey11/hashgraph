@@ -36,13 +36,12 @@ new TokenNftInfoQuery()
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method              | Type               | Description                                                                                                                                        | Requirement |
 | ------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `setNftId(<nftId>)` | [NftId](nft-id.md) | Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on a NFT for a given TokenID (of type `NON_FUNGIBLE_UNIQUE`) and serial number. | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Returns the info for the specified NFT ID
 List<TokenNftInfo> nftInfos = new TokenNftInfoQuery()
@@ -51,9 +50,9 @@ List<TokenNftInfo> nftInfos = new TokenNftInfoQuery()
 
 //v2.0.14
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Returns the info for the specified NFT ID
 const nftInfos = await new TokenNftInfoQuery()
@@ -62,9 +61,9 @@ const nftInfos = await new TokenNftInfoQuery()
 
 //v2.0.28
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Returns the info for the specified NFT ID
 nftInfo, err := NewTokenNftInfoQuery().
@@ -73,34 +72,5 @@ nftInfo, err := NewTokenNftInfoQuery().
 
 //v2.1.16
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method             | Type               | Description                                                                                                                                        | Requirement |
-| ------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `byNftId(<nftId>)` | [NftId](nft-id.md) | Applicable only to tokens of type `NON_FUNGIBLE_UNIQUE`. Gets info on a NFT for a given TokenID (of type `NON_FUNGIBLE_UNIQUE`) and serial number. | Optional    |
-
-{% code title="Java" %}
-```java
-//Returns the info for the specified NFT ID
-List<TokenNftInfo> nftInfos = new TokenNftInfoQuery()
-     .byNftId(nftId)
-     .execute(client);
-     
-//v1.5.0
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Returns the info for the specified NFT ID
-const nftInfos = await new TokenNftInfoQuery()
-     .byNftId(nftId)
-     .execute(client);
-
-//v1.4.10
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

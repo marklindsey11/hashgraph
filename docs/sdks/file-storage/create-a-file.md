@@ -38,8 +38,6 @@ new FileCreateTransaction()
 The default max transaction fee (1 hbar) is not enough to create a a file. Use `setDefaultMaxTransactionFee()`to change the default max transaction fee from 1 hbar to 2 hbars.
 {% endhint %}
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                | Type       | Requirement |
 | ------------------------------------- | ---------- | ----------- |
 | `setKeys(<keys>)`                     | Key        | Required    |
@@ -48,7 +46,8 @@ The default max transaction fee (1 hbar) is not enough to create a a file. Use `
 | `setExpirationTime(<expirationTime>)` | Instant    | Optional    |
 | `setFileMemo(<memo>)`                 | String     | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 FileCreateTransaction transaction = new FileCreateTransaction()
@@ -71,9 +70,9 @@ System.out.println("The new file ID is: " + newFileId);
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = await new FileCreateTransaction()
@@ -98,9 +97,9 @@ console.log("The new file ID is: " + newFileId);
 
 //v2.0.7
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the transaction
 transaction := hedera.NewFileCreateTransaction().
@@ -134,73 +133,11 @@ newFileId := *receipt.FileID
 fmt.Printf("The new file ID is %v\n", newFileId)
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                            | Type        | Description                                                                                                     | Requirement |   |
-| --------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------- | ----------- | - |
-| `addKey(<key>)`                   | ​PublicKey​ | The public key of the owner of the file                                                                         | Required    |   |
-| `setContents(<contents>)`         | bytes\[]    | The file contents in byte representation                                                                        | Optional    |   |
-| `setContents(<contents>)`         | String      | The file contents in string representation                                                                      | Optional    |   |
-| `setExpirationTime(<expiration>)` | Instant     | The time at which this file should expire (unless FileUpdateTransaction is used before then to extend its life) | Optional    |   |
-
-{% code title="Java" %}
-```java
-//Create the transaction
-FileCreateTransaction transaction = new FileCreateTransaction()
-    .addkey(fileKey) 
-    .setContents(fileContents);
-        
-//Change the default max transaction fee to 2 hbars
-FileCreateTransaction modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2)); 
-
-//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-TransactionId txId = modifyMaxTransactionFee.build(client).sign(fileKey).execute(client);
-
-//Request the receipt
-TransactionReceipt receipt = txId.getReceipt(client);
-
-//Get the file ID
-FileId newFileId = receipt.getFileId();
-
-System.out.println("The new file ID is: " + newFileId);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the transaction
-const transaction = new FileCreateTransaction()
-    .addkey(fileKey) 
-    .setContents(fileContents);
-        
-//Change the default max transaction fee to 2 hbars
-const modifyMaxTransactionFee = transaction.setMaxTransactionFee(new Hbar(2)); 
-
-//Prepare transaction for signing, sign with the key on the file, sign with the client operator key and submit to a Hedera network
-const txId = await modifyMaxTransactionFee.build(client).sign(fileKey).execute(client);
-
-//Request the receipt
-const receipt = await txId.getReceipt(client);
-
-//Get the file ID
-const newFileId = receipt.getFileId();
-
-console.log("The new file ID is: " + newFileId);
-
-//v1.4.4
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get transaction values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                | Type       | Requirement |
 | --------------------- | ---------- | ----------- |
 | `getKeys()`           | Key        | Optional    |
@@ -208,7 +145,8 @@ console.log("The new file ID is: " + newFileId);
 | `getExpirationTime()` | Instant    | Optional    |
 | `getFileMemo()`       | String     | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 FileCreateTransaction transaction = new FileCreateTransaction()
@@ -218,9 +156,9 @@ FileCreateTransaction transaction = new FileCreateTransaction()
 //Get the file contents
 ByteString getContents = transaction.getContents();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = new FileCreateTransaction()
@@ -230,9 +168,9 @@ const transaction = new FileCreateTransaction()
 //Get the file contents
 const getContents = transaction.getContents();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewFileCreateTransaction().
@@ -242,8 +180,5 @@ transaction := hedera.NewFileCreateTransaction().
 //Get the file contents
 getContents := transaction.GetContents()
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-##

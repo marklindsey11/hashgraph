@@ -1,6 +1,6 @@
 # Update a smart contract
 
-A transaction that allows you to modify the smart contract entity state like admin keys, proxy account, auto renew period and memo. This transaction does not update the contract that is tied to the smart contract entity. The contract tied to the entity is immutable. The contract entity is immutable if an admin key is not specified. Once the transaction has been successfully executed on a Hedera network the previous field values will be updated with the new ones. To get a previous state of a smart contract instance, you can query a mirror node for that data. Any null field is ignored (left unchanged)
+A transaction that allows you to modify the smart contract entity state like admin keys, proxy account, auto-renew period, and memo. This transaction does not update the contract that is tied to the smart contract entity. The contract tied to the entity is immutable. The contract entity is immutable if an admin key is not specified. Once the transaction has been successfully executed on a Hedera network the previous field values will be updated with the new ones. To get a previous state of a smart contract instance, you can query a mirror node for that data. Any null field is ignored (left unchanged)
 
 **Transaction Signing Requirements**
 
@@ -10,7 +10,7 @@ A transaction that allows you to modify the smart contract entity state like adm
 
 **Transaction Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your transaction fee cost
 
 **Smart Contract Properties**
@@ -36,8 +36,6 @@ new ContractUpdateTransaction()
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                            | Type                                             | Requirement |
 | ------------------------------------------------- | ------------------------------------------------ | ----------- |
 | `setContractId(<contractId>)`                     | [ContractId](../specialized-types.md#contractid) | Required    |
@@ -52,7 +50,8 @@ new ContractUpdateTransaction()
 | `setAutoRenewPeriod(<autoRenewPeriod>)`           | Duration                                         | Optional    |
 | `setAutoRenewAccountId(<accountId>)`              | AccountId                                        | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction 
 ContractUpdateTransaction transaction = new ContractUpdateTransaction()
@@ -72,9 +71,9 @@ System.out.println("The consensus status of the transaction is " +transactionSta
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = await new ContractUpdateTransaction()
@@ -99,10 +98,10 @@ console.log("The consensus status of the transaction is " +transactionStatus);
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
-```java
+{% tab title="Go" %}
+```go
 //Create the transaction
 transaction := hedera.NewContractUpdateTransaction().
         SetContractID(contractId).
@@ -137,62 +136,11 @@ fmt.Printf("The transaction consensus status %v\n", transactionStatus)
 
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                                       | Type            | Requirement          |
-| -------------------------------------------- | --------------- | -------------------- |
-| `setContractId(<contractId>)`                | ContractId      | Required             |
-| `setAdminKey(<publicKey>)`                   | Ed25519PubicKey | Optional             |
-| `setBytecodeFileId(<fileId>)`                | FileId          | Deprecated \[0.20.0] |
-| `setProxyAccountId(<accountId>`)             | AccountId       | Optional             |
-| `setContractMemo(<memo>)`                    | String          | Optional             |
-| `setContractExpirationTime(<expirationTime)` | Instant         | Optional             |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`      | Duration        | Optional             |
-
-{% code title="Java" %}
-```java
-ContractUpdateTransaction transaction = new ContractUpdateTransaction()
-     .setContractId(newContractId)
-     .setContractMemo("Update the memo of the smart contract");
-
-TransactionId txId = transaction.execute(client);
-
-TransactionReceipt receipt = txId.getReceipt(client);
-
-Status transactionStatus = receipt.status;
-
-System.out.println("The transaction consensus status is " +transactionStatus)
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-const transaction = new ContractUpdateTransaction()
-     .setContractId(newContractId)
-     .setContractMemo("Update the memo of the smart contract");
-
-const txId = await transaction.execute(client);
-
-const receipt = await txId.getReceipt(client);
-
-const transactionStatus = receipt.status;
-
-System.out.println("The transaction consensus status is " +transactionStatus)
-
-//v1.4.4
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get transaction values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                      | Type                                             | Requirement |
 | --------------------------- | ------------------------------------------------ | ----------- |
 | `getContractId()`           | [ContractId](../specialized-types.md#contractid) | Required    |
@@ -205,7 +153,8 @@ System.out.println("The transaction consensus status is " +transactionStatus)
 | `getDeclineStakingReward()` | boolean                                          | Optional    |
 | `getAutoRenewPeriod()`      | Duration                                         | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction with an admin key
 ContractUpdateTransaction transaction = new ContractUpdateTransaction()
@@ -217,9 +166,9 @@ transaction.getAdminKey()
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```java
 //Create the transaction with an admin key
 const transaction = new ContractUpdateTransaction()
@@ -231,9 +180,9 @@ transaction.getAdminKey()
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewContractUpdateTransaction().
@@ -246,6 +195,5 @@ transaction.GetAdminKey()
 
 //v2.0.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}

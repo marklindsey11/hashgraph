@@ -1,6 +1,6 @@
 # Create and Transfer an NFT using a Solidity Contract
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (2).png>)
 
 ## Summary
 
@@ -290,7 +290,7 @@ fmt.Printf("Token created with ID: %v\n", tokenId)
 
 After the token ID is created, you mint each NFT under that ID using the <mark style="color:purple;">`mintNft`</mark> function. For the minting, you must specify the token ID as a Solidity address and the NFT metadata.
 
-Both the NFT image and metadata live in the InterPlanetary File System (IPFS), which provides decentralized storage. The file metadata.json contains the metadata for the NFT. An IPFS URI pointing to the metadata file is used during minting of a new NFT. Notice that the metadata file contains a URI pointing to the NFT image.&#x20;
+Both the NFT image and metadata live in the InterPlanetary File System (IPFS), which provides decentralized storage. The file metadata.json contains the metadata for the NFT. An IPFS URI pointing to the metadata file is used during minting of a new NFT. Notice that the metadata file contains a URI pointing to the NFT image.
 
 {% hint style="info" %}
 For the latest NFT Token Metadata JSON Schema see [HIP-412](https://hips.hedera.com/hip/hip-412).
@@ -410,7 +410,7 @@ fmt.Printf("Minted NFT with serial: %v\n", serial)
 
 ## 5. Execute the Contract to Transfer the NFT
 
-The NFT is minted to the contract address because the contract is the treasury for the token. Now transfer the NFT to another account or contract address. In this example, you will transfer the NFT to Alice. For the transfer, you must specify the token address and NFT serial number.&#x20;
+The NFT is minted to the contract address because the contract is the treasury for the token. Now transfer the NFT to another account or contract address. In this example, you will transfer the NFT to Alice. For the transfer, you must specify the token address and NFT serial number.
 
 The <mark style="color:purple;">`transferNft`</mark> function in the Solidity contract contains a call to an <mark style="color:purple;">`associateToken`</mark> function that will automatically associate Alice to the token ID. This association transaction must be signed using Alice's private key. After signing, Alice will receive the NFT.
 
@@ -947,4 +947,3 @@ func main() {
 ```
 {% endtab %}
 {% endtabs %}
-

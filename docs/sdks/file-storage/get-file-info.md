@@ -4,7 +4,7 @@ A query that returns the current state of a file. Queries do not change the stat
 
 **Query Fees**
 
-* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for base transaction fee
+* Please see the transaction and query [fees](../../../mainnet/fees/#transaction-and-query-fees) table for the base transaction fee
 * Please use the [Hedera fee estimator](https://hedera.com/fees) to estimate your query fee cost
 
 **File Info Response**
@@ -34,13 +34,12 @@ new FileInfoQuery()
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                | Type   | Description                                       |
 | --------------------- | ------ | ------------------------------------------------- |
 | `setFileId(<fileId>)` | FileId | The ID of the file to get information for (x.y.z) |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the query
 FileInfoQuery query = new FileInfoQuery()
@@ -51,9 +50,9 @@ FileInfo getInfo = query.execute(client);
 
 System.out.println("File info response: " +getInfo);
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the query
 const query = new FileInfoQuery()
@@ -64,9 +63,9 @@ const getInfo = await query.execute(client);
 
 console.log("File info response: " +getInfo);
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the query
 query := hedera.NewFileInfoQuery().
@@ -77,7 +76,8 @@ getInfo, err := query.Execute(client)
 
 fmt.Println(getInfo)
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 **Sample Output:**
 
@@ -91,54 +91,15 @@ FileInfo{
      ]
 }
 ```
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                | Type   | Description                                       |
-| --------------------- | ------ | ------------------------------------------------- |
-| `setFileId(<fileId>)` | FileId | The ID of the file to get information for (x.y.z) |
-
-{% code title="Java" %}
-```java
-//Create the query
-FileInfoQuery query = new FileInfoQuery()
-  .setFileId(fileId);
-
-//Sign the query with the client operator private key and submit to a Hedera network
-FileInfo getInfo = query.execute(client);
-
-System.out.println("File info response: " +getInfo.keys);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the query
-const query = new FileInfoQuery()
-  .setFileId(fileId);
-
-//Sign the query with the client operator private key and submit to a Hedera network
-const getInfo = await query.execute(client);
-
-console.log("File info response: " +getInfo.keys);
-
-//v1.4.4
-```
-{% endcode %}
-{% endtab %}
-{% endtabs %}
 
 ## Get query values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method        | Type   | Description                                    |
 | ------------- | ------ | ---------------------------------------------- |
 | `getFileId()` | FileId | The ID of the file to get contents for (x.z.y) |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the query
 FileInfoQuery query = new FileInfoQuery()
@@ -149,9 +110,9 @@ FileId getFileId = query.getFileId();
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the query
 FileInfoQuery query = new FileInfoQuery()
@@ -162,9 +123,9 @@ const getFileId = query.getFileId();
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the query
 query := hedera.NewFileContentsQuery().
@@ -175,8 +136,5 @@ getFileId := query.GetFileID()
 
 //v2.0.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-##

@@ -49,7 +49,7 @@ The contract state size limit is 10 MB and the system gas throttle is 15 million
 | **Initial Balance**              | The initial number of hbars to put into the cryptocurrency account associated with and owned by the smart contract.                                                                                                                                                                                                                                                                                                                                                  |
 | **Byte Code File**               | The file containing the hex encoded smart contract byte code.                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **Staked ID**                    | <p>The node account or node ID to which this contract account is staking to. See <a href="https://hips.hedera.com/hip/hip-406">HIP-406.</a><br><br><strong>Note:</strong> Accounts cannot stake to contract accounts. This will fixed in a future release.</p>                                                                                                                                                                                                       |
-| **Decline Rewards**              | Some contracts may choose to stake their hbars and decline receiving rewards. If set to  true, the contract account will not earn rewards when staked. The default value is false. See [HIP-406.](https://hips.hedera.com/hip/hip-406)                                                                                                                                                                                                                               |
+| **Decline Rewards**              | Some contracts may choose to stake their hbars and decline receiving rewards. If set to true, the contract account will not earn rewards when staked. The default value is false. See [HIP-406.](https://hips.hedera.com/hip/hip-406)                                                                                                                                                                                                                                |
 | **Auto Renew Account ID**        | An account to charge for auto-renewal of this contract. If not set, or set to an account with zero hbar balance, the contract's own hbar balance will be used to cover auto-renewal fees. (disabled)                                                                                                                                                                                                                                                                 |
 | **Auto Renew Period**            | The period that the instance will charge its account every this many seconds to renew. (disabled)                                                                                                                                                                                                                                                                                                                                                                    |
 | **Automatic Token Associations** | The maximum number of tokens that this contract can be automatically associated with (i.e., receive air-drops from).                                                                                                                                                                                                                                                                                                                                                 |
@@ -70,8 +70,6 @@ The response will return the contract create transaction information like the ne
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 {% hint style="info" %}
 **Note:** Please refer to [ContractCreateTransaction()](create-a-smart-contract.md#contractcreatetransaction) for a complete list of applicable methods.
 {% endhint %}
@@ -83,7 +81,8 @@ The response will return the contract create transaction information like the ne
 | `setBytecode(<bytecode>)`  | ByteString |
 | `setMaxChunks(<maxChunks)` | int        |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 ContractCreateFlow contractCreate = new ContractCreateFlow()
@@ -102,9 +101,9 @@ ContractId newContractId = receipt.contractId;
 System.out.println("The new contract ID is " +newContractId);
 //SDK Version: v2.10.0-beta.1
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const contractCreate = new ContractCreateFlow()
@@ -123,9 +122,9 @@ const newContractId = (await receipt).contractId;
 console.log("The new contract ID is " +newContractId);
 //SDK Version: v2.11.0-beta.1
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 contractCreate := hedera.NewContractCreateFlow().
@@ -150,7 +149,6 @@ newContractId := *receipt.ContractID
 fmt.Printf("The new topic ID is %v\n", newContractId)
 //SDK Version: 2.11.0-beta.1
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -164,8 +162,6 @@ Creates a smart contract instance using the file ID of the contract bytecode.
 
 ### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                              | Type                                     | Requirement |
 | --------------------------------------------------- | ---------------------------------------- | ----------- |
 | `setGas(<gas>)`                                     | long                                     | Required    |
@@ -182,7 +178,8 @@ Creates a smart contract instance using the file ID of the contract bytecode.
 | `setAutoRenewPeriod(<autoRenewPeriod>)`             | Duration                                 | Disabled    |
 | `setMaxAutomaticTokenAssociations()`                | int                                      | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 ContractCreateTransaction transaction = new ContractCreateTransaction()
@@ -204,9 +201,9 @@ ContractId newContractId = receipt.contractId;
 System.out.println("The new contract ID is " +newContractId);
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = new ContractCreateTransaction()
@@ -227,9 +224,9 @@ const newContractId = receipt.contractId;
         
 console.log("The new contract ID is " +newContractId);
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewContractCreateTransaction().
@@ -254,74 +251,11 @@ newContractId := *receipt.ContractID
 fmt.Printf("The new topic ID is %v\n", newContractId)
 //v2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                                              | Type                                     | Requirement |
-| --------------------------------------------------- | ---------------------------------------- | ----------- |
-| `setGas(<gas>)`                                     | long                                     | Required    |
-| `setBytecodeFileId(<fileId>)`                       | [FileId](../specialized-types.md#fileid) | Required    |
-| `setInitialBalance(<initialBalance>)`               | long/Hbar                                | Optional    |
-| `setAdminKey(<publicKeys>)`                         | Ed25519PublicKey                         | Optional    |
-| `setProxyAccountId(<accountId>`)                    | AccountId                                | Optional    |
-| `setConstructorParameters(<constructorParameters>)` | byte \[ ]                                | Optional    |
-| `setConstructorParameters(<constructorParameters>)` | ContractFunctionParameters               | Optional    |
-| `setContractMemo(<memo>)`                           | String                                   | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`             | Duration                                 | Optional    |
-
-{% code title="Java" %}
-```java
-//Create the transaction
-ContractCreateTransaction transaction = new ContractCreateTransaction()
-     .setBytecodeFileId(fileId)
-     .setGas(100_000_000)
-     .setConstructorParams(new ContractFunctionParams().addString("hello from hedera!"));
-
-//Sign with the client operator account private key, submit to a Hedera network        
-TransactionId txId = transaction.execute(client);
-
-//Get the receipt of the transaction
-TransactionReceipt receipt = txId.getReceipt(client);
-
-//Get the new contract ID
-ContractId newContractId = receipt.getContractId();
-        
-System.out.println("The new contract ID is " + newContractId);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the transaction
-const transaction = new ContractCreateTransaction()
-     .setBytecodeFileId(fileId)
-     .setGas(100_000_000)
-     .setConstructorParams(new ContractFunctionParams().addString("hello from hedera!"));
-
-//Sign with the client operator account private key, submit to a Hedera network        
-const txId = await transaction.execute(client);
-
-//Get the receipt of the transaction
-const receipt = await txId.getReceipt(client);
-
-//Get the new contract ID
-const newContractId = receipt.getContractId();
-        
-System.out.println("The new contract ID is " + newContractId);
-
-//v1.4.4
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Get transaction values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                              | Type       | Requirement |
 | --------------------------------------------------- | ---------- | ----------- |
 | `getAdminKey(<keys>)`                               | Key        | Optional    |
@@ -336,7 +270,8 @@ System.out.println("The new contract ID is " + newContractId);
 | `getStakedAccountId()`                              | Accountid  | Optional    |
 | `getAutoRenewPeriod(<autoRenewPeriod>)`             | Duration   | Optional    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 ContractCreateTransaction transaction = new ContractCreateTransaction()
@@ -349,9 +284,9 @@ transaction.getAdminKey()
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = await new ContractCreateTransaction()
@@ -364,9 +299,9 @@ transaction.getAdminKey()
 
 //v2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```java
 //Create the transaction
 transaction := hedera.NewContractCreateTransaction().
@@ -379,8 +314,5 @@ transaction.GetAdminKey()
 
 //v2.0.0
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
-
-##

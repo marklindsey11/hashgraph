@@ -22,8 +22,8 @@ When creating a **new account** using the<mark style="color:purple;">`AccountCre
 | Field                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Key**                              | The key for the new account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Initial Balance**                  | The initial balance of the account, transferred from the operator account, in Hbar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Receiver Signature Required**      | <p>If true, all the account keys must sign any transaction depositing into this account (in addition to all withdrawals).</p><p><em>default: false</em></p>                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Initial Balance**                  | The initial balance of the account was transferred from the operator account, in HBAR.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Receiver Signature Required**      | <p>If true, all the account keys must sign any transaction deposited into this account (in addition to all withdrawals).</p><p><em>default: false</em></p>                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | **Max Automatic Token Associations** | <p>Accounts can optionally automatically associate tokens to this account if this property is set. You do not need to associate a token prior to transferring it to this account. The max automatic token association is 1,000 token IDs.</p><p>Update: There is no limit on how many tokens you can associate in the 0.25 mainnet release. Currently, live on previewnet and testnet Reference <a href="https://github.com/hashgraph/hedera-improvement-proposal/blob/master/HIP/hip-23.md">HIP-23</a> and <a href="https://hips.hedera.com/hip/hip-367">HIP-367</a>.</p> |
 | **Staked ID**                        | <p>The staked ID is the node ID this account is staking to or the account ID of the account this account is staking to. An account can be staked to only one node or one account at a time. See <a href="https://hips.hedera.com/hip/hip-406">HIP-406.</a><br><br><strong>Note:</strong> Accounts cannot stake to contract accounts. This will fixed in a future release.</p>                                                                                                                                                                                              |
 | **Decline Rewards**                  | Some accounts may stake to a node and decline to earn rewards. If set to true, the account will not receive staking rewards. The default value is false. See [HIP-406.](https://hips.hedera.com/hip/hip-406)                                                                                                                                                                                                                                                                                                                                                               |
@@ -40,8 +40,6 @@ new AccountCreateTransaction()
 
 #### Methods
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                                            | Type      | Requirement |
 | ------------------------------------------------- | --------- | ----------- |
 | `setKey(<key>)`                                   | Key       | Required    |
@@ -54,7 +52,8 @@ new AccountCreateTransaction()
 | `setAccountMemo(<memo>)`                          | String    | Optional    |
 | `setAutoRenewPeriod(<autoRenewPeriod>)`           | Duration  | Disabled    |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create the transaction
 AccountCreateTransaction transaction = new AccountCreateTransaction()
@@ -74,9 +73,9 @@ System.out.println("The new account ID is " +newAccountId);
 
 //Version 2.0.0
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create the transaction
 const transaction = new AccountCreateTransaction()
@@ -96,9 +95,9 @@ console.log("The new account ID is " +newAccountId);
 
 //v2.0.5
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create the transaction
 transaction := hedera.NewAccountCreateTransaction().
@@ -124,68 +123,11 @@ fmt.Printf("The new account ID is %v\n", newAccountId)
 
 //Version 2.0.0
 ```
-{% endcode %}
-{% endtab %}
-
-{% tab title="V1" %}
-| Method                                         | Type            | Requirement |
-| ---------------------------------------------- | --------------- | ----------- |
-| `setKey(<key>)`                                | Ed25519PubicKey | Required    |
-| `setInitialBalance(<initialBalance>)`          | Hbar/long       | Optional    |
-| `setAutoRenewPeriod(<autoRenewPeriod>)`        | Duration        | Disabled    |
-| `setReceiverSignatureRequired(<booleanValue>)` | boolean         | Optional    |
-| `setProxyAccount(<accountId>)`                 | AccountId       | Disabled    |
-
-{% code title="Java" %}
-```java
-//Create the transaction
-AccountCreateTransaction transaction = new AccountCreateTransaction()
-     .setKey(newPublicKey)
-     .setInitialBalance(new Hbar(1));
-
-//Sign with the client operator account private key and submit to a Hedera network
-TransactionId txId = transaction.execute(client);
-
-//Request the receipt of the transaction
-TransactionReceipt receipt = txId.getReceipt(client);
-
-//Get the new account ID
-AccountId newAccountId = receipt.getAccountId();
-
-System.out.println("The new account ID is " +newAccountId);
-
-//v1.3.2
-```
-{% endcode %}
-
-{% code title="JavaScript" %}
-```javascript
-//Create the transaction
-const transaction = new AccountCreateTransaction()
-     .setKey(newPublicKey)
-     .setInitialBalance(new Hbar(1));
-
-//Sign with the client operator account private key and submit to a Hedera network
-const txId = await transaction.execute(client);
-
-//Request the receipt of the transaction
-const receipt = await txId.getReceipt(client);
-
-//Get the new account ID
-const newAccountId =  receipt.getAccountId();
-
-console.log("The new account ID is " +newAccountId);
-
-//v1.4.4
-```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 #### Get transaction values
 
-{% tabs %}
-{% tab title="V2" %}
 | Method                           | Type      | Description                                               |
 | -------------------------------- | --------- | --------------------------------------------------------- |
 | `getKey()`                       | Key       | Returns the public key on the account                     |
@@ -196,7 +138,8 @@ console.log("The new account ID is " +newAccountId);
 | `getStakedAccountId()`           | AccountId | Returns the node account ID                               |
 | `getReceiverSignatureRequired()` | boolean   | Returns whether the receiver signature is required or not |
 
-{% code title="Java" %}
+{% tabs %}
+{% tab title="Java" %}
 ```java
 //Create an account with 1,000 hbar
 AccountCreateTransaction transaction = new AccountCreateTransaction()
@@ -207,9 +150,9 @@ AccountCreateTransaction transaction = new AccountCreateTransaction()
 //Return the key on the account
 Key accountKey = transaction.getKey();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="JavaScript" %}
+{% tab title="JavaScript" %}
 ```javascript
 //Create an account with 1,000 hbar
 const transaction = new AccountCreateTransaction()
@@ -220,9 +163,9 @@ const transaction = new AccountCreateTransaction()
 //Return the key on the account
 const accountKey = transaction.getKey();
 ```
-{% endcode %}
+{% endtab %}
 
-{% code title="Go" %}
+{% tab title="Go" %}
 ```go
 //Create an account with 1,000 hbar
 AccountCreateTransaction := hedera.NewAccountCreateTransaction().
@@ -232,7 +175,6 @@ AccountCreateTransaction := hedera.NewAccountCreateTransaction().
 //Return the key on the account
 accountKey, err := AccountCreateTransaction.GetKey()
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -257,7 +199,7 @@ You can return the new account ID in one of the following ways:
 * Looking at the parent transfer transaction record transfer list for the account that has a transfer that equals the transfer value minus the transaction fee
 
 {% hint style="info" %}
-**Note:** You cannot get the new account ID from the receipt of the transfer transaction like you would expect from a normal account create transaction that was not triggered by another transaction. You can use the alias in transfer transactions, account info and balance queries. The feature will be enabled to support all other transactions and queries in a future release.
+**Note:** You cannot get the new account ID from the receipt of the transfer transaction like you would expect from a normal account to create a transaction that was not triggered by another transaction. You can use the alias in transfer transactions, account info, and balance queries. The feature will be enabled to support all other transactions and queries in a future release.
 {% endhint %}
 
 Follow the steps below to create an account using an account alias:
@@ -266,7 +208,7 @@ Follow the steps below to create an account using an account alias:
   * The public key will be the account alias
   * The private key of the key pair you created will be the private key associated with the new Hedera account that will be created in the following step
 * Convert the public key (account alias) to a Hedera account ID format (0.0.publicKey)
-* Use the `TransferTransaction` and transfer HBARs, fungible, or your non-fungible token to the public key address in the Hedera account ID format&#x20;
+* Use the `TransferTransaction` and transfer HBARs, fungible, or your non-fungible token to the public key address in the Hedera account ID format
   * The transfer will trigger an `AccountCreateTransaction` and create the Hedera account for you
   * Following the transaction that creates your account, the tokens will be transferred to that account
 * Get the new Hedera account ID (0.0.accountNum) by requesting the child record, child receipt, or account info (see above)
