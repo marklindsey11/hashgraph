@@ -75,4 +75,3 @@ The functionality provided by Hedera.
 | `TokenUnpause`               | Unpause the Token                                                                                                              |
 | `CryptoApproveAllowance`     | Approve allowance for a spender relative to the payer account                                                                  |
 | `CryptoDeleteAllowance`      | Deletes granted NFT allowances on an owner account                                                                             |
-

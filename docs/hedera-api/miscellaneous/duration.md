@@ -1,8 +1,7 @@
 # Duration
 
-A length of time in seconds. 
+A length of time in seconds.
 
-| Field | Description |
-| :--- | :--- |
+| Field     | Description           |
+| --------- | --------------------- |
 | `seconds` | The number of seconds |
-

@@ -1,6 +1,6 @@
 # ScheduleID
 
-A unique identifier for a Schedule.&#x20;
+A unique identifier for a Schedule.
 
 | Field         | Type  | yDescription                   |
 | ------------- | ----- | ------------------------------ |
@@ -9,4 +9,4 @@ A unique identifier for a Schedule.&#x20;
 | `scheduleNum` | int64 | A nonnegative schedule number  |
 
 \
-\
+\\

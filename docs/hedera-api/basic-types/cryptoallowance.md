@@ -1,4 +1,4 @@
-# CyrptoAllowance
+# CryptoAllowance
 
 An approved allowance of hbar transfers for a spender.
 

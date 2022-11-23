@@ -24,14 +24,13 @@ Once a given Scheduled Transaction executes, it will be removed from the ledger 
 
 **Expiry:**
 
-Scheduled Transactions have a global expiry time txExpiryTimeSecs \(Currently set to 30 minutes\). If txExpiryTimeSecs pass and the Scheduled Transaction haven't yet executed, it will be removed from the ledger as if ScheduleDelete operation is executed.
+Scheduled Transactions have a global expiry time txExpiryTimeSecs (Currently set to 30 minutes). If txExpiryTimeSecs pass and the Scheduled Transaction haven't yet executed, it will be removed from the ledger as if ScheduleDelete operation is executed.
 
 ## ScheduleService
 
-| RPC | Request | Response | Comments |
-| :--- | :--- | :--- | :--- |
-| `createSchedule` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Creates a new Schedule by submitting the transaction |
-| `signSchedule` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Signs a new Schedule by submitting the transaction |
-| `deleteSchedule` | [Transaction](../miscellaneous/transaction.md) | [TransactionResponse](../miscellaneous/transactionresponse.md) | Deletes a new Schedule by submitting the transaction |
-| `getScheduleInfo` | [Query](../miscellaneous/query.md) | [Response](../miscellaneous/response.md) | Retrieves the metadata of a schedule entity |
-
+| RPC               | Request                                                                                                                                           | Response                                                                                                                                                  | Comments                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| `createSchedule`  | [Transaction](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/schedule-service/broken-reference/README.md) | [TransactionResponse](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/schedule-service/broken-reference/README.md) | Creates a new Schedule by submitting the transaction |
+| `signSchedule`    | [Transaction](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/schedule-service/broken-reference/README.md) | [TransactionResponse](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/schedule-service/broken-reference/README.md) | Signs a new Schedule by submitting the transaction   |
+| `deleteSchedule`  | [Transaction](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/schedule-service/broken-reference/README.md) | [TransactionResponse](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/schedule-service/broken-reference/README.md) | Deletes a new Schedule by submitting the transaction |
+| `getScheduleInfo` | [Query](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/schedule-service/broken-reference/README.md)       | [Response](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/schedule-service/broken-reference/README.md)            | Retrieves the metadata of a schedule entity          |

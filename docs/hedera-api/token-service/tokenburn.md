@@ -10,9 +10,8 @@ Token A has 2 decimals. In order to burn 100 tokens, one must provide amount of 
 
 ## TokenBurnTransactionBody
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `token` | [TokenID](../basic-types/tokenid.md) | The token for which to burn tokens. If token does not exist, transaction results in INVALID\_TOKEN\_ID |
-| `amount` | uint64 | The amount to burn from the Treasury Account. Amount must be a positive non-zero number, not bigger than the token balance of the treasury account \(0; balance\], represented in the lowest denomination. |
-| `serialNumbers` | repeated int64 | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. The list of serial numbers to be burned. |
-
+| Field           | Type                                                                                                                                       | Description                                                                                                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `token`         | [TokenID](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/token-service/broken-reference/README.md) | The token for which to burn tokens. If token does not exist, transaction results in INVALID\_TOKEN\_ID                                                                                                   |
+| `amount`        | uint64                                                                                                                                     | The amount to burn from the Treasury Account. Amount must be a positive non-zero number, not bigger than the token balance of the treasury account (0; balance], represented in the lowest denomination. |
+| `serialNumbers` | repeated int64                                                                                                                             | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. The list of serial numbers to be burned.                                                                                                             |

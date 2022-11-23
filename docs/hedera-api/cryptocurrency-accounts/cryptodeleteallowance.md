@@ -2,13 +2,9 @@
 
 Deletes one or more non-fungible approved allowances from an owner's account. This operation will remove the allowances granted to one or more specific non-fungible token serial numbers. Each owner account listed as wiping an allowance must sign the transaction. Hbar and fungible token allowances can be removed by setting the amount to zero in CryptoApproveAllowance.
 
-
-
-| Field           | Type                                                             | Description                                      |
-| --------------- | ---------------------------------------------------------------- | ------------------------------------------------ |
-| `nftAllowances` | repeated [NFTRemoveAllowance](../basic-types/cryptoallowance.md) | List of non-fungible token allowances to remove. |
-
-
+| Field           | Type                                                                                                                                                                     | Description                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
+| `nftAllowances` | repeated [NFTRemoveAllowance](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/cryptocurrency-accounts/broken-reference/README.md) | List of non-fungible token allowances to remove. |
 
 ### NFTRemoveAllowance
 

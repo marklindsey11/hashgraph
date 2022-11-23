@@ -8,7 +8,6 @@ Once deleted update, mint, burn, wipe, freeze, unfreeze, grant kyc, revoke kyc a
 
 ## TokenDeleteTransactionBody
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `token` | [TokenID](../basic-types/tokenid.md) | The token to be deleted. If invalid token is specified, transaction will result in `INVALID_TOKEN_ID` |
-
+| Field   | Type                                                                                                                                       | Description                                                                                           |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `token` | [TokenID](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/token-service/broken-reference/README.md) | The token to be deleted. If invalid token is specified, transaction will result in `INVALID_TOKEN_ID` |

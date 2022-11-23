@@ -4,6 +4,6 @@
 [sdks](sdks/)
 {% endcontent-ref %}
 
-{% content-ref url="hedera-api/" %}
-[hedera-api](hedera-api/)
+{% content-ref url="../../hedera-api/" %}
+[hedera-api](../../hedera-api/)
 {% endcontent-ref %}

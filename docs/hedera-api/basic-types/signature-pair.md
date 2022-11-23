@@ -1,7 +1,5 @@
 # SignaturePair
 
-
-
 The client may use any number of bytes from zero to the whole length of the public key for pubKeyPrefix. If zero bytes are used, then it must be that only one primitive key is required to sign the linked transaction; it will surely resolve to INVALID\_SIGNATURE otherwise.
 
 {% hint style="info" %}
@@ -21,4 +19,4 @@ Only Ed25519 and ECDSA(secp256k1) keys and hence signatures are currently suppor
 |                | ECDSA\_secp256k1 |                                   | ECDSA(secp256k1) signature                            |
 
 \
-\
+\\

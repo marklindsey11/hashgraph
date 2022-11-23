@@ -24,10 +24,9 @@ Token A has 2 decimals. In order to wipe 100 tokens from account, one must provi
 
 ## TokenWipeAccountTransactionBody
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `token` | [TokenID](../basic-types/tokenid.md) | The token for which the account will be wiped. If token does not exist, transaction results in `INVALID_TOKEN_ID`  |
-| `account` | [AccountID](../basic-types/accountid.md) | The account to be wiped  |
-| `amount` | uint64 | Applicable to tokens of type `FUNGIBLE_COMMON`. The amount of tokens to wipe from the specified account. Amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account \(0; balance\] |
-| `serialNumbers` | int64 | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. The list of serial numbers to be wiped. |
-
+| Field           | Type                                                                                                                                         | Description                                                                                                                                                                                                                                           |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `token`         | [TokenID](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/token-service/broken-reference/README.md)   | The token for which the account will be wiped. If token does not exist, transaction results in `INVALID_TOKEN_ID`                                                                                                                                     |
+| `account`       | [AccountID](https://github.com/theekrystallee/hedera-style-guide/blob/sdk-v1/deprecated/hedera-api/token-service/broken-reference/README.md) | The account to be wiped                                                                                                                                                                                                                               |
+| `amount`        | uint64                                                                                                                                       | Applicable to tokens of type `FUNGIBLE_COMMON`. The amount of tokens to wipe from the specified account. Amount must be a positive non-zero number in the lowest denomination possible, not bigger than the token balance of the account (0; balance] |
+| `serialNumbers` | int64                                                                                                                                        | Applicable to tokens of type `NON_FUNGIBLE_UNIQUE`. The list of serial numbers to be wiped.                                                                                                                                                           |
