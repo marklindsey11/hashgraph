@@ -13,9 +13,9 @@ You will need the following information:
 * Importer GCP billing project ID
 * Importer GCP secret key
 
-Once you deploy your mirror node, you can access mirror node via the GRPC API or the REST API.&#x20;
+Once you deploy your mirror node, you can access the mirror node via the GRPC API or the REST API.
 
-**GRPC API:**&#x20;
+**GRPC API:**
 
 Terminal commands:
 
@@ -39,7 +39,7 @@ You can also submit a `get` request from your browser:
 
 * From your Kubernetes Engine navigation bar, click on "Workloads."
 * Click on "hedera-mirror-node-1-rest"
-* Navigate down to **"**Exposing services" and click on the "Endpoints" link
+* Navigate down to \*\*"\*\*Exposing services" and click on the "Endpoints" link
 
 Example request:
 
@@ -50,4 +50,3 @@ http://<yourEndpoint>/api/v1/transactions
 {% content-ref url="../docs/mirror-node-api/rest-api.md" %}
 [rest-api.md](../docs/mirror-node-api/rest-api.md)
 {% endcontent-ref %}
-

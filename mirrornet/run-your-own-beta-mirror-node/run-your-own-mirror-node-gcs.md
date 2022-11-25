@@ -15,7 +15,9 @@
   * For mirror node versions 0.35.0 and higher you will need docker v3.3.3+
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Hedera Mirror Node Repository](https://github.com/hashgraph/hedera-mirror-node)
-  * You will be prompted to download the repo in the following steps
+  * You will be prompted to download the repo in the following steps.
+* [PostgreSQL](https://www.postgresql.org/download/)
+  * Download PostgreSQL to be able to access the database.
 
 ## 1. Obtain Google Cloud Platform Requester Pay Information
 
@@ -52,13 +54,13 @@ cd hedera-mirror-node
 * Input the following information and uncomment each line
 * Buckets are preconfigured for each network
 
-| Item              | Description                                             |
-| ----------------- | ------------------------------------------------------- |
-| **accessKey**     | Your accessKey from your Google Cloud Platform account  |
-| **cloudProvider** | GCP                                                     |
-| **secretKey**     | Your secretKey from your Google Cloud Platform account  |
-| **gcpProjectId**  | Your Google Cloud Platform project ID                   |
-| **network**       | Enter the network you would to run your mirror node for |
+| Item              | Description                                                     |
+| ----------------- | --------------------------------------------------------------- |
+| **accessKey**     | Your project access key from your Google Cloud Platform account |
+| **cloudProvider** | GCP                                                             |
+| **secretKey**     | Your secret key from your Google Cloud Platform account         |
+| **gcpProjectId**  | Your Google Cloud Platform project ID                           |
+| **network**       | Enter the network you would to run your mirror node for         |
 
 {% tabs %}
 {% tab title="Sample application.yml file" %}
